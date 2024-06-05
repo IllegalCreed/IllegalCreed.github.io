@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Runtime API Examples
+# 中文
 
 This page demonstrates usage of some of the runtime APIs provided by VitePress.
 
@@ -47,3 +47,5 @@ const { site, theme, page, frontmatter } = useData()
 ## More
 
 Check out the documentation for the [full list of runtime APIs](https://vitepress.dev/reference/runtime-api#usedata).
+
+## 使用自定义锚点 {#my-anchor}
