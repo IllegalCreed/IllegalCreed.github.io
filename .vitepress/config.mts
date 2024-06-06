@@ -197,6 +197,10 @@ export default defineConfig({
                             link: "/zh/base/network/protocol/tools/ssh/",
                           },
                           {
+                            text: "FTP工具",
+                            link: "/zh/base/network/protocol/tools/ftp/",
+                          },
+                          {
                             text: "邮件库",
                             link: "/zh/base/network/protocol/tools/mail/",
                           },
@@ -219,6 +223,7 @@ export default defineConfig({
                   { text: "Markdown" },
                   { text: "TypeScript" },
                   { text: "CSS预处理" },
+                  { text: "MathML" },
                 ],
               },
               {
@@ -325,14 +330,10 @@ export default defineConfig({
                     items: [
                       { text: "Slidev" },
                       { text: "Viteshot" },
-                      { text: "Grid Layout Plus" },
-                      { text: "Vue Draggable Plus" },
                       { text: "Iconify" },
                       { text: "Shiki" },
                       { text: "Whyframe" },
                       { text: "Markdown-it" },
-                      { text: "Interact.js" },
-                      { text: "Sortable.js" },
                     ],
                   },
                 ],
@@ -499,6 +500,14 @@ export default defineConfig({
                   { text: "按需引入" },
                   { text: "虚拟化" },
                   { text: "事件及属性优化" },
+                  {
+                    text: "性能评估",
+                    items: [
+                      { text: "Lighthouse" },
+                      { text: "Webpack Bundle Analyzer" },
+                      { text: "rollup-plugin-visualizer" },
+                    ],
+                  },
                 ],
               },
               {
@@ -608,6 +617,7 @@ export default defineConfig({
               },
               {
                 text: "微前端框架",
+                collapsed: true,
                 items: [{ text: "qiankun" }, { text: "single spa" }],
               },
             ],
@@ -617,8 +627,564 @@ export default defineConfig({
             text: "移动/桌面开发",
             collapsed: false,
             items: [
-              { text: "移动端框架" },
-              { text: "桌面端框架" },
+              {
+                text: "移动端框架",
+                collapsed: false,
+                items: [
+                  { text: "React Native" },
+                  { text: "Flutter" },
+                  { text: "微信小程序" },
+                  { text: "Uniapp" },
+                  { text: "Ionic" },
+                  { text: "Cordova" },
+                ],
+              },
+              {
+                text: "桌面端框架",
+                collapsed: false,
+                items: [{ text: "Electron" }, { text: "Tauri" }],
+              },
+            ],
+          },
+
+          {
+            text: "前端可视化",
+            collapsed: false,
+            items: [
+              {
+                text: "图表",
+                collapsed: false,
+                items: [
+                  { text: "ECharts" },
+                  { text: "D3.js" },
+                  { text: "Chart.js" },
+                  { text: "Recharts" },
+                  { text: "leaflet" },
+                ],
+              },
+              {
+                text: "三维",
+                collapsed: true,
+                items: [
+                  { text: "WebGL" },
+                  { text: "Three.js" },
+                  { text: "Babylon" },
+                  { text: "CesiumJS" },
+                  { text: "ArcGIS API for JavaScript" },
+                ],
+              },
+              {
+                text: "动画",
+                collapsed: true,
+                items: [
+                  { text: "Lottie" },
+                  { text: "Popmotion" },
+                  { text: "Framer Motion" },
+                  { text: "GSAP" },
+                  { text: "Anime.js" },
+                  { text: "Animate.css" },
+                ],
+              },
+              {
+                text: "拖拽",
+                collapsed: true,
+                items: [
+                  { text: "Grid Layout Plus" },
+                  { text: "Vue Draggable Plus" },
+                  { text: "React DnD" },
+                  { text: "Interact.js" },
+                  { text: "Sortable.js" },
+                  { text: "Draggable.js" },
+                  { text: "Hammer.js" },
+                  { text: "@use-gesture" },
+                ],
+              },
+            ],
+          },
+
+          {
+            text: "工程化与自动化",
+            collapsed: false,
+            items: [
+              {
+                text: "CI/CD",
+                collapsed: false,
+                items: [
+                  { text: "GitHub Actions" },
+                  { text: "GitLab CI/CD" },
+                  { text: "Jenkins" },
+                  { text: "Husky" },
+                ],
+              },
+              {
+                text: "依赖管理器",
+                collapsed: false,
+                items: [{ text: "Pnpm" }, { text: "Yarn" }, { text: "Bit" }],
+              },
+              { text: "容器", collapsed: true, items: [{ text: "Docker" }] },
+            ],
+          },
+
+          {
+            text: "安全",
+            collapsed: false,
+            items: [
+              {
+                text: "攻击方式",
+                collapsed: true,
+                items: [
+                  { text: "XSS" },
+                  { text: "CSRF" },
+                  { text: "SQL 注入" },
+                  { text: "SSRF" },
+                  { text: "DDoS" },
+                  { text: "MITM" },
+                ],
+              },
+              {
+                text: "加密",
+                collapsed: true,
+                items: [
+                  { text: "对称加密和非对称加密" },
+                  { text: "公钥基础设施" },
+                  { text: "Crypto.js" },
+                  { text: "Web Crypto API" },
+                ],
+              },
+              {
+                text: "认证与授权",
+                collapsed: true,
+                items: [
+                  { text: "OAuth 2.0" },
+                  { text: "JWT" },
+                  { text: "SAML" },
+                  { text: "哈希算法" },
+                ],
+              },
+              {
+                text: "安全框架",
+                collapsed: true,
+                items: [
+                  { text: "OWASP" },
+                  { text: "Helmet.js" },
+                  { text: "CORS" },
+                  { text: "HTTP安全头" },
+                ],
+              },
+              {
+                text: "漏洞扫描",
+                collapsed: true,
+                items: [
+                  { text: "ZAP" },
+                  { text: "Burp Suite" },
+                  { text: "Nessus" },
+                  { text: "Nmap" },
+                ],
+              },
+            ],
+          },
+
+          {
+            text: "软技能",
+            collapsed: false,
+            items: [
+              {
+                text: "软件工程",
+                collapsed: false,
+                items: [{ text: "敏捷开发" }, { text: "Scrum" }],
+              },
+              {
+                text: "开源分享",
+                collapsed: false,
+                items: [
+                  {
+                    text: "技术博客",
+                    collapsed: true,
+                    items: [
+                      { text: "Medium" },
+                      { text: "dev.to" },
+                      { text: "stackoverflow" },
+                      { text: "掘金" },
+                      { text: "简书" },
+                    ],
+                  },
+                  {
+                    text: "贡献代码",
+                    collapsed: false,
+                    items: [
+                      { text: "Github" },
+                      { text: "GitLab" },
+                      { text: "Gitee" },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "团队协作",
+                collapsed: true,
+                items: [
+                  {
+                    text: "团队协作工具",
+                    collapsed: true,
+                    items: [
+                      { text: "Jira" },
+                      { text: "Trello" },
+                      { text: "BitBucket" },
+                      { text: "Bugzilla" },
+                    ],
+                  },
+                  { text: "沟通技巧" },
+                ],
+              },
+            ],
+          },
+
+          {
+            text: "云服务",
+            collapsed: false,
+            items: [
+              {
+                text: "静态网站托管",
+                collapsed: true,
+                items: [
+                  { text: "Netlify" },
+                  { text: "Vercel" },
+                  { text: "Cloudflare Pages" },
+                  { text: "AWS Amplify" },
+                  { text: "Render" },
+                ],
+              },
+              {
+                text: "通用云服务",
+                collapsed: false,
+                items: [
+                  { text: "阿里云" },
+                  { text: "Firebase" },
+                  { text: "Azure" },
+                  { text: "Netlify" },
+                  { text: "Vercel" },
+                  { text: "Cloudflare" },
+                  { text: "AWS" },
+                ],
+              },
+            ],
+          },
+
+          {
+            text: "后端框架",
+            collapsed: false,
+            items: [
+              {
+                text: "基础框架",
+                collapsed: false,
+                items: [{ text: "Node.js" }, { text: "Deno" }, { text: "Bun" }],
+              },
+              {
+                text: "应用框架",
+                collapsed: false,
+                items: [
+                  { text: "Express" },
+                  { text: "Koa" },
+                  { text: "Fastify" },
+                ],
+              },
+            ],
+          },
+
+          {
+            text: "服务器基础知识",
+            collapsed: false,
+            items: [
+              {
+                text: "基础工具",
+                collapsed: true,
+                items: [
+                  {
+                    text: "Shells",
+                    collapsed: false,
+                    items: [
+                      { text: "Bash" },
+                      { text: "Zsh" },
+                      { text: "powerShell" },
+                    ],
+                  },
+                  { text: "终端复用工具" },
+                  {
+                    text: "进程管理工具",
+                    collapsed: false,
+                    items: [{ text: "htop" }, { text: "pm2" }],
+                  },
+                  {
+                    text: "文本编辑器",
+                    collapsed: false,
+                    items: [{ text: "vim" }, { text: "nano" }],
+                  },
+                ],
+              },
+              {
+                text: "Web服务器",
+                collapsed: false,
+                items: [
+                  { text: "Apache HTTP Server" },
+                  { text: "Nginx" },
+                  { text: "Apache Tomcat" },
+                  { text: "IIS" },
+                ],
+              },
+            ],
+          },
+
+          {
+            text: "进阶语言",
+            collapsed: false,
+            items: [
+              {
+                text: "系统编程语言",
+                collapsed: false,
+                items: [{ text: "Rust" }],
+              },
+              {
+                text: "通用编程语言",
+                collapsed: false,
+                items: [
+                  { text: "Python" },
+                  { text: "Java" },
+                  { text: "Kotlin" },
+                  { text: "Swift" },
+                  { text: "Drat" },
+                ],
+              },
+              {
+                text: "并发编程语言",
+                collapsed: false,
+                items: [{ text: "Golang" }],
+              },
+              {
+                text: "数据科学和数值计算",
+                collapsed: true,
+                items: [{ text: "MATLAB" }, { text: "R" }],
+              },
+            ],
+          },
+
+          {
+            text: "数据存储",
+            collapsed: false,
+            items: [
+              {
+                text: "关系型数据库",
+                collapsed: false,
+                items: [
+                  { text: "MySQL" },
+                  { text: "PostgreSQL" },
+                  { text: "SQLite" },
+                ],
+              },
+              {
+                text: "非关系型数据库",
+                collapsed: false,
+                items: [
+                  { text: "Redis" },
+                  { text: "MongoDB" },
+                  { text: "Neo4j" },
+                  { text: "InfluxDB" },
+                  { text: "TimescaleDB" },
+                ],
+              },
+              {
+                text: "分布式大数据存储与查询",
+                collapsed: true,
+                items: [
+                  { text: "Cassandra" },
+                  { text: "CouchDB" },
+                  { text: "HBase" },
+                  { text: "HDFS" },
+                  { text: "Hive" },
+                  { text: "Elasticsearch" },
+                ],
+              },
+              {
+                text: "数据库客户端",
+                collapsed: true,
+                items: [{ text: "Navicat" }],
+              },
+            ],
+          },
+
+          {
+            text: "数据处理",
+            collapsed: false,
+            items: [
+              {
+                text: "消息队列",
+                collapsed: false,
+                items: [
+                  { text: "RocketMQ" },
+                  { text: "RabbitMQ" },
+                  { text: "ActiveMQ" },
+                  { text: "Kafka" },
+                ],
+              },
+              {
+                text: "流处理",
+                collapsed: false,
+                items: [{ text: "Flink" }, { text: "Storm" }],
+              },
+              {
+                text: "批处理",
+                collapsed: false,
+                items: [{ text: "Hadoop" }, { text: "Spark" }],
+              },
+            ],
+          },
+
+          {
+            text: "生态系统",
+            collapsed: false,
+            items: [
+              {
+                text: "容器编排",
+                items: [
+                  { text: "Docker" },
+                  { text: "Kubernetes" },
+                  { text: "Docker Swarm" },
+                ],
+              },
+              {
+                text: "数据编排",
+                collapsed: true,
+                items: [
+                  { text: "Apache Airflow" },
+                  { text: "Prefect" },
+                  { text: "Apache NiFi" },
+                  { text: "Apache Oozie" },
+                ],
+              },
+              {
+                text: "数据治理",
+                collapsed: true,
+                items: [
+                  { text: "Informatica" },
+                  { text: "Collibra" },
+                  { text: "Alation" },
+                  { text: "Talend" },
+                  { text: "Apache Atlas" },
+                ],
+              },
+              {
+                text: "数据安全",
+                collapsed: true,
+                items: [
+                  { text: "Apache Ranger" },
+                  { text: "Apache Knox" },
+                  { text: "Apache Sentry" },
+                ],
+              },
+            ],
+          },
+
+          {
+            text: "微服务架构",
+            collapsed: false,
+            items: [
+              {
+                text: "服务框架",
+                collapsed: false,
+                items: [
+                  { text: "Spring Boot" },
+                  { text: "Spring Cloud" },
+                  { text: "Nest.js" },
+                  { text: "Apollo Server" },
+                  { text: "LoopBack" },
+                  { text: "Feathers" },
+                  { text: "Gin" },
+                ],
+              },
+              {
+                text: "服务注册与发现",
+                collapsed: true,
+                items: [
+                  { text: "Eureka" },
+                  { text: "Consul" },
+                  { text: "Etcd" },
+                  { text: "Zookeeper" },
+                ],
+              },
+              {
+                text: "远程过程调用",
+                collapsed: true,
+                items: [
+                  { text: "gRPC" },
+                  { text: "Thrift" },
+                  { text: "Dubbo" },
+                ],
+              },
+              {
+                text: "容错设计",
+                collapsed: true,
+                items: [{ text: "Hystrix" }, { text: "Resilience4j" }],
+              },
+              {
+                text: "分布式追踪",
+                collapsed: true,
+                items: [{ text: "Jaeger" }, { text: "Zipkin" }],
+              },
+              {
+                text: "日志和监控",
+                collapsed: true,
+                items: [
+                  { text: "ELK Stack" },
+                  { text: "Prometheus" },
+                  { text: "Grafana" },
+                ],
+              },
+            ],
+          },
+
+          {
+            text: "服务层设计",
+            collapsed: false,
+            items: [
+              {
+                text: "路由层",
+                collapsed: false,
+                items: [
+                  { text: "REST API" },
+                  { text: "GraphQL API" },
+                  {
+                    text: "文档和工具",
+                    collapsed: true,
+                    items: [
+                      { text: "Swagger" },
+                      { text: "Postman" },
+                      { text: "GraphQL Playground" },
+                      { text: "JMeter" },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "数据访问",
+                collapsed: true,
+                items: [
+                  { text: "ORM 框架" },
+                  { text: "JDBC" },
+                  { text: "ODBC" },
+                ],
+              },
+              {
+                text: "数据转换和验证",
+                collapsed: true,
+                items: [
+                  {
+                    text: "数据序列化",
+                    collapsed: true,
+                    items: [{ text: "JSON" }, { text: "XML" }],
+                  },
+                  { text: "class-validator" },
+                  { text: "class-transformer" },
+                ],
+              },
             ],
           },
         ],
