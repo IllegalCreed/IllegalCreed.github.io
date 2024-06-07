@@ -49,8 +49,6 @@ export default defineConfig({
             items: [
               { text: "开始", link: "/zh/start" },
               { text: "简历", link: "/zh/CV" },
-              { text: "Markdown Examples", link: "/zh/markdown-examples" },
-              { text: "Runtime API Examples", link: "/zh/api-examples" },
             ],
           },
 
