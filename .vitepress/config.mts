@@ -1187,6 +1187,165 @@ export default defineConfig({
               },
             ],
           },
+
+          {
+            text: "数据结构和算法",
+            collapsed: false,
+            items: [
+              {
+                text: "数据结构",
+                collapsed: true,
+                items: [
+                  {
+                    text: "基本数据结构",
+                    collapsed: true,
+                    items: [
+                      { text: "数组" },
+                      { text: "链表" },
+                      { text: "栈" },
+                      { text: "队列" },
+                      { text: "哈希表" },
+                    ],
+                  },
+                  {
+                    text: "高级数据结构",
+                    collapsed: true,
+                    items: [
+                      { text: "树" },
+                      { text: "堆" },
+                      { text: "图" },
+                      { text: "前缀树" },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "基本算法",
+                collapsed: true,
+                items: [
+                  {
+                    text: "排序",
+                    collapsed: true,
+                    items: [
+                      { text: "冒泡" },
+                      { text: "选择" },
+                      { text: "插入" },
+                      { text: "快速" },
+                      { text: "归并" },
+                      { text: "堆" },
+                    ],
+                  },
+                  {
+                    text: "搜索",
+                    collapsed: true,
+                    items: [
+                      { text: "线性" },
+                      { text: "二分" },
+                      { text: "深度优先" },
+                      { text: "广度优先" },
+                    ],
+                  },
+                  {
+                    text: "数学",
+                    collapsed: true,
+                    items: [{ text: "最大公约数" }, { text: "最小公倍数" }],
+                  },
+                  {
+                    text: "位运算",
+                    collapsed: true,
+                    items: [
+                      { text: "基本位运算" },
+                      { text: "位运算技巧和应用" },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "高级算法",
+                collapsed: true,
+                items: [
+                  { text: "动态规划" },
+                  { text: "贪心算法" },
+                  { text: "分治算法" },
+                  { text: "回溯算法" },
+                  {
+                    text: "图算法",
+                    collapsed: true,
+                    items: [
+                      { text: "最短路径算法" },
+                      { text: "最小生成树算法" },
+                      { text: "拓扑排序" },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "实际应用",
+                collapsed: true,
+                items: [
+                  {
+                    text: "在线练习",
+                    collapsed: true,
+                    items: [
+                      { text: "LeetCode" },
+                      { text: "HackerRank" },
+                      { text: "CodeSignal" },
+                    ],
+                  },
+                  {
+                    text: "比赛",
+                    collapsed: true,
+                    items: [
+                      { text: "ACM" },
+                      { text: "Google Code Jam" },
+                      { text: "Facebook Hacker Cup" },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+
+          {
+            text: "操作系统基础",
+            collapsed: false,
+            items: [
+              {
+                text: "概述",
+                collapsed: true,
+                items: [{ text: "基本概念" }, { text: "结构" }],
+              },
+              {
+                text: "核心组件",
+                collapsed: true,
+                items: [
+                  { text: "进程管理" },
+                  { text: "内存管理" },
+                  { text: "文件系统" },
+                  { text: "输入输出管理" },
+                  { text: "存储管理" },
+                ],
+              },
+              {
+                text: "高级主题",
+                collapsed: true,
+                items: [
+                  { text: "并发与同步" },
+                  { text: "安全与保护" },
+                  { text: "分布式系统" },
+                ],
+              },
+              {
+                text: "常见操作系统",
+                collapsed: true,
+                items: [
+                  { text: "UNIX/Linux" },
+                  { text: "Windows" },
+                  { text: "macOS" },
+                ],
+              },
+            ],
+          },
         ],
 
         socialLinks: [
