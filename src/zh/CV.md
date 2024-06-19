@@ -68,14 +68,14 @@ layout: doc
 - **包管理器**: npm, pnpm, yarn
 - **状态管理**: Vuex, Pinia, Redux, Zustand
 - **路由管理**: Vue-Router, React Navigation
-- **测试框架**: Jest, Vitest, Cypress
+- **测试框架**: Jest, Vitest, Vue Test Utils, Cypress
 
 ### 常用依赖
 
 - **API 扩展**: Lodash, VueUse
 - **CSS 预处理**: Less, Sass, UnoCss, Tailwind
 - **组件库**: Element Plus, Ant Design, Echart, Chart.js
-- **帮助类**: uuid, Moment, Vue-i18n, Markdown-it
+- **扩展类**: uuid, Moment, Vue-i18n, Markdown-it, Vee-validate
 - **音视频**: Video.js
 - **WebGL**: ~~Three.js~~, ~~cesium~~
 

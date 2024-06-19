@@ -282,7 +282,7 @@ export default defineConfig({
               {
                 text: "UI框架",
                 collapsed: false,
-                link: "/zh/frontend-framewor/ui/",
+                link: "/zh/frontend-framework/ui/",
                 items: [
                   { text: "React" },
                   { text: "Vue" },
@@ -295,6 +295,7 @@ export default defineConfig({
               {
                 text: "元框架",
                 collapsed: false,
+                link: "/zh/frontend-framework/meta/",
                 items: [
                   { text: "Next.js" },
                   { text: "Nuxt.js" },
@@ -306,6 +307,7 @@ export default defineConfig({
               {
                 text: "静态网站框架",
                 collapsed: true,
+                link: "/zh/frontend-framework/ssg/",
                 items: [
                   { text: "Docusaurus" },
                   { text: "VitePress" },
@@ -315,7 +317,8 @@ export default defineConfig({
               },
               {
                 text: "组件库",
-                collapsed: true,
+                link: "/zh/frontend-framework/components/",
+                collapsed: false,
                 items: [
                   { text: "Element Plus" },
                   { text: "Vuetify" },
@@ -324,7 +327,8 @@ export default defineConfig({
                   { text: "MUI" },
                   {
                     text: "其他",
-                    collapsed: true,
+                    collapsed: false,
+                    link: "/zh/frontend-framework/components/others",
                     items: [
                       { text: "Slidev" },
                       { text: "Viteshot" },
@@ -332,6 +336,17 @@ export default defineConfig({
                       { text: "Shiki" },
                       { text: "Whyframe" },
                       { text: "Markdown-it" },
+                      {
+                        text: "Vee-validate",
+                        collapsed: false,
+                        link: "/zh/frontend-framework/components/others/vee-validate/",
+                        items: [
+                          { text: "入门" },
+                          { text: "指南" },
+                          { text: "例子" },
+                          { text: "集成" },
+                        ]
+                      },
                     ],
                   },
                 ],
