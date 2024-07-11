@@ -310,7 +310,15 @@ export default defineConfig({
                 link: "/zh/frontend-framework/ssg/",
                 items: [
                   { text: "Docusaurus" },
-                  { text: "VitePress" },
+                  {
+                    text: "VitePress", 
+                    link: "/zh/frontend-framework/ssg/vite-press/",
+                    items: [
+                      { text: "入门" ,link: "/zh/frontend-framework/ssg/vite-press/getting-started.md",},
+                      { text: "指南" },
+                      { text: "API" },
+                    ]
+                  },
                   { text: "Astro" },
                   { text: "Docz" },
                 ],
