@@ -6,6 +6,19 @@ export default defineConfig({
   description: "A Roadmap of Dev",
   srcDir: "./src",
   cleanUrls: true,
+  
+  markdown: {
+    math: true,
+    codeTransformers: [
+      // We use `[!!code` in demo to prevent transformation, here we revert it back.
+      {
+        postprocess(code) {
+          return code.replace(/\[\!\!code/g, '[!code')
+        }
+      }
+    ]
+  },
+
   locales: {
     root: {
       label: "English",
@@ -311,13 +324,28 @@ export default defineConfig({
                 items: [
                   { text: "Docusaurus" },
                   {
-                    text: "VitePress", 
+                    text: "VitePress",
                     link: "/zh/frontend-framework/ssg/vite-press/",
                     items: [
-                      { text: "入门" ,link: "/zh/frontend-framework/ssg/vite-press/getting-started.md",},
-                      { text: "指南" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ssg/vite-press/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/ssg/vite-press/guideline-base.md",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/frontend-framework/ssg/vite-press/guideline-advance.md",
+                          },
+                        ],
+                      },
                       { text: "API" },
-                    ]
+                    ],
                   },
                   { text: "Astro" },
                   { text: "Docz" },
