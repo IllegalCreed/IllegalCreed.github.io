@@ -5,7 +5,30 @@ outline: [2, 3]
 
 # 基础
 
+## 速查
+
+- 自定义锚点：`# 使用自定义锚点 {#my-anchor}`
+- 链接：`[foo heading](./#heading)`
+- Emoji：`:tada:` `:100:`
+- 容器：`::: info` `:::` `::: tip` `:::` `::: warning` `:::` `::: danger` `:::`
+- 折叠容器 + 自定义标题： `::: details 点我查看代码` `:::`
+- 代码块：` ```js ``` `
+- 代码块聚焦：`{5-8}`
+- 代码块高亮：`[!code focus]`
+- 代码块增删：`[!code ++]` `[!code --]`
+- 代码块警告：`[!code error]` `[!code warning]`
+- 代码块行号：`:line-numbers`
+- 导入代码片段：`<<< @/snippets/snippet.js`
+- 代码块标签页：`::: code-group` `:::`
+- 导入 markdown 文件片段：`<!--@include: ./parts/basics.md{3,}-->`
+- 数学方程：需要安装 `markdown-it-mathjax3`
+- 引用图片：`![An image](./assets/logo.png)`
+- frontmatter： `{{ $frontmatter.title }}` `useData()`
+- 在MD中使用Vue： 和 SFC 一致，但是不用写 `<template>`
+
 ## markdown 扩展
+
+不要在 markdown 中写与 Vue 模板语法冲突的表达式，比如`{}`和`<>`一定要用模板字符串形式，否则会被识别为 Vue 插值语法或者标签。
 
 ### 锚点
 
@@ -271,4 +294,376 @@ export default {
     };
   },
 };
+```
+
+#### 添加删除行
+
+````
+```js
+export default {
+  data () {
+    return {
+      msg: 'Removed' // [!!code --]
+      msg: 'Added' // [!!code ++]
+    }
+  }
+}
+```
+````
+
+```js
+export default {
+  data () {
+    return {
+      msg: 'Removed' // [!code --]
+      msg: 'Added' // [!code ++]
+    }
+  }
+}
+```
+
+#### 高亮错误和警告
+
+````
+```js
+export default {
+  data () {
+    return {
+      msg: 'Error', // [!!code error]
+      msg: 'Warning' // [!!code warning]
+    }
+  }
+}
+```
+````
+
+```js
+export default {
+  data() {
+    return {
+      msg: "Error", // [!code error]
+      msg: "Warning", // [!code warning]
+    };
+  },
+};
+```
+
+#### 显示行号
+
+从配置文件开启全局行号
+
+```js
+export default {
+  markdown: {
+    lineNumbers: true,
+  },
+};
+```
+
+````
+```ts
+// 默认禁用行号
+const line2 = 'This is line 2'
+const line3 = 'This is line 3'
+```
+
+```ts:line-numbers
+// 启用行号
+const line2 = 'This is line 2'
+const line3 = 'This is line 3'
+```
+
+```ts:line-numbers=2
+// 行号已启用，并从 2 开始
+const line3 = 'This is line 3'
+const line4 = 'This is line 4'
+```
+````
+
+```ts
+// 默认禁用行号
+const line2 = "This is line 2";
+const line3 = "This is line 3";
+```
+
+```ts:line-numbers
+// 启用行号
+const line2 = 'This is line 2'
+const line3 = 'This is line 3'
+```
+
+```ts:line-numbers=2
+// 行号已启用，并从 2 开始
+const line3 = 'This is line 3'
+const line4 = 'This is line 4'
+```
+
+#### 从文件导入代码片段
+
+导入语法
+
+```md
+<<< @/filepath
+```
+
+导入并行高亮
+
+```md
+<<< @/snippets/snippet.js{2}
+```
+
+导入代码片段
+
+```md
+<<< @/snippets/snippet-with-region.js#snippet
+```
+
+需要在源文件注释代码片段
+
+```js
+// #region snippet
+function foo() {
+  // ..
+}
+// #endregion snippet
+
+export default foo;
+```
+
+导入结果
+
+```js
+function foo() {
+  // ..
+}
+```
+
+指定语言
+
+```md
+<<< @/snippets/snippet.cs{c#}
+```
+
+混合使用
+
+```md
+<<< @/snippets/snippet.cs{1,2,4-6 c#:line-numbers}
+```
+
+### 代码块标签页
+
+````
+::: code-group
+
+```js [config.js]
+/**
+ * @type {import('vitepress').UserConfig}
+ */
+const config = {
+  // ...
+}
+
+export default config
+```
+
+```ts [config.ts]
+import type { UserConfig } from 'vitepress'
+
+const config: UserConfig = {
+  // ...
+}
+
+export default config
+```
+
+:::
+````
+
+::: code-group
+
+```js [config.js]
+/**
+ * @type {import('vitepress').UserConfig}
+ */
+const config = {
+  // ...
+};
+
+export default config;
+```
+
+```ts [config.ts]
+import type { UserConfig } from "vitepress";
+
+const config: UserConfig = {
+  // ...
+};
+
+export default config;
+```
+
+:::
+
+### 导入 markdown 文件片段
+
+```md
+# Docs
+
+## Basics
+
+<!--@include: ./parts/basics.md-->
+```
+
+指定行号
+
+```md
+# Docs
+
+## Basics
+
+<!--@include: ./parts/basics.md{3,}-->
+```
+
+行号语法： `{3,}`、 `{,10}`、`{1,10}`
+
+### 数学方程
+
+插件：[markdown-it-mathjax3](https://github.com/tani/markdown-it-mathjax3)
+
+#### 安装依赖
+
+```sh
+npm add -D markdown-it-mathjax3
+```
+
+#### 配置
+
+```js
+export default {
+  markdown: {
+    math: true,
+  },
+};
+```
+
+### 图片懒加载
+
+```js
+export default {
+  markdown: {
+    image: {
+      // 默认禁用图片懒加载
+      lazyLoading: true,
+    },
+  },
+};
+```
+
+## 资源处理
+
+### 引用静态资源
+
+推荐使用相对路径引用资源
+
+```md
+![An image](./assets/logo.png)
+```
+
+### public 目录
+
+`public` 目录中的文件会被直接复制到输出目录中。引用 `public` 中的文件请直接使用绝对路径。
+
+例如，`public/icon.png` 应始终在源代码中使用 `/icon.png` 引用。
+
+### 根 URL
+
+为了配合部署，可以通过 `.vitepress/config.js` 中设置 `base` 选项修改 `根URL`。
+
+`public` 中的资源的绝对引用无需修改。
+
+## frontmatter
+
+插件：YAML 解析器 [gray-matter](https://github.com/jonschlinkert/gray-matter)
+
+### 用法
+
+写在 markdown 文件顶部
+
+```yaml
+---
+title: Docs with VitePress
+editLink: true
+---
+```
+
+### 访问 frontmatter 数据
+
+md 中
+
+```md
+---
+title: Docs with VitePress
+editLink: true
+---
+
+# {{ $frontmatter.title }}
+
+Guide content
+```
+
+`<script setup>` 中
+
+```js
+useData();
+```
+
+## 在 Markdown 使用 Vue
+
+### 模板化
+
+支持
+
+```md
+{{ 1 + 1 }}
+```
+
+```html
+<span v-for="i in 3">{{ i }}</span>
+```
+
+### `<script>` 和 `<style>`
+
+```md
+---
+hello: world
+---
+
+<script setup>
+import { ref } from 'vue'
+
+const count = ref(0)
+</script>
+
+## Markdown Content
+
+The count is: {{ count }}
+
+<button :class="$style.button" @click="count++">Increment</button>
+
+<style module>
+.button {
+  color: red;
+  font-weight: bold;
+}
+</style>
+```
+
+### 使用组件
+
+```md
+<script setup>
+  import CustomComponent from '../../components/CustomComponent.vue'
+</script>
+
+<CustomComponent />
 ```

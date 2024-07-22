@@ -11,6 +11,7 @@ export default defineConfig({
     math: true,
     codeTransformers: [
       // We use `[!!code` in demo to prevent transformation, here we revert it back.
+      // see: https://shiki.tmrs.site/guide/transformers
       {
         postprocess(code) {
           return code.replace(/\[\!\!code/g, '[!code')
@@ -319,12 +320,13 @@ export default defineConfig({
               },
               {
                 text: "静态网站框架",
-                collapsed: true,
+                collapsed: false,
                 link: "/zh/frontend-framework/ssg/",
                 items: [
                   { text: "Docusaurus" },
                   {
                     text: "VitePress",
+                    collapsed: false,
                     link: "/zh/frontend-framework/ssg/vite-press/",
                     items: [
                       {
@@ -333,6 +335,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -342,6 +345,7 @@ export default defineConfig({
                             text: "高级",
                             link: "/zh/frontend-framework/ssg/vite-press/guideline-advance.md",
                           },
+                          { text: "其他" },
                         ],
                       },
                       { text: "API" },
