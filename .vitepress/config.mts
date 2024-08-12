@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import { fileURLToPath, URL } from 'node:url'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -6,6 +7,19 @@ export default defineConfig({
   description: "A Roadmap of Dev",
   srcDir: "./src",
   cleanUrls: true,
+
+  vite: {
+    // Vite 配置选项
+    resolve: {
+      alias: {
+        '~': fileURLToPath(new URL('.', import.meta.url)),
+        '@': fileURLToPath(new URL('../src', import.meta.url))
+      }
+    },
+    server: {
+      port: 3000, // 将开发服务器端口设置为 3000
+    },
+  },
   
   markdown: {
     math: true,

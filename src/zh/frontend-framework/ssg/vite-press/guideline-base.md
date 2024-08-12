@@ -25,6 +25,9 @@ outline: [2, 3]
 - 引用图片：`![An image](./assets/logo.png)`
 - frontmatter： `{{ $frontmatter.title }}` `useData()`
 - 在MD中使用Vue： 和 SFC 一致，但是不用写 `<template>`
+- 标题中组件：`# text <Tag/> `
+- 转义：`v-pre`
+- 代码块禁用转义：` ```js-vue ``` `
 
 ## markdown 扩展
 
@@ -621,7 +624,7 @@ useData();
 
 ### 模板化
 
-支持
+支持Vue的插值和指令
 
 ```md
 {{ 1 + 1 }}
@@ -662,8 +665,186 @@ The count is: {{ count }}
 
 ```md
 <script setup>
-  import CustomComponent from '../../components/CustomComponent.vue'
+  import Modal from '@/components/Modal.vue'
 </script>
 
 <CustomComponent />
 ```
+
+<script setup>
+  import Modal from '@/components/Modal.vue'
+</script>
+
+<Modal />
+
+#### 注册全局组件
+
+需要在主题的入口文件处注册全局组件
+
+默认主题注册方式
+
+```typescript
+// .vitepress/theme/index.ts
+import type { Theme } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
+import Modal from '@/components/Modal.vue'
+
+export default {
+  extends: DefaultTheme,
+  enhanceApp({ app }) {
+    // 注册自定义全局组件
+    app.component('MyGlobalComponent' Modal)
+  }
+} satisfies Theme
+```
+
+::: warning 注意
+
+组件名称一定要用PascalCase，否则可能无法解析。
+:::
+
+#### 标题中使用组件
+
+```md
+ # text <Tag/> 
+```
+
+### 转义
+
+```md
+This <span v-pre>{{ will be displayed as-is }}</span>
+```
+<div class="escape-demo">
+
+This <span v-pre>{{ will be displayed as-is }}</span>
+
+
+</div>
+
+
+```md
+::: v-pre
+{{ This will be displayed as-is }}`
+:::
+```
+<div class="escape-demo">
+
+::: v-pre
+{{ This will be displayed as-is }}`
+:::
+
+</div>
+
+
+<style>
+.escape-demo {
+  border: 1px solid var(--vp-c-border);
+  border-radius: 8px;
+  padding: 0 20px;
+}
+</style>
+
+#### 代码块禁用转义
+在代码语言后附加 `-vue` 后缀
+
+````md
+```js-vue
+Hello {{ 1 + 1 }}
+```
+````
+
+```js-vue
+Hello {{ 1 + 1 }}
+```
+
+### CSS预处理器
+
+```
+# .scss and .sass
+npm install -D sass
+
+# .less
+npm install -D less
+
+# .styl and .stylus
+npm install -D stylus
+```
+```md
+<style lang="sass">
+.title
+  font-size: 20px
+</style>
+```
+
+### 使用teleport
+
+在md中使用
+
+```md
+<div id="teleport"></div> <!-- 这是Teleport的目标容器 -->
+
+<ClientOnly>
+  <Teleport to="#teleport">
+    <div>
+      <p>This is a teleported component</p>
+    </div>
+  </Teleport>
+</ClientOnly>
+```
+
+<div id="teleport" class="escape-demo"></div>
+
+<ClientOnly>
+  <Teleport to="#teleport">
+    <div>
+      <p>This is a teleported component</p>
+    </div>
+  </Teleport>
+</ClientOnly>
+
+也可以在vue组件中使用
+
+<Modal />
+
+## 国际化
+
+目录结构
+
+```
+docs/
+├─ es/
+│  ├─ foo.md
+├─ fr/
+│  ├─ foo.md
+├─ foo.md
+```
+
+配置文件
+
+```ts
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  // 共享属性和其他顶层内容...
+
+  locales: {
+    root: {
+      label: 'English',
+      lang: 'en'
+    },
+    fr: {
+      label: 'French',
+      lang: 'fr', // 可选，将作为 `lang` 属性添加到 `html` 标签中
+      link: '/fr/guide' // 默认 /fr/ -- 显示在导航栏翻译菜单上，可以是外部的
+
+      // 其余 locale 特定属性...
+    }
+  }
+})
+```
+
+### 为本地化设置子目录
+如果根目录不放默认语言文件，所有语言均在文件夹中，则需要服务器配合设置重定向。
+
+### RTL支持（实验性功能）
+支持右到左的语言，例如阿拉伯语、希伯来语等。
