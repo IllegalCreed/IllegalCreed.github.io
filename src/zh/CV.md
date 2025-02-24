@@ -66,11 +66,14 @@ layout: doc
 ### 工具与技术
 
 - **版本控制**: Git, GitHub, GitLab
-- **构建工具**: Webpack, Vite
+- **构建工具**: Webpack, Vite, Unplugin
 - **包管理器**: npm, pnpm, yarn
 - **状态管理**: Vuex, Pinia, Redux, Zustand
 - **路由管理**: Vue-Router, React Navigation
 - **测试框架**: Jest, Vitest, Vue Test Utils, Cypress
+- **静态检查**: ESlint, Prettier, Biome
+- **编译打包**: Babel, Rollup, ESbuild, SWC, OXC
+- **渲染框架**：Astro，Qwik
 
 ### 常用依赖
 
@@ -154,6 +157,18 @@ _时间范围: 2010 年 10 月 - 2011 年 03 月_
 - 学习Delphi开发
 
 ## 项目经验
+
+### 公司内部研发流程搭建
+
+::: tip 描述
+公司内部研发流程搭建，包括IPD流程设计，前端工程化方案规划，各种规范文档编制，技术栈统合等。
+:::
+
+- 负责IPD研发流程的设计。
+- 负责前端工程化方案的规划。
+- 负责各种规范文档的编制。
+- 负责技术栈的统合。
+- 负责相关协同办公工具链选型。
 
 ### 北京市文旅数据平台
 
