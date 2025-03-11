@@ -814,6 +814,7 @@ export default defineConfig({
                   { text: "GitLab CI/CD" },
                   { text: "Jenkins" },
                   { text: "Husky" },
+                  { text: "lint-staged" },
                 ],
               },
               {

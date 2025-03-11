@@ -74,6 +74,7 @@ layout: doc
 - **静态检查**: ESlint, Prettier, Biome
 - **编译打包**: Babel, Rollup, ESbuild, SWC, OXC
 - **渲染框架**：Astro，Qwik
+- **工程化工具**: Husky, Lint-Staged, Gitlab CI/CD, Github Actions
 
 ### 常用依赖
 
