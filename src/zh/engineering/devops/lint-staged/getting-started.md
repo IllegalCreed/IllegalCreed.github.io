@@ -5,6 +5,13 @@ outline: [2, 3]
 
 # 入门
 
+## 速查
+
+- 配置文件：`lint-staged.config.ts` / `packagge.json`
+- 配置函数签名：`(filenames: string[]) => string | string[] | Promise<string | string[]>;`
+- 匹配方式：`glob`
+- 并发：`--concurrent <number>` / `--concurrent false`
+
 ## 安装
 
 ```shell
