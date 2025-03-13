@@ -828,7 +828,21 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "lint-staged" },
+                  { 
+                    text: "lint-staged",
+                    collapsed: false,
+                    link: "/zh/engineering/devops/lint-staged/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/devops/lint-staged/getting-started.md",
+                      },
+                      {
+                        text: "进阶",
+                        link: "/zh/engineering/devops/lint-staged/advanced.md",
+                      },
+                    ],
+                   },
                 ],
               },
               {
