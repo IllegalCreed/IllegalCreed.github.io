@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress";
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from "node:url";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -12,15 +12,15 @@ export default defineConfig({
     // Vite 配置选项
     resolve: {
       alias: {
-        '~': fileURLToPath(new URL('.', import.meta.url)),
-        '@': fileURLToPath(new URL('../src', import.meta.url))
-      }
+        "~": fileURLToPath(new URL(".", import.meta.url)),
+        "@": fileURLToPath(new URL("../src", import.meta.url)),
+      },
     },
     server: {
       port: 3000, // 将开发服务器端口设置为 3000
     },
   },
-  
+
   markdown: {
     math: true,
     codeTransformers: [
@@ -28,10 +28,10 @@ export default defineConfig({
       // see: https://shiki.tmrs.site/guide/transformers
       {
         postprocess(code) {
-          return code.replace(/\[\!\!code/g, '[!code')
-        }
-      }
-    ]
+          return code.replace(/\[\!\!code/g, "[!code");
+        },
+      },
+    ],
   },
 
   locales: {
@@ -807,13 +807,28 @@ export default defineConfig({
             collapsed: false,
             items: [
               {
-                text: "CI/CD",
+                text: "DevOps",
                 collapsed: false,
                 items: [
                   { text: "GitHub Actions" },
                   { text: "GitLab CI/CD" },
                   { text: "Jenkins" },
-                  { text: "Husky" },
+                  {
+                    text: "Husky",
+                    collapsed: false,
+                    link: "/zh/engineering/devops/husky/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/devops/husky/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/engineering/devops/husky/guide-line.md",
+                      },
+                      { text: "API" },
+                    ],
+                  },
                   { text: "lint-staged" },
                 ],
               },
