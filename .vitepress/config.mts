@@ -826,7 +826,6 @@ export default defineConfig({
                         text: "指南",
                         link: "/zh/engineering/devops/husky/guide-line.md",
                       },
-                      { text: "API" },
                     ],
                   },
                   { text: "lint-staged" },
