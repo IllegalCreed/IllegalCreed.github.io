@@ -1001,6 +1001,7 @@ export default defineConfig({
                   { text: "Express" },
                   { text: "Koa" },
                   { text: "Fastify" },
+                  { text: "Hono" },
                 ],
               },
             ],
