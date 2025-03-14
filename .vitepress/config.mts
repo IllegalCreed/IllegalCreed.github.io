@@ -515,7 +515,13 @@ export default defineConfig({
               {
                 text: "静态分析工具",
                 collapsed: true,
-                items: [{ text: "ESLint" }, { text: "Prettier" }],
+                items: [
+                  { text: "ESLint" },
+                  { text: "Prettier" },
+                  { text: "Biome" },
+                  { text: "StyleLint" },
+                  { text: "EditorConfig" },
+                ],
               },
               {
                 text: "在线编辑器",
@@ -828,7 +834,7 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { 
+                  {
                     text: "lint-staged",
                     collapsed: false,
                     link: "/zh/engineering/devops/lint-staged/",
@@ -842,7 +848,7 @@ export default defineConfig({
                         link: "/zh/engineering/devops/lint-staged/advanced.md",
                       },
                     ],
-                   },
+                  },
                 ],
               },
               {
