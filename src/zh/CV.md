@@ -24,9 +24,11 @@ layout: doc
 
 ::: warning 统一标准
 
-- 了解：听说过该技术，并知道在什么情况下会用到。看过入门文档，简单上手做过 Demo。
-- 熟悉：在了解的基础上，熟读基础文档，理解几乎全部的知识点，并经过充分实践
+- 知道：接触过该技术，简单上手做过 Demo。
+- 了解：通读过文档，可以在实际项目中使用，但不了解所有技术细节。
+- 熟悉：在了解的基础上，熟读文档，理解几乎全部的知识点，并经过充分实践，可以解决绝大部分遇到的问题。
 - 精通：在熟悉的基础上，可以通过高级技巧实现最佳实践，熟读源码并理解其实现原理，熟悉相关生态系统及上下游工具链。
+- 大师：在精通的基础上，参与该技术源代码的编写，甚至成为核心成员。
 
 :::
 
@@ -34,24 +36,23 @@ layout: doc
 
 - **HTML/CSS/JavaScript**: 熟悉
 - **TypeScript**: 了解
-- **Rust**: 了解
+- **Rust**: 知道
 - **Vue.js**: 熟悉
 - **Nuxt.js**: 了解
 - **React**: 了解
 - **React Native**: 了解
-- **Next.js**: 了解
-- **TypeScript**: 了解
+- **Next.js**: 知道
 - **Node.js**: 了解
-- **Express**: 了解
+- **Express**: 知道
 - **Nest.js**: 了解
-- **UniApp**: 了解
+- **UniApp**: 知道
 - **Wechat Mini Program**: 曾经熟悉
 
 ### 编程语言与框架(非 Web 方向)
 
 - **SQL**: 了解
-- **Cocos**: 了解
-- **Shopify**: 了解
+- **Cocos**: 知道
+- **Shopify**: 知道
 - **C#**: 曾经熟悉
 - **WPF**: 曾经熟悉
 - **WCF**: 了解
@@ -59,21 +60,20 @@ layout: doc
 - **WinFrom**: 了解
 - **WinRT**: 了解
 - **Android JAVA**: 了解
-- **IOS OC**: 了解
-- **Dart**: 了解
-- **Flutter**: 了解
+- **IOS OC**: 知道
+- **Dart**: 知道
+- **Flutter**: 知道
 
 ### 工具与技术
 
 - **版本控制**: Git, GitHub, GitLab
 - **构建工具**: Webpack, Vite, Unplugin
 - **包管理器**: npm, pnpm, yarn
-- **状态管理**: Vuex, Pinia, Redux, Zustand
+- **状态管理**: Vuex, Pinia, Redux
 - **路由管理**: Vue-Router, React Navigation
 - **测试框架**: Jest, Vitest, Vue Test Utils, Cypress
-- **静态检查**: ESlint, Prettier, Biome
-- **编译打包**: Babel, Rollup, ESbuild, SWC, OXC
-- **渲染框架**：Astro，Qwik
+- **静态检查**: ESlint, Prettier
+- **编译打包**: Rollup, ESbuild
 - **工程化工具**: Husky, Lint-Staged, Gitlab CI/CD, Github Actions
 
 ### 常用依赖
@@ -81,22 +81,19 @@ layout: doc
 - **API 扩展**: Lodash, VueUse
 - **CSS 预处理**: Less, Sass, UnoCss, Tailwind
 - **组件库**: Element Plus, Ant Design, Echart, Chart.js
-- **扩展类**: uuid, Moment, Vue-i18n, Markdown-it, Vee-validate
+- **扩展类**: uuid, dayjs, Vue-i18n, Markdown-it, Vee-validate
 - **音视频**: Video.js
-- **WebGL**: ~~Three.js~~, ~~cesium~~
 
 ### 其他技能
 
 - **UI/UX 设计**: 了解
 - **响应式设计**: 了解
-- **浏览器兼容性**: 不了解也不想了解
+- **浏览器兼容性**: 知道
 
 ### 再也不想碰的技术
 
-- **JQuery**
-- **MUI**
-- **Ionic**
-- **Cordova**
+- **JQuery及同时代技术栈**
+- **Ionic/Cordova类跨端框架**
 - **各种商店上架流程**
 
 ## 工作经历
