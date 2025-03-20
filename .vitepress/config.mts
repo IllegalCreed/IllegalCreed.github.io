@@ -514,10 +514,49 @@ export default defineConfig({
               },
               {
                 text: "静态分析工具",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "ESLint" },
-                  { text: "Prettier" },
+                  {
+                    text: "Prettier",
+                    collapsed: false,
+                    link: "/zh/frontend-develop-tools/static-analysis/prettier/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/static-analysis/prettier/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: false,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-develop-tools/static-analysis/prettier/guideline-base.md",
+                          },
+                          {
+                            text: "高级",
+                            collapsed: false,
+                            items: [
+                              {
+                                text: "配置",
+                                link: "/zh/frontend-develop-tools/static-analysis/prettier/guideline-adadvance/configurations.md",
+                              },
+                              {
+                                text: "集成",
+                                link: "/zh/frontend-develop-tools/static-analysis/prettier/guideline-adadvance/integration.md",
+                              },
+                            ],
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/frontend-develop-tools/static-analysis/prettier/guideline-others.md",
+                          },
+                        ],
+                      },
+                      { text: "引用" },
+                    ],
+                  },
                   { text: "Biome" },
                   { text: "StyleLint" },
                   { text: "EditorConfig" },
