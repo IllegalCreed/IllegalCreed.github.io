@@ -1,6 +1,6 @@
 ---
 layout: doc
-outline: [2, 3]
+outline: [2, 4]
 ---
 
 # 集成
