@@ -29,6 +29,11 @@ outline: [2, 3]
 - 行尾字符：`endOfLine: "lf"` && `.gitattributes`：`* text=auto eol=lf`
 - 嵌入代码格式化：`embeddedLanguageFormatting: "auto"`
 - 标记语言中每个属性是否独占一行：`singleAttributePerLine: false`
+- 使用 TS 配置文件：`--experimental-strip-types`
+- 配置覆盖：`overrides：{ files, options, excludeFiles }`
+- 配置 Schema：`"$schema": "https://json.schemastore.org/prettierrc"`
+- 忽略文件：`.prettierignore`
+- 忽略注释：`prettier-ignore`
 
 ## 配置项
 
@@ -1320,3 +1325,9 @@ prettier . "!**/*.{js,jsx,vue}" --write
 ```
 
 匹配模式依赖于 [fast-glob](https://github.com/mrmlnc/fast-glob)
+
+::: tip **为什么是 fast-glob 而不是 micromatch**
+
+主要是因为两者的设计目标和适用场景不同。fast-glob 专注于文件系统操作，支持高效地遍历和匹配磁盘上的文件路径，特别适合需要直接与文件系统交互的工具如 Prettier。相比之下，micromatch 更擅长处理内存中的字符串模式匹配，虽然它功能强大且灵活，但并不直接针对文件系统的性能优化。因此，Prettier 选用 fast-glob 是为了更好地满足其在命令行中快速、可靠地扫描和匹配文件的需求。
+
+:::
