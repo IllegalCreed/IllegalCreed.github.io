@@ -1121,9 +1121,9 @@ export default config;
   "peerDependencies": {
     "prettier": ">=3.0.0"
   },
-  "devDependencies": {
-    "prettier": "^3.5.2"
-  }
+  "devDependencies": {     // [!code ++]
+    "prettier": "^3.5.2"   // [!code ++]
+  }                        // [!code ++]
 }
 ```
 
