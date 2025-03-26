@@ -1199,7 +1199,7 @@ export default defineConfig({
                   { text: "Java" },
                   { text: "Kotlin" },
                   { text: "Swift" },
-                  { text: "Drat" },
+                  { text: "Dart" },
                 ],
               },
               {
@@ -1343,14 +1343,12 @@ export default defineConfig({
                   { text: "Apollo Server" },
                   { text: "LoopBack" },
                   { text: "Feathers" },
-                  { text: "Gin" },
                 ],
               },
               {
                 text: "服务注册与发现",
                 collapsed: true,
                 items: [
-                  { text: "Eureka" },
                   { text: "Consul" },
                   { text: "Etcd" },
                   { text: "Zookeeper" },
@@ -1362,13 +1360,12 @@ export default defineConfig({
                 items: [
                   { text: "gRPC" },
                   { text: "Thrift" },
-                  { text: "Dubbo" },
                 ],
               },
               {
                 text: "容错设计",
                 collapsed: true,
-                items: [{ text: "Hystrix" }, { text: "Resilience4j" }],
+                items: [{ text: "circuit-breaker-js" }, { text: "opossum" }],
               },
               {
                 text: "分布式追踪",
