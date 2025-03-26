@@ -1339,8 +1339,6 @@ export default defineConfig({
                 text: "服务框架",
                 collapsed: false,
                 items: [
-                  { text: "Spring Boot" },
-                  { text: "Spring Cloud" },
                   { text: "Nest.js" },
                   { text: "Apollo Server" },
                   { text: "LoopBack" },
@@ -1417,8 +1415,6 @@ export default defineConfig({
                 text: "数据访问",
                 collapsed: true,
                 items: [
-                  { text: "ORM 框架" },
-                  { text: "JDBC" },
                   { text: "ODBC" },
                 ],
               },
