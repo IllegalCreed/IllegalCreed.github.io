@@ -153,10 +153,6 @@ export default defineConfig({
                           {
                             text: "SSL/TLS",
                           },
-                          { text: "FTP" },
-                          { text: "SMTP" },
-                          { text: "IMAP" },
-                          { text: "POP3" },
                         ],
                       },
                     ],
@@ -167,7 +163,6 @@ export default defineConfig({
                       { text: "路由器" },
                       { text: "交换机" },
                       { text: "网关" },
-                      { text: "集线器" },
                       {
                         text: "移动网络",
                         items: [
@@ -213,13 +208,13 @@ export default defineConfig({
                     items: [
                       { text: "Sass" },
                       { text: "Less" },
-                      { text: "Stylus" },
                       { text: "PostCSS" },
                       { text: "tailwind CSS" },
                       { text: "UnoCSS" },
                     ],
                   },
-                  { text: "MathML" },
+                  { text: "JSON" },
+                  { text: "YAML" },
                 ],
               },
               {
@@ -232,6 +227,11 @@ export default defineConfig({
                 ],
               },
               {
+                text: "模块管理",
+                collapsed: true,
+                items: [{ text: "CommonJS" }, { text: "ES Module" }],
+              },
+              {
                 text: "包管理器",
                 collapsed: false,
                 items: [
@@ -242,7 +242,6 @@ export default defineConfig({
                       { text: "Homebrew" },
                       { text: "apt-get" },
                       { text: "yum" },
-                      { text: "dnf" },
                       { text: "Chocolatey" },
                     ],
                   },
@@ -261,8 +260,8 @@ export default defineConfig({
                 text: "常见扩展库",
                 collapsed: true,
                 items: [
-                  { text: "Lodash" },
-                  { text: "Moment" },
+                  { text: "Lodash-es" },
+                  { text: "Day.js" },
                   { text: "uuid" },
                   { text: "axios" },
                   { text: "i18next" },
@@ -370,7 +369,6 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Docz" },
                 ],
               },
               {
@@ -391,9 +389,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: "Pinia" },
-                  { text: "Vuex" },
                   { text: "Zustand" },
-                  { text: "mobx" },
                   { text: "Redux" },
                 ],
               },
@@ -421,11 +417,10 @@ export default defineConfig({
                 collapsed: false,
                 link: "/zh/frontend-framework/others",
                 items: [
-                  { text: "Viteshot" },
                   { text: "Iconify" },
                   { text: "Shiki" },
-                  { text: "Whyframe" },
                   { text: "Markdown-it" },
+                  { text: "TanStack Query" },
                   {
                     text: "Vee-validate",
                     collapsed: false,
@@ -471,7 +466,11 @@ export default defineConfig({
               {
                 text: "构建工具",
                 collapsed: false,
-                items: [{ text: "Vite" }, { text: "Webpack" }],
+                items: [
+                  { text: "Vite" },
+                  { text: "Webpack" },
+                  { text: "Turbopack" },
+                ],
               },
               {
                 text: "编译器",
@@ -485,18 +484,13 @@ export default defineConfig({
                   { text: "esBuild" },
                   { text: "rollup" },
                   { text: "rolldown" },
-                  { text: "uglifyjs" },
+                  { text: "rspack" },
                 ],
               },
               {
                 text: "开发服务器",
                 collapsed: true,
                 items: [{ text: "Live Server" }, { text: "BrowserSync" }],
-              },
-              {
-                text: "任务运行器",
-                collapsed: true,
-                items: [{ text: "Gulp" }, { text: "Grunt" }],
               },
             ],
           },
@@ -513,7 +507,7 @@ export default defineConfig({
               {
                 text: "版本控制",
                 collapsed: true,
-                items: [{ text: "Git" }, { text: "GitLab" }],
+                items: [{ text: "Git" }],
               },
               {
                 text: "静态分析工具",
@@ -573,8 +567,6 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: "StackBlitz" },
-                  { text: "JSFiddle" },
-                  { text: "CodePen" },
                   { text: "CodeSandbox" },
                   { text: "Expo" },
                 ],
@@ -585,7 +577,7 @@ export default defineConfig({
                 items: [
                   { text: "JSdoc" },
                   { text: "TypeDoc" },
-                  { text: "ESDoc" },
+                  { text: "TSDoc" },
                   { text: "SassDoc" },
                 ],
               },
@@ -601,7 +593,6 @@ export default defineConfig({
                 collapsed: false,
                 items: [
                   { text: "Jest" },
-                  { text: "Mocha" },
                   { text: "Vitest" },
                   { text: "VueTestUtils" },
                   { text: "Axios Mock Adapter" },
@@ -613,18 +604,12 @@ export default defineConfig({
               {
                 text: "端到端测试",
                 collapsed: true,
-                items: [
-                  { text: "Cypress" },
-                  { text: "Playwright" },
-                  { text: "WebdriverIO" },
-                  { text: "Puppeteer" },
-                  { text: "Mailtrap" },
-                ],
+                items: [{ text: "Cypress" }, { text: "Playwright" }],
               },
               {
-                text: "其他测试工具",
+                text: "其他工具",
                 collapsed: true,
-                items: [{ text: "MSW" }, { text: "Tinylibs" }],
+                items: [{ text: "Mailtrap" }],
               },
             ],
           },
@@ -787,7 +772,6 @@ export default defineConfig({
                   { text: "微信小程序" },
                   { text: "Uniapp" },
                   { text: "Ionic" },
-                  { text: "Cordova" },
                 ],
               },
               {
@@ -811,6 +795,8 @@ export default defineConfig({
                   { text: "Chart.js" },
                   { text: "Recharts" },
                   { text: "leaflet" },
+                  { text: "Mermaid" },
+                  { text: "KaTeX" },
                 ],
               },
               {
@@ -978,7 +964,7 @@ export default defineConfig({
                 collapsed: false,
                 items: [
                   {
-                    text: "技术博客",
+                    text: "技术社区",
                     collapsed: true,
                     items: [
                       { text: "Medium" },
@@ -989,7 +975,7 @@ export default defineConfig({
                     ],
                   },
                   {
-                    text: "贡献代码",
+                    text: "代码仓库",
                     collapsed: false,
                     items: [
                       { text: "Github" },
@@ -1010,10 +996,15 @@ export default defineConfig({
                       { text: "Jira" },
                       { text: "Trello" },
                       { text: "BitBucket" },
-                      { text: "Bugzilla" },
                     ],
                   },
+                  {
+                    text: "远程协作工具",
+                    collapsed: true,
+                    items: [{ text: "Slack" }, { text: "Discord" }],
+                  },
                   { text: "沟通技巧" },
+                  { text: "技术写作" },
                 ],
               },
             ],
@@ -1064,7 +1055,6 @@ export default defineConfig({
                 collapsed: false,
                 items: [
                   { text: "Express" },
-                  { text: "Koa" },
                   { text: "Fastify" },
                   { text: "Hono" },
                 ],
@@ -1072,11 +1062,7 @@ export default defineConfig({
               {
                 text: "ORM框架",
                 collapsed: false,
-                items: [
-                  { text: "Sequelize" },
-                  { text: "TypeORM" },
-                  { text: "Prisma" },
-                ],
+                items: [{ text: "TypeORM" }, { text: "Prisma" }],
               },
             ],
           },
@@ -1099,78 +1085,19 @@ export default defineConfig({
                     ],
                   },
                   {
-                    text: "文件系统",
+                    text: "基础命令",
                     collapsed: false,
                     items: [
-                      { text: "ls/dir" },
-                      { text: "cp/copy" },
-                      { text: "mv/move" },
-                      { text: "rm/del" },
-                      { text: "cat/type" },
-                      { text: "touch" },
+                      { text: "文件系统" },
+                      { text: "进程管理" },
+                      { text: "文本编辑器" },
+                      { text: "网络工具" },
+                      { text: "系统管理工具" },
                     ],
-                  },
-                  {
-                    text: "进程管理工具",
-                    collapsed: false,
-                    items: [
-                      { text: "ps" },
-                      { text: "htop" },
-                      { text: "pm2" },
-                      { text: "kill" },
-                      { text: "jobs" },
-                    ],
-                  },
-                  {
-                    text: "文本编辑器",
-                    collapsed: false,
-                    items: [
-                      { text: "cut" },
-                      { text: "vim" },
-                      { text: "nano" },
-                      { text: "grep" },
-                      { text: "sed" },
-                      { text: "awk" },
-                    ],
-                  },
-                  {
-                    text: "网络工具",
-                    items: [
-                      { text: "ping" },
-                      { text: "curl" },
-                      { text: "wget" },
-                      { text: "netstat" },
-                      { text: "traceroute/tracert" },
-                      { text: "tcpdump" },
-                      { text: "Wireshark" },
-                    ],
-                  },
-                  {
-                    text: "系统管理工具",
-                    items: [
-                      { text: "chmod" },
-                      { text: "chown" },
-                      { text: "df" },
-                      { text: "du" },
-                      { text: "uptime" },
-                    ],
-                  },
-                  {
-                    text: "邮件工具",
-                    items: [{ text: "Postfix" }, { text: "Dovecot" }],
                   },
                   {
                     text: "SSH 工具",
                     items: [{ text: "OpenSSH" }, { text: "OpenSSL" }],
-                  },
-                  {
-                    text: "FTP 工具",
-                    items: [
-                      { text: "vsftpd" },
-                      {
-                        text: "FileZilla",
-                      },
-                    ],
                   },
                 ],
               },
@@ -1244,10 +1171,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: "Cassandra" },
-                  { text: "CouchDB" },
-                  { text: "HBase" },
                   { text: "HDFS" },
-                  { text: "Hive" },
                   { text: "Elasticsearch" },
                 ],
               },
@@ -1260,34 +1184,7 @@ export default defineConfig({
           },
 
           {
-            text: "数据处理",
-            collapsed: false,
-            items: [
-              {
-                text: "消息队列",
-                collapsed: false,
-                items: [
-                  { text: "RocketMQ" },
-                  { text: "RabbitMQ" },
-                  { text: "ActiveMQ" },
-                  { text: "Kafka" },
-                ],
-              },
-              {
-                text: "流处理",
-                collapsed: false,
-                items: [{ text: "Flink" }, { text: "Storm" }],
-              },
-              {
-                text: "批处理",
-                collapsed: false,
-                items: [{ text: "Hadoop" }, { text: "Spark" }],
-              },
-            ],
-          },
-
-          {
-            text: "生态系统",
+            text: "基础设施与数据流",
             collapsed: false,
             items: [
               {
@@ -1295,7 +1192,7 @@ export default defineConfig({
                 items: [
                   { text: "Docker" },
                   { text: "Kubernetes" },
-                  { text: "Docker Swarm" },
+                  { text: "Podman" },
                 ],
               },
               {
@@ -1304,28 +1201,32 @@ export default defineConfig({
                 items: [
                   { text: "Apache Airflow" },
                   { text: "Prefect" },
-                  { text: "Apache NiFi" },
-                  { text: "Apache Oozie" },
+                  { text: "Dagster" },
                 ],
               },
               {
-                text: "数据治理",
-                collapsed: true,
+                text: "数据处理",
+                collapsed: false,
                 items: [
-                  { text: "Informatica" },
-                  { text: "Collibra" },
-                  { text: "Alation" },
-                  { text: "Talend" },
-                  { text: "Apache Atlas" },
-                ],
-              },
-              {
-                text: "数据安全",
-                collapsed: true,
-                items: [
-                  { text: "Apache Ranger" },
-                  { text: "Apache Knox" },
-                  { text: "Apache Sentry" },
+                  {
+                    text: "消息队列",
+                    collapsed: false,
+                    items: [
+                      { text: "RocketMQ" },
+                      { text: "RabbitMQ" },
+                      { text: "Kafka" },
+                    ],
+                  },
+                  {
+                    text: "流处理",
+                    collapsed: false,
+                    items: [{ text: "Flink" }],
+                  },
+                  {
+                    text: "批处理",
+                    collapsed: false,
+                    items: [{ text: "Hadoop" }, { text: "Spark" }],
+                  },
                 ],
               },
             ],
@@ -1338,12 +1239,7 @@ export default defineConfig({
               {
                 text: "服务框架",
                 collapsed: false,
-                items: [
-                  { text: "Nest.js" },
-                  { text: "Apollo Server" },
-                  { text: "LoopBack" },
-                  { text: "Feathers" },
-                ],
+                items: [{ text: "Nest.js" }, { text: "Apollo Server" }],
               },
               {
                 text: "服务注册与发现",
@@ -1357,10 +1253,7 @@ export default defineConfig({
               {
                 text: "远程过程调用",
                 collapsed: true,
-                items: [
-                  { text: "gRPC" },
-                  { text: "Thrift" },
-                ],
+                items: [{ text: "gRPC" }, { text: "TRPC" }],
               },
               {
                 text: "容错设计",
@@ -1411,9 +1304,7 @@ export default defineConfig({
               {
                 text: "数据访问",
                 collapsed: true,
-                items: [
-                  { text: "ODBC" },
-                ],
+                items: [{ text: "ODBC" }],
               },
               {
                 text: "数据转换和验证",
@@ -1454,6 +1345,9 @@ export default defineConfig({
                           },
                           {
                             text: "强化学习",
+                          },
+                          {
+                            text: "AutoML",
                           },
                         ],
                       },
@@ -1497,19 +1391,6 @@ export default defineConfig({
                         ],
                       },
                       {
-                        text: "前端集成 AI",
-                        collapsed: true,
-                        items: [
-                          {
-                            text: "TensorFlow.js",
-                          },
-                          {
-                            text: "ONNX.js",
-                          },
-                          { text: "WebDNN" },
-                        ],
-                      },
-                      {
                         text: "自然语言处理 (NLP)",
                         collapsed: true,
                         items: [
@@ -1517,7 +1398,6 @@ export default defineConfig({
                             text: "Hugging Face Transformers",
                           },
                           { text: "spaCy" },
-                          { text: "NLTK" },
                         ],
                       },
                       {
@@ -1535,12 +1415,12 @@ export default defineConfig({
                         text: "模型与工具",
                         collapsed: true,
                         items: [
-                          { text: "LangChain" }, // 构建基于 LLM 的应用
-                          { text: "LLaMA" }, // 开源大模型
+                          { text: "LangChain" },
+                          { text: "LLaMA" },
                           {
                             text: "ChatGPT API (OpenAI)",
                           },
-                          { text: "Grok (xAI)" }, // 自家产品，嘿嘿
+                          { text: "Grok (xAI)" },
                         ],
                       },
                       {
@@ -1579,9 +1459,6 @@ export default defineConfig({
                         text: "模型推理与服务化",
                         collapsed: true,
                         items: [
-                          {
-                            text: "Triton Inference Server",
-                          },
                           {
                             text: "FastAPI + AI 模型",
                           },
@@ -1753,11 +1630,12 @@ export default defineConfig({
                   {
                     text: "比赛",
                     collapsed: true,
-                    items: [
-                      { text: "ACM" },
-                      { text: "Google Code Jam" },
-                      { text: "Facebook Hacker Cup" },
-                    ],
+                    items: [{ text: "ACM" }],
+                  },
+                  {
+                    text: "算法可视化工具",
+                    collapsed: true,
+                    items: [{ text: "VisuAlgo" }],
                   },
                 ],
               },
@@ -1790,7 +1668,7 @@ export default defineConfig({
                 items: [
                   { text: "并发与同步" },
                   { text: "安全与保护" },
-                  { text: "分布式系统" },
+                  { text: "容器化基础" },
                 ],
               },
               {
