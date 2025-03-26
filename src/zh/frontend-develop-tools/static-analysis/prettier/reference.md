@@ -5,6 +5,24 @@ outline: [2, 3]
 
 # 参考
 
+## 速查
+
+- 检查格式：`--check`
+- 指定配置文件：`--config`
+- 查找配置文件：`--find-config-path`
+- 忽略配置文件：`--no-config`
+- 格式化文件：`--write`
+- 设置日志级别：`--log-level`
+- 指定文件全名：`--stdin-filepath`
+- 忽略不支持类型：`--ignore-unknown`
+- 启用缓存：`--cache`
+- 格式化代码：`prettier.format(source, options)`
+- 检查格式：`prettier.check(source [, options])`
+- 格式化并固定光标：`prettier.formatWithCursor(source [, options])`
+- 解析配置：`prettier.resolveConfig(fileUrlOrPath [, options])`
+- 获取配置文件路径：`prettier.resolveConfigFile([fileUrlOrPath])`
+- 获取文件信息：`prettier.getFileInfo(fileUrlOrPath [, options])`
+
 ## CLI
 
 **命令格式**：`prettier [options] [file/dir/glob ...]`
