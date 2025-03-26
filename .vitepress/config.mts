@@ -358,6 +358,10 @@ export default defineConfig({
                             link: "/zh/frontend-framework/ssg/slidev/guide-line/advance.md",
                           },
                           {
+                            text: "内置",
+                            link: "/zh/frontend-framework/ssg/slidev/guide-line/built-in.md",
+                          },
+                          {
                             text: "其他",
                             link: "/zh/frontend-framework/ssg/slidev/guide-line/other.md",
                           },
