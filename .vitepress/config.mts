@@ -108,131 +108,90 @@ export default defineConfig({
                 ],
               },
               {
-                text: "计算机网络",
+                text: "计算机网络基础",
                 collapsed: false,
-                link: "/zh/base/network/",
                 items: [
                   {
-                    text: "万维网",
+                    text: "网络模型",
                     collapsed: true,
-                    link: "/zh/base/network/www/",
                     items: [
-                      {
-                        text: "网络设备",
-                        link: "/zh/base/network/www/device/",
-                      },
                       {
                         text: "OSI 模型",
-                        link: "/zh/base/network/www/osi/",
                       },
                       {
-                        text: "IP 地址",
-                        link: "/zh/base/network/www/ip/",
+                        text: "TCP/IP 模型",
                       },
                     ],
                   },
                   {
-                    text: "移动网络",
+                    text: "网络协议",
                     collapsed: true,
-                    link: "/zh/base/network/mobile/",
                     items: [
                       {
-                        text: "移动网络架构",
-                        link: "/zh/base/network/mobile/framework/",
-                      },
-                      {
-                        text: "移动设备",
-                        link: "/zh/base/network/mobile/device/",
-                      },
-                    ],
-                  },
-                  {
-                    text: "浏览器",
-                    collapsed: true,
-                    link: "/zh/base/network/browser/",
-                  },
-                  {
-                    text: "网路协议",
-                    collapsed: true,
-                    link: "/zh/base/network/protocol/",
-                    items: [
-                      {
-                        text: "传输层协议",
-                        link: "/zh/base/network/protocol/transport/",
+                        text: "网络层及以下",
                         items: [
                           {
-                            text: "TCP",
-                            link: "/zh/base/network/protocol/transport/tcp",
+                            text: "ICMP",
                           },
                           {
-                            text: "UDP",
-                            link: "/zh/base/network/protocol/transport/udp",
-                          },
-                        ],
-                      },
-                      {
-                        text: "应用层协议",
-                        collapsed: true,
-                        link: "/zh/base/network/protocol/application/",
-                        items: [
-                          {
-                            text: "HTTP/HTTPS",
-                            link: "/zh/base/network/protocol/application/http",
-                          },
-                          {
-                            text: "FTP",
-                            link: "/zh/base/network/protocol/application/ftp",
-                          },
-                          {
-                            text: "SMTP",
-                            link: "/zh/base/network/protocol/application/smtp",
-                          },
-                          {
-                            text: "IMAP",
-                            link: "/zh/base/network/protocol/application/imap",
-                          },
-                          {
-                            text: "POP3",
-                            link: "/zh/base/network/protocol/application/pop3",
+                            text: "ARP",
                           },
                           {
                             text: "DNS",
-                            link: "/zh/base/network/protocol/application/dns",
-                          },
-                          {
-                            text: "DHCP",
-                            link: "/zh/base/network/protocol/application/dhcp",
-                          },
-                          {
-                            text: "SSH",
-                            link: "/zh/base/network/protocol/application/ssh",
                           },
                         ],
                       },
                       {
-                        text: "工具",
-                        collapsed: true,
-                        link: "/zh/base/network/protocol/tools/",
+                        text: "应用层",
                         items: [
                           {
-                            text: "抓包工具",
-                            link: "/zh/base/network/protocol/tools/capture/",
+                            text: "HTTP/HTTPS",
                           },
                           {
-                            text: "SSH工具",
-                            link: "/zh/base/network/protocol/tools/ssh/",
+                            text: "WebSocket",
                           },
                           {
-                            text: "FTP工具",
-                            link: "/zh/base/network/protocol/tools/ftp/",
+                            text: "SSL/TLS",
                           },
-                          {
-                            text: "邮件库",
-                            link: "/zh/base/network/protocol/tools/mail/",
-                          },
+                          { text: "FTP" },
+                          { text: "SMTP" },
+                          { text: "IMAP" },
+                          { text: "POP3" },
                         ],
                       },
                     ],
+                  },
+                  {
+                    text: "网络设备",
+                    items: [
+                      { text: "路由器" },
+                      { text: "交换机" },
+                      { text: "网关" },
+                      { text: "集线器" },
+                      {
+                        text: "移动网络",
+                        items: [
+                          { text: "架构" },
+                          { text: "设备" },
+                          { text: "协议" },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "浏览器基础",
+                collapsed: true,
+                items: [
+                  {
+                    text: "浏览器渲染原理",
+                  },
+                  {
+                    text: "浏览器缓存机制",
+                  },
+                  {
+                    text: "浏览器安全",
                   },
                 ],
               },
@@ -248,7 +207,18 @@ export default defineConfig({
                 items: [
                   { text: "Markdown" },
                   { text: "TypeScript" },
-                  { text: "CSS预处理" },
+                  {
+                    text: "CSS预处理",
+                    collapsed: true,
+                    items: [
+                      { text: "Sass" },
+                      { text: "Less" },
+                      { text: "Stylus" },
+                      { text: "PostCSS" },
+                      { text: "tailwind CSS" },
+                      { text: "UnoCSS" },
+                    ],
+                  },
                   { text: "MathML" },
                 ],
               },
@@ -327,7 +297,9 @@ export default defineConfig({
                 items: [
                   { text: "Next.js" },
                   { text: "Nuxt.js" },
-                  { text: "Analog" },
+                  { text: "Astro" },
+                  { text: "Qwik" },
+                  { text: "Remix" },
                   { text: "SolidStart" },
                   { text: "SvelteKit" },
                 ],
@@ -365,7 +337,39 @@ export default defineConfig({
                       { text: "API" },
                     ],
                   },
-                  { text: "Astro" },
+                  {
+                    text: "Slidev",
+                    collapsed: false,
+                    link: "/zh/frontend-framework/ssg/slidev/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ssg/slidev/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: false,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/ssg/slidev/guide-line/base.md",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/frontend-framework/ssg/slidev/guide-line/advance.md",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/frontend-framework/ssg/slidev/guide-line/other.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ssg/slidev/reference.md",
+                      },
+                    ],
+                  },
                   { text: "Docz" },
                 ],
               },
@@ -379,7 +383,7 @@ export default defineConfig({
                   { text: "Vant UI" },
                   { text: "Ant Design" },
                   { text: "Nuxt UI" },
-                  { text: "MUI" },
+                  { text: "shadcn" },
                 ],
               },
               {
@@ -417,7 +421,6 @@ export default defineConfig({
                 collapsed: false,
                 link: "/zh/frontend-framework/others",
                 items: [
-                  { text: "Slidev" },
                   { text: "Viteshot" },
                   { text: "Iconify" },
                   { text: "Shiki" },
@@ -554,8 +557,10 @@ export default defineConfig({
                           },
                         ],
                       },
-                      { text: "参考",
-                        link: "/zh/frontend-develop-tools/static-analysis/prettier/reference.md", },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/static-analysis/prettier/reference.md",
+                      },
                     ],
                   },
                   { text: "Biome" },
@@ -1064,6 +1069,15 @@ export default defineConfig({
                   { text: "Hono" },
                 ],
               },
+              {
+                text: "ORM框架",
+                collapsed: false,
+                items: [
+                  { text: "Sequelize" },
+                  { text: "TypeORM" },
+                  { text: "Prisma" },
+                ],
+              },
             ],
           },
 
@@ -1084,28 +1098,86 @@ export default defineConfig({
                       { text: "powerShell" },
                     ],
                   },
-                  { text: "终端复用工具" },
+                  {
+                    text: "文件系统",
+                    collapsed: false,
+                    items: [
+                      { text: "ls/dir" },
+                      { text: "cp/copy" },
+                      { text: "mv/move" },
+                      { text: "rm/del" },
+                      { text: "cat/type" },
+                      { text: "touch" },
+                    ],
+                  },
                   {
                     text: "进程管理工具",
                     collapsed: false,
-                    items: [{ text: "htop" }, { text: "pm2" }],
+                    items: [
+                      { text: "ps" },
+                      { text: "htop" },
+                      { text: "pm2" },
+                      { text: "kill" },
+                      { text: "jobs" },
+                    ],
                   },
                   {
                     text: "文本编辑器",
                     collapsed: false,
-                    items: [{ text: "vim" }, { text: "nano" }],
+                    items: [
+                      { text: "cut" },
+                      { text: "vim" },
+                      { text: "nano" },
+                      { text: "grep" },
+                      { text: "sed" },
+                      { text: "awk" },
+                    ],
+                  },
+                  {
+                    text: "网络工具",
+                    items: [
+                      { text: "ping" },
+                      { text: "curl" },
+                      { text: "wget" },
+                      { text: "netstat" },
+                      { text: "traceroute/tracert" },
+                      { text: "tcpdump" },
+                      { text: "Wireshark" },
+                    ],
+                  },
+                  {
+                    text: "系统管理工具",
+                    items: [
+                      { text: "chmod" },
+                      { text: "chown" },
+                      { text: "df" },
+                      { text: "du" },
+                      { text: "uptime" },
+                    ],
+                  },
+                  {
+                    text: "邮件工具",
+                    items: [{ text: "Postfix" }, { text: "Dovecot" }],
+                  },
+                  {
+                    text: "SSH 工具",
+                    items: [{ text: "OpenSSH" }, { text: "OpenSSL" }],
+                  },
+                  {
+                    text: "FTP 工具",
+                    items: [
+                      { text: "vsftpd" },
+                      {
+                        text: "FileZilla",
+                      },
+                    ],
                   },
                 ],
               },
               {
                 text: "Web服务器",
                 collapsed: false,
-                items: [
-                  { text: "Apache HTTP Server" },
-                  { text: "Nginx" },
-                  { text: "Apache Tomcat" },
-                  { text: "IIS" },
-                ],
+                items: [{ text: "Caddy" }, { text: "Nginx" }],
               },
             ],
           },
@@ -1312,6 +1384,8 @@ export default defineConfig({
                   { text: "ELK Stack" },
                   { text: "Prometheus" },
                   { text: "Grafana" },
+                  { text: "Sentry" },
+                  { text: "Datadog" },
                 ],
               },
             ],
@@ -1359,6 +1433,221 @@ export default defineConfig({
                   },
                   { text: "class-validator" },
                   { text: "class-transformer" },
+                ],
+              },
+            ],
+          },
+
+          {
+            text: "人工智能",
+            items: [
+              {
+                text: "AI 与智能开发",
+                collapsed: false,
+                items: [
+                  {
+                    text: "AI 基础",
+                    collapsed: false,
+                    items: [
+                      {
+                        text: "机器学习基础",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "监督学习",
+                          },
+                          {
+                            text: "无监督学习",
+                          },
+                          {
+                            text: "强化学习",
+                          },
+                        ],
+                      },
+                      {
+                        text: "深度学习基础",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "神经网络",
+                          },
+                          {
+                            text: "卷积神经网络 (CNN)",
+                          },
+                          {
+                            text: "循环神经网络 (RNN)",
+                          },
+                          {
+                            text: "Transformer",
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    text: "AI 框架与库",
+                    collapsed: false,
+                    items: [
+                      {
+                        text: "通用机器学习框架",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "TensorFlow",
+                          },
+                          {
+                            text: "PyTorch",
+                          },
+                          {
+                            text: "scikit-learn",
+                          },
+                        ],
+                      },
+                      {
+                        text: "前端集成 AI",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "TensorFlow.js",
+                          },
+                          {
+                            text: "ONNX.js",
+                          },
+                          { text: "WebDNN" },
+                        ],
+                      },
+                      {
+                        text: "自然语言处理 (NLP)",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "Hugging Face Transformers",
+                          },
+                          { text: "spaCy" },
+                          { text: "NLTK" },
+                        ],
+                      },
+                      {
+                        text: "计算机视觉",
+                        collapsed: true,
+                        items: [{ text: "OpenCV" }, { text: "YOLO" }],
+                      },
+                    ],
+                  },
+                  {
+                    text: "大语言模型与生成式 AI",
+                    collapsed: false,
+                    items: [
+                      {
+                        text: "模型与工具",
+                        collapsed: true,
+                        items: [
+                          { text: "LangChain" }, // 构建基于 LLM 的应用
+                          { text: "LLaMA" }, // 开源大模型
+                          {
+                            text: "ChatGPT API (OpenAI)",
+                          },
+                          { text: "Grok (xAI)" }, // 自家产品，嘿嘿
+                        ],
+                      },
+                      {
+                        text: "提示工程 (Prompt Engineering)",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础提示设计",
+                          },
+                          {
+                            text: "高级提示技巧",
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    text: "AI 开发工具与平台",
+                    collapsed: false,
+                    items: [
+                      {
+                        text: "模型训练与部署",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "Jupyter Notebook",
+                          },
+                          { text: "Google Colab" },
+                          {
+                            text: "SageMaker (AWS)",
+                          },
+                          { text: "MLflow" }, // 模型管理
+                        ],
+                      },
+                      {
+                        text: "模型推理与服务化",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "Triton Inference Server",
+                          },
+                          {
+                            text: "FastAPI + AI 模型",
+                          },
+                          { text: "Gradio" }, // 快速构建 AI 界面
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    text: "AI 在全栈中的应用",
+                    collapsed: false,
+                    items: [
+                      {
+                        text: "前端智能",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "智能表单验证",
+                          },
+                          {
+                            text: "实时图像处理",
+                          },
+                          {
+                            text: "语音识别",
+                          },
+                        ],
+                      },
+                      {
+                        text: "后端智能",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "推荐系统",
+                          },
+                          {
+                            text: "聊天机器人",
+                          },
+                          {
+                            text: "日志异常检测",
+                          },
+                        ],
+                      },
+                      {
+                        text: "自动化与优化",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "代码生成 (Copilot-like)",
+                          },
+                          {
+                            text: "测试用例生成",
+                          },
+                          {
+                            text: "性能预测",
+                          },
+                        ],
+                      },
+                    ],
+                  },
                 ],
               },
             ],
