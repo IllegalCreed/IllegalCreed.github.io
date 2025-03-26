@@ -5,6 +5,48 @@ outline: [2, 3]
 
 # 基础
 
+## 速查
+
+- 分隔符：`---`
+- 备注：每页最后的注释块 `<!-- -->`
+- 备注中的标记：`[click]`
+- 代码块：` ```ts ``` `
+- 引入代码片段：`<<< @/snippets/snippet.js`
+- 公式块: `$$` | `$`
+- 图表：` ```mermaid ``` `
+- 导入幻灯片：`src:./slides.md`
+- 绘图：`drawings: { persist, enabled, presenterOnly, syncAll}`
+- 全局图层：`global-top.vue` | `global-bottom.vue` | `slide-top.vue` | `slide-bottom.vue` | `custom-nav-controls.vue`
+- 动画：`v-click` | `v-after` | `.hide` | `v-clicks`
+- 相对：`<img v-click="'+1'" />` | `<v-click at="+2"></v-click>`
+- 绝对：`<div v-click="3"></div>` | `<v-click at="2"></v-click>`
+- 显示后隐藏：`<div v-click.hide="[2, 4]"></div>` | `<div v-click="'[+1, +1]'"></div>`
+- 定义总动画步骤数：`clicks: 10`
+- 修改v-click过渡效果：`.slidev-vclick-target` | `.slidev-vclick-hidden`
+- Motion：`<div v-motion :initial :enter :click-x :click-x-y :leave>`
+- 幻灯片过渡：`transition: slide-left`
+- View Transition API：`transition: view-transition` | `{.view-transition-title}`
+- 自定义过渡效果：`transition: my-transition`
+- 前进后退过渡：`transition: go-forward | go-backward`
+- 使用主题：`theme: seriph`
+- 弹出主题：`slidev theme eject`
+- 使用插件：`addons: - excalidraw`
+- 组件: `<MyComponent :count="4"/>`
+- 布局：`layout: quote`
+- 导出：`slidev export`
+    - 每个步骤一页：`slidev export --with-clicks`
+    - 指定文件名：`slidev export --output my-pdf-export`
+    - 导出多个幻灯片：`slidev export slides1.md slides2.md`
+    - 暗色模式：`slidev export --dark`
+    - 超时时间：`slidev export --timeout 60000`
+    - 生成大纲：`slidev export --with-toc`
+    - 去除浏览器背景：`slidev export --omit-background`
+- 部署：`slidev build`
+    - 基础路径：`slidev build --base /talks/my-cool-talk/`
+    - 生成PDF：`download: true` | `slidev build --download`
+- 拖拽：`dragPos: name：Left,Top,Width,Height,Rotate` | `<v-drag pos="name"></v-drag>`
+- 调整大小和缩放：`aspectRatio: 16/9` | `canvasWidth: 980` | `zoom: 0.8`
+
 ## 语法
 
 采用 Markdown 作为基底语言，另外 Slidev 还扩展了 `md` 的语法。默认入口文件为 `./slides.md` ，默认所有幻灯片页面都在此文件中编写。
