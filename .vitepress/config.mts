@@ -159,6 +159,7 @@ export default defineConfig({
                   },
                   {
                     text: "网络设备",
+                    collapsed: true,
                     items: [
                       { text: "路由器" },
                       { text: "交换机" },
@@ -221,9 +222,15 @@ export default defineConfig({
                 text: "Web API",
                 collapsed: true,
                 items: [
-                  { text: "Web Component" },
+                  { text: "Web Components" },
                   { text: "Web Assembly" },
-                  { text: "WebRTC" },
+                  { text: "WebRTC API" },
+                  { text: "Server-Sent Events" },
+                  { text: "Fetch API" },
+                  { text: "WebSocket" },
+                  { text: "Web Storage API" },
+                  { text: "IndexedDB" },
+                  { text: "Web Workers API" },
                 ],
               },
               {
@@ -257,7 +264,7 @@ export default defineConfig({
                 ],
               },
               {
-                text: "常见扩展库",
+                text: "JS扩展库",
                 collapsed: true,
                 items: [
                   { text: "Lodash-es" },
@@ -311,7 +318,7 @@ export default defineConfig({
                   { text: "Docusaurus" },
                   {
                     text: "VitePress",
-                    collapsed: false,
+                    collapsed: true,
                     link: "/zh/frontend-framework/ssg/vite-press/",
                     items: [
                       {
@@ -338,7 +345,7 @@ export default defineConfig({
                   },
                   {
                     text: "Slidev",
-                    collapsed: false,
+                    collapsed: true,
                     link: "/zh/frontend-framework/ssg/slidev/",
                     items: [
                       {
@@ -427,7 +434,7 @@ export default defineConfig({
                   { text: "TanStack Query" },
                   {
                     text: "Vee-validate",
-                    collapsed: false,
+                    collapsed: true,
                     link: "/zh/frontend-framework/others/vee-validate/",
                     items: [
                       { text: "入门" },
@@ -438,7 +445,7 @@ export default defineConfig({
                   },
                   {
                     text: "Vue-i18n Vue3",
-                    collapsed: false,
+                    collapsed: true,
                     link: "/zh/frontend-framework/others/vue-i18n/",
                     items: [
                       {
@@ -520,7 +527,7 @@ export default defineConfig({
                   { text: "ESLint" },
                   {
                     text: "Prettier",
-                    collapsed: false,
+                    collapsed: true,
                     link: "/zh/frontend-develop-tools/static-analysis/prettier/",
                     items: [
                       {
@@ -856,7 +863,7 @@ export default defineConfig({
                   { text: "Jenkins" },
                   {
                     text: "Husky",
-                    collapsed: false,
+                    collapsed: true,
                     link: "/zh/engineering/devops/husky/",
                     items: [
                       {
@@ -871,7 +878,7 @@ export default defineConfig({
                   },
                   {
                     text: "lint-staged",
-                    collapsed: false,
+                    collapsed: true,
                     link: "/zh/engineering/devops/lint-staged/",
                     items: [
                       {
