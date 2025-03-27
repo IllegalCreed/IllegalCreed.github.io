@@ -1,9 +1,25 @@
 ---
 layout: doc
-outline: [2, 34]
+outline: [2, 4]
 ---
 
 # 高级
+
+## 速查
+
+- shiki 配置文件：`./setup/shiki.ts`
+- vite 配置文件：`./vite.config.ts`
+- vue 配置文件：`./setup/main.ts`
+- UnoCSS 配置文件：`./uno.config.ts`
+- 代码运行器配置文件：`./setup/code-runners.ts`
+- MD语法扩展配置文件：`./setup/transformers.ts`
+- Monaco 配置文件：`./setup/monaco.ts`
+- KaTeX 配置文件：`./setup/katex.ts`
+- Mermaid 配置文件：`./setup/mermaid.ts`
+- 路由配置文件：`./setup/router.ts`
+- 快捷键配置文件：`./setup/shortcuts.ts`
+- 右键菜单配置文件：`./setup/context-menu.ts`
+- 预解析器配置文件：`./setup/preparser.ts`
 
 ## 自定义配置
 
