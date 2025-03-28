@@ -30,4 +30,4 @@ layout: doc
 
 ## 幻灯片地址
 
-[Prettier](/SlideStack/prettier-slide/)
+<a href="/SlideStack/prettier-slide/" target="_blank">Prettier</a>
