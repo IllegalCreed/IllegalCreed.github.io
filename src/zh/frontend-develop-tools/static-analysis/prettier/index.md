@@ -27,3 +27,7 @@ layout: doc
 ## GitHub地址
 
 [Prettier](https://github.com/prettier/prettier/)
+
+## 幻灯片地址
+
+[Prettier](/SlideStack/prettier-slide/)
