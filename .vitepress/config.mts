@@ -7,6 +7,7 @@ export default defineConfig({
   description: "A Roadmap of Dev",
   srcDir: "./src",
   cleanUrls: true,
+  ignoreDeadLinks: true,
 
   vite: {
     // Vite 配置选项
