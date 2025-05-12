@@ -18,3 +18,7 @@ layout: doc
 ## GitHub地址
 
 [Husky](https://github.com/typicode/husky/)
+
+## 幻灯片地址
+
+<a href="/SlideStack/husky-slide/" target="_blank">Husky</a>
