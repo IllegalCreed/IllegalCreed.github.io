@@ -7,7 +7,7 @@ layout: doc
 ## 安装
 
 ```shell
-pnpm add --save-dev husky
+pnpm add -D husky
 ```
 
 ## 初始化
