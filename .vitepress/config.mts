@@ -1352,197 +1352,192 @@ export default defineConfig({
 
           {
             text: "人工智能",
+            collapsed: false,
             items: [
               {
-                text: "AI 与智能开发",
-                collapsed: false,
+                text: "AI 基础",
+                collapsed: true,
                 items: [
                   {
-                    text: "AI 基础",
-                    collapsed: false,
+                    text: "机器学习基础",
+                    collapsed: true,
                     items: [
                       {
-                        text: "机器学习基础",
-                        collapsed: true,
-                        items: [
-                          {
-                            text: "监督学习",
-                          },
-                          {
-                            text: "无监督学习",
-                          },
-                          {
-                            text: "强化学习",
-                          },
-                          {
-                            text: "AutoML",
-                          },
-                        ],
+                        text: "监督学习",
                       },
                       {
-                        text: "深度学习基础",
-                        collapsed: true,
-                        items: [
-                          {
-                            text: "神经网络",
-                          },
-                          {
-                            text: "卷积神经网络 (CNN)",
-                          },
-                          {
-                            text: "循环神经网络 (RNN)",
-                          },
-                          {
-                            text: "Transformer",
-                          },
-                        ],
+                        text: "无监督学习",
+                      },
+                      {
+                        text: "强化学习",
+                      },
+                      {
+                        text: "AutoML",
                       },
                     ],
                   },
                   {
-                    text: "AI 框架与库",
-                    collapsed: false,
+                    text: "深度学习基础",
+                    collapsed: true,
                     items: [
                       {
-                        text: "通用机器学习框架",
-                        collapsed: true,
-                        items: [
-                          {
-                            text: "TensorFlow",
-                          },
-                          {
-                            text: "PyTorch",
-                          },
-                          {
-                            text: "scikit-learn",
-                          },
-                        ],
+                        text: "神经网络",
                       },
                       {
-                        text: "自然语言处理 (NLP)",
-                        collapsed: true,
-                        items: [
-                          {
-                            text: "Hugging Face Transformers",
-                          },
-                          { text: "spaCy" },
-                        ],
+                        text: "卷积神经网络 (CNN)",
                       },
                       {
-                        text: "计算机视觉",
-                        collapsed: true,
-                        items: [{ text: "OpenCV" }, { text: "YOLO" }],
+                        text: "循环神经网络 (RNN)",
+                      },
+                      {
+                        text: "Transformer",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "AI 框架与库",
+                collapsed: true,
+                items: [
+                  {
+                    text: "通用机器学习框架",
+                    collapsed: true,
+                    items: [
+                      {
+                        text: "TensorFlow",
+                      },
+                      {
+                        text: "PyTorch",
+                      },
+                      {
+                        text: "scikit-learn",
                       },
                     ],
                   },
                   {
-                    text: "大语言模型与生成式 AI",
-                    collapsed: false,
+                    text: "自然语言处理 (NLP)",
+                    collapsed: true,
                     items: [
                       {
-                        text: "模型与工具",
-                        collapsed: true,
-                        items: [
-                          { text: "LangChain" },
-                          { text: "LLaMA" },
-                          {
-                            text: "ChatGPT API (OpenAI)",
-                          },
-                          { text: "Grok (xAI)" },
-                        ],
+                        text: "Hugging Face Transformers",
+                      },
+                      { text: "spaCy" },
+                    ],
+                  },
+                  {
+                    text: "计算机视觉",
+                    collapsed: true,
+                    items: [{ text: "OpenCV" }, { text: "YOLO" }],
+                  },
+                ],
+              },
+              {
+                text: "大语言模型与生成式 AI",
+                collapsed: true,
+                items: [
+                  {
+                    text: "模型与工具",
+                    collapsed: true,
+                    items: [
+                      { text: "LangChain" },
+                      { text: "LLaMA" },
+                      {
+                        text: "ChatGPT API (OpenAI)",
+                      },
+                      { text: "Grok (xAI)" },
+                    ],
+                  },
+                  {
+                    text: "提示工程 (Prompt Engineering)",
+                    collapsed: true,
+                    items: [
+                      {
+                        text: "基础提示设计",
                       },
                       {
-                        text: "提示工程 (Prompt Engineering)",
-                        collapsed: true,
-                        items: [
-                          {
-                            text: "基础提示设计",
-                          },
-                          {
-                            text: "高级提示技巧",
-                          },
-                        ],
+                        text: "高级提示技巧",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "AI 开发工具与平台",
+                collapsed: true,
+                items: [
+                  {
+                    text: "模型训练与部署",
+                    collapsed: true,
+                    items: [
+                      {
+                        text: "Jupyter Notebook",
+                      },
+                      { text: "Google Colab" },
+                      {
+                        text: "SageMaker (AWS)",
+                      },
+                      { text: "MLflow" }, // 模型管理
+                    ],
+                  },
+                  {
+                    text: "模型推理与服务化",
+                    collapsed: true,
+                    items: [
+                      {
+                        text: "FastAPI + AI 模型",
+                      },
+                      { text: "Gradio" }, // 快速构建 AI 界面
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "AI 在全栈中的应用",
+                collapsed: true,
+                items: [
+                  {
+                    text: "前端智能",
+                    collapsed: true,
+                    items: [
+                      {
+                        text: "智能表单验证",
+                      },
+                      {
+                        text: "实时图像处理",
+                      },
+                      {
+                        text: "语音识别",
                       },
                     ],
                   },
                   {
-                    text: "AI 开发工具与平台",
-                    collapsed: false,
+                    text: "后端智能",
+                    collapsed: true,
                     items: [
                       {
-                        text: "模型训练与部署",
-                        collapsed: true,
-                        items: [
-                          {
-                            text: "Jupyter Notebook",
-                          },
-                          { text: "Google Colab" },
-                          {
-                            text: "SageMaker (AWS)",
-                          },
-                          { text: "MLflow" }, // 模型管理
-                        ],
+                        text: "推荐系统",
                       },
                       {
-                        text: "模型推理与服务化",
-                        collapsed: true,
-                        items: [
-                          {
-                            text: "FastAPI + AI 模型",
-                          },
-                          { text: "Gradio" }, // 快速构建 AI 界面
-                        ],
+                        text: "聊天机器人",
+                      },
+                      {
+                        text: "日志异常检测",
                       },
                     ],
                   },
                   {
-                    text: "AI 在全栈中的应用",
-                    collapsed: false,
+                    text: "自动化与优化",
+                    collapsed: true,
                     items: [
                       {
-                        text: "前端智能",
-                        collapsed: true,
-                        items: [
-                          {
-                            text: "智能表单验证",
-                          },
-                          {
-                            text: "实时图像处理",
-                          },
-                          {
-                            text: "语音识别",
-                          },
-                        ],
+                        text: "代码生成 (Copilot-like)",
                       },
                       {
-                        text: "后端智能",
-                        collapsed: true,
-                        items: [
-                          {
-                            text: "推荐系统",
-                          },
-                          {
-                            text: "聊天机器人",
-                          },
-                          {
-                            text: "日志异常检测",
-                          },
-                        ],
+                        text: "测试用例生成",
                       },
                       {
-                        text: "自动化与优化",
-                        collapsed: true,
-                        items: [
-                          {
-                            text: "代码生成 (Copilot-like)",
-                          },
-                          {
-                            text: "测试用例生成",
-                          },
-                          {
-                            text: "性能预测",
-                          },
-                        ],
+                        text: "性能预测",
                       },
                     ],
                   },
