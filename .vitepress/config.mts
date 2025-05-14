@@ -104,7 +104,7 @@ export default defineConfig({
             items: [
               {
                 text: "基本语言",
-                collapsed: false,
+                collapsed: true,
                 link: "/zh/base/language/",
                 items: [
                   {
@@ -126,7 +126,7 @@ export default defineConfig({
               },
               {
                 text: "计算机网络基础",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   {
                     text: "网络模型",
@@ -217,6 +217,7 @@ export default defineConfig({
             items: [
               {
                 text: "语言",
+                collapsed: true,
                 items: [
                   { text: "Markdown" },
                   { text: "TypeScript" },
@@ -257,7 +258,7 @@ export default defineConfig({
               },
               {
                 text: "包管理器",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   {
                     text: "系统级",
@@ -302,7 +303,7 @@ export default defineConfig({
             items: [
               {
                 text: "UI框架",
-                collapsed: false,
+                collapsed: true,
                 link: "/zh/frontend-framework/ui/",
                 items: [
                   { text: "React" },
@@ -315,7 +316,7 @@ export default defineConfig({
               },
               {
                 text: "元框架",
-                collapsed: false,
+                collapsed: true,
                 link: "/zh/frontend-framework/meta/",
                 items: [
                   { text: "Next.js" },
@@ -329,7 +330,7 @@ export default defineConfig({
               },
               {
                 text: "静态网站框架",
-                collapsed: false,
+                collapsed: true,
                 link: "/zh/frontend-framework/ssg/",
                 items: [
                   { text: "Docusaurus" },
@@ -344,7 +345,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: false,
+                        collapsed: true,
                         items: [
                           {
                             text: "基础",
@@ -371,7 +372,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: false,
+                        collapsed: true,
                         items: [
                           {
                             text: "基础",
@@ -402,7 +403,7 @@ export default defineConfig({
               {
                 text: "组件库",
                 link: "/zh/frontend-framework/components/",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "Element Plus" },
                   { text: "Vuetify" },
@@ -442,7 +443,7 @@ export default defineConfig({
               },
               {
                 text: "其他",
-                collapsed: false,
+                collapsed: true,
                 link: "/zh/frontend-framework/others",
                 items: [
                   { text: "Iconify" },
@@ -471,7 +472,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: false,
+                        collapsed: true,
                         link: "/zh/frontend-framework/others/vue-i18n/guide-line",
                         items: [
                           { text: "基础" },
@@ -493,7 +494,7 @@ export default defineConfig({
             items: [
               {
                 text: "构建工具",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "Vite" },
                   { text: "Webpack" },
@@ -539,7 +540,7 @@ export default defineConfig({
               },
               {
                 text: "静态分析工具",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "ESLint" },
                   {
@@ -553,7 +554,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: false,
+                        collapsed: true,
                         items: [
                           {
                             text: "基础",
@@ -561,7 +562,7 @@ export default defineConfig({
                           },
                           {
                             text: "高级",
-                            collapsed: false,
+                            collapsed: true,
                             items: [
                               {
                                 text: "配置",
@@ -618,7 +619,7 @@ export default defineConfig({
             items: [
               {
                 text: "单元测试",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "Jest" },
                   { text: "Vitest" },
@@ -703,11 +704,11 @@ export default defineConfig({
             items: [
               {
                 text: "设计模式",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   {
                     text: "架构模式",
-                    collapsed: false,
+                    collapsed: true,
                     items: [{ text: "MVC" }, { text: "MVVM" }],
                   },
                   {
@@ -793,7 +794,7 @@ export default defineConfig({
             items: [
               {
                 text: "移动端框架",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "React Native" },
                   { text: "Flutter" },
@@ -804,7 +805,7 @@ export default defineConfig({
               },
               {
                 text: "桌面端框架",
-                collapsed: false,
+                collapsed: true,
                 items: [{ text: "Electron" }, { text: "Tauri" }],
               },
             ],
@@ -816,7 +817,7 @@ export default defineConfig({
             items: [
               {
                 text: "图表",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "ECharts" },
                   { text: "D3.js" },
@@ -873,7 +874,7 @@ export default defineConfig({
             items: [
               {
                 text: "DevOps",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "GitHub Actions" },
                   { text: "GitLab CI/CD" },
@@ -912,7 +913,7 @@ export default defineConfig({
               },
               {
                 text: "依赖管理器",
-                collapsed: false,
+                collapsed: true,
                 items: [{ text: "Pnpm" }, { text: "Yarn" }, { text: "Bit" }],
               },
               { text: "容器", collapsed: true, items: [{ text: "Docker" }] },
@@ -984,12 +985,12 @@ export default defineConfig({
             items: [
               {
                 text: "软件工程",
-                collapsed: false,
+                collapsed: true,
                 items: [{ text: "敏捷开发" }, { text: "Scrum" }],
               },
               {
                 text: "开源分享",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   {
                     text: "技术社区",
@@ -1004,7 +1005,7 @@ export default defineConfig({
                   },
                   {
                     text: "代码仓库",
-                    collapsed: false,
+                    collapsed: true,
                     items: [
                       { text: "Github" },
                       { text: "GitLab" },
@@ -1055,7 +1056,7 @@ export default defineConfig({
               },
               {
                 text: "通用云服务",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "阿里云" },
                   { text: "Firebase" },
@@ -1075,12 +1076,12 @@ export default defineConfig({
             items: [
               {
                 text: "基础框架",
-                collapsed: false,
+                collapsed: true,
                 items: [{ text: "Node.js" }, { text: "Deno" }, { text: "Bun" }],
               },
               {
                 text: "应用框架",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "Express" },
                   { text: "Fastify" },
@@ -1089,7 +1090,7 @@ export default defineConfig({
               },
               {
                 text: "ORM框架",
-                collapsed: false,
+                collapsed: true,
                 items: [{ text: "TypeORM" }, { text: "Prisma" }],
               },
             ],
@@ -1105,7 +1106,7 @@ export default defineConfig({
                 items: [
                   {
                     text: "Shells",
-                    collapsed: false,
+                    collapsed: true,
                     items: [
                       { text: "Bash" },
                       { text: "Zsh" },
@@ -1114,7 +1115,7 @@ export default defineConfig({
                   },
                   {
                     text: "基础命令",
-                    collapsed: false,
+                    collapsed: true,
                     items: [
                       { text: "文件系统" },
                       { text: "进程管理" },
@@ -1131,7 +1132,7 @@ export default defineConfig({
               },
               {
                 text: "Web服务器",
-                collapsed: false,
+                collapsed: true,
                 items: [{ text: "Caddy" }, { text: "Nginx" }],
               },
             ],
@@ -1143,12 +1144,12 @@ export default defineConfig({
             items: [
               {
                 text: "系统编程语言",
-                collapsed: false,
+                collapsed: true,
                 items: [{ text: "Rust" }],
               },
               {
                 text: "通用编程语言",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "Python" },
                   { text: "Java" },
@@ -1159,7 +1160,7 @@ export default defineConfig({
               },
               {
                 text: "并发编程语言",
-                collapsed: false,
+                collapsed: true,
                 items: [{ text: "Golang" }],
               },
               {
@@ -1176,7 +1177,7 @@ export default defineConfig({
             items: [
               {
                 text: "关系型数据库",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "MySQL" },
                   { text: "PostgreSQL" },
@@ -1185,7 +1186,7 @@ export default defineConfig({
               },
               {
                 text: "非关系型数据库",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "Redis" },
                   { text: "MongoDB" },
@@ -1217,6 +1218,7 @@ export default defineConfig({
             items: [
               {
                 text: "容器编排",
+                collapsed: true,
                 items: [
                   { text: "Docker" },
                   { text: "Kubernetes" },
@@ -1234,11 +1236,11 @@ export default defineConfig({
               },
               {
                 text: "数据处理",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   {
                     text: "消息队列",
-                    collapsed: false,
+                    collapsed: true,
                     items: [
                       { text: "RocketMQ" },
                       { text: "RabbitMQ" },
@@ -1247,12 +1249,12 @@ export default defineConfig({
                   },
                   {
                     text: "流处理",
-                    collapsed: false,
+                    collapsed: true,
                     items: [{ text: "Flink" }],
                   },
                   {
                     text: "批处理",
-                    collapsed: false,
+                    collapsed: true,
                     items: [{ text: "Hadoop" }, { text: "Spark" }],
                   },
                 ],
@@ -1266,7 +1268,7 @@ export default defineConfig({
             items: [
               {
                 text: "服务框架",
-                collapsed: false,
+                collapsed: true,
                 items: [{ text: "Nest.js" }, { text: "Apollo Server" }],
               },
               {
@@ -1313,7 +1315,7 @@ export default defineConfig({
             items: [
               {
                 text: "路由层",
-                collapsed: false,
+                collapsed: true,
                 items: [
                   { text: "REST API" },
                   { text: "GraphQL API" },
@@ -1477,7 +1479,7 @@ export default defineConfig({
                       {
                         text: "SageMaker (AWS)",
                       },
-                      { text: "MLflow" }, // 模型管理
+                      { text: "MLflow" },
                     ],
                   },
                   {
@@ -1487,7 +1489,7 @@ export default defineConfig({
                       {
                         text: "FastAPI + AI 模型",
                       },
-                      { text: "Gradio" }, // 快速构建 AI 界面
+                      { text: "Gradio" },
                     ],
                   },
                 ],
