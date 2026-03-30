@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress";
-import { fileURLToPath, URL } from "node:url";
+import { fileURLToPath, URL } from "url";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -12,17 +12,20 @@ export default defineConfig({
   head: [
     // Google Analytics 跟踪脚本
     [
-      'script',
-      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-YZWQCNFFG3' }
+      "script",
+      {
+        async: "",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-YZWQCNFFG3",
+      },
     ],
     [
-      'script',
+      "script",
       {},
       `window.dataLayer = window.dataLayer || [];
        function gtag(){dataLayer.push(arguments);}
        gtag('js', new Date());
-       gtag('config', 'G-YZWQCNFFG3');`
-    ]
+       gtag('config', 'G-YZWQCNFFG3');`,
+    ],
   ],
 
   vite: {
@@ -80,7 +83,7 @@ export default defineConfig({
     zh: {
       label: "中文",
       lang: "zh", // 可选，将作为 `lang` 属性添加到 `html` 标签中
-      link: "/zh/", // 默认 /fr/ -- 显示在导航栏翻译菜单上，可以是外部的
+      link: "/zh/", 
       themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
@@ -103,7 +106,7 @@ export default defineConfig({
             collapsed: false,
             items: [
               {
-                text: "基本语言",
+                text: "三大语言",
                 collapsed: true,
                 link: "/zh/base/language/",
                 items: [
@@ -917,6 +920,28 @@ export default defineConfig({
                 items: [{ text: "Pnpm" }, { text: "Yarn" }, { text: "Bit" }],
               },
               { text: "容器", collapsed: true, items: [{ text: "Docker" }] },
+              {
+                text: "Monorepo",
+                collapsed: true,
+                items: [
+                  { text: "Lerna" },
+                  {
+                    text: "Turborepo",
+                    collapsed: true,
+                    link: "/zh/engineering/monorepo/turborepo/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/monorepo/turborepo/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/engineering/monorepo/turborepo/guide-line.md",
+                      },
+                    ],
+                  },
+                ],
+              },
             ],
           },
 
