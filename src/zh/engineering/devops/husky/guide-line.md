@@ -114,7 +114,7 @@ unset HUSKY # Re-enables hooks
 
 ### 通过配置文件
 
-linux/max：`~/.config/husky/init.sh` 
+linux/mac：`~/.config/husky/init.sh` 
 
 windows：`C:\Users\yourusername\.config\husky\init.sh`
 
@@ -170,7 +170,7 @@ console.log(husky())
 "prepare": "node .husky/install.mjs"
 ```
 
-## 再不提交的情况下测试 Hook
+## 在不提交的情况下测试 Hook
 
 ```shell
 # .husky/pre-commit
@@ -288,6 +288,18 @@ export NVM_DIR="$HOME/.nvm"
   }
 }
 ```
+
+::: warning Yarn 用户注意
+Yarn 不支持 `prepare` 生命周期脚本，需要改用 `postinstall`：
+
+```json
+{
+  "scripts": {
+    "postinstall": "husky"
+  }
+}
+```
+:::
 
 执行
 
