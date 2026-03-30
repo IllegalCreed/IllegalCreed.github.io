@@ -49,11 +49,14 @@ build() {
 deploy() {
   log_info "部署到 ${SERVER_HOST}..."
 
-  # 同步构建产物到服务器（排除 SlideStack 子目录，避免覆盖幻灯片）
-  rsync -avz --delete \
-    --exclude='SlideStack/' \
-    "${PROJECT_ROOT}/.vitepress/dist/" \
-    "${SERVER_USER}@${SERVER_HOST}:${REMOTE_DIR}/"
+  # 清理远程目录（保留 SlideStack 子目录）
+  ssh "${SERVER_USER}@${SERVER_HOST}" "
+    cd ${REMOTE_DIR}
+    find . -maxdepth 1 ! -name '.' ! -name 'SlideStack' -exec rm -rf {} +
+  "
+
+  # 上传构建产物
+  scp -r "${PROJECT_ROOT}/.vitepress/dist/"* "${SERVER_USER}@${SERVER_HOST}:${REMOTE_DIR}/"
 
   log_info "部署完成 ✓"
 }
