@@ -2,7 +2,8 @@
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "deploy": "bash ./scripts/deploy.sh"
   },
   "dependencies": {
     "vue": "^3.5.26"
