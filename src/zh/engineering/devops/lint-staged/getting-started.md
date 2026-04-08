@@ -5,9 +5,11 @@ outline: [2, 3]
 
 # 入门
 
+> 基于 lint-staged v16.4.0 编写
+
 ## 速查
 
-- 配置文件：`lint-staged.config.ts` / `packagge.json`
+- 配置文件：`lint-staged.config.ts` / `package.json`
 - 配置函数签名：`(filenames: string[]) => string | string[] | Promise<string | string[]>;`
 - 匹配方式：`glob`
 - 并发：`--concurrent <number>` / `--concurrent false`
@@ -188,11 +190,11 @@ npx lint-staged --config lint-staged.config.ts
 
 ## **筛选文件**
 
-使用 [**MicroMatch**](https://github.com/micromatch/micromatch) 来进行 `glob` 文件匹配
+使用 [**picomatch**](https://github.com/micromatch/picomatch) 来进行 `glob` 文件匹配
 
 ### 不含斜杠（/）的 Glob 模式
 
-用 `micromatch` 的 `matchBase` 选项，仅匹配文件名（忽略目录路径）
+用 `picomatch` 的 `matchBase` 选项，仅匹配文件名（忽略目录路径）
 
 **示例：**
 
@@ -222,7 +224,19 @@ npx lint-staged --config lint-staged.config.ts
 
 ### 忽略文件
 
-优先使用工具本身（`eslint`、`prettier`）的忽略机制，而不是依赖 `lint-staged`
+::: warning 核心原则
+
+**lint-staged 不负责忽略文件**。它只是获取暂存文件并传递给任务命令。
+
+忽略逻辑应该由工具本身处理：
+- ESLint → `.eslintignore` 或 `ignores` 配置
+- Prettier → `.prettierignore`
+
+以下内容仅供参考，详细配置请查看各工具的官方文档。
+
+:::
+
+**工具本身的忽略配置示例**
 
 **使用 Prettier 忽略文件**
 
@@ -293,7 +307,51 @@ export default defineConfig([
 ]);
 ```
 
-**高级场景：动态过滤文件**
+**lint-staged 官方推荐方案**
+
+### ESLint >= 8.51.0 + Flat Config
+
+使用 `--no-warn-ignored` CLI 标志，无需手动过滤：
+
+```json
+{
+  "*.{js,ts}": "eslint --max-warnings=0 --no-warn-ignored"
+}
+```
+
+::: tip
+
+- `--no-warn-ignored` 仅在使用 Flat Config（`eslint.config.js`）时有效
+- 这比用函数过滤 `isPathIgnored` 更简洁高效
+
+:::
+
+### ESLint >= 7（传统配置）
+
+使用 `ESLint.isPathIgnored()` 异步过滤：
+
+```javascript
+import { ESLint } from 'eslint';
+
+const removeIgnoredFiles = async (files) => {
+  const eslint = new ESLint();
+  const isIgnored = await Promise.all(
+    files.map((file) => eslint.isPathIgnored(file))
+  );
+  return files.filter((_, i) => !isIgnored[i]).join(' ');
+};
+
+export default {
+  '**/*.{js,ts}': async (files) => {
+    const filesToLint = await removeIgnoredFiles(files);
+    return filesToLint ? [`eslint --max-warnings=0 ${filesToLint}`] : [];
+  },
+};
+```
+
+**仅当工具本身的忽略机制无法满足时**
+
+在极少数情况下，当工具本身的忽略机制不生效或无法使用时，可以在 lint-staged 层面动态过滤：
 
 `lint-staged.config.ts`
 
@@ -311,3 +369,168 @@ const config: Configuration = {
 
 export default config;
 ```
+
+## CLI 参数
+
+```bash
+npx lint-staged --help
+```
+
+**常用参数：**
+
+| 参数 | 说明 |
+|------|------|
+| `--allow-empty` | 允许空提交（当任务回退所有暂存更改时） |
+| `--concurrent <number>` | 限制并发任务数量，`false` 完全禁用并发 |
+| `--config <path>` | 指定配置文件路径 |
+| `--cwd <path>` | 在指定目录运行任务 |
+| `--debug` | 打印调试信息 |
+| `--diff <string>` | 覆盖默认的 `--staged`，用于 CI 场景 |
+| `--diff-filter <string>` | 覆盖默认的 `ACMR` 过滤器 |
+| `--fail-on-changes` | 任务修改文件后以退出码 1 失败 |
+| `--hide-all` | 隐藏所有未暂存更改和未跟踪文件 |
+| `--hide-unstaged` | 隐藏所有未暂存更改 |
+| `--no-revert` | 错误时不回退修改 |
+| `--no-stash` | 禁用备份 stash |
+| `--quiet` | 禁用 lint-staged 自身输出 |
+| `--relative` | 传递相对路径给任务 |
+| `--verbose` | 显示成功任务的输出 |
+| `--stash` | 启用备份 stash（默认启用） |
+
+## Node.js API
+
+可以在代码中直接调用 lint-staged：
+
+```typescript
+import lintStaged from 'lint-staged';
+
+try {
+  const success = await lintStaged({
+    allowEmpty: false,
+    concurrent: true,
+    configPath: './lint-staged.config.ts',
+    cwd: process.cwd(),
+    debug: false,
+    maxArgLength: null,
+    quiet: false,
+    relative: false,
+    stash: true,
+    verbose: false,
+  });
+  
+  console.log(success ? 'Linting passed!' : 'Linting failed!');
+} catch (e) {
+  console.error('Failed to load configuration:', e);
+}
+```
+
+也可以直接传递配置对象：
+
+```typescript
+const success = await lintStaged({
+  config: {
+    '*.js': 'eslint --fix',
+  },
+});
+```
+
+## CI 使用场景
+
+在 CI 中检查特定 commit 范围的变更：
+
+```bash
+# 检查 main 分支和当前分支之间的差异
+git diff --diff-filter=ACMR --name-only main...HEAD
+
+# 使用 lint-staged 检查这些文件
+npx lint-staged --diff="main...HEAD"
+```
+
+或使用 merge-base 检查当前分支相对于 main 的变更：
+
+```bash
+npx lint-staged --diff="$(git merge-base main HEAD)"
+```
+
+## CLI 参数
+
+```bash
+npx lint-staged --help
+```
+
+**常用参数：**
+
+| 参数 | 说明 |
+|------|------|
+| `--allow-empty` | 允许空提交（当任务回退所有暂存更改时） |
+| `--concurrent <number>` | 限制并发任务数量，`false` 完全禁用并发 |
+| `--config <path>` | 指定配置文件路径 |
+| `--cwd <path>` | 在指定目录运行任务 |
+| `--debug` | 打印调试信息 |
+| `--diff <string>` | 覆盖默认的 `--staged`，用于 CI 场景 |
+| `--diff-filter <string>` | 覆盖默认的 `ACMR` 过滤器 |
+| `--fail-on-changes` | 任务修改文件后以退出码 1 失败 |
+| `--hide-all` | 隐藏所有未暂存更改和未跟踪文件 |
+| `--hide-unstaged` | 隐藏所有未暂存更改 |
+| `--no-revert` | 错误时不回退修改 |
+| `--no-stash` | 禁用备份 stash |
+| `--quiet` | 禁用 lint-staged 自身输出 |
+| `--relative` | 传递相对路径给任务 |
+| `--verbose` | 显示成功任务的输出 |
+| `--stash` | 启用备份 stash（默认启用） |
+
+## Node.js API
+
+可以在代码中直接调用 lint-staged：
+
+```typescript
+import lintStaged from 'lint-staged';
+
+try {
+  const success = await lintStaged({
+    allowEmpty: false,
+    concurrent: true,
+    configPath: './lint-staged.config.ts',
+    cwd: process.cwd(),
+    debug: false,
+    maxArgLength: null,
+    quiet: false,
+    relative: false,
+    stash: true,
+    verbose: false,
+  });
+  
+  console.log(success ? 'Linting passed!' : 'Linting failed!');
+} catch (e) {
+  console.error('Failed to load configuration:', e);
+}
+```
+
+也可以直接传递配置对象：
+
+```typescript
+const success = await lintStaged({
+  config: {
+    '*.js': 'eslint --fix',
+  },
+});
+```
+
+## CI 使用场景
+
+在 CI 中检查特定 commit 范围的变更：
+
+```bash
+# 检查 main 分支和当前分支之间的差异
+git diff --diff-filter=ACMR --name-only main...HEAD
+
+# 使用 lint-staged 检查这些文件
+npx lint-staged --diff="main...HEAD"
+```
+
+或使用 merge-base 检查当前分支相对于 main 的变更：
+
+```bash
+npx lint-staged --diff="$(git merge-base main HEAD)"
+```
+

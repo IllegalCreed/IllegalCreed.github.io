@@ -4,7 +4,15 @@ layout: doc
 
 # lint-staged
 
+> 基于 lint-staged v16.4.0 编写
+
 用于在 `Git` 的 **暂存文件（staged files）** 上运行 `format` 工具（如 `Prettier`）或 `lint` 工具（如 `ESLint`），确保只对即将提交的代码进行检查和修复，提高效率并保持代码质量。
+
+> 基于 lint-staged v16.4.0 编写
+
+## 文档地址
+
+[lint-staged 官方文档](https://github.com/lint-staged/lint-staged#readme)（GitHub README 即官方文档）
 
 ## 评价
 
@@ -18,7 +26,7 @@ layout: doc
 
 **缺点**
 
-- 工具链过于零碎，希望可以和 husky 整合
+- 需要与 Git hooks 工具（如 Husky）配合使用，无法独立运行
 
 ## GitHub地址
 

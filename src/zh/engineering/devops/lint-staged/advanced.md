@@ -11,15 +11,15 @@ outline: [2, 3]
 
 ```javascript
 // lint-staged.config.js
-import micromatch from 'micromatch'
+import picomatch from 'picomatch'
 
 export default (allStagedFiles) => {
-  const shFiles = micromatch(allStagedFiles, ['**/src/**/*.sh'])
+  const shFiles = picomatch(allStagedFiles, ['**/src/**/*.sh'])
   if (shFiles.length) {
     return `printf '%s\n' "Script files aren't allowed in src directory" >&2`
   }
-  const codeFiles = micromatch(allStagedFiles, ['**/*.js', '**/*.ts'])
-  const docFiles = micromatch(allStagedFiles, ['**/*.md'])
+  const codeFiles = picomatch(allStagedFiles, ['**/*.js', '**/*.ts'])
+  const docFiles = picomatch(allStagedFiles, ['**/*.md'])
   return [`eslint ${codeFiles.join(' ')}`, `mdl ${docFiles.join(' ')}`]
 }
 ```
@@ -68,12 +68,12 @@ export default {
 
 ```javascript
 // lint-staged.config.js
-import micromatch from 'micromatch';
+import picomatch from 'picomatch';
 
 export default {
   '': (allFiles) => {
-    const codeFiles = micromatch(allFiles, ['**/*.js', '**/*.ts']);
-    const docFiles = micromatch(allFiles, ['**/*.md']);
+    const codeFiles = picomatch(allFiles, ['**/*.js', '**/*.ts']);
+    const docFiles = picomatch(allFiles, ['**/*.md']);
     return [`eslint ${codeFiles.join(' ')}`, `mdl ${docFiles.join(' ')}`];
   },
 };
@@ -88,11 +88,11 @@ export default {
 
 ```javascript
 // lint-staged.config.js
-import micromatch from 'micromatch';
+import picomatch from 'picomatch';
 
 export default {
   '*.js': (files) => {
-    const match = micromatch.not(files, '*test.js');
+    const match = picomatch.not(files, '*test.js');
     return `eslint ${match.join(' ')}`;
   },
 };
@@ -180,7 +180,7 @@ npx lint-staged
 ```json
 {
   "*.css": "stylelint",
-  "*.scss": "stylelint --syntax=scss"
+  "*.scss": "stylelint"
 }
 ```
 
@@ -246,6 +246,18 @@ monorepo/
 当提交 `packages/frontend/index.js` 时，只使用 `packages/frontend/.lintstagedrc.json`
 
 **适用场景**：多包 `monorepo`（如 `pnpm workspace`），每个包有独立 `linting` 需求。
+::: warning Monorepo 关键细节
+
+1. **不会回退到父级配置**：lint-staged 会使用离文件最近的配置文件。如果该配置文件中没有匹配的 glob，命令不会执行
+2. **空匹配 = 跳过执行**：如果文件不匹配任何 glob 模式，对应命令会被跳过
+
+示例：如果根目录有 `.lintstagedrc.json` 但 `packages/frontend/.lintstagedrc.json` 更近，提交 `packages/frontend/README.md` 时：
+- 即使根配置有 `"*.md": "prettier --write"`
+- frontend 配置没有匹配 md 的 glob
+- **prettier 不会执行**
+
+:::
+
 
 ### 匹配项目文件夹外的文件
 
@@ -253,5 +265,108 @@ monorepo/
 export default {
   '../**/*.js': 'eslint --fix',  // 匹配项目外的 JS 文件
   '*.js': 'eslint --fix'         // 匹配项目内的 JS 文件
+};
+```
+
+## JavaScript 函数式任务（对象格式）
+
+v16+ 支持对象格式的任务配置，可自定义显示标题：
+
+```javascript
+export default {
+  '*.js': {
+    title: '🔍 Checking JS files',
+    task: async (files) => {
+      console.log('Checking files:', files);
+      return `eslint ${files.join(' ')}`;
+    },
+  },
+};
+```
+
+**适用场景**：需要在 lint-staged 输出中显示更友好的任务名称
+
+## CI 中的高级用法
+
+### `--fail-on-changes`
+
+修改文件后以退出码 1 失败（常用于 `--no-verify` 场景）：
+
+```bash
+npx lint-staged --fail-on-changes
+```
+
+配合 `--no-revert` 可以保留修改：
+
+```bash
+npx lint-staged --fail-on-changes --no-revert
+```
+
+### `--continue-on-error`
+
+即使有任务失败也继续执行所有任务：
+
+```bash
+npx lint-staged --continue-on-error
+```
+
+### `--diff` 用于 CI
+
+在 CI 中检查特定范围的变更：
+
+```bash
+# 检查 main 分支和当前 PR 的差异
+npx lint-staged --diff="origin/main...HEAD"
+
+# 或使用 merge-base
+npx lint-staged --diff="$(git merge-base origin/main HEAD)"
+```
+
+### `--diff-filter` 自定义变更类型
+
+默认只检查 `ACMR`（添加、复制、修改、重命名），可以自定义：
+
+```bash
+# 只检查新增和修改的文件
+npx lint-staged --diff-filter="AM"
+```
+
+## TypeScript tsconfig 忽略问题
+
+::: warning 常见问题
+
+通过 Husky 运行 `tsc --noEmit` 时，如果 lint-staged 传递文件参数，TypeScript 可能会忽略 `tsconfig.json`，导致：
+
+- `TS17004: Cannot use JSX unless the '--jsx' flag is provided`
+- `TS1056: Accessors are only available when targeting ECMAScript 5 and higher`
+
+:::
+
+**根本原因**：lint-staged 自动传递暂存文件作为参数给 tsc，某些输入文件会导致 TypeScript 忽略 tsconfig.json。
+
+**解决方案**：使用函数签名阻止 lint-staged 传递文件参数：
+
+```javascript
+// Before（有问题）
+{
+  "**/*.ts?(x)": ["tsc --noEmit", "prettier --write"]
+}
+
+// After（修复）
+{
+  "**/*.ts?(x)": [() => "tsc --noEmit", "prettier --write"]
+}
+```
+
+或者更完整的 TypeScript 配置示例：
+
+```javascript
+// lint-staged.config.js
+export default {
+  "**/*.{ts,tsx}": [
+    () => "tsc -p tsconfig.json --noEmit",  // 函数阻止传递文件参数
+    "eslint --fix",
+    "prettier --write",
+  ],
 };
 ```
