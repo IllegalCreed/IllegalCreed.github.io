@@ -31,3 +31,7 @@ layout: doc
 ## GitHub地址
 
 [lint-staged](https://github.com/lint-staged/lint-staged)
+
+## 幻灯片地址
+
+<a href="/SlideStack/lint-staged-slide/" target="_blank">lint-staged</a>
