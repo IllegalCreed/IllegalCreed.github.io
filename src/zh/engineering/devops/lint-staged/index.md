@@ -22,7 +22,14 @@ layout: doc
 
 - 需要与 Git hooks 工具（如 Husky）配合使用，无法独立运行
 
-## 相关链接
+## 文档地址
 
-- [GitHub 仓库](https://github.com/lint-staged/lint-staged)（README 即官方文档）
-- [幻灯片](/SlideStack/lint-staged-slide/)
+[lint-staged](https://github.com/lint-staged/lint-staged#readme)（GitHub README 即官方文档）
+
+## GitHub地址
+
+[lint-staged](https://github.com/lint-staged/lint-staged)
+
+## 幻灯片地址
+
+<a href="/SlideStack/lint-staged-slide/" target="_blank">lint-staged</a>
