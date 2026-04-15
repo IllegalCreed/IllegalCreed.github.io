@@ -20,6 +20,9 @@ hero:
     - theme: alt
       text: 我的算法可视化
       link: https://illegalcreed.github.io/algorithms-visualization/
+    - theme: alt
+      text: 我的程序员刷题站
+      link: https://quiz.illegalscreed.cn/
 
 features:
   - title: Web基础知识
