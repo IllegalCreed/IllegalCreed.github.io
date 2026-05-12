@@ -179,7 +179,7 @@ turbo run build test --affected
 ```
 
 - 默认等价于 `--filter=...[main...HEAD]`，即与 `main` 分支对比，仅跑变更包及其 dependents
-- 自定义对比基准：`--affected --affected-base=origin/develop`
+- 自定义基准/HEAD：通过环境变量 `TURBO_SCM_BASE` / `TURBO_SCM_HEAD`，例如 `TURBO_SCM_BASE=origin/develop turbo run build --affected`
 - 老式 `--filter=...[origin/main]` 也可用；`--affected` 经验上在 shallow clone / 缺少 base 时处理更友好
 
 ## Remote Cache
