@@ -307,7 +307,6 @@ export default defineConfig({
               {
                 text: "UI框架",
                 collapsed: true,
-                link: "/zh/frontend-framework/ui/",
                 items: [
                   { text: "React" },
                   { text: "Vue" },
@@ -405,7 +404,6 @@ export default defineConfig({
               },
               {
                 text: "组件库",
-                link: "/zh/frontend-framework/components/",
                 collapsed: true,
                 items: [
                   { text: "Element Plus" },
@@ -447,7 +445,6 @@ export default defineConfig({
               {
                 text: "其他",
                 collapsed: true,
-                link: "/zh/frontend-framework/others",
                 items: [
                   { text: "Iconify" },
                   { text: "Shiki" },
