@@ -542,7 +542,43 @@ export default defineConfig({
                 text: "静态分析工具",
                 collapsed: true,
                 items: [
-                  { text: "ESLint" },
+                  {
+                    text: "ESLint",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/static-analysis/eslint/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/static-analysis/eslint/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-develop-tools/static-analysis/eslint/guide-line/base.md",
+                          },
+                          {
+                            text: "配置文件",
+                            link: "/zh/frontend-develop-tools/static-analysis/eslint/guide-line/configurations.md",
+                          },
+                          {
+                            text: "插件",
+                            link: "/zh/frontend-develop-tools/static-analysis/eslint/guide-line/plugins.md",
+                          },
+                          {
+                            text: "升级",
+                            link: "/zh/frontend-develop-tools/static-analysis/eslint/guide-line/migration.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/static-analysis/eslint/reference.md",
+                      },
+                    ],
+                  },
                   {
                     text: "Prettier",
                     collapsed: true,
