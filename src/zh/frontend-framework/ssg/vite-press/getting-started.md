@@ -4,45 +4,66 @@ layout: doc
 
 # 入门
 
+> 基于 VitePress v1.6.4 编写
+
+## 前置条件
+
+- **Node.js v20+**（官方明确要求 v20 或更高版本）
+- 命令行环境（最好是 macOS/Linux，或 Windows 上的 WSL）
+
 ## 安装
 
 ```sh
-pnpm add vue
 pnpm add -D vitepress
 ```
+
+::: tip 是否需要 `vue` 依赖
+
+VitePress 自带 Vue 3，**默认无需单独装 vue**。仅当你需要在 Markdown 中显式使用 Vue 3 组件 / 组合式 API（自定义主题、扩展），或获得完整 TS 类型提示时，才推荐 `pnpm add vue`。
+
+:::
 
 ### 初始化
 
 ```sh
-pnpm vitepress init
+pnpm dlx vitepress init
 ```
+
+会启动 setup wizard，依次问你站点目录（默认 `./docs`）、站点标题、描述、主题，然后生成基础文件。
 
 ### 配置文件
 
-`.vitepress/config.js`
+默认位于 `<root>/.vitepress/config.[ext]`，支持 `.js` / `.ts` / `.mjs` / `.mts` 四种扩展名。**VitePress 是 ESM-only**：若用 `.js`，`package.json` 需要加 `"type": "module"`，或者直接用 `.mjs` / `.mts` 避开这个限制。
 
 ## 启动
 
 ```sh
-pnpm run docs:dev
+pnpm run docs:dev        # 默认 http://localhost:5173
+pnpm run docs:build
+pnpm run docs:preview    # 默认 http://localhost:4173
 ```
 
 ## 路由
 
 采用基于文件结构的路由
 
-### 根目录及源目录
+### 默认目录结构
+
+setup wizard 默认生成的结构（站点根为 `docs/`）：
 
 ```
-.                          # 项目根目录
-├─ .vitepress              # 配置目录
-└─ src                     # 源目录
-   ├─ getting-started.md
-   └─ index.md
+.
+├─ docs                    # 站点根目录（VitePress root）
+│  ├─ .vitepress
+│  │  └─ config.js         # 站点配置
+│  ├─ index.md
+│  └─ getting-started.md
+└─ package.json
 ```
 
-如果根目录随项目放在 `.doc` 中，脚本需要修改 `vitepress dev docs`
-配置文件可修改元目录 `srcDir: 'src'`
+启动脚本对应 `vitepress dev docs`、`vitepress build docs`、`vitepress preview docs`。
+
+如果想把 markdown 文件放到 root 下的子目录（不影响 `.vitepress/`），在配置里设置 `srcDir: 'src'` 即可。
 
 ### 页面跳转
 
@@ -58,7 +79,7 @@ pnpm run docs:dev
 ### 跳转非 VitePress 页面
 
 ```md
-[Link to pure.html](/pure.html){target="\_self"}
+[Link to pure.html](/pure.html){target="_self"}
 ```
 
 ### 文件夹默认页面
@@ -76,7 +97,7 @@ pnpm run docs:dev
 
 ### 路由重写
 
-解决文件结果复杂导致的路由过长问题，不重要，略过。
+解决文件结构复杂导致的路由过长问题，通过 `rewrites` 配置项把文件路径映射成更短的 URL。例如 `'packages/:pkg/index.md': ':pkg/index.md'`。详见官方 Routing 文档。
 
 ## 动态路由
 
@@ -99,12 +120,14 @@ pnpm run docs:dev
 
 ```js
 export default {
-  paths: () => [
-    { params: { pkg: "foo", version: "1.0.0" } },
-    { params: { pkg: "foo", version: "2.0.0" } },
-    { params: { pkg: "bar", version: "1.0.0" } },
-    { params: { pkg: "bar", version: "2.0.0" } },
-  ],
+  paths() {
+    return [
+      { params: { pkg: "foo", version: "1.0.0" } },
+      { params: { pkg: "foo", version: "2.0.0" } },
+      { params: { pkg: "bar", version: "1.0.0" } },
+      { params: { pkg: "bar", version: "2.0.0" } },
+    ];
+  },
 };
 ```
 
@@ -196,15 +219,21 @@ pnpm docs:preview
 }
 ```
 
-### public 根目录
+### Base URL（部署子路径）
 
-当网站部署在非域名根路由时，需要配置 `public` 根目录。默认是 `/`
+当网站部署在非域名根路由时（如 GitHub Pages 的 `username.github.io/repo/`），需要配置 `base`，默认是 `/`：
 
 ```js
 export default {
   base: "/repo/",
 };
 ```
+
+::: warning 区分 `base` 与 `public/`
+
+`base` 是**站点 URL 前缀**（配置项）；`public/` 是**静态资源目录**（约定的文件夹）。VitePress 会把 `public/icon.png` 拷到构建产物根目录，引用时写 `/icon.png`，`base` 会自动应用，**不需要手动加前缀**。
+
+:::
 
 ### GitHub Pages 部署
 
@@ -242,29 +271,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0 # 如果未启用 lastUpdated，则不需要
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9
-      # - uses: oven-sh/setup-bun@v1 # 如果使用 Bun，请取消注释
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
-          cache: pnpm # 或 pnpm / yarn
+          node-version: 24
+          cache: pnpm
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
       - name: Install dependencies
-        run: pnpm install # 或 pnpm install / yarn install / bun install
+        run: pnpm install
       - name: Build with VitePress
-        run: pnpm docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
+        run: pnpm docs:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .vitepress/dist
+          path: docs/.vitepress/dist
 
   # 部署工作
   deploy:

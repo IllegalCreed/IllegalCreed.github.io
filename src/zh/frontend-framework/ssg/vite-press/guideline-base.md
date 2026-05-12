@@ -37,7 +37,7 @@ outline: [2, 3]
 
 插件：[markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor/blob/master/README-zh_CN.md)
 
-配置：[VuePress](https://vuepress.vuejs.org/zh/reference/config.html#markdown-anchor)
+配置：在 VitePress 的 `markdown.anchor` 选项中传入。详见 [Site Config — markdown](https://vitepress.dev/reference/site-config#markdown)
 
 #### 自定义锚点
 
@@ -282,7 +282,7 @@ export default {
 export default {
   data () {
     return {
-      msg: 'Focused!' // [!!code focus]
+      msg: 'Focused!' // [!code focus]
     }
   }
 }
@@ -306,8 +306,8 @@ export default {
 export default {
   data () {
     return {
-      msg: 'Removed' // [!!code --]
-      msg: 'Added' // [!!code ++]
+      msg: 'Removed' // [!code --]
+      msg: 'Added' // [!code ++]
     }
   }
 }
@@ -332,8 +332,8 @@ export default {
 export default {
   data () {
     return {
-      msg: 'Error', // [!!code error]
-      msg: 'Warning' // [!!code warning]
+      msg: 'Error', // [!code error]
+      msg: 'Warning' // [!code warning]
     }
   }
 }
@@ -693,14 +693,14 @@ export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     // 注册自定义全局组件
-    app.component('MyGlobalComponent' Modal)
+    app.component('MyGlobalComponent', Modal)
   }
 } satisfies Theme
 ```
 
 ::: warning 注意
 
-组件名称一定要用PascalCase，否则可能无法解析。
+组件名称必须使用 PascalCase 或包含连字符（kebab-case），否则会被包裹进 `<p>` 标签导致 hydration mismatch。
 :::
 
 #### 标题中使用组件
@@ -724,13 +724,13 @@ This <span v-pre>{{ will be displayed as-is }}</span>
 
 ```md
 ::: v-pre
-{{ This will be displayed as-is }}`
+{{ This will be displayed as-is }}
 :::
 ```
 <div class="escape-demo">
 
 ::: v-pre
-{{ This will be displayed as-is }}`
+{{ This will be displayed as-is }}
 :::
 
 </div>
