@@ -5,6 +5,8 @@ outline: [2, 3]
 
 # 参考
 
+> 基于 Prettier v3.8.3 编写
+
 ## 速查
 
 - 检查格式：`--check`
@@ -296,7 +298,7 @@ prettier "nonexistent/*.js" --write --no-error-on-unmatched-pattern
 
 清除缓存：
 
-- 不带 --catch 运行 Prettier
+- 不带 `--cache` 运行 Prettier
 - 删除缓存文件：`rm ./node_modules/.cache/prettier/.prettier-cache`
 
 示例：
@@ -522,6 +524,13 @@ console.log(info); // { ignored: false, inferredParser: "vue" }
     linguistLanguageId?: number;
     vscodeLanguageIds?: string[];
   }>;
+  options: Array<{
+    name: string;
+    type: string;
+    default?: unknown;
+    description?: string;
+    // ...其他元信息
+  }>;
 }
 ```
 
@@ -536,3 +545,5 @@ console.log(info); // { ignored: false, inferredParser: "vue" }
 - `filenames`：可选，特定文件名。
 - `linguistLanguageId`：可选，Linguist ID。
 - `vscodeLanguageIds`：可选，VS Code 语言 ID。
+
+`options`：数组，列出当前 Prettier 实例支持的所有配置项（含名称、类型、默认值、描述等），常用于编辑器/工具动态展示选项面板。

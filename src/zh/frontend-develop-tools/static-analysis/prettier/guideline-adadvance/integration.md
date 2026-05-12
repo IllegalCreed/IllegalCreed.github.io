@@ -5,6 +5,8 @@ outline: [2, 4]
 
 # 集成
 
+> 基于 Prettier v3.8.3 编写
+
 ## 速查
 
 - 集成 ESLint：`eslint-config-prettier`
@@ -310,6 +312,12 @@ importScripts(
     
 
 ### GitLab CI 配置
+
+::: warning
+
+下面是非官方示例：官方 "Run Prettier on CI" 仅给出 GitHub Actions + autofix.ci 的写法。如果直接复用此 GitLab 模板，请注意 `git push origin $CI_COMMIT_REF_NAME` 在受保护分支或缺少 push 权限时会失败，生产环境建议改为 PR / MR 流程提交格式化结果，而非 CI 直接 push。
+
+:::
 
 1. 在项目中通过 `package.json` 指定 Prettier 版本并添加依赖
 2. 创建 GitLab CI 配置文件，`.gitlab-ci.yml`

@@ -17,7 +17,7 @@ layout: doc
 ### 缺点
 
 - 扩展性受限，不支持细粒度规则定制，只能通过插件修改格式化逻辑或配置文件微调
-- 需通过插件（如 `eslint-plugin-prettier`）解决与其他 Linter 的格式规则冲突
+- 与 ESLint 等 Linter 有格式规则冲突，需额外配置 `eslint-config-prettier` 关闭冲突项（早期推荐的 `eslint-plugin-prettier` 现已被官方视为过时方案）
 - 因使用 JavaScript 实现，执行效率较低，尤其在大项目或全量格式化时
 
 ## 文档地址

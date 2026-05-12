@@ -5,6 +5,8 @@ outline: [2, 3]
 
 # 入门
 
+> 基于 Prettier v3.8.3 编写
+
 ## 速查
 
 - 安装：`pnpm add -D -E prettier`
@@ -66,6 +68,8 @@ pnpm exec prettier --check .
 - `.prettierrc.json` / `.prettierrc.yaml`
 - `.prettierrc.toml`
 - `package.json` 中的 `"prettier"`
+
+> 完整文件名变体（含 `.mjs/.cjs/.mts/.cts`、`.json5/.yml` 等）见 [配置文件](./guideline-adadvance/configurations.html#配置文件类型及优先级)
 
 **示例：**
 
@@ -148,3 +152,5 @@ node --eval "fs.writeFileSync('.husky/pre-commit','pnpm exec lint-staged\n')"
 ```
 
 如果使用了 ESLint，请先执行 `eslint --fix` , 再执行 `prettier --write` 。
+
+> 官方 Pre-commit Hook 还列出 `git-format-staged`、`pretty-quick`、`simple-git-hooks` 等替代方案，按需选用

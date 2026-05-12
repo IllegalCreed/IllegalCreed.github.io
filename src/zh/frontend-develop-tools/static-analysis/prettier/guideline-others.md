@@ -5,6 +5,8 @@ outline: [2, 3]
 
 # 其他
 
+> 基于 Prettier v3.8.3 编写
+
 ## 速查
 
 - VSCode 插件：`“Prettier - Code formatter”`
@@ -18,15 +20,15 @@ outline: [2, 3]
 
 确保使用正确的 Prettier 版本，避免全局安装导致版本不匹配
 
-```jsx
-npm install --save-dev prettier
+```bash
+npm install --save-dev --save-exact prettier
 ```
 
 #### Visual Studio Code
 
 - **插件**: `prettier-vscode`
 - **安装**: 通过扩展侧边栏搜索`“Prettier - Code formatter”`
-- **额外功能**: 安装 vscode-status-bar-format-toggle 可开关格式化
+- **额外功能**: 可选安装第三方扩展 `vscode-status-bar-format-toggle` 在状态栏一键开关格式化
 
 #### WebStorm
 
@@ -46,7 +48,7 @@ WebStorm 默认内置 Prettier 支持
 - **On save**: 保存时运行 Prettier（`Cmd`+`S` / `Ctrl`+`S`）。
 - **On ‘Reformat Code’ action**: 使用 Prettier 作为默认格式化工具（`Opt`+`Cmd`+`L` / `Ctrl`+`Alt`+`L`）。
 
-> 其他开发工具插件请参阅官方文档
+> 其他编辑器（Emacs / Vim / Helix / Sublime / Visual Studio / Espresso 等）请参阅 [官方 Editors 文档](https://prettier.io/docs/editors)
 
 ### 配置文件监听
 
