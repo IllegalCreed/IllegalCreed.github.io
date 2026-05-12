@@ -34,7 +34,7 @@ pnpm create slidev
 
 ## 编辑器插件
 
-再 VSCode 插件市场 搜索 `Slidev`。
+在 VSCode 插件市场搜索 `Slidev`。
 
 **特性：**
 

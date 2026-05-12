@@ -59,7 +59,7 @@ export:
   dark: false
   withClicks: false
   withToc: false
-# 语法高亮设置，可以使用 'shiki' 或 'prism'(已弃用) 方案
+# 语法高亮设置，仅支持 'shiki'；'prism' 自 v0.50 起已彻底移除
 highlighter: shiki
 # 启用 twoslash, 可以是一个 boolean 值，'dev' 或 'build'
 twoslash: true
@@ -373,7 +373,7 @@ export default defineAppSetup(({ app, router }) => {
 - [**@unocss/preset-web-fonts**](https://unocss.dev/presets/web-fonts) - 轻松使用网络字体文件
 - [**@unocss/transformer-directives**](https://unocss.dev/transformers/directives) - 在 CSS 中使用 `@apply`
 
-在跟文件夹创建 `uno.config.ts`来扩展内置配置项
+在根文件夹创建 `uno.config.ts`来扩展内置配置项
 
 ```jsx
 import { defineConfig } from 'unocss'
@@ -691,9 +691,9 @@ export default defineContextMenuSetup((items) => {
 ---
 fonts:
   # basically the text
-  sans: Robot
+  sans: Roboto
   # use with `font-serif` css class from UnoCSS
-  serif: Robot Slab
+  serif: Roboto Slab
   # for code blocks, inline code, etc.
   mono: Fira Code
 ---
@@ -710,7 +710,7 @@ fonts:
 ```yaml
 ---
 fonts:
-  sans: Robot
+  sans: Roboto
   # 默认为
   weights: '200,400,600'
   # 引入斜体字体，默认 `false`

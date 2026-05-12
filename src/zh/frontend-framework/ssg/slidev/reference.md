@@ -195,7 +195,7 @@ function tocFunc(tree: TocItem[]): TocItem[] {
 
 ## CLI
 
-可以通过全局安装 `@slidev/cli` 来使用 CLI，默认通过 `npm init slidev` 创建的项目已经安装好了
+可以通过全局安装 `@slidev/cli` 来使用 CLI，默认通过 `pnpm create slidev` 创建的项目已经把它装在本地。官方推荐 `pnpm` / `yarn` / `bun` 这类有缓存的包管理器；`npm init slidev@latest` 每次都会重新下载相同包，不推荐。
 
 命令行选项遵循以下规则：
 
@@ -216,14 +216,14 @@ function tocFunc(tree: TocItem[]): TocItem[] {
 
 选项:
 
-- `-port`, `p` (`number`, 默认值: `3030`): 端口号
+- `--port`, `-p` (`number`, 默认值: `3030`): 端口号
 - `--base` (`string`, 默认值: `/`): base URL
-- `-open`, `o` (`boolean`, 默认值: `false`): 自动在浏览器中打开
-- `-remote [password]` (`string`): 监听公共主机并启用远程控制。如果传递了一个值，演示者模式将会是私有的，只能通过在URL中添加 `password` 的参数来传递密码以访问。
-- `-bind` (`string`, 默认值: `0.0.0.0`): 指定服务器在远程模式下应监听哪些IP地址
-- `-log` (`'error', 'warn', 'info', 'silent'`, 默认值: `'warn'`): 日志等级
-- `-force`, `f` (`boolean`, 默认值: `false`): 强制忽略缓存并重新打包
-- `-theme`, `t` (`string`): 覆盖文件中设定的主题
+- `--open`, `-o` (`boolean`, 默认值: `false`): 自动在浏览器中打开
+- `--remote [password]` (`string`): 监听公共主机并启用远程控制。如果传递了一个值，演示者模式将会是私有的，只能通过在URL中添加 `password` 的参数来传递密码以访问。
+- `--bind` (`string`, 默认值: `0.0.0.0`): 指定服务器在远程模式下应监听哪些IP地址
+- `--log` (`'error' | 'warn' | 'info' | 'silent'`, 默认值: `'warn'`): 日志等级
+- `--force`, `-f` (`boolean`, 默认值: `false`): 强制忽略缓存并重新打包
+- `--theme`, `-t` (`string`): 覆盖文件中设定的主题
 
 ### **slidev build [entry]**
 
@@ -233,10 +233,11 @@ function tocFunc(tree: TocItem[]): TocItem[] {
 
 选项：
 
-- `-out`, `o` (`string`, 默认值: `dist`): 输出目录
-- `-base` (`string`, 默认值: `/`): 基本 URL (参考 [**https://vitejs.dev/config/shared-options.html#base**](https://vitejs.dev/config/shared-options.html#base))
-- `-download` (`boolean`, 默认值: `false`): 允许在构建后下载相应 幻灯片的 PDF 文件
-- `-theme`, `t` (`string`): 覆盖文件中设定的主题
+- `--out`, `-o` (`string`, 默认值: `dist`): 输出目录
+- `--base` (`string`, 默认值: `/`): 基本 URL (参考 [**https://vitejs.dev/config/shared-options.html#base**](https://vitejs.dev/config/shared-options.html#base))
+- `--download` (`boolean`, 默认值: `false`): 允许在构建后下载相应 幻灯片的 PDF 文件
+- `--theme`, `-t` (`string`): 覆盖文件中设定的主题
+- `--without-notes` (`boolean`, 默认值: `false`): 构建时不包含演讲者备注
 
 ### **slidev export [...entry]**
 
@@ -246,14 +247,18 @@ function tocFunc(tree: TocItem[]): TocItem[] {
 
 选项：
 
-- `-output` (`string`, 默认值: use `exportFilename` (参考 [**https://cn.sli.dev/custom/#frontmatter-configures**](https://cn.sli.dev/custom/#frontmatter-configures)) 或使用 `[entry]-export`): 导出的路径.
-- `-format` (`'pdf', 'png', 'md'`, 默认值: `'pdf'`): 输出格式.
-- `-timeout` (`number`, 默认值: `30000`): 渲染打印页面的超时时间 (参考 [**https://playwright.dev/docs/api/class-page#page-goto**](https://playwright.dev/docs/api/class-page#page-goto))
-- `-range` (`string`): 导出的页面范围 (示例: `'1,4-5,6'`).
-- `-dark` (`boolean`, 默认值: `false`): 导出为暗黑模式
-- `-with-clicks`, `c` (`boolean`, 默认值: `false`): 为每次点击分别导出 (参考 [**https://cn.sli.dev/guide/animations.html#click-animations**](https://cn.sli.dev/guide/animations.html#click-animations)).
-- `-theme`, `t` (`string`): 覆盖文件中设定的主题
-- `-omit-background` (`boolean`, default: `false`): 不导出浏览器默认的背景色
+- `--output` (`string`, 默认值: use `exportFilename` (参考 [**https://cn.sli.dev/custom/#frontmatter-configures**](https://cn.sli.dev/custom/#frontmatter-configures)) 或使用 `[entry]-export`): 导出的路径.
+- `--format` (`'pdf' | 'pptx' | 'png' | 'md'`, 默认值: `'pdf'`): 输出格式.
+- `--timeout` (`number`, 默认值: `30000`): 渲染打印页面的超时时间 (参考 [**https://playwright.dev/docs/api/class-page#page-goto**](https://playwright.dev/docs/api/class-page#page-goto))
+- `--range` (`string`): 导出的页面范围 (示例: `'1,4-5,6'`).
+- `--dark` (`boolean`, 默认值: `false`): 导出为暗黑模式
+- `--with-clicks`, `-c` (`boolean`, 默认值: `false`): 为每次点击分别导出 (参考 [**https://cn.sli.dev/guide/animations.html#click-animations**](https://cn.sli.dev/guide/animations.html#click-animations)).
+- `--theme`, `-t` (`string`): 覆盖文件中设定的主题
+- `--omit-background` (`boolean`, default: `false`): 不导出浏览器默认的背景色
+- `--with-toc` (`boolean`, 默认值: `false`): 在导出的 PDF 中生成可点击的大纲
+- `--wait` (`number`): 截屏前的额外等待时间（毫秒）
+- `--wait-until` (`string`): Playwright 的页面就绪策略
+- `--executable-path` (`string`): 指定 Playwright 使用的浏览器可执行文件路径
 
 ### **slidev format [entry]**
 
@@ -270,5 +275,5 @@ function tocFunc(tree: TocItem[]): TocItem[] {
 - `eject [entry]`: 将当前主题弹出到本地文件中
     - `[entry]` (`string`, 默认值: `slides.md`): 幻灯片的 markdown 文件路径
     - 选项:
-        - `-dir` (`string`, 默认值: `theme`): 输出文件夹
-        - `-theme`, `t` (`string`): 覆盖文件中设定的主题
+        - `--dir` (`string`, 默认值: `theme`): 输出文件夹
+        - `--theme`, `-t` (`string`): 覆盖文件中设定的主题

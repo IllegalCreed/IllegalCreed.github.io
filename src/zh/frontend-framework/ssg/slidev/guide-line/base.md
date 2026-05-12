@@ -20,7 +20,7 @@ outline: [2, 3]
 - 动画：`v-click` | `v-after` | `.hide` | `v-clicks`
 - 相对：`<img v-click="'+1'" />` | `<v-click at="+2"></v-click>`
 - 绝对：`<div v-click="3"></div>` | `<v-click at="2"></v-click>`
-- 显示后隐藏：`<div v-click.hide="[2, 4]"></div>` | `<div v-click="'[+1, +1]'"></div>`
+- 显示后隐藏：`<div v-click="[2, 4]"></div>`（数组 `[显示步, 隐藏步]`，不需要 `.hide` 修饰符）
 - 定义总动画步骤数：`clicks: 10`
 - 修改v-click过渡效果：`.slidev-vclick-target` | `.slidev-vclick-hidden`
 - Motion：`<div v-motion :initial :enter :click-x :click-x-y :leave>`
@@ -148,7 +148,7 @@ layout: quote
 
 每张幻灯片的末尾的注释块，将被视为幻灯片的备注。
 
-可以再 `演讲者模式` 和 `幻灯片列表` 中查看
+可以在 `演讲者模式` 和 `幻灯片列表` 中查看
 
 :::tip **幻灯片列表**
 幻灯片列表可以直接编辑注释，开发模式中编辑结果直接反馈回源文件
@@ -818,12 +818,12 @@ Slidev 具有内置的摄像头视图和录制功能，依赖  [**RecordRTC**](
 通过传递一个数组来为 `v-click` 指令指定显示的时机和隐藏的时机
 
 ```markdown
-<div v-click.hide="[2, 4]">
-  在第 2 和 3 步时动画显示，之后隐藏。
+<div v-click="[2, 4]">
+  在第 2 步动画后显示，第 4 步动画后隐藏。
 </div>
 <div v-click />
 <div v-click="'[+1, +1]'">
-  这将在第 3 步动画后显示，之后在第 4 步动画后隐藏。
+  在前一个 v-click 之后 1 步显示，再过 1 步隐藏。
 </div>
 ```
 
@@ -1030,7 +1030,7 @@ transition: go-forward | go-backward
 ---
 ```
 
-这里  `go-forward` 和 `go-backward` 是示例，你可以换成子自己想用的过渡效果
+这里  `go-forward` 和 `go-backward` 是示例，你可以换成自己想用的过渡效果
 
 ### 高级过渡选项
 
@@ -1583,7 +1583,7 @@ dragPos:
 - 拖动时按住 `Shift` 键以保持其纵横比。
 - 单击可拖动元素以外区域以停止拖动。
 
-**可拖动剪头**
+**可拖动箭头**
 
 ```markdown
 <v-drag-arrow />
