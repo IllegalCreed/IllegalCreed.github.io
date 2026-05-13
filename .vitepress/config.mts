@@ -462,7 +462,7 @@ export default defineConfig({
                     ],
                   },
                   {
-                    text: "Vue-i18n Vue3",
+                    text: "Vue I18n",
                     collapsed: true,
                     link: "/zh/frontend-framework/others/vue-i18n/",
                     items: [
@@ -472,15 +472,8 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
                         link: "/zh/frontend-framework/others/vue-i18n/guide-line",
-                        items: [
-                          { text: "基础" },
-                          { text: "高级" },
-                          { text: "其他" },
-                        ],
                       },
-                      { text: "API" },
                     ],
                   },
                 ],
