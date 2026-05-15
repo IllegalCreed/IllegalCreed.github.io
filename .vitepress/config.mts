@@ -913,7 +913,21 @@ export default defineConfig({
                 items: [
                   { text: "GitHub Actions" },
                   { text: "GitLab CI/CD" },
-                  { text: "Jenkins" },
+                  {
+                    text: "Jenkins",
+                    collapsed: true,
+                    link: "/zh/engineering/devops/jenkins/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/devops/jenkins/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/engineering/devops/jenkins/guide-line",
+                      },
+                    ],
+                  },
                   {
                     text: "Husky",
                     collapsed: true,
