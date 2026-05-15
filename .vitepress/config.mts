@@ -455,10 +455,14 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-framework/others/vee-validate/",
                     items: [
-                      { text: "入门" },
-                      { text: "指南" },
-                      { text: "例子" },
-                      { text: "集成" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/others/vee-validate/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/others/vee-validate/guide-line",
+                      },
                     ],
                   },
                   {
