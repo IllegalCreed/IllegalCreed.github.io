@@ -911,7 +911,43 @@ export default defineConfig({
                 text: "DevOps",
                 collapsed: true,
                 items: [
-                  { text: "GitHub Actions" },
+                  {
+                    text: "GitHub Actions",
+                    collapsed: true,
+                    link: "/zh/engineering/devops/github-actions/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/devops/github-actions/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/engineering/devops/github-actions/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/engineering/devops/github-actions/guide-line/advanced",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/engineering/devops/github-actions/guide-line/expert",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/engineering/devops/github-actions/guide-line/other",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/devops/github-actions/reference",
+                      },
+                    ],
+                  },
                   {
                     text: "GitLab CI/CD",
                     collapsed: true,
