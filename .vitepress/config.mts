@@ -1623,6 +1623,7 @@ export default defineConfig({
                         items: [
                           { text: "RAG" },
                           { text: "LangChain" },
+                          { text: "OpenRouter" },
                           { text: "Stitch" },
                           { text: "Claude Design" },
                           { text: "NotebookLM" },
