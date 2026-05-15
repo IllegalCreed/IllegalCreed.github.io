@@ -912,7 +912,43 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: "GitHub Actions" },
-                  { text: "GitLab CI/CD" },
+                  {
+                    text: "GitLab CI/CD",
+                    collapsed: true,
+                    link: "/zh/engineering/devops/gitlab-cicd/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/devops/gitlab-cicd/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/engineering/devops/gitlab-cicd/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/engineering/devops/gitlab-cicd/guide-line/advanced",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/engineering/devops/gitlab-cicd/guide-line/expert",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/engineering/devops/gitlab-cicd/guide-line/other",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/devops/gitlab-cicd/reference",
+                      },
+                    ],
+                  },
                   {
                     text: "Jenkins",
                     collapsed: true,
