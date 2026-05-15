@@ -1582,29 +1582,57 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   {
-                    text: "模型与工具",
+                    text: "模型",
                     collapsed: true,
                     items: [
-                      { text: "LangChain" },
-                      { text: "LLaMA" },
-                      {
-                        text: "ChatGPT API (OpenAI)",
-                      },
-                      { text: "Grok (xAI)" },
+                      { text: "GPT" },
+                      { text: "Gemini" },
+                      { text: "Claude" },
+                      { text: "Grok" },
+                      { text: "GLM" },
+                      { text: "DeepSeek" },
+                      { text: "Qwen" },
+                      { text: "MiniMax" },
                     ],
                   },
                   {
-                    text: "提示工程 (Prompt Engineering)",
+                    text: "工具",
                     collapsed: true,
                     items: [
                       {
-                        text: "基础提示设计",
+                        text: "Harness 工具",
+                        collapsed: true,
+                        items: [
+                          { text: "Pi" },
+                        ],
                       },
                       {
-                        text: "高级提示技巧",
+                        text: "编排工具",
+                        collapsed: true,
+                        items: [
+                          { text: "Dify" },
+                        ],
+                      },
+                      {
+                        text: "其他",
+                        collapsed: true,
+                        items: [
+                          { text: "RAG" },
+                          { text: "LangChain" },
+                        ],
                       },
                     ],
                   },
+                  {
+                    text: "提示词工程",
+                    collapsed: true,
+                    items: [
+                      { text: "基础提示设计" },
+                      { text: "高级提示技巧" },
+                    ],
+                  },
+                  { text: "MCP" },
+                  { text: "Skills" },
                 ],
               },
               {
