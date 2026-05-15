@@ -1600,10 +1600,14 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                       {
-                        text: "Harness 工具",
+                        text: "Agent",
                         collapsed: true,
                         items: [
                           { text: "Pi" },
+                          { text: "Claude Code" },
+                          { text: "Codex" },
+                          { text: "Gemini CLI" },
+                          { text: "OpenCode" },
                         ],
                       },
                       {
@@ -1619,6 +1623,9 @@ export default defineConfig({
                         items: [
                           { text: "RAG" },
                           { text: "LangChain" },
+                          { text: "Stitch" },
+                          { text: "Claude Design" },
+                          { text: "NotebookLM" },
                         ],
                       },
                     ],
@@ -1631,8 +1638,21 @@ export default defineConfig({
                       { text: "高级提示技巧" },
                     ],
                   },
-                  { text: "MCP" },
-                  { text: "Skills" },
+                  {
+                    text: "MCP",
+                    collapsed: true,
+                    items: [
+                      { text: "Brave Search" },
+                    ],
+                  },
+                  {
+                    text: "Skills",
+                    collapsed: true,
+                    items: [
+                      { text: "Superpowers" },
+                      { text: "Easy Claude Code" },
+                    ],
+                  },
                 ],
               },
               {
