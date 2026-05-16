@@ -5,24 +5,44 @@ outline: [2, 3]
 
 # 入门
 
-> 基于 lint-staged v16.4.0 编写
+> 基于 lint-staged v17.0.4 编写
 
 ## 速查
 
-- 配置文件：`lint-staged.config.ts` / `package.json`
-- 配置函数签名：`(filenames: string[]) => string | string[] | Promise<string | string[]>;`
-- 匹配方式：`glob`
-- 并发：`--concurrent <number>` / `--concurrent false`
+- 安装：`pnpm add -D lint-staged`（需 Node.js **22.22.1+** / Git **2.32.0+**）
+- 配置文件：`package.json` 的 `lint-staged` 字段 / `.lintstagedrc.*` / `lint-staged.config.{js,mjs,cjs,ts}`
+- Schema：`{ "<glob>": "command" | ["cmd1", "cmd2"] | (files) => string }`
+- Glob 引擎：[picomatch](https://github.com/micromatch/picomatch)
+- 触发：通常作为 husky `pre-commit` hook 的一条命令
+- 并发：默认所有 glob 并发，数组形式串行执行
+- 修改文件后自动 `git add`，不需要手动入暂存
 
 ## 安装
 
-```shell
+```bash
 pnpm add -D lint-staged
 ```
 
-## 配置
+::: warning v17 起对环境的硬性要求
 
-`Lint-staged` 包含多种配置方式
+- **Node.js ≥ 22.22.1**（active LTS）
+- **Git ≥ 2.32.0**（2021 年发布的版本）
+
+如果 CI / 同事机器还卡在 Node 20，先把 Node 升上来再谈 lint-staged 升级。
+:::
+
+## 配置文件
+
+lint-staged 按以下顺序查找配置（命中即用）：
+
+1. `package.json` 的 `"lint-staged"` 字段
+2. `.lintstagedrc`（JSON 或 YAML）
+3. `.lintstagedrc.json` / `.lintstagedrc.yaml` / `.lintstagedrc.yml`
+4. `.lintstagedrc.mjs` / `lint-staged.config.mjs`（ESM）
+5. `.lintstagedrc.cjs` / `lint-staged.config.cjs`（CommonJS）
+6. `.lintstagedrc.js` / `lint-staged.config.js`（按 `package.json` 的 `type` 字段判定模块系统）
+7. `lint-staged.config.ts`（需要 Node 原生 TS 执行，见下文）
+8. CLI 显式 `--config <path>`
 
 ### 通过 package.json
 
@@ -34,7 +54,7 @@ pnpm add -D lint-staged
 }
 ```
 
-### 通过 **.lintstagedrc**
+### 通过 .lintstagedrc.*
 
 ```json
 {
@@ -42,107 +62,102 @@ pnpm add -D lint-staged
 }
 ```
 
-文件后缀可以是：
+支持后缀：`.lintstagedrc.json` / `.yaml` / `.yml`。
 
-- `.lintstagedrc.json`
-- `.lintstagedrc.yaml`
-- `.lintstagedrc.yml`
+::: warning v17 起 yaml 依赖改为可选
 
-### 使用 ESM 或 CommonJS
-
-**ESM 格式文件：**
-
-- `.lintstagedrc.mjs`
-- `lint-staged.config.mjs`
-
-```javascript
-export default { ... }
-```
-
-**CommonJS 格式文件：**
-
-- `.lintstagedrc.cjs`
-- `lint-staged.config.cjs`
-
-```javascript
-module.exports = { ... }
-```
-
-::: tip
-
-如果后缀是 `.js` 则会根据 `package.json` 中的 `"type": "module"` 选项自动判断为 ESM 或 CommonJS
-
+用 `.lintstagedrc.yaml` / `.yml` 的项目要额外 `pnpm add yaml`——v17 把它从核心依赖移到可选依赖。多数项目用 JSON / JS / TS，没影响。
 :::
+
+### ESM 或 CommonJS
+
+**ESM**（`.mjs` 或 `package.json` 是 `type: module` 时的 `.js`）：
+
+```js
+export default {
+  '*': 'prettier --write',
+};
+```
+
+**CommonJS**（`.cjs` 或 `type: commonjs` 时的 `.js`）：
+
+```js
+module.exports = {
+  '*': 'prettier --write',
+};
+```
 
 ### TypeScript 支持
 
-当你的 Node.js 版本小于 `22.6.0` 时，只能使用 JSDoc 添加类型信息
+#### 方案 A：JSDoc（兼容性最好）
 
-```javascript
+```js
 /**
- * @filename: lint-staged.config.js
  * @type {import('lint-staged').Configuration}
  */
 export default {
   '*': 'prettier --write',
-}
-```
-
-当你的 Node.js 版本支持原生执行 TS 时，可以直接运行 `lint-staged.config.ts`
-
-举个例子：
-
-```typescript
-// lint-staged.config.ts
-import type { Configuration } from 'lint-staged';
-
-// 定义配置对象
-const config: Configuration = {
-  // 匹配所有文件，运行 prettier 格式化
-  '*': 'prettier --write --ignore-unknown',
-
-  // 针对 TypeScript 和 JavaScript 文件，先运行 ESLint 修复，再运行 Prettier
-  '*.{ts,tsx,js,jsx}': [
-    'eslint --fix',
-    'prettier --write',
-  ],
-
-  // 针对 CSS 文件，运行 stylelint 修复和 prettier 格式化
-  '*.css': [
-    'stylelint --fix',
-    'prettier --write',
-  ],
-
-  // 针对 Markdown 文件，只运行 prettier
-  '*.md': 'prettier --write',
-
-  // 示例：动态生成命令（使用函数）
-  '*.ts': (filenames: string[]) => {
-    // 仅对修改的文件运行类型检查
-    return `tsc --noEmit --files ${filenames.join(' ')}`;
-  },
 };
-
-// 默认导出配置
-export default config;
 ```
 
-使用函数时的函数签名：
+#### 方案 B：原生 TS 执行（Node 22.6+）
 
-```typescript
-(filenames: string[]) => string | string[] | Promise<string | string[]>
-```
+Node 22.6.0+ 可以原生执行 `.ts` 文件。22.6 到 23.5 之间需要环境变量：
 
-当你的 Node.js 版本介于 `22.6.0` 和 `23.6.0` 之间时，你需要添加参数用来执行 `.ts` 文件
-
-```shell
+```bash
 export NODE_OPTIONS="--experimental-strip-types"
 npx lint-staged --config lint-staged.config.ts
 ```
 
-### 任务并发性
+Node 23.6+ 起 `--experimental-strip-types` 默认开启，可省略。
 
-默认情况下，`lint-staged` 会**并发运行**配置的任务。这意味着对于每个 `Glob` 模式，所有命令会同时启动
+```ts
+// lint-staged.config.ts
+import type { Configuration } from 'lint-staged';
+
+const config: Configuration = {
+  '*': 'prettier --write --ignore-unknown',
+  '*.{ts,tsx,js,jsx}': ['eslint --fix', 'prettier --write'],
+  '*.css': ['stylelint --fix', 'prettier --write'],
+  '*.md': 'prettier --write',
+  '*.ts': (filenames: string[]) =>
+    `tsc --noEmit --files ${filenames.join(' ')}`,
+};
+
+export default config;
+```
+
+## 配置 Schema
+
+```
+{
+  "<glob>": "command"                  // 字符串：单命令
+        |   ["cmd1", "cmd2", ...]      // 数组：按顺序串行执行
+        |   (files: string[]) => ...   // 函数：动态生成命令
+}
+```
+
+字符串和数组形态会**自动把匹配文件追加到命令末尾**：
+
+```json
+{
+  "*.js": "eslint --fix"
+}
+```
+
+实际执行：`eslint --fix file1.js file2.js ...`
+
+函数形态**不会自动追加**，要在返回值里自己拼：
+
+```js
+{
+  '*.js': (files) => `eslint --fix ${files.join(' ')}`,
+}
+```
+
+## 任务并发
+
+默认所有 glob 是并发的：
 
 ```json
 {
@@ -151,7 +166,7 @@ npx lint-staged --config lint-staged.config.ts
 }
 ```
 
-假如你想按顺序执行，你可以把指令放入一个数组中
+两条同时跑。要串行就把命令放数组：
 
 ```json
 {
@@ -160,9 +175,11 @@ npx lint-staged --config lint-staged.config.ts
 }
 ```
 
-::: warning **规避规则重叠导致文件竞争**
+`*.ts` 的 prettier 跑完再跑 eslint，但 `*.ts` 整体与 `*.md` 还是并发。
 
-当配置的 `Glob` 模式重叠，且任务会修改文件时，可能出现**竞争条件**，比如：
+::: warning 规避 glob 重叠的竞争条件
+
+当不同 glob 都匹配同一文件，且命令都会修改文件时，会出现竞争条件：
 
 ```json
 {
@@ -171,147 +188,74 @@ npx lint-staged --config lint-staged.config.ts
 }
 ```
 
-该问题只能手动规避，有两种规避手段：
+`foo.ts` 被两条命令同时改，结果不可预测。两种规避方式：
 
-1. 使用否定模式
-    
-    ```json
-    {
-      "!(*.ts)": "prettier --write",
-      "*.ts": ["eslint --fix", "prettier --write"]
-    }
-    ```
-    
-2. `--concurrent` 限制并发
-    - `--concurrent <number>` 限制并发任务数量
-    - `--concurrent false` 完全禁用并发
+1. **否定模式**让 glob 不重叠：
+
+   ```json
+   {
+     "!(*.ts)": "prettier --write",
+     "*.ts": ["eslint --fix", "prettier --write"]
+   }
+   ```
+
+2. **限制并发**：
+   - `--concurrent 1` 串行（最简单粗暴）
+   - `--concurrent false` 完全禁用并发
+   - `--concurrent <n>` 限制并发数
 
 :::
 
-## **筛选文件**
+## Glob 匹配规则
 
-使用 [**picomatch**](https://github.com/micromatch/picomatch) 来进行 `glob` 文件匹配
+底层是 [picomatch](https://github.com/micromatch/picomatch)。规则因 glob 中是否有 `/` 而不同。
 
-### 不含斜杠（/）的 Glob 模式
+### 不含 `/` —— matchBase
 
-用 `picomatch` 的 `matchBase` 选项，仅匹配文件名（忽略目录路径）
+只看文件名，不看路径：
 
-**示例：**
+| Glob | 匹配 | 不匹配 |
+|---|---|---|
+| `*.js` | `/test.js`、`/foo/bar/test.js` | - |
+| `!(*test).js` | `foo.js` | `foo.test.js` |
+| `!(*.css\|*.js)` | 除 CSS 和 JS 外的文件 | `.css` / `.js` 文件 |
 
-- `"*.js"`：匹配所有 JS 文件，例如 `/test.js` 和 `/foo/bar/test.js`。
-- `"!(*test).js"`：匹配除以 `test.js` 结尾的 JS 文件，例如 `foo.js`，但不匹配 `foo.test.js`。
-- `"!(*.css|*.js)"`：匹配除 CSS 和 JS 文件外的所有文件。
+### 含 `/` —— 路径 + 文件名
 
-### 含斜杠（/）的 Glob 模式
+会一起匹配：
 
-会同时匹配路径和文件名
-
-**示例：**
-
-- `"./*.js"`：仅匹配 Git 仓库根目录下的 JS 文件，例如 `/test.js`，但不匹配 `/foo/bar/test.js`。
-- `"foo/**/*.js"`：匹配 `/foo` 目录及其子目录下的所有 JS 文件，例如 `/foo/bar/test.js`，但不匹配 `/test.js`。
+| Glob | 匹配 | 不匹配 |
+|---|---|---|
+| `./*.js` | 仅根目录 `/test.js` | `/foo/bar/test.js` |
+| `foo/**/*.js` | `/foo/bar/test.js` | `/test.js` |
 
 ### 文件过滤流程
 
-- **自动解析 Git 根目录**：无需手动配置。
-- **获取暂存文件**：从项目的暂存区（staged files）中提取文件。
-- **应用 Glob 过滤**：使用指定的 Glob 模式筛选文件。
-- **传递绝对路径**：将匹配文件的**绝对路径**作为参数传递给任务。
+1. **解析 Git 根目录**（自动，无需配置）
+2. **拿暂存文件**（`--diff` 覆盖时拿对应 diff）
+3. **应用 Glob 过滤**（picomatch）
+4. **传绝对路径给命令**（除非 `--relative`）
 
-::: warning
-`lint-staged` 总是传递文件的**绝对路径**给任务，避免因工作目录不同（例如 `.git` 目录和 `package.json` 目录不一致）导致的混淆。
+::: tip 为什么传绝对路径
+
+避免 `.git` 和 `package.json` 不在同一目录时混淆。要相对路径用 `--relative`。
 :::
 
-### 忽略文件
+## 忽略文件
 
 ::: warning 核心原则
 
-**lint-staged 不负责忽略文件**。它只是获取暂存文件并传递给任务命令。
+**lint-staged 不负责忽略文件**。它只把暂存文件交给命令，忽略逻辑由命令本身处理：
 
-忽略逻辑应该由工具本身处理：
-- ESLint → `.eslintignore` 或 `ignores` 配置
+- ESLint → `.eslintignore` 或 flat config 里的 `ignores`
 - Prettier → `.prettierignore`
-
-以下内容仅供参考，详细配置请查看各工具的官方文档。
+- Stylelint → `.stylelintignore`
 
 :::
 
-**工具本身的忽略配置示例**
+### ESLint Flat Config + `--no-warn-ignored`（推荐）
 
-**使用 Prettier 忽略文件**
-
-`.prettierignore`
-
-```shell
-# 忽略构建输出目录
-dist/
-build/
-
-# 忽略第三方库目录
-vendor/
-node_modules/
-
-# 忽略特定文件类型
-*.min.js
-*.log
-
-# 忽略特定文件
-package-lock.json
-```
-
-**使用 ESLint v9 忽略文件**
-
-`eslint.config.js`
-
-```javascript
-// ESLint v9 使用 ignores 的方式
-export default [
-  // 全局忽略配置
-  {
-    ignores: ['dist/**', 'vendor/**', '**/*.test.js'],
-  },
-  // 规则配置
-  {
-    files: ['**/*.{js,ts,jsx,tsx}'],
-    languageOptions: {
-      ecmaVersion: 2021,
-      sourceType: 'module',
-    },
-    rules: {
-      'no-unused-vars': 'error',
-      'no-console': 'warn',
-    },
-  },
-];
-```
-
-```javascript
-// ESLint v9 使用 globalIgnores() 的方式
-import { defineConfig, globalIgnores } from 'eslint/config';
-
-export default defineConfig([
-  // 全局忽略配置
-  globalIgnores(['dist/**', 'vendor/**', '**/*.test.js'], 'Custom Global Ignores'),
-  // 规则配置
-  {
-    files: ['**/*.{js,ts,jsx,tsx}'],
-    languageOptions: {
-      ecmaVersion: 2021,
-      sourceType: 'module',
-    },
-    rules: {
-      'no-unused-vars': 'error',
-      'no-console': 'warn',
-    },
-  },
-]);
-```
-
-**lint-staged 官方推荐方案**
-
-### ESLint >= 8.51.0 + Flat Config
-
-使用 `--no-warn-ignored` CLI 标志，无需手动过滤：
+ESLint 8.51+ 的 flat config 模式下，`eslint --no-warn-ignored` 让 ESLint 自己处理忽略文件：
 
 ```json
 {
@@ -320,217 +264,79 @@ export default defineConfig([
 ```
 
 ::: tip
-
-- `--no-warn-ignored` 仅在使用 Flat Config（`eslint.config.js`）时有效
-- 这比用函数过滤 `isPathIgnored` 更简洁高效
-
+仅在使用 `eslint.config.js`（flat config）时有效；比手动调 `ESLint.isPathIgnored()` 简洁得多。
 :::
 
-### ESLint >= 7（传统配置）
+### ESLint 传统配置 + 异步过滤
 
-使用 `ESLint.isPathIgnored()` 异步过滤：
+ESLint 7+ 的旧配置下用 `ESLint.isPathIgnored()`：
 
-```javascript
+```js
 import { ESLint } from 'eslint';
 
 const removeIgnoredFiles = async (files) => {
   const eslint = new ESLint();
   const isIgnored = await Promise.all(
-    files.map((file) => eslint.isPathIgnored(file))
+    files.map((file) => eslint.isPathIgnored(file)),
   );
   return files.filter((_, i) => !isIgnored[i]).join(' ');
 };
 
 export default {
   '**/*.{js,ts}': async (files) => {
-    const filesToLint = await removeIgnoredFiles(files);
-    return filesToLint ? [`eslint --max-warnings=0 ${filesToLint}`] : [];
+    const toLint = await removeIgnoredFiles(files);
+    return toLint ? [`eslint --max-warnings=0 ${toLint}`] : [];
   },
 };
 ```
 
-**仅当工具本身的忽略机制无法满足时**
+### 在 lint-staged 层手动过滤（不建议）
 
-在极少数情况下，当工具本身的忽略机制不生效或无法使用时，可以在 lint-staged 层面动态过滤：
+只有当工具本身没有忽略机制、又非过滤不可时，才考虑：
 
-`lint-staged.config.ts`
-
-```typescript
+```ts
 import type { Configuration } from 'lint-staged';
 
 const config: Configuration = {
   '*.{js,ts}': (filenames: string[]) => {
-    const filteredFiles = filenames.filter(
-      (file) => !file.includes('node_modules/') && !file.includes('dist/')
+    const filtered = filenames.filter(
+      (f) => !f.includes('node_modules/') && !f.includes('dist/'),
     );
-    return filteredFiles.length > 0 ? [`eslint --fix ${filteredFiles.join(' ')}`] : [];
+    return filtered.length > 0 ? [`eslint --fix ${filtered.join(' ')}`] : [];
   },
 };
 
 export default config;
 ```
 
-## CLI 参数
+## 一份能跑的最小示例
+
+配合 husky：
 
 ```bash
-npx lint-staged --help
+# 1. 装依赖
+pnpm add -D husky lint-staged prettier eslint
+
+# 2. 初始化 husky
+pnpm exec husky init
 ```
 
-**常用参数：**
-
-| 参数 | 说明 |
-|------|------|
-| `--allow-empty` | 允许空提交（当任务回退所有暂存更改时） |
-| `--concurrent <number>` | 限制并发任务数量，`false` 完全禁用并发 |
-| `--config <path>` | 指定配置文件路径 |
-| `--cwd <path>` | 在指定目录运行任务 |
-| `--debug` | 打印调试信息 |
-| `--diff <string>` | 覆盖默认的 `--staged`，用于 CI 场景 |
-| `--diff-filter <string>` | 覆盖默认的 `ACMR` 过滤器 |
-| `--fail-on-changes` | 任务修改文件后以退出码 1 失败 |
-| `--hide-all` | 隐藏所有未暂存更改和未跟踪文件 |
-| `--hide-unstaged` | 隐藏所有未暂存更改 |
-| `--no-revert` | 错误时不回退修改 |
-| `--no-stash` | 禁用备份 stash |
-| `--quiet` | 禁用 lint-staged 自身输出 |
-| `--relative` | 传递相对路径给任务 |
-| `--verbose` | 显示成功任务的输出 |
-| `--stash` | 启用备份 stash（默认启用） |
-
-## Node.js API
-
-可以在代码中直接调用 lint-staged：
-
-```typescript
-import lintStaged from 'lint-staged';
-
-try {
-  const success = await lintStaged({
-    allowEmpty: false,
-    concurrent: true,
-    configPath: './lint-staged.config.ts',
-    cwd: process.cwd(),
-    debug: false,
-    maxArgLength: null,
-    quiet: false,
-    relative: false,
-    stash: true,
-    verbose: false,
-  });
-  
-  console.log(success ? 'Linting passed!' : 'Linting failed!');
-} catch (e) {
-  console.error('Failed to load configuration:', e);
-}
+```js
+// lint-staged.config.js
+export default {
+  '*.{ts,tsx,js,jsx}': ['eslint --fix --no-warn-ignored', 'prettier --write'],
+  '*.{json,md,css,scss}': 'prettier --write',
+};
 ```
-
-也可以直接传递配置对象：
-
-```typescript
-const success = await lintStaged({
-  config: {
-    '*.js': 'eslint --fix',
-  },
-});
-```
-
-## CI 使用场景
-
-在 CI 中检查特定 commit 范围的变更：
 
 ```bash
-# 检查 main 分支和当前分支之间的差异
-git diff --diff-filter=ACMR --name-only main...HEAD
-
-# 使用 lint-staged 检查这些文件
-npx lint-staged --diff="main...HEAD"
+# .husky/pre-commit
+pnpm exec lint-staged
 ```
 
-或使用 merge-base 检查当前分支相对于 main 的变更：
+提交时自动跑 ESLint + Prettier，仅作用于本次暂存的文件。
 
-```bash
-npx lint-staged --diff="$(git merge-base main HEAD)"
-```
+## 下一步
 
-## CLI 参数
-
-```bash
-npx lint-staged --help
-```
-
-**常用参数：**
-
-| 参数 | 说明 |
-|------|------|
-| `--allow-empty` | 允许空提交（当任务回退所有暂存更改时） |
-| `--concurrent <number>` | 限制并发任务数量，`false` 完全禁用并发 |
-| `--config <path>` | 指定配置文件路径 |
-| `--cwd <path>` | 在指定目录运行任务 |
-| `--debug` | 打印调试信息 |
-| `--diff <string>` | 覆盖默认的 `--staged`，用于 CI 场景 |
-| `--diff-filter <string>` | 覆盖默认的 `ACMR` 过滤器 |
-| `--fail-on-changes` | 任务修改文件后以退出码 1 失败 |
-| `--hide-all` | 隐藏所有未暂存更改和未跟踪文件 |
-| `--hide-unstaged` | 隐藏所有未暂存更改 |
-| `--no-revert` | 错误时不回退修改 |
-| `--no-stash` | 禁用备份 stash |
-| `--quiet` | 禁用 lint-staged 自身输出 |
-| `--relative` | 传递相对路径给任务 |
-| `--verbose` | 显示成功任务的输出 |
-| `--stash` | 启用备份 stash（默认启用） |
-
-## Node.js API
-
-可以在代码中直接调用 lint-staged：
-
-```typescript
-import lintStaged from 'lint-staged';
-
-try {
-  const success = await lintStaged({
-    allowEmpty: false,
-    concurrent: true,
-    configPath: './lint-staged.config.ts',
-    cwd: process.cwd(),
-    debug: false,
-    maxArgLength: null,
-    quiet: false,
-    relative: false,
-    stash: true,
-    verbose: false,
-  });
-  
-  console.log(success ? 'Linting passed!' : 'Linting failed!');
-} catch (e) {
-  console.error('Failed to load configuration:', e);
-}
-```
-
-也可以直接传递配置对象：
-
-```typescript
-const success = await lintStaged({
-  config: {
-    '*.js': 'eslint --fix',
-  },
-});
-```
-
-## CI 使用场景
-
-在 CI 中检查特定 commit 范围的变更：
-
-```bash
-# 检查 main 分支和当前分支之间的差异
-git diff --diff-filter=ACMR --name-only main...HEAD
-
-# 使用 lint-staged 检查这些文件
-npx lint-staged --diff="main...HEAD"
-```
-
-或使用 merge-base 检查当前分支相对于 main 的变更：
-
-```bash
-npx lint-staged --diff="$(git merge-base main HEAD)"
-```
-
+- 函数式任务、复杂 glob、monorepo、CI 集成、TypeScript tsconfig 陷阱见 [指南](./guide-line.md)
+- CLI 全参数表、Node.js API、`--diff` / `--hide-all` 等高级 flag 见 [参考](./reference.md)

@@ -1027,8 +1027,12 @@ export default defineConfig({
                         link: "/zh/engineering/devops/lint-staged/getting-started.md",
                       },
                       {
-                        text: "进阶",
-                        link: "/zh/engineering/devops/lint-staged/advanced.md",
+                        text: "指南",
+                        link: "/zh/engineering/devops/lint-staged/guide-line.md",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/devops/lint-staged/reference.md",
                       },
                     ],
                   },
