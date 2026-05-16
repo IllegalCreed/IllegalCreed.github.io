@@ -419,8 +419,62 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Svelte" },
-                  { text: "Solid" },
+                  {
+                    text: "Svelte",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ui/svelte/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ui/svelte/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/ui/svelte/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/ui/svelte/guide-line/advanced",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/frontend-framework/ui/svelte/guide-line/expert",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/frontend-framework/ui/svelte/guide-line/other",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ui/svelte/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Solid",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ui/solid/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ui/solid/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/ui/solid/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ui/solid/reference",
+                      },
+                    ],
+                  },
                   { text: "Lit" },
                   { text: "Alpine.js" },
                   { text: "HTMX" },
