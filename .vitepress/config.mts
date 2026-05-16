@@ -308,7 +308,43 @@ export default defineConfig({
                 text: "UI框架",
                 collapsed: true,
                 items: [
-                  { text: "React" },
+                  {
+                    text: "React",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ui/react/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ui/react/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/ui/react/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/ui/react/guide-line/advanced",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/frontend-framework/ui/react/guide-line/expert",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/frontend-framework/ui/react/guide-line/other",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ui/react/reference",
+                      },
+                    ],
+                  },
                   {
                     text: "Vue",
                     collapsed: true,
@@ -346,7 +382,43 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Angular" },
+                  {
+                    text: "Angular",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ui/angular/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ui/angular/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/ui/angular/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/ui/angular/guide-line/advanced",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/frontend-framework/ui/angular/guide-line/expert",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/frontend-framework/ui/angular/guide-line/other",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ui/angular/reference",
+                      },
+                    ],
+                  },
                   { text: "Svelte" },
                   { text: "Solid" },
                   { text: "Lit" },
