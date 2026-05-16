@@ -322,12 +322,14 @@ export default defineConfig({
                 link: "/zh/frontend-framework/meta/",
                 items: [
                   { text: "Next.js" },
-                  { text: "Nuxt.js" },
+                  { text: "Nuxt" },
                   { text: "Astro" },
                   { text: "Qwik" },
-                  { text: "Remix" },
+                  { text: "React Router" },
                   { text: "SolidStart" },
                   { text: "SvelteKit" },
+                  { text: "TanStack Start" },
+                  { text: "Analog" },
                 ],
               },
               {
