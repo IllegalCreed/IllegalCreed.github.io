@@ -309,11 +309,49 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: "React" },
-                  { text: "Vue" },
+                  {
+                    text: "Vue",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ui/vue/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ui/vue/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/ui/vue/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/ui/vue/guide-line/advanced",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/frontend-framework/ui/vue/guide-line/expert",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/frontend-framework/ui/vue/guide-line/other",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ui/vue/reference",
+                      },
+                    ],
+                  },
                   { text: "Angular" },
-                  { text: "Solid" },
                   { text: "Svelte" },
-                  { text: "Preact" },
+                  { text: "Solid" },
+                  { text: "Lit" },
+                  { text: "Alpine.js" },
+                  { text: "HTMX" },
                 ],
               },
               {
