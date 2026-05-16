@@ -313,3 +313,479 @@ counter.value++; // 自动写回 cookie
 - `<NuxtErrorBoundary>`：错误边界（细粒度捕获）
 
 也可以**不要 `app.vue`**——Nuxt 会自动用 `<NuxtPage />` 兜底。但加一份可以放全局 layout / loading / 错误处理。
+
+## `useFetch` 完整参数清单
+
+```ts
+const { data, pending, error, refresh, execute, status, clear } = await useFetch(url, {
+  // 请求
+  method: 'GET',                       // HTTP 方法
+  query: { page: 1 },                   // ?page=1
+  params: { id: 1 },                    // 等价 query
+  body: { foo: 'bar' },                 // POST/PUT body
+  headers: { 'X-Custom': '1' },         // 请求头
+
+  // 缓存 / 行为
+  key: 'custom-key',                    // 覆盖默认 URL key
+  default: () => [],                    // pending 时占位值
+  transform: (raw) => raw.items,        // 改造响应（存 payload 前）
+  pick: ['id', 'title'],                // 只挑顶层字段
+  deep: true,                            // 数据深响应（默认 false，shallowRef）
+  dedupe: 'cancel' | 'defer',           // 并发请求去重策略
+  getCachedData: (key, app, ctx) => /* return cached */,
+
+  // 触发
+  watch: [ref1, ref2],                  // 依赖变化自动 refetch
+  immediate: true,                       // 立刻请求（默认 true）
+  lazy: false,                           // true 时不阻塞导航
+  server: true,                          // 是否在 SSR 请求（默认 true）
+
+  // ofetch 透传
+  onRequest: ({ request, options }) => {},
+  onRequestError: ({ error }) => {},
+  onResponse: ({ response, request }) => {},
+  onResponseError: ({ response }) => {},
+  retry: 3,                             // 失败重试
+  retryDelay: 1000,                      // 重试间隔（ms）
+  timeout: 5000,                         // 请求超时（ms）
+
+  // 仅 useFetch 特有
+  $fetch: customFetcher,                 // 替换底层 $fetch
+});
+```
+
+返回字段：
+
+| 字段 | 类型 | 说明 |
+|---|---|---|
+| `data` | `Ref<T \| null>` | 响应数据；pending 时是 `default()` 的值 |
+| `pending` | `Ref<boolean>` | 请求进行中（v4 中只在真正发请求时 true） |
+| `status` | `Ref<'idle' \| 'pending' \| 'success' \| 'error'>` | 状态机 |
+| `error` | `Ref<Error \| null>` | 错误对象 |
+| `refresh()` | function | 主动重新拉取（保留旧 data 直到新到） |
+| `execute()` | function | 同 refresh，命名更明显 |
+| `clear()` | function | 清空 data + error，重置 status |
+
+## useAsyncData 完整选项
+
+`useAsyncData<T>(key, fn, opts)` 选项与 `useFetch` 大致相同，差别：
+
+| 字段 | useFetch | useAsyncData |
+|---|---|---|
+| 第一参 | url | key（手动） |
+| 第二参 | options | async function |
+| 第三参 | - | options |
+| URL 字段 | 有 | 无 |
+| method / body / headers / query | 有 | 无（自己在 fn 内传） |
+
+例：
+
+```ts
+const { data } = await useAsyncData('dashboard', async () => {
+  const [user, stats] = await Promise.all([
+    $fetch('/api/me'),
+    $fetch('/api/stats'),
+  ]);
+  return { user, stats };
+}, {
+  default: () => ({ user: null, stats: null }),
+  watch: [refresh],
+});
+```
+
+## NuxtLink 完整属性表
+
+| 属性 | 类型 | 说明 |
+|---|---|---|
+| `to` | string / RouteLocation | 目标路由（必填，除非用 `href`） |
+| `href` | string | 同 `to`（与原生 `<a href>` 兼容） |
+| `external` | boolean | 强制走 `<a href>` 整页跳转 |
+| `replace` | boolean | 用 router.replace 不进历史 |
+| `activeClass` | string | 路由匹配时的 class |
+| `exactActiveClass` | string | 完全匹配时的 class（不含子路由） |
+| `prefetch` | boolean | 是否预加载（默认 true） |
+| `noPrefetch` | boolean | 关闭预加载（简写） |
+| `prefetchOn` | `'visibility' \| 'interaction'` | 预加载触发条件 |
+| `prefetchedClass` | string | 预加载完成的 class |
+| `custom` | boolean | 用 slot props 完全自定义渲染 |
+| `target` | string | `_blank` 自动加 `rel="noopener noreferrer"` |
+| `rel` | string | 自定义 rel（覆盖自动加的） |
+| `ariaCurrentValue` | string | 无障碍 aria-current 值 |
+
+### 完全自定义 NuxtLink
+
+```vue
+<NuxtLink to="/about" custom v-slot="{ href, navigate, isActive }">
+  <li :class="{ active: isActive }">
+    <a :href="href" @click="navigate">About</a>
+  </li>
+</NuxtLink>
+```
+
+### 预加载策略
+
+```vue
+<!-- 1. 默认：视口可见时预加载 -->
+<NuxtLink to="/about">About</NuxtLink>
+
+<!-- 2. 仅 hover / focus 预加载（首屏链接多时省流量） -->
+<NuxtLink to="/about" prefetch-on="interaction">About</NuxtLink>
+
+<!-- 3. 显式关闭预加载 -->
+<NuxtLink to="/about" no-prefetch>About</NuxtLink>
+```
+
+全局设置：
+
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        prefetchOn: { interaction: true },  // 全局改默认
+      },
+    },
+  },
+});
+```
+
+## definePageMeta 完整字段
+
+```vue
+<script setup>
+definePageMeta({
+  // 布局 / 中间件
+  layout: 'admin' | false,                 // 用哪个 layout / false 表示不套
+  middleware: ['auth', 'role-check'],       // 跑哪些 middleware
+  validate: (route) => boolean,             // 路径参数校验，返回 false 触发 404
+
+  // 缓存 / 动画
+  keepalive: true | { include, exclude },   // <KeepAlive> 配置
+  pageTransition: { name, mode } | false,   // 页面过渡动画
+  layoutTransition: { name, mode } | false, // 布局过渡
+
+  // 路由
+  alias: '/home' | ['/home', '/start'],     // 路由别名
+  redirect: '/new-path',                    // 路由级重定向
+  name: 'custom-name',                       // 路由名（默认按文件路径推）
+
+  // 渲染 / 性能
+  scrollToTop: boolean | function,          // 切换时是否滚到顶部
+  key: (route) => string,                    // <NuxtPage :page-key> 用
+
+  // Nuxt 4 新增
+  interruptible: true,                       // 切换时取消当前未完成的 useFetch
+
+  // 任意自定义字段（透传到 route.meta）
+  requiresAuth: true,
+  permissions: ['admin'],
+});
+</script>
+```
+
+::: warning `definePageMeta` 是编译期宏
+
+里面**只能用字面量**——不能引用 `ref` / `useRoute()` / `props` 等运行时值。需要动态行为，把判断放到 `validate` 或 middleware 内。
+
+:::
+
+## `useCookie` 完整选项
+
+```ts
+const cookie = useCookie<T>('name', {
+  default: () => 'fallback',         // 没读到时的默认值
+  maxAge: 60 * 60 * 24,              // 秒
+  expires: new Date(...),             // Date 对象
+  httpOnly: true,                     // JS 无法读（仅服务端写时可设）
+  secure: true,                       // 仅 HTTPS
+  sameSite: 'lax' | 'strict' | 'none',// SameSite 策略
+  domain: '.example.com',             // 域
+  path: '/',                          // 路径
+  encode: (v) => string,              // 自定义编码
+  decode: (v) => T,                   // 自定义解码
+  readonly: true,                     // 只读模式
+  watch: 'shallow' | false,           // watch 模式
+});
+
+// 用法 = 普通 ref
+cookie.value;                          // 读
+cookie.value = 'new-value';            // 写（自动同步到 cookie）
+```
+
+::: warning `httpOnly` 限制
+
+`useCookie('x', { httpOnly: true })` 在客户端**写入**时不会生效——`document.cookie` 写不了 httpOnly。要服务端 `setCookie(event, 'x', val, { httpOnly: true })` 配合。`useCookie` 客户端读 httpOnly cookie 时拿不到值（默认）。
+
+:::
+
+## `useState` 进阶
+
+### 必须给 key 的原因
+
+```ts
+// ❌ 无 key —— SSR 时多个组件共享同一份未命名 state，相互覆盖
+const counter = useState(() => 0);
+
+// ✅ 给唯一 key —— SSR payload 按 key 索引
+const counter = useState('counter', () => 0);
+```
+
+### 跨组件共享
+
+```ts
+// composables/useCart.ts
+export function useCart() {
+  return useState<Item[]>('cart.items', () => []);
+}
+```
+
+任何组件调 `useCart()` 拿到**同一份 ref**：
+
+```vue
+<!-- Component A -->
+<script setup>
+const cart = useCart();
+cart.value.push(item);
+</script>
+
+<!-- Component B（同时挂载）-->
+<script setup>
+const cart = useCart();
+console.log(cart.value);   // 看到 Component A 加的 item
+</script>
+```
+
+### 重置到初始值
+
+```ts
+import { clearNuxtState } from '#imports';
+clearNuxtState('cart.items');         // 重置到 init 值
+clearNuxtState(['cart.items', 'user']); // 多个
+clearNuxtState();                      // 全部
+```
+
+### Lazy 初始化
+
+```ts
+const user = useState<User | null>('user', () => null);
+// init 函数仅在首次创建时跑，后续调用返回同一 ref
+```
+
+## 嵌套路由进阶
+
+### 父子页面共用 layout 状态
+
+```
+pages/
+├── settings.vue         → /settings/* 的父级（含 sidebar）
+└── settings/
+    ├── profile.vue      → /settings/profile
+    ├── security.vue     → /settings/security
+    └── notifications.vue → /settings/notifications
+```
+
+```vue
+<!-- pages/settings.vue -->
+<script setup>
+const activeTab = ref('profile');  // 多个子页共享
+</script>
+
+<template>
+  <div class="settings-shell">
+    <nav>
+      <NuxtLink to="/settings/profile">个人</NuxtLink>
+      <NuxtLink to="/settings/security">安全</NuxtLink>
+      <NuxtLink to="/settings/notifications">通知</NuxtLink>
+    </nav>
+    <main>
+      <NuxtPage :active-tab="activeTab" />
+    </main>
+  </div>
+</template>
+```
+
+子页通过 props 接收：
+
+```vue
+<!-- pages/settings/profile.vue -->
+<script setup>
+const props = defineProps<{ activeTab: string }>();
+</script>
+```
+
+### NuxtPage 的 page-key
+
+控制子路由切换时是否复用组件：
+
+```vue
+<!-- 切换不同 :id 时强制重新挂载（fetch 重跑） -->
+<NuxtPage :page-key="(route) => route.fullPath" />
+
+<!-- 默认按组件本身（同组件复用） -->
+<NuxtPage />
+```
+
+或在子 page 用 `definePageMeta({ key: route => route.fullPath })`。
+
+### 单根元素约束
+
+```vue
+<!-- ❌ 多根，触发 vue-router 警告 -->
+<template>
+  <h1>Title</h1>
+  <p>Content</p>
+</template>
+
+<!-- ✅ 单根 -->
+<template>
+  <div>
+    <h1>Title</h1>
+    <p>Content</p>
+  </div>
+</template>
+```
+
+原因：transition 动画需要确定的根节点。Vue 3 fragments 在普通组件中支持但 Nuxt page 不行。
+
+## 路由组（route groups）
+
+括号目录**不出现在 URL** 中，只用来组织文件：
+
+```
+pages/
+├── (marketing)/
+│   ├── about.vue           → /about
+│   └── pricing.vue         → /pricing
+└── (admin)/
+    └── dashboard.vue       → /dashboard
+```
+
+特别用法：**不同组用不同 layout**：
+
+```vue
+<!-- pages/(marketing)/about.vue -->
+<script setup>
+definePageMeta({ layout: 'marketing' });
+</script>
+```
+
+```vue
+<!-- pages/(admin)/dashboard.vue -->
+<script setup>
+definePageMeta({ layout: 'admin' });
+</script>
+```
+
+URL 还是 `/about` / `/dashboard`，但目录分隔了关注点。
+
+## 客户端 / 服务端守卫总结
+
+```vue
+<script setup>
+// 1. 编译期常量（推荐，Vite 树摇）
+if (import.meta.client) {
+  // 只在客户端执行
+}
+if (import.meta.server) {
+  // 只在服务端执行
+}
+
+// 2. 等价的 process（兼容，但 Vite 树摇没那么干净）
+if (process.client) { /* ... */ }
+if (process.server) { /* ... */ }
+
+// 3. 等价的 import.meta.dev / prod
+if (import.meta.dev) {
+  // 仅开发模式
+}
+
+// 4. 运行时检测（不能树摇）
+if (typeof window !== 'undefined') { /* ... */ }
+</script>
+```
+
+优先级：`import.meta.client/server` > `process.client/server` > `typeof window`。
+
+### `<ClientOnly>` 三种典型
+
+```vue
+<!-- 1. 简单包裹：SSR 时不渲染，hydration 后才出现 -->
+<ClientOnly>
+  <BrowserOnlyWidget />
+</ClientOnly>
+
+<!-- 2. 含 fallback：SSR 时显示占位 -->
+<ClientOnly>
+  <BrowserChart :data="data" />
+  <template #fallback>
+    <div class="chart-skeleton">加载中...</div>
+  </template>
+</ClientOnly>
+
+<!-- 3. 显式 placeholder -->
+<ClientOnly placeholder="loading" placeholder-tag="span">
+  <Widget />
+</ClientOnly>
+```
+
+## 数据请求最佳实践
+
+### 显示类 vs 操作类
+
+| 场景 | API |
+|---|---|
+| 页面 setup 内显示数据 | `useFetch` / `useAsyncData` |
+| 用户操作后发请求（保存 / 删除 / 上传） | `$fetch` |
+| 监听器内、`onMounted` 之后 | `$fetch` |
+| 需要响应式 + 派生 | `useAsyncData` + `computed` |
+| 复合多个请求 | `useAsyncData` + `Promise.all` |
+
+### 错误隔离
+
+```vue
+<script setup>
+const { data, error } = await useFetch('/api/articles');
+
+// 优雅降级，不让单个 API 失败拖垮整页
+const fallbackData = computed(() => data.value ?? []);
+</script>
+
+<template>
+  <div v-if="error" class="error-banner">{{ error.statusMessage }}</div>
+  <ul>
+    <li v-for="item in fallbackData" :key="item.id">{{ item.title }}</li>
+  </ul>
+</template>
+```
+
+致命错误（无法继续）：
+
+```ts
+if (error.value) {
+  throw createError({
+    statusCode: 500,
+    statusMessage: 'Server unavailable',
+    fatal: true,        // 走 error.vue 全局错误页
+  });
+}
+```
+
+### 复用同一份数据
+
+多组件需要同样数据时，用同 key：
+
+```ts
+// composables/useCurrentUser.ts
+export const useCurrentUser = () =>
+  useAsyncData('current-user', () => $fetch('/api/me'));
+```
+
+任意组件：
+
+```ts
+const { data: user } = await useCurrentUser();
+// 多组件并发调用 = 共享一次请求
+```
+
+Nuxt 4 默认 dedupe = 'cancel'（新请求取消旧的）；改 `dedupe: 'defer'` 让多次调用共享同一 promise。

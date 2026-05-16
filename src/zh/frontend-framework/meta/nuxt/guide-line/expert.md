@@ -446,3 +446,731 @@ SSR 把数据序到 HTML 里给客户端 hydration——大数据会让首屏 HT
 ```
 
 需要 `@nuxt/image` 模块。它自动转 WebP / AVIF、按 srcset 出多份尺寸、走 CDN provider。
+
+## 服务端缓存
+
+Nitro 自带缓存层，可包装 handler / 函数：
+
+### `defineCachedEventHandler`
+
+```ts
+// server/api/heavy.get.ts
+export default defineCachedEventHandler(
+  async (event) => {
+    const data = await expensiveCompute();
+    return data;
+  },
+  {
+    maxAge: 60,                   // 缓存 60 秒
+    swr: true,                     // stale-while-revalidate
+    base: 'memory',                // 后端：memory / redis / fs
+    name: 'heavy',                 // 显式命名（默认按 URL）
+    getKey: (event) => `heavy:${getRouterParam(event, 'id')}`,
+    shouldInvalidateCache: (event) => getQuery(event).fresh === '1',
+    shouldBypassCache: (event) => getHeader(event, 'authorization') !== undefined,
+  },
+);
+```
+
+### `defineCachedFunction`
+
+```ts
+// server/utils/db.ts
+export const getUser = defineCachedFunction(
+  async (id: number) => {
+    return await prisma.user.findUnique({ where: { id } });
+  },
+  {
+    maxAge: 300,
+    name: 'db:user',
+    getKey: (id) => String(id),
+  },
+);
+```
+
+```ts
+// server/api/users/[id].get.ts
+import { getUser } from '~/server/utils/db';
+
+export default defineEventHandler(async (event) => {
+  const id = Number(getRouterParam(event, 'id'));
+  return await getUser(id);  // 自动缓存
+});
+```
+
+### `useStorage` 内置 KV
+
+```ts
+const storage = useStorage('cache');  // 默认内存存储
+
+await storage.setItem('key', { foo: 'bar' });
+const val = await storage.getItem('key');
+await storage.removeItem('key');
+await storage.clear();   // 全清
+```
+
+配 Redis：
+
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  nitro: {
+    storage: {
+      cache: { driver: 'redis', url: process.env.REDIS_URL },
+    },
+  },
+});
+```
+
+切 driver 后代码不变——`useStorage('cache')` 透明走 Redis。
+
+## 部署目标各 preset 细节
+
+### `node-server`（默认 / 推荐）
+
+```ts
+nitro: { preset: 'node-server' }
+```
+
+产物：`.output/server/index.mjs` —— 独立 Node 程序。
+
+```bash
+node .output/server/index.mjs    # 默认 :3000
+PORT=8080 node .output/server/index.mjs
+
+# PM2 / systemd 起进程
+pm2 start .output/server/index.mjs --name my-app -i max
+```
+
+### `node-cluster`（多核利用）
+
+```ts
+nitro: { preset: 'node-cluster' }
+```
+
+自动按 CPU 核数 fork 多个 worker。比 PM2 cluster 模式更原生。
+
+### `vercel` / `vercel-edge`
+
+```ts
+nitro: { preset: 'vercel' }       // Serverless Function
+// 或
+nitro: { preset: 'vercel-edge' }  // Edge Runtime（V8 isolate）
+```
+
+部署：仓库连 Vercel，自动识别 Nuxt + Nitro，零配置。
+
+Edge runtime 需注意：
+- 没有 Node `fs` / `child_process` 等
+- 单请求 CPU 时间限制（25ms 区域路由 / 50ms Edge Function Pro）
+- 部分 npm 包不兼容（含 native binary 的不行）
+
+### `netlify` / `netlify-edge`
+
+```ts
+nitro: { preset: 'netlify' }       // Functions
+nitro: { preset: 'netlify-edge' }  // Deno 跑的 Edge
+```
+
+`netlify-static`：纯静态（等价 generate）。
+
+### `cloudflare-pages` / `cloudflare-workers`
+
+```ts
+nitro: { preset: 'cloudflare-pages' }    // 推荐：Pages + Functions
+nitro: { preset: 'cloudflare-workers' }  // 纯 Worker（更纯净）
+```
+
+绑定环境变量在 Cloudflare dashboard 配。Workers 有 1 MB 大小限制（含 dependencies）—— 大型 Nuxt 应用要拆 Layer 或裁剪。
+
+### `deno-deploy`
+
+```ts
+nitro: { preset: 'deno-deploy' }
+```
+
+部署：用 `denoctl deploy` 或 GitHub action。Deno runtime，部分 Node API 通过 polyfill。
+
+### `bun`
+
+```ts
+nitro: { preset: 'bun' }
+```
+
+跑在 Bun runtime，速度比 Node 快 1.5-2x。要 Bun ≥ 1.1。
+
+### `aws-lambda`
+
+```ts
+nitro: { preset: 'aws-lambda' }
+```
+
+产物为 Lambda handler。配合 API Gateway / CloudFront 部署。冷启动比 Node server 慢一些（200-500ms）。
+
+### `azure` / `firebase` / 其它 PaaS
+
+类似配置，每个 platform 都有官方 preset。详见 [Nitro deployment docs](https://nitro.unjs.io/deploy)。
+
+## 部署最佳实践
+
+### 环境变量与 secrets
+
+- 部署平台用 dashboard / secret manager 配 `NUXT_*` 环境变量
+- **不要把 token 写进 `runtimeConfig.public.*`** —— 进客户端 bundle
+- 用 `useRuntimeConfig(event)` 在 server handler 读，避免污染 SSR payload
+
+### 健康检查端点
+
+```ts
+// server/api/health.get.ts
+export default defineEventHandler((event) => {
+  setResponseStatus(event, 200);
+  return { status: 'ok', uptime: process.uptime() };
+});
+```
+
+负载均衡器 / Kubernetes liveness probe 用。
+
+### 日志结构化
+
+```ts
+// server/plugins/logging.ts
+export default defineNitroPlugin((nitroApp) => {
+  nitroApp.hooks.hook('request', (event) => {
+    console.log(JSON.stringify({
+      method: getMethod(event),
+      path: event.path,
+      ts: Date.now(),
+    }));
+  });
+
+  nitroApp.hooks.hook('beforeResponse', (event, { body }) => {
+    console.log(JSON.stringify({
+      method: getMethod(event),
+      path: event.path,
+      status: getResponseStatus(event),
+      duration: Date.now() - (event.context.startTime ?? 0),
+    }));
+  });
+});
+```
+
+### 优雅停机
+
+```ts
+// server/plugins/graceful-shutdown.ts
+export default defineNitroPlugin((nitroApp) => {
+  let activeRequests = 0;
+  let shuttingDown = false;
+
+  nitroApp.hooks.hook('request', () => { activeRequests++ });
+  nitroApp.hooks.hook('afterResponse', () => { activeRequests-- });
+
+  for (const signal of ['SIGTERM', 'SIGINT']) {
+    process.on(signal, () => {
+      shuttingDown = true;
+      console.log(`Received ${signal}, draining...`);
+      const interval = setInterval(() => {
+        if (activeRequests === 0) {
+          clearInterval(interval);
+          process.exit(0);
+        }
+      }, 200);
+    });
+  }
+});
+```
+
+Kubernetes 滚动更新需要这个，避免请求被截断。
+
+## Modules 开发深入
+
+### 完整 module 结构
+
+```
+my-module/
+├── package.json
+├── README.md
+├── src/
+│   ├── module.ts          # 模块入口
+│   └── runtime/           # 运行时代码（被注册的内容）
+│       ├── plugin.ts
+│       ├── composables/
+│       │   └── useMyFeature.ts
+│       ├── components/
+│       │   └── MyButton.vue
+│       ├── server/
+│       │   └── api/
+│       │       └── greet.get.ts
+│       └── types.d.ts
+├── playground/             # 用于本地测试的小 Nuxt 项目
+└── test/                   # 模块测试
+```
+
+```ts
+// src/module.ts
+import { defineNuxtModule, addPlugin, addComponent, addImports, addServerHandler, createResolver, addTypeTemplate } from 'nuxt/kit';
+
+export interface ModuleOptions {
+  enabled?: boolean;
+  greetingPrefix?: string;
+}
+
+export default defineNuxtModule<ModuleOptions>({
+  meta: {
+    name: 'my-module',
+    configKey: 'myModule',
+    compatibility: { nuxt: '^4.0.0' },
+  },
+  defaults: {
+    enabled: true,
+    greetingPrefix: 'Hello',
+  },
+  async setup(options, nuxt) {
+    if (!options.enabled) return;
+
+    const resolver = createResolver(import.meta.url);
+
+    // 加 plugin
+    addPlugin(resolver.resolve('./runtime/plugin'));
+
+    // 加自动导入的 composable
+    addImports({
+      name: 'useMyFeature',
+      from: resolver.resolve('./runtime/composables/useMyFeature'),
+    });
+
+    // 加全局组件
+    addComponent({
+      name: 'MyButton',
+      filePath: resolver.resolve('./runtime/components/MyButton.vue'),
+    });
+
+    // 加 server route
+    addServerHandler({
+      route: '/api/greet',
+      handler: resolver.resolve('./runtime/server/api/greet.get'),
+    });
+
+    // 把选项注入到 runtime 配置（供 plugin 读）
+    nuxt.options.runtimeConfig.public.myModule = {
+      greetingPrefix: options.greetingPrefix,
+    };
+
+    // 加类型声明（让用户编辑器能识别）
+    addTypeTemplate({
+      filename: 'types/my-module.d.ts',
+      getContents: () => `
+        declare module '#app' {
+          interface NuxtApp {
+            $greet: (name: string) => string;
+          }
+        }
+        export {};
+      `,
+    });
+
+    // hook 进 Nuxt 生命周期
+    nuxt.hook('build:before', () => {
+      console.log('[my-module] starting build');
+    });
+  },
+});
+```
+
+### 在 playground 测试
+
+```
+my-module/
+├── src/...
+└── playground/
+    ├── nuxt.config.ts        # 引用 ../src
+    ├── package.json
+    └── app.vue
+```
+
+```ts
+// playground/nuxt.config.ts
+export default defineNuxtConfig({
+  modules: ['../src/module'],
+  myModule: {
+    greetingPrefix: 'Hi',
+  },
+});
+```
+
+```bash
+pnpm dev:playground   # 在 module 仓库根目录跑
+```
+
+### 程序化加载其它模块
+
+```ts
+import { installModule } from 'nuxt/kit';
+
+export default defineNuxtModule({
+  async setup(options, nuxt) {
+    // 我的 module 需要 tailwind，自动装上
+    await installModule('@nuxtjs/tailwindcss', {
+      config: { /* ... */ },
+    });
+  },
+});
+```
+
+### Module 发布
+
+```json
+// package.json
+{
+  "name": "my-module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "files": ["dist"],
+  "build": {
+    "externals": ["@nuxt/kit"]
+  }
+}
+```
+
+用 [`@nuxt/module-builder`](https://github.com/nuxt/module-builder) 一键构建：
+
+```bash
+pnpm dlx nuxt-module-build
+pnpm publish
+```
+
+## Layers 深度
+
+### Layer vs Module 选择
+
+| 维度 | Layer | Module |
+|---|---|---|
+| 包含什么 | pages / components / 完整 Nuxt 项目结构 | 可程序化加注册项 |
+| 灵活度 | 主项目可重写文件 | 程序化注入，不易重写 |
+| 安装方式 | `extends: [...]` | `modules: [...]` |
+| 共享单元 | 「应用碎片」 | 「功能注入器」 |
+
+选 Layer：多个相似应用共用底座（电商前台 / 后台 / 移动端）  
+选 Module：一组功能可装可拆（@nuxt/image / @nuxt/content）
+
+### Layer 共享单元类型
+
+```
+my-layer/
+├── nuxt.config.ts          # layer 配置（被合并）
+├── pages/                  # 路由
+├── components/             # 自动导入组件
+├── composables/            # 自动导入 composable
+├── layouts/                # 布局
+├── middleware/             # 中间件
+├── plugins/                # 插件
+├── server/                 # Nitro 服务端
+├── public/                 # 静态资源
+└── shared/                 # 双端共用
+```
+
+主项目 `extends`：
+
+```ts
+export default defineNuxtConfig({
+  extends: [
+    './layers/admin',                                // 本地
+    'github:my-org/my-shared-layer#v1.2.0',          // GitHub
+    ['gh:user/repo', { auth: process.env.GH_TOKEN }], // 私有
+  ],
+});
+```
+
+### Layer 覆盖规则
+
+| 资源 | 覆盖规则 |
+|---|---|
+| 同名 page (`pages/x.vue`) | 主项目优先 |
+| 同名组件 | 主项目优先 |
+| 同名 composable | 主项目优先 |
+| nuxt.config 配置 | 深度合并，主项目优先 |
+| modules 数组 | 累加 |
+| plugins | 按 layer 顺序累加（layer 先跑，project 最后） |
+
+主项目「重写」layer 单个文件的玩法：
+
+```
+acme/
+├── layers/shared/
+│   └── components/Footer.vue       # 共享版本
+└── components/Footer.vue            # 主项目同名 → 覆盖
+```
+
+### Layer 内部禁忌
+
+- **Layer 内不要硬编码绝对路径**（`/src/...`）—— 主项目部署后路径不同
+- **Layer 不要 `installModule` 不存在的依赖** —— 安装失败影响主项目
+- **Layer 的 nuxt.config 不要写 `runtimeConfig.public.X = 'hard-coded'`** —— 让主项目通过环境变量覆盖
+
+### Layer 发布
+
+```json
+// package.json
+{
+  "name": "@my-org/admin-layer",
+  "type": "module"
+}
+```
+
+Layer 不需要 module 那种构建——直接 publish 源代码，主项目 `extends: ['@my-org/admin-layer']` 即可。
+
+## Hybrid 渲染实战
+
+### 典型电商场景
+
+```ts
+export default defineNuxtConfig({
+  routeRules: {
+    // 1. 首页 SSG —— 构建一次永久静态
+    '/': { prerender: true },
+
+    // 2. 产品列表 SWR —— CDN 缓存 5 分钟、后台再生
+    '/products': { swr: 300 },
+
+    // 3. 单品详情 ISR —— CDN 缓存到下次部署
+    '/products/[slug]': { isr: true },
+
+    // 4. 购物车 / 结账 —— 实时 SSR（默认）
+    // 不需要 routeRules
+
+    // 5. 用户中心 —— SPA（不需要 SEO）
+    '/account/**': { ssr: false },
+
+    // 6. API 路由 —— CORS 给前端 SPA 调用
+    '/api/**': { cors: true },
+
+    // 7. 老链接重定向
+    '/legacy/products/:id': { redirect: '/products/:id' },
+
+    // 8. 静态资源安全头
+    '/_nuxt/**': {
+      headers: {
+        'Cache-Control': 'public, max-age=31536000, immutable',
+      },
+    },
+
+    // 9. 全站安全头
+    '/**': {
+      headers: {
+        'X-Content-Type-Options': 'nosniff',
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
+      },
+    },
+  },
+});
+```
+
+### 选择策略决策树
+
+```
+路由内容是否随用户变化？
+├─ 是 → SSR（默认）
+└─ 否 → 渲染开销大吗？
+    ├─ 大（数据库 / 复杂查询） → 缓存
+    │   ├─ 频繁变化 → SWR（短 TTL）
+    │   ├─ 很少变化 → ISR / prerender
+    └─ 小 → SSR
+```
+
+### SWR vs ISR 实战差别
+
+- **SWR（`swr: N`）**：
+  - 数据存 Nitro 内部（默认内存，可配 Redis）
+  - 第一个用户请求触发生成、N 秒内其它用户共享
+  - 过期后第一个用户拿到旧数据 + 触发后台再生
+  - 适合：自托管 Node / 单台服务器
+
+- **ISR（`isr: true`）**：
+  - 数据存 CDN（Vercel / Netlify 等平台特性）
+  - 跨多个 region 共享缓存
+  - 缓存到下次部署 / 显式 purge
+  - 适合：Vercel / Netlify 用户
+
+### `cache.maxAge` 完整选项
+
+```ts
+routeRules: {
+  '/heavy': {
+    cache: {
+      maxAge: 60,                  // 缓存秒数
+      swr: true,                    // 配合 stale-while-revalidate
+      base: 'memory',               // 后端 storage
+      varies: ['accept-language'],  // 按 header 分流
+      group: 'heavy-pages',          // 标识，用 useStorage 操作
+      shouldInvalidateCache: (event) => getQuery(event).bust === '1',
+    },
+  },
+}
+```
+
+## Server Components 深入
+
+### `.server.vue` 文件
+
+```vue
+<!-- components/HeavyServerCard.server.vue -->
+<script setup lang="ts">
+const { data } = await useFetch('/api/expensive');
+</script>
+
+<template>
+  <article>
+    <h2>{{ data.title }}</h2>
+    <p>{{ data.body }}</p>
+  </article>
+</template>
+```
+
+特性：
+- 渲染发生在服务端
+- **客户端 bundle 不带这段代码**
+- **没有交互能力**（无 click / 无 v-model）
+- 适合：纯展示 + 数据重的卡片 / 列表项
+
+### `<NuxtIsland />`
+
+```vue
+<NuxtIsland name="HeavyServerCard" :props="{ id: 42 }" />
+```
+
+特性：
+- 服务端组件，**客户端可按 props 变化触发服务端重渲染**
+- 通过 `useFetch` 拉新的渲染结果
+- 适合：少数据更新 + 不想 hydration 整个组件树
+
+### Server + Client 混合组件
+
+```vue
+<!-- components/MixedCard.vue —— 主体客户端 -->
+<template>
+  <div>
+    <NuxtIsland name="MixedCard/ServerHeader" :props="{ userId }" />
+    <ClientInteraction />
+  </div>
+</template>
+```
+
+```vue
+<!-- components/MixedCard/ServerHeader.server.vue —— 仅服务端 -->
+<script setup>
+const props = defineProps<{ userId: number }>();
+const { data: user } = await useFetch(`/api/users/${props.userId}`);
+</script>
+
+<template>
+  <header>Welcome {{ user.name }}</header>
+</template>
+```
+
+## Edge / Cloudflare 限制详解
+
+部署到 Cloudflare Workers / Pages 时：
+
+### 禁用的 Node API
+
+```ts
+// ❌ 全部不可用
+import fs from 'node:fs';
+import path from 'node:path';
+import { spawn } from 'node:child_process';
+import { Cluster } from 'node:cluster';
+import * as net from 'node:net';
+
+// ❌ 部分 process API 缺失
+process.cwd();  // 在 Workers 上不存在
+```
+
+### 可用的 Web 标准 API
+
+```ts
+// ✅ 完整支持
+await fetch('https://api.example.com');
+new Headers();
+new Request();
+new Response();
+new URL('https://example.com');
+new URLSearchParams();
+await crypto.subtle.digest('SHA-256', data);
+crypto.randomUUID();
+new TextEncoder();
+new TextDecoder();
+new ReadableStream();
+```
+
+### Cloudflare KV / D1 / R2 集成
+
+```ts
+// server/api/get-cache.get.ts
+export default defineEventHandler(async (event) => {
+  // Cloudflare 绑定的 KV / D1 通过 event.context.cloudflare 暴露
+  const { env } = event.context.cloudflare;
+  const value = await env.MY_KV.get('key');
+  return { value };
+});
+```
+
+绑定在 `wrangler.toml` 里配。
+
+### 大小限制
+
+- **Workers**：单 worker bundle 1 MB（free）/ 10 MB（paid）
+- **Pages Functions**：每函数 1 MB
+- 解决：拆 layer / 不打包不必要的 lib / 用 `external` 排除大依赖
+
+## 性能基准 / 监控
+
+### 衡量 SSR 性能
+
+```ts
+// server/plugins/ssr-metrics.ts
+export default defineNitroPlugin((nitroApp) => {
+  nitroApp.hooks.hook('render:html', (html, { event }) => {
+    const duration = Date.now() - event.context.startTime;
+    console.log(JSON.stringify({
+      type: 'ssr',
+      path: event.path,
+      duration_ms: duration,
+    }));
+  });
+});
+```
+
+### 监控 hydration 耗时
+
+```ts
+// plugins/hydration-metrics.client.ts
+export default defineNuxtPlugin((nuxtApp) => {
+  const start = performance.now();
+  nuxtApp.hook('app:mounted', () => {
+    const duration = performance.now() - start;
+    console.log('Hydration duration:', duration, 'ms');
+    // 上报
+  });
+});
+```
+
+### Core Web Vitals
+
+```ts
+// plugins/web-vitals.client.ts
+export default defineNuxtPlugin(() => {
+  if (!import.meta.client) return;
+
+  import('web-vitals').then(({ onCLS, onLCP, onINP, onFCP, onTTFB }) => {
+    function report(metric) {
+      navigator.sendBeacon('/api/metrics', JSON.stringify(metric));
+    }
+    onCLS(report); onLCP(report); onINP(report); onFCP(report); onTTFB(report);
+  });
+});
+```
