@@ -185,7 +185,7 @@ export class ScrollWatch extends LitElement {
 }
 ```
 
-也可以直接在模板里写成对象：`@wheel=${{handleEvent: this._onWheel, passive: true}}`。
+也可以直接在模板里写成对象：<span v-pre>`@wheel=${{handleEvent: this._onWheel, passive: true}}`</span>。
 
 ## 模板系统深入
 
