@@ -362,3 +362,401 @@ pnpm dlx @turbo/codemod migrate
 | 在 CI yml 写 `turbo build`                            | 改为 `turbo run build`                         |
 | 任务产物文件，没声明 `outputs`                        | 补 `outputs: ["dist/**"]` 等                   |
 | `env` 缺失关键变量导致缓存命中错产物                  | 把所有影响产物的变量加进 `env` / `globalEnv`   |
+
+## 缓存深入
+
+### Cache Hash 计算
+
+Turborepo 把以下输入合并成一个 SHA256 hash 决定缓存 key：
+
+1. **任务源码**：`inputs` 匹配的文件内容
+2. **任务依赖产物**：`dependsOn` 中上游任务的 outputs（递归）
+3. **环境变量**：`env` / `globalEnv` 中声明的变量当前值
+4. **任务配置本身**：`turbo.json` 中该任务的字段（dependsOn / outputs / env 列表等）
+5. **Turborepo 版本**：升级 Turborepo 版本可能让全部 hash 失效
+6. **包管理器锁文件**：`pnpm-lock.yaml` / `package-lock.json` 内容
+
+```bash
+# 查看任务的 hash 与 inputs
+turbo run build --dry-run=json | jq '.tasks[0] | {hash, inputs}'
+```
+
+`inputs` 数组列出影响 hash 的所有文件 + 环境变量。**调试「为何缓存不命中」** 时对比两次 dry-run 的 inputs 差异。
+
+### 本地缓存位置
+
+```
+node_modules/.cache/turbo/  ← v2 起的默认位置
+```
+
+旧版本在 `.turbo/cache/`。每个 hash 对应一个目录：
+
+```
+node_modules/.cache/turbo/
+├── 5f3a1c.../  ← 一次 build 的产物快照
+│   ├── outputs.tar.zst
+│   └── meta.json   ← stdout/stderr / exit code / 时间戳
+└── ...
+```
+
+恢复 cache 时 turborepo 解包 tar.zst 到包目录，再 replay log 到 terminal。
+
+### Cache 调试命令
+
+```bash
+# 1. 干跑不实际执行，看任务图与 hash
+turbo run build --dry-run
+
+# 2. 跑但不缓存（强制 MISS）
+turbo run build --no-cache
+
+# 3. 跑并显示详细缓存信息
+turbo run build --summarize
+
+# 4. 只用本地缓存，不读云端
+turbo run build --no-remote-cache
+
+# 5. 清理本地缓存
+rm -rf node_modules/.cache/turbo
+```
+
+### 缓存命中率监控
+
+CI 中加：
+
+```bash
+turbo run build --summarize=.turbo-summary.json
+```
+
+输出 JSON 含 `cacheStatus`（`HIT` / `MISS` / `SKIPPED`）。结合 datadog / grafana 监控团队级缓存命中率，<70% 说明 input 配置不准（误失效太多）。
+
+## 任务图可视化
+
+```bash
+turbo run build --graph
+```
+
+生成 GraphViz `.dot` 文件 + PNG（需装 graphviz）：
+
+```bash
+turbo run build --graph=graph.html  # 输出 HTML 可视化
+turbo run build --graph=graph.png   # 输出 PNG
+```
+
+排查「任务为什么 X 先于 Y」「为什么这条 deps 链太长」时用。
+
+## 动态过滤策略
+
+```bash
+# 1. 包名通配
+turbo run build --filter="@acme/*"
+
+# 2. 包含某包的依赖图（上游）
+turbo run build --filter="...@acme/web"
+
+# 3. 包含某包的反向依赖（下游）
+turbo run build --filter="@acme/ui..."
+
+# 4. 仅这个包（不含依赖图）
+turbo run build --filter="@acme/web"
+
+# 5. 否定（排除）
+turbo run build --filter="!@acme/internal-tool"
+
+# 6. 路径匹配
+turbo run build --filter="./apps/*"
+
+# 7. 与 git 结合：相对 main 改动的包
+turbo run build --filter="...[origin/main]"
+
+# 8. 与 git 结合：上一次 commit 改动
+turbo run build --filter="...[HEAD~1]"
+```
+
+`...` 三个点的方向：
+
+- `pkg...` 该包 + 所有 dependents（向下游）
+- `...pkg` 该包 + 所有 dependencies（向上游）
+- `pkg` 仅该包
+- `[git-ref]` git-ref 起点的变更包
+
+### `--filter` vs `--affected`
+
+| 维度       | `--filter`                              | `--affected`                                 |
+| ---------- | --------------------------------------- | -------------------------------------------- |
+| 控制粒度   | 精确（包名/路径/git ref）              | 自动（与 main 对比）                        |
+| 用途       | 本地按需跑某包 / 排除大包               | CI 默认                                      |
+| 上游变更   | 需显式 `...pkg`                         | 自动包含                                     |
+| Shallow clone | 不支持（需完整 history）             | 容错性更强                                   |
+
+CI 推荐 `--affected`，本地 `--filter` 灵活。
+
+## Monorepo 结构模式
+
+### 标准布局
+
+```
+my-monorepo/
+├── apps/
+│   ├── web/                # Next.js 站点
+│   ├── admin/              # 管理后台
+│   └── mobile/             # React Native
+├── packages/
+│   ├── ui/                 # 共享组件库
+│   ├── utils/              # 工具函数
+│   ├── tsconfig/           # 共享 tsconfig
+│   └── eslint-config/      # 共享 ESLint 配置
+├── turbo.json
+├── package.json
+└── pnpm-workspace.yaml
+```
+
+### packages 内部约定
+
+| 类型             | 命名               | 典型 outputs              |
+| ---------------- | ------------------ | ------------------------- |
+| UI 组件库         | `@acme/ui`         | `dist/**`                |
+| 工具函数          | `@acme/utils`      | `dist/**`                |
+| 共享 TS 类型      | `@acme/types`      | `dist/**.d.ts`           |
+| 共享 ESLint 配置  | `@acme/eslint-config` | -（无构建）             |
+| 共享 tsconfig    | `@acme/tsconfig`   | -（仅 JSON 文件）        |
+| 业务 SDK         | `@acme/sdk`        | `dist/**`                |
+
+### apps 内部约定
+
+- 每个 app 独立 `package.json`、可有不同 framework
+- app 之间不直接 import 对方代码（违反单向依赖）
+- 通过 `packages/*` 共享代码
+
+## 与 pnpm Workspaces 集成
+
+### `pnpm-workspace.yaml`
+
+```yaml
+packages:
+  - "apps/*"
+  - "packages/*"
+  - "!**/test/**"
+```
+
+### Workspace Protocol
+
+包内引用同 monorepo 中的其它包：
+
+```json
+// apps/web/package.json
+{
+  "dependencies": {
+    "@acme/ui": "workspace:*",
+    "@acme/utils": "workspace:^"
+  }
+}
+```
+
+`workspace:*` 在 publish 时由 pnpm 自动替换为版本号。
+
+### 配合 Turborepo
+
+Turborepo 读取 workspace 配置识别包关系：
+
+```json
+// turbo.json
+{
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"], // ^ 即 workspace dependencies
+      "outputs": ["dist/**"]
+    }
+  }
+}
+```
+
+`^build` 自动解析为「当前包的 `dependencies` / `devDependencies` 中 workspace: 引用的包的 build」。
+
+## Workspaces 与 turborepo 的对比
+
+| 维度            | pnpm Workspaces           | Turborepo                              |
+| --------------- | ------------------------- | -------------------------------------- |
+| 角色            | 包管理（依赖图）          | 任务编排（执行图）                    |
+| 关注点          | install / publish / link  | build / test / lint 调度 + 缓存       |
+| 配置文件        | `pnpm-workspace.yaml`     | `turbo.json`                           |
+| 依赖            | -                         | 依赖 workspace 工具（pnpm/yarn/npm）  |
+
+**配合使用**：pnpm 管包，turbo 跑任务。等价于 yarn workspaces + Lerna / nx 中的 nx。
+
+## 与 Nx 对比
+
+| 维度          | Turborepo                   | Nx                                    |
+| ------------- | --------------------------- | ------------------------------------- |
+| 焦点          | 任务调度 + 缓存             | 任务调度 + 缓存 + 项目生成 + 插件生态 |
+| 配置          | `turbo.json` 极简           | `nx.json` + `project.json` 较复杂    |
+| 学习曲线      | 低                          | 中（plugins/generators 很多）        |
+| 项目生成器    | 无                          | 强（`nx generate`）                  |
+| 框架感知      | 弱（依赖 framework infer）  | 强（每框架专用插件）                  |
+| 远程缓存      | Vercel / 自托管             | Nx Cloud（云服务）                   |
+| 适合          | Next.js + monorepo 简单结构 | 复杂企业级 monorepo（多框架混用）    |
+
+选择建议：
+
+- **Next.js / React + 中小 monorepo**：Turborepo（生态契合，配置简洁）
+- **Angular / 多框架 / 企业级 30+ 包**：Nx（生态更完善）
+- **已有 Lerna 项目**：迁 Turborepo（Lerna 已不活跃）
+
+## 高级：自定义 Cache Provider
+
+Turborepo 不支持插件自定义 cache provider，但可以**镜像 Vercel Remote Cache 协议**实现：
+
+- 文件存储：S3 / MinIO / R2 / Azure Blob
+- 协议：HTTP API 兼容 Vercel Remote Cache
+
+社区方案：
+
+| 项目                            | Stack             | 状态     |
+| ------------------------------- | ----------------- | -------- |
+| `ducktors/turborepo-remote-cache` | Node.js + S3 / GCS | 活跃 |
+| `Tapico/tapico-turborepo-remote-cache` | Bun + various | 中等 |
+| `brunojppb/turbo-cache-server`  | Node.js + S3      | 活跃     |
+
+部署示例（ducktors）：
+
+```bash
+docker run -p 3000:3000 \
+  -e STORAGE_PROVIDER=s3 \
+  -e STORAGE_PATH=my-turbo-cache \
+  -e S3_ACCESS_KEY=... \
+  -e TURBO_TOKEN=team-token-here \
+  ducktors/turborepo-remote-cache
+```
+
+客户端配置：
+
+```bash
+turbo login --manual --api=https://your-cache-server.com --token=team-token-here
+```
+
+或：
+
+```bash
+TURBO_API=https://your-cache-server.com
+TURBO_TOKEN=team-token-here
+turbo run build
+```
+
+::: warning 自托管的安全考量
+
+- HMAC 签名（`remoteCache.signature: true`）防恶意 cache 注入
+- TLS 必须，避免 cache 被中间人篡改
+- token 轮换机制（避免 token 泄露后无法回收）
+- 监控异常上传（突然 GB 级 cache 可能是问题）
+
+:::
+
+## 性能调优
+
+### 并行度
+
+```bash
+turbo run build --concurrency=10   # 默认 10
+turbo run build --concurrency=50%  # 按 CPU 核心比例
+```
+
+CI runner 内存有限时调低（如 4 核 8GB 用 4 而非 10）防 OOM。
+
+### Task 拆分粒度
+
+**过粗**：单个 `build` 包含 lint + test + compile —— 改一行 lint 触发整个流程重跑。
+
+**过细**：拆 100 个微任务 —— 调度开销可能大于任务本身。
+
+经验值：
+
+- 单包内 2-5 个任务（build / test / lint / typecheck）
+- 任务运行 1s 以下不值得单独缓存
+
+### 大输出文件
+
+任务输出 >100MB 时缓存上传/下载慢。优化：
+
+1. 排除不必要的产物（`!dist/**/*.map` 排 sourcemap）
+2. 启用 `cache: false`（如 dev 任务）
+3. 分两段 build：`build:lib`（缓存）+ `build:bundle`（不缓存，依赖 build:lib）
+
+## 故障排查清单
+
+| 现象                        | 排查方向                                              |
+| --------------------------- | ----------------------------------------------------- |
+| 改代码后缓存仍 HIT          | `inputs` 漏了文件 / 配置不准                          |
+| 改代码后总 MISS            | `inputs` 太宽 / 未删除 generated 文件                |
+| CI 上比本地慢很多           | 是否启用 remote cache / CI runner CPU 慢            |
+| `--affected` 总跑全量      | `fetch-depth` 不够 / `TURBO_SCM_BASE` 错             |
+| 任务并发 race condition     | `outputs` 重叠 / 共享文件未声明 dependsOn            |
+| OOM                         | `--concurrency` 太高 / 单任务内存泄漏                |
+| `pkg#task` 配置不生效       | 写到了包级 turbo.json（必须根级）                    |
+| `extends` 后字段被覆盖       | 数组字段用 `$TURBO_EXTENDS$` 追加而非覆盖           |
+| env 改动未触发重跑           | strict 模式下未在 `env` 列表声明                     |
+| watch 不重启 dev server     | 未设 `interruptible: true`                           |
+
+## 与 Docker 集成最佳实践
+
+### 多阶段构建
+
+```dockerfile
+# 阶段 1: 修剪
+FROM node:22-alpine AS pruner
+WORKDIR /app
+RUN corepack enable
+COPY . .
+RUN pnpm dlx turbo prune @acme/web --docker
+
+# 阶段 2: 安装依赖（命中 layer cache）
+FROM node:22-alpine AS installer
+WORKDIR /app
+RUN corepack enable
+COPY --from=pruner /app/out/json/ .
+COPY --from=pruner /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
+RUN pnpm install --frozen-lockfile
+
+# 阶段 3: 构建
+FROM installer AS builder
+COPY --from=pruner /app/out/full/ .
+RUN pnpm turbo run build --filter=@acme/web
+
+# 阶段 4: 运行
+FROM node:22-alpine AS runner
+WORKDIR /app
+COPY --from=builder /app/apps/web/.next/standalone ./
+COPY --from=builder /app/apps/web/.next/static ./apps/web/.next/static
+COPY --from=builder /app/apps/web/public ./apps/web/public
+EXPOSE 3000
+CMD ["node", "apps/web/server.js"]
+```
+
+### CI 镜像加速
+
+GitHub Actions 中用 `docker/build-push-action` + buildx cache：
+
+```yaml
+- uses: docker/build-push-action@v5
+  with:
+    context: .
+    push: true
+    tags: my-repo/web:${{ github.sha }}
+    cache-from: type=gha
+    cache-to: type=gha,mode=max
+    build-args: |
+      TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM=${{ vars.TURBO_TEAM }}
+```
+
+`turbo prune` 输出的 `json/` 目录变化少 → Docker layer cache 命中率高 → `pnpm install` 极少跑。
+
+## 版本里程碑
+
+| 版本    | 时间    | 主要变化                                                          |
+| ------- | ------- | ----------------------------------------------------------------- |
+| v1.0    | 2022    | 首个稳定版，`pipeline` 字段                                       |
+| v1.10   | 2023    | `signature` 远程缓存签名                                          |
+| v2.0    | 2024    | Rust 重写完成；`pipeline` → `tasks`；strict env 模式             |
+| v2.1    | 2024    | `$TURBO_DEFAULT$` / `$TURBO_ROOT$` 占位符                        |
+| v2.5    | 2025    | `--affected` 引入；Watch 模式增强                                |
+| v2.9    | 2025    | Package Configurations `extends`；`$TURBO_EXTENDS$`              |

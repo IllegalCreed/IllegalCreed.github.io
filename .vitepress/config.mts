@@ -501,6 +501,10 @@ export default defineConfig({
                         text: "指南",
                         link: "/zh/frontend-framework/others/vee-validate/guide-line",
                       },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/others/vee-validate/reference",
+                      },
                     ],
                   },
                   {
@@ -515,6 +519,10 @@ export default defineConfig({
                       {
                         text: "指南",
                         link: "/zh/frontend-framework/others/vue-i18n/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/others/vue-i18n/reference",
                       },
                     ],
                   },
@@ -1097,6 +1105,10 @@ export default defineConfig({
                       {
                         text: "指南",
                         link: "/zh/engineering/monorepo/turborepo/guide-line.md",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/monorepo/turborepo/reference",
                       },
                     ],
                   },
