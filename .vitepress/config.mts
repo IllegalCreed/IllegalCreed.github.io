@@ -322,7 +322,43 @@ export default defineConfig({
                 link: "/zh/frontend-framework/meta/",
                 items: [
                   { text: "Next.js" },
-                  { text: "Nuxt" },
+                  {
+                    text: "Nuxt",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/meta/nuxt/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/meta/nuxt/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/meta/nuxt/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/meta/nuxt/guide-line/advanced",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/frontend-framework/meta/nuxt/guide-line/expert",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/frontend-framework/meta/nuxt/guide-line/other",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/meta/nuxt/reference",
+                      },
+                    ],
+                  },
                   { text: "Astro" },
                   { text: "Qwik" },
                   { text: "React Router" },
