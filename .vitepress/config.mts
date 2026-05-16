@@ -475,9 +475,63 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Lit" },
-                  { text: "Alpine.js" },
-                  { text: "HTMX" },
+                  {
+                    text: "Lit",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ui/lit/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ui/lit/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/ui/lit/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ui/lit/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Alpine.js",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ui/alpine-js/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ui/alpine-js/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/ui/alpine-js/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ui/alpine-js/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "HTMX",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ui/htmx/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ui/htmx/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/ui/htmx/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ui/htmx/reference",
+                      },
+                    ],
+                  },
                 ],
               },
               {
