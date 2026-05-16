@@ -47,3 +47,8 @@ layout: doc
 - 官网：[ecc.tools](https://ecc.tools/)
 - 解读：[Augment Code: Everything Claude Code](https://www.augmentcode.com/learn/everything-claude-code-github)
 - 易混淆同名工具：[chemany/easy-claude-code](https://github.com/chemany/easy-claude-code)（provider GUI，与本笔记主体不同）
+
+
+## 幻灯片地址
+
+<a href="/SlideStack/everything-claude-code-slide/" target="_blank">Everything Claude Code</a>

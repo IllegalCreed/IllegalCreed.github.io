@@ -62,3 +62,8 @@ Anthropic 推出的大语言模型家族，主打**安全可控 + 长上下文 +
 - [Anthropic 博客](https://www.anthropic.com/news)
 - [Cookbook 仓库](https://github.com/anthropics/anthropic-cookbook)
 - [模型卡](https://www.anthropic.com/news/claude-3-5-sonnet) （各版本发布文档）
+
+
+## 幻灯片地址
+
+<a href="/SlideStack/claude-model-slide/" target="_blank">Claude</a>

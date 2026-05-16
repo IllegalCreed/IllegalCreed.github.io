@@ -56,3 +56,8 @@ layout: doc
 | 需要 Claude MCP / Gemini 视频 / GPT Realtime 等独有 | ❌ 用官方 |
 | 企业级 SLA / 合规 | ❌ 用 Bedrock / Vertex / Azure |
 | 极致价格敏感 | △（多了 10-30% 中间费） |
+
+
+## 幻灯片地址
+
+<a href="/SlideStack/open-router-slide/" target="_blank">OpenRouter</a>

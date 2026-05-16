@@ -38,3 +38,8 @@ layout: doc
 
 - [Skills 编写规范](https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md)
 - [Anthropic Skills 文档](https://docs.claude.com/en/docs/claude-code/skills)
+
+
+## 幻灯片地址
+
+<a href="/SlideStack/superpowers-slide/" target="_blank">Superpowers</a>

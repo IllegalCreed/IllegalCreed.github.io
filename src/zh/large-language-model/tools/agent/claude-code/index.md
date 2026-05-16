@@ -38,4 +38,4 @@ Anthropic 官方的 AI 编码助手 CLI / IDE 扩展 / Web App，以「**Agent i
 
 ## 幻灯片地址
 
-待补（计划放在 SlideStack/claude-code-slide/）。
+<a href="/SlideStack/claude-code-slide/" target="_blank">Claude Code</a>
