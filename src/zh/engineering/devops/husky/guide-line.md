@@ -329,3 +329,406 @@ pnpm test
 ### 卸载 husky 后 **.git/hooks/ 不工作**
 
 如果卸载 `husky` 后 `.git/hooks/` 中的钩子不起作用，请执行 `git config --unset core.hooksPath`
+## Hook 执行流程深入
+
+Husky v9 极其精简，整个执行链是：
+
+```
+git commit
+   ↓
+git 启动 hooks（受 core.hooksPath 控制）
+   ↓
+.git/hooks/pre-commit （Husky 软链到 .husky/_）
+   ↓
+.husky/_/h（公共 shim 脚本）
+   ↓
+  ① 读 $XDG_CONFIG_HOME/husky/init.sh 或 ~/.config/husky/init.sh
+  ② 读 .husky/_/.gitignore（确保新增 hook 文件被忽略）
+  ③ 执行 .husky/<hook-name>（用户脚本）
+```
+
+**v9 的「无 shebang / 无 set -e」设计**：
+
+- v8 之前每个 hook 文件需手写 `#!/usr/bin/env sh` 和 `. "$(dirname "$0")/_/husky.sh"`
+- v9 直接执行——shim 处理所有公共逻辑，hook 文件极简
+
+```shell
+# v8 hook（旧）
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+pnpm test
+
+# v9 hook（新）
+pnpm test
+```
+
+::: warning v8 → v9 升级注意
+
+旧 hook 文件保留 shebang / source 也能工作（v9 兼容）。不需要手动清理。
+
+:::
+
+## 与 lint-staged 配合
+
+最常见的 `.husky/pre-commit`：
+
+```shell
+pnpm lint-staged
+```
+
+`lint-staged` 读 `package.json` 或 `lint-staged.config.{js,ts}`：
+
+```json
+{
+  "lint-staged": {
+    "*.{ts,vue}": "eslint --fix --cache --max-warnings=0",
+    "*.{json,md,css}": "prettier --write"
+  }
+}
+```
+
+Husky 触发 → lint-staged 仅对暂存文件运行 → 自动修复 + 重新 stage。详见 [lint-staged 指南](../lint-staged/guide-line)。
+
+::: tip pre-commit 是默认选择
+
+`pre-push` 跑测试也常见，但 pre-commit 用户感知更明显（提交时即得到反馈）。Long-running 测试（>5s）放 pre-push，短测试放 pre-commit。
+
+:::
+
+## commit-msg：约束提交消息
+
+```shell
+# .husky/commit-msg
+pnpm commitlint --edit $1
+```
+
+```js
+// commitlint.config.js
+module.exports = {
+  extends: ["@commitlint/config-conventional"],
+  rules: {
+    "subject-case": [2, "never", ["pascal-case", "upper-case"]],
+    "subject-max-length": [2, "always", 100],
+    "type-enum": [
+      2,
+      "always",
+      ["feat", "fix", "docs", "refactor", "test", "chore", "style", "perf"],
+    ],
+  },
+};
+```
+
+`$1` 是 git 传给 hook 的「临时 commit message 文件路径」（通常是 `.git/COMMIT_EDITMSG`）。`commitlint --edit $1` 读文件内容校验。
+
+**Conventional Commits 收益**：
+
+- `pnpm dlx changeset` / `standard-version` 自动生成 CHANGELOG
+- 同时强制约束「subject 不超过 100 字符」「type 在固定枚举」等
+
+## pre-push：分支保护 + 测试
+
+```shell
+# .husky/pre-push
+#!/usr/bin/env sh
+
+# 禁止直接 push main
+protected_branch='main'
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+if [ "$current_branch" = "$protected_branch" ]; then
+  echo "禁止直接 push 到 main 分支，请走 PR"
+  exit 1
+fi
+
+# 跑测试
+pnpm test
+```
+
+适合：
+
+- 长耗时测试（pre-commit 太慢用 pre-push）
+- 类型检查（`tsc --noEmit`）
+- E2E 跑一遍
+- 分支保护规则
+
+## 同仓多项目（Monorepo）
+
+```
+my-monorepo/
+├── .git/
+├── .husky/                  # 根级配置
+│   ├── pre-commit
+│   └── commit-msg
+├── package.json              # 根级（含 husky）
+├── apps/
+│   ├── web/
+│   └── api/
+└── packages/
+    └── shared/
+```
+
+```shell
+# .husky/pre-commit
+pnpm -w lint-staged          # 根级跑 lint-staged，自动对所有 workspace 生效
+```
+
+`lint-staged.config.js`（根级）：
+
+```js
+export default {
+  "apps/web/**/*.{ts,vue}": (files) => [
+    `pnpm -F web lint --files ${files.join(" ")}`,
+  ],
+  "apps/api/**/*.ts": (files) => [
+    `pnpm -F api lint --files ${files.join(" ")}`,
+  ],
+};
+```
+
+::: tip 单点维护 vs 散落
+
+monorepo 强烈推荐根级单点维护。把 husky / lint-staged 散到每个 workspace 反而易遗漏。
+
+:::
+
+## 性能考量
+
+### Hook 启动慢
+
+Husky 本身 < 50ms，但用户脚本可能慢：
+
+| 现象 | 排查 |
+| --- | --- |
+| pre-commit > 5s | lint-staged 命中文件多 / ESLint 慢 / Prettier 大文件 |
+| pre-push > 30s | 测试套件大 → 拆「最小集合在 pre-push 跑，完整集在 CI」 |
+| `nvm` init 慢 | 改用 `n` / `fnm`（启动更快） / 软链 node 二进制 |
+| commit-msg 卡 | commitlint 启动开销，可加 `--strict false` |
+
+### 跳过 hook 的合法场景
+
+```bash
+# 紧急 hotfix
+git commit -m "fix: prod down" --no-verify
+
+# revert 大批量
+git revert <sha> --no-verify
+
+# rebase
+HUSKY=0 git rebase main
+```
+
+::: warning 跳过策略
+
+`--no-verify` 应是例外不是常规。频繁跳过说明 hook 太慢或太严，应优化而非跳过。Code review 中看到 commit 缺少 conventional prefix，通常是用了 `-n`。
+
+:::
+
+## DevOps：CI 环境处理
+
+CI 中装依赖触发 `prepare: husky`：
+
+| 现象 | 解决 |
+| --- | --- |
+| `husky: command not found` | 仅装 dependencies 不装 devDependencies → 改 `"prepare": "husky || true"` |
+| CI minutes 浪费在装 husky | CI 设 `HUSKY=0` 跳过 |
+| Docker build 阶段 | 多阶段：dev 镜像装 husky，prod 镜像 `HUSKY=0` |
+
+```dockerfile
+# Dockerfile（多阶段）
+FROM node:22 AS deps
+ENV HUSKY=0
+RUN pnpm install --frozen-lockfile
+
+FROM node:22 AS builder
+ENV HUSKY=0
+COPY --from=deps node_modules ./node_modules
+RUN pnpm build
+```
+
+```yml
+# GitHub Actions
+jobs:
+  ci:
+    env:
+      HUSKY: 0
+    steps:
+      - uses: actions/checkout@v4
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+```
+
+## 编辑器 / GUI 工具集成
+
+### VS Code / JetBrains
+
+VS Code 的 Source Control 面板、JetBrains 的 Git 工具调用的还是底层 `git commit`，会触发 husky。
+
+**但**：GUI 工具的 PATH 可能与 shell 不同：
+
+```sh
+# ~/.config/husky/init.sh
+# 让 nvm 在 GUI 中也能正常初始化
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# 或：硬编码 node 路径
+export PATH="/Users/me/.nvm/versions/node/v22.22.1/bin:$PATH"
+```
+
+### Sourcetree / GitKraken / GitHub Desktop
+
+同上，都走底层 `git`，husky 触发。Windows GUI 工具尤其要注意 init.sh 配置（PATH 可能完全空）。
+
+## 调试 hook
+
+### 实时查看 hook 是否触发
+
+```shell
+# .husky/pre-commit
+echo "[husky] pre-commit triggered at $(date)" >> /tmp/husky-debug.log
+pnpm lint-staged
+```
+
+```bash
+tail -f /tmp/husky-debug.log  # 另开终端实时看
+```
+
+### 单独跑 hook（不走 git）
+
+```bash
+sh .husky/pre-commit
+```
+
+### 检查 git 配置
+
+```bash
+git config --get core.hooksPath
+# 应输出 .husky/_
+
+# 重置
+git config --unset core.hooksPath
+pnpm run prepare   # 重新装 husky
+```
+
+## 与 simple-git-hooks / pre-commit / lefthook 对比
+
+| 工具                 | 语言    | 包大小  | 配置位置                | 多语言支持 |
+| -------------------- | ------- | ------- | ----------------------- | ---------- |
+| **husky**            | Node    | ~10KB   | `.husky/<hook>` 文件   | 任意 shell |
+| `simple-git-hooks`   | Node    | ~7KB    | `package.json` 配置项  | 任意 shell |
+| `pre-commit`         | Python  | 独立工具 | `.pre-commit-config.yaml` | Python / Ruby / Node / Go 等 |
+| `lefthook`           | Go      | 独立二进制 | `lefthook.yml`         | 任意 shell（并行强） |
+
+**选哪个**：
+
+- Node 项目 + 团队都用 git hook → husky
+- 多语言混合 / Python 项目 → pre-commit
+- 极致性能 / 并行 hook → lefthook
+
+## 安全考量
+
+### Git hook 是攻击面
+
+恶意 `.husky/pre-commit` 在 `pnpm install` 后被默默激活——克隆陌生仓库时务必先看 `.husky/` 目录。
+
+```bash
+# 克隆后立刻检查
+cat .husky/pre-commit
+cat .husky/post-checkout
+# 看到陌生命令立即终止 install
+```
+
+### `HUSKY=0` 不能阻止 git 原生 hook
+
+`HUSKY=0` 仅禁用 Husky 接管的 hook。如果有人直接改 `.git/hooks/`（Husky 不管），仍会触发。`.git/` 不进 git 索引，所以恶意 hook 通常只能本地植入，不会跨用户传播。
+
+## v8 → v9 迁移要点
+
+```bash
+# 1. 升级 husky
+pnpm add -D husky@latest
+
+# 2. 重新初始化（v9 文件结构不同）
+rm -rf .husky/_
+pnpm run prepare
+
+# 3. 更新 package.json prepare 脚本
+{
+  "scripts": {
+    "prepare": "husky"
+  }
+}
+```
+
+| 变化 | v8 | v9 |
+| --- | --- | --- |
+| hook 文件 | 需 shebang + source | 直接命令 |
+| 安装 | `npx husky install` | `husky` （`prepare` 自动） |
+| 包体积 | ~1KB | ~10KB |
+| 性能 | 基线 | 略快 |
+| 自定义 hook 路径 | `husky install custom-dir` | `husky custom-dir` |
+
+## 真实世界配置示例
+
+### 单体应用（前端 Vue）
+
+```shell
+# .husky/pre-commit
+pnpm lint-staged
+
+# .husky/commit-msg
+pnpm commitlint --edit $1
+```
+
+```json
+{
+  "lint-staged": {
+    "*.{ts,vue}": "eslint --fix --cache --max-warnings=0",
+    "*.{json,md,css,scss}": "prettier --write"
+  }
+}
+```
+
+### Monorepo（前后端 + 共享包）
+
+```shell
+# .husky/pre-commit
+pnpm -w lint-staged
+
+# .husky/pre-push
+pnpm -w type-check
+pnpm -w test:unit
+```
+
+```js
+// lint-staged.config.js
+export default {
+  "apps/web/**/*.{ts,vue}": "pnpm -F web lint --files",
+  "apps/api/**/*.ts": "pnpm -F api lint --files",
+  "packages/shared/**/*.ts": "pnpm -F shared lint --files",
+  "*.{json,md}": "prettier --write",
+};
+```
+
+### 大型企业（含 commitlint + 分支保护）
+
+```shell
+# .husky/pre-commit
+pnpm lint-staged
+pnpm test:unit:changed
+
+# .husky/commit-msg
+pnpm commitlint --edit $1
+
+# .husky/pre-push
+sh ./scripts/branch-policy.sh
+pnpm test:integration
+
+# .husky/pre-rebase
+# 禁止 rebase main / develop
+if [ "$1" = "main" ] || [ "$1" = "develop" ]; then
+  echo "禁止 rebase $1"
+  exit 1
+fi
+```

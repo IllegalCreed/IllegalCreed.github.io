@@ -1059,6 +1059,10 @@ export default defineConfig({
                         text: "指南",
                         link: "/zh/engineering/devops/husky/guide-line.md",
                       },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/devops/husky/reference",
+                      },
                     ],
                   },
                   {
