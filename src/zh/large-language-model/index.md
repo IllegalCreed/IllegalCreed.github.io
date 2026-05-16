@@ -20,7 +20,10 @@ layout: doc
 ### Agent
 
 - [Claude Code](./tools/agent/claude-code/) —— Anthropic 官方编码 Agent
-- Pi / Codex / Gemini CLI / OpenCode（待开篇）
+- [Codex](./tools/agent/codex/) —— OpenAI 开源编码 Agent（重新发布，不是 2021 旧 Codex API）
+- [Gemini CLI](./tools/agent/gemini-cli/) —— Google 开源，Apache 2.0，免费额度业界最大
+- [OpenCode](./tools/agent/opencode/) —— sst 团队开源，**模型无关**（任何 provider）
+- [Pi](./tools/agent/pi/) —— Mario Zechner 极简 harness（4 工具 / <1000 token system prompt）
 
 ### 其它
 

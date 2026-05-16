@@ -1688,7 +1688,16 @@ export default defineConfig({
                         text: "Agent",
                         collapsed: true,
                         items: [
-                          { text: "Pi" },
+                          {
+                            text: "Pi",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/agent/pi/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/agent/pi/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/agent/pi/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/agent/pi/reference" },
+                            ],
+                          },
                           {
                             text: "Claude Code",
                             collapsed: true,
@@ -1699,9 +1708,36 @@ export default defineConfig({
                               { text: "参考", link: "/zh/large-language-model/tools/agent/claude-code/reference" },
                             ],
                           },
-                          { text: "Codex" },
-                          { text: "Gemini CLI" },
-                          { text: "OpenCode" },
+                          {
+                            text: "Codex",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/agent/codex/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/agent/codex/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/agent/codex/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/agent/codex/reference" },
+                            ],
+                          },
+                          {
+                            text: "Gemini CLI",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/agent/gemini-cli/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/agent/gemini-cli/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/agent/gemini-cli/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/agent/gemini-cli/reference" },
+                            ],
+                          },
+                          {
+                            text: "OpenCode",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/agent/opencode/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/agent/opencode/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/agent/opencode/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/agent/opencode/reference" },
+                            ],
+                          },
                         ],
                       },
                       {
