@@ -1643,9 +1643,36 @@ export default defineConfig({
                     text: "模型",
                     collapsed: true,
                     items: [
-                      { text: "GPT" },
-                      { text: "Gemini" },
-                      { text: "Claude" },
+                      {
+                        text: "GPT",
+                        collapsed: true,
+                        link: "/zh/large-language-model/models/gpt/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/models/gpt/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/models/gpt/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/models/gpt/reference" },
+                        ],
+                      },
+                      {
+                        text: "Gemini",
+                        collapsed: true,
+                        link: "/zh/large-language-model/models/gemini/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/models/gemini/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/models/gemini/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/models/gemini/reference" },
+                        ],
+                      },
+                      {
+                        text: "Claude",
+                        collapsed: true,
+                        link: "/zh/large-language-model/models/claude/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/models/claude/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/models/claude/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/models/claude/reference" },
+                        ],
+                      },
                       { text: "Grok" },
                       { text: "GLM" },
                       { text: "DeepSeek" },
@@ -1662,7 +1689,16 @@ export default defineConfig({
                         collapsed: true,
                         items: [
                           { text: "Pi" },
-                          { text: "Claude Code" },
+                          {
+                            text: "Claude Code",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/agent/claude-code/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/agent/claude-code/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/agent/claude-code/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/agent/claude-code/reference" },
+                            ],
+                          },
                           { text: "Codex" },
                           { text: "Gemini CLI" },
                           { text: "OpenCode" },
@@ -1681,7 +1717,16 @@ export default defineConfig({
                         items: [
                           { text: "RAG" },
                           { text: "LangChain" },
-                          { text: "OpenRouter" },
+                          {
+                            text: "OpenRouter",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/other/open-router/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/other/open-router/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/other/open-router/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/other/open-router/reference" },
+                            ],
+                          },
                           { text: "Stitch" },
                           { text: "Claude Design" },
                           { text: "NotebookLM" },
@@ -1708,8 +1753,26 @@ export default defineConfig({
                     text: "Skills",
                     collapsed: true,
                     items: [
-                      { text: "Superpowers" },
-                      { text: "Easy Claude Code" },
+                      {
+                        text: "Superpowers",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/superpowers/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/superpowers/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/superpowers/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/superpowers/reference" },
+                        ],
+                      },
+                      {
+                        text: "Everything Claude Code",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/everything-claude-code/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/everything-claude-code/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/everything-claude-code/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/everything-claude-code/reference" },
+                        ],
+                      },
                     ],
                   },
                 ],
