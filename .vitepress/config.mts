@@ -763,7 +763,25 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Analog" },
+                  {
+                    text: "Analog",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/meta/analog/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/meta/analog/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/meta/analog/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/meta/analog/reference",
+                      },
+                    ],
+                  },
                 ],
               },
               {
