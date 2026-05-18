@@ -789,7 +789,25 @@ export default defineConfig({
                 collapsed: true,
                 link: "/zh/frontend-framework/ssg/",
                 items: [
-                  { text: "Docusaurus" },
+                  {
+                    text: "Docusaurus",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ssg/docusaurus/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ssg/docusaurus/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/ssg/docusaurus/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ssg/docusaurus/reference",
+                      },
+                    ],
+                  },
                   {
                     text: "VitePress",
                     collapsed: true,
@@ -851,6 +869,25 @@ export default defineConfig({
                       {
                         text: "参考",
                         link: "/zh/frontend-framework/ssg/slidev/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Hexo",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ssg/hexo/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ssg/hexo/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/ssg/hexo/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ssg/hexo/reference",
                       },
                     ],
                   },
