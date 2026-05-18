@@ -891,6 +891,25 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "Eleventy",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ssg/eleventy/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ssg/eleventy/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/ssg/eleventy/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ssg/eleventy/reference",
+                      },
+                    ],
+                  },
                 ],
               },
               {
