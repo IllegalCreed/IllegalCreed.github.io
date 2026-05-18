@@ -613,7 +613,43 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Astro" },
+                  {
+                    text: "Astro",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/meta/astro/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/meta/astro/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/meta/astro/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/meta/astro/guide-line/advanced",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/frontend-framework/meta/astro/guide-line/expert",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/frontend-framework/meta/astro/guide-line/other",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/meta/astro/reference",
+                      },
+                    ],
+                  },
                   { text: "Qwik" },
                   { text: "React Router" },
                   { text: "SolidStart" },
