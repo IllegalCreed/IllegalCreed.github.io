@@ -744,7 +744,25 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "TanStack Start" },
+                  {
+                    text: "TanStack Start",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/meta/tanstack-start/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/meta/tanstack-start/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/meta/tanstack-start/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/meta/tanstack-start/reference",
+                      },
+                    ],
+                  },
                   { text: "Analog" },
                 ],
               },
