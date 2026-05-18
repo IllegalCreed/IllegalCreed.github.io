@@ -910,6 +910,25 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "Nextra",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ssg/nextra/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ssg/nextra/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/ssg/nextra/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ssg/nextra/reference",
+                      },
+                    ],
+                  },
                 ],
               },
               {
