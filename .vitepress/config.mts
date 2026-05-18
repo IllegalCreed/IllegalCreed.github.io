@@ -669,7 +669,25 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "React Router" },
+                  {
+                    text: "React Router",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/meta/react-router/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/meta/react-router/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/meta/react-router/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/meta/react-router/reference",
+                      },
+                    ],
+                  },
                   {
                     text: "SolidStart",
                     collapsed: true,
