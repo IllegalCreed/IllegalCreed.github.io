@@ -617,7 +617,43 @@ export default defineConfig({
                   { text: "Qwik" },
                   { text: "React Router" },
                   { text: "SolidStart" },
-                  { text: "SvelteKit" },
+                  {
+                    text: "SvelteKit",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/meta/svelte-kit/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/meta/svelte-kit/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/meta/svelte-kit/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/meta/svelte-kit/guide-line/advanced",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/frontend-framework/meta/svelte-kit/guide-line/expert",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/frontend-framework/meta/svelte-kit/guide-line/other",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/meta/svelte-kit/reference",
+                      },
+                    ],
+                  },
                   { text: "TanStack Start" },
                   { text: "Analog" },
                 ],
