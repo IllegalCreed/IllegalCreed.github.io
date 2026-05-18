@@ -929,6 +929,25 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "Starlight",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ssg/starlight/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ssg/starlight/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/ssg/starlight/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/ssg/starlight/reference",
+                      },
+                    ],
+                  },
                 ],
               },
               {
