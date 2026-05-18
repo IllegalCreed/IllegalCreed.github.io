@@ -539,7 +539,43 @@ export default defineConfig({
                 collapsed: true,
                 link: "/zh/frontend-framework/meta/",
                 items: [
-                  { text: "Next.js" },
+                  {
+                    text: "Next.js",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/meta/next-js/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/meta/next-js/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/meta/next-js/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/meta/next-js/guide-line/advanced",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/frontend-framework/meta/next-js/guide-line/expert",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/frontend-framework/meta/next-js/guide-line/other",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/meta/next-js/reference",
+                      },
+                    ],
+                  },
                   {
                     text: "Nuxt",
                     collapsed: true,
