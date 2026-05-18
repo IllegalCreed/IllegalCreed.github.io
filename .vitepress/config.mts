@@ -670,7 +670,25 @@ export default defineConfig({
                     ],
                   },
                   { text: "React Router" },
-                  { text: "SolidStart" },
+                  {
+                    text: "SolidStart",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/meta/solid-start/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/meta/solid-start/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/meta/solid-start/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/meta/solid-start/reference",
+                      },
+                    ],
+                  },
                   {
                     text: "SvelteKit",
                     collapsed: true,
