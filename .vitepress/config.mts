@@ -650,7 +650,25 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Qwik" },
+                  {
+                    text: "Qwik",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/meta/qwik/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/meta/qwik/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/meta/qwik/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/meta/qwik/reference",
+                      },
+                    ],
+                  },
                   { text: "React Router" },
                   { text: "SolidStart" },
                   {
