@@ -1049,8 +1049,45 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "Arco Design Vue",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/arco-design-vue/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/arco-design-vue/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/arco-design-vue/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/arco-design-vue/reference",
+                      },
+                    ],
+                  },
                   { text: "Ant Design" },
-                  { text: "Nuxt UI" },
+                  {
+                    text: "Nuxt UI",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/nuxt-ui/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/nuxt-ui/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/nuxt-ui/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/nuxt-ui/reference",
+                      },
+                    ],
+                  },
                   { text: "shadcn" },
                 ],
               },
