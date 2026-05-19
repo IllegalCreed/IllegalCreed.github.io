@@ -1030,6 +1030,25 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "PrimeVue",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/prime-vue/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/prime-vue/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/prime-vue/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/prime-vue/reference",
+                      },
+                    ],
+                  },
                   { text: "Ant Design" },
                   { text: "Nuxt UI" },
                   { text: "shadcn" },
