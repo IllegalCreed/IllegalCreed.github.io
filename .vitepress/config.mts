@@ -1005,6 +1005,25 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "Jotai",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/state/jotai/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/state/jotai/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/state/jotai/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/state/jotai/reference",
+                      },
+                    ],
+                  },
+                  {
                     text: "Redux",
                     collapsed: true,
                     link: "/zh/frontend-framework/state/redux/",
