@@ -954,7 +954,25 @@ export default defineConfig({
                 text: "组件库",
                 collapsed: true,
                 items: [
-                  { text: "Element Plus" },
+                  {
+                    text: "Element Plus",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/element-plus/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/element-plus/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/element-plus/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/element-plus/reference",
+                      },
+                    ],
+                  },
                   { text: "Vuetify" },
                   { text: "Vant UI" },
                   { text: "Ant Design" },
