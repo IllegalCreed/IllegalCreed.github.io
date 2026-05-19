@@ -966,8 +966,44 @@ export default defineConfig({
                 text: "状态库",
                 collapsed: true,
                 items: [
-                  { text: "Pinia" },
-                  { text: "Zustand" },
+                  {
+                    text: "Pinia",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/state/pinia/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/state/pinia/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/state/pinia/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/state/pinia/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Zustand",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/state/zustand/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/state/zustand/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/state/zustand/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/state/zustand/reference",
+                      },
+                    ],
+                  },
                   { text: "Redux" },
                 ],
               },
