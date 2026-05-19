@@ -1004,7 +1004,25 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Redux" },
+                  {
+                    text: "Redux",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/state/redux/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/state/redux/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/state/redux/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/state/redux/reference",
+                      },
+                    ],
+                  },
                 ],
               },
               {
