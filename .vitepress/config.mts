@@ -973,7 +973,25 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Vuetify" },
+                  {
+                    text: "Vuetify",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/vuetify/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/vuetify/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/vuetify/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/vuetify/reference",
+                      },
+                    ],
+                  },
                   { text: "Vant UI" },
                   { text: "Ant Design" },
                   { text: "Nuxt UI" },
