@@ -1061,6 +1061,25 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "NgRx",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/state/ng-rx/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/state/ng-rx/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/state/ng-rx/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/state/ng-rx/reference",
+                      },
+                    ],
+                  },
                 ],
               },
               {
