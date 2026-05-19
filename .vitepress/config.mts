@@ -1042,6 +1042,25 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "MobX",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/state/mobx/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/state/mobx/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/state/mobx/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/state/mobx/reference",
+                      },
+                    ],
+                  },
                 ],
               },
               {
