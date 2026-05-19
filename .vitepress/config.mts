@@ -992,7 +992,25 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Vant UI" },
+                  {
+                    text: "Vant UI",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/vant-ui/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/vant-ui/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/vant-ui/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/vant-ui/reference",
+                      },
+                    ],
+                  },
                   { text: "Ant Design" },
                   { text: "Nuxt UI" },
                   { text: "shadcn" },
