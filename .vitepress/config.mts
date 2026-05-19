@@ -1106,7 +1106,44 @@ export default defineConfig({
                     ],
                   },
                   { text: "React Router" },
-                  { text: "React Navigation" },
+                  {
+                    text: "TanStack Router",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/router/tanstack-router/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/router/tanstack-router/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/router/tanstack-router/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/router/tanstack-router/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "React Navigation",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/router/react-navigation/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/router/react-navigation/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/router/react-navigation/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/router/react-navigation/reference",
+                      },
+                    ],
+                  },
                 ],
               },
               {
