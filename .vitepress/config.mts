@@ -1086,7 +1086,25 @@ export default defineConfig({
                 text: "路由库",
                 collapsed: true,
                 items: [
-                  { text: "Vue Router" },
+                  {
+                    text: "Vue Router",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/router/vue-router/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/router/vue-router/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/router/vue-router/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/router/vue-router/reference",
+                      },
+                    ],
+                  },
                   { text: "React Router" },
                   { text: "React Navigation" },
                 ],
