@@ -1105,7 +1105,6 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "React Router" },
                   {
                     text: "TanStack Router",
                     collapsed: true,
