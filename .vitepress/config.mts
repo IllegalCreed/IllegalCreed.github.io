@@ -1011,6 +1011,25 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "Naive UI",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/naive-ui/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/naive-ui/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/naive-ui/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/naive-ui/reference",
+                      },
+                    ],
+                  },
                   { text: "Ant Design" },
                   { text: "Nuxt UI" },
                   { text: "shadcn" },
