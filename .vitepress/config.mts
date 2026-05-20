@@ -1163,6 +1163,25 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "Radix UI",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/radix-ui/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/radix-ui/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/radix-ui/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/radix-ui/reference",
+                      },
+                    ],
+                  },
                   { text: "shadcn" },
                 ],
               },
