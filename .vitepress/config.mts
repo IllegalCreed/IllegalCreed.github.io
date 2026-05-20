@@ -1107,6 +1107,25 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "NG-ZORRO",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/ng-zorro/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/ng-zorro/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/ng-zorro/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/ng-zorro/reference",
+                      },
+                    ],
+                  },
+                  {
                     text: "MUI",
                     collapsed: true,
                     link: "/zh/frontend-framework/components/mui/",
