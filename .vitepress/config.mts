@@ -1088,6 +1088,25 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "MUI",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/mui/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/mui/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/mui/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/mui/reference",
+                      },
+                    ],
+                  },
+                  {
                     text: "Nuxt UI",
                     collapsed: true,
                     link: "/zh/frontend-framework/components/nuxt-ui/",
