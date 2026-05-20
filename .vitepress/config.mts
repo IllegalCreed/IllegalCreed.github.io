@@ -1068,7 +1068,25 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Ant Design" },
+                  {
+                    text: "Ant Design",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/ant-design/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/ant-design/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/ant-design/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/ant-design/reference",
+                      },
+                    ],
+                  },
                   {
                     text: "Nuxt UI",
                     collapsed: true,
