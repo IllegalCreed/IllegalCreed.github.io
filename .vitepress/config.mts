@@ -1126,6 +1126,25 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "PrimeNG",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/prime-ng/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/prime-ng/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/prime-ng/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/prime-ng/reference",
+                      },
+                    ],
+                  },
+                  {
                     text: "MUI",
                     collapsed: true,
                     link: "/zh/frontend-framework/components/mui/",
