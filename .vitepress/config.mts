@@ -1107,6 +1107,25 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "Mantine",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/mantine/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/mantine/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/mantine/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/mantine/reference",
+                      },
+                    ],
+                  },
+                  {
                     text: "Nuxt UI",
                     collapsed: true,
                     link: "/zh/frontend-framework/components/nuxt-ui/",
