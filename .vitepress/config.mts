@@ -1182,6 +1182,25 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "Headless UI",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/headless-ui/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/headless-ui/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/headless-ui/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/headless-ui/reference",
+                      },
+                    ],
+                  },
                   { text: "shadcn" },
                 ],
               },
