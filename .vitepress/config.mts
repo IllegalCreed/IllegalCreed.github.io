@@ -1126,6 +1126,25 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "Chakra UI",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/chakra-ui/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/chakra-ui/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/chakra-ui/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/chakra-ui/reference",
+                      },
+                    ],
+                  },
+                  {
                     text: "Nuxt UI",
                     collapsed: true,
                     link: "/zh/frontend-framework/components/nuxt-ui/",
