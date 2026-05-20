@@ -1201,7 +1201,25 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "shadcn" },
+                  {
+                    text: "shadcn/ui",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/shadcn/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/components/shadcn/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/components/shadcn/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/components/shadcn/reference",
+                      },
+                    ],
+                  },
                 ],
               },
               {
