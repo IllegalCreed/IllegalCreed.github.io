@@ -1463,13 +1463,32 @@ export default defineConfig({
                 ],
               },
               {
-                text: "复用库",
+                text: "组合式函数库",
                 collapsed: true,
                 items: [
-                  { text: "VueUse" },
+                  {
+                    text: "VueUse",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/composables/vueuse/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/composables/vueuse/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/composables/vueuse/guide-line",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/composables/vueuse/reference",
+                      },
+                    ],
+                  },
                   { text: "VueHooks Plus" },
                   { text: "Ahooks" },
                   { text: "React Use" },
+                  { text: "usehooks-ts" },
                 ],
               },
               {
