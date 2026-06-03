@@ -1777,7 +1777,27 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Parcel" },
+                  {
+                    text: "Parcel",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/build/parcel/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/build/parcel/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/build/parcel/guide-line/base",
+                          },
+                        ],
+                      },
+                    ],
+                  },
                   { text: "Rsbuild" },
                 ],
               },
