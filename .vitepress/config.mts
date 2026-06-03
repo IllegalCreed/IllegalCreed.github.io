@@ -1798,7 +1798,27 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Rsbuild" },
+                  {
+                    text: "Rsbuild",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/build/rsbuild/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/build/rsbuild/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/build/rsbuild/guide-line/base",
+                          },
+                        ],
+                      },
+                    ],
+                  },
                 ],
               },
               {
