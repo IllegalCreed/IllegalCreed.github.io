@@ -1766,7 +1766,17 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Turbopack" },
+                  {
+                    text: "Turbopack",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/build/turbopack/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/build/turbopack/getting-started",
+                      },
+                    ],
+                  },
                   { text: "Parcel" },
                   { text: "Rsbuild" },
                 ],
