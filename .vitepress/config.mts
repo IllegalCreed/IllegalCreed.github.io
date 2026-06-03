@@ -532,6 +532,21 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "Preact",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/ui/preact/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/ui/preact/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/ui/preact/guide-line",
+                      },
+                    ],
+                  },
                 ],
               },
               {
@@ -779,6 +794,21 @@ export default defineConfig({
                       {
                         text: "参考",
                         link: "/zh/frontend-framework/meta/analog/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Remix",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/meta/remix/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/meta/remix/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/meta/remix/guide-line",
                       },
                     ],
                   },
@@ -1485,20 +1515,132 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "VueHooks Plus" },
-                  { text: "Ahooks" },
-                  { text: "React Use" },
-                  { text: "usehooks-ts" },
+                  {
+                    text: "VueHooks Plus",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/composables/vue-hooks-plus/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/composables/vue-hooks-plus/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/composables/vue-hooks-plus/guide-line",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Ahooks",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/composables/ahooks/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/composables/ahooks/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/composables/ahooks/guide-line",
+                      },
+                    ],
+                  },
+                  {
+                    text: "React Use",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/composables/react-use/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/composables/react-use/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/composables/react-use/guide-line",
+                      },
+                    ],
+                  },
+                  {
+                    text: "usehooks-ts",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/composables/usehooks-ts/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/composables/usehooks-ts/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/composables/usehooks-ts/guide-line",
+                      },
+                    ],
+                  },
                 ],
               },
               {
                 text: "其他",
                 collapsed: true,
                 items: [
-                  { text: "Iconify" },
-                  { text: "Shiki" },
-                  { text: "Markdown-it" },
-                  { text: "TanStack Query" },
+                  {
+                    text: "Iconify",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/others/iconify/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/others/iconify/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/others/iconify/guide-line",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Shiki",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/others/shiki/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/others/shiki/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/others/shiki/guide-line",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Markdown-it",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/others/markdown-it/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/others/markdown-it/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/others/markdown-it/guide-line",
+                      },
+                    ],
+                  },
+                  {
+                    text: "TanStack Query",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/others/tanstack-query/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/others/tanstack-query/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        link: "/zh/frontend-framework/others/tanstack-query/guide-line",
+                      },
+                    ],
+                  },
                   {
                     text: "Vee-validate",
                     collapsed: true,
