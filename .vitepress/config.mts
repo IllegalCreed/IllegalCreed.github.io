@@ -1729,7 +1729,43 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Webpack" },
+                  {
+                    text: "Webpack",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/build/webpack/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/build/webpack/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/build/webpack/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-toolchain/build/webpack/guide-line/advanced",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/frontend-toolchain/build/webpack/guide-line/expert",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/frontend-toolchain/build/webpack/guide-line/other",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-toolchain/build/webpack/reference",
+                      },
+                    ],
+                  },
                   { text: "Turbopack" },
                   { text: "Parcel" },
                   { text: "Rsbuild" },
