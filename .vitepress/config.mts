@@ -1692,9 +1692,47 @@ export default defineConfig({
                 text: "构建工具",
                 collapsed: true,
                 items: [
-                  { text: "Vite" },
+                  {
+                    text: "Vite",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/build/vite/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/build/vite/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/build/vite/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-toolchain/build/vite/guide-line/advanced",
+                          },
+                          {
+                            text: "高级",
+                            link: "/zh/frontend-toolchain/build/vite/guide-line/expert",
+                          },
+                          {
+                            text: "其他",
+                            link: "/zh/frontend-toolchain/build/vite/guide-line/other",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-toolchain/build/vite/reference",
+                      },
+                    ],
+                  },
                   { text: "Webpack" },
                   { text: "Turbopack" },
+                  { text: "Parcel" },
+                  { text: "Rsbuild" },
                 ],
               },
               {
