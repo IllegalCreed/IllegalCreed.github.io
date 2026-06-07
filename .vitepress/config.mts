@@ -1824,7 +1824,107 @@ export default defineConfig({
               {
                 text: "编译器",
                 collapsed: true,
-                items: [{ text: "Babel" }, { text: "SWC" }, { text: "tsc" }],
+                items: [
+                  {
+                    text: "Babel",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/compiler/babel/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/compiler/babel/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/compiler/babel/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-toolchain/compiler/babel/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-toolchain/compiler/babel/guide-line/expert",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-toolchain/compiler/babel/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "SWC",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/compiler/swc/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/compiler/swc/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/compiler/swc/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-toolchain/compiler/swc/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-toolchain/compiler/swc/guide-line/expert",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-toolchain/compiler/swc/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "tsc",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/compiler/tsc/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/compiler/tsc/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/compiler/tsc/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-toolchain/compiler/tsc/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-toolchain/compiler/tsc/guide-line/expert",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-toolchain/compiler/tsc/reference",
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 text: "打包工具",
