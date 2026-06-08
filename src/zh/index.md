@@ -7,8 +7,8 @@ hero:
   text: "程序员路线图"
   tagline: 目标全栈架构师，JS/TS方向
   image:
-    light: /light-logo.png
-    dark: /dark-logo.png
+    light: /light-logo.svg
+    dark: /dark-logo.svg
     alt: illegalCreed
   actions:
     - theme: brand
@@ -23,6 +23,9 @@ hero:
     - theme: alt
       text: 我的程序员刷题站
       link: https://quiz.illegalscreed.cn/
+    - theme: alt
+      text: 我的幻灯片生成站
+      link: https://lumideck.illegalscreed.cn/
 
 features:
   - title: Web基础知识

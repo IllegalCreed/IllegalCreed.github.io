@@ -10,6 +10,8 @@ export default defineConfig({
   ignoreDeadLinks: true,
 
   head: [
+    // 站点图标(favicon):复用阶梯塔 logo
+    ["link", { rel: "icon", type: "image/svg+xml", href: "/light-logo.svg" }],
     // Google Analytics 跟踪脚本
     [
       "script",

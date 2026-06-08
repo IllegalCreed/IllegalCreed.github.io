@@ -133,3 +133,6 @@ out
 
 # vitepress
 .vitepress/cache
+
+# superpowers brainstorming 可视化临时文件
+.superpowers/
