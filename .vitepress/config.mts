@@ -287,7 +287,74 @@ export default defineConfig({
               {
                 text: "模块管理",
                 collapsed: true,
-                items: [{ text: "CommonJS" }, { text: "ES Module" }],
+                items: [
+                  {
+                    text: "CommonJS",
+                    collapsed: true,
+                    link: "/zh/web-advanced/module/commonjs/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/module/commonjs/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/module/commonjs/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/module/commonjs/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/module/commonjs/guide-line/expert",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/module/commonjs/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "ES Module",
+                    collapsed: true,
+                    link: "/zh/web-advanced/module/es-module/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/module/es-module/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/module/es-module/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/module/es-module/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/module/es-module/guide-line/expert",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/module/es-module/reference",
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 text: "包管理器",
