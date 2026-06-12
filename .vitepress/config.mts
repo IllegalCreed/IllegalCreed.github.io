@@ -2193,11 +2193,6 @@ export default defineConfig({
                   },
                 ],
               },
-              {
-                text: "开发服务器",
-                collapsed: true,
-                items: [{ text: "Live Server" }, { text: "BrowserSync" }],
-              },
             ],
           },
 
