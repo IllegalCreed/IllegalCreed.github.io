@@ -56,6 +56,34 @@ export default defineConfig({
     ],
   },
 
+  // 全局主题配置（被各 locale 继承）：启用内置本地搜索（minisearch，无需 Algolia）
+  themeConfig: {
+    search: {
+      provider: "local",
+      options: {
+        // 中文 locale 的搜索界面文案
+        locales: {
+          zh: {
+            translations: {
+              button: { buttonText: "搜索", buttonAriaLabel: "搜索" },
+              modal: {
+                displayDetails: "显示详细列表",
+                resetButtonTitle: "重置搜索",
+                backButtonTitle: "关闭搜索",
+                noResultsText: "没有结果",
+                footer: {
+                  selectText: "选择",
+                  navigateText: "导航",
+                  closeText: "关闭",
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+
   locales: {
     root: {
       label: "English",
@@ -1932,10 +1960,237 @@ export default defineConfig({
                 text: "打包工具",
                 collapsed: true,
                 items: [
-                  { text: "esBuild" },
-                  { text: "rollup" },
-                  { text: "rolldown" },
-                  { text: "rspack" },
+                  {
+                    text: "esbuild",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/bundler/esbuild/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/bundler/esbuild/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/bundler/esbuild/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-toolchain/bundler/esbuild/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-toolchain/bundler/esbuild/guide-line/expert",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-toolchain/bundler/esbuild/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Rollup",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/bundler/rollup/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/bundler/rollup/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/bundler/rollup/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-toolchain/bundler/rollup/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-toolchain/bundler/rollup/guide-line/expert",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-toolchain/bundler/rollup/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Rolldown",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/bundler/rolldown/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/bundler/rolldown/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/bundler/rolldown/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-toolchain/bundler/rolldown/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-toolchain/bundler/rolldown/guide-line/expert",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-toolchain/bundler/rolldown/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Rspack",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/bundler/rspack/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/bundler/rspack/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/bundler/rspack/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-toolchain/bundler/rspack/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-toolchain/bundler/rspack/guide-line/expert",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-toolchain/bundler/rspack/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "tsup",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/bundler/tsup/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/bundler/tsup/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/bundler/tsup/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-toolchain/bundler/tsup/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-toolchain/bundler/tsup/guide-line/expert",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-toolchain/bundler/tsup/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "tsdown",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/bundler/tsdown/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/bundler/tsdown/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/bundler/tsdown/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-toolchain/bundler/tsdown/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-toolchain/bundler/tsdown/guide-line/expert",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-toolchain/bundler/tsdown/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "unbuild",
+                    collapsed: true,
+                    link: "/zh/frontend-toolchain/bundler/unbuild/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-toolchain/bundler/unbuild/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-toolchain/bundler/unbuild/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-toolchain/bundler/unbuild/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-toolchain/bundler/unbuild/guide-line/expert",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-toolchain/bundler/unbuild/reference",
+                      },
+                    ],
+                  },
                 ],
               },
               {
