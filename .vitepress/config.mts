@@ -361,22 +361,75 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   {
-                    text: "系统级",
+                    text: "npm",
                     collapsed: true,
+                    link: "/zh/web-advanced/package-manager/npm/",
                     items: [
-                      { text: "Homebrew" },
-                      { text: "apt-get" },
-                      { text: "yum" },
-                      { text: "Chocolatey" },
+                      { text: "入门", link: "/zh/web-advanced/package-manager/npm/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/package-manager/npm/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/package-manager/npm/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/package-manager/npm/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/package-manager/npm/reference" },
                     ],
                   },
                   {
-                    text: "框架级",
+                    text: "pnpm",
                     collapsed: true,
+                    link: "/zh/web-advanced/package-manager/pnpm/",
                     items: [
-                      { text: "NPM" },
-                      { text: "pip3" },
-                      { text: "Cargo" },
+                      { text: "入门", link: "/zh/web-advanced/package-manager/pnpm/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/package-manager/pnpm/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/package-manager/pnpm/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/package-manager/pnpm/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/package-manager/pnpm/reference" },
+                    ],
+                  },
+                  {
+                    text: "yarn",
+                    collapsed: true,
+                    link: "/zh/web-advanced/package-manager/yarn/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/package-manager/yarn/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/package-manager/yarn/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/package-manager/yarn/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/package-manager/yarn/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/package-manager/yarn/reference" },
+                    ],
+                  },
+                  {
+                    text: "bun",
+                    collapsed: true,
+                    link: "/zh/web-advanced/package-manager/bun/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/package-manager/bun/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/package-manager/bun/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/package-manager/bun/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/package-manager/bun/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/package-manager/bun/reference" },
                     ],
                   },
                 ],
@@ -2781,11 +2834,6 @@ export default defineConfig({
                     ],
                   },
                 ],
-              },
-              {
-                text: "依赖管理器",
-                collapsed: true,
-                items: [{ text: "Pnpm" }, { text: "Yarn" }, { text: "Bit" }],
               },
               { text: "容器", collapsed: true, items: [{ text: "Docker" }] },
               {
