@@ -440,7 +440,7 @@ export default defineConfig({
                 items: [
                   { text: "Lodash-es" },
                   { text: "Day.js" },
-                  { text: "uuid" },
+                  { text: "nanoid" },
                   { text: "axios" },
                   { text: "i18next" },
                   { text: "crypto.js" },
@@ -2663,7 +2663,24 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: "WebGL" },
-                  { text: "Three.js" },
+                  {
+                    text: "Three.js",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/three/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/three/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/frontend-visualization/three/guide-line/base" },
+                          { text: "进阶", link: "/zh/frontend-visualization/three/guide-line/advanced" },
+                          { text: "专家", link: "/zh/frontend-visualization/three/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/three/reference" },
+                    ],
+                  },
                   { text: "Babylon" },
                   { text: "CesiumJS" },
                   { text: "ArcGIS API for JavaScript" },
