@@ -438,12 +438,100 @@ export default defineConfig({
                 text: "JS扩展库",
                 collapsed: true,
                 items: [
-                  { text: "Lodash-es" },
-                  { text: "Day.js" },
-                  { text: "nanoid" },
+                  {
+                    text: "Lodash-es",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/lodash-es/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/lodash-es/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/lodash-es/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/lodash-es/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/lodash-es/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/lodash-es/reference" },
+                    ],
+                  },
+                  {
+                    text: "es-toolkit",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/es-toolkit/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/es-toolkit/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/es-toolkit/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/es-toolkit/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/es-toolkit/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/es-toolkit/reference" },
+                    ],
+                  },
+                  {
+                    text: "Day.js",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/dayjs/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/dayjs/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/dayjs/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/dayjs/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/dayjs/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/dayjs/reference" },
+                    ],
+                  },
+                  {
+                    text: "date-fns",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/date-fns/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/date-fns/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/date-fns/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/date-fns/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/date-fns/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/date-fns/reference" },
+                    ],
+                  },
+                  {
+                    text: "Luxon",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/luxon/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/luxon/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/luxon/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/luxon/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/luxon/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/luxon/reference" },
+                    ],
+                  },
                   { text: "axios" },
                   { text: "i18next" },
                   { text: "crypto.js" },
+                  { text: "nanoid" },
                 ],
               },
             ],
