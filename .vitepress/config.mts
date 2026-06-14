@@ -834,8 +834,42 @@ export default defineConfig({
                       { text: "参考", link: "/zh/web-advanced/js-extension/utility-libs/reference" },
                     ],
                   },
-                  { text: "i18next" },
-                  { text: "crypto.js" },
+                  {
+                    text: "i18next",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/i18next/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/i18next/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/i18next/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/i18next/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/i18next/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/i18next/reference" },
+                    ],
+                  },
+                  {
+                    text: "crypto-js",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/crypto-js/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/crypto-js/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/crypto-js/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/crypto-js/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/crypto-js/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/crypto-js/reference" },
+                    ],
+                  },
                 ],
               },
             ],
