@@ -726,6 +726,96 @@ export default defineConfig({
                       { text: "参考", link: "/zh/web-advanced/js-extension/dompurify/reference" },
                     ],
                   },
+                  {
+                    text: "decimal.js",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/decimal-js/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/decimal-js/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/decimal-js/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/decimal-js/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/decimal-js/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/decimal-js/reference" },
+                    ],
+                  },
+                  {
+                    text: "SheetJS",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/sheetjs/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/sheetjs/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/sheetjs/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/sheetjs/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/sheetjs/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/sheetjs/reference" },
+                    ],
+                  },
+                  {
+                    text: "ExcelJS",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/exceljs/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/exceljs/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/exceljs/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/exceljs/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/exceljs/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/exceljs/reference" },
+                    ],
+                  },
+                  {
+                    text: "PapaParse",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/papaparse/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/papaparse/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/papaparse/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/papaparse/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/papaparse/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/papaparse/reference" },
+                    ],
+                  },
+                  {
+                    text: "Fuse.js",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/fuse-js/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/fuse-js/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/fuse-js/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/fuse-js/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/fuse-js/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/fuse-js/reference" },
+                    ],
+                  },
                   { text: "i18next" },
                   { text: "crypto.js" },
                 ],
