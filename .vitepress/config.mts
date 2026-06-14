@@ -528,7 +528,96 @@ export default defineConfig({
                       { text: "参考", link: "/zh/web-advanced/js-extension/luxon/reference" },
                     ],
                   },
-                  { text: "axios" },
+                  {
+                    text: "axios",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/axios/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/axios/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/axios/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/axios/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/axios/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/axios/reference" },
+                    ],
+                  },
+                  {
+                    text: "ky",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/ky/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/ky/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/ky/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/ky/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/ky/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/ky/reference" },
+                    ],
+                  },
+                  {
+                    text: "ofetch",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/ofetch/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/ofetch/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/ofetch/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/ofetch/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/ofetch/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/ofetch/reference" },
+                    ],
+                  },
+                  {
+                    text: "Zod",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/zod/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/zod/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/zod/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/zod/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/zod/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/zod/reference" },
+                    ],
+                  },
+                  {
+                    text: "Valibot",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/valibot/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/valibot/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/valibot/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/valibot/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/valibot/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/valibot/reference" },
+                    ],
+                  },
                   { text: "i18next" },
                   { text: "crypto.js" },
                   { text: "nanoid" },
