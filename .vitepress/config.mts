@@ -618,9 +618,116 @@ export default defineConfig({
                       { text: "参考", link: "/zh/web-advanced/js-extension/valibot/reference" },
                     ],
                   },
+                  {
+                    text: "Immer",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/immer/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/immer/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/immer/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/immer/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/immer/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/immer/reference" },
+                    ],
+                  },
+                  {
+                    text: "RxJS",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/rxjs/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/rxjs/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/rxjs/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/rxjs/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/rxjs/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/rxjs/reference" },
+                    ],
+                  },
+                  {
+                    text: "nanoid",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/nanoid/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/nanoid/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/nanoid/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/nanoid/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/nanoid/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/nanoid/reference" },
+                    ],
+                  },
+                  {
+                    text: "type-fest",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/type-fest/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/type-fest/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/type-fest/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/type-fest/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/type-fest/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/type-fest/reference" },
+                    ],
+                  },
+                  {
+                    text: "ts-pattern",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/ts-pattern/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/ts-pattern/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/ts-pattern/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/ts-pattern/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/ts-pattern/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/ts-pattern/reference" },
+                    ],
+                  },
+                  {
+                    text: "DOMPurify",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/dompurify/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/dompurify/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/dompurify/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/dompurify/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/dompurify/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/dompurify/reference" },
+                    ],
+                  },
                   { text: "i18next" },
                   { text: "crypto.js" },
-                  { text: "nanoid" },
                 ],
               },
             ],
