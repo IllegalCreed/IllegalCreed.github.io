@@ -816,6 +816,24 @@ export default defineConfig({
                       { text: "参考", link: "/zh/web-advanced/js-extension/fuse-js/reference" },
                     ],
                   },
+                  {
+                    text: "前端实用小库",
+                    collapsed: true,
+                    link: "/zh/web-advanced/js-extension/utility-libs/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/js-extension/utility-libs/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/web-advanced/js-extension/utility-libs/guide-line/base" },
+                          { text: "进阶", link: "/zh/web-advanced/js-extension/utility-libs/guide-line/advanced" },
+                          { text: "专家", link: "/zh/web-advanced/js-extension/utility-libs/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/js-extension/utility-libs/reference" },
+                    ],
+                  },
                   { text: "i18next" },
                   { text: "crypto.js" },
                 ],
