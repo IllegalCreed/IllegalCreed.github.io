@@ -745,42 +745,6 @@ export default defineConfig({
                     ],
                   },
                   {
-                    text: "SheetJS",
-                    collapsed: true,
-                    link: "/zh/web-advanced/js-extension/sheetjs/",
-                    items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/sheetjs/getting-started" },
-                      {
-                        text: "指南",
-                        collapsed: true,
-                        items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/sheetjs/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/sheetjs/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/sheetjs/guide-line/expert" },
-                        ],
-                      },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/sheetjs/reference" },
-                    ],
-                  },
-                  {
-                    text: "ExcelJS",
-                    collapsed: true,
-                    link: "/zh/web-advanced/js-extension/exceljs/",
-                    items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/exceljs/getting-started" },
-                      {
-                        text: "指南",
-                        collapsed: true,
-                        items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/exceljs/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/exceljs/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/exceljs/guide-line/expert" },
-                        ],
-                      },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/exceljs/reference" },
-                    ],
-                  },
-                  {
                     text: "PapaParse",
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/papaparse/",
@@ -832,24 +796,6 @@ export default defineConfig({
                         ],
                       },
                       { text: "参考", link: "/zh/web-advanced/js-extension/utility-libs/reference" },
-                    ],
-                  },
-                  {
-                    text: "i18next",
-                    collapsed: true,
-                    link: "/zh/web-advanced/js-extension/i18next/",
-                    items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/i18next/getting-started" },
-                      {
-                        text: "指南",
-                        collapsed: true,
-                        items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/i18next/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/i18next/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/i18next/guide-line/expert" },
-                        ],
-                      },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/i18next/reference" },
                     ],
                   },
                   {
@@ -2154,6 +2100,48 @@ export default defineConfig({
                 ],
               },
               {
+                text: "文档处理",
+                collapsed: true,
+                items: [
+                  {
+                    text: "SheetJS",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/document/sheetjs/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-framework/document/sheetjs/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/frontend-framework/document/sheetjs/guide-line/base" },
+                          { text: "进阶", link: "/zh/frontend-framework/document/sheetjs/guide-line/advanced" },
+                          { text: "专家", link: "/zh/frontend-framework/document/sheetjs/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-framework/document/sheetjs/reference" },
+                    ],
+                  },
+                  {
+                    text: "ExcelJS",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/document/exceljs/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-framework/document/exceljs/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/frontend-framework/document/exceljs/guide-line/base" },
+                          { text: "进阶", link: "/zh/frontend-framework/document/exceljs/guide-line/advanced" },
+                          { text: "专家", link: "/zh/frontend-framework/document/exceljs/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-framework/document/exceljs/reference" },
+                    ],
+                  },
+                ],
+              },
+              {
                 text: "其他",
                 collapsed: true,
                 items: [
@@ -2253,6 +2241,24 @@ export default defineConfig({
                         text: "参考",
                         link: "/zh/frontend-framework/others/vue-i18n/reference",
                       },
+                    ],
+                  },
+                  {
+                    text: "i18next",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/others/i18next/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-framework/others/i18next/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/frontend-framework/others/i18next/guide-line/base" },
+                          { text: "进阶", link: "/zh/frontend-framework/others/i18next/guide-line/advanced" },
+                          { text: "专家", link: "/zh/frontend-framework/others/i18next/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-framework/others/i18next/reference" },
                     ],
                   },
                 ],
