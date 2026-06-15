@@ -2139,6 +2139,150 @@ export default defineConfig({
                       { text: "参考", link: "/zh/frontend-framework/document/exceljs/reference" },
                     ],
                   },
+                  {
+                    text: "docx",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/document/docx/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-framework/document/docx/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/frontend-framework/document/docx/guide-line/base" },
+                          { text: "进阶", link: "/zh/frontend-framework/document/docx/guide-line/advanced" },
+                          { text: "专家", link: "/zh/frontend-framework/document/docx/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-framework/document/docx/reference" },
+                    ],
+                  },
+                  {
+                    text: "mammoth",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/document/mammoth/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-framework/document/mammoth/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/frontend-framework/document/mammoth/guide-line/base" },
+                          { text: "进阶", link: "/zh/frontend-framework/document/mammoth/guide-line/advanced" },
+                          { text: "专家", link: "/zh/frontend-framework/document/mammoth/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-framework/document/mammoth/reference" },
+                    ],
+                  },
+                  {
+                    text: "docxtemplater",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/document/docxtemplater/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-framework/document/docxtemplater/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/frontend-framework/document/docxtemplater/guide-line/base" },
+                          { text: "进阶", link: "/zh/frontend-framework/document/docxtemplater/guide-line/advanced" },
+                          { text: "专家", link: "/zh/frontend-framework/document/docxtemplater/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-framework/document/docxtemplater/reference" },
+                    ],
+                  },
+                  {
+                    text: "docx-editor",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/document/docx-editor/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-framework/document/docx-editor/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/frontend-framework/document/docx-editor/guide-line/base" },
+                          { text: "进阶", link: "/zh/frontend-framework/document/docx-editor/guide-line/advanced" },
+                          { text: "专家", link: "/zh/frontend-framework/document/docx-editor/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-framework/document/docx-editor/reference" },
+                    ],
+                  },
+                  {
+                    text: "PDF.js",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/document/pdfjs/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-framework/document/pdfjs/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/frontend-framework/document/pdfjs/guide-line/base" },
+                          { text: "进阶", link: "/zh/frontend-framework/document/pdfjs/guide-line/advanced" },
+                          { text: "专家", link: "/zh/frontend-framework/document/pdfjs/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-framework/document/pdfjs/reference" },
+                    ],
+                  },
+                  {
+                    text: "jsPDF",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/document/jspdf/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-framework/document/jspdf/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/frontend-framework/document/jspdf/guide-line/base" },
+                          { text: "进阶", link: "/zh/frontend-framework/document/jspdf/guide-line/advanced" },
+                          { text: "专家", link: "/zh/frontend-framework/document/jspdf/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-framework/document/jspdf/reference" },
+                    ],
+                  },
+                  {
+                    text: "pdf-lib",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/document/pdf-lib/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-framework/document/pdf-lib/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/frontend-framework/document/pdf-lib/guide-line/base" },
+                          { text: "进阶", link: "/zh/frontend-framework/document/pdf-lib/guide-line/advanced" },
+                          { text: "专家", link: "/zh/frontend-framework/document/pdf-lib/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-framework/document/pdf-lib/reference" },
+                    ],
+                  },
+                  {
+                    text: "pptxgenjs",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/document/pptxgenjs/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-framework/document/pptxgenjs/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础", link: "/zh/frontend-framework/document/pptxgenjs/guide-line/base" },
+                          { text: "进阶", link: "/zh/frontend-framework/document/pptxgenjs/guide-line/advanced" },
+                          { text: "专家", link: "/zh/frontend-framework/document/pptxgenjs/guide-line/expert" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-framework/document/pptxgenjs/reference" },
+                    ],
+                  },
                 ],
               },
               {
