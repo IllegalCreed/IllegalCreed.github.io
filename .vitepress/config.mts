@@ -2899,7 +2899,154 @@ export default defineConfig({
               {
                 text: "IDE",
                 collapsed: true,
-                items: [{ text: "VScode" }, { text: "WebStorm" }],
+                items: [
+                  {
+                    text: "VSCode",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/ide/vscode/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/ide/vscode/getting-started.md",
+                      },
+                      {
+                        text: "AI 与 Agent",
+                        link: "/zh/frontend-develop-tools/ide/vscode/guideline-ai.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Cursor",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/ide/cursor/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/ide/cursor/getting-started.md",
+                      },
+                      {
+                        text: "规则与上下文",
+                        link: "/zh/frontend-develop-tools/ide/cursor/guideline-rules.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "WebStorm",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/ide/webstorm/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/ide/webstorm/getting-started.md",
+                      },
+                      {
+                        text: "AI 与 Junie",
+                        link: "/zh/frontend-develop-tools/ide/webstorm/guideline-ai.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Windsurf",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/ide/windsurf/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/ide/windsurf/getting-started.md",
+                      },
+                      {
+                        text: "规则与工作流",
+                        link: "/zh/frontend-develop-tools/ide/windsurf/guideline-rules.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Trae",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/ide/trae/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/ide/trae/getting-started.md",
+                      },
+                      {
+                        text: "规则与 Agent",
+                        link: "/zh/frontend-develop-tools/ide/trae/guideline-rules.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Zed",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/ide/zed/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/ide/zed/getting-started.md",
+                      },
+                      {
+                        text: "AI 与 Agent",
+                        link: "/zh/frontend-develop-tools/ide/zed/guideline-ai.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Antigravity",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/ide/antigravity/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/ide/antigravity/getting-started.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Kiro",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/ide/kiro/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/ide/kiro/getting-started.md",
+                      },
+                      {
+                        text: "规格与引导",
+                        link: "/zh/frontend-develop-tools/ide/kiro/guideline-spec.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Vim/Neovim",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/ide/vim-neovim/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/ide/vim-neovim/getting-started.md",
+                      },
+                      {
+                        text: "Neovim 进阶",
+                        link: "/zh/frontend-develop-tools/ide/vim-neovim/guideline-neovim.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Sublime Text",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/ide/sublime-text/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/ide/sublime-text/getting-started.md",
+                      },
+                      {
+                        text: "配置与构建",
+                        link: "/zh/frontend-develop-tools/ide/sublime-text/guideline-config.md",
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 text: "版本控制",
