@@ -132,13 +132,11 @@ export default defineConfig({
 
           {
             text: "Web基础知识",
-            link: "/zh/base/",
             collapsed: false,
             items: [
               {
                 text: "三大语言",
                 collapsed: true,
-                link: "/zh/base/language/",
                 items: [
                   {
                     text: "HTML",
@@ -1199,7 +1197,6 @@ export default defineConfig({
           {
             text: "前端框架",
             collapsed: false,
-            link: "/zh/frontend-framework/",
             items: [
               {
                 text: "UI框架",
@@ -1449,7 +1446,6 @@ export default defineConfig({
               {
                 text: "元框架",
                 collapsed: true,
-                link: "/zh/frontend-framework/meta/",
                 items: [
                   {
                     text: "Next.js",
@@ -1714,7 +1710,6 @@ export default defineConfig({
               {
                 text: "静态网站框架",
                 collapsed: true,
-                link: "/zh/frontend-framework/ssg/",
                 items: [
                   {
                     text: "Docusaurus",
@@ -3725,6 +3720,76 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "oxlint",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/static-analysis/oxlint/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/static-analysis/oxlint/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "配置",
+                            link: "/zh/frontend-develop-tools/static-analysis/oxlint/guide-line/configuration.md",
+                          },
+                          {
+                            text: "从 ESLint 迁移",
+                            link: "/zh/frontend-develop-tools/static-analysis/oxlint/guide-line/migration.md",
+                          },
+                          {
+                            text: "类型感知与插件",
+                            link: "/zh/frontend-develop-tools/static-analysis/oxlint/guide-line/type-aware-and-plugins.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/static-analysis/oxlint/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Biome",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/static-analysis/biome/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/static-analysis/biome/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "配置",
+                            link: "/zh/frontend-develop-tools/static-analysis/biome/guide-line/configuration.md",
+                          },
+                          {
+                            text: "lint 与 format",
+                            link: "/zh/frontend-develop-tools/static-analysis/biome/guide-line/lint-and-format.md",
+                          },
+                          {
+                            text: "从 ESLint / Prettier 迁移",
+                            link: "/zh/frontend-develop-tools/static-analysis/biome/guide-line/migration.md",
+                          },
+                          {
+                            text: "类型感知与 Assist",
+                            link: "/zh/frontend-develop-tools/static-analysis/biome/guide-line/type-aware-and-assist.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/static-analysis/biome/reference.md",
+                      },
+                    ],
+                  },
+                  {
                     text: "Prettier",
                     collapsed: true,
                     link: "/zh/frontend-develop-tools/static-analysis/prettier/",
@@ -3767,11 +3832,216 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Biome" },
-                  { text: "StyleLint" },
-                  { text: "EditorConfig" },
-                  { text: "Oxlint" },
-                  { text: "Oxfmt" },
+                  {
+                    text: "Stylelint",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/static-analysis/stylelint/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/static-analysis/stylelint/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "配置",
+                            link: "/zh/frontend-develop-tools/static-analysis/stylelint/guide-line/configuration.md",
+                          },
+                          {
+                            text: "规则、共享配置与插件",
+                            link: "/zh/frontend-develop-tools/static-analysis/stylelint/guide-line/rules-and-plugins.md",
+                          },
+                          {
+                            text: "忽略与禁用",
+                            link: "/zh/frontend-develop-tools/static-analysis/stylelint/guide-line/ignore-and-disable.md",
+                          },
+                          {
+                            text: "集成与生态",
+                            link: "/zh/frontend-develop-tools/static-analysis/stylelint/guide-line/integration.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/static-analysis/stylelint/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Knip",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/static-analysis/knip/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/static-analysis/knip/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "配置",
+                            link: "/zh/frontend-develop-tools/static-analysis/knip/guide-line/configuration.md",
+                          },
+                          {
+                            text: "插件机制",
+                            link: "/zh/frontend-develop-tools/static-analysis/knip/guide-line/plugins.md",
+                          },
+                          {
+                            text: "用法与自动修复",
+                            link: "/zh/frontend-develop-tools/static-analysis/knip/guide-line/usage-and-fixing.md",
+                          },
+                          {
+                            text: "Monorepo 与报告器",
+                            link: "/zh/frontend-develop-tools/static-analysis/knip/guide-line/monorepo.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/static-analysis/knip/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "commitlint",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/static-analysis/commitlint/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/static-analysis/commitlint/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "配置",
+                            link: "/zh/frontend-develop-tools/static-analysis/commitlint/guide-line/configuration.md",
+                          },
+                          {
+                            text: "规则",
+                            link: "/zh/frontend-develop-tools/static-analysis/commitlint/guide-line/rules.md",
+                          },
+                          {
+                            text: "约定与交互式提交",
+                            link: "/zh/frontend-develop-tools/static-analysis/commitlint/guide-line/conventions-and-prompt.md",
+                          },
+                          {
+                            text: "集成 husky 与 CI",
+                            link: "/zh/frontend-develop-tools/static-analysis/commitlint/guide-line/integration-husky.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/static-analysis/commitlint/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Secretlint",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/static-analysis/secretlint/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/static-analysis/secretlint/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "配置",
+                            link: "/zh/frontend-develop-tools/static-analysis/secretlint/guide-line/configuration.md",
+                          },
+                          {
+                            text: "规则与预设",
+                            link: "/zh/frontend-develop-tools/static-analysis/secretlint/guide-line/rules-and-presets.md",
+                          },
+                          {
+                            text: "集成 pre-commit 与 CI",
+                            link: "/zh/frontend-develop-tools/static-analysis/secretlint/guide-line/integration.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/static-analysis/secretlint/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "publint",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/static-analysis/publint/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/static-analysis/publint/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "CLI 与编程式 API",
+                            link: "/zh/frontend-develop-tools/static-analysis/publint/guide-line/usage.md",
+                          },
+                          {
+                            text: "检查项详解",
+                            link: "/zh/frontend-develop-tools/static-analysis/publint/guide-line/checks-explained.md",
+                          },
+                          {
+                            text: "搭配 are-the-types-wrong",
+                            link: "/zh/frontend-develop-tools/static-analysis/publint/guide-line/with-arethetypeswrong.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/static-analysis/publint/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "EditorConfig",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/static-analysis/editorconfig/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/static-analysis/editorconfig/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "属性详解",
+                            link: "/zh/frontend-develop-tools/static-analysis/editorconfig/guide-line/properties.md",
+                          },
+                          {
+                            text: "编辑器支持",
+                            link: "/zh/frontend-develop-tools/static-analysis/editorconfig/guide-line/editor-support.md",
+                          },
+                          {
+                            text: "搭配格式化器",
+                            link: "/zh/frontend-develop-tools/static-analysis/editorconfig/guide-line/with-formatters.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/static-analysis/editorconfig/reference.md",
+                      },
+                    ],
+                  },
                 ],
               },
               {

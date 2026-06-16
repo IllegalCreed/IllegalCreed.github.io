@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 基于 ESLint v10.3.0 编写
 
+## 速查
+
+- 严重级：`"off"`/`0`、`"warn"`/`1`、`"error"`/`2`；带选项用数组，如 `"semi": ["error", "always"]`
+- 行内豁免：`// eslint-disable-next-line rule -- 理由`、`/* eslint-disable */` … `/* eslint-enable */`
+- 行内注释**优先级最高**；团队建议 disable 必须用 `-- ` 写理由
+- `languageOptions`：`ecmaVersion` / `sourceType` / `globals` / `parserOptions.ecmaFeatures`
+- `globals` 取值 `"readonly"` / `"writable"` / `"off"`（旧 `true`/`false` 已废弃）；用 `globals` 包批量注入 browser/node 等
+- `linterOptions.reportUnusedDisableDirectives`：揪出残留的无用 disable 注释
+- `settings`：插件共享元信息（如 `react.version`、`import/resolver`）
+- 优先级：行内注释 > 配置 rules（后定义覆盖前者）> 共享预设 > 内置默认；用 `eslint --print-config <file>` 查最终合并
+
 ## 规则严重级（Severity）
 
 每条规则的取值有三档，可以用字符串或数字：

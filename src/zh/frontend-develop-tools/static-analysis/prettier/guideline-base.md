@@ -7,6 +7,15 @@ outline: [2, 3]
 
 > 基于 Prettier v3.8.3 编写
 
+## 速查
+
+- 定位：唯一“全自动”格式化器；解析后按固定规则重排，消除团队风格争论
+- 与 linter 分工：Prettier 管**格式规则**（行宽/空格/引号），linter 管**代码质量**（无用变量等）
+- 配置哲学：“强势统一”，刻意极少配置，未来不再新增选项
+- 合理选项：`trailingComma` / `proseWrap` / `htmlWhitespaceSensitivity` / `endOfLine` / `quoteProps`
+- 争议选项（慎改）：`arrowParens` / `jsxSingleQuote` / `bracketSameLine` / `bracketSpacing`
+- 核心规则：保证行为不变；默认双引号（按逃逸字符数选）；连续空行压缩为一行；`printWidth`（默认 80）是建议非硬性；分号默认加并在行首防 ASI 陷阱
+
 ## 设计理念
 
 ### 创建和强制执行风格指南

@@ -7,6 +7,15 @@ outline: [2, 3]
 
 > 基于 ESLint v10.3.0 整理。当前 `latest` 已指向 v10.x，v9 与 v8 仍可独立切换。
 
+## 速查
+
+- 升级路径：v7/v8 →（先把 `.eslintrc` 转 flat config）→ v9 → v10
+- 转 flat config：`pnpm dlx @eslint/migrate-config .eslintrc.json`；过渡期可用 `FlatCompat`
+- 升级前冻结违规：`eslint . --suppress-all` 写 suppressions，CI 只查新增；清理用 `--prune-suppressions`
+- **v9**：flat config 成默认；字符串预设废弃（改 `js.configs.recommended`）；Node ≥18.18/20.9；`--quiet` 改为**不执行** warn 规则；多款内置 formatter 移除
+- **v10**：`.eslintrc` 彻底移除；Node ≥20.19/22.13/24；`/* eslint-env */` 注释变 error（改用 `globals` 包）；`recommended` 再加 3 条；JSX 引用被识别消解误报
+- 排错：`eslint --print-config <file>` 看某文件最终配置
+
 ## 快速判断
 
 | 你现在用的版本 | 推荐路径                                                     |
