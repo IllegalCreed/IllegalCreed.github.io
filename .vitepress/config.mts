@@ -365,17 +365,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/package-manager/npm/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/package-manager/npm/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/package-manager/npm/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/package-manager/npm/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/package-manager/npm/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/package-manager/npm/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/package-manager/npm/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/package-manager/npm/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/package-manager/npm/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/package-manager/npm/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/package-manager/npm/reference",
+                      },
                     ],
                   },
                   {
@@ -383,17 +398,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/package-manager/pnpm/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/package-manager/pnpm/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/package-manager/pnpm/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/package-manager/pnpm/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/package-manager/pnpm/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/package-manager/pnpm/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/package-manager/pnpm/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/package-manager/pnpm/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/package-manager/pnpm/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/package-manager/pnpm/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/package-manager/pnpm/reference",
+                      },
                     ],
                   },
                   {
@@ -401,17 +431,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/package-manager/yarn/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/package-manager/yarn/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/package-manager/yarn/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/package-manager/yarn/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/package-manager/yarn/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/package-manager/yarn/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/package-manager/yarn/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/package-manager/yarn/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/package-manager/yarn/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/package-manager/yarn/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/package-manager/yarn/reference",
+                      },
                     ],
                   },
                   {
@@ -419,17 +464,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/package-manager/bun/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/package-manager/bun/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/package-manager/bun/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/package-manager/bun/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/package-manager/bun/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/package-manager/bun/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/package-manager/bun/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/package-manager/bun/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/package-manager/bun/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/package-manager/bun/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/package-manager/bun/reference",
+                      },
                     ],
                   },
                 ],
@@ -443,17 +503,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/lodash-es/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/lodash-es/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/lodash-es/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/lodash-es/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/lodash-es/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/lodash-es/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/lodash-es/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/lodash-es/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/lodash-es/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/lodash-es/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/lodash-es/reference",
+                      },
                     ],
                   },
                   {
@@ -461,17 +536,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/es-toolkit/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/es-toolkit/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/es-toolkit/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/es-toolkit/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/es-toolkit/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/es-toolkit/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/es-toolkit/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/es-toolkit/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/es-toolkit/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/es-toolkit/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/es-toolkit/reference",
+                      },
                     ],
                   },
                   {
@@ -479,17 +569,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/dayjs/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/dayjs/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/dayjs/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/dayjs/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/dayjs/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/dayjs/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/dayjs/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/dayjs/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/dayjs/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/dayjs/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/dayjs/reference",
+                      },
                     ],
                   },
                   {
@@ -497,17 +602,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/date-fns/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/date-fns/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/date-fns/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/date-fns/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/date-fns/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/date-fns/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/date-fns/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/date-fns/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/date-fns/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/date-fns/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/date-fns/reference",
+                      },
                     ],
                   },
                   {
@@ -515,17 +635,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/luxon/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/luxon/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/luxon/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/luxon/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/luxon/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/luxon/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/luxon/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/luxon/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/luxon/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/luxon/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/luxon/reference",
+                      },
                     ],
                   },
                   {
@@ -533,17 +668,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/axios/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/axios/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/axios/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/axios/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/axios/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/axios/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/axios/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/axios/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/axios/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/axios/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/axios/reference",
+                      },
                     ],
                   },
                   {
@@ -551,17 +701,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/ky/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/ky/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/ky/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/ky/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/ky/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/ky/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/ky/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/ky/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/ky/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/ky/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/ky/reference",
+                      },
                     ],
                   },
                   {
@@ -569,17 +734,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/ofetch/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/ofetch/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/ofetch/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/ofetch/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/ofetch/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/ofetch/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/ofetch/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/ofetch/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/ofetch/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/ofetch/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/ofetch/reference",
+                      },
                     ],
                   },
                   {
@@ -587,17 +767,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/zod/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/zod/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/zod/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/zod/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/zod/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/zod/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/zod/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/zod/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/zod/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/zod/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/zod/reference",
+                      },
                     ],
                   },
                   {
@@ -605,17 +800,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/valibot/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/valibot/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/valibot/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/valibot/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/valibot/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/valibot/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/valibot/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/valibot/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/valibot/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/valibot/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/valibot/reference",
+                      },
                     ],
                   },
                   {
@@ -623,17 +833,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/immer/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/immer/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/immer/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/immer/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/immer/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/immer/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/immer/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/immer/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/immer/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/immer/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/immer/reference",
+                      },
                     ],
                   },
                   {
@@ -641,17 +866,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/rxjs/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/rxjs/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/rxjs/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/rxjs/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/rxjs/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/rxjs/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/rxjs/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/rxjs/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/rxjs/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/rxjs/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/rxjs/reference",
+                      },
                     ],
                   },
                   {
@@ -659,17 +899,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/nanoid/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/nanoid/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/nanoid/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/nanoid/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/nanoid/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/nanoid/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/nanoid/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/nanoid/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/nanoid/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/nanoid/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/nanoid/reference",
+                      },
                     ],
                   },
                   {
@@ -677,17 +932,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/type-fest/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/type-fest/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/type-fest/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/type-fest/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/type-fest/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/type-fest/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/type-fest/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/type-fest/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/type-fest/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/type-fest/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/type-fest/reference",
+                      },
                     ],
                   },
                   {
@@ -695,17 +965,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/ts-pattern/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/ts-pattern/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/ts-pattern/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/ts-pattern/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/ts-pattern/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/ts-pattern/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/ts-pattern/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/ts-pattern/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/ts-pattern/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/ts-pattern/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/ts-pattern/reference",
+                      },
                     ],
                   },
                   {
@@ -713,17 +998,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/dompurify/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/dompurify/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/dompurify/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/dompurify/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/dompurify/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/dompurify/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/dompurify/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/dompurify/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/dompurify/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/dompurify/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/dompurify/reference",
+                      },
                     ],
                   },
                   {
@@ -731,17 +1031,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/decimal-js/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/decimal-js/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/decimal-js/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/decimal-js/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/decimal-js/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/decimal-js/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/decimal-js/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/decimal-js/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/decimal-js/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/decimal-js/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/decimal-js/reference",
+                      },
                     ],
                   },
                   {
@@ -749,17 +1064,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/papaparse/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/papaparse/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/papaparse/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/papaparse/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/papaparse/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/papaparse/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/papaparse/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/papaparse/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/papaparse/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/papaparse/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/papaparse/reference",
+                      },
                     ],
                   },
                   {
@@ -767,17 +1097,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/fuse-js/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/fuse-js/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/fuse-js/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/fuse-js/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/fuse-js/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/fuse-js/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/fuse-js/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/fuse-js/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/fuse-js/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/fuse-js/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/fuse-js/reference",
+                      },
                     ],
                   },
                   {
@@ -785,17 +1130,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/utility-libs/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/utility-libs/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/utility-libs/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/utility-libs/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/utility-libs/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/utility-libs/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/utility-libs/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/utility-libs/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/utility-libs/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/utility-libs/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/utility-libs/reference",
+                      },
                     ],
                   },
                   {
@@ -803,17 +1163,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/web-advanced/js-extension/crypto-js/",
                     items: [
-                      { text: "入门", link: "/zh/web-advanced/js-extension/crypto-js/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/web-advanced/js-extension/crypto-js/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/web-advanced/js-extension/crypto-js/guide-line/base" },
-                          { text: "进阶", link: "/zh/web-advanced/js-extension/crypto-js/guide-line/advanced" },
-                          { text: "专家", link: "/zh/web-advanced/js-extension/crypto-js/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/web-advanced/js-extension/crypto-js/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/web-advanced/js-extension/crypto-js/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/web-advanced/js-extension/crypto-js/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/web-advanced/js-extension/crypto-js/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/web-advanced/js-extension/crypto-js/reference",
+                      },
                     ],
                   },
                 ],
@@ -2108,17 +2483,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-framework/document/sheetjs/",
                     items: [
-                      { text: "入门", link: "/zh/frontend-framework/document/sheetjs/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/document/sheetjs/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/frontend-framework/document/sheetjs/guide-line/base" },
-                          { text: "进阶", link: "/zh/frontend-framework/document/sheetjs/guide-line/advanced" },
-                          { text: "专家", link: "/zh/frontend-framework/document/sheetjs/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/document/sheetjs/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/document/sheetjs/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-framework/document/sheetjs/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/frontend-framework/document/sheetjs/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/document/sheetjs/reference",
+                      },
                     ],
                   },
                   {
@@ -2126,17 +2516,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-framework/document/exceljs/",
                     items: [
-                      { text: "入门", link: "/zh/frontend-framework/document/exceljs/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/document/exceljs/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/frontend-framework/document/exceljs/guide-line/base" },
-                          { text: "进阶", link: "/zh/frontend-framework/document/exceljs/guide-line/advanced" },
-                          { text: "专家", link: "/zh/frontend-framework/document/exceljs/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/document/exceljs/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/document/exceljs/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-framework/document/exceljs/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/frontend-framework/document/exceljs/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/document/exceljs/reference",
+                      },
                     ],
                   },
                   {
@@ -2144,17 +2549,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-framework/document/docx/",
                     items: [
-                      { text: "入门", link: "/zh/frontend-framework/document/docx/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/document/docx/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/frontend-framework/document/docx/guide-line/base" },
-                          { text: "进阶", link: "/zh/frontend-framework/document/docx/guide-line/advanced" },
-                          { text: "专家", link: "/zh/frontend-framework/document/docx/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/document/docx/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/document/docx/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-framework/document/docx/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/frontend-framework/document/docx/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/document/docx/reference",
+                      },
                     ],
                   },
                   {
@@ -2162,17 +2582,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-framework/document/mammoth/",
                     items: [
-                      { text: "入门", link: "/zh/frontend-framework/document/mammoth/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/document/mammoth/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/frontend-framework/document/mammoth/guide-line/base" },
-                          { text: "进阶", link: "/zh/frontend-framework/document/mammoth/guide-line/advanced" },
-                          { text: "专家", link: "/zh/frontend-framework/document/mammoth/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/document/mammoth/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/document/mammoth/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-framework/document/mammoth/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/frontend-framework/document/mammoth/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/document/mammoth/reference",
+                      },
                     ],
                   },
                   {
@@ -2180,17 +2615,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-framework/document/docxtemplater/",
                     items: [
-                      { text: "入门", link: "/zh/frontend-framework/document/docxtemplater/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/document/docxtemplater/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/frontend-framework/document/docxtemplater/guide-line/base" },
-                          { text: "进阶", link: "/zh/frontend-framework/document/docxtemplater/guide-line/advanced" },
-                          { text: "专家", link: "/zh/frontend-framework/document/docxtemplater/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/document/docxtemplater/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/document/docxtemplater/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-framework/document/docxtemplater/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/frontend-framework/document/docxtemplater/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/document/docxtemplater/reference",
+                      },
                     ],
                   },
                   {
@@ -2198,17 +2648,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-framework/document/docx-editor/",
                     items: [
-                      { text: "入门", link: "/zh/frontend-framework/document/docx-editor/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/document/docx-editor/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/frontend-framework/document/docx-editor/guide-line/base" },
-                          { text: "进阶", link: "/zh/frontend-framework/document/docx-editor/guide-line/advanced" },
-                          { text: "专家", link: "/zh/frontend-framework/document/docx-editor/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/document/docx-editor/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/document/docx-editor/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-framework/document/docx-editor/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/frontend-framework/document/docx-editor/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/document/docx-editor/reference",
+                      },
                     ],
                   },
                   {
@@ -2216,17 +2681,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-framework/document/pdfjs/",
                     items: [
-                      { text: "入门", link: "/zh/frontend-framework/document/pdfjs/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/document/pdfjs/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/frontend-framework/document/pdfjs/guide-line/base" },
-                          { text: "进阶", link: "/zh/frontend-framework/document/pdfjs/guide-line/advanced" },
-                          { text: "专家", link: "/zh/frontend-framework/document/pdfjs/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/document/pdfjs/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/document/pdfjs/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-framework/document/pdfjs/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/frontend-framework/document/pdfjs/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/document/pdfjs/reference",
+                      },
                     ],
                   },
                   {
@@ -2234,17 +2714,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-framework/document/jspdf/",
                     items: [
-                      { text: "入门", link: "/zh/frontend-framework/document/jspdf/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/document/jspdf/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/frontend-framework/document/jspdf/guide-line/base" },
-                          { text: "进阶", link: "/zh/frontend-framework/document/jspdf/guide-line/advanced" },
-                          { text: "专家", link: "/zh/frontend-framework/document/jspdf/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/document/jspdf/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/document/jspdf/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-framework/document/jspdf/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/frontend-framework/document/jspdf/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/document/jspdf/reference",
+                      },
                     ],
                   },
                   {
@@ -2252,17 +2747,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-framework/document/pdf-lib/",
                     items: [
-                      { text: "入门", link: "/zh/frontend-framework/document/pdf-lib/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/document/pdf-lib/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/frontend-framework/document/pdf-lib/guide-line/base" },
-                          { text: "进阶", link: "/zh/frontend-framework/document/pdf-lib/guide-line/advanced" },
-                          { text: "专家", link: "/zh/frontend-framework/document/pdf-lib/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/document/pdf-lib/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/document/pdf-lib/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-framework/document/pdf-lib/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/frontend-framework/document/pdf-lib/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/document/pdf-lib/reference",
+                      },
                     ],
                   },
                   {
@@ -2270,17 +2780,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-framework/document/pptxgenjs/",
                     items: [
-                      { text: "入门", link: "/zh/frontend-framework/document/pptxgenjs/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/document/pptxgenjs/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/frontend-framework/document/pptxgenjs/guide-line/base" },
-                          { text: "进阶", link: "/zh/frontend-framework/document/pptxgenjs/guide-line/advanced" },
-                          { text: "专家", link: "/zh/frontend-framework/document/pptxgenjs/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/document/pptxgenjs/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/document/pptxgenjs/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-framework/document/pptxgenjs/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/frontend-framework/document/pptxgenjs/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/document/pptxgenjs/reference",
+                      },
                     ],
                   },
                 ],
@@ -2392,17 +2917,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-framework/others/i18next/",
                     items: [
-                      { text: "入门", link: "/zh/frontend-framework/others/i18next/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-framework/others/i18next/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/frontend-framework/others/i18next/guide-line/base" },
-                          { text: "进阶", link: "/zh/frontend-framework/others/i18next/guide-line/advanced" },
-                          { text: "专家", link: "/zh/frontend-framework/others/i18next/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-framework/others/i18next/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-framework/others/i18next/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-framework/others/i18next/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/frontend-framework/others/i18next/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-framework/others/i18next/reference",
+                      },
                     ],
                   },
                 ],
@@ -3051,7 +3591,97 @@ export default defineConfig({
               {
                 text: "版本控制",
                 collapsed: true,
-                items: [{ text: "Git" }],
+                items: [
+                  {
+                    text: "Git",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/version-control/git/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/version-control/git/getting-started.md",
+                      },
+                      {
+                        text: "分支与合并",
+                        link: "/zh/frontend-develop-tools/version-control/git/guideline-branching.md",
+                      },
+                      {
+                        text: "Git 工具",
+                        link: "/zh/frontend-develop-tools/version-control/git/guideline-tools.md",
+                      },
+                      {
+                        text: "内部原理",
+                        link: "/zh/frontend-develop-tools/version-control/git/guideline-internals.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "GitHub Desktop",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/version-control/github-desktop/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/version-control/github-desktop/getting-started.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Sourcetree",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/version-control/sourcetree/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/version-control/sourcetree/getting-started.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "GitKraken",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/version-control/gitkraken/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/version-control/gitkraken/getting-started.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Fork",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/version-control/fork/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/version-control/fork/getting-started.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "lazygit",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/version-control/lazygit/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/version-control/lazygit/getting-started.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Jujutsu",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/version-control/jujutsu/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/version-control/jujutsu/getting-started.md",
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 text: "静态分析工具",
@@ -3391,17 +4021,32 @@ export default defineConfig({
                     collapsed: true,
                     link: "/zh/frontend-visualization/three/",
                     items: [
-                      { text: "入门", link: "/zh/frontend-visualization/three/getting-started" },
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-visualization/three/getting-started",
+                      },
                       {
                         text: "指南",
                         collapsed: true,
                         items: [
-                          { text: "基础", link: "/zh/frontend-visualization/three/guide-line/base" },
-                          { text: "进阶", link: "/zh/frontend-visualization/three/guide-line/advanced" },
-                          { text: "专家", link: "/zh/frontend-visualization/three/guide-line/expert" },
+                          {
+                            text: "基础",
+                            link: "/zh/frontend-visualization/three/guide-line/base",
+                          },
+                          {
+                            text: "进阶",
+                            link: "/zh/frontend-visualization/three/guide-line/advanced",
+                          },
+                          {
+                            text: "专家",
+                            link: "/zh/frontend-visualization/three/guide-line/expert",
+                          },
                         ],
                       },
-                      { text: "参考", link: "/zh/frontend-visualization/three/reference" },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-visualization/three/reference",
+                      },
                     ],
                   },
                   { text: "Babylon" },
@@ -4132,9 +4777,18 @@ export default defineConfig({
                         collapsed: true,
                         link: "/zh/large-language-model/models/gpt/",
                         items: [
-                          { text: "入门", link: "/zh/large-language-model/models/gpt/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/models/gpt/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/models/gpt/reference" },
+                          {
+                            text: "入门",
+                            link: "/zh/large-language-model/models/gpt/getting-started",
+                          },
+                          {
+                            text: "指南",
+                            link: "/zh/large-language-model/models/gpt/guide-line",
+                          },
+                          {
+                            text: "参考",
+                            link: "/zh/large-language-model/models/gpt/reference",
+                          },
                         ],
                       },
                       {
@@ -4142,9 +4796,18 @@ export default defineConfig({
                         collapsed: true,
                         link: "/zh/large-language-model/models/gemini/",
                         items: [
-                          { text: "入门", link: "/zh/large-language-model/models/gemini/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/models/gemini/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/models/gemini/reference" },
+                          {
+                            text: "入门",
+                            link: "/zh/large-language-model/models/gemini/getting-started",
+                          },
+                          {
+                            text: "指南",
+                            link: "/zh/large-language-model/models/gemini/guide-line",
+                          },
+                          {
+                            text: "参考",
+                            link: "/zh/large-language-model/models/gemini/reference",
+                          },
                         ],
                       },
                       {
@@ -4152,9 +4815,18 @@ export default defineConfig({
                         collapsed: true,
                         link: "/zh/large-language-model/models/claude/",
                         items: [
-                          { text: "入门", link: "/zh/large-language-model/models/claude/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/models/claude/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/models/claude/reference" },
+                          {
+                            text: "入门",
+                            link: "/zh/large-language-model/models/claude/getting-started",
+                          },
+                          {
+                            text: "指南",
+                            link: "/zh/large-language-model/models/claude/guide-line",
+                          },
+                          {
+                            text: "参考",
+                            link: "/zh/large-language-model/models/claude/reference",
+                          },
                         ],
                       },
                       { text: "Grok" },
@@ -4177,9 +4849,18 @@ export default defineConfig({
                             collapsed: true,
                             link: "/zh/large-language-model/tools/agent/pi/",
                             items: [
-                              { text: "入门", link: "/zh/large-language-model/tools/agent/pi/getting-started" },
-                              { text: "指南", link: "/zh/large-language-model/tools/agent/pi/guide-line" },
-                              { text: "参考", link: "/zh/large-language-model/tools/agent/pi/reference" },
+                              {
+                                text: "入门",
+                                link: "/zh/large-language-model/tools/agent/pi/getting-started",
+                              },
+                              {
+                                text: "指南",
+                                link: "/zh/large-language-model/tools/agent/pi/guide-line",
+                              },
+                              {
+                                text: "参考",
+                                link: "/zh/large-language-model/tools/agent/pi/reference",
+                              },
                             ],
                           },
                           {
@@ -4187,9 +4868,18 @@ export default defineConfig({
                             collapsed: true,
                             link: "/zh/large-language-model/tools/agent/claude-code/",
                             items: [
-                              { text: "入门", link: "/zh/large-language-model/tools/agent/claude-code/getting-started" },
-                              { text: "指南", link: "/zh/large-language-model/tools/agent/claude-code/guide-line" },
-                              { text: "参考", link: "/zh/large-language-model/tools/agent/claude-code/reference" },
+                              {
+                                text: "入门",
+                                link: "/zh/large-language-model/tools/agent/claude-code/getting-started",
+                              },
+                              {
+                                text: "指南",
+                                link: "/zh/large-language-model/tools/agent/claude-code/guide-line",
+                              },
+                              {
+                                text: "参考",
+                                link: "/zh/large-language-model/tools/agent/claude-code/reference",
+                              },
                             ],
                           },
                           {
@@ -4197,9 +4887,18 @@ export default defineConfig({
                             collapsed: true,
                             link: "/zh/large-language-model/tools/agent/codex/",
                             items: [
-                              { text: "入门", link: "/zh/large-language-model/tools/agent/codex/getting-started" },
-                              { text: "指南", link: "/zh/large-language-model/tools/agent/codex/guide-line" },
-                              { text: "参考", link: "/zh/large-language-model/tools/agent/codex/reference" },
+                              {
+                                text: "入门",
+                                link: "/zh/large-language-model/tools/agent/codex/getting-started",
+                              },
+                              {
+                                text: "指南",
+                                link: "/zh/large-language-model/tools/agent/codex/guide-line",
+                              },
+                              {
+                                text: "参考",
+                                link: "/zh/large-language-model/tools/agent/codex/reference",
+                              },
                             ],
                           },
                           {
@@ -4207,9 +4906,18 @@ export default defineConfig({
                             collapsed: true,
                             link: "/zh/large-language-model/tools/agent/gemini-cli/",
                             items: [
-                              { text: "入门", link: "/zh/large-language-model/tools/agent/gemini-cli/getting-started" },
-                              { text: "指南", link: "/zh/large-language-model/tools/agent/gemini-cli/guide-line" },
-                              { text: "参考", link: "/zh/large-language-model/tools/agent/gemini-cli/reference" },
+                              {
+                                text: "入门",
+                                link: "/zh/large-language-model/tools/agent/gemini-cli/getting-started",
+                              },
+                              {
+                                text: "指南",
+                                link: "/zh/large-language-model/tools/agent/gemini-cli/guide-line",
+                              },
+                              {
+                                text: "参考",
+                                link: "/zh/large-language-model/tools/agent/gemini-cli/reference",
+                              },
                             ],
                           },
                           {
@@ -4217,9 +4925,18 @@ export default defineConfig({
                             collapsed: true,
                             link: "/zh/large-language-model/tools/agent/opencode/",
                             items: [
-                              { text: "入门", link: "/zh/large-language-model/tools/agent/opencode/getting-started" },
-                              { text: "指南", link: "/zh/large-language-model/tools/agent/opencode/guide-line" },
-                              { text: "参考", link: "/zh/large-language-model/tools/agent/opencode/reference" },
+                              {
+                                text: "入门",
+                                link: "/zh/large-language-model/tools/agent/opencode/getting-started",
+                              },
+                              {
+                                text: "指南",
+                                link: "/zh/large-language-model/tools/agent/opencode/guide-line",
+                              },
+                              {
+                                text: "参考",
+                                link: "/zh/large-language-model/tools/agent/opencode/reference",
+                              },
                             ],
                           },
                         ],
@@ -4227,9 +4944,7 @@ export default defineConfig({
                       {
                         text: "编排工具",
                         collapsed: true,
-                        items: [
-                          { text: "Dify" },
-                        ],
+                        items: [{ text: "Dify" }],
                       },
                       {
                         text: "其他",
@@ -4242,9 +4957,18 @@ export default defineConfig({
                             collapsed: true,
                             link: "/zh/large-language-model/tools/other/open-router/",
                             items: [
-                              { text: "入门", link: "/zh/large-language-model/tools/other/open-router/getting-started" },
-                              { text: "指南", link: "/zh/large-language-model/tools/other/open-router/guide-line" },
-                              { text: "参考", link: "/zh/large-language-model/tools/other/open-router/reference" },
+                              {
+                                text: "入门",
+                                link: "/zh/large-language-model/tools/other/open-router/getting-started",
+                              },
+                              {
+                                text: "指南",
+                                link: "/zh/large-language-model/tools/other/open-router/guide-line",
+                              },
+                              {
+                                text: "参考",
+                                link: "/zh/large-language-model/tools/other/open-router/reference",
+                              },
                             ],
                           },
                           { text: "Stitch" },
@@ -4257,17 +4981,12 @@ export default defineConfig({
                   {
                     text: "提示词工程",
                     collapsed: true,
-                    items: [
-                      { text: "基础提示设计" },
-                      { text: "高级提示技巧" },
-                    ],
+                    items: [{ text: "基础提示设计" }, { text: "高级提示技巧" }],
                   },
                   {
                     text: "MCP",
                     collapsed: true,
-                    items: [
-                      { text: "Brave Search" },
-                    ],
+                    items: [{ text: "Brave Search" }],
                   },
                   {
                     text: "Skills",
@@ -4278,9 +4997,18 @@ export default defineConfig({
                         collapsed: true,
                         link: "/zh/large-language-model/skills/superpowers/",
                         items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/superpowers/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/superpowers/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/superpowers/reference" },
+                          {
+                            text: "入门",
+                            link: "/zh/large-language-model/skills/superpowers/getting-started",
+                          },
+                          {
+                            text: "指南",
+                            link: "/zh/large-language-model/skills/superpowers/guide-line",
+                          },
+                          {
+                            text: "参考",
+                            link: "/zh/large-language-model/skills/superpowers/reference",
+                          },
                         ],
                       },
                       {
@@ -4288,9 +5016,18 @@ export default defineConfig({
                         collapsed: true,
                         link: "/zh/large-language-model/skills/everything-claude-code/",
                         items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/everything-claude-code/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/everything-claude-code/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/everything-claude-code/reference" },
+                          {
+                            text: "入门",
+                            link: "/zh/large-language-model/skills/everything-claude-code/getting-started",
+                          },
+                          {
+                            text: "指南",
+                            link: "/zh/large-language-model/skills/everything-claude-code/guide-line",
+                          },
+                          {
+                            text: "参考",
+                            link: "/zh/large-language-model/skills/everything-claude-code/reference",
+                          },
                         ],
                       },
                     ],
