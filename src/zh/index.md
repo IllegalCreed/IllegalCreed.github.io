@@ -26,6 +26,9 @@ hero:
     - theme: alt
       text: 我的幻灯片生成站
       link: https://lumideck.illegalscreed.cn/
+    - theme: alt
+      text: 我的仙剑Web版
+      link: https://pal.illegalscreed.cn/
 
 features:
   - title: Web基础知识
