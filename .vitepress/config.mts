@@ -4048,9 +4048,159 @@ export default defineConfig({
                 text: "在线编辑器",
                 collapsed: true,
                 items: [
-                  { text: "StackBlitz" },
-                  { text: "CodeSandbox" },
-                  { text: "Expo" },
+                  {
+                    text: "StackBlitz",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/online-editor/stackblitz/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/online-editor/stackblitz/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "WebContainers",
+                            link: "/zh/frontend-develop-tools/online-editor/stackblitz/guide-line/webcontainers.md",
+                          },
+                          {
+                            text: "嵌入与 SDK",
+                            link: "/zh/frontend-develop-tools/online-editor/stackblitz/guide-line/embed-sdk.md",
+                          },
+                          {
+                            text: "GitHub 与套餐",
+                            link: "/zh/frontend-develop-tools/online-editor/stackblitz/guide-line/github-and-pricing.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/online-editor/stackblitz/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "CodeSandbox",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/online-editor/codesandbox/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/online-editor/codesandbox/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "VM 与浏览器沙箱",
+                            link: "/zh/frontend-develop-tools/online-editor/codesandbox/guide-line/vm-vs-browser-sandboxes.md",
+                          },
+                          {
+                            text: "SDK 与 Sandpack",
+                            link: "/zh/frontend-develop-tools/online-editor/codesandbox/guide-line/sdk-and-sandpack.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/online-editor/codesandbox/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "CodePen",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/online-editor/codepen/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/online-editor/codepen/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "编辑器与预处理器",
+                            link: "/zh/frontend-develop-tools/online-editor/codepen/guide-line/editor-and-processors.md",
+                          },
+                          {
+                            text: "嵌入与 CodePen 2.0",
+                            link: "/zh/frontend-develop-tools/online-editor/codepen/guide-line/embed-and-codepen2.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/online-editor/codepen/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Expo Snack",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/online-editor/expo-snack/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/online-editor/expo-snack/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "预览机制与依赖限制",
+                            link: "/zh/frontend-develop-tools/online-editor/expo-snack/guide-line/preview-and-dependencies.md",
+                          },
+                          {
+                            text: "嵌入与边界",
+                            link: "/zh/frontend-develop-tools/online-editor/expo-snack/guide-line/embed-and-boundaries.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/online-editor/expo-snack/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "框架官方 Playground",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/online-editor/framework-playground/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/online-editor/framework-playground/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "TypeScript Playground",
+                            link: "/zh/frontend-develop-tools/online-editor/framework-playground/guide-line/typescript-playground.md",
+                          },
+                          {
+                            text: "Vue SFC Playground",
+                            link: "/zh/frontend-develop-tools/online-editor/framework-playground/guide-line/vue-sfc-playground.md",
+                          },
+                          {
+                            text: "Svelte Playground",
+                            link: "/zh/frontend-develop-tools/online-editor/framework-playground/guide-line/svelte-playground.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/online-editor/framework-playground/reference.md",
+                      },
+                    ],
+                  },
                 ],
               },
               {
@@ -5209,6 +5359,15 @@ export default defineConfig({
                               },
                             ],
                           },
+                        ],
+                      },
+                      {
+                        text: "AI 应用生成器",
+                        collapsed: true,
+                        items: [
+                          { text: "bolt.new" },
+                          { text: "v0" },
+                          { text: "Lovable" },
                         ],
                       },
                       {
