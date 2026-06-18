@@ -4333,6 +4333,154 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "API Extractor",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/documentation-generator/api-extractor/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/documentation-generator/api-extractor/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "三大输出",
+                            link: "/zh/frontend-develop-tools/documentation-generator/api-extractor/guide-line/three-outputs.md",
+                          },
+                          {
+                            text: "配置文件",
+                            link: "/zh/frontend-develop-tools/documentation-generator/api-extractor/guide-line/config-file.md",
+                          },
+                          {
+                            text: "发布标签与评审",
+                            link: "/zh/frontend-develop-tools/documentation-generator/api-extractor/guide-line/release-tags-workflow.md",
+                          },
+                          {
+                            text: "配合 TSDoc / api-documenter",
+                            link: "/zh/frontend-develop-tools/documentation-generator/api-extractor/guide-line/tsdoc-and-documenter.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/documentation-generator/api-extractor/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Swagger UI",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/documentation-generator/swagger-ui/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/documentation-generator/swagger-ui/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "三种交付形态",
+                            link: "/zh/frontend-develop-tools/documentation-generator/swagger-ui/guide-line/flavors.md",
+                          },
+                          {
+                            text: "配置项",
+                            link: "/zh/frontend-develop-tools/documentation-generator/swagger-ui/guide-line/configuration.md",
+                          },
+                          {
+                            text: "Try it out 与 CORS",
+                            link: "/zh/frontend-develop-tools/documentation-generator/swagger-ui/guide-line/tryitout-cors.md",
+                          },
+                          {
+                            text: "OAuth 与选型",
+                            link: "/zh/frontend-develop-tools/documentation-generator/swagger-ui/guide-line/oauth-and-comparison.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/documentation-generator/swagger-ui/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Redoc",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/documentation-generator/redoc/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/documentation-generator/redoc/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "接入方式",
+                            link: "/zh/frontend-develop-tools/documentation-generator/redoc/guide-line/integration.md",
+                          },
+                          {
+                            text: "配置项",
+                            link: "/zh/frontend-develop-tools/documentation-generator/redoc/guide-line/configuration.md",
+                          },
+                          {
+                            text: "厂商扩展",
+                            link: "/zh/frontend-develop-tools/documentation-generator/redoc/guide-line/vendor-extensions.md",
+                          },
+                          {
+                            text: "开源与商业",
+                            link: "/zh/frontend-develop-tools/documentation-generator/redoc/guide-line/open-source-vs-commercial.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/documentation-generator/redoc/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Scalar",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/documentation-generator/scalar/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/documentation-generator/scalar/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "接入方式",
+                            link: "/zh/frontend-develop-tools/documentation-generator/scalar/guide-line/integration.md",
+                          },
+                          {
+                            text: "配置对象",
+                            link: "/zh/frontend-develop-tools/documentation-generator/scalar/guide-line/configuration.md",
+                          },
+                          {
+                            text: "API 客户端与 CORS",
+                            link: "/zh/frontend-develop-tools/documentation-generator/scalar/guide-line/api-client-cors.md",
+                          },
+                          {
+                            text: "主题与选型",
+                            link: "/zh/frontend-develop-tools/documentation-generator/scalar/guide-line/themes-comparison.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/documentation-generator/scalar/reference.md",
+                      },
+                    ],
+                  },
                 ],
               },
             ],
