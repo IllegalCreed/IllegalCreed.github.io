@@ -3676,7 +3676,25 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Sapling" },
+                  {
+                    text: "Sapling",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/version-control/sapling/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/version-control/sapling/getting-started.md",
+                      },
+                      {
+                        text: "栈式开发与撤销",
+                        link: "/zh/frontend-develop-tools/version-control/sapling/guideline-stacks-and-undo.md",
+                      },
+                      {
+                        text: "Git 与 GitHub 集成",
+                        link: "/zh/frontend-develop-tools/version-control/sapling/guideline-git-github.md",
+                      },
+                    ],
+                  },
                 ],
               },
               {
