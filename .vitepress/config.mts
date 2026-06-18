@@ -3676,6 +3676,7 @@ export default defineConfig({
                       },
                     ],
                   },
+                  { text: "Sapling" },
                 ],
               },
               {
@@ -5365,9 +5366,46 @@ export default defineConfig({
                         text: "AI 应用生成器",
                         collapsed: true,
                         items: [
-                          { text: "bolt.new" },
-                          { text: "v0" },
-                          { text: "Lovable" },
+                          {
+                            text: "bolt.new",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/app-builder/bolt-new/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/app-builder/bolt-new/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/app-builder/bolt-new/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/app-builder/bolt-new/reference" },
+                            ],
+                          },
+                          {
+                            text: "v0",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/app-builder/v0/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/app-builder/v0/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/app-builder/v0/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/app-builder/v0/reference" },
+                            ],
+                          },
+                          {
+                            text: "Lovable",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/app-builder/lovable/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/app-builder/lovable/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/app-builder/lovable/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/app-builder/lovable/reference" },
+                            ],
+                          },
+                          {
+                            text: "Replit Agent",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/app-builder/replit-agent/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/app-builder/replit-agent/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/app-builder/replit-agent/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/app-builder/replit-agent/reference" },
+                            ],
+                          },
                         ],
                       },
                       {
@@ -5400,8 +5438,6 @@ export default defineConfig({
                               },
                             ],
                           },
-                          { text: "Stitch" },
-                          { text: "Claude Design" },
                           { text: "NotebookLM" },
                         ],
                       },
@@ -5415,7 +5451,18 @@ export default defineConfig({
                   {
                     text: "MCP",
                     collapsed: true,
-                    items: [{ text: "Brave Search" }],
+                    items: [
+                      { text: "Brave Search" },
+                      { text: "GitHub MCP" },
+                      { text: "Context7 MCP" },
+                      { text: "Playwright MCP" },
+                      { text: "Chrome DevTools MCP" },
+                      { text: "Figma MCP" },
+                      { text: "Blender MCP" },
+                      { text: "Notion MCP" },
+                      { text: "Sentry MCP" },
+                      { text: "Supabase MCP" },
+                    ],
                   },
                   {
                     text: "Skills",
@@ -5460,6 +5507,16 @@ export default defineConfig({
                         ],
                       },
                     ],
+                  },
+                  {
+                    text: "AI 辅助开发工具",
+                    collapsed: true,
+                    items: [{ text: "react-doctor" }],
+                  },
+                  {
+                    text: "AI 设计",
+                    collapsed: true,
+                    items: [{ text: "Stitch" }, { text: "Claude Design" }],
                   },
                 ],
               },
