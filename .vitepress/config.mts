@@ -4226,10 +4226,113 @@ export default defineConfig({
                 text: "文档生成器",
                 collapsed: true,
                 items: [
-                  { text: "JSdoc" },
-                  { text: "TypeDoc" },
-                  { text: "TSDoc" },
-                  { text: "SassDoc" },
+                  {
+                    text: "JSDoc",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/documentation-generator/jsdoc/",
+                    items: [
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "标签详解",
+                            link: "/zh/frontend-develop-tools/documentation-generator/jsdoc/guide-line/tags.md",
+                          },
+                          {
+                            text: "类型表达式",
+                            link: "/zh/frontend-develop-tools/documentation-generator/jsdoc/guide-line/types.md",
+                          },
+                          {
+                            text: "类与模块",
+                            link: "/zh/frontend-develop-tools/documentation-generator/jsdoc/guide-line/classes-modules.md",
+                          },
+                          {
+                            text: "配合 TypeScript",
+                            link: "/zh/frontend-develop-tools/documentation-generator/jsdoc/guide-line/typescript.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/documentation-generator/jsdoc/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "TypeDoc",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/documentation-generator/typedoc/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/documentation-generator/typedoc/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "注释与标签",
+                            link: "/zh/frontend-develop-tools/documentation-generator/typedoc/guide-line/comments-tags.md",
+                          },
+                          {
+                            text: "配置",
+                            link: "/zh/frontend-develop-tools/documentation-generator/typedoc/guide-line/configuration.md",
+                          },
+                          {
+                            text: "主题与插件",
+                            link: "/zh/frontend-develop-tools/documentation-generator/typedoc/guide-line/themes-plugins.md",
+                          },
+                          {
+                            text: "文档站",
+                            link: "/zh/frontend-develop-tools/documentation-generator/typedoc/guide-line/docs-site.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/documentation-generator/typedoc/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "TSDoc",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/documentation-generator/tsdoc/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/documentation-generator/tsdoc/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "标签三类",
+                            link: "/zh/frontend-develop-tools/documentation-generator/tsdoc/guide-line/tag-kinds.md",
+                          },
+                          {
+                            text: "标准化分组",
+                            link: "/zh/frontend-develop-tools/documentation-generator/tsdoc/guide-line/standardization.md",
+                          },
+                          {
+                            text: "常用标签",
+                            link: "/zh/frontend-develop-tools/documentation-generator/tsdoc/guide-line/common-tags.md",
+                          },
+                          {
+                            text: "配置与生态",
+                            link: "/zh/frontend-develop-tools/documentation-generator/tsdoc/guide-line/config-ecosystem.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/documentation-generator/tsdoc/reference.md",
+                      },
+                    ],
+                  },
                 ],
               },
             ],
