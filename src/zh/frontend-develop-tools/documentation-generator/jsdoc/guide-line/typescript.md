@@ -62,7 +62,7 @@ function fn(p1, p2, p3, p4 = "x") {}
 ```
 
 ::: warning 后缀 `=` 在对象字面量里 TS 不支持
-形如 `{{ b: number= }}`（对象属性用后缀 `=` 表可选）**TS 不识别**，请改用 `?`：写成 `{{ b?: number }}` 或拆成 `@typedef` + 可选 `@property`。
+形如 <code v-pre>{{ b: number= }}</code>（对象属性用后缀 `=` 表可选）**TS 不识别**，请改用 `?`：写成 <code v-pre>{{ b?: number }}</code> 或拆成 `@typedef` + 可选 `@property`。
 :::
 
 ## 类型断言（casting）
@@ -177,7 +177,7 @@ function fn(a) {}
 | `function`     | `Function`         | 失去参数 / 返回类型                     |
 
 ::: warning `Object` 在 `noImplicitAny` 下直接报错
-开启 `noImplicitAny`（`strict` 包含）后，写 `@type {Object}` 会因退化成隐式 `any` 而报错。明确写出形状：`{Record<string, unknown>}`、`{{ name: string }}` 或自定义 `@typedef`。
+开启 `noImplicitAny`（`strict` 包含）后，写 `@type {Object}` 会因退化成隐式 `any` 而报错。明确写出形状：`{Record<string, unknown>}`、<code v-pre>{{ name: string }}</code> 或自定义 `@typedef`。
 :::
 
 下一步：[核心标签详解](./tags.md) · [类型表达式全集](./types.md) · [类与模块](./classes-modules.md) · [速查参考](../reference.md)

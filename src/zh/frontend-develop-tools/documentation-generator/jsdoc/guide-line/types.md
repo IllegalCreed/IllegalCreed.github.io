@@ -15,7 +15,7 @@ outline: [2, 3]
 - 可变参数（rest）前缀 `...`：`{...number}`
 - 联合类型用竖线 `|` 连接、圆括号分组：`{(string|Array.<string>)}`
 - 数组两种等价写法：`Array.<number>`（带点）与 `number[]`
-- 映射 `Object.<string, number>`（键类型, 值类型）；对象字面量 `{{a: number, b: string}}`
+- 映射 `Object.<string, number>`（键类型, 值类型）；对象字面量 <code v-pre>{{a: number, b: string}}</code>
 - 函数类型 `{function(string, number): boolean}`；任意类型 `{*}`
 - 自定义类型用 `@typedef` + `@property` 描述对象形状，`@callback` 描述回调，可跨文件复用
 
@@ -82,7 +82,7 @@ function pick(id, ...nums) {}
 | ----------------------------------------- | ------------------------------------- |
 | `Array.<number>` 或 `number[]`            | 数组（两种等价；注意 `Array.<>` 带点） |
 | `Object.<string, number>`                 | 键值映射（键类型, 值类型）            |
-| `{{a: number, b: string}}`                | 对象类型字面量（内层 `{}` 列属性）    |
+| <code v-pre>{{a: number, b: string}}</code>                | 对象类型字面量（内层 `{}` 列属性）    |
 | `{function(string, number): boolean}`     | 函数类型（参数序列 : 返回类型）       |
 
 ```js

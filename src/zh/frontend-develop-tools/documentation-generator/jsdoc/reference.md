@@ -80,7 +80,7 @@ pnpm exec jsdoc -c jsdoc.json      # 指定配置文件
 | `{(string\|number)}`                  | 联合类型（竖线分组）          |
 | `Array.<T>` / `T[]`                   | 数组（两种等价）              |
 | `Object.<K, V>`                       | 键值映射                      |
-| `{{a: number, b: string}}`            | 对象字面量类型                |
+| <code v-pre>{{a: number, b: string}}</code>            | 对象字面量类型                |
 | `{function(string): boolean}`         | 函数类型                      |
 | `{*}`                                 | 任意类型（any）               |
 | `{null}` `{undefined}` `{void}`       | 特殊值                        |
