@@ -4619,7 +4619,47 @@ export default defineConfig({
                 text: "组件测试",
                 collapsed: true,
                 items: [
-                  { text: "Vue Test Utils" },
+                  {
+                    text: "Vue Test Utils",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/component-testing/vue-test-utils/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/component-testing/vue-test-utils/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "Wrapper API",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/vue-test-utils/guide-line/wrapper-api.md",
+                          },
+                          {
+                            text: "Props 与事件",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/vue-test-utils/guide-line/props-events.md",
+                          },
+                          {
+                            text: "异步与插槽",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/vue-test-utils/guide-line/async-slots.md",
+                          },
+                          {
+                            text: "global 与 stub",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/vue-test-utils/guide-line/global-stubs.md",
+                          },
+                          {
+                            text: "Router 与 Pinia",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/vue-test-utils/guide-line/router-pinia.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/component-testing/vue-test-utils/reference.md",
+                      },
+                    ],
+                  },
                   { text: "Testing Library" },
                   { text: "@pinia/testing" },
                   { text: "Vitest Browser Mode" },
