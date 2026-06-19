@@ -4576,7 +4576,43 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "MSW" },
+                  {
+                    text: "MSW",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/unit-testing/msw/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/unit-testing/msw/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "Handler",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/msw/guide-line/handlers.md",
+                          },
+                          {
+                            text: "测试集成",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/msw/guide-line/testing.md",
+                          },
+                          {
+                            text: "网络行为",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/msw/guide-line/network-behavior.md",
+                          },
+                          {
+                            text: "迁移与对比",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/msw/guide-line/migration.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/unit-testing/msw/reference.md",
+                      },
+                    ],
+                  },
                 ],
               },
               {
