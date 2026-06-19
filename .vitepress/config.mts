@@ -4697,7 +4697,39 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "@pinia/testing" },
+                  {
+                    text: "@pinia/testing",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/component-testing/pinia-testing/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/component-testing/pinia-testing/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "选项",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/pinia-testing/guide-line/options.md",
+                          },
+                          {
+                            text: "state 与断言",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/pinia-testing/guide-line/state-assertions.md",
+                          },
+                          {
+                            text: "与 setActivePinia",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/pinia-testing/guide-line/setactivepinia.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/component-testing/pinia-testing/reference.md",
+                      },
+                    ],
+                  },
                   { text: "Vitest Browser Mode" },
                 ],
               },
