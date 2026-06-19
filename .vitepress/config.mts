@@ -4730,7 +4730,43 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Vitest Browser Mode" },
+                  {
+                    text: "Vitest Browser Mode",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/component-testing/vitest-browser-mode/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/component-testing/vitest-browser-mode/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "配置",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/vitest-browser-mode/guide-line/configuration.md",
+                          },
+                          {
+                            text: "Locators",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/vitest-browser-mode/guide-line/locators.md",
+                          },
+                          {
+                            text: "交互与断言",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/vitest-browser-mode/guide-line/interactivity.md",
+                          },
+                          {
+                            text: "视觉回归与对比",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/vitest-browser-mode/guide-line/visual-vs-jsdom.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/component-testing/vitest-browser-mode/reference.md",
+                      },
+                    ],
+                  },
                 ],
               },
               {
