@@ -4819,7 +4819,47 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "快照测试" },
+                  {
+                    text: "快照测试",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/test-quality/snapshot-testing/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/snapshot-testing/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "三种快照写法",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/snapshot-testing/guide-line/snapshot-types.md",
+                          },
+                          {
+                            text: "属性匹配器与序列化器",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/snapshot-testing/guide-line/property-matchers-serializers.md",
+                          },
+                          {
+                            text: "快照管理",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/snapshot-testing/guide-line/managing-snapshots.md",
+                          },
+                          {
+                            text: "Vitest vs Jest 差异",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/snapshot-testing/guide-line/vitest-vs-jest.md",
+                          },
+                          {
+                            text: "最佳实践与反模式",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/snapshot-testing/guide-line/best-practices.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/snapshot-testing/reference.md",
+                      },
+                    ],
+                  },
                 ],
               },
               {
