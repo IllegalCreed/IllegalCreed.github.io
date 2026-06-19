@@ -4535,7 +4535,47 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Jest" },
+                  {
+                    text: "Jest",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/unit-testing/jest/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/unit-testing/jest/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "配置",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/jest/guide-line/configuration.md",
+                          },
+                          {
+                            text: "测试 API",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/jest/guide-line/test-api.md",
+                          },
+                          {
+                            text: "断言与快照",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/jest/guide-line/assertions.md",
+                          },
+                          {
+                            text: "模拟",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/jest/guide-line/mocking.md",
+                          },
+                          {
+                            text: "ESM 与对照 Vitest",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/jest/guide-line/esm-and-vitest.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/unit-testing/jest/reference.md",
+                      },
+                    ],
+                  },
                   { text: "MSW" },
                 ],
               },
