@@ -4660,7 +4660,43 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Testing Library" },
+                  {
+                    text: "Testing Library",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/component-testing/testing-library/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/component-testing/testing-library/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "查询",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/testing-library/guide-line/queries.md",
+                          },
+                          {
+                            text: "user-event",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/testing-library/guide-line/user-event.md",
+                          },
+                          {
+                            text: "异步与断言",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/testing-library/guide-line/async-matchers.md",
+                          },
+                          {
+                            text: "与 VTU 的边界",
+                            link: "/zh/frontend-develop-tools/testing/component-testing/testing-library/guide-line/vtu-boundary.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/component-testing/testing-library/reference.md",
+                      },
+                    ],
+                  },
                   { text: "@pinia/testing" },
                   { text: "Vitest Browser Mode" },
                 ],
