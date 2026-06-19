@@ -4778,7 +4778,47 @@ export default defineConfig({
                 text: "测试方法与质量",
                 collapsed: true,
                 items: [
-                  { text: "代码覆盖率" },
+                  {
+                    text: "代码覆盖率",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/test-quality/code-coverage/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/code-coverage/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "指标与 Provider",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/code-coverage/guide-line/metrics-providers.md",
+                          },
+                          {
+                            text: "Vitest 覆盖率",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/code-coverage/guide-line/vitest-coverage.md",
+                          },
+                          {
+                            text: "Jest 覆盖率",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/code-coverage/guide-line/jest-coverage.md",
+                          },
+                          {
+                            text: "阈值门禁与 CI",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/code-coverage/guide-line/thresholds-ci.md",
+                          },
+                          {
+                            text: "反模式与最佳实践",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/code-coverage/guide-line/best-practices.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/code-coverage/reference.md",
+                      },
+                    ],
+                  },
                   { text: "快照测试" },
                 ],
               },
