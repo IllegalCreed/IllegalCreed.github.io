@@ -4494,19 +4494,73 @@ export default defineConfig({
                 text: "单元测试",
                 collapsed: true,
                 items: [
+                  {
+                    text: "Vitest",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/unit-testing/vitest/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/unit-testing/vitest/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "配置",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/vitest/guide-line/configuration.md",
+                          },
+                          {
+                            text: "测试 API",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/vitest/guide-line/test-api.md",
+                          },
+                          {
+                            text: "断言",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/vitest/guide-line/assertions.md",
+                          },
+                          {
+                            text: "模拟",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/vitest/guide-line/mocking.md",
+                          },
+                          {
+                            text: "从 Jest 迁移",
+                            link: "/zh/frontend-develop-tools/testing/unit-testing/vitest/guide-line/migration.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/unit-testing/vitest/reference.md",
+                      },
+                    ],
+                  },
                   { text: "Jest" },
-                  { text: "Vitest" },
-                  { text: "VueTestUtils" },
-                  { text: "Axios Mock Adapter" },
                   { text: "MSW" },
+                ],
+              },
+              {
+                text: "组件测试",
+                collapsed: true,
+                items: [
+                  { text: "Vue Test Utils" },
                   { text: "Testing Library" },
-                  { text: "Vue Router Mock" },
+                  { text: "@pinia/testing" },
+                  { text: "Vitest Browser Mode" },
                 ],
               },
               {
                 text: "端到端测试",
                 collapsed: true,
                 items: [{ text: "Cypress" }, { text: "Playwright" }],
+              },
+              {
+                text: "测试方法与质量",
+                collapsed: true,
+                items: [
+                  { text: "代码覆盖率" },
+                  { text: "快照测试" },
+                ],
               },
               {
                 text: "其他工具",
