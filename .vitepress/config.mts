@@ -4855,7 +4855,43 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Selenium" },
+                  {
+                    text: "Selenium",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/e2e-testing/selenium/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/e2e-testing/selenium/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "定位与交互",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/selenium/guide-line/locators-interactions.md",
+                          },
+                          {
+                            text: "等待策略",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/selenium/guide-line/waits.md",
+                          },
+                          {
+                            text: "Grid 与 BiDi",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/selenium/guide-line/grid-bidi.md",
+                          },
+                          {
+                            text: "最佳实践与对比",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/selenium/guide-line/best-practices.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/e2e-testing/selenium/reference.md",
+                      },
+                    ],
+                  },
                   { text: "WebdriverIO" },
                   { text: "Puppeteer" },
                 ],
