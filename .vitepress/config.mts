@@ -4772,7 +4772,53 @@ export default defineConfig({
               {
                 text: "端到端测试",
                 collapsed: true,
-                items: [{ text: "Cypress" }, { text: "Playwright" }],
+                items: [
+                  {
+                    text: "Cypress",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/e2e-testing/cypress/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/e2e-testing/cypress/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "命令与重试",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/cypress/guide-line/commands-retry.md",
+                          },
+                          {
+                            text: "网络拦截",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/cypress/guide-line/network-intercept.md",
+                          },
+                          {
+                            text: "自定义命令与会话",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/cypress/guide-line/custom-commands-session.md",
+                          },
+                          {
+                            text: "组件测试",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/cypress/guide-line/component-testing.md",
+                          },
+                          {
+                            text: "最佳实践与局限",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/cypress/guide-line/best-practices.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/e2e-testing/cypress/reference.md",
+                      },
+                    ],
+                  },
+                  { text: "Playwright" },
+                  { text: "Selenium" },
+                  { text: "WebdriverIO" },
+                  { text: "Puppeteer" },
+                ],
               },
               {
                 text: "测试方法与质量",
