@@ -4929,7 +4929,43 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Puppeteer" },
+                  {
+                    text: "Puppeteer",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/e2e-testing/puppeteer/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/e2e-testing/puppeteer/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "Page 与选择器",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/puppeteer/guide-line/page-selectors.md",
+                          },
+                          {
+                            text: "Locator 与交互",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/puppeteer/guide-line/locator-interactions.md",
+                          },
+                          {
+                            text: "截图、PDF 与网络",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/puppeteer/guide-line/screenshot-network.md",
+                          },
+                          {
+                            text: "配测试与对比",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/puppeteer/guide-line/testing-comparison.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/e2e-testing/puppeteer/reference.md",
+                      },
+                    ],
+                  },
                 ],
               },
               {
