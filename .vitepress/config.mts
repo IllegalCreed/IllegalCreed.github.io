@@ -4892,7 +4892,43 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "WebdriverIO" },
+                  {
+                    text: "WebdriverIO",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/e2e-testing/webdriverio/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/e2e-testing/webdriverio/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "选择器与命令",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/webdriverio/guide-line/selectors-commands.md",
+                          },
+                          {
+                            text: "断言",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/webdriverio/guide-line/assertions.md",
+                          },
+                          {
+                            text: "配置与 services",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/webdriverio/guide-line/config-services.md",
+                          },
+                          {
+                            text: "Appium 与组件测试",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/webdriverio/guide-line/appium-component.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/e2e-testing/webdriverio/reference.md",
+                      },
+                    ],
+                  },
                   { text: "Puppeteer" },
                 ],
               },
