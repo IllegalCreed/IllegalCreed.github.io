@@ -4814,7 +4814,47 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Playwright" },
+                  {
+                    text: "Playwright",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/e2e-testing/playwright/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/e2e-testing/playwright/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "Locator 与自动等待",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/playwright/guide-line/locators.md",
+                          },
+                          {
+                            text: "Web-First 断言",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/playwright/guide-line/assertions.md",
+                          },
+                          {
+                            text: "网络与 Fixtures",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/playwright/guide-line/network-fixtures.md",
+                          },
+                          {
+                            text: "并行与多浏览器",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/playwright/guide-line/parallel-projects.md",
+                          },
+                          {
+                            text: "调试与 Trace",
+                            link: "/zh/frontend-develop-tools/testing/e2e-testing/playwright/guide-line/debugging-trace.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/e2e-testing/playwright/reference.md",
+                      },
+                    ],
+                  },
                   { text: "Selenium" },
                   { text: "WebdriverIO" },
                   { text: "Puppeteer" },
