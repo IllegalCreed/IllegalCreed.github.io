@@ -14,7 +14,7 @@ outline: [2, 3]
 - 导入即用：`import { faker } from '@faker-js/faker'`（默认输出英文数据，中文用 `fakerZH_CN`）
 - 最小例：`faker.person.fullName()` / `faker.internet.email()` / `faker.string.uuid()`
 - **测试里务必 `faker.seed(123)`**：不 seed → 数据每次不同 → 断言 / 快照 flaky；`faker.seed()` 无参返回当前 seed
-- 造对象数组用 `faker.helpers.multiple(fn, { count })`，模板插值用 `faker.helpers.fake('{{person.lastName}}')`
+- 造对象数组用 `faker.helpers.multiple(fn, { count })`，模板插值用 <code v-pre>faker.helpers.fake('{{person.lastName}}')</code>
 
 ## Faker 是什么
 

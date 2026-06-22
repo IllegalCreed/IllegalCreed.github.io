@@ -14,7 +14,7 @@ outline: [2, 3]
 - **基线托管 + 签核**：基线在云端，评审界面逐快照 **Accept / Deny**，区分「改进 vs 回归」，支持 UI Review 团队签核
 - **TurboSnap 增量**：靠 **Webpack/Vite 依赖图** + Git diff 只拍受影响 story；开关 `--only-changed` / `onlyChanged: true`；跳过的快照按常规 **1/5 计费**
 - **modes 多端**：`.storybook/modes.ts` 定义多视口/主题，**每个 mode 名 = 一条独立基线 + 独立签核**
-- **CI**：`chromaui/action` + `projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}`；checkout 必须 `fetch-depth: 0`（TurboSnap 需完整 Git 历史）
+- **CI**：`chromaui/action` + <code v-pre>projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}</code>；checkout 必须 `fetch-depth: 0`（TurboSnap 需完整 Git 历史）
 - **`@chromatic-com/storybook` addon**：Storybook 内的 Visual Tests 面板入口，拍照/比对/基线托管都在云端，需 token
 - **本项目现状**：`packages/ui` 已装 addon，**只差 token + CI workflow** 就能真正跑
 

@@ -22,7 +22,7 @@ outline: [2, 3]
 | `arrayElement(arr)` | 从数组随机取**一个** |
 | `arrayElements(arr, count?)` | 随机取**若干**（`count` 可为数字或 `{min,max}`） |
 | `multiple(fn, {count})` | 调 `fn` 多次返回数组（**造对象数组的标准方式**） |
-| `fake(pattern)` | **mustache 模板**插值，如 `'Hello {{person.lastName}}'` |
+| `fake(pattern)` | **mustache 模板**插值，如 <code v-pre>'Hello {{person.lastName}}'</code> |
 | `shuffle(list, {inplace?})` | 洗牌 |
 | `maybe(fn, {probability})` | 按概率返回 `fn()` 或 `undefined` |
 | `weightedArrayElement([{weight,value}])` | **按权重**取元素 |
