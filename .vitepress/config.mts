@@ -5054,12 +5054,222 @@ export default defineConfig({
                       },
                     ],
                   },
+                  {
+                    text: "可访问性测试",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/test-quality/accessibility-testing/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/accessibility-testing/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "概念与标准",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/accessibility-testing/guide-line/concepts-standards.md",
+                          },
+                          {
+                            text: "axe-core 引擎",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/accessibility-testing/guide-line/axe-core.md",
+                          },
+                          {
+                            text: "单元与组件接入",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/accessibility-testing/guide-line/unit-component.md",
+                          },
+                          {
+                            text: "端到端接入",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/accessibility-testing/guide-line/e2e.md",
+                          },
+                          {
+                            text: "CI 与批量扫描",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/accessibility-testing/guide-line/ci-scanning.md",
+                          },
+                          {
+                            text: "Vue 实战与最佳实践",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/accessibility-testing/guide-line/best-practices.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/accessibility-testing/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "视觉回归测试",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/test-quality/visual-regression/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/visual-regression/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "概念与像素 diff 原理",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/visual-regression/guide-line/concepts-principles.md",
+                          },
+                          {
+                            text: "Chromatic 云端方案",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/visual-regression/guide-line/chromatic.md",
+                          },
+                          {
+                            text: "Playwright 视觉对比",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/visual-regression/guide-line/playwright-visual.md",
+                          },
+                          {
+                            text: "其它工具对照",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/visual-regression/guide-line/tools-comparison.md",
+                          },
+                          {
+                            text: "Vue 实战与最佳实践",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/visual-regression/guide-line/best-practices.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/visual-regression/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "变异测试",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/test-quality/mutation-testing/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/mutation-testing/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "概念与变异分数",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/mutation-testing/guide-line/concepts-and-score.md",
+                          },
+                          {
+                            text: "变异体与算子",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/mutation-testing/guide-line/mutants-and-operators.md",
+                          },
+                          {
+                            text: "StrykerJS 配置",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/mutation-testing/guide-line/strykerjs-config.md",
+                          },
+                          {
+                            text: "Vue 实战",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/mutation-testing/guide-line/vue-practice.md",
+                          },
+                          {
+                            text: "最佳实践与反模式",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/mutation-testing/guide-line/best-practices.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/mutation-testing/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "属性测试",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/test-quality/property-testing/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/property-testing/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "概念与范式",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/property-testing/guide-line/concepts-paradigm.md",
+                          },
+                          {
+                            text: "Arbitraries 与 API",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/property-testing/guide-line/arbitraries-api.md",
+                          },
+                          {
+                            text: "收缩与复现",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/property-testing/guide-line/shrinking-replay.md",
+                          },
+                          {
+                            text: "框架集成与进阶",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/property-testing/guide-line/integration-advanced.md",
+                          },
+                          {
+                            text: "最佳实践与反模式",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/property-testing/guide-line/best-practices.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/property-testing/reference.md",
+                      },
+                    ],
+                  },
                 ],
               },
               {
                 text: "其他工具",
                 collapsed: true,
-                items: [{ text: "Mailtrap" }],
+                items: [
+                  {
+                    text: "Faker.js",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/other-tools/faker/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/testing/other-tools/faker/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "概念与历史",
+                            link: "/zh/frontend-develop-tools/testing/other-tools/faker/guide-line/concepts-and-history.md",
+                          },
+                          {
+                            text: "模块与 API",
+                            link: "/zh/frontend-develop-tools/testing/other-tools/faker/guide-line/modules-api.md",
+                          },
+                          {
+                            text: "确定性与 seed",
+                            link: "/zh/frontend-develop-tools/testing/other-tools/faker/guide-line/determinism.md",
+                          },
+                          {
+                            text: "helpers 与本地化",
+                            link: "/zh/frontend-develop-tools/testing/other-tools/faker/guide-line/helpers-and-locale.md",
+                          },
+                          {
+                            text: "测试实战",
+                            link: "/zh/frontend-develop-tools/testing/other-tools/faker/guide-line/testing-practice.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/other-tools/faker/reference.md",
+                      },
+                    ],
+                  },
+                ],
               },
             ],
           },
