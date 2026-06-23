@@ -4973,6 +4973,47 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   {
+                    text: "AI 时代如何测试",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/testing/test-quality/ai-era-testing/",
+                    items: [
+                      {
+                        text: "流程变化",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/ai-era-testing/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "三方式对比",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/ai-era-testing/guide-line/three-approaches.md",
+                          },
+                          {
+                            text: "原则与方法",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/ai-era-testing/guide-line/principles-and-methods.md",
+                          },
+                          {
+                            text: "手工·场景与阶段",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/ai-era-testing/guide-line/when-manual.md",
+                          },
+                          {
+                            text: "MCP·AI 跑 e2e",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/ai-era-testing/guide-line/when-mcp-ai.md",
+                          },
+                          {
+                            text: "AI 写框架用例",
+                            link: "/zh/frontend-develop-tools/testing/test-quality/ai-era-testing/guide-line/when-ai-cases.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/testing/test-quality/ai-era-testing/reference.md",
+                      },
+                    ],
+                  },
+                  {
                     text: "代码覆盖率",
                     collapsed: true,
                     link: "/zh/frontend-develop-tools/testing/test-quality/code-coverage/",
