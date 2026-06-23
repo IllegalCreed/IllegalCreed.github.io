@@ -5323,10 +5323,285 @@ export default defineConfig({
                 text: "浏览器工具",
                 collapsed: true,
                 items: [
-                  { text: "Chrome DevTools" },
-                  { text: "Firefox Developer Tools" },
-                  { text: "React DevTools" },
-                  { text: "Vue DevTools" },
+                  {
+                    text: "Chrome DevTools",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/browser-tools/chrome-devtools/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/chrome-devtools/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "Elements 与样式",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/chrome-devtools/guide-line/elements-styles.md",
+                          },
+                          {
+                            text: "Console 与 Sources",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/chrome-devtools/guide-line/console-sources.md",
+                          },
+                          {
+                            text: "Network 与 Performance",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/chrome-devtools/guide-line/network-performance.md",
+                          },
+                          {
+                            text: "Memory 与 Application",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/chrome-devtools/guide-line/memory-application.md",
+                          },
+                          {
+                            text: "AI 与自动化",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/chrome-devtools/guide-line/ai-assistance.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/chrome-devtools/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Firefox Developer Tools",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/browser-tools/firefox-devtools/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/firefox-devtools/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "Inspector 与布局",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/firefox-devtools/guide-line/inspector-grid-flex.md",
+                          },
+                          {
+                            text: "字体形状与兼容",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/firefox-devtools/guide-line/fonts-shapes-compat.md",
+                          },
+                          {
+                            text: "可访问性检查",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/firefox-devtools/guide-line/accessibility.md",
+                          },
+                          {
+                            text: "Console 与 Debugger",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/firefox-devtools/guide-line/console-debugger.md",
+                          },
+                          {
+                            text: "网络存储与响应式",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/firefox-devtools/guide-line/network-storage.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/firefox-devtools/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Safari Web Inspector",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/browser-tools/safari-web-inspector/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/safari-web-inspector/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "iOS 远程调试",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/safari-web-inspector/guide-line/ios-remote-debugging.md",
+                          },
+                          {
+                            text: "Elements 与样式",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/safari-web-inspector/guide-line/elements-styles.md",
+                          },
+                          {
+                            text: "Console 与 Sources",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/safari-web-inspector/guide-line/console-sources.md",
+                          },
+                          {
+                            text: "Network 与 Timelines",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/safari-web-inspector/guide-line/network-timelines.md",
+                          },
+                          {
+                            text: "Storage 审计与图形",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/safari-web-inspector/guide-line/storage-audit-graphics.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/safari-web-inspector/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "React DevTools",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/browser-tools/react-devtools/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/react-devtools/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "组件树导航",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/react-devtools/guide-line/components-tree.md",
+                          },
+                          {
+                            text: "Props/State/Hooks",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/react-devtools/guide-line/props-state-hooks.md",
+                          },
+                          {
+                            text: "Profiler 性能剖析",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/react-devtools/guide-line/profiler.md",
+                          },
+                          {
+                            text: "高亮重渲染与优化",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/react-devtools/guide-line/highlight-optimize.md",
+                          },
+                          {
+                            text: "独立应用与 RN",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/react-devtools/guide-line/standalone-rn.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/react-devtools/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Vue DevTools",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/browser-tools/vue-devtools/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/vue-devtools/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "组件与状态",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/vue-devtools/guide-line/components-state.md",
+                          },
+                          {
+                            text: "Pinia 与路由",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/vue-devtools/guide-line/pinia-router.md",
+                          },
+                          {
+                            text: "Timeline 时间线",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/vue-devtools/guide-line/timeline.md",
+                          },
+                          {
+                            text: "Inspector 与 Graph",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/vue-devtools/guide-line/inspector-graph.md",
+                          },
+                          {
+                            text: "安装与三形态",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/vue-devtools/guide-line/setup-forms.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/vue-devtools/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Angular DevTools",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/browser-tools/angular-devtools/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/angular-devtools/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "组件与指令",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/angular-devtools/guide-line/components.md",
+                          },
+                          {
+                            text: "Profiler 变更检测",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/angular-devtools/guide-line/profiler.md",
+                          },
+                          {
+                            text: "Injector 注入树",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/angular-devtools/guide-line/injector-tree.md",
+                          },
+                          {
+                            text: "Signals 与优化",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/angular-devtools/guide-line/signals-cd.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/angular-devtools/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Redux DevTools",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/browser-tools/redux-devtools/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/redux-devtools/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "时间旅行调试",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/redux-devtools/guide-line/time-travel.md",
+                          },
+                          {
+                            text: "Action 与状态检查",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/redux-devtools/guide-line/action-state.md",
+                          },
+                          {
+                            text: "跨库接入",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/redux-devtools/guide-line/integration.md",
+                          },
+                          {
+                            text: "导入导出与技巧",
+                            link: "/zh/frontend-develop-tools/optimization/browser-tools/redux-devtools/guide-line/import-export.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/frontend-develop-tools/optimization/browser-tools/redux-devtools/reference.md",
+                      },
+                    ],
+                  },
                 ],
               },
               {
