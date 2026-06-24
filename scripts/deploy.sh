@@ -47,16 +47,18 @@ build() {
 
 # 部署
 deploy() {
-  log_info "部署到 ${SERVER_HOST}..."
+  log_info "部署到 ${SERVER_HOST}（rsync 增量同步）..."
 
-  # 清理远程目录（保留 SlideStack 子目录）
-  ssh "${SERVER_USER}@${SERVER_HOST}" "
-    cd ${REMOTE_DIR}
-    find . -maxdepth 1 ! -name '.' ! -name 'SlideStack' -exec rm -rf {} +
-  "
-
-  # 上传构建产物
-  scp -r "${PROJECT_ROOT}/.vitepress/dist/"* "${SERVER_USER}@${SERVER_HOST}:${REMOTE_DIR}/"
+  # rsync 增量同步：仅传输有变化的文件，比 scp -r 逐文件传 1.1GB/3325 文件快一个量级
+  # （后者跨境每文件一次 SSH 往返，实测 ~20min；rsync 增量后通常几十秒）。
+  #   -a 归档（递归 + 保留属性）｜ -z 压缩传输 ｜ --delete 删除远程多余文件（清理已删页面）
+  #   --exclude 'SlideStack'：本地 dist 不含 SlideStack，必须排除——否则 --delete 会误删
+  #     远程的幻灯片目录（/var/www/illegal-site/SlideStack 由 SlideStack 仓库独立部署）
+  #   源路径末尾的 '/' 表示同步 dist 的「内容」到远程目录（而非把 dist 目录本身放进去）
+  #   无「先清空再上传」的风险窗：rsync 逐文件原子替换，中途失败线上仍是上一版
+  rsync -az --delete --exclude 'SlideStack' \
+    "${PROJECT_ROOT}/.vitepress/dist/" \
+    "${SERVER_USER}@${SERVER_HOST}:${REMOTE_DIR}/"
 
   log_info "部署完成 ✓"
 }
