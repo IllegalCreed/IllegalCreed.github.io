@@ -187,12 +187,156 @@ export default defineConfig({
                           },
                         ],
                       },
-                      { text: "HTML 语义化与文档大纲" },
-                      { text: "HTML 文本内容与超链接" },
-                      { text: "HTML 表单与约束校验" },
-                      { text: "HTML 图片与多媒体" },
-                      { text: "HTML 表格" },
-                      { text: "HTML 交互元素与全局属性" },
+                      {
+                        text: "HTML 语义化与文档大纲",
+                        collapsed: true,
+                        link: "/zh/base/language/html/html-semantics/",
+                        items: [
+                          { text: "入门", link: "/zh/base/language/html/html-semantics/getting-started.md" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "为什么语义化", link: "/zh/base/language/html/html-semantics/guide-line/why-semantic.md" },
+                              { text: "分区元素与页面骨架", link: "/zh/base/language/html/html-semantics/guide-line/sectioning-elements.md" },
+                              { text: "article vs section 判定", link: "/zh/base/language/html/html-semantics/guide-line/article-vs-section.md" },
+                              { text: "标题层级与文档大纲", link: "/zh/base/language/html/html-semantics/guide-line/headings-outline.md" },
+                              { text: "易错语义", link: "/zh/base/language/html/html-semantics/guide-line/niche-semantics.md" },
+                              { text: "分组内容", link: "/zh/base/language/html/html-semantics/guide-line/grouping-content.md" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/base/language/html/html-semantics/reference.md" },
+                        ],
+                      },
+                      {
+                        text: "HTML 文本内容与超链接",
+                        collapsed: true,
+                        link: "/zh/base/language/html/html-text-links/",
+                        items: [
+                          {
+                            text: "入门",
+                            link: "/zh/base/language/html/html-text-links/getting-started.md",
+                          },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              {
+                                text: "强调与重要性",
+                                link: "/zh/base/language/html/html-text-links/guide-line/emphasis-importance.md",
+                              },
+                              {
+                                text: "行内文本语义全谱",
+                                link: "/zh/base/language/html/html-text-links/guide-line/inline-semantics.md",
+                              },
+                              {
+                                text: "超链接机制与 rel 安全",
+                                link: "/zh/base/language/html/html-text-links/guide-line/links-and-rel.md",
+                              },
+                              {
+                                text: "列表三型",
+                                link: "/zh/base/language/html/html-text-links/guide-line/lists.md",
+                              },
+                              {
+                                text: "国际化与编辑标注",
+                                link: "/zh/base/language/html/html-text-links/guide-line/i18n-text.md",
+                              },
+                              {
+                                text: "wbr/br 与空白折叠",
+                                link: "/zh/base/language/html/html-text-links/guide-line/wbr-whitespace.md",
+                              },
+                            ],
+                          },
+                          {
+                            text: "参考",
+                            link: "/zh/base/language/html/html-text-links/reference.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "HTML 表单与约束校验",
+                        collapsed: true,
+                        link: "/zh/base/language/html/html-forms/",
+                        items: [
+                          { text: "入门", link: "/zh/base/language/html/html-forms/getting-started.md" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "表单提交机制", link: "/zh/base/language/html/html-forms/guide-line/form-submission.md" },
+                              { text: "input 类型全谱", link: "/zh/base/language/html/html-forms/guide-line/input-types.md" },
+                              { text: "标签与字段集", link: "/zh/base/language/html/html-forms/guide-line/labels-fieldset.md" },
+                              { text: "选择类控件", link: "/zh/base/language/html/html-forms/guide-line/select-controls.md" },
+                              { text: "约束校验", link: "/zh/base/language/html/html-forms/guide-line/constraint-validation.md" },
+                              { text: "自动填充与移动端", link: "/zh/base/language/html/html-forms/guide-line/autofill-mobile.md" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/base/language/html/html-forms/reference.md" },
+                        ],
+                      },
+                      {
+                        text: "HTML 图片与多媒体",
+                        collapsed: true,
+                        link: "/zh/base/language/html/html-media/",
+                        items: [
+                          { text: "入门", link: "/zh/base/language/html/html-media/getting-started.md" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "img 基础", link: "/zh/base/language/html/html-media/guide-line/img-basics.md" },
+                              { text: "响应式图片", link: "/zh/base/language/html/html-media/guide-line/responsive-images.md" },
+                              { text: "艺术指导与格式回退", link: "/zh/base/language/html/html-media/guide-line/art-direction.md" },
+                              { text: "音视频与字幕", link: "/zh/base/language/html/html-media/guide-line/audio-video.md" },
+                              { text: "iframe 嵌入与安全", link: "/zh/base/language/html/html-media/guide-line/iframe-embedding.md" },
+                              { text: "图像映射与嵌入", link: "/zh/base/language/html/html-media/guide-line/image-map-embed.md" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/base/language/html/html-media/reference.md" },
+                        ],
+                      },
+                      {
+                        text: "HTML 表格",
+                        collapsed: true,
+                        link: "/zh/base/language/html/html-tables/",
+                        items: [
+                          { text: "入门", link: "/zh/base/language/html/html-tables/getting-started.md" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "表格结构", link: "/zh/base/language/html/html-tables/guide-line/table-structure.md" },
+                              { text: "单元格与表头关联", link: "/zh/base/language/html/html-tables/guide-line/cells-scope.md" },
+                              { text: "单元格合并", link: "/zh/base/language/html/html-tables/guide-line/colspan-rowspan.md" },
+                              { text: "列样式 col/colgroup", link: "/zh/base/language/html/html-tables/guide-line/col-colgroup.md" },
+                              { text: "表格可访问性", link: "/zh/base/language/html/html-tables/guide-line/table-a11y.md" },
+                              { text: "数据表 vs 布局表", link: "/zh/base/language/html/html-tables/guide-line/data-vs-layout.md" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/base/language/html/html-tables/reference.md" },
+                        ],
+                      },
+                      {
+                        text: "HTML 交互元素与全局属性",
+                        collapsed: true,
+                        link: "/zh/base/language/html/html-interactive-global/",
+                        items: [
+                          { text: "入门", link: "/zh/base/language/html/html-interactive-global/getting-started.md" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "details/summary 折叠", link: "/zh/base/language/html/html-interactive-global/guide-line/details-summary.md" },
+                              { text: "dialog 与 inert", link: "/zh/base/language/html/html-interactive-global/guide-line/dialog-inert.md" },
+                              { text: "popover 与 command", link: "/zh/base/language/html/html-interactive-global/guide-line/popover-command.md" },
+                              { text: "焦点管理", link: "/zh/base/language/html/html-interactive-global/guide-line/focus-management.md" },
+                              { text: "全局属性精要", link: "/zh/base/language/html/html-interactive-global/guide-line/global-attributes.md" },
+                              { text: "HTML 层可访问性", link: "/zh/base/language/html/html-interactive-global/guide-line/html-a11y.md" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/base/language/html/html-interactive-global/reference.md" },
+                        ],
+                      },
                     ],
                   },
                   {
