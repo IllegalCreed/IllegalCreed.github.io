@@ -142,7 +142,51 @@ export default defineConfig({
                     text: "HTML",
                     collapsed: true,
                     items: [
-                      { text: "HTML 文档结构与元数据" },
+                      {
+                        text: "HTML 文档结构与元数据",
+                        collapsed: true,
+                        link: "/zh/base/language/html/html-document-metadata/",
+                        items: [
+                          {
+                            text: "入门",
+                            link: "/zh/base/language/html/html-document-metadata/getting-started.md",
+                          },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              {
+                                text: "文档骨架与渲染模式",
+                                link: "/zh/base/language/html/html-document-metadata/guide-line/document-skeleton.md",
+                              },
+                              {
+                                text: "字符编码与视口",
+                                link: "/zh/base/language/html/html-document-metadata/guide-line/charset-viewport.md",
+                              },
+                              {
+                                text: "标题与 SEO 元数据",
+                                link: "/zh/base/language/html/html-document-metadata/guide-line/title-seo-meta.md",
+                              },
+                              {
+                                text: "社交分享元数据",
+                                link: "/zh/base/language/html/html-document-metadata/guide-line/social-metadata.md",
+                              },
+                              {
+                                text: "link 关系全谱",
+                                link: "/zh/base/language/html/html-document-metadata/guide-line/link-relations.md",
+                              },
+                              {
+                                text: "资源提示",
+                                link: "/zh/base/language/html/html-document-metadata/guide-line/resource-hints.md",
+                              },
+                            ],
+                          },
+                          {
+                            text: "参考",
+                            link: "/zh/base/language/html/html-document-metadata/reference.md",
+                          },
+                        ],
+                      },
                       { text: "HTML 语义化与文档大纲" },
                       { text: "HTML 文本内容与超链接" },
                       { text: "HTML 表单与约束校验" },
