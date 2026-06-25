@@ -757,7 +757,27 @@ export default defineConfig({
                 text: "计算机网络基础",
                 collapsed: true,
                 items: [
-                  { text: "网络分层模型" },
+                  {
+                    text: "网络分层模型",
+                    collapsed: true,
+                    link: "/zh/base/network/net-layering/",
+                    items: [
+                      { text: "入门", link: "/zh/base/network/net-layering/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "为什么要分层", link: "/zh/base/network/net-layering/guide-line/why-layering.md" },
+                          { text: "OSI 七层逐层职责", link: "/zh/base/network/net-layering/guide-line/osi-seven-layers.md" },
+                          { text: "TCP/IP 四层与五层教学模型", link: "/zh/base/network/net-layering/guide-line/tcpip-five-layer.md" },
+                          { text: "数据封装与解封装", link: "/zh/base/network/net-layering/guide-line/encapsulation.md" },
+                          { text: "两模型对照与协议归层", link: "/zh/base/network/net-layering/guide-line/model-comparison.md" },
+                          { text: "一个 HTTP 请求穿越协议栈的端到端旅程", link: "/zh/base/network/net-layering/guide-line/end-to-end-journey.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/network/net-layering/reference.md" },
+                    ],
+                  },
                   { text: "链路层与局域网" },
                   { text: "网络层与路由" },
                   {
