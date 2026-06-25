@@ -760,7 +760,27 @@ export default defineConfig({
                   { text: "网络分层模型" },
                   { text: "链路层与局域网" },
                   { text: "网络层与路由" },
-                  { text: "传输层 TCP 与 UDP" },
+                  {
+                    text: "传输层 TCP 与 UDP",
+                    collapsed: true,
+                    link: "/zh/base/network/net-transport/",
+                    items: [
+                      { text: "入门", link: "/zh/base/network/net-transport/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "传输层与端口·复用分用", link: "/zh/base/network/net-transport/guide-line/transport-ports-mux.md" },
+                          { text: "UDP 协议与适用场景", link: "/zh/base/network/net-transport/guide-line/udp-protocol.md" },
+                          { text: "TCP 三次握手与四次挥手", link: "/zh/base/network/net-transport/guide-line/tcp-handshake.md" },
+                          { text: "TCP 可靠传输", link: "/zh/base/network/net-transport/guide-line/tcp-reliable.md" },
+                          { text: "流量控制与拥塞控制", link: "/zh/base/network/net-transport/guide-line/flow-congestion-control.md" },
+                          { text: "TCP vs UDP 选型与队头阻塞", link: "/zh/base/network/net-transport/guide-line/tcp-vs-udp-hol.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/network/net-transport/reference.md" },
+                    ],
+                  },
                   {
                     text: "DNS 域名系统",
                     collapsed: true,
