@@ -779,7 +779,27 @@ export default defineConfig({
                     ],
                   },
                   { text: "链路层与局域网" },
-                  { text: "网络层与路由" },
+                  {
+                    text: "网络层与路由",
+                    collapsed: true,
+                    link: "/zh/base/network/net-ip-routing/",
+                    items: [
+                      { text: "入门", link: "/zh/base/network/net-ip-routing/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "IP 协议与 IPv4 寻址", link: "/zh/base/network/net-ip-routing/guide-line/ip-protocol-ipv4.md" },
+                          { text: "子网掩码与 CIDR 划分", link: "/zh/base/network/net-ip-routing/guide-line/subnet-cidr.md" },
+                          { text: "IPv6 与过渡技术", link: "/zh/base/network/net-ip-routing/guide-line/ipv6.md" },
+                          { text: "路由原理与路由器/网关", link: "/zh/base/network/net-ip-routing/guide-line/routing-router-gateway.md" },
+                          { text: "ICMP 与 ping/traceroute", link: "/zh/base/network/net-ip-routing/guide-line/icmp-ping-traceroute.md" },
+                          { text: "NAT 与 DHCP", link: "/zh/base/network/net-ip-routing/guide-line/nat-dhcp.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/network/net-ip-routing/reference.md" },
+                    ],
+                  },
                   {
                     text: "传输层 TCP 与 UDP",
                     collapsed: true,
