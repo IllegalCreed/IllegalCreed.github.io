@@ -752,72 +752,22 @@ export default defineConfig({
                 ],
               },
               {
+                // 2026-06-25 重构为扁平 11 叶（spec: quiz-monorepo docs/plans/20260625-web-base-computer-network-trilogy.md）
+                // 未产出叶用 text 占位，不建占位页（产出叶时再 text→link）
                 text: "计算机网络基础",
                 collapsed: true,
                 items: [
-                  {
-                    text: "网络模型",
-                    collapsed: true,
-                    items: [
-                      {
-                        text: "OSI 模型",
-                      },
-                      {
-                        text: "TCP/IP 模型",
-                      },
-                    ],
-                  },
-                  {
-                    text: "网络协议",
-                    collapsed: true,
-                    items: [
-                      {
-                        text: "网络层及以下",
-                        items: [
-                          {
-                            text: "ICMP",
-                          },
-                          {
-                            text: "ARP",
-                          },
-                          {
-                            text: "DNS",
-                          },
-                        ],
-                      },
-                      {
-                        text: "应用层",
-                        items: [
-                          {
-                            text: "HTTP/HTTPS",
-                          },
-                          {
-                            text: "WebSocket",
-                          },
-                          {
-                            text: "SSL/TLS",
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                  {
-                    text: "网络设备",
-                    collapsed: true,
-                    items: [
-                      { text: "路由器" },
-                      { text: "交换机" },
-                      { text: "网关" },
-                      {
-                        text: "移动网络",
-                        items: [
-                          { text: "架构" },
-                          { text: "设备" },
-                          { text: "协议" },
-                        ],
-                      },
-                    ],
-                  },
+                  { text: "网络分层模型" },
+                  { text: "链路层与局域网" },
+                  { text: "网络层与路由" },
+                  { text: "传输层 TCP 与 UDP" },
+                  { text: "DNS 域名系统" },
+                  { text: "HTTP 协议基础" },
+                  { text: "HTTP 演进与性能" },
+                  { text: "HTTPS 与传输安全" },
+                  { text: "跨域与同源策略" },
+                  { text: "实时通信协议" },
+                  { text: "接入与移动网络" },
                 ],
               },
               {
