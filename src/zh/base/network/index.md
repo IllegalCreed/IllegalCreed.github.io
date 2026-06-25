@@ -13,7 +13,7 @@ layout: doc
 **模型与底层**
 
 - **[网络分层模型](./net-layering/)** —— OSI 七层 / TCP-IP 四层 / 数据封装与解封装（**已产出**）
-- 链路层与局域网 —— 以太网 / MAC / 交换机 / ARP / Wi-Fi
+- **[链路层与局域网](./net-link-lan/)** —— 以太网 / MAC / 交换机 / ARP / Wi-Fi（**已产出**）
 - **[网络层与路由](./net-ip-routing/)** —— IP / 子网 / IPv6 / ICMP / NAT / 路由器（**已产出**）
 
 **传输层**

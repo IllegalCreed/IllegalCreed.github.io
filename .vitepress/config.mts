@@ -778,7 +778,27 @@ export default defineConfig({
                       { text: "参考", link: "/zh/base/network/net-layering/reference.md" },
                     ],
                   },
-                  { text: "链路层与局域网" },
+                  {
+                    text: "链路层与局域网",
+                    collapsed: true,
+                    link: "/zh/base/network/net-link-lan/",
+                    items: [
+                      { text: "入门", link: "/zh/base/network/net-link-lan/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "数据链路层与 MAC 寻址", link: "/zh/base/network/net-link-lan/guide-line/datalink-mac.md" },
+                          { text: "以太网帧结构", link: "/zh/base/network/net-link-lan/guide-line/ethernet-frame.md" },
+                          { text: "交换机工作原理", link: "/zh/base/network/net-link-lan/guide-line/switch.md" },
+                          { text: "VLAN 与局域网隔离", link: "/zh/base/network/net-link-lan/guide-line/vlan.md" },
+                          { text: "ARP 协议与 ARP 欺骗", link: "/zh/base/network/net-link-lan/guide-line/arp.md" },
+                          { text: "Wi-Fi/802.11 无线局域网", link: "/zh/base/network/net-link-lan/guide-line/wifi.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/network/net-link-lan/reference.md" },
+                    ],
+                  },
                   {
                     text: "网络层与路由",
                     collapsed: true,
