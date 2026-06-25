@@ -967,7 +967,27 @@ export default defineConfig({
                       { text: "参考", link: "/zh/base/network/net-realtime/reference.md" },
                     ],
                   },
-                  { text: "接入与移动网络" },
+                  {
+                    text: "接入与移动网络",
+                    collapsed: true,
+                    link: "/zh/base/network/net-access-mobile/",
+                    items: [
+                      { text: "入门", link: "/zh/base/network/net-access-mobile/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "接入网与 LAN/WAN/MAN", link: "/zh/base/network/net-access-mobile/guide-line/access-lan-wan.md" },
+                          { text: "宽带接入技术", link: "/zh/base/network/net-access-mobile/guide-line/broadband.md" },
+                          { text: "蜂窝移动网络 2G→5G", link: "/zh/base/network/net-access-mobile/guide-line/cellular-2g-5g.md" },
+                          { text: "移动弱网对前端的挑战", link: "/zh/base/network/net-access-mobile/guide-line/mobile-weak-network.md" },
+                          { text: "CDN 网络原理", link: "/zh/base/network/net-access-mobile/guide-line/cdn-principle.md" },
+                          { text: "网络性能指标与弱网优化", link: "/zh/base/network/net-access-mobile/guide-line/network-performance.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/network/net-access-mobile/reference.md" },
+                    ],
+                  },
                 ],
               },
               {
