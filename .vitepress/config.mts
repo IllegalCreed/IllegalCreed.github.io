@@ -761,7 +761,27 @@ export default defineConfig({
                   { text: "链路层与局域网" },
                   { text: "网络层与路由" },
                   { text: "传输层 TCP 与 UDP" },
-                  { text: "DNS 域名系统" },
+                  {
+                    text: "DNS 域名系统",
+                    collapsed: true,
+                    link: "/zh/base/network/net-dns/",
+                    items: [
+                      { text: "入门", link: "/zh/base/network/net-dns/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "DNS 作用与域名层级体系", link: "/zh/base/network/net-dns/guide-line/dns-role-hierarchy.md" },
+                          { text: "解析流程：递归与迭代查询", link: "/zh/base/network/net-dns/guide-line/dns-resolution.md" },
+                          { text: "常见记录类型", link: "/zh/base/network/net-dns/guide-line/dns-record-types.md" },
+                          { text: "DNS 缓存与 TTL", link: "/zh/base/network/net-dns/guide-line/dns-cache-ttl.md" },
+                          { text: "前端 DNS 优化", link: "/zh/base/network/net-dns/guide-line/dns-frontend-optimization.md" },
+                          { text: "DoH/DoT 与 DNS 安全", link: "/zh/base/network/net-dns/guide-line/doh-dot-security.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/network/net-dns/reference.md" },
+                    ],
+                  },
                   {
                     text: "HTTP 协议基础",
                     collapsed: true,
