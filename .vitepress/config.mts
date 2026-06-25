@@ -946,7 +946,27 @@ export default defineConfig({
                       { text: "参考", link: "/zh/base/network/net-cors/reference.md" },
                     ],
                   },
-                  { text: "实时通信协议" },
+                  {
+                    text: "实时通信协议",
+                    collapsed: true,
+                    link: "/zh/base/network/net-realtime/",
+                    items: [
+                      { text: "入门", link: "/zh/base/network/net-realtime/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "实时通信方案演进（轮询→长轮询）", link: "/zh/base/network/net-realtime/guide-line/polling-evolution.md" },
+                          { text: "SSE 服务器推送", link: "/zh/base/network/net-realtime/guide-line/sse.md" },
+                          { text: "WebSocket 协议握手与帧", link: "/zh/base/network/net-realtime/guide-line/websocket-protocol.md" },
+                          { text: "WebSocket 心跳·重连·工程实践", link: "/zh/base/network/net-realtime/guide-line/websocket-practice.md" },
+                          { text: "WebRTC 与 NAT 穿透", link: "/zh/base/network/net-realtime/guide-line/webrtc-nat.md" },
+                          { text: "实时方案对比与选型", link: "/zh/base/network/net-realtime/guide-line/realtime-comparison.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/network/net-realtime/reference.md" },
+                    ],
+                  },
                   { text: "接入与移动网络" },
                 ],
               },

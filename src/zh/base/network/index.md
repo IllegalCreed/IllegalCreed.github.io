@@ -27,7 +27,7 @@ layout: doc
 - **[HTTP 演进与性能](./net-http-evolution/)** —— HTTP/1.1 → 2 → 3（QUIC）/ 多路复用 / 队头阻塞演进（**已产出**）
 - **[HTTPS 与传输安全](./net-https-tls/)** —— TLS 握手 / 证书 / CA / 中间人攻击 / HSTS（**已产出**）
 - **[跨域与同源策略](./net-cors/)** —— 同源策略 / CORS / 预检 / Cookie SameSite（**已产出**）
-- 实时通信协议 —— WebSocket / SSE / WebRTC 网络原理
+- **[实时通信协议](./net-realtime/)** —— WebSocket / SSE / WebRTC 网络原理（**已产出**）
 
 **接入层**
 
