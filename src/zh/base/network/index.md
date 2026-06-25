@@ -23,8 +23,8 @@ layout: doc
 **应用层（前端高频）**
 
 - DNS 域名系统 —— 解析流程 / 记录类型 / 缓存 / DoH
-- **[HTTP 协议基础](./net-http-basics/)** —— 报文 / 方法 / 状态码 / 首部 / Cookie / 连接与缓存（**本章首篇，已产出**）
-- HTTP 演进与性能 —— HTTP/1.1 → 2 → 3（QUIC）/ 多路复用
+- **[HTTP 协议基础](./net-http-basics/)** —— 报文 / 方法 / 状态码 / 首部 / Cookie / 连接与缓存（**已产出**）
+- **[HTTP 演进与性能](./net-http-evolution/)** —— HTTP/1.1 → 2 → 3（QUIC）/ 多路复用 / 队头阻塞演进（**已产出**）
 - HTTPS 与传输安全 —— TLS 握手 / 证书 / CA / 中间人攻击
 - 跨域与同源策略 —— 同源策略 / CORS / 预检 / Cookie SameSite
 - 实时通信协议 —— WebSocket / SSE / WebRTC 网络原理

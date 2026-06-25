@@ -783,7 +783,27 @@ export default defineConfig({
                       { text: "参考", link: "/zh/base/network/net-http-basics/reference.md" },
                     ],
                   },
-                  { text: "HTTP 演进与性能" },
+                  {
+                    text: "HTTP 演进与性能",
+                    collapsed: true,
+                    link: "/zh/base/network/net-http-evolution/",
+                    items: [
+                      { text: "入门", link: "/zh/base/network/net-http-evolution/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "HTTP 版本演进史", link: "/zh/base/network/net-http-evolution/guide-line/http-versions-history.md" },
+                          { text: "HTTP/1.1 瓶颈与队头阻塞", link: "/zh/base/network/net-http-evolution/guide-line/http1-bottlenecks.md" },
+                          { text: "HTTP/2 二进制分帧与多路复用", link: "/zh/base/network/net-http-evolution/guide-line/http2-framing-multiplexing.md" },
+                          { text: "HPACK 头部压缩与服务器推送", link: "/zh/base/network/net-http-evolution/guide-line/http2-hpack-push.md" },
+                          { text: "HTTP/3 与 QUIC", link: "/zh/base/network/net-http-evolution/guide-line/http3-quic.md" },
+                          { text: "版本对比与前端性能实践", link: "/zh/base/network/net-http-evolution/guide-line/version-comparison-performance.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/network/net-http-evolution/reference.md" },
+                    ],
+                  },
                   { text: "HTTPS 与传输安全" },
                   { text: "跨域与同源策略" },
                   { text: "实时通信协议" },
