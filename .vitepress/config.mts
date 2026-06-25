@@ -804,7 +804,27 @@ export default defineConfig({
                       { text: "参考", link: "/zh/base/network/net-http-evolution/reference.md" },
                     ],
                   },
-                  { text: "HTTPS 与传输安全" },
+                  {
+                    text: "HTTPS 与传输安全",
+                    collapsed: true,
+                    link: "/zh/base/network/net-https-tls/",
+                    items: [
+                      { text: "入门", link: "/zh/base/network/net-https-tls/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "为什么需要 HTTPS", link: "/zh/base/network/net-https-tls/guide-line/why-https.md" },
+                          { text: "对称与非对称加密", link: "/zh/base/network/net-https-tls/guide-line/symmetric-asymmetric.md" },
+                          { text: "数字证书与 CA 信任链", link: "/zh/base/network/net-https-tls/guide-line/certificates-ca.md" },
+                          { text: "TLS 握手流程", link: "/zh/base/network/net-https-tls/guide-line/tls-handshake.md" },
+                          { text: "中间人攻击与 HSTS", link: "/zh/base/network/net-https-tls/guide-line/mitm-hsts.md" },
+                          { text: "证书实务", link: "/zh/base/network/net-https-tls/guide-line/certificate-practice.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/network/net-https-tls/reference.md" },
+                    ],
+                  },
                   { text: "跨域与同源策略" },
                   { text: "实时通信协议" },
                   { text: "接入与移动网络" },
