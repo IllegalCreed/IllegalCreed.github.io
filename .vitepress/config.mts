@@ -825,7 +825,27 @@ export default defineConfig({
                       { text: "参考", link: "/zh/base/network/net-https-tls/reference.md" },
                     ],
                   },
-                  { text: "跨域与同源策略" },
+                  {
+                    text: "跨域与同源策略",
+                    collapsed: true,
+                    link: "/zh/base/network/net-cors/",
+                    items: [
+                      { text: "入门", link: "/zh/base/network/net-cors/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "同源策略与「源」的定义", link: "/zh/base/network/net-cors/guide-line/same-origin-policy.md" },
+                          { text: "跨域常见场景与报错排查", link: "/zh/base/network/net-cors/guide-line/cross-origin-scenarios.md" },
+                          { text: "CORS 简单请求与预检请求", link: "/zh/base/network/net-cors/guide-line/cors-simple-preflight.md" },
+                          { text: "CORS 凭证与 Access-Control 首部全谱", link: "/zh/base/network/net-cors/guide-line/cors-credentials-headers.md" },
+                          { text: "JSONP 与反向代理方案", link: "/zh/base/network/net-cors/guide-line/jsonp-proxy.md" },
+                          { text: "Cookie SameSite 与 COOP/COEP/CORP", link: "/zh/base/network/net-cors/guide-line/samesite-coop-coep.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/network/net-cors/reference.md" },
+                    ],
+                  },
                   { text: "实时通信协议" },
                   { text: "接入与移动网络" },
                 ],
