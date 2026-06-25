@@ -762,7 +762,27 @@ export default defineConfig({
                   { text: "网络层与路由" },
                   { text: "传输层 TCP 与 UDP" },
                   { text: "DNS 域名系统" },
-                  { text: "HTTP 协议基础" },
+                  {
+                    text: "HTTP 协议基础",
+                    collapsed: true,
+                    link: "/zh/base/network/net-http-basics/",
+                    items: [
+                      { text: "入门", link: "/zh/base/network/net-http-basics/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "HTTP 报文结构与请求方法", link: "/zh/base/network/net-http-basics/guide-line/http-messages-methods.md" },
+                          { text: "HTTP 状态码全谱", link: "/zh/base/network/net-http-basics/guide-line/status-codes.md" },
+                          { text: "HTTP 首部精要", link: "/zh/base/network/net-http-basics/guide-line/http-headers.md" },
+                          { text: "HTTP 内容协商", link: "/zh/base/network/net-http-basics/guide-line/content-negotiation.md" },
+                          { text: "Cookie 与会话管理", link: "/zh/base/network/net-http-basics/guide-line/cookies-sessions.md" },
+                          { text: "持久连接、范围请求与缓存首部", link: "/zh/base/network/net-http-basics/guide-line/connection-range-caching.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/network/net-http-basics/reference.md" },
+                    ],
+                  },
                   { text: "HTTP 演进与性能" },
                   { text: "HTTPS 与传输安全" },
                   { text: "跨域与同源策略" },
