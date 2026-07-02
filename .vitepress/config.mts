@@ -6684,7 +6684,27 @@ export default defineConfig({
                     ],
                   },
                   { text: "wujie" },
-                  { text: "micro-app" },
+                  {
+                    text: "micro-app",
+                    collapsed: true,
+                    link: "/zh/architecture/micro-frontend/micro-app/",
+                    items: [
+                      { text: "入门", link: "/zh/architecture/micro-frontend/micro-app/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "CustomElement 容器", link: "/zh/architecture/micro-frontend/micro-app/guide-line/custom-element.md" },
+                          { text: "with 沙箱（默认）", link: "/zh/architecture/micro-frontend/micro-app/guide-line/with-sandbox.md" },
+                          { text: "iframe 沙箱模式", link: "/zh/architecture/micro-frontend/micro-app/guide-line/iframe-sandbox-mode.md" },
+                          { text: "元素与样式隔离", link: "/zh/architecture/micro-frontend/micro-app/guide-line/element-style-isolation.md" },
+                          { text: "数据通信", link: "/zh/architecture/micro-frontend/micro-app/guide-line/data-communication.md" },
+                          { text: "1.0 RC 与现状", link: "/zh/architecture/micro-frontend/micro-app/guide-line/rc-status.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/architecture/micro-frontend/micro-app/reference.md" },
+                    ],
+                  },
                   { text: "Module Federation" },
                 ],
               },
