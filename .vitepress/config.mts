@@ -997,8 +997,48 @@ export default defineConfig({
                 text: "浏览器基础",
                 collapsed: true,
                 items: [
-                  { text: "浏览器架构与进程模型" },
-                  { text: "浏览器渲染原理" },
+                  {
+                    text: "浏览器架构与进程模型",
+                    collapsed: true,
+                    link: "/zh/base/browser/browser-architecture/",
+                    items: [
+                      { text: "入门", link: "/zh/base/browser/browser-architecture/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "进程、线程与 IPC", link: "/zh/base/browser/browser-architecture/guide-line/process-thread-ipc.md" },
+                          { text: "多进程架构", link: "/zh/base/browser/browser-architecture/guide-line/multi-process-model.md" },
+                          { text: "各进程内的线程", link: "/zh/base/browser/browser-architecture/guide-line/process-threads-inside.md" },
+                          { text: "站点隔离", link: "/zh/base/browser/browser-architecture/guide-line/site-isolation.md" },
+                          { text: "一次导航的全流程", link: "/zh/base/browser/browser-architecture/guide-line/navigation-flow.md" },
+                          { text: "导航交接与复用", link: "/zh/base/browser/browser-architecture/guide-line/navigation-handoff.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/browser/browser-architecture/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "浏览器渲染原理",
+                    collapsed: true,
+                    link: "/zh/base/browser/browser-rendering/",
+                    items: [
+                      { text: "入门", link: "/zh/base/browser/browser-rendering/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "HTML 解析与 DOM 构建", link: "/zh/base/browser/browser-rendering/guide-line/dom-construction.md" },
+                          { text: "CSSOM 与 render tree", link: "/zh/base/browser/browser-rendering/guide-line/cssom-render-tree.md" },
+                          { text: "布局与重排", link: "/zh/base/browser/browser-rendering/guide-line/layout-reflow.md" },
+                          { text: "绘制与合成", link: "/zh/base/browser/browser-rendering/guide-line/paint-compositing.md" },
+                          { text: "帧生命周期与输入", link: "/zh/base/browser/browser-rendering/guide-line/frame-input.md" },
+                          { text: "现代架构 RenderingNG", link: "/zh/base/browser/browser-rendering/guide-line/renderingng.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/browser/browser-rendering/reference.md" },
+                    ],
+                  },
                   { text: "浏览器存储" },
                   { text: "浏览器缓存机制" },
                   { text: "浏览器安全" },
