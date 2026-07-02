@@ -6705,7 +6705,27 @@ export default defineConfig({
                       { text: "参考", link: "/zh/architecture/micro-frontend/micro-app/reference.md" },
                     ],
                   },
-                  { text: "Module Federation" },
+                  {
+                    text: "Module Federation",
+                    collapsed: true,
+                    link: "/zh/architecture/micro-frontend/module-federation/",
+                    items: [
+                      { text: "入门", link: "/zh/architecture/micro-frontend/module-federation/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "联邦概念与心智模型", link: "/zh/architecture/micro-frontend/module-federation/guide-line/federation-concepts.md" },
+                          { text: "shared 版本治理", link: "/zh/architecture/micro-frontend/module-federation/guide-line/shared-governance.md" },
+                          { text: "MF 2.0 运行时化", link: "/zh/architecture/micro-frontend/module-federation/guide-line/mf2-runtime.md" },
+                          { text: "MF 2.0 生态", link: "/zh/architecture/micro-frontend/module-federation/guide-line/mf2-ecosystem.md" },
+                          { text: "Native Federation", link: "/zh/architecture/micro-frontend/module-federation/guide-line/native-federation.md" },
+                          { text: "与应用级方案的选型", link: "/zh/architecture/micro-frontend/module-federation/guide-line/vs-qiankun-selection.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/architecture/micro-frontend/module-federation/reference.md" },
+                    ],
+                  },
                 ],
               },
             ],
