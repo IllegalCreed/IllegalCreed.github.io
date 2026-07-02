@@ -71,13 +71,39 @@ outline: [2, 3]
 
 工程约束同样来自一手文档：import map **必须在首个模块加载前声明并处理完**（晚了不生效）；`type="importmap"` 的 script **禁止 `src`/`async`/`defer` 等属性**——不能外链，得内联或由服务端渲染进 HTML；多张 map 会合并进全局表，但**已解析/已映射的说明符先者优先**（后来的映射被丢弃）；映射只作用于 `import` 语句与 `import()`，不影响 `<script src>` 与 worker。
 
-single-spa 在这条路线上的配套立场值得整体吸收：**什么该共享**——「大型库只加载一次对 Web 应用至关重要」（React/Vue/Angular/moment/rxjs 点名）；**什么不该**——react-router 这类「小到可以重复」的库各自带，保留独立升级权；**为什么不全共享**——共享的依赖必须全体微前端同步升级，共享名单越长，被锁死的自由越多。运维上，import map 本身成了一等部署产物：CI 经 import-map-deployer 并发安全地更新映射、本地用 import-map-overrides 把某个模块指回 localhost——「改一行 JSON 就是一次发布」。至于教程里常见的 **SystemJS**：那是 import maps 未原生化年代的 polyfill（把代码编译成 System.register 格式模拟模块语义）。**import maps 自 2023-03 起已 Baseline Widely available**，新项目直接原生 ESM + 原生 import map，SystemJS 只在需要兼容化石浏览器时才请回来。
+构建侧的配对动作只有一行——把共享库声明为外部依赖，产物里保留裸说明符：
+
+```js
+// 每个微前端的 webpack 配置：React 不进产物，运行时交给 import map 解析
+module.exports = {
+  externals: ["react", "react-dom"], // import "react" 原样保留在产物里
+  output: { libraryTarget: "module" }, // 产 ESM，与浏览器模块图对接
+  experiments: { outputModule: true },
+};
+```
+
+single-spa 在这条路线上的配套立场值得整体吸收：
+
+- **什么该共享**：「大型库只加载一次对 Web 应用至关重要」——React/Vue/Angular/moment/rxjs 被点名；
+- **什么不该**：react-router 这类「小到可以重复」的库各自带，保留独立升级权；
+- **为什么不全共享**：共享的依赖必须全体微前端同步升级——共享名单越长，被锁死的自由越多。
+
+运维上，import map 本身成了一等部署产物：CI 经 import-map-deployer 并发安全地更新映射（防多条流水线的竞态）、本地用 import-map-overrides 把某个模块指回 localhost——「改一行 JSON 就是一次发布」。至于教程里常见的 **SystemJS**：那是 import maps 未原生化年代的 polyfill（把代码编译成 System.register 格式模拟模块语义）。**import maps 自 2023-03 起已 Baseline Widely available**，新项目直接原生 ESM + 原生 import map，SystemJS 只在需要兼容化石浏览器时才请回来。
 
 ## 三、Module Federation shared：运行时协商路线
 
 MF 的 shared 机制不设集中裁定者：**每个应用照常打包自己的依赖副本**，运行时把副本注册进**共享作用域**（share scope，默认名 `'default'`），用的时候按 semver 现场协商「页面里已有的副本能不能用、用谁的」。所有关键行为都从这个模型推得出来。
 
-**双端声明**。共享是「注册 + 消费」的双向协议：生产者在 `shared` 里声明，副本才进 scope；消费者也在 `shared` 里声明（同一 shareKey），构建器才会把 `import 'react'` 改写成「先查 scope」的运行时查找。只有一端声明的后果分别是：消费者没声明 → 照旧打包并使用自己的副本（共享完全没发生）；消费者声明了但 scope 里没人提供 → 回退到自己的 fallback 副本（`import` 配置项所指），配了 `import: false` 则没有 fallback 可回。
+**双端声明**。共享是「注册 + 消费」的双向协议：生产者在 `shared` 里声明，副本才进 scope；消费者也在 `shared` 里声明（同一 shareKey），构建器才会把 `import 'react'` 改写成「先查 scope」的运行时查找。四种组合的结局值得列成真值表：
+
+| 生产者声明 | 消费者声明 | 结局 |
+| --- | --- | --- |
+| ✓ | ✓ | 共享成立：scope 协商出一个副本，双方共用 |
+| ✓ | ✗ | 消费者照旧打包并使用**自己的副本**——共享静默失效，页面双份依赖 |
+| ✗ | ✓ | scope 无人提供 → 消费者回退到自己的 fallback 副本（`import` 所指） |
+| ✗ | ✓ 且 `import: false` | 无 fallback 可回——**运行时报错**，模块加载失败 |
+
+第二行是实践中最阴险的一种：没有报错、没有警告，只是 bundle 分析里多出一份 React——共享失效的排查要靠产物体积与 MF DevTools，而不是控制台。
 
 **singleton：最高版本获胜**。默认 `false`（版本不一致时各用各的副本）。开启后 scope 里同一 shareKey 只允许一个实例——MF 文档的裁决规则：**版本不一致时加载较高版本，低版本一方在控制台收到警告**。React、Vue 这类**依赖全局内部状态**的库必须开 singleton（两份 React 实例 = hooks 报错、context 断裂）。由此推出一个反直觉但必然的后果：**你实际运行的版本由页面里最高版本的参与者决定**——你 lockfile 锁的 18.2.0，遇上某个 remote 带着 18.3.1 进场，全页面跑的就是 18.3.1。「singleton 可能加载出乎意料的版本」不是 bug，是协商机制的定义行为——治理手段是让所有参与方的版本范围收敛（配合 requiredVersion），而不是指望 lockfile。
 

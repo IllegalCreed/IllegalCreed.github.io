@@ -6620,7 +6620,27 @@ export default defineConfig({
                       { text: "参考", link: "/zh/architecture/micro-frontend/mfe-basics/reference.md" },
                     ],
                   },
-                  { text: "微前端核心机制" },
+                  {
+                    text: "微前端核心机制",
+                    collapsed: true,
+                    link: "/zh/architecture/micro-frontend/mfe-mechanisms/",
+                    items: [
+                      { text: "入门", link: "/zh/architecture/micro-frontend/mfe-mechanisms/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "JS 沙箱谱系", link: "/zh/architecture/micro-frontend/mfe-mechanisms/guide-line/js-sandbox.md" },
+                          { text: "CSS 隔离", link: "/zh/architecture/micro-frontend/mfe-mechanisms/guide-line/css-isolation.md" },
+                          { text: "HTML entry 与资源加载", link: "/zh/architecture/micro-frontend/mfe-mechanisms/guide-line/html-entry-loading.md" },
+                          { text: "应用间通信", link: "/zh/architecture/micro-frontend/mfe-mechanisms/guide-line/communication.md" },
+                          { text: "依赖共享三路线", link: "/zh/architecture/micro-frontend/mfe-mechanisms/guide-line/dependency-sharing.md" },
+                          { text: "预加载与性能代价", link: "/zh/architecture/micro-frontend/mfe-mechanisms/guide-line/perf-preload.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/architecture/micro-frontend/mfe-mechanisms/reference.md" },
+                    ],
+                  },
                   { text: "single-spa" },
                   { text: "qiankun" },
                   { text: "wujie" },
