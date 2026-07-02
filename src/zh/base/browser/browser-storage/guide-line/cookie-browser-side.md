@@ -18,7 +18,7 @@ outline: [2, 3]
 - **随每个匹配请求自动上行**：Cookie 里多 1KB，全站每个请求都多 1KB——这是它不当存储用的根本原因
 - 值该用 `encodeURIComponent()` 编码，分号/逗号/空白会破坏格式
 - 删除 = 写一条同名、过期时间在过去的 Cookie（`max-age=0` 或 `expires` 设过去时间）
-- `document.cookie` 是**同步 API**；异步替代品 **Cookie Store API** 可在 Service Worker 用，但各引擎兼容性尚未拉齐，用前查表
+- `document.cookie` 是**同步 API**；异步替代品 **Cookie Store API** 可在 Service Worker 用，2025-06 起达 Baseline newly available（Firefox 132 早期为子集实现），存量旧浏览器多、用前特性检测
 - 本页只讲浏览器侧；`Set-Cookie` 属性语义、会话方案见 [Cookie 与会话管理](/zh/base/network/net-http-basics/guide-line/cookies-sessions)，SameSite/CHIPS 深挖见 [SameSite 与跨源隔离](/zh/base/network/net-cors/guide-line/samesite-coop-coep)
 
 ## 一、document.cookie：一个伪装成字符串的访问器

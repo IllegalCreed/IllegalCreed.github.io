@@ -18,7 +18,7 @@ outline: [2, 3]
 - **兼容重灾区**：`"cache"`——Firefox **63~94 支持 → 94 移除 → 138 恢复**；Chrome 标注 partial（已知 bug：本标签页不重新加载时部分请求仍走缓存、可能秒级卡顿）；`"executionContexts"` 目前**三家都不支持**。
 - **`"cookies"` 范围最大**：清**整个注册域含全部子域**的 Cookie 与 HTTP 认证凭据；其余指令按**源**清。
 - **登出推荐**：`Clear-Site-Data: "cache", "cookies", "storage"`（可再加 `"prefetchCache", "prerenderCache"`）。
-- **用户「清除浏览数据」**：「缓存的图片和文件」→ HTTP 缓存；「Cookie 及其他网站数据」→ Cookie + 各类存储 + **Cache API + SW 注册**；bfcache 是纯内存快照，不在任何清单里，随导航/超时/重启自然消亡。
+- **用户「清除浏览数据」**：「缓存的图片和文件」→ HTTP 缓存；「Cookie 及其他网站数据」→ Cookie + 各类存储 + **Cache API + SW 注册**；bfcache 是纯内存快照，不在用户勾选清单里（`Clear-Site-Data: "cache"` 视实现可能连带），随导航/超时/重启自然消亡。
 
 ## 一、DevTools Network：Size 栏判读
 
@@ -117,4 +117,4 @@ Clear-Site-Data: "cache", "cookies", "storage"
 - 观测主入口两处：**Network Size 栏**（四个括号标签定来源层；304 看 Status）与 **Application 面板**（Cache storage / Clear site data / Back-forward cache）。
 - **Disable cache ≠ 全素颜**：只禁 HTTP 缓存且限 DevTools 打开期间；SW 要 Bypass for network，内存层用新标签页排除。
 - **`Clear-Site-Data`** 是服务端遥控清除：指令必须带引号、仅 HTTPS；`"cookies"`/`"storage"` 三家稳定，`"cache"` 兼容史坑多（Firefox 94 删 138 回、Chrome partial），`"executionContexts"` 目前无人支持；登出用 `"cache", "cookies", "storage"`。
-- 用户清数据的矩阵要背：「清缓存」只动 HTTP 缓存，**SW 缓存与注册属「网站数据」**——SW 事故救不回来，防线在版本化；bfcache 纯内存、不进任何清除清单。
+- 用户清数据的矩阵要背：「清缓存」只动 HTTP 缓存，**SW 缓存与注册属「网站数据」**——SW 事故救不回来，防线在版本化；bfcache 纯内存、不进用户勾选清单（服务端 `Clear-Site-Data: "cache"` 视实现可能连带清它）。

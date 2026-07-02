@@ -25,7 +25,7 @@ outline: [2, 3]
 | 维度 | Cookie | localStorage | sessionStorage | IndexedDB | Cache API | OPFS |
 | --- | --- | --- | --- | --- | --- | --- |
 | 容量 | 单条 ~4KB（RFC 6265 下限 4096B/条、50 条/域） | ~5 MiB/源 | ~5 MiB/源 | 共享源配额 | 共享源配额 | 共享源配额 |
-| 同步/异步 | 同步（Cookie Store API 异步，兼容性未拉齐） | 同步 | 同步 | 异步 | 异步 | 异步 + Worker 内同步句柄 |
+| 同步/异步 | 同步（Cookie Store API 异步，Baseline newly available） | 同步 | 同步 | 异步 | 异步 | 异步 + Worker 内同步句柄 |
 | 数据形态 | 字符串 | 仅字符串 | 仅字符串 | 结构化克隆对象 | Request/Response 对 | 文件字节流 |
 | 生命周期 | 到期时间 / 会话 | 持久（受驱逐） | 标签页会话 | 持久（受驱逐） | 持久（受驱逐） | 持久（受驱逐） |
 | 随请求发送 | **是** | 否 | 否 | 否 | 否 | 否 |

@@ -58,7 +58,7 @@ outline: [2, 3]
 | iframe 与打开的弹窗共享 BroadcastChannel | **切断**——通信 API 同样分区 |
 | 在 iframe 里写满数据，配额与主站共享 | **独立记账**，且往往更小 |
 
-逃生门是 **Storage Access API**：三方 iframe 调 `document.requestStorageAccess()`，经用户许可后拿回**非分区 Cookie**（即用户顶级访问该站时的 Cookie）——注意它救的是 Cookie 型会话，不是 localStorage/IndexedDB（Firefox 明确只有 Cookie 可动态解除分区）。Firefox 的授权一次有效 **30 天**，并配有 opener/导航两条**过渡期启发式**自动授权——官方原话是兼容性权宜，**别把产品逻辑押在启发式上**。Chrome 侧另有临时的解分区弃用试验（deprecation trial）供迁移期使用。
+逃生门是 **Storage Access API**：三方 iframe 调 `document.requestStorageAccess()`，经用户许可后拿回**非分区 Cookie**（即用户顶级访问该站时的 Cookie）——**跨浏览器基线上**它救的是 Cookie 型会话（Firefox/Safari 明确只有 Cookie 可动态解除分区）；Chromium 125+ 另有实验性扩展 `requestStorageAccess({localStorage:true, indexedDB:true, …})` 返回 **StorageAccessHandle**、可按类型拿回非 Cookie 存储（非 Baseline、其他引擎未跟进），跨浏览器产品不能依赖。Firefox 的授权一次有效 **30 天**，并配有 opener/导航两条**过渡期启发式**自动授权——官方原话是兼容性权宜，**别把产品逻辑押在启发式上**。Chrome 侧另有临时的解分区弃用试验（deprecation trial）供迁移期使用。
 
 你的产品会被别人 iframe 嵌入时，按这份清单自查：
 
@@ -66,7 +66,7 @@ outline: [2, 3]
 - 是否用 BroadcastChannel/SharedWorker 在「iframe ↔ 你站的顶级页/弹窗」之间通信？——跨分区已切断。
 - 是否依赖三方上下文里的 Service Worker 共享缓存？——按分区各自注册、各自缓存。
 - 配额告警阈值是否按顶级上下文的大配额设定？——分区里的配额小得多（Safari 跨源 frame ≈ 父配额 1/10）。
-- 登录态是否只压在 Cookie 上？——只有 Cookie 能靠 Storage Access API 要回来，其他存储没有解分区通道。
+- 登录态是否只压在 Cookie 上？——跨浏览器可靠的解分区通道只有 Cookie（Chromium 125+ 的 StorageAccessHandle 非 Cookie 扩展系实验性，勿押注）。
 
 排查时浏览器会留线索：Firefox 在控制台明确打印「Partitioned cookie or storage access was provided to …」这类消息，标明当前上下文拿到的是分区存储还是解分区授权。
 

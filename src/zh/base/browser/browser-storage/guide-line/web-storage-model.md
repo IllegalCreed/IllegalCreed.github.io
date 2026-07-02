@@ -18,7 +18,7 @@ outline: [2, 3]
 - 容量 **~5 MiB/源**（localStorage 与 sessionStorage 各自独立计），超限 `setItem` 抛 **`QuotaExceededError`**——写必须 try/catch
 - **storage 事件只发给同源的「其他」文档**：改动发起者自己收不到；这是 localStorage 跨标签页同步的原生机制
 - **无痕/隐私模式退化**：localStorage 表现如 sessionStorage——API 全可用，但关掉无痕窗口即全清
-- `file:`/`data:` 等非法源或用户禁数据持久化时，访问直接抛 `SecurityError`
+- `data:` 等**不透明源**访问必抛 `SecurityError`；`file:` 主流浏览器实测可读写（MDN 措辞为「可能」抛）；用户禁站点数据时同抛
 - 第三方 iframe 里访问 Web Storage：用户若**禁用第三方 Cookie 则被拒**；且现代浏览器已按顶级站点**分区**（见[存储分区](./partitioning-buckets)）
 - `<script>` 引入的三方代码写的是**宿主页面**的 storage；`<iframe>` 里的代码写的是 **iframe 自己源**的 storage
 - 性能姿势：启动时一次读入内存、改动再写回；多个键按需读写，别塞成单个巨型 JSON 键
@@ -106,7 +106,7 @@ window.addEventListener("storage", (e) => {
 ## 五、退化与拒绝：那些「API 在、数据不在」的场景
 
 - **无痕/隐私模式**：API 完全可用，但 **localStorage 被当作 sessionStorage 对待**——无痕窗口关闭，全部清空。别在无痕模式下承诺任何持久化。
-- **非法源**：`file:`、`data:` 等 scheme 下访问 `localStorage` 直接抛 **`SecurityError`**；用户在浏览器设置里禁掉站点数据时同理。本地双击 HTML 调试「怎么 localStorage 就炸了」，多半是这条。
+- **不透明源与 `file:` 的区别**：`data:` URL 等**不透明源（opaque origin）**下访问 `localStorage` **必抛 `SecurityError`**（Chromium 报错原文 `Storage is disabled inside 'data:' URLs`）；而 `file:` 页面在 Chromium/Firefox 的**实测行为是可正常读写**（数据落在浏览器 profile，隔离粒度各家实现不同）——MDN 对无效源的措辞是「**可能（can）**抛」而非必然。用户在浏览器设置里禁掉站点数据时，任何源都会抛。本地调试 localStorage 必炸的场景是 `data:`/沙箱 iframe，不是 `file:`。
 - **第三方 iframe**：iframe 里的代码访问的是 **iframe 自己源**的 storage；但用户禁用第三方 Cookie 时，浏览器连带拒绝三方 iframe 的 Web Storage 访问。且即使可访问，现代浏览器也已按**顶级站点分区**——同一 iframe 嵌在不同站点，看到的是不同的数据（详见[存储分区与 Storage Buckets](./partitioning-buckets)）。
 - **`<script>` 引入的第三方代码**：它运行在宿主页面的浏览上下文里，读写的就是**宿主源**的 storage——从浏览器视角看根本没有「第三方」可言。这也是审计三方脚本时要看它碰不碰 storage 的原因。
 

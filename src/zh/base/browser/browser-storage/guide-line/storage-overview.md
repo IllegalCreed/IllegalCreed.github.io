@@ -34,7 +34,7 @@ outline: [2, 3]
 | **Worker 可达** | `document.cookie` 不可用① | **否** | **否** | **是** | **是**（SW 核心） | **是**（同步句柄仅 Worker） |
 | **典型场景** | 会话凭证、服务端要读的小状态 | 主题/语言等小偏好 | 单标签页临时态、表单草稿 | 接口缓存、离线数据、大列表 | 静态资源离线、PWA | 大文件、SQLite-wasm 数据库 |
 
-① 异步的 Cookie Store API 可在 Service Worker 中读写 Cookie，但兼容性尚未拉齐（见 [Cookie 的浏览器侧](./cookie-browser-side)）。
+① 异步的 Cookie Store API 可在 Service Worker 中读写 Cookie，2025-06 起达 Baseline newly available、用前特性检测（见 [Cookie 的浏览器侧](./cookie-browser-side)）。
 
 读表两个提醒：其一，六列不互斥——一个应用同时用上四五种机制是常态（HttpOnly Cookie 装会话 + localStorage 装偏好 + IndexedDB 装数据 + Cache API 装资源）；其二，容量列是 MDN 当前口径的**量级直觉**，运行时判断永远以 `navigator.storage.estimate()` 的实际返回为准。这张表是全叶的地基：后面每一页都是对其中一两列的深挖。
 
