@@ -6593,9 +6593,20 @@ export default defineConfig({
                 ],
               },
               {
+                // 2026-07-02 选型调研定稿：占位 2 叶 → 7 叶
+                // （spec: quiz-monorepo/docs/plans/20260702-frontend-arch-micro-frontend-trilogy.md）。
+                // 产出一叶补一叶 link（text 占位约定）；原「single spa」错名统一为「single-spa」。
                 text: "微前端框架",
                 collapsed: true,
-                items: [{ text: "qiankun" }, { text: "single spa" }],
+                items: [
+                  { text: "微前端基础" },
+                  { text: "微前端核心机制" },
+                  { text: "single-spa" },
+                  { text: "qiankun" },
+                  { text: "wujie" },
+                  { text: "micro-app" },
+                  { text: "Module Federation" },
+                ],
               },
             ],
           },
