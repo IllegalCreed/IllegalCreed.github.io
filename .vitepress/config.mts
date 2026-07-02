@@ -6599,7 +6599,27 @@ export default defineConfig({
                 text: "微前端框架",
                 collapsed: true,
                 items: [
-                  { text: "微前端基础" },
+                  {
+                    text: "微前端基础",
+                    collapsed: true,
+                    link: "/zh/architecture/micro-frontend/mfe-basics/",
+                    items: [
+                      { text: "入门", link: "/zh/architecture/micro-frontend/mfe-basics/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "微前端是什么与为什么", link: "/zh/architecture/micro-frontend/mfe-basics/guide-line/what-why.md" },
+                          { text: "适用判据与反判据", link: "/zh/architecture/micro-frontend/mfe-basics/guide-line/when-not-to-use.md" },
+                          { text: "组合模式三分法", link: "/zh/architecture/micro-frontend/mfe-basics/guide-line/composition-patterns.md" },
+                          { text: "路由分发与容器模式", link: "/zh/architecture/micro-frontend/mfe-basics/guide-line/routing-shell.md" },
+                          { text: "与相邻方案的关系", link: "/zh/architecture/micro-frontend/mfe-basics/guide-line/relations.md" },
+                          { text: "2026 选型全景", link: "/zh/architecture/micro-frontend/mfe-basics/guide-line/landscape-2026.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/architecture/micro-frontend/mfe-basics/reference.md" },
+                    ],
+                  },
                   { text: "微前端核心机制" },
                   { text: "single-spa" },
                   { text: "qiankun" },
