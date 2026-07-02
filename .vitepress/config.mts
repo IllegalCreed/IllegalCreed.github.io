@@ -991,18 +991,17 @@ export default defineConfig({
                 ],
               },
               {
+                // 2026-07-02 选型调研定稿：占位 3 叶 → 5 叶
+                // （spec: quiz-monorepo/docs/plans/20260702-web-base-browser-trilogy.md）。
+                // 产出一叶补一叶 link（text 占位约定）。
                 text: "浏览器基础",
                 collapsed: true,
                 items: [
-                  {
-                    text: "浏览器渲染原理",
-                  },
-                  {
-                    text: "浏览器缓存机制",
-                  },
-                  {
-                    text: "浏览器安全",
-                  },
+                  { text: "浏览器架构与进程模型" },
+                  { text: "浏览器渲染原理" },
+                  { text: "浏览器存储" },
+                  { text: "浏览器缓存机制" },
+                  { text: "浏览器安全" },
                 ],
               },
             ],
