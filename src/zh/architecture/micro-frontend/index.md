@@ -17,7 +17,7 @@ layout: doc
 
 **框架与路线**
 
-- **single-spa** —— 生命周期协议 / root config / import maps 工作流（正在产出）
+- [single-spa](./single-spa/) —— 生命周期协议 / root config / import maps 工作流
 - **qiankun** —— 三沙箱 / 样式隔离 / HTML entry / Vite 之痛（正在产出）
 - **wujie** —— iframe 沙箱 + WebComponent 容器 / 保活预加载（正在产出）
 - **micro-app** —— CustomElement 组件化接入 / 双沙箱模式（正在产出）

@@ -6641,7 +6641,27 @@ export default defineConfig({
                       { text: "参考", link: "/zh/architecture/micro-frontend/mfe-mechanisms/reference.md" },
                     ],
                   },
-                  { text: "single-spa" },
+                  {
+                    text: "single-spa",
+                    collapsed: true,
+                    link: "/zh/architecture/micro-frontend/single-spa/",
+                    items: [
+                      { text: "入门", link: "/zh/architecture/micro-frontend/single-spa/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "三种模块类型", link: "/zh/architecture/micro-frontend/single-spa/guide-line/three-types.md" },
+                          { text: "生命周期协议", link: "/zh/architecture/micro-frontend/single-spa/guide-line/lifecycle-protocol.md" },
+                          { text: "root config 与注册", link: "/zh/architecture/micro-frontend/single-spa/guide-line/root-config.md" },
+                          { text: "import maps 工作流", link: "/zh/architecture/micro-frontend/single-spa/guide-line/import-maps-workflow.md" },
+                          { text: "框架适配器", link: "/zh/architecture/micro-frontend/single-spa/guide-line/framework-adapters.md" },
+                          { text: "现状与定位", link: "/zh/architecture/micro-frontend/single-spa/guide-line/status-positioning.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/architecture/micro-frontend/single-spa/reference.md" },
+                    ],
+                  },
                   { text: "qiankun" },
                   { text: "wujie" },
                   { text: "micro-app" },
