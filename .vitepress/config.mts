@@ -6662,7 +6662,27 @@ export default defineConfig({
                       { text: "参考", link: "/zh/architecture/micro-frontend/single-spa/reference.md" },
                     ],
                   },
-                  { text: "qiankun" },
+                  {
+                    text: "qiankun",
+                    collapsed: true,
+                    link: "/zh/architecture/micro-frontend/qiankun/",
+                    items: [
+                      { text: "入门", link: "/zh/architecture/micro-frontend/qiankun/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "核心 API", link: "/zh/architecture/micro-frontend/qiankun/guide-line/core-api.md" },
+                          { text: "沙箱实现", link: "/zh/architecture/micro-frontend/qiankun/guide-line/sandbox-impl.md" },
+                          { text: "样式隔离", link: "/zh/architecture/micro-frontend/qiankun/guide-line/style-isolation.md" },
+                          { text: "HTML entry 与接入约束", link: "/zh/architecture/micro-frontend/qiankun/guide-line/html-entry-integration.md" },
+                          { text: "Vite 与 ESM 之痛", link: "/zh/architecture/micro-frontend/qiankun/guide-line/vite-esm-pain.md" },
+                          { text: "演进与现状", link: "/zh/architecture/micro-frontend/qiankun/guide-line/evolution-status.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/architecture/micro-frontend/qiankun/reference.md" },
+                    ],
+                  },
                   { text: "wujie" },
                   { text: "micro-app" },
                   { text: "Module Federation" },
