@@ -86,7 +86,7 @@ outline: [2, 3]
 | 类别 | 资源 | 浏览器行为 |
 | --- | --- | --- |
 | 可升级 upgradable | `<img src>`（不含 srcset）、CSS 图像、`<audio src>`、`<video src>`、`<source>` | 自动改写为 https 重试 |
-| 可阻断 blockable | `<script>`、`<link>` 样式、`<iframe>`、`fetch`/XHR、全部 CSS `url()`（`@font-face`/`cursor`）、`<object data>`、`sendBeacon`、`srcset`/`<picture>`、Web 字体、一切新类型 | 直接阻断 |
+| 可阻断 blockable | `<script>`、`<link>` 样式、`<iframe>`、`fetch`/XHR、非图像类 CSS `url()`（如 `@font-face` 字体）、`<object data>`、`sendBeacon`、`srcset`/`<picture>`、一切新类型 | 直接阻断 |
 | 例外 | `http://` + **IP 主机** | 拦而不升（正规出口走 LNA 权限） |
 
 工具位：CSP `upgrade-insecure-requests`（连可阻断类一起升）；旧「主动/被动 + 仅警告」模型已退场；`block-all-mixed-content` 已废弃。

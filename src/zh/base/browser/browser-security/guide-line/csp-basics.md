@@ -162,7 +162,7 @@ Reporting-Endpoints: csp-endpoint="https://example.com/csp-reports"
 Content-Security-Policy: default-src 'self'; report-uri /csp-reports; report-to csp-endpoint
 ```
 
-报告 JSON 的关键字段（`type: "csp-violation"`）：**`blockedURL`**（被拦资源，内联为 `"inline"`）、**`effectiveDirective`**（命中的指令，如 `script-src-elem`）、**`originalPolicy`**（完整策略）、**`sourceFile`/`lineNumber`**（违规位置）、**`sample`**（被拦内容前 40 字符，便于判断是攻击还是自己人）、**`disposition`**（`enforce` 或 `report`）。
+报告 JSON 的关键字段（`type: "csp-violation"`）：**`blockedURL`**（被拦资源，内联为 `"inline"`）、**`effectiveDirective`**（命中的指令，如 `script-src-elem`）、**`originalPolicy`**（完整策略）、**`sourceFile`/`lineNumber`**（违规位置）、**`sample`**（被拦内容前 40 字符；需对应指令含 `'report-sample'` 才填充、且仅内联内容生成，便于判断是攻击还是自己人）、**`disposition`**（`enforce` 或 `report`）。
 
 ### 7.3 DevTools 怎么看
 

@@ -81,8 +81,8 @@ MDN 维护完整列表（几十项），前端高频的按用途归组：
 
 | 类别 | 覆盖的资源 | 浏览器行为 |
 | --- | --- | --- |
-| **可升级（upgradable）** | `<img src>`（含 SVG，但**不含 `srcset`**）、CSS 图像（`background-image`/`border-image` 等）、`<audio src>`、`<video src>`、`<source>` | **自动把 URL 改写为 https 再请求**；服务器若不支持 https，加载失败 |
-| **可阻断（blockable）** | `<script>`、`<link>` 样式表、`<iframe>`、`fetch()`/XHR、所有 CSS `url()`（含 `@font-face`、`cursor`）、`<object data>`、`sendBeacon()`、**`<img srcset>`/`<picture>`**、Web 字体……以及**一切新类型** | **直接阻断，不发请求** |
+| **可升级（upgradable）** | `<img src>`（含 SVG，但**不含 `srcset`**）、CSS 图像类 `url()`（`background-image`/`border-image`/`cursor` 等，皆为 image destination）、`<audio src>`、`<video src>`、`<source>` | **自动把 URL 改写为 https 再请求**；服务器若不支持 https，加载失败 |
+| **可阻断（blockable）** | `<script>`、`<link>` 样式表、`<iframe>`、`fetch()`/XHR、非图像类的 CSS `url()`（如 `@font-face` Web 字体）、`<object data>`、`sendBeacon()`、**`<img srcset>`/`<picture>`**……以及**一切新类型** | **直接阻断，不发请求** |
 
 这是一次**换代**，别沿用旧笔记：早期规范分「主动（active）/被动（passive）」——脚本这类能改页面的必拦，图片这类「只展示」的允许加载、仅在控制台警告加小图标。新规范把旧「被动/可选阻断」清单**平移成了「可升级」**：不再放行明文，而是替你升到 https；**所有新增资源类型一律归入可阻断**。所以 2020 年后的正确心智是：**HTTPS 页面里不存在「还能明文加载」的子资源——要么被升级、要么被拦**。
 
