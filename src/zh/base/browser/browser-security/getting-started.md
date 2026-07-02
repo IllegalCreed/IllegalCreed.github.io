@@ -78,7 +78,42 @@ https://app.example 返回 HTML
 | iframe 嵌第三方怎么限权、防点击劫持配哪个头 | 本叶 [iframe sandbox 与点击劫持](./guide-line/iframe-sandbox-clickjacking) |
 | 为什么 localhost 能用 SW 而 http 站点不能、混合内容为什么有的升级有的拦 | 本叶[安全上下文与混合内容](./guide-line/secure-contexts-mixed-content) |
 | iframe 里 autoplay/摄像头失效、公网页面访问内网失败、`Sec-Fetch-*` 怎么用 | 本叶[能力与元数据防护](./guide-line/permissions-policy-fetch-metadata) |
+| CDN 脚本突然报网络错误加载失败（integrity 不匹配） | 本叶[防注入三件套](./guide-line/strict-csp-trusted-types) |
+| `Referer` 带出了敏感路径/参数怎么收 | [网络章 · HTTP 头部](/zh/base/network/net-http-basics/guide-line/http-headers)（本叶只在响应头速查里提一句） |
 
 判断口诀：问题落在「**两个源之间能不能读**」→ 网络章；落在「**浏览器允不允许这段代码/这个能力/这次嵌入**」→ 本叶；落在「**攻击者怎么构造利用、身份怎么鉴别**」→ 安全章。
+
+## 四、一套共用的观测基建：Reporting API
+
+本叶会反复出现同一对搭档：`*-Report-Only` 头 + `report-to`。这是刻意的设计——各防线的**违规观测走同一套 Reporting API**：
+
+```http
+# 一次声明端点，多个机制共用
+Reporting-Endpoints: sec-reports="https://example.com/reports"
+
+Content-Security-Policy-Report-Only: script-src 'self'; report-to sec-reports
+Permissions-Policy-Report-Only: geolocation=();report-to=sec-reports
+Integrity-Policy-Report-Only: blocked-destinations=(script), endpoints=(sec-reports)
+```
+
+由此形成所有防线共用的上线节奏：**先 Report-Only 观测真实流量 → 按报告修代码/改配置 → 换强制头 → 保留上报持续监控**。谁在违规、违在哪个文件哪一行，报告 JSON 里都有；页内还可用 `ReportingObserver` 实时订阅。把报告端点在项目初期就搭好，后面每接入一道防线都是复用。
+
+## 五、旧认知快检：这些说法已经过时
+
+浏览器安全的资料半衰期很短，读本叶前先把几条流传最广的旧结论标记出来——每条的新答案都在对应深度页展开：
+
+| 旧认知 | 2026 年的事实 | 展开 |
+| --- | --- | --- |
+| 「CSP 写好域名白名单就安全了」 | 白名单 CSP 已被证明易绕过、难维护，官方推荐 nonce/hash + `'strict-dynamic'` 的 strict CSP | [防注入三件套](./guide-line/strict-csp-trusted-types) |
+| 「Trusted Types 只有 Chrome 支持，生产不敢用」 | **Baseline 2026-02 Newly available**——各主流浏览器最新版已全支持，老版本一行 tinyfill 兜底 | 同上 |
+| 「HTTPS 页面里的 HTTP 图片只是控制台警告」 | 已换代：img/audio/video **自动升级**到 https，script/iframe/fetch **直接阻断**，不存在「仅警告」档 | [安全上下文与混合内容](./guide-line/secure-contexts-mixed-content) |
+| 「防点击劫持配 `X-Frame-Options: ALLOW-FROM 源`」 | ALLOW-FROM 已废——现代浏览器遇到它**整头忽略**；来源白名单用 CSP `frame-ancestors` | [iframe sandbox 与点击劫持](./guide-line/iframe-sandbox-clickjacking) |
+| 「iframe 加了 sandbox 就放心嵌」 | 同源内容 + `allow-scripts` + `allow-same-origin` 可**自拆沙箱**；不可信内容必须独立源 | 同上 |
+| 「公网页面 fetch 内网设备，配好 CORS 就行」 | Chrome 142 起走 **Local Network Access 权限提示**；PNA 的预检方案已搁置 | [能力与元数据防护](./guide-line/permissions-policy-fetch-metadata) |
+| 「CSRF 防御只能靠 token」 | `Sec-Fetch-*` 已 Baseline（2023-03），服务端一个 if 即可拒掉跨站流量，与 token 叠加 | 同上 |
+| 「混合内容要配 `block-all-mixed-content`」 | 该指令**已废弃**；升级语义成为默认后只需 `upgrade-insecure-requests` 处理存量 | [安全上下文与混合内容](./guide-line/secure-contexts-mixed-content) |
+| 「CSP 违规上报写 `report-uri`」 | `report-uri` 已废弃，现行是 `Reporting-Endpoints` + `report-to`，过渡期可并写 | [CSP 基础](./guide-line/csp-basics) |
+| 「安全上下文就是 HTTPS」 | `http://localhost`、`http://127.0.0.1`、`http://*.localhost`、`file://` 也算（本机投递）；反之 HTTPS iframe 嵌在 HTTP 页里**不算** | [安全上下文与混合内容](./guide-line/secure-contexts-mixed-content) |
+| 「CORB 拦截是玄学，遇到了只能关」 | 它按 MIME 判定——数据接口标准 MIME + `nosniff` 就能与它和平共处 | [沙箱与隔离防御](./guide-line/sandbox-isolation-defense) |
 
 防线从最常配、也最常配坏的一道开始：先看 [CSP 基础](./guide-line/csp-basics)。

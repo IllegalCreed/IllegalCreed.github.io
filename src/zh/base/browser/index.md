@@ -8,7 +8,7 @@ layout: doc
 
 ## 本章地图
 
-> 按「架构 → 渲染 → 数据 → 安全」排列。已产出的叶子可点击，其余正在陆续产出。
+> 按「架构 → 渲染 → 数据 → 安全」排列。
 
 **架构与渲染**
 
@@ -22,4 +22,4 @@ layout: doc
 
 **安全**
 
-- **浏览器安全** —— CSP / Trusted Types / 沙箱 / 混合内容 / Permissions Policy（正在产出）
+- [浏览器安全](./browser-security/) —— CSP / Trusted Types / 沙箱 / 混合内容 / Permissions Policy

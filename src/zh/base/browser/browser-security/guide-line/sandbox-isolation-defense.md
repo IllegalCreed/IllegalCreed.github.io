@@ -59,6 +59,22 @@ Chromium 把防线叠成四层，次序讲究——**越往下，信任的代码
 
 这套账在兄弟叶[站点隔离](../../browser-architecture/guide-line/site-isolation)里已算过成本（桌面全量隔离约 10-13% 内存、Chrome 67 起默认）；本页记住它的防御语义即可：**同进程 = 同一失陷域，跨 site 数据绝不同进程**。
 
+把四层串成一次「越权请求的死亡之旅」：
+
+```text
+evil.example 的 renderer 已被攻击者完全控制
+ ├─ 想读 bank.example 的 DOM？
+ │   └─ ② 站点隔离：bank.example 根本在另一个进程，内存里没有 → 无从读起
+ ├─ 想发子资源请求把 bank.example 的 JSON「拉进」本进程？
+ │   └─ ③′ CORB/ORB（见下节）：响应体在进程外被没收 → 拉进来的是空的
+ ├─ 想直接读磁盘上的浏览器 Cookie 数据库？
+ │   └─ ③ OS 沙箱：无文件系统访问权 → 系统调用被拒
+ └─ 想伪造 IPC 消息，冒充 bank.example 向 browser 进程要 Cookie？
+     └─ ④ browser 进程核对进程 ↔ site 归属：对不上 → 拒绝，并可直接终止该进程
+```
+
+每一步的失败都不依赖前一步成功——这就是「纵深」的工程含义。
+
 ## 四、Spectre：侧信道与浏览器的应对
 
 Spectre 的机制细节归体系结构，前端只需要三个事实：
@@ -79,7 +95,21 @@ Spectre 的机制细节归体系结构，前端只需要三个事实：
 
 CORB 的局限 Chromium 自己写得很直白：它是**尽力而为（best effort）**——Web 上大量资源 MIME 标错（JS 文件标成 `text/html` 之类），为不拦坏正常网站只能网开一面。标准化的继任者 **ORB（Opaque Response Blocking）** 把思路反转：不再「拦截已知敏感类型」，而是**默认拦下所有无法证明是图片/媒体/脚本等合法子资源的不透明响应**——白名单代替黑名单，已写入 Fetch 标准并被各引擎逐步落地。
 
-## 六、前端工程师的行动清单
+## 六、三分钟亲手验证
+
+这层防御平时不可见，但每一条都能在自己机器上看到实证：
+
+| 想验证什么 | 怎么做 | 预期看到 |
+| --- | --- | --- |
+| 跨站 iframe 真的分进程 | Chrome 任务管理器（更多工具 → 任务管理器）打开嵌第三方内容的页面 | 独立的「子框架: https://…」行，各有进程 ID 与内存计数 |
+| frame → 进程的映射 | 地址栏进 `chrome://process-internals` → Frame Trees | 每个 frame 落在哪个进程一目了然（细读[兄弟叶](../../browser-architecture/guide-line/site-isolation)） |
+| CORB/ORB 在拦数据 | 页面里用 `<img src="跨站的 JSON 接口">`，DevTools → Network 查看该请求 | 响应体为空——字节从未进入渲染进程 |
+| 计时器被降精 | Console 连续跑 `performance.now()` | 返回值有明显粒度/抖动，拿不到纳秒级时差 |
+| 强能力的隔离门票 | 普通页面 Console 输入 `self.crossOriginIsolated` 与 `typeof SharedArrayBuffer` | `false` / `"undefined"`——未做 COOP+COEP 的页面拿不到 SAB |
+
+第三行值得多看一眼：那个「空响应」正是本页防线的具象——请求发出去了、服务器也答了，但**数据在进入失陷风险区之前被没收**。
+
+## 七、前端工程师的行动清单
 
 这层防御大多由浏览器出厂自带，但有四件事在你手里：
 

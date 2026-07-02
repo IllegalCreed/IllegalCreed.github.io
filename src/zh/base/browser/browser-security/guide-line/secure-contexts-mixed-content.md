@@ -110,6 +110,17 @@ Content-Security-Policy: upgrade-insecure-requests
 - **Network**：升级成功的资源 URL 列已是 `https://`；被拦的请求标 `(blocked:mixed-content)`。
 - 地址栏锁形图标变化/「不安全」提示也是线索；上线前可用爬虫类工具全站扫 `http://` 引用。
 
+### 2.4 HTTPS 化上线自查清单
+
+老站切 HTTPS 时按序过一遍，能把「切完一片坏」压到最小：
+
+1. 全站扫库存：模板、数据库富文本、CSS 里的 `http://` 引用（重点：`@font-face`、`background-image`、老编辑器插入的图片）。
+2. 能改的改**协议相对以外的显式 `https://`**；数量太大改不动的，上 `upgrade-insecure-requests` 兜底。
+3. 确认第三方资源都支持 HTTPS——可升级类升不上去等于坏图，可阻断类直接功能缺失。
+4. IP 直连的内网/设备请求单独处理：走 [LNA 权限](./permissions-policy-fetch-metadata) 而不是指望升级。
+5. 用 Report-Only 型 CSP 收集残余违规（`img-src`/`connect-src` 报告里混着 http 的就是漏网之鱼），再收口。
+6. 最后配 HSTS 锁死回退路径（见[网络章](/zh/base/network/net-https-tls/guide-line/mitm-hsts)）。
+
 ## 小结
 
 安全上下文回答「强能力凭什么开放」：`https://`、本机投递（`127.0.0.1`/`localhost`/`file://`，即 potentially trustworthy origin）才算数，iframe 要整条祖先链安全、弹窗只看自己顶层，代码里以 `isSecureContext` 为准；SW、getUserMedia、Clipboard、Web Crypto、WebUSB、WebGPU 等几十项强能力全在门控清单上。混合内容回答「密文页面里的明文资源怎么办」：现行规范二分处置——img/audio/video 等**自动升级**，script/iframe/fetch 等**直接阻断**，IP 主机例外（拦而不升）；旧的「被动内容仅警告」心智作废。迁移利器是 CSP `upgrade-insecure-requests`（连可阻断类一起升），而 `block-all-mixed-content` 已废弃。安全上下文同时也是下一页两大机制的准入前提——能力策略与内网访问权限：[能力与元数据防护](./permissions-policy-fetch-metadata)。

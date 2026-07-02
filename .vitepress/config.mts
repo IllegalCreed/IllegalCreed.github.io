@@ -1081,7 +1081,27 @@ export default defineConfig({
                       { text: "参考", link: "/zh/base/browser/browser-cache/reference.md" },
                     ],
                   },
-                  { text: "浏览器安全" },
+                  {
+                    text: "浏览器安全",
+                    collapsed: true,
+                    link: "/zh/base/browser/browser-security/",
+                    items: [
+                      { text: "入门", link: "/zh/base/browser/browser-security/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "CSP 基础", link: "/zh/base/browser/browser-security/guide-line/csp-basics.md" },
+                          { text: "防注入三件套", link: "/zh/base/browser/browser-security/guide-line/strict-csp-trusted-types.md" },
+                          { text: "沙箱与隔离防御", link: "/zh/base/browser/browser-security/guide-line/sandbox-isolation-defense.md" },
+                          { text: "iframe sandbox 与点击劫持", link: "/zh/base/browser/browser-security/guide-line/iframe-sandbox-clickjacking.md" },
+                          { text: "安全上下文与混合内容", link: "/zh/base/browser/browser-security/guide-line/secure-contexts-mixed-content.md" },
+                          { text: "能力与元数据防护", link: "/zh/base/browser/browser-security/guide-line/permissions-policy-fetch-metadata.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/base/browser/browser-security/reference.md" },
+                    ],
+                  },
                 ],
               },
             ],
