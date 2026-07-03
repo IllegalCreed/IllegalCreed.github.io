@@ -6683,7 +6683,27 @@ export default defineConfig({
                       { text: "参考", link: "/zh/architecture/micro-frontend/qiankun/reference.md" },
                     ],
                   },
-                  { text: "wujie" },
+                  {
+                    text: "wujie",
+                    collapsed: true,
+                    link: "/zh/architecture/micro-frontend/wujie/",
+                    items: [
+                      { text: "入门", link: "/zh/architecture/micro-frontend/wujie/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "iframe JS 沙箱", link: "/zh/architecture/micro-frontend/wujie/guide-line/iframe-sandbox.md" },
+                          { text: "WebComponent 容器渲染", link: "/zh/architecture/micro-frontend/wujie/guide-line/wc-rendering.md" },
+                          { text: "路由同步", link: "/zh/architecture/micro-frontend/wujie/guide-line/route-sync.md" },
+                          { text: "保活与预加载", link: "/zh/architecture/micro-frontend/wujie/guide-line/keep-alive-preload.md" },
+                          { text: "通信", link: "/zh/architecture/micro-frontend/wujie/guide-line/communication.md" },
+                          { text: "v2.0 与现状", link: "/zh/architecture/micro-frontend/wujie/guide-line/v2-status.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/architecture/micro-frontend/wujie/reference.md" },
+                    ],
+                  },
                   {
                     text: "micro-app",
                     collapsed: true,
