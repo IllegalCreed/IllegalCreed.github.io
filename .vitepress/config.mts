@@ -6759,17 +6759,333 @@ export default defineConfig({
                 text: "移动端框架",
                 collapsed: true,
                 items: [
-                  { text: "React Native" },
-                  { text: "Flutter" },
-                  { text: "微信小程序" },
-                  { text: "Uniapp" },
-                  { text: "Ionic" },
+                  {
+                    text: "React Native",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/mobile-framework/react-native/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/mobile-framework/react-native/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "新架构深潜", link: "/zh/mobile-desktop/mobile-framework/react-native/guide-line/new-architecture.md" },
+                          { text: "样式与布局", link: "/zh/mobile-desktop/mobile-framework/react-native/guide-line/styling-layout.md" },
+                          { text: "组件·列表·性能·动画", link: "/zh/mobile-desktop/mobile-framework/react-native/guide-line/components-lists-perf.md" },
+                          { text: "Expo 工作流", link: "/zh/mobile-desktop/mobile-framework/react-native/guide-line/expo-workflow.md" },
+                          { text: "EAS 与发布", link: "/zh/mobile-desktop/mobile-framework/react-native/guide-line/eas-release.md" },
+                          { text: "工具链与导航", link: "/zh/mobile-desktop/mobile-framework/react-native/guide-line/tooling-navigation.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/mobile-framework/react-native/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "Flutter",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/mobile-framework/flutter/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/mobile-framework/flutter/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "Dart 与 Widget", link: "/zh/mobile-desktop/mobile-framework/flutter/guide-line/dart-widgets.md" },
+                          { text: "约束布局", link: "/zh/mobile-desktop/mobile-framework/flutter/guide-line/layout-constraints.md" },
+                          { text: "状态管理", link: "/zh/mobile-desktop/mobile-framework/flutter/guide-line/state-management.md" },
+                          { text: "渲染与 Impeller", link: "/zh/mobile-desktop/mobile-framework/flutter/guide-line/rendering-impeller.md" },
+                          { text: "Dart 异步与热重载", link: "/zh/mobile-desktop/mobile-framework/flutter/guide-line/dart-async-hotreload.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/mobile-framework/flutter/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "Capacitor",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/mobile-framework/capacitor/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/mobile-framework/capacitor/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "WebView 与原生桥", link: "/zh/mobile-desktop/mobile-framework/capacitor/guide-line/webview-architecture.md" },
+                          { text: "原生工程即源码", link: "/zh/mobile-desktop/mobile-framework/capacitor/guide-line/native-projects.md" },
+                          { text: "插件体系", link: "/zh/mobile-desktop/mobile-framework/capacitor/guide-line/plugins.md" },
+                          { text: "CLI 与工作流", link: "/zh/mobile-desktop/mobile-framework/capacitor/guide-line/cli-workflow.md" },
+                          { text: "对比 Cordova 与 Ionic", link: "/zh/mobile-desktop/mobile-framework/capacitor/guide-line/vs-cordova-ionic.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/mobile-framework/capacitor/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "Ionic",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/mobile-framework/ionic/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/mobile-framework/ionic/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "组件与双 mode", link: "/zh/mobile-desktop/mobile-framework/ionic/guide-line/components-modes.md" },
+                          { text: "主题", link: "/zh/mobile-desktop/mobile-framework/ionic/guide-line/theming.md" },
+                          { text: "框架集成", link: "/zh/mobile-desktop/mobile-framework/ionic/guide-line/framework-integration.md" },
+                          { text: "路由", link: "/zh/mobile-desktop/mobile-framework/ionic/guide-line/routing.md" },
+                          { text: "对比 Capacitor", link: "/zh/mobile-desktop/mobile-framework/ionic/guide-line/vs-capacitor.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/mobile-framework/ionic/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "Lynx",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/mobile-framework/lynx/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/mobile-framework/lynx/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "双线程架构", link: "/zh/mobile-desktop/mobile-framework/lynx/guide-line/dual-thread.md" },
+                          { text: "ReactLynx", link: "/zh/mobile-desktop/mobile-framework/lynx/guide-line/reactlynx.md" },
+                          { text: "现状与对比 RN", link: "/zh/mobile-desktop/mobile-framework/lynx/guide-line/status-vs-rn.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/mobile-framework/lynx/reference.md" },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "小程序",
+                collapsed: true,
+                items: [
+                  {
+                    text: "微信小程序",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "四文件结构", link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/guide-line/four-files.md" },
+                          { text: "双线程架构", link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/guide-line/dual-thread.md" },
+                          { text: "生命周期与 API", link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/guide-line/lifecycle-api.md" },
+                          { text: "分包与云开发", link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/guide-line/subpackage-cloud.md" },
+                          { text: "Skyline 与性能", link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/guide-line/skyline-perf.md" },
+                          { text: "登录与支付", link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/guide-line/login-pay.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "支付宝小程序",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/miniprogram/alipay-miniprogram/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/miniprogram/alipay-miniprogram/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "结构与视图", link: "/zh/mobile-desktop/miniprogram/alipay-miniprogram/guide-line/structure.md" },
+                          { text: "事件与 API", link: "/zh/mobile-desktop/miniprogram/alipay-miniprogram/guide-line/events-api.md" },
+                          { text: "登录与支付", link: "/zh/mobile-desktop/miniprogram/alipay-miniprogram/guide-line/login-pay.md" },
+                          { text: "对比微信", link: "/zh/mobile-desktop/miniprogram/alipay-miniprogram/guide-line/vs-wechat.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/miniprogram/alipay-miniprogram/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "抖音小程序",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/miniprogram/douyin-miniprogram/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/miniprogram/douyin-miniprogram/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "文件结构与视图层", link: "/zh/mobile-desktop/miniprogram/douyin-miniprogram/guide-line/structure.md" },
+                          { text: "API 与生命周期", link: "/zh/mobile-desktop/miniprogram/douyin-miniprogram/guide-line/api-lifecycle.md" },
+                          { text: "生态能力", link: "/zh/mobile-desktop/miniprogram/douyin-miniprogram/guide-line/features.md" },
+                          { text: "对比微信", link: "/zh/mobile-desktop/miniprogram/douyin-miniprogram/guide-line/vs-wechat.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/miniprogram/douyin-miniprogram/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "百度智能小程序",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/miniprogram/baidu-miniprogram/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/miniprogram/baidu-miniprogram/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "SWAN 框架", link: "/zh/mobile-desktop/miniprogram/baidu-miniprogram/guide-line/swan-framework.md" },
+                          { text: "API 与搜索分发", link: "/zh/mobile-desktop/miniprogram/baidu-miniprogram/guide-line/api-distribution.md" },
+                          { text: "现状与对比微信", link: "/zh/mobile-desktop/miniprogram/baidu-miniprogram/guide-line/status-vs-wechat.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/miniprogram/baidu-miniprogram/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "QQ小程序",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/miniprogram/qq-miniprogram/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/miniprogram/qq-miniprogram/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "对比微信", link: "/zh/mobile-desktop/miniprogram/qq-miniprogram/guide-line/vs-wechat.md" },
+                          { text: "登录与迁移", link: "/zh/mobile-desktop/miniprogram/qq-miniprogram/guide-line/login-migration.md" },
+                          { text: "现状与定位", link: "/zh/mobile-desktop/miniprogram/qq-miniprogram/guide-line/status.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/miniprogram/qq-miniprogram/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "uni-app",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/miniprogram/uni-app/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/miniprogram/uni-app/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "工程配置", link: "/zh/mobile-desktop/miniprogram/uni-app/guide-line/project-config.md" },
+                          { text: "API 与组件", link: "/zh/mobile-desktop/miniprogram/uni-app/guide-line/api-components.md" },
+                          { text: "条件编译", link: "/zh/mobile-desktop/miniprogram/uni-app/guide-line/conditional-compile.md" },
+                          { text: "生命周期", link: "/zh/mobile-desktop/miniprogram/uni-app/guide-line/lifecycle.md" },
+                          { text: "uni-app x", link: "/zh/mobile-desktop/miniprogram/uni-app/guide-line/uni-app-x.md" },
+                          { text: "uniCloud", link: "/zh/mobile-desktop/miniprogram/uni-app/guide-line/unicloud.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/miniprogram/uni-app/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "Taro",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/miniprogram/taro/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/miniprogram/taro/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "React 模型", link: "/zh/mobile-desktop/miniprogram/taro/guide-line/react-model.md" },
+                          { text: "Hooks 与路由", link: "/zh/mobile-desktop/miniprogram/taro/guide-line/hooks-router.md" },
+                          { text: "架构演进", link: "/zh/mobile-desktop/miniprogram/taro/guide-line/architecture.md" },
+                          { text: "纯血鸿蒙", link: "/zh/mobile-desktop/miniprogram/taro/guide-line/harmony.md" },
+                          { text: "构建配置", link: "/zh/mobile-desktop/miniprogram/taro/guide-line/build-config.md" },
+                          { text: "对比 uni-app", link: "/zh/mobile-desktop/miniprogram/taro/guide-line/vs-uni-app.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/miniprogram/taro/reference.md" },
+                    ],
+                  },
                 ],
               },
               {
                 text: "桌面端框架",
                 collapsed: true,
-                items: [{ text: "Electron" }, { text: "Tauri" }],
+                items: [
+                  {
+                    text: "Electron",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/desktop-framework/electron/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/desktop-framework/electron/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "进程模型", link: "/zh/mobile-desktop/desktop-framework/electron/guide-line/process-model.md" },
+                          { text: "IPC 通信", link: "/zh/mobile-desktop/desktop-framework/electron/guide-line/ipc.md" },
+                          { text: "安全", link: "/zh/mobile-desktop/desktop-framework/electron/guide-line/security.md" },
+                          { text: "打包分发", link: "/zh/mobile-desktop/desktop-framework/electron/guide-line/packaging.md" },
+                          { text: "原生与生命周期", link: "/zh/mobile-desktop/desktop-framework/electron/guide-line/native-lifecycle.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/desktop-framework/electron/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "Tauri",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/desktop-framework/tauri/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/desktop-framework/tauri/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "架构", link: "/zh/mobile-desktop/desktop-framework/tauri/guide-line/architecture.md" },
+                          { text: "命令与 IPC", link: "/zh/mobile-desktop/desktop-framework/tauri/guide-line/commands-ipc.md" },
+                          { text: "权限系统", link: "/zh/mobile-desktop/desktop-framework/tauri/guide-line/permissions.md" },
+                          { text: "分发", link: "/zh/mobile-desktop/desktop-framework/tauri/guide-line/distribute.md" },
+                          { text: "对比 Electron", link: "/zh/mobile-desktop/desktop-framework/tauri/guide-line/vs-electron.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/desktop-framework/tauri/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "Wails",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/desktop-framework/wails/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/desktop-framework/wails/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "架构", link: "/zh/mobile-desktop/desktop-framework/wails/guide-line/architecture.md" },
+                          { text: "绑定与运行时", link: "/zh/mobile-desktop/desktop-framework/wails/guide-line/bindings-runtime.md" },
+                          { text: "v2 vs v3", link: "/zh/mobile-desktop/desktop-framework/wails/guide-line/v2-vs-v3.md" },
+                          { text: "构建", link: "/zh/mobile-desktop/desktop-framework/wails/guide-line/build.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/desktop-framework/wails/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "Neutralino",
+                    collapsed: true,
+                    link: "/zh/mobile-desktop/desktop-framework/neutralino/",
+                    items: [
+                      { text: "入门", link: "/zh/mobile-desktop/desktop-framework/neutralino/getting-started.md" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "架构", link: "/zh/mobile-desktop/desktop-framework/neutralino/guide-line/architecture.md" },
+                          { text: "API 与扩展", link: "/zh/mobile-desktop/desktop-framework/neutralino/guide-line/api-extensions.md" },
+                          { text: "CLI·配置·模式", link: "/zh/mobile-desktop/desktop-framework/neutralino/guide-line/cli-config-modes.md" },
+                          { text: "对比其它", link: "/zh/mobile-desktop/desktop-framework/neutralino/guide-line/vs-others.md" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/mobile-desktop/desktop-framework/neutralino/reference.md" },
+                    ],
+                  },
+                ],
               },
             ],
           },
