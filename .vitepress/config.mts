@@ -7267,12 +7267,90 @@ export default defineConfig({
               {
                 text: "图与流程图",
                 collapsed: true,
-                items: [{ text: "AntV G6" }, { text: "AntV X6" }],
+                items: [
+                {
+                  text: "AntV G6",
+                  collapsed: true,
+                  link: "/zh/frontend-visualization/antv-g6/",
+                  items: [
+                    { text: "入门", link: "/zh/frontend-visualization/antv-g6/getting-started" },
+                    {
+                      text: "指南",
+                      collapsed: true,
+                      items: [
+                        { text: "图与元素", link: "/zh/frontend-visualization/antv-g6/guide-line/graph-and-elements" },
+                        { text: "状态与交互", link: "/zh/frontend-visualization/antv-g6/guide-line/state-and-behavior" },
+                        { text: "布局", link: "/zh/frontend-visualization/antv-g6/guide-line/layout" },
+                        { text: "插件·算法·性能", link: "/zh/frontend-visualization/antv-g6/guide-line/plugins-algorithm-performance" },
+                      ],
+                    },
+                    { text: "参考", link: "/zh/frontend-visualization/antv-g6/reference" },
+                  ],
+                },
+                {
+                  text: "AntV X6",
+                  collapsed: true,
+                  link: "/zh/frontend-visualization/antv-x6/",
+                  items: [
+                    { text: "入门", link: "/zh/frontend-visualization/antv-x6/getting-started" },
+                    {
+                      text: "指南",
+                      collapsed: true,
+                      items: [
+                        { text: "画布·节点·边", link: "/zh/frontend-visualization/antv-x6/guide-line/graph-nodes-edges" },
+                        { text: "连接桩与连线", link: "/zh/frontend-visualization/antv-x6/guide-line/ports-and-connecting" },
+                        { text: "交互与插件", link: "/zh/frontend-visualization/antv-x6/guide-line/interaction-and-plugins" },
+                        { text: "自定义与数据", link: "/zh/frontend-visualization/antv-x6/guide-line/customization-and-data" },
+                      ],
+                    },
+                    { text: "参考", link: "/zh/frontend-visualization/antv-x6/reference" },
+                  ],
+                },
+                ],
               },
               {
                 text: "地图",
                 collapsed: true,
-                items: [{ text: "Leaflet" }, { text: "Mapbox GL JS 与 MapLibre" }],
+                items: [
+                {
+                  text: "Leaflet",
+                  collapsed: true,
+                  link: "/zh/frontend-visualization/leaflet/",
+                  items: [
+                    { text: "入门", link: "/zh/frontend-visualization/leaflet/getting-started" },
+                    {
+                      text: "指南",
+                      collapsed: true,
+                      items: [
+                        { text: "地图与瓦片", link: "/zh/frontend-visualization/leaflet/guide-line/map-and-tiles" },
+                        { text: "标记与图形", link: "/zh/frontend-visualization/leaflet/guide-line/markers-and-vectors" },
+                        { text: "GeoJSON 与图层", link: "/zh/frontend-visualization/leaflet/guide-line/geojson-and-layers" },
+                        { text: "事件·交互·插件", link: "/zh/frontend-visualization/leaflet/guide-line/events-interaction-plugins" },
+                      ],
+                    },
+                    { text: "参考", link: "/zh/frontend-visualization/leaflet/reference" },
+                  ],
+                },
+                {
+                  text: "Mapbox GL JS 与 MapLibre",
+                  collapsed: true,
+                  link: "/zh/frontend-visualization/mapbox-maplibre/",
+                  items: [
+                    { text: "入门", link: "/zh/frontend-visualization/mapbox-maplibre/getting-started" },
+                    {
+                      text: "指南",
+                      collapsed: true,
+                      items: [
+                        { text: "样式与数据源", link: "/zh/frontend-visualization/mapbox-maplibre/guide-line/style-and-sources" },
+                        { text: "paint·layout·表达式", link: "/zh/frontend-visualization/mapbox-maplibre/guide-line/paint-layout-expressions" },
+                        { text: "相机·图层·事件", link: "/zh/frontend-visualization/mapbox-maplibre/guide-line/camera-layers-events" },
+                        { text: "GeoJSON·3D·生态", link: "/zh/frontend-visualization/mapbox-maplibre/guide-line/geojson-3d-ecosystem" },
+                      ],
+                    },
+                    { text: "参考", link: "/zh/frontend-visualization/mapbox-maplibre/reference" },
+                  ],
+                },
+                ],
               },
               {
                 text: "三维",
