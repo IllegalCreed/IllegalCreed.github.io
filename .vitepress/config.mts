@@ -7091,9 +7091,16 @@ export default defineConfig({
           },
 
           {
+            // 🔒 2026-07-04 选型调研定案：8 组 27 叶，与 quiz categories.ts 对齐；
+            //   未产出叶一律 text 占位（不建 md、不加 link），产出后 text→link
             text: "前端可视化",
             collapsed: false,
             items: [
+              {
+                text: "图形基础",
+                collapsed: true,
+                items: [{ text: "Canvas" }, { text: "SVG" }],
+              },
               {
                 text: "图表",
                 collapsed: true,
@@ -7102,16 +7109,26 @@ export default defineConfig({
                   { text: "D3.js" },
                   { text: "Chart.js" },
                   { text: "Recharts" },
-                  { text: "leaflet" },
+                  { text: "AntV G2" },
                   { text: "Mermaid" },
-                  { text: "KaTeX" },
                 ],
+              },
+              {
+                text: "图与流程图",
+                collapsed: true,
+                items: [{ text: "AntV G6" }, { text: "AntV X6" }],
+              },
+              {
+                text: "地图",
+                collapsed: true,
+                items: [{ text: "Leaflet" }, { text: "Mapbox GL JS 与 MapLibre" }],
               },
               {
                 text: "三维",
                 collapsed: true,
                 items: [
                   { text: "WebGL" },
+                  { text: "WebGPU" },
                   {
                     text: "Three.js",
                     collapsed: true,
@@ -7145,36 +7162,30 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Babylon" },
+                  { text: "Babylon.js" },
                   { text: "CesiumJS" },
-                  { text: "ArcGIS API for JavaScript" },
                 ],
+              },
+              {
+                text: "2D 渲染引擎",
+                collapsed: true,
+                items: [{ text: "PixiJS" }, { text: "Fabric.js" }, { text: "Konva" }],
               },
               {
                 text: "动画",
                 collapsed: true,
                 items: [
-                  { text: "Lottie" },
-                  { text: "Popmotion" },
-                  { text: "Framer Motion" },
+                  { text: "Web Animations API" },
                   { text: "GSAP" },
+                  { text: "Framer Motion" },
+                  { text: "Lottie" },
                   { text: "Anime.js" },
-                  { text: "Animate.css" },
                 ],
               },
               {
                 text: "拖拽",
                 collapsed: true,
-                items: [
-                  { text: "Grid Layout Plus" },
-                  { text: "Vue Draggable Plus" },
-                  { text: "React DnD" },
-                  { text: "Interact.js" },
-                  { text: "Sortable.js" },
-                  { text: "Draggable.js" },
-                  { text: "Hammer.js" },
-                  { text: "@use-gesture" },
-                ],
+                items: [{ text: "Sortable.js" }, { text: "dnd-kit" }],
               },
             ],
           },

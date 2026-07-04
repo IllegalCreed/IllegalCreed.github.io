@@ -7,6 +7,44 @@ outline: [2, 3]
 
 > 性能优化（draw call / InstancedMesh）、内存释放、z-fighting 与视锥剔除、WebGPURenderer 与 TSL、与 Babylon.js 对比。版本基线 **three r184**（2026-04）。
 
+## 速查
+
+**性能：降 draw call 是第一抓手**
+
+- 海量同物体：`new THREE.InstancedMesh(geometry, material, count)`，循环 `setMatrixAt(i, m)` 后置 `instanceMatrix.needsUpdate = true`——万级副本 1 次 draw call
+- 其他手段：`BufferGeometryUtils.mergeGeometries` 合并静态几何、共用材质、纹理图集（减少纹理切换）、`LOD` 按距离换低模
+- 度量：`renderer.info.render.calls`（每帧 draw call 数）、`renderer.info.render.triangles`（三角形数）
+
+**内存释放：WebGL 无自动 GC**
+
+- `scene.remove(mesh)` 只断场景图引用，GPU 资源必须显式释放：`geometry.dispose()` + 每个材质 `dispose()` + 材质上每张贴图 `dispose()`（`mesh.material` 可能是数组）
+- 泄漏监控：`renderer.info.memory.geometries` / `textures` 只增不减 = 泄漏；SPA 路由切换频繁装卸场景尤其注意
+
+**z-fighting 与视锥剔除**
+
+- z-fighting 根因：深度精度在 `near`~`far` 间非线性分布（近精远疏）→ 对策 `near` 尽量大、`far` 尽量小；顽固时建渲染器加 `logarithmicDepthBuffer: true`（移动端支持有限、略慢）
+- 视锥剔除按 `boundingSphere`/`boundingBox` 判定；手改 `BufferGeometry` 顶点后必须 `geometry.computeBoundingSphere()`（和 `computeBoundingBox()`），否则误剔除；临时绕过 `mesh.frustumCulled = false`
+
+**WebGPURenderer 与 TSL（新一代路径）**
+
+- 入口：`import * as THREE from "three/webgpu"`；TSL 节点：`import { color, texture, uv, positionLocal } from "three/tsl"`
+- `new THREE.WebGPURenderer()` 必须 `await renderer.init()` 异步初始化；不支持 WebGPU 时可回退 WebGL
+- 节点材质自定义着色：`MeshStandardNodeMaterial` + `material.colorNode = texture(t).mul(color(0xff8800))`
+- TSL 价值：同一份节点代码可编译到 WGSL（WebGPU）与 GLSL（WebGL）双后端，免 GLSL 字符串拼接与 `onBeforeCompile` hack
+- r184 现状：`WebGLRenderer` 仍是默认、最成熟主力；WebGPU/TSL 适合 compute shader / 节点材质 / 前沿效果
+
+**选型：Three.js vs Babylon.js**
+
+- Three.js：轻量灵活的通用 3D 库，渲染/场景图为主、其余靠 addons，生态最大（react-three-fiber、drei）
+- Babylon.js：开箱即用的全功能引擎，内建物理/碰撞/Inspector/GUI；完整游戏、要内建工具选它
+
+**易错点速览**
+
+- ⚠️ 只 `remove` 不 `dispose` → 显存泄漏；颜色贴图忘设 `SRGBColorSpace` → 偏暗发灰
+- ⚠️ `near` 极小 + `far` 极大 → z-fighting；海量独立 Mesh → draw call 爆炸
+- ⚠️ 手改顶点不重算包围体 → 误剔除；改相机参数忘 `updateProjectionMatrix()` → 画面变形
+- ⚠️ `WebGPURenderer` 忘 `await renderer.init()`
+
 ## 一、性能：draw call 与合批
 
 每次渲染一个 Mesh 大致对应一次 **draw call**（CPU 向 GPU 提交绘制）。上千次 draw call 时，瓶颈往往在 CPU 提交而非 GPU 算力。降 draw call 是 Three.js 性能优化的第一抓手。

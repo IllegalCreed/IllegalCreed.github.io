@@ -7,6 +7,43 @@ outline: [2, 3]
 
 > 版本基线 **three r184**。加载器与压缩、动画系统、Raycaster 交互、响应式与按需渲染、自定义 BufferGeometry、环境贴图与后处理——把 Three.js 用进真实项目。
 
+## 速查
+
+**加载与压缩**
+
+- glTF 首选：`new GLTFLoader().load(url, (gltf) => scene.add(gltf.scene))`；`gltf` 上有 `scene` / `scenes` / `animations` / `cameras` / `asset`
+- DRACO 压缩几何体必须挂解码器：`draco.setDecoderPath(解码器路径)` → `loader.setDRACOLoader(draco)`
+- KTX2/Basis 压缩纹理同理：`loader.setKTX2Loader(ktx2.detectSupport(renderer))`——压缩显著省下载体积与显存
+
+**动画三件套**
+
+- `AnimationMixer`（绑模型根）→ `mixer.clipAction(clip)` 得 `AnimationAction` → `action.play()`
+- ⚠️ 每帧必须 `mixer.update(clock.getDelta())`，否则动画不动；用真实 delta 保证帧率无关
+- 常用配置：`loop`（`LoopOnce` / `LoopRepeat` / `LoopPingPong`）、`clampWhenFinished`、`timeScale`；多动作过渡用 `crossFadeTo`
+
+**Raycaster 拾取**
+
+- 流程：鼠标像素坐标 → NDC（-1~+1，⚠️ y 要翻转）→ `raycaster.setFromCamera(ndc, camera)` → `raycaster.intersectObjects(scene.children, true)`
+- 命中结果按距离**从近到远**排序，`hits[0]` 最靠前；每项含 `object` / `point` / `distance` / `face` / `uv`
+- ⚠️ 局限：CPU 逐三角检测，高面数慢；不识别着色器形变与贴图透明孔——海量/透明场景改 GPU 拾取（离屏唯一色渲染读像素）
+
+**响应式与按需渲染**
+
+- 按需 resize：比较 `canvas.clientWidth/Height` 与 `canvas.width/height`，不一致才 `renderer.setSize(w, h, false)`（`false` = 只改绘制缓冲、不动 CSS 尺寸）
+- 静态场景按需渲染省电：`requested` 标志 + `requestAnimationFrame(render)` 合并同帧多次请求；`controls.addEventListener("change", requestRender)` 拖相机才渲染
+
+**自定义 BufferGeometry**
+
+- 手写顶点：`geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3))`；索引复用顶点 `geometry.setIndex(indices)`；光照需要 `computeVertexNormals()`
+- 约定属性名（itemSize）：`position`（3）、`normal`（3）、`uv`（2）、`color`（3）
+- 频繁改顶点：属性设 `setUsage(THREE.DynamicDrawUsage)`，改完置 `attribute.needsUpdate = true`
+
+**环境贴图（IBL）与后处理**
+
+- HDR 环境：`RGBELoader` 载入 → `new THREE.PMREMGenerator(renderer).fromEquirectangular(hdr).texture` → 赋给 `scene.environment`（PBR 反射 + 环境光）/ `scene.background`（天空盒）
+- 后处理链 `EffectComposer` 依次 `addPass`：`RenderPass`（画场景）→ `UnrealBloomPass`（辉光）→ `OutputPass`（色调映射与输出色彩空间，放最后）
+- ⚠️ 用了 composer 后：循环里 `composer.render()` 取代 `renderer.render()`；resize 时同步 `composer.setSize(w, h)`
+
 ## 一、加载 glTF 与压缩资源
 
 官方推荐 **glTF（.glb/.gltf）+ `GLTFLoader`**：为实时渲染优化的二进制顶点数据可直接上 GPU，自带 PBR 材质、场景层级与动画。

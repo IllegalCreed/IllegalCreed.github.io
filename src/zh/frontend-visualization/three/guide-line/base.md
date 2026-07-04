@@ -7,6 +7,49 @@ outline: [2, 3]
 
 > 版本基线 **three r184**。把「能跑第一个场景」用到「会搭场景」：场景图与变换、两种相机、几何体、材质体系、纹理与色彩管理。
 
+## 速查
+
+**场景图与变换**
+
+- `Object3D` 是 Mesh / Light / Camera / Group 的共同基类；**世界变换 = 父链局部变换逐级相乘**
+- 嵌套空 `Group`/`Object3D` 当「枢轴节点」，免算坐标表达轨道、关节（经典 sun→earth→moon）
+- 三属性：`position`（`Vector3`）、`scale`（`Vector3`，子继承父缩放）、`rotation`（`Euler` 弧度，与 `quaternion` 自动同步）
+- 朝向目标：`object.lookAt(x, y, z)`（-Z 轴指向目标），相机/灯光/模型通用；父级刚改过变换先 `updateMatrixWorld()`
+
+**相机**
+
+| 相机 | 构造参数 | 适用场景 |
+|---|---|---|
+| `PerspectiveCamera` | `fov, aspect, near, far` | 近大远小，3D 游戏/写实 |
+| `OrthographicCamera` | `left, right, top, bottom, near, far` | 远近同尺寸，2D/等距/CAD |
+
+- ⚠️ 改任何相机参数后必须 `camera.updateProjectionMatrix()`——投影矩阵是缓存值，不自动重算
+
+**几何体**（全部继承 `BufferGeometry`，typed array 直连 GPU）
+
+- 内置：`BoxGeometry(w,h,d)`、`SphereGeometry(r,wSeg,hSeg)`、`PlaneGeometry(w,h)`、`CylinderGeometry(rTop,rBottom,h,seg)`、`TorusGeometry(r,tube,…)`
+- ⚠️ 分段数（segments）越多开销越大：平面盒子无需分段；球/圆柱靠分段控平滑；仅顶点级形变才给平面加分段
+- 手写几何体：`setAttribute('position', new THREE.BufferAttribute(float32, 3))` + `setIndex([…])` 复用顶点（详见进阶篇）
+
+**材质**（按「是否受光 / 真实感 / 性能」分层）
+
+- 不受光：`MeshBasicMaterial`（无光显色，UI/线框/调试）、`MeshNormalMaterial`（法线调试）
+- 经验受光：`MeshLambertMaterial`（逐顶点，廉价）、`MeshPhongMaterial`（逐像素 + `shininess` 高光）
+- PBR：`MeshStandardMaterial`（`roughness` + `metalness`，主力）、`MeshPhysicalMaterial`（加 `clearcoat`/`transmission`，最真实最慢）
+- 通用属性：`side: THREE.DoubleSide`（平面/敞口模型必备）、`transparent: true` + `opacity`、`flatShading: true`
+
+**纹理与色彩管理**
+
+- 加载：`new THREE.TextureLoader().load(url)`；⚠️ 颜色贴图（`map`/`emissiveMap`）必设 `colorSpace = THREE.SRGBColorSpace`，否则偏暗发灰
+- ⚠️ 数据贴图（`normalMap`/`roughnessMap`/`aoMap`）保持默认 `NoColorSpace`，绝不能设 sRGB（r152 起默认开色彩管理）
+- 平铺：先 `wrapS = wrapT = THREE.RepeatWrapping` 再 `repeat.set(4, 2)`；掠射角防糊 `anisotropy = renderer.capabilities.getMaxAnisotropy()`
+
+**光照与阴影**
+
+- 基本组合：`AmbientLight`（均匀补暗部，无方向）+ `DirectionalLight`（平行光当太阳，`position` 定方向）
+- 只有受光材质（Lambert/Phong/Standard/Physical）参与光照；`MeshBasicMaterial` 不受光也不接收阴影
+- 阴影四步：① `renderer.shadowMap.enabled = true` ② 光源 `castShadow = true` ③ 物体 `castShadow = true` ④ 接收面 `receiveShadow = true`
+
 ## 一、场景图与变换
 
 Three.js 用**场景图（scene graph）**组织三维世界：`Object3D` 是所有可放入场景的对象（Mesh、Light、Camera、Group）的基类，承载局部变换与父子层级。
