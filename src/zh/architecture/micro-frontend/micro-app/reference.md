@@ -10,15 +10,15 @@ outline: [2, 3]
 ## 速查
 
 - 本页汇总七张表：**标签属性** / **全局配置与 API** / **双沙箱对比** / **生命周期事件** / **元素与样式隔离** / **数据通信** / **版本状态**
-- 一句话定位：micro-app = 京东开源、**`<micro-app>` CustomElement 容器**、**接入成本最低**（一行标签）、默认 **with 沙箱** + 可选 **iframe 沙箱**
-- 接入一句话：主应用 `microApp.start()` 一次 + `<micro-app name url>` 标签；子应用**开 CORS + 配 <code v-pre>__webpack_public_path__</code>**，基本零生命周期改造
+- 一句话定位：micro-app = 京东开源、**<code v-pre>&lt;micro-app&gt;</code> CustomElement 容器**、**接入成本最低**（一行标签）、默认 **with 沙箱** + 可选 **iframe 沙箱**
+- 接入一句话：主应用 `microApp.start()` 一次 + <code v-pre>&lt;micro-app name url&gt;</code> 标签；子应用**开 CORS + 配 <code v-pre>__webpack_public_path__</code>**，基本零生命周期改造
 - 沙箱一句话：**with（默认，`Proxy`+`with` 软隔离、轻）/ iframe（`iframe` 属性，物理隔离、强、有开销）**
 - 隔离一句话：**元素隔离**（DOM 作用域、`removeDomScope` 逃逸）+ **scopedcss 样式隔离**（`micro-app[name=x]` 前缀、可 4 级关、`shadowDOM` 可选）；**主应用样式仍下渗**
 - 通信一句话：**`data`/`setData`（下行）/ `dispatch`（上行）/ `GlobalData`（全局）/ `EventCenterForMicroApp`（关沙箱/UMD）**
 - 路由一句话：**虚拟路由系统**，5 种 `router-mode`（`search`/`native`/`native-scope`/`pure`/`state`）+ `microApp.router` 编排
 - 版本一句话：**1.0 长期 RC**（`1.0.0-rc.32`／2026-06-25，持续发版、大致月度），京东背书、约 6.2k star
 
-## 一、核心 `<micro-app>` 标签属性表
+## 一、核心 <code v-pre>&lt;micro-app&gt;</code> 标签属性表
 
 | 属性 | 作用 | 默认 |
 | --- | --- | --- |
@@ -69,7 +69,7 @@ microApp.start({
 
 | API | 归属 | 作用 |
 | --- | --- | --- |
-| `microApp.start(options)` | 主应用 | 启动 micro-app、注册 `<micro-app>`、传全局配置 |
+| `microApp.start(options)` | 主应用 | 启动 micro-app、注册 <code v-pre>&lt;micro-app&gt;</code>、传全局配置 |
 | `microApp.setData(name, data, cb)` / `forceSetData` | 主应用 | 向子应用下发数据（下行） |
 | `microApp.getData(name)` | 主应用 | 读取子应用数据 |
 | `microApp.addDataListener(name, fn, autoTrigger)` | 主应用 | 订阅子应用上报数据 |
@@ -118,7 +118,7 @@ microApp.start({
 
 | 隔离 | 机制 | 关闭 / 调整 |
 | --- | --- | --- |
-| **元素隔离** | 代理子应用 DOM 查询，圈进 `<micro-app>` 边界（主可访子、子不可访主） | `removeDomScope(true/false)` 临时解绑/恢复 |
+| **元素隔离** | 代理子应用 DOM 查询，圈进 <code v-pre>&lt;micro-app&gt;</code> 边界（主可访子、子不可访主） | `removeDomScope(true/false)` 临时解绑/恢复 |
 | **样式隔离（scopedcss，默认开）** | 选择器加前缀 `micro-app[name=x] .test{}` | 全局 `disableScopecss` / 属性 `disable-scopecss` |
 | ·文件级关 | `/*! scopecss-disable */ … /*! scopecss-enable */` | 注释须 `/*!` 开头（躲压缩） |
 | ·选择器级关 | `/*! scopecss-disable .a, .b */` | — |
@@ -132,7 +132,7 @@ microApp.start({
 
 | 方向 | 主应用侧 | 子应用侧 |
 | --- | --- | --- |
-| **父 → 子（下行）** | `<micro-app :data>` / `microApp.setData(name, data, cb)` / `forceSetData` | `window.microApp.getData()` / `addDataListener(fn, autoTrigger)` |
+| **父 → 子（下行）** | <code v-pre>&lt;micro-app :data&gt;</code> / `microApp.setData(name, data, cb)` / `forceSetData` | `window.microApp.getData()` / `addDataListener(fn, autoTrigger)` |
 | **子 → 父（上行）** | 元素 `datachange` 事件 / `microApp.addDataListener(name, fn)` / `getData(name)` | `window.microApp.dispatch(data, cb)` / `forceDispatch` |
 | **全局广播** | `microApp.setGlobalData` / `getGlobalData` / `addGlobalDataListener` | `window.microApp.setGlobalData` / `getGlobalData` / `addGlobalDataListener` |
 | **独立事件中心**（关沙箱/UMD） | `new EventCenterForMicroApp(name)` → `window.eventCenterForAppxx` | `window.eventCenterForAppxx.getData()` / `dispatch()` / `addDataListener()` |
@@ -158,11 +158,11 @@ microApp.start({
 ## 权威链接
 
 - [micro-app 官网](https://jd-opensource.github.io/micro-app/) —— 定位、特性、在线演示总入口
-- [快速开始](https://jd-opensource.github.io/micro-app/docs.html#/zh-cn/start) · [配置项](https://jd-opensource.github.io/micro-app/docs.html#/zh-cn/configure) —— 主/子应用接入、`<micro-app>` 全部属性与全局配置
+- [快速开始](https://jd-opensource.github.io/micro-app/docs.html#/zh-cn/start) · [配置项](https://jd-opensource.github.io/micro-app/docs.html#/zh-cn/configure) —— 主/子应用接入、<code v-pre>&lt;micro-app&gt;</code> 全部属性与全局配置
 - [沙箱](https://jd-opensource.github.io/micro-app/docs.html#/zh-cn/sandbox) · [元素隔离](https://jd-opensource.github.io/micro-app/docs.html#/zh-cn/dom-scope) · [样式隔离](https://jd-opensource.github.io/micro-app/docs.html#/zh-cn/scopecss) —— with/iframe 沙箱、DOM 作用域、scopedcss 一手说明
 - [数据通信](https://jd-opensource.github.io/micro-app/docs.html#/zh-cn/data) · [虚拟路由](https://jd-opensource.github.io/micro-app/docs.html#/zh-cn/router) · [生命周期](https://jd-opensource.github.io/micro-app/docs.html#/zh-cn/life-cycles) —— 通信 API、`router-mode`、生命周期事件
 - [GitHub: jd-opensource/micro-app](https://github.com/jd-opensource/micro-app) · [Releases](https://github.com/jd-opensource/micro-app/releases) —— 源码与 1.0 RC 版本状态核对源
-- [MDN: Using custom elements](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_components/Using_custom_elements) —— `<micro-app>` 自定义元素的原生基础
+- [MDN: Using custom elements](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_components/Using_custom_elements) —— <code v-pre>&lt;micro-app&gt;</code> 自定义元素的原生基础
 
 ## 相关页
 

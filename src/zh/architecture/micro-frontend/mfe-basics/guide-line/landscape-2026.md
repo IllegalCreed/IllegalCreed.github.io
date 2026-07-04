@@ -28,7 +28,7 @@ outline: [2, 3]
 | --- | --- | --- | --- | --- | --- | --- |
 | **qiankun** | 蚂蚁 | 稳定版 2.10.16（2023-11）；3.0-rc.21（2026-02）；2.10.17-beta（2026-06） | with + Proxy JS 沙箱；运行时样式隔离（实验方向 @scope） | **弱**——ESM 绕过沙箱，需社区插件降级配合 | 主应用注册 `activeRule` | 存量王者，恢复活动，换代未完成 |
 | **wujie** | 腾讯 | **v2.0 全新 iframe 沙箱**，2026-06 连发 4 版 | iframe 原生 JS 隔离 + Web Component/Shadow DOM 渲染 | **好**——不靠改写脚本，天然容纳 ESM | Vue/React 组件式 | 复活，势头上升 |
-| **micro-app** | 京东 | 1.0.0-rc.32（2026-06），月度活跃 | 双沙箱可选：with 沙箱 / iframe 沙箱；样式作用域化 | **较好**（iframe 沙箱模式下） | CustomElement 标签 `<micro-app>` | 活跃，但 1.0 常青 RC |
+| **micro-app** | 京东 | 1.0.0-rc.32（2026-06），月度活跃 | 双沙箱可选：with 沙箱 / iframe 沙箱；样式作用域化 | **较好**（iframe 沙箱模式下） | CustomElement 标签 <code v-pre>&lt;micro-app&gt;</code> | 活跃，但 1.0 常青 RC |
 | **single-spa** | 社区 | v6 稳定；v7.0.0-beta.13（2025-09）后无发版 | **无沙箱**——只做生命周期编排，隔离靠团队纪律 | **好**——官方推荐原生 ESM + import maps | `registerApplication` | 稳定可用，演进停滞 |
 | **Module Federation** | 字节 Web Infra + Zack Jackson | core v2.6.0（2026-06），高频发版 | **无沙箱**——模块级共享与运行时加载 | 官方 @module-federation/vite 插件活跃 | host/remote 声明 | **事实主线** |
 
@@ -55,7 +55,7 @@ wujie 曾沉寂近一年（1.0.29 停在 2025-07），2026-06 以 **v2.0 全新 
 
 ### 2.3 micro-app：组件化接入，常青 RC
 
-京东 micro-app 的提交与发版保持月度活跃（rc.29 2026-01 → rc.32 2026-06），接入形态是五家里最轻的——像写一个 `<micro-app name url>` 标签。但 **1.0 版本号在 RC 阶段停留多年**，rc 序号已经排到 32。
+京东 micro-app 的提交与发版保持月度活跃（rc.29 2026-01 → rc.32 2026-06），接入形态是五家里最轻的——像写一个 <code v-pre>&lt;micro-app name url&gt;</code> 标签。但 **1.0 版本号在 RC 阶段停留多年**，rc 序号已经排到 32。
 
 **决策含义**：组件化接入的心智成本最低，适合「宿主是业务应用、顺手嵌几个子应用」的中等规模场景。采信前把心理价位摆正：你实际使用的是一个**长期 RC 的 1.0**（iframe 沙箱等关键能力都在其中），版本策略上保守的团队应按「实质稳定、名义 RC」评估，并锁定小版本。
 

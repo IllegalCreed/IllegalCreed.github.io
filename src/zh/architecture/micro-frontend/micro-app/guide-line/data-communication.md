@@ -11,10 +11,10 @@ outline: [2, 3]
 
 - 通信的**模式通论**（props 下行 / 事件上行 / 全局状态 / 去中心化总线）见[核心机制·通信](../../mfe-mechanisms/guide-line/communication)——本页只讲 micro-app 的**具体 API**
 - micro-app 通信是**基于「数据绑定 + 发布订阅」的 CustomEvent 模型**，分三层：**父子定向**、**全局广播**、**关沙箱/UMD 的独立事件中心**
-- **父 → 子（下行）**：`<micro-app :data="obj">` 属性绑定，或命令式 `microApp.setData('app-name', {…}, cb)`；相同数据不重复触发时用 `forceSetData`
+- **父 → 子（下行）**：<code v-pre>&lt;micro-app :data="obj"&gt;</code> 属性绑定，或命令式 `microApp.setData('app-name', {…}, cb)`；相同数据不重复触发时用 `forceSetData`
 - **子收数据**：`window.microApp.getData()` 拿当前值；`window.microApp.addDataListener(fn, autoTrigger)` 订阅变化（`autoTrigger=true` 立即用当前值触发一次）
 - **子 → 父（上行）**：`window.microApp.dispatch({…}, cb)` 派发数据给主应用；`forceDispatch` 强制触发
-- **父收数据**：`microApp.getData('app-name')` / `microApp.addDataListener('app-name', fn, autoTrigger)`；也可在 `<micro-app>` 上监听 `datachange` 事件
+- **父收数据**：`microApp.getData('app-name')` / `microApp.addDataListener('app-name', fn, autoTrigger)`；也可在 <code v-pre>&lt;micro-app&gt;</code> 上监听 `datachange` 事件
 - **全局数据**：`microApp.setGlobalData({…})` / `getGlobalData()` / `addGlobalDataListener(fn)`，子应用侧 `window.microApp.setGlobalData/getGlobalData/...`——**跨所有应用广播**
 - **关沙箱/UMD 多实例**：用 `new EventCenterForMicroApp(appName)` 建独立事件中心（`window.eventCenterForAppxx`），因为关沙箱后全局隔离失效需手动隔离通信
 - **清理**：`microApp.clearData('app-name')`（主）/ `window.microApp.clearData()`（子）/ `removeDataListener` / `clearDataListener`
@@ -27,12 +27,12 @@ outline: [2, 3]
 
 ## 二、父 → 子：data 属性下行 + setData
 
-**声明式**——在 `<micro-app>` 上绑定 `data` 属性，数据变化自动下发给子应用：
+**声明式**——在 <code v-pre>&lt;micro-app&gt;</code> 上绑定 `data` 属性，数据变化自动下发给子应用：
 
 ```vue
 <!-- 主应用（Vue）：data 绑定一个对象，变化即下行 -->
 <template>
-  <micro-app name="app1" url="http://localhost:3000/" :data="dataForChild" />
+  micro-app name="app1" url="http://localhost:3000/" :data="dataForChild" /
 </template>
 
 <script setup lang="ts">
@@ -89,7 +89,7 @@ window.microApp.dispatch({ type: "loaded", detail: { ok: true } }, () => {
 window.microApp.forceDispatch({ type: "loaded", detail: { ok: true } });
 ```
 
-主应用侧接收有两种方式：**监听 `<micro-app>` 的 `datachange` 事件**，或用 `microApp.addDataListener`：
+主应用侧接收有两种方式：**监听 <code v-pre>&lt;micro-app&gt;</code> 的 `datachange` 事件**，或用 `microApp.addDataListener`：
 
 ```js
 // 主应用方式一：在元素上监听 datachange（e.detail.data 为子应用派发的数据）

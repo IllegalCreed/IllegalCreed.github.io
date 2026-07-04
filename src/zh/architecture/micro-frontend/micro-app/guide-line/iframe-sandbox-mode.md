@@ -10,7 +10,7 @@ outline: [2, 3]
 ## 速查
 
 - iframe 沙箱是 micro-app **1.0 起新增的可选强隔离模式**——默认仍是 [with 沙箱](./with-sandbox)，加一个 **`iframe` 属性**即切换
-- 开启方式：`<micro-app name url iframe></micro-app>` 或全局 `microApp.start({ iframe: true })`
+- 开启方式：`micro-app name url iframe/micro-app` 或全局 `microApp.start({ iframe: true })`
 - **原理**：把子应用 JS 注入一个**同域 iframe** 里跑，拿 iframe 原生的 `window`/`document`/`history`/`location`——是**物理隔离**，比 with 软沙箱强（沙箱四代通论见[核心机制·JS 沙箱](../../mfe-mechanisms/guide-line/js-sandbox)）
 - **与 with 沙箱的取舍**：iframe **隔离更强**（连 `document`/`location` 都独立），但**兼容性/体验代价更大**（同域约束、每应用一 iframe 开销、部分 API 行为差异）；with 沙箱**性能好、兼容广**但软隔离
 - **同域初始化坑**：iframe 初始可能**误加载主应用资源**，两解——① 建一个空的 `empty.html` 并把 `iframeSrc` 指向它；② 主应用 `<head>` 顶部插 <code v-pre>if (window.parent !== window) { window.stop() }</code> 阻止非顶层窗口继续加载
@@ -30,7 +30,7 @@ micro-app **默认用 with 沙箱**；从 1.0 起，它把 iframe 沙箱作为**
 
 ```html
 <!-- 单个子应用：开 iframe 沙箱 -->
-<micro-app name="app1" url="http://localhost:3000/" iframe></micro-app>
+micro-app name="app1" url="http://localhost:3000/" iframe/micro-app
 ```
 
 ```js
@@ -41,7 +41,7 @@ microApp.start({ iframe: true });
 
 开启后，micro-app 会为子应用创建一个**同域、不可见的 iframe**，把子应用的 JavaScript 注入其中执行。子应用因此拿到的是 iframe **原生的** `window`/`document`/`history`/`location`——全局变量、定时器、事件、路由栈全在 iframe 自己的上下文里，与主应用**物理隔离**。这和 [with 沙箱](./with-sandbox) 那种「`Proxy` 造假 window」的软件模拟是两回事。
 
-> **注意**：即便开了 iframe 沙箱，子应用的 **DOM 仍渲染在 `<micro-app>` 元素里**（不是渲染在 iframe 内），micro-app 依旧靠 CustomElement 容器承载视图——iframe 只当「JS 运行时」。这一点与 [wujie](../../wujie/) 的「JS 在 iframe、DOM 在 `<wujie>` WebComponent」分工是相通的。
+> **注意**：即便开了 iframe 沙箱，子应用的 **DOM 仍渲染在 <code v-pre>&lt;micro-app&gt;</code> 元素里**（不是渲染在 iframe 内），micro-app 依旧靠 CustomElement 容器承载视图——iframe 只当「JS 运行时」。这一点与 [wujie](../../wujie/) 的「JS 在 iframe、DOM 在 <code v-pre>&lt;wujie&gt;</code> WebComponent」分工是相通的。
 
 ## 三、与 with 沙箱的取舍
 
@@ -113,7 +113,7 @@ microApp.start({
 
 | 能力 | with 沙箱 | iframe 沙箱 | 说明 |
 | --- | --- | --- | --- |
-| **DOM 渲染位置** | `<micro-app>` 元素内 | **同样在 `<micro-app>` 元素内** | iframe 只当 JS 运行时，视图不进 iframe |
+| **DOM 渲染位置** | <code v-pre>&lt;micro-app&gt;</code> 元素内 | **同样在 <code v-pre>&lt;micro-app&gt;</code> 元素内** | iframe 只当 JS 运行时，视图不进 iframe |
 | **样式隔离** | scopedcss 前缀改写 | 同左 | 走 [元素与样式隔离](./element-style-isolation) 那套，与沙箱无关 |
 | **元素隔离** | DOM 作用域代理 | 同左 | `removeDomScope` 逃逸口一致 |
 | **数据通信** | `window.microApp` API | **同一套 API** | `getData`/`dispatch`/`GlobalData` 见 [数据通信](./data-communication) |
@@ -124,4 +124,4 @@ microApp.start({
 
 ## 小结
 
-iframe 沙箱是 micro-app 1.0 起的**可选强隔离模式**：加一个 `iframe` 属性，就把子应用 JS 注入同域 iframe，拿原生 `window`/`document`/`history`/`location` 的**物理隔离**，摆平 with 软沙箱摆不平的全局污染与强隔离诉求；代价是同域约束、每应用一 iframe 的内存开销，以及「初始化误载主应用资源」的坑（用 `iframeSrc` 指空页 或 `window.stop()` 兜）。默认仍是 with 沙箱，命中强隔离/兼容问题再切。沙箱（JS 隔离）讲完了，接下来看另外两件隔离——DOM 与 CSS 是怎么被圈进 `<micro-app>` 边界的：下一页 [元素与样式隔离](./element-style-isolation)。
+iframe 沙箱是 micro-app 1.0 起的**可选强隔离模式**：加一个 `iframe` 属性，就把子应用 JS 注入同域 iframe，拿原生 `window`/`document`/`history`/`location` 的**物理隔离**，摆平 with 软沙箱摆不平的全局污染与强隔离诉求；代价是同域约束、每应用一 iframe 的内存开销，以及「初始化误载主应用资源」的坑（用 `iframeSrc` 指空页 或 `window.stop()` 兜）。默认仍是 with 沙箱，命中强隔离/兼容问题再切。沙箱（JS 隔离）讲完了，接下来看另外两件隔离——DOM 与 CSS 是怎么被圈进 <code v-pre>&lt;micro-app&gt;</code> 边界的：下一页 [元素与样式隔离](./element-style-isolation)。

@@ -10,7 +10,7 @@ outline: [2, 3]
 ## 速查
 
 - **容器**（container / shell / root config / 主应用·基座）是整个系统里**唯一常驻**的一方，管四件事：**路由分发、公共 chrome、鉴权注入、生命周期编排**
-- 路由分发两种心智：**声明式活性映射**——URL 决定谁活着（single-spa **activity function** / qiankun **activeRule**）；**手动挂载**——挂载点出现即加载（`<micro-app>` 标签、wujie 组件、single-spa parcel）
+- 路由分发两种心智：**声明式活性映射**——URL 决定谁活着（single-spa **activity function** / qiankun **activeRule**）；**手动挂载**——挂载点出现即加载（<code v-pre>&lt;micro-app&gt;</code> 标签、wujie 组件、single-spa parcel）
 - **activity function = 纯函数** `(location) => boolean`：导航事件发生时被统一调用，框架据真值变化驱动各应用 mount/unmount
 - single-spa `registerApplication` 四要素：**name / app 加载函数 / activeWhen / customProps**
 - **URL 是第一通信总线**：Fowler 把路由跳转列为跨应用通信的推荐手段之一——地址栏就是全局状态里最稳、耦合最低的一份
@@ -66,7 +66,7 @@ registerApplication({
 
 ### 2.2 手动挂载：挂载点决定谁加载
 
-另一派把微前端当**组件**用：宿主页面（可能本身就是某个业务应用）在自己的组件树里放一个挂载点，挂载点渲染出来才加载对应微应用——micro-app 的 `<micro-app name="…" url="…">` 标签、wujie 的 Vue/React 组件、single-spa 的 **parcel**（「渲染但不管路由」的形态）都属此类。此时**路由裁判是宿主自己的 router**：微前端出不出现，取决于宿主路由渲不渲染那个组件。
+另一派把微前端当**组件**用：宿主页面（可能本身就是某个业务应用）在自己的组件树里放一个挂载点，挂载点渲染出来才加载对应微应用——micro-app 的 <code v-pre>&lt;micro-app name="…" url="…"&gt;</code> 标签、wujie 的 Vue/React 组件、single-spa 的 **parcel**（「渲染但不管路由」的形态）都属此类。此时**路由裁判是宿主自己的 router**：微前端出不出现，取决于宿主路由渲不渲染那个组件。
 
 | 对比维度 | 声明式活性映射 | 手动挂载（组件式） |
 | --- | --- | --- |
