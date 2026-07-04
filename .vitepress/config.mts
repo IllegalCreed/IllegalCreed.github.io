@@ -7356,8 +7356,44 @@ export default defineConfig({
                 text: "三维",
                 collapsed: true,
                 items: [
-                  { text: "WebGL" },
-                  { text: "WebGPU" },
+                  {
+                    text: "WebGL",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/webgl/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/webgl/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "管线与着色器", link: "/zh/frontend-visualization/webgl/guide-line/pipeline-and-shaders" },
+                          { text: "缓冲与绘制", link: "/zh/frontend-visualization/webgl/guide-line/buffers-and-draw" },
+                          { text: "纹理与变换", link: "/zh/frontend-visualization/webgl/guide-line/textures-and-transforms" },
+                          { text: "WebGL2 与进阶", link: "/zh/frontend-visualization/webgl/guide-line/webgl2-and-advanced" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/webgl/reference" },
+                    ],
+                  },
+                  {
+                    text: "WebGPU",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/webgpu/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/webgpu/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "管线与 WGSL", link: "/zh/frontend-visualization/webgpu/guide-line/pipeline-and-wgsl" },
+                          { text: "绑定与资源", link: "/zh/frontend-visualization/webgpu/guide-line/binding-and-resources" },
+                          { text: "命令与计算", link: "/zh/frontend-visualization/webgpu/guide-line/commands-and-compute" },
+                          { text: "性能与选型", link: "/zh/frontend-visualization/webgpu/guide-line/performance-and-webgl" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/webgpu/reference" },
+                    ],
+                  },
                   {
                     text: "Three.js",
                     collapsed: true,
@@ -7391,8 +7427,44 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Babylon.js" },
-                  { text: "CesiumJS" },
+                  {
+                    text: "Babylon.js",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/babylon/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/babylon/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "场景·相机·网格", link: "/zh/frontend-visualization/babylon/guide-line/scene-camera-mesh" },
+                          { text: "材质·光照·纹理", link: "/zh/frontend-visualization/babylon/guide-line/materials-lights-textures" },
+                          { text: "动画与物理", link: "/zh/frontend-visualization/babylon/guide-line/animation-physics" },
+                          { text: "GUI·资产·后处理", link: "/zh/frontend-visualization/babylon/guide-line/gui-assets-postfx" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/babylon/reference" },
+                    ],
+                  },
+                  {
+                    text: "CesiumJS",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/cesium/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/cesium/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "Viewer 与坐标", link: "/zh/frontend-visualization/cesium/guide-line/viewer-and-coordinates" },
+                          { text: "实体与图元", link: "/zh/frontend-visualization/cesium/guide-line/entity-and-primitive" },
+                          { text: "影像·地形·3DTiles", link: "/zh/frontend-visualization/cesium/guide-line/imagery-terrain-3dtiles" },
+                          { text: "时间动态与性能", link: "/zh/frontend-visualization/cesium/guide-line/time-dynamics-performance" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/cesium/reference" },
+                    ],
+                  },
                 ],
               },
               {
