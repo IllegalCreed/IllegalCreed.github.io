@@ -7470,7 +7470,65 @@ export default defineConfig({
               {
                 text: "2D 渲染引擎",
                 collapsed: true,
-                items: [{ text: "PixiJS" }, { text: "Fabric.js" }, { text: "Konva" }],
+                items: [
+                  {
+                    text: "PixiJS",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/pixi/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/pixi/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "应用与场景", link: "/zh/frontend-visualization/pixi/guide-line/app-and-scene" },
+                          { text: "图形·文本·资产", link: "/zh/frontend-visualization/pixi/guide-line/graphics-text-assets" },
+                          { text: "事件·Ticker·滤镜", link: "/zh/frontend-visualization/pixi/guide-line/events-ticker-filters" },
+                          { text: "性能与迁移", link: "/zh/frontend-visualization/pixi/guide-line/performance-and-migration" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/pixi/reference" },
+                    ],
+                  },
+                  {
+                    text: "Fabric.js",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/fabric/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/fabric/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "画布与对象", link: "/zh/frontend-visualization/fabric/guide-line/canvas-and-objects" },
+                          { text: "文本·图片·群组", link: "/zh/frontend-visualization/fabric/guide-line/text-image-group" },
+                          { text: "交互与事件", link: "/zh/frontend-visualization/fabric/guide-line/interaction-and-events" },
+                          { text: "序列化与自定义", link: "/zh/frontend-visualization/fabric/guide-line/serialization-and-custom" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/fabric/reference" },
+                    ],
+                  },
+                  {
+                    text: "Konva",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/konva/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/konva/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "舞台·图层·形状", link: "/zh/frontend-visualization/konva/guide-line/stage-layer-shape" },
+                          { text: "事件·拖拽·变换", link: "/zh/frontend-visualization/konva/guide-line/events-drag-transform" },
+                          { text: "动画与滤镜", link: "/zh/frontend-visualization/konva/guide-line/animation-filters" },
+                          { text: "序列化·React·性能", link: "/zh/frontend-visualization/konva/guide-line/serialization-react-performance" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/konva/reference" },
+                    ],
+                  },
+                ],
               },
               {
                 text: "动画",
