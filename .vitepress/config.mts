@@ -7099,18 +7099,169 @@ export default defineConfig({
               {
                 text: "图形基础",
                 collapsed: true,
-                items: [{ text: "Canvas" }, { text: "SVG" }],
+                items: [
+                {
+                  text: "Canvas",
+                  collapsed: true,
+                  link: "/zh/frontend-visualization/canvas/",
+                  items: [
+                    { text: "入门", link: "/zh/frontend-visualization/canvas/getting-started" },
+                    {
+                      text: "指南",
+                      collapsed: true,
+                      items: [
+                        { text: "绘图基础", link: "/zh/frontend-visualization/canvas/guide-line/drawing-basics" },
+                        { text: "图像与像素", link: "/zh/frontend-visualization/canvas/guide-line/images-and-pixels" },
+                        { text: "变换与状态", link: "/zh/frontend-visualization/canvas/guide-line/transforms-and-state" },
+                        { text: "动画与交互", link: "/zh/frontend-visualization/canvas/guide-line/animation" },
+                        { text: "性能优化", link: "/zh/frontend-visualization/canvas/guide-line/performance" },
+                      ],
+                    },
+                    { text: "参考", link: "/zh/frontend-visualization/canvas/reference" },
+                  ],
+                },
+                {
+                  text: "SVG",
+                  collapsed: true,
+                  link: "/zh/frontend-visualization/svg/",
+                  items: [
+                    { text: "入门", link: "/zh/frontend-visualization/svg/getting-started" },
+                    {
+                      text: "指南",
+                      collapsed: true,
+                      items: [
+                        { text: "坐标与形状", link: "/zh/frontend-visualization/svg/guide-line/coordinates-and-shapes" },
+                        { text: "路径", link: "/zh/frontend-visualization/svg/guide-line/paths" },
+                        { text: "填充描边与渐变", link: "/zh/frontend-visualization/svg/guide-line/fills-strokes-gradients" },
+                        { text: "结构与复用", link: "/zh/frontend-visualization/svg/guide-line/structure-and-reuse" },
+                        { text: "动画与优化", link: "/zh/frontend-visualization/svg/guide-line/animation-and-optimization" },
+                      ],
+                    },
+                    { text: "参考", link: "/zh/frontend-visualization/svg/reference" },
+                  ],
+                },
+                ],
               },
               {
                 text: "图表",
                 collapsed: true,
                 items: [
-                  { text: "ECharts" },
-                  { text: "D3.js" },
-                  { text: "Chart.js" },
-                  { text: "Recharts" },
-                  { text: "AntV G2" },
-                  { text: "Mermaid" },
+                {
+                  text: "ECharts",
+                  collapsed: true,
+                  link: "/zh/frontend-visualization/echarts/",
+                  items: [
+                    { text: "入门", link: "/zh/frontend-visualization/echarts/getting-started" },
+                    {
+                      text: "指南",
+                      collapsed: true,
+                      items: [
+                        { text: "实例与 option", link: "/zh/frontend-visualization/echarts/guide-line/instance-and-option" },
+                        { text: "dataset 与系列", link: "/zh/frontend-visualization/echarts/guide-line/dataset-and-series" },
+                        { text: "交互与视觉", link: "/zh/frontend-visualization/echarts/guide-line/interaction-and-visual" },
+                        { text: "性能与规模化", link: "/zh/frontend-visualization/echarts/guide-line/performance-and-scale" },
+                        { text: "v6 新特性", link: "/zh/frontend-visualization/echarts/guide-line/v6-features" },
+                      ],
+                    },
+                    { text: "参考", link: "/zh/frontend-visualization/echarts/reference" },
+                  ],
+                },
+                {
+                  text: "D3.js",
+                  collapsed: true,
+                  link: "/zh/frontend-visualization/d3/",
+                  items: [
+                    { text: "入门", link: "/zh/frontend-visualization/d3/getting-started" },
+                    {
+                      text: "指南",
+                      collapsed: true,
+                      items: [
+                        { text: "选择集与数据绑定", link: "/zh/frontend-visualization/d3/guide-line/selection-and-data" },
+                        { text: "比例尺与坐标轴", link: "/zh/frontend-visualization/d3/guide-line/scales-and-axes" },
+                        { text: "形状与层级布局", link: "/zh/frontend-visualization/d3/guide-line/shapes-and-layouts" },
+                        { text: "力导向图", link: "/zh/frontend-visualization/d3/guide-line/force-simulation" },
+                        { text: "过渡与交互", link: "/zh/frontend-visualization/d3/guide-line/interaction-and-transition" },
+                      ],
+                    },
+                    { text: "参考", link: "/zh/frontend-visualization/d3/reference" },
+                  ],
+                },
+                {
+                  text: "Chart.js",
+                  collapsed: true,
+                  link: "/zh/frontend-visualization/chartjs/",
+                  items: [
+                    { text: "入门", link: "/zh/frontend-visualization/chartjs/getting-started" },
+                    {
+                      text: "指南",
+                      collapsed: true,
+                      items: [
+                        { text: "数据与 options", link: "/zh/frontend-visualization/chartjs/guide-line/data-and-options" },
+                        { text: "坐标轴与交互", link: "/zh/frontend-visualization/chartjs/guide-line/scales-and-interactions" },
+                        { text: "插件与自定义", link: "/zh/frontend-visualization/chartjs/guide-line/plugins-and-custom" },
+                        { text: "性能优化", link: "/zh/frontend-visualization/chartjs/guide-line/performance" },
+                      ],
+                    },
+                    { text: "参考", link: "/zh/frontend-visualization/chartjs/reference" },
+                  ],
+                },
+                {
+                  text: "Recharts",
+                  collapsed: true,
+                  link: "/zh/frontend-visualization/recharts/",
+                  items: [
+                    { text: "入门", link: "/zh/frontend-visualization/recharts/getting-started" },
+                    {
+                      text: "指南",
+                      collapsed: true,
+                      items: [
+                        { text: "图表类型与数据", link: "/zh/frontend-visualization/recharts/guide-line/charts-and-data" },
+                        { text: "坐标轴与 domain", link: "/zh/frontend-visualization/recharts/guide-line/axes-and-domain" },
+                        { text: "Tooltip 与 Legend", link: "/zh/frontend-visualization/recharts/guide-line/tooltip-legend-reference" },
+                        { text: "自定义与性能", link: "/zh/frontend-visualization/recharts/guide-line/customization-and-performance" },
+                      ],
+                    },
+                    { text: "参考", link: "/zh/frontend-visualization/recharts/reference" },
+                  ],
+                },
+                {
+                  text: "AntV G2",
+                  collapsed: true,
+                  link: "/zh/frontend-visualization/antv-g2/",
+                  items: [
+                    { text: "入门", link: "/zh/frontend-visualization/antv-g2/getting-started" },
+                    {
+                      text: "指南",
+                      collapsed: true,
+                      items: [
+                        { text: "标记与编码", link: "/zh/frontend-visualization/antv-g2/guide-line/marks-and-encode" },
+                        { text: "转换与坐标系", link: "/zh/frontend-visualization/antv-g2/guide-line/transform-and-coordinate" },
+                        { text: "比例尺与组件", link: "/zh/frontend-visualization/antv-g2/guide-line/scales-and-components" },
+                        { text: "复合交互动画", link: "/zh/frontend-visualization/antv-g2/guide-line/composition-interaction-animation" },
+                      ],
+                    },
+                    { text: "参考", link: "/zh/frontend-visualization/antv-g2/reference" },
+                  ],
+                },
+                {
+                  text: "Mermaid",
+                  collapsed: true,
+                  link: "/zh/frontend-visualization/mermaid/",
+                  items: [
+                    { text: "入门", link: "/zh/frontend-visualization/mermaid/getting-started" },
+                    {
+                      text: "指南",
+                      collapsed: true,
+                      items: [
+                        { text: "流程图与时序图", link: "/zh/frontend-visualization/mermaid/guide-line/flowchart-and-sequence" },
+                        { text: "类图状态图 ER", link: "/zh/frontend-visualization/mermaid/guide-line/class-state-er" },
+                        { text: "甘特 gitGraph", link: "/zh/frontend-visualization/mermaid/guide-line/gantt-git-and-more" },
+                        { text: "配置 API 安全", link: "/zh/frontend-visualization/mermaid/guide-line/config-api-security" },
+                      ],
+                    },
+                    { text: "参考", link: "/zh/frontend-visualization/mermaid/reference" },
+                  ],
+                },
                 ],
               },
               {
