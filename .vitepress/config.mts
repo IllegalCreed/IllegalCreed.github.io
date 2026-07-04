@@ -7188,6 +7188,25 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   {
+                    text: "CI/CD 核心机制",
+                    collapsed: true,
+                    link: "/zh/engineering/devops/cicd-core/",
+                    items: [
+                      { text: "入门", link: "/zh/engineering/devops/cicd-core/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "流水线模型", link: "/zh/engineering/devops/cicd-core/guide-line/pipeline-model" },
+                          { text: "部署策略", link: "/zh/engineering/devops/cicd-core/guide-line/deploy-strategies" },
+                          { text: "安全与供应链", link: "/zh/engineering/devops/cicd-core/guide-line/security-supply-chain" },
+                          { text: "度量与实践", link: "/zh/engineering/devops/cicd-core/guide-line/metrics-practices" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/engineering/devops/cicd-core/reference" },
+                    ],
+                  },
+                  {
                     text: "GitHub Actions",
                     collapsed: true,
                     link: "/zh/engineering/devops/github-actions/",
@@ -7316,12 +7335,127 @@ export default defineConfig({
                   },
                 ],
               },
-              { text: "容器", collapsed: true, items: [{ text: "Docker" }] },
+              {
+                text: "容器",
+                collapsed: true,
+                items: [
+                  {
+                    text: "Docker",
+                    collapsed: true,
+                    link: "/zh/engineering/container/docker/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/container/docker/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "Dockerfile",
+                            link: "/zh/engineering/container/docker/guide-line/dockerfile",
+                          },
+                          {
+                            text: "存储与网络",
+                            link: "/zh/engineering/container/docker/guide-line/storage-network",
+                          },
+                          {
+                            text: "引擎架构",
+                            link: "/zh/engineering/container/docker/guide-line/architecture",
+                          },
+                          {
+                            text: "最佳实践",
+                            link: "/zh/engineering/container/docker/guide-line/best-practice",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/container/docker/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Docker Compose",
+                    collapsed: true,
+                    link: "/zh/engineering/container/docker-compose/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/container/docker-compose/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "服务配置",
+                            link: "/zh/engineering/container/docker-compose/guide-line/services",
+                          },
+                          {
+                            text: "网络与数据卷",
+                            link: "/zh/engineering/container/docker-compose/guide-line/networking-volumes",
+                          },
+                          {
+                            text: "环境变量与插值",
+                            link: "/zh/engineering/container/docker-compose/guide-line/environment",
+                          },
+                          {
+                            text: "进阶组合",
+                            link: "/zh/engineering/container/docker-compose/guide-line/advanced",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/container/docker-compose/reference",
+                      },
+                    ],
+                  },
+                ],
+              },
               {
                 text: "Monorepo",
                 collapsed: true,
                 items: [
-                  { text: "Lerna" },
+                  {
+                    text: "Lerna",
+                    collapsed: true,
+                    link: "/zh/engineering/monorepo/lerna/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/monorepo/lerna/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "版本与发布",
+                            link: "/zh/engineering/monorepo/lerna/guide-line/versioning-publish.md",
+                          },
+                          {
+                            text: "任务运行与 Nx 流水线",
+                            link: "/zh/engineering/monorepo/lerna/guide-line/tasks-with-nx.md",
+                          },
+                          {
+                            text: "缓存与分布式执行",
+                            link: "/zh/engineering/monorepo/lerna/guide-line/caching-and-distribution.md",
+                          },
+                          {
+                            text: "迁移与选型",
+                            link: "/zh/engineering/monorepo/lerna/guide-line/migration-selection.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/monorepo/lerna/reference.md",
+                      },
+                    ],
+                  },
                   {
                     text: "Turborepo",
                     collapsed: true,
@@ -7339,6 +7473,342 @@ export default defineConfig({
                         text: "参考",
                         link: "/zh/engineering/monorepo/turborepo/reference",
                       },
+                    ],
+                  },
+                  {
+                    text: "Nx",
+                    collapsed: true,
+                    link: "/zh/engineering/monorepo/nx/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/monorepo/nx/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "计算缓存与哈希",
+                            link: "/zh/engineering/monorepo/nx/guide-line/caching.md",
+                          },
+                          {
+                            text: "任务编排与管道",
+                            link: "/zh/engineering/monorepo/nx/guide-line/task-pipeline.md",
+                          },
+                          {
+                            text: "插件、执行器与生成器",
+                            link: "/zh/engineering/monorepo/nx/guide-line/plugins-generators.md",
+                          },
+                          {
+                            text: "规模化与治理",
+                            link: "/zh/engineering/monorepo/nx/guide-line/scale-governance.md",
+                          },
+                          {
+                            text: "Nx Cloud 与分布式 CI",
+                            link: "/zh/engineering/monorepo/nx/guide-line/nx-cloud.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/monorepo/nx/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Rush",
+                    collapsed: true,
+                    link: "/zh/engineering/monorepo/rush/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/monorepo/rush/getting-started.md",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "依赖治理",
+                            link: "/zh/engineering/monorepo/rush/guide-line/dependencies.md",
+                          },
+                          {
+                            text: "增量构建与缓存",
+                            link: "/zh/engineering/monorepo/rush/guide-line/build-cache.md",
+                          },
+                          {
+                            text: "受控发布",
+                            link: "/zh/engineering/monorepo/rush/guide-line/publishing.md",
+                          },
+                          {
+                            text: "生态与扩展",
+                            link: "/zh/engineering/monorepo/rush/guide-line/ecosystem.md",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/monorepo/rush/reference.md",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "版本发布自动化",
+                collapsed: true,
+                items: [
+                  {
+                    text: "Changesets",
+                    collapsed: true,
+                    link: "/zh/engineering/release/changesets/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/release/changesets/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "工作流",
+                            link: "/zh/engineering/release/changesets/guide-line/workflow",
+                          },
+                          {
+                            text: "配置",
+                            link: "/zh/engineering/release/changesets/guide-line/config",
+                          },
+                          {
+                            text: "Monorepo",
+                            link: "/zh/engineering/release/changesets/guide-line/monorepo",
+                          },
+                          {
+                            text: "预发布与 CI",
+                            link: "/zh/engineering/release/changesets/guide-line/prerelease-ci",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/release/changesets/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "semantic-release",
+                    collapsed: true,
+                    link: "/zh/engineering/release/semantic-release/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/release/semantic-release/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "配置与 CI 集成",
+                            link: "/zh/engineering/release/semantic-release/guide-line/configuration",
+                          },
+                          {
+                            text: "插件与发布生命周期",
+                            link: "/zh/engineering/release/semantic-release/guide-line/plugins-lifecycle",
+                          },
+                          {
+                            text: "分支与预发布",
+                            link: "/zh/engineering/release/semantic-release/guide-line/branches-prerelease",
+                          },
+                          {
+                            text: "选型与工程落地",
+                            link: "/zh/engineering/release/semantic-release/guide-line/selection",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/release/semantic-release/reference",
+                      },
+                    ],
+                  },
+                  {
+                    text: "release-please",
+                    collapsed: true,
+                    link: "/zh/engineering/release/release-please/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/release/release-please/getting-started",
+                      },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "Release PR 机制",
+                            link: "/zh/engineering/release/release-please/guide-line/release-pr",
+                          },
+                          {
+                            text: "monorepo 与 manifest",
+                            link: "/zh/engineering/release/release-please/guide-line/monorepo-manifest",
+                          },
+                          {
+                            text: "CI 接入与选型",
+                            link: "/zh/engineering/release/release-please/guide-line/ci-selection",
+                          },
+                        ],
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/release/release-please/reference",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "依赖更新自动化",
+                collapsed: true,
+                items: [
+                  {
+                    text: "Renovate",
+                    collapsed: true,
+                    link: "/zh/engineering/deps/renovate/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/deps/renovate/getting-started.md",
+                      },
+                      {
+                        text: "配置",
+                        link: "/zh/engineering/deps/renovate/guide-line/config.md",
+                      },
+                      {
+                        text: "进阶",
+                        link: "/zh/engineering/deps/renovate/guide-line/advanced.md",
+                      },
+                      {
+                        text: "安全与 Dependabot",
+                        link: "/zh/engineering/deps/renovate/guide-line/security-vs-dependabot.md",
+                      },
+                      {
+                        text: "自托管",
+                        link: "/zh/engineering/deps/renovate/guide-line/self-hosting.md",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/deps/renovate/reference.md",
+                      },
+                    ],
+                  },
+                  {
+                    text: "Dependabot",
+                    collapsed: true,
+                    link: "/zh/engineering/deps/dependabot/",
+                    items: [
+                      {
+                        text: "入门",
+                        link: "/zh/engineering/deps/dependabot/getting-started.md",
+                      },
+                      {
+                        text: "配置详解",
+                        link: "/zh/engineering/deps/dependabot/guide-line/config.md",
+                      },
+                      {
+                        text: "告警·安全·分组",
+                        link: "/zh/engineering/deps/dependabot/guide-line/security-groups.md",
+                      },
+                      {
+                        text: "与 Renovate 取舍",
+                        link: "/zh/engineering/deps/dependabot/guide-line/vs-renovate.md",
+                      },
+                      {
+                        text: "参考",
+                        link: "/zh/engineering/deps/dependabot/reference.md",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "基础设施即代码（IaC）",
+                collapsed: true,
+                items: [
+                  {
+                    text: "Terraform",
+                    collapsed: true,
+                    link: "/zh/engineering/iac/terraform/",
+                    items: [
+                      { text: "入门", link: "/zh/engineering/iac/terraform/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "HCL 语言", link: "/zh/engineering/iac/terraform/guide-line/language" },
+                          { text: "状态 state", link: "/zh/engineering/iac/terraform/guide-line/state" },
+                          { text: "模块", link: "/zh/engineering/iac/terraform/guide-line/modules" },
+                          { text: "生态与许可", link: "/zh/engineering/iac/terraform/guide-line/ecosystem" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/engineering/iac/terraform/reference" },
+                    ],
+                  },
+                  {
+                    text: "OpenTofu",
+                    collapsed: true,
+                    link: "/zh/engineering/iac/opentofu/",
+                    items: [
+                      { text: "入门", link: "/zh/engineering/iac/opentofu/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "治理与许可", link: "/zh/engineering/iac/opentofu/guide-line/governance-license" },
+                          { text: "兼容与 CLI", link: "/zh/engineering/iac/opentofu/guide-line/compatibility-cli" },
+                          { text: "特性与迁移", link: "/zh/engineering/iac/opentofu/guide-line/features-migration" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/engineering/iac/opentofu/reference" },
+                    ],
+                  },
+                  {
+                    text: "Pulumi",
+                    collapsed: true,
+                    link: "/zh/engineering/iac/pulumi/",
+                    items: [
+                      { text: "入门", link: "/zh/engineering/iac/pulumi/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "编程模型", link: "/zh/engineering/iac/pulumi/guide-line/programming-model" },
+                          { text: "组件与复用", link: "/zh/engineering/iac/pulumi/guide-line/components-and-reuse" },
+                          { text: "状态·配置·密钥", link: "/zh/engineering/iac/pulumi/guide-line/state-config-secrets" },
+                          { text: "生态与选型", link: "/zh/engineering/iac/pulumi/guide-line/ecosystem-selection" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/engineering/iac/pulumi/reference" },
+                    ],
+                  },
+                  {
+                    text: "Ansible",
+                    collapsed: true,
+                    link: "/zh/engineering/iac/ansible/",
+                    items: [
+                      { text: "入门", link: "/zh/engineering/iac/ansible/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "Playbook 与模块", link: "/zh/engineering/iac/ansible/guide-line/playbooks-modules" },
+                          { text: "角色与集合", link: "/zh/engineering/iac/ansible/guide-line/roles-collections" },
+                          { text: "变量与模板", link: "/zh/engineering/iac/ansible/guide-line/variables-templating" },
+                          { text: "实践与选型", link: "/zh/engineering/iac/ansible/guide-line/practice-selection" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/engineering/iac/ansible/reference" },
                     ],
                   },
                 ],
@@ -7646,7 +8116,6 @@ export default defineConfig({
                 text: "容器编排",
                 collapsed: true,
                 items: [
-                  { text: "Docker" },
                   { text: "Kubernetes" },
                   { text: "Podman" },
                 ],
