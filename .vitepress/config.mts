@@ -1115,21 +1115,130 @@ export default defineConfig({
                 text: "语言",
                 collapsed: true,
                 items: [
-                  { text: "Markdown" },
-                  { text: "TypeScript" },
                   {
-                    text: "CSS预处理",
+                    text: "Markdown",
                     collapsed: true,
+                    link: "/zh/web-advanced/language/markdown/",
                     items: [
-                      { text: "Sass" },
-                      { text: "Less" },
-                      { text: "PostCSS" },
-                      { text: "tailwind CSS" },
-                      { text: "UnoCSS" },
+                      { text: "入门", link: "/zh/web-advanced/language/markdown/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "块级元素", link: "/zh/web-advanced/language/markdown/guide-line/blocks" },
+                          { text: "行内元素", link: "/zh/web-advanced/language/markdown/guide-line/inlines" },
+                          { text: "GFM 扩展", link: "/zh/web-advanced/language/markdown/guide-line/gfm-extensions" },
+                          { text: "方言与 front matter", link: "/zh/web-advanced/language/markdown/guide-line/dialects-and-frontmatter" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/language/markdown/reference" },
                     ],
                   },
-                  { text: "JSON" },
-                  { text: "YAML" },
+                  {
+                    text: "MDX",
+                    collapsed: true,
+                    link: "/zh/web-advanced/language/mdx/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/language/mdx/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "语法详解", link: "/zh/web-advanced/language/mdx/guide-line/syntax" },
+                          { text: "组件映射", link: "/zh/web-advanced/language/mdx/guide-line/components-and-provider" },
+                          { text: "编译流程", link: "/zh/web-advanced/language/mdx/guide-line/compile-pipeline" },
+                          { text: "框架集成与迁移", link: "/zh/web-advanced/language/mdx/guide-line/integrations-and-migration" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/language/mdx/reference" },
+                    ],
+                  },
+                  { text: "TypeScript" },
+                  {
+                    text: "样式方案",
+                    collapsed: true,
+                    items: [
+                      {
+                        text: "CSS 工具链",
+                        collapsed: true,
+                        items: [
+                          { text: "Sass" },
+                          { text: "Less" },
+                          { text: "PostCSS" },
+                          { text: "Tailwind CSS" },
+                          { text: "UnoCSS" },
+                        ],
+                      },
+                      {
+                        text: "CSS-in-JS",
+                        collapsed: true,
+                        items: [
+                          { text: "CSS Modules" },
+                          { text: "StyleX" },
+                          { text: "Panda CSS" },
+                          { text: "vanilla-extract" },
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    text: "JSON",
+                    collapsed: true,
+                    link: "/zh/web-advanced/language/json/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/language/json/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "语法与类型", link: "/zh/web-advanced/language/json/guide-line/syntax-and-types" },
+                          { text: "JS 中的 JSON API", link: "/zh/web-advanced/language/json/guide-line/js-json-api" },
+                          { text: "变体家族", link: "/zh/web-advanced/language/json/guide-line/variants" },
+                          { text: "JSON Schema", link: "/zh/web-advanced/language/json/guide-line/json-schema" },
+                          { text: "生态与选型", link: "/zh/web-advanced/language/json/guide-line/ecosystem-and-selection" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/language/json/reference" },
+                    ],
+                  },
+                  {
+                    text: "YAML",
+                    collapsed: true,
+                    link: "/zh/web-advanced/language/yaml/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/language/yaml/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "标量与字符串", link: "/zh/web-advanced/language/yaml/guide-line/scalars-and-strings" },
+                          { text: "集合与结构", link: "/zh/web-advanced/language/yaml/guide-line/collections-and-structure" },
+                          { text: "锚点与合并", link: "/zh/web-advanced/language/yaml/guide-line/anchors-and-merge" },
+                          { text: "类型、Schema 与坑", link: "/zh/web-advanced/language/yaml/guide-line/types-schemas-pitfalls" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/language/yaml/reference" },
+                    ],
+                  },
+                  {
+                    text: "TOML",
+                    collapsed: true,
+                    link: "/zh/web-advanced/language/toml/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/language/toml/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "键与字符串", link: "/zh/web-advanced/language/toml/guide-line/keys-and-strings" },
+                          { text: "标量与数组", link: "/zh/web-advanced/language/toml/guide-line/scalars-and-arrays" },
+                          { text: "表与表数组", link: "/zh/web-advanced/language/toml/guide-line/tables" },
+                          { text: "生态与坑", link: "/zh/web-advanced/language/toml/guide-line/ecosystem-and-pitfalls" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/language/toml/reference" },
+                    ],
+                  },
                 ],
               },
               {
@@ -3064,6 +3173,7 @@ export default defineConfig({
                       },
                     ],
                   },
+                  { text: "Astryx" },
                 ],
               },
               {
