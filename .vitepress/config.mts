@@ -7534,11 +7534,101 @@ export default defineConfig({
                 text: "动画",
                 collapsed: true,
                 items: [
-                  { text: "Web Animations API" },
-                  { text: "GSAP" },
-                  { text: "Framer Motion" },
-                  { text: "Lottie" },
-                  { text: "Anime.js" },
+                  {
+                    text: "Web Animations API",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/waapi/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/waapi/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "animate 与关键帧", link: "/zh/frontend-visualization/waapi/guide-line/animate-and-keyframes" },
+                          { text: "动画控制", link: "/zh/frontend-visualization/waapi/guide-line/animation-control" },
+                          { text: "时间线与合成", link: "/zh/frontend-visualization/waapi/guide-line/timeline-and-composite" },
+                          { text: "滚动与互操作", link: "/zh/frontend-visualization/waapi/guide-line/scroll-and-interop" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/waapi/reference" },
+                    ],
+                  },
+                  {
+                    text: "GSAP",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/gsap/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/gsap/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "Tween 与缓动", link: "/zh/frontend-visualization/gsap/guide-line/tween-and-ease" },
+                          { text: "时间线与 stagger", link: "/zh/frontend-visualization/gsap/guide-line/timeline-and-stagger" },
+                          { text: "ScrollTrigger 与插件", link: "/zh/frontend-visualization/gsap/guide-line/scrolltrigger-and-plugins" },
+                          { text: "框架与性能", link: "/zh/frontend-visualization/gsap/guide-line/framework-and-performance" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/gsap/reference" },
+                    ],
+                  },
+                  {
+                    text: "Framer Motion",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/framer-motion/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/framer-motion/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "组件与过渡", link: "/zh/frontend-visualization/framer-motion/guide-line/motion-and-transition" },
+                          { text: "变体与手势", link: "/zh/frontend-visualization/framer-motion/guide-line/variants-and-gesture" },
+                          { text: "退场与布局", link: "/zh/frontend-visualization/framer-motion/guide-line/presence-and-layout" },
+                          { text: "MotionValue 与原生", link: "/zh/frontend-visualization/framer-motion/guide-line/motionvalue-and-vanilla" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/framer-motion/reference" },
+                    ],
+                  },
+                  {
+                    text: "Lottie",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/lottie/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/lottie/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "加载与渲染器", link: "/zh/frontend-visualization/lottie/guide-line/loadanimation-and-renderer" },
+                          { text: "播放与事件", link: "/zh/frontend-visualization/lottie/guide-line/playback-and-events" },
+                          { text: "dotLottie 与播放器", link: "/zh/frontend-visualization/lottie/guide-line/dotlottie-and-players" },
+                          { text: "框架与优化", link: "/zh/frontend-visualization/lottie/guide-line/framework-and-optimization" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/lottie/reference" },
+                    ],
+                  },
+                  {
+                    text: "Anime.js",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/animejs/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/animejs/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "animate 与参数", link: "/zh/frontend-visualization/animejs/guide-line/animate-and-parameters" },
+                          { text: "时间线与 stagger", link: "/zh/frontend-visualization/animejs/guide-line/timeline-and-stagger" },
+                          { text: "SVG 与拖拽", link: "/zh/frontend-visualization/animejs/guide-line/svg-and-draggable" },
+                          { text: "滚动·工具·缓动", link: "/zh/frontend-visualization/animejs/guide-line/scroll-utils-eases" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/animejs/reference" },
+                    ],
+                  },
                 ],
               },
               {
