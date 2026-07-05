@@ -1153,7 +1153,26 @@ export default defineConfig({
                       { text: "参考", link: "/zh/web-advanced/language/mdx/reference" },
                     ],
                   },
-                  { text: "TypeScript" },
+                  {
+                    text: "TypeScript",
+                    collapsed: true,
+                    link: "/zh/web-advanced/language/typescript/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/language/typescript/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "类型系统基础", link: "/zh/web-advanced/language/typescript/guide-line/type-system-basics" },
+                          { text: "推断与窄化", link: "/zh/web-advanced/language/typescript/guide-line/narrowing-and-inference" },
+                          { text: "泛型与工具类型", link: "/zh/web-advanced/language/typescript/guide-line/generics-and-utility-types" },
+                          { text: "类型体操", link: "/zh/web-advanced/language/typescript/guide-line/type-manipulation" },
+                          { text: "配置·模块·互操作", link: "/zh/web-advanced/language/typescript/guide-line/config-modules-interop" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/language/typescript/reference" },
+                    ],
+                  },
                   {
                     text: "样式方案",
                     collapsed: true,
@@ -1162,11 +1181,106 @@ export default defineConfig({
                         text: "CSS 工具链",
                         collapsed: true,
                         items: [
-                          { text: "Sass" },
-                          { text: "Less" },
-                          { text: "PostCSS" },
-                          { text: "Tailwind CSS" },
-                          { text: "UnoCSS" },
+                          {
+                            text: "Sass",
+                            collapsed: true,
+                            link: "/zh/web-advanced/language/sass/",
+                            items: [
+                              { text: "入门", link: "/zh/web-advanced/language/sass/getting-started" },
+                              {
+                                text: "指南",
+                                collapsed: true,
+                                items: [
+                                  { text: "语法、嵌套与变量", link: "/zh/web-advanced/language/sass/guide-line/syntax-and-nesting" },
+                                  { text: "mixin、函数与 @extend", link: "/zh/web-advanced/language/sass/guide-line/mixins-functions-extend" },
+                                  { text: "控制流", link: "/zh/web-advanced/language/sass/guide-line/control-flow" },
+                                  { text: "模块系统", link: "/zh/web-advanced/language/sass/guide-line/module-system" },
+                                  { text: "内置模块与迁移", link: "/zh/web-advanced/language/sass/guide-line/built-in-modules" },
+                                ],
+                              },
+                              { text: "参考", link: "/zh/web-advanced/language/sass/reference" },
+                            ],
+                          },
+                          {
+                            text: "Less",
+                            collapsed: true,
+                            link: "/zh/web-advanced/language/less/",
+                            items: [
+                              { text: "入门", link: "/zh/web-advanced/language/less/getting-started" },
+                              {
+                                text: "指南",
+                                collapsed: true,
+                                items: [
+                                  { text: "变量、作用域与插值", link: "/zh/web-advanced/language/less/guide-line/variables-and-scope" },
+                                  { text: "混合、守卫与循环", link: "/zh/web-advanced/language/less/guide-line/mixins-and-guards" },
+                                  { text: "嵌套、运算与函数", link: "/zh/web-advanced/language/less/guide-line/nesting-operations-functions" },
+                                  { text: "导入与组织", link: "/zh/web-advanced/language/less/guide-line/import-and-organization" },
+                                  { text: "Less vs Sass 与选型", link: "/zh/web-advanced/language/less/guide-line/less-vs-sass" },
+                                ],
+                              },
+                              { text: "参考", link: "/zh/web-advanced/language/less/reference" },
+                            ],
+                          },
+                          {
+                            text: "PostCSS",
+                            collapsed: true,
+                            link: "/zh/web-advanced/language/postcss/",
+                            items: [
+                              { text: "入门", link: "/zh/web-advanced/language/postcss/getting-started" },
+                              {
+                                text: "指南",
+                                collapsed: true,
+                                items: [
+                                  { text: "工作原理与 AST", link: "/zh/web-advanced/language/postcss/guide-line/how-it-works" },
+                                  { text: "插件机制与 API", link: "/zh/web-advanced/language/postcss/guide-line/plugin-mechanism" },
+                                  { text: "主流插件生态", link: "/zh/web-advanced/language/postcss/guide-line/ecosystem-plugins" },
+                                  { text: "配置与构建集成", link: "/zh/web-advanced/language/postcss/guide-line/config-and-integration" },
+                                  { text: "与预处理器的关系", link: "/zh/web-advanced/language/postcss/guide-line/vs-preprocessors" },
+                                ],
+                              },
+                              { text: "参考", link: "/zh/web-advanced/language/postcss/reference" },
+                            ],
+                          },
+                          {
+                            text: "Tailwind CSS",
+                            collapsed: true,
+                            link: "/zh/web-advanced/language/tailwind/",
+                            items: [
+                              { text: "入门", link: "/zh/web-advanced/language/tailwind/getting-started" },
+                              {
+                                text: "指南",
+                                collapsed: true,
+                                items: [
+                                  { text: "工具类优先与响应式", link: "/zh/web-advanced/language/tailwind/guide-line/utility-first-and-responsive" },
+                                  { text: "状态与变体", link: "/zh/web-advanced/language/tailwind/guide-line/states-and-variants" },
+                                  { text: "v4 CSS-first 配置", link: "/zh/web-advanced/language/tailwind/guide-line/css-first-config" },
+                                  { text: "深色模式与颜色", link: "/zh/web-advanced/language/tailwind/guide-line/dark-mode-and-colors" },
+                                  { text: "v3→v4 迁移与生态", link: "/zh/web-advanced/language/tailwind/guide-line/migration-and-ecosystem" },
+                                ],
+                              },
+                              { text: "参考", link: "/zh/web-advanced/language/tailwind/reference" },
+                            ],
+                          },
+                          {
+                            text: "UnoCSS",
+                            collapsed: true,
+                            link: "/zh/web-advanced/language/unocss/",
+                            items: [
+                              { text: "入门", link: "/zh/web-advanced/language/unocss/getting-started" },
+                              {
+                                text: "指南",
+                                collapsed: true,
+                                items: [
+                                  { text: "预设体系", link: "/zh/web-advanced/language/unocss/guide-line/presets" },
+                                  { text: "规则、快捷方式与变体", link: "/zh/web-advanced/language/unocss/guide-line/rules-shortcuts-variants" },
+                                  { text: "指令与属性化", link: "/zh/web-advanced/language/unocss/guide-line/directives-and-attributify" },
+                                  { text: "纯 CSS 图标与 pnpm 坑", link: "/zh/web-advanced/language/unocss/guide-line/icons-and-pitfalls" },
+                                  { text: "集成与 Wind4 迁移", link: "/zh/web-advanced/language/unocss/guide-line/integration-and-wind4" },
+                                ],
+                              },
+                              { text: "参考", link: "/zh/web-advanced/language/unocss/reference" },
+                            ],
+                          },
                         ],
                       },
                       {
