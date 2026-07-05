@@ -7634,7 +7634,45 @@ export default defineConfig({
               {
                 text: "拖拽",
                 collapsed: true,
-                items: [{ text: "Sortable.js" }, { text: "dnd-kit" }],
+                items: [
+                  {
+                    text: "Sortable.js",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/sortablejs/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/sortablejs/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "配置与样式", link: "/zh/frontend-visualization/sortablejs/guide-line/options-and-styling" },
+                          { text: "分组与事件", link: "/zh/frontend-visualization/sortablejs/guide-line/group-and-events" },
+                          { text: "方法·插件·框架", link: "/zh/frontend-visualization/sortablejs/guide-line/methods-plugins-framework" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/sortablejs/reference" },
+                    ],
+                  },
+                  {
+                    text: "dnd-kit",
+                    collapsed: true,
+                    link: "/zh/frontend-visualization/dnd-kit/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-visualization/dnd-kit/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "上下文与 hooks", link: "/zh/frontend-visualization/dnd-kit/guide-line/context-and-hooks" },
+                          { text: "Sortable 预设", link: "/zh/frontend-visualization/dnd-kit/guide-line/sortable-preset" },
+                          { text: "传感器·修饰符·碰撞", link: "/zh/frontend-visualization/dnd-kit/guide-line/sensors-modifiers-collision" },
+                          { text: "无障碍与模式", link: "/zh/frontend-visualization/dnd-kit/guide-line/accessibility-and-patterns" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/frontend-visualization/dnd-kit/reference" },
+                    ],
+                  },
+                ],
               },
             ],
           },
