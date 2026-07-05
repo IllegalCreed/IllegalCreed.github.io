@@ -1287,10 +1287,83 @@ export default defineConfig({
                         text: "CSS-in-JS",
                         collapsed: true,
                         items: [
-                          { text: "CSS Modules" },
-                          { text: "StyleX" },
-                          { text: "Panda CSS" },
-                          { text: "vanilla-extract" },
+                          {
+                            text: "CSS Modules",
+                            collapsed: true,
+                            link: "/zh/web-advanced/language/css-modules/",
+                            items: [
+                              { text: "入门", link: "/zh/web-advanced/language/css-modules/getting-started" },
+                              {
+                                text: "指南",
+                                collapsed: true,
+                                items: [
+                                  { text: "局部作用域与命名", link: "/zh/web-advanced/language/css-modules/guide-line/local-scope-and-naming" },
+                                  { text: "组合复用 composes/@value", link: "/zh/web-advanced/language/css-modules/guide-line/composition-and-values" },
+                                  { text: "框架集成与 TS 类型", link: "/zh/web-advanced/language/css-modules/guide-line/framework-and-typescript" },
+                                  { text: "对照 CSS-in-JS 与选型", link: "/zh/web-advanced/language/css-modules/guide-line/vs-css-in-js" },
+                                ],
+                              },
+                              { text: "参考", link: "/zh/web-advanced/language/css-modules/reference" },
+                            ],
+                          },
+                          {
+                            text: "StyleX",
+                            collapsed: true,
+                            link: "/zh/web-advanced/language/stylex/",
+                            items: [
+                              { text: "入门", link: "/zh/web-advanced/language/stylex/getting-started" },
+                              {
+                                text: "指南",
+                                collapsed: true,
+                                items: [
+                                  { text: "定义与应用样式", link: "/zh/web-advanced/language/stylex/guide-line/defining-styles" },
+                                  { text: "变量与主题", link: "/zh/web-advanced/language/stylex/guide-line/theming" },
+                                  { text: "类型安全与现代 API", link: "/zh/web-advanced/language/stylex/guide-line/types-and-modern-apis" },
+                                  { text: "选型对比与集成", link: "/zh/web-advanced/language/stylex/guide-line/comparison-and-integration" },
+                                ],
+                              },
+                              { text: "参考", link: "/zh/web-advanced/language/stylex/reference" },
+                            ],
+                          },
+                          {
+                            text: "Panda CSS",
+                            collapsed: true,
+                            link: "/zh/web-advanced/language/panda-css/",
+                            items: [
+                              { text: "入门", link: "/zh/web-advanced/language/panda-css/getting-started" },
+                              {
+                                text: "指南",
+                                collapsed: true,
+                                items: [
+                                  { text: "写样式 css()", link: "/zh/web-advanced/language/panda-css/guide-line/writing-styles" },
+                                  { text: "Recipes 与 Patterns", link: "/zh/web-advanced/language/panda-css/guide-line/recipes-and-patterns" },
+                                  { text: "Tokens 与主题", link: "/zh/web-advanced/language/panda-css/guide-line/tokens-and-theming" },
+                                  { text: "静态提取与配置", link: "/zh/web-advanced/language/panda-css/guide-line/static-extraction-and-config" },
+                                  { text: "生态与选型", link: "/zh/web-advanced/language/panda-css/guide-line/ecosystem-and-selection" },
+                                ],
+                              },
+                              { text: "参考", link: "/zh/web-advanced/language/panda-css/reference" },
+                            ],
+                          },
+                          {
+                            text: "vanilla-extract",
+                            collapsed: true,
+                            link: "/zh/web-advanced/language/vanilla-extract/",
+                            items: [
+                              { text: "入门", link: "/zh/web-advanced/language/vanilla-extract/getting-started" },
+                              {
+                                text: "指南",
+                                collapsed: true,
+                                items: [
+                                  { text: "Styling 深入", link: "/zh/web-advanced/language/vanilla-extract/guide-line/styling" },
+                                  { text: "主题与令牌契约", link: "/zh/web-advanced/language/vanilla-extract/guide-line/theming" },
+                                  { text: "recipes 与 sprinkles", link: "/zh/web-advanced/language/vanilla-extract/guide-line/recipes-and-sprinkles" },
+                                  { text: "dynamic 与构建集成", link: "/zh/web-advanced/language/vanilla-extract/guide-line/dynamic-and-build" },
+                                ],
+                              },
+                              { text: "参考", link: "/zh/web-advanced/language/vanilla-extract/reference" },
+                            ],
+                          },
                         ],
                       },
                     ],
@@ -3287,7 +3360,16 @@ export default defineConfig({
                       },
                     ],
                   },
-                  { text: "Astryx" },
+                  {
+                    text: "Astryx",
+                    collapsed: true,
+                    link: "/zh/frontend-framework/components/astryx/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-framework/components/astryx/getting-started" },
+                      { text: "指南", link: "/zh/frontend-framework/components/astryx/guide-line" },
+                      { text: "参考", link: "/zh/frontend-framework/components/astryx/reference" },
+                    ],
+                  },
                 ],
               },
               {
