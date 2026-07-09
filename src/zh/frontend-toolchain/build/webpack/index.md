@@ -38,3 +38,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/webpack-slide/" target="_blank">Webpack</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=webpack" target="_blank" rel="noopener noreferrer">Webpack 测试题</a>

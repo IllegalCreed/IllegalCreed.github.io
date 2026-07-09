@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/vscode-slide/" target="_blank">VSCode</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vscode" target="_blank" rel="noopener noreferrer">VSCode 测试题</a>

@@ -35,3 +35,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/turborepo-slide/" target="_blank">Turborepo</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=turborepo" target="_blank" rel="noopener noreferrer">Turborepo 测试题</a>

@@ -35,6 +35,11 @@ layout: doc
 
 [TanStack Query 官网](https://tanstack.com/query/latest) | [概述](https://tanstack.com/query/latest/docs/framework/react/overview) | [Queries 指南](https://tanstack.com/query/latest/docs/framework/react/guides/queries) | [Mutations](https://tanstack.com/query/latest/docs/framework/react/guides/mutations) | [缓存失效](https://tanstack.com/query/latest/docs/framework/react/guides/query-invalidation) | [v5 迁移](https://tanstack.com/query/latest/docs/framework/react/guides/migrating-to-v5)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=tanstack-query" target="_blank" rel="noopener noreferrer">TanStack Query 测试题</a>
+
+
 ## GitHub 地址
 
 [TanStack/query](https://github.com/TanStack/query)（主仓库，MIT 许可）| [Tanner Linsley](https://github.com/tannerlinsley)（作者）| [@tanstack/vue-query](https://tanstack.com/query/latest/docs/framework/vue/overview)（Vue 适配）

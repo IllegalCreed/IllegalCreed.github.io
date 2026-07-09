@@ -32,3 +32,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/html-tables-slide/" target="_blank">HTML 表格</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=html-%E8%A1%A8%E6%A0%BC" target="_blank" rel="noopener noreferrer">HTML 表格 测试题</a>

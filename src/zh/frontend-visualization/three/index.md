@@ -36,3 +36,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/threejs-slide/" target="_blank">Three.js</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=three-js" target="_blank" rel="noopener noreferrer">Three.js 测试题</a>

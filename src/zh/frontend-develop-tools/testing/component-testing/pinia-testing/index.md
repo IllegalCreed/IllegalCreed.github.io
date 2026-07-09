@@ -34,3 +34,7 @@ Pinia 官方的测试工具包，核心是 `createTestingPinia()`。在组件 + 
 ## 幻灯片地址
 
 <a href="/SlideStack/pinia-testing-slide/" target="_blank">@pinia/testing</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=pinia-testing" target="_blank" rel="noopener noreferrer">@pinia/testing 测试题</a>

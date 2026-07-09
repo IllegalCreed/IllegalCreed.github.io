@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/js-classes-oop-slide/" target="_blank">JavaScript 类与面向对象</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=javascript-%E7%B1%BB%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1" target="_blank" rel="noopener noreferrer">JavaScript 类与面向对象 测试题</a>

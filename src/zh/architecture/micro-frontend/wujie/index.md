@@ -36,3 +36,7 @@ wujie（无界）是腾讯开源的微前端框架，走的是一条和 [qiankun
 ## 幻灯片地址
 
 - <a href="/SlideStack/wujie-slide/" target="_blank">wujie 无界</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=wujie" target="_blank" rel="noopener noreferrer">wujie 测试题</a>

@@ -41,3 +41,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/parcel-slide/" target="_blank">Parcel</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=parcel" target="_blank" rel="noopener noreferrer">Parcel 测试题</a>

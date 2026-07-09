@@ -32,3 +32,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/js-generators-metaprogramming-slide/" target="_blank">JavaScript 生成器与元编程</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=javascript-%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E5%85%83%E7%BC%96%E7%A8%8B" target="_blank" rel="noopener noreferrer">JavaScript 生成器与元编程 测试题</a>

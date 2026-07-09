@@ -37,3 +37,7 @@ Module Federation（模块联邦，简称 **MF**）把「一个应用在**运行
 ## 幻灯片地址
 
 - <a href="/SlideStack/module-federation-slide/" target="_blank">Module Federation</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=module-federation" target="_blank" rel="noopener noreferrer">Module Federation 测试题</a>

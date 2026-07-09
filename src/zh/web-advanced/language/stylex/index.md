@@ -36,3 +36,7 @@ Meta 出品的**编译期原子化 CSS-in-JS** 样式系统。当前版本 **`@s
 ## 幻灯片地址
 
 <a href="/SlideStack/stylex-slide/" target="_blank">StyleX</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=stylex" target="_blank" rel="noopener noreferrer">StyleX 测试题</a>

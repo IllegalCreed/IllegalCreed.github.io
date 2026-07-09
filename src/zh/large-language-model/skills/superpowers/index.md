@@ -43,3 +43,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/superpowers-slide/" target="_blank">Superpowers</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=superpowers" target="_blank" rel="noopener noreferrer">Superpowers 测试题</a>

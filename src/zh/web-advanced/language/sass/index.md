@@ -35,3 +35,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/sass-slide/" target="_blank">Sass</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=sass" target="_blank" rel="noopener noreferrer">Sass 测试题</a>

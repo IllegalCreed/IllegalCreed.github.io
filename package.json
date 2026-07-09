@@ -3,6 +3,8 @@
     "docs:dev": "vitepress dev",
     "docs:build": "NODE_OPTIONS=--max-old-space-size=12288 vitepress build",
     "docs:preview": "vitepress preview",
+    "content:audit": "node scripts/audit-vitepress-content.mjs",
+    "content:quiz-links": "node scripts/add-quiz-links.mjs",
     "deploy": "bash ./scripts/deploy.sh"
   },
   "dependencies": {

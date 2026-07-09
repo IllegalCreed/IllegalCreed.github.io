@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/vue-i18n-slide/" target="_blank">Vue I18n</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vue-i18n" target="_blank" rel="noopener noreferrer">Vue I18n 测试题</a>

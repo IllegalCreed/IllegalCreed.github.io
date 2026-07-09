@@ -36,3 +36,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/expo-snack-slide/" target="_blank">Expo Snack</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=expo-snack" target="_blank" rel="noopener noreferrer">Expo Snack 测试题</a>

@@ -46,6 +46,11 @@ layout: doc
 
 [React Router 官方文档](https://reactrouter.com/) | [Framework 模式](https://reactrouter.com/start/framework/installation) | [API Reference](https://api.reactrouter.com/v7/) | [Tutorials](https://reactrouter.com/tutorials/quickstart) | [How-Tos](https://reactrouter.com/how-to/) | [GitHub](https://github.com/remix-run/react-router)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=react-router" target="_blank" rel="noopener noreferrer">React Router 测试题</a>
+
+
 ## GitHub 地址
 
 [remix-run/react-router](https://github.com/remix-run/react-router)（同时是 [remix-run/remix](https://github.com/remix-run/remix) 的合并目的地，Remix 已停止独立发版）

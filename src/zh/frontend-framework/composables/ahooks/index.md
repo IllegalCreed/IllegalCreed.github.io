@@ -35,6 +35,11 @@ layout: doc
 
 [ahooks 官网](https://ahooks.js.org/) | [中文文档](https://ahooks.js.org/zh-CN/) | [快速上手](https://ahooks.js.org/zh-CN/guide/) | [useRequest（旗舰）](https://ahooks.js.org/zh-CN/hooks/use-request/index) | [useMemoizedFn](https://ahooks.js.org/zh-CN/hooks/use-memoized-fn)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=ahooks" target="_blank" rel="noopener noreferrer">Ahooks 测试题</a>
+
+
 ## GitHub 地址
 
 [alibaba/hooks](https://github.com/alibaba/hooks)（主仓库，阿里巴巴出品，MIT 许可）| [@ahooksjs/use-url-state](https://github.com/alibaba/hooks/tree/master/packages/use-url-state)（`useUrlState` 独立包）

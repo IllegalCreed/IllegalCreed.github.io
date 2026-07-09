@@ -33,6 +33,11 @@ layout: doc
 
 [usehooks-ts 官网](https://usehooks-ts.com/) | [全部 Hook 列表](https://usehooks-ts.com/introduction) | [useLocalStorage](https://usehooks-ts.com/react-hook/use-local-storage) | [useBoolean](https://usehooks-ts.com/react-hook/use-boolean) | [npm: usehooks-ts](https://www.npmjs.com/package/usehooks-ts)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=usehooks-ts" target="_blank" rel="noopener noreferrer">usehooks-ts 测试题</a>
+
+
 ## GitHub 地址
 
 [juliencrn/usehooks-ts](https://github.com/juliencrn/usehooks-ts)（主仓库，MIT 许可）| [Julien Caron（juliencrn）](https://github.com/juliencrn)（作者）

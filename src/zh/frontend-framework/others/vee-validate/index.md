@@ -36,3 +36,7 @@ Vue 生态最流行的表单库，由 Abdelrahman Awad 维护。它只负责"表
 ## 幻灯片地址
 
 <a href="/SlideStack/vee-validate-slide/" target="_blank">Vee-validate</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vee-validate" target="_blank" rel="noopener noreferrer">Vee-validate 测试题</a>

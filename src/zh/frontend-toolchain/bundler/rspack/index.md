@@ -37,3 +37,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/rspack-slide/" target="_blank">Rspack</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=rspack" target="_blank" rel="noopener noreferrer">Rspack 测试题</a>

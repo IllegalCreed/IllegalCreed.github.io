@@ -37,3 +37,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/typescript-slide/" target="_blank">TypeScript</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=typescript" target="_blank" rel="noopener noreferrer">TypeScript 测试题</a>

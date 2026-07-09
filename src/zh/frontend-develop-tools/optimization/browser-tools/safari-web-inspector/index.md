@@ -36,3 +36,7 @@ Safari Web Inspector 是 Apple Safari（**WebKit 引擎**）内置的 Web 开发
 ## 幻灯片地址
 
 <a href="/SlideStack/safari-web-inspector-slide/" target="_blank">Safari Web Inspector</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=safari-web-inspector" target="_blank" rel="noopener noreferrer">Safari Web Inspector 测试题</a>

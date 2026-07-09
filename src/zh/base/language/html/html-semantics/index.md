@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/html-semantics-slide/" target="_blank">HTML 语义化与文档大纲</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=html-%E8%AF%AD%E4%B9%89%E5%8C%96%E4%B8%8E%E6%96%87%E6%A1%A3%E5%A4%A7%E7%BA%B2" target="_blank" rel="noopener noreferrer">HTML 语义化与文档大纲 测试题</a>

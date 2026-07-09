@@ -44,6 +44,11 @@ layout: doc
 
 [MobX 官网](https://mobx.js.org/) | [The Gist of MobX](https://mobx.js.org/the-gist-of-mobx.html)（10 分钟概览）| [Observable State](https://mobx.js.org/observable-state.html) | [Actions](https://mobx.js.org/actions.html) | [Computeds](https://mobx.js.org/computeds.html) | [Reactions](https://mobx.js.org/reactions.html) | [React integration](https://mobx.js.org/react-integration.html) | [API Reference](https://mobx.js.org/api.html) | [Migrating from MobX 4/5](https://mobx.js.org/migrating-from-4-or-5.html) | [Enabling decorators](https://mobx.js.org/enabling-decorators.html) | [mobx-state-tree 官网](https://mobx-state-tree.js.org/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=mobx" target="_blank" rel="noopener noreferrer">MobX 测试题</a>
+
+
 ## GitHub 地址
 
 [mobxjs/mobx](https://github.com/mobxjs/mobx)（monorepo：core + mobx-react + mobx-react-lite + eslint-plugin）| [mobxjs/mobx-state-tree](https://github.com/mobxjs/mobx-state-tree) | [mobxjs/mobx-utils](https://github.com/mobxjs/mobx-utils) | [Michel Weststrate](https://github.com/mweststrate)（作者、Immer 作者）| [mobx-vue-lite](https://github.com/mobxjs/mobx-vue-lite) | [mobx-keystone](https://github.com/xaviergonz/mobx-keystone)（MST 替代，class-based）

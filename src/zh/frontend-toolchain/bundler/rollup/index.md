@@ -36,3 +36,7 @@ JavaScript 模块打包器（**The JavaScript module bundler**），官方定义
 ## 幻灯片地址
 
 <a href="/SlideStack/rollup-slide/" target="_blank">Rollup</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=rollup" target="_blank" rel="noopener noreferrer">Rollup 测试题</a>

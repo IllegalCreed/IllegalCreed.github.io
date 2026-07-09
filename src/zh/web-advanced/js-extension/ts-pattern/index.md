@@ -46,3 +46,7 @@ ts-pattern 由 Gabriel Vergnaud 创建，官方定位是「**The exhaustive Patt
 ## 幻灯片地址
 
 <a href="/SlideStack/ts-pattern-slide/" target="_blank">ts-pattern</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=ts-pattern" target="_blank" rel="noopener noreferrer">ts-pattern 测试题</a>

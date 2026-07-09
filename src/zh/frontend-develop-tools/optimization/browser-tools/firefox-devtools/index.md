@@ -35,3 +35,7 @@ Firefox Developer Tools 是 Mozilla Firefox（Gecko 引擎）内置的一套 **W
 ## 幻灯片地址
 
 <a href="/SlideStack/firefox-devtools-slide/" target="_blank">Firefox Developer Tools</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=firefox-developer-tools" target="_blank" rel="noopener noreferrer">Firefox Developer Tools 测试题</a>

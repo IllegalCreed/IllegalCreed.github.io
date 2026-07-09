@@ -51,6 +51,11 @@ Svelte 官方维护的全栈元框架。建在 Svelte 之上，把"编译型 UI 
 
 [SvelteKit Documentation](https://svelte.dev/docs/kit)、[Svelte Documentation](https://svelte.dev/docs/svelte)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=sveltekit" target="_blank" rel="noopener noreferrer">SvelteKit 测试题</a>
+
+
 ## GitHub 地址
 
 [sveltejs/kit](https://github.com/sveltejs/kit)、[sveltejs/svelte](https://github.com/sveltejs/svelte)

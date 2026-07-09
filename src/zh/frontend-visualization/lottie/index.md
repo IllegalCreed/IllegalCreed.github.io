@@ -43,3 +43,7 @@ Lottie 是把 **Adobe After Effects 动画通过 Bodymovin 插件导出为 JSON*
 ## 幻灯片地址
 
 <a href="/SlideStack/lottie-slide/" target="_blank">Lottie</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=lottie" target="_blank" rel="noopener noreferrer">Lottie 测试题</a>

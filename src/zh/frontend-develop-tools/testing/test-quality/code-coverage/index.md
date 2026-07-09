@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/code-coverage-slide/" target="_blank">代码覆盖率</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E4%BB%A3%E7%A0%81%E8%A6%86%E7%9B%96%E7%8E%87" target="_blank" rel="noopener noreferrer">代码覆盖率 测试题</a>

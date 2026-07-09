@@ -37,3 +37,7 @@ Terraform 是 HashiCorp 出品、当今**基础设施即代码（Infrastructure 
 ## 幻灯片地址
 
 - <a href="/SlideStack/terraform-slide/" target="_blank">Terraform</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=terraform" target="_blank" rel="noopener noreferrer">Terraform 测试题</a>

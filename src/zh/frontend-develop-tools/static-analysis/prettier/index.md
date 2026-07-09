@@ -31,3 +31,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/prettier-slide/" target="_blank">Prettier</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=prettier" target="_blank" rel="noopener noreferrer">Prettier 测试题</a>

@@ -35,3 +35,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/json-slide/" target="_blank">JSON</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=json" target="_blank" rel="noopener noreferrer">JSON 测试题</a>

@@ -40,6 +40,11 @@ React 生态最流行的「轻量级 hook-based」状态管理库，由 **Poiman
 
 [Zustand 官网](https://zustand.docs.pmnd.rs/) | [Introduction](https://zustand.docs.pmnd.rs/getting-started/introduction) | [Comparison](https://zustand.docs.pmnd.rs/getting-started/comparison) | [Guides](https://zustand.docs.pmnd.rs/guides/updating-state) | [API Reference](https://zustand.docs.pmnd.rs/apis/create) | [Middlewares](https://zustand.docs.pmnd.rs/middlewares/persist) | [Migrating to v5](https://zustand.docs.pmnd.rs/migrations/migrating-to-v5)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=zustand" target="_blank" rel="noopener noreferrer">Zustand 测试题</a>
+
+
 ## GitHub 地址
 
 [pmndrs/zustand](https://github.com/pmndrs/zustand) | [Poimandres 组织](https://github.com/pmndrs) | [Daishi Kato](https://github.com/dai-shi)（主要作者，Jotai / Valtio 等同作者） | [zundo](https://github.com/charkour/zundo)（undo/redo 插件） | [auto-zustand-selectors-hook](https://github.com/Albert-Gao/auto-zustand-selectors-hook)（自动 selector）

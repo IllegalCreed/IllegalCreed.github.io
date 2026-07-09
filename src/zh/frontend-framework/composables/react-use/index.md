@@ -34,6 +34,11 @@ layout: doc
 
 [react-use README（全量 hook 分类）](https://github.com/streamich/react-use#readme) | [在线 Storybook 演示](https://streamich.github.io/react-use/) | [useAsync](https://github.com/streamich/react-use/blob/master/docs/useAsync.md) | [useLocalStorage](https://github.com/streamich/react-use/blob/master/docs/useLocalStorage.md) | [npm: react-use](https://www.npmjs.com/package/react-use)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=react-use" target="_blank" rel="noopener noreferrer">React Use 测试题</a>
+
+
 ## GitHub 地址
 
 [streamich/react-use](https://github.com/streamich/react-use)（主仓库，Unlicense 许可，社区维护）| [streamich（Vadim Dalecky）](https://github.com/streamich)（作者）

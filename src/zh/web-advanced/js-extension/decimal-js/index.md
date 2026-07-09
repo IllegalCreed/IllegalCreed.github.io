@@ -44,3 +44,7 @@ decimal.js 由 Michael Mclaughlin 编写，官方定位是「**An arbitrary-prec
 ## 幻灯片地址
 
 <a href="/SlideStack/decimal-js-slide/" target="_blank">decimal.js</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=decimal-js" target="_blank" rel="noopener noreferrer">decimal.js 测试题</a>

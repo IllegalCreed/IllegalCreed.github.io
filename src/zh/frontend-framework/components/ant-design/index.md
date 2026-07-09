@@ -49,6 +49,11 @@ layout: doc
 
 [Ant Design 官网](https://ant.design/) | [中文文档](https://ant.design/index-cn) | [开始使用](https://ant.design/docs/react/getting-started-cn) | [Vite 集成](https://ant.design/docs/react/use-with-vite-cn) | [Next.js 集成](https://ant.design/docs/react/use-with-next-cn) | [定制主题](https://ant.design/docs/react/customize-theme-cn) | [Design Token](https://ant.design/docs/react/customize-theme-cn#design-token) | [国际化](https://ant.design/docs/react/i18n-cn) | [服务端渲染](https://ant.design/docs/react/server-side-rendering-cn) | [组件总览](https://ant.design/components/overview-cn/) | [设计价值观](https://ant.design/docs/spec/values-cn) | [Pro Components](https://procomponents.ant.design/) | [Ant Design Charts](https://charts.ant.design/) | [Ant Design Pro](https://pro.ant.design/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=ant-design" target="_blank" rel="noopener noreferrer">Ant Design 测试题</a>
+
+
 ## GitHub 地址
 
 [ant-design/ant-design](https://github.com/ant-design/ant-design)（主仓库，98.1k Star） | [ant-design/ant-design-icons](https://github.com/ant-design/ant-design-icons)（图标库 ~700 图标） | [ant-design/pro-components](https://github.com/ant-design/pro-components)（中后台二次封装） | [ant-design/ant-design-pro](https://github.com/ant-design/ant-design-pro)（中后台模板 36k Star） | [ant-design/ant-design-charts](https://github.com/ant-design/ant-design-charts)（数据可视化） | [ant-design/nextjs-registry](https://github.com/ant-design/nextjs-registry)（Next.js App Router 集成） | [ant-design/cssinjs](https://github.com/ant-design/cssinjs)（v5 CSS-in-JS 底层） | [ant-design/antd-mobile](https://github.com/ant-design/antd-mobile)（移动端） | [ant-design/ant-design-web3](https://github.com/ant-design/ant-design-web3)（Web3 组件）

@@ -40,3 +40,7 @@ TypeScript 官方编译器（**TypeScript Compiler**），对带类型标注的 
 ## 幻灯片地址
 
 <a href="/SlideStack/tsc-slide/" target="_blank">tsc</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=tsc" target="_blank" rel="noopener noreferrer">tsc 测试题</a>

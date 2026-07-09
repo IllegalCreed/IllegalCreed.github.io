@@ -36,3 +36,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/browser-architecture-slide/" target="_blank">浏览器架构与进程模型</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9E%B6%E6%9E%84%E4%B8%8E%E8%BF%9B%E7%A8%8B%E6%A8%A1%E5%9E%8B" target="_blank" rel="noopener noreferrer">浏览器架构与进程模型 测试题</a>

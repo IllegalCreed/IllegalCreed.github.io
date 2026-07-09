@@ -34,6 +34,11 @@ layout: doc
 
 [Shiki 官网](https://shiki.style/) | [安装与上手](https://shiki.style/guide/install) | [双主题](https://shiki.style/guide/dual-themes) | [转换器](https://shiki.style/packages/transformers) | [正则引擎](https://shiki.style/guide/regex-engines) | [Bundles 细粒度打包](https://shiki.style/guide/bundles)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=shiki" target="_blank" rel="noopener noreferrer">Shiki 测试题</a>
+
+
 ## GitHub 地址
 
 [shikijs/shiki](https://github.com/shikijs/shiki)（主仓库，MIT 许可）| [Anthony Fu](https://github.com/antfu)（维护者）| [@shikijs/transformers](https://github.com/shikijs/shiki/tree/main/packages/transformers)（转换器包）

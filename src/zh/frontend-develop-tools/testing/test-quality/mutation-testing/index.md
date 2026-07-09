@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/mutation-testing-slide/" target="_blank">变异测试</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95" target="_blank" rel="noopener noreferrer">变异测试 测试题</a>

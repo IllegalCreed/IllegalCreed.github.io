@@ -43,3 +43,7 @@ PDF.js 的官方定位是「**a general-purpose, web standards-based platform fo
 ## 幻灯片地址
 
 <a href="/SlideStack/pdfjs-slide/" target="_blank">PDF.js（pdfjs-dist）</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=pdf-js-pdfjs-dist" target="_blank" rel="noopener noreferrer">PDF.js（pdfjs-dist） 测试题</a>

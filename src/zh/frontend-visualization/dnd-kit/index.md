@@ -45,3 +45,7 @@ dnd-kit 是面向 React 的现代化拖拽工具集：以 `useDraggable`/`useDro
 ## 幻灯片地址
 
 <a href="/SlideStack/dnd-kit-slide/" target="_blank">dnd-kit</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=dnd-kit" target="_blank" rel="noopener noreferrer">dnd-kit 测试题</a>

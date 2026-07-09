@@ -38,3 +38,7 @@ Rush 是微软 **Rush Stack** 出品的「**a scalable monorepo manager for the 
 ## 幻灯片地址
 
 - <a href="/SlideStack/rush-slide/" target="_blank">Rush</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=rush" target="_blank" rel="noopener noreferrer">Rush 测试题</a>

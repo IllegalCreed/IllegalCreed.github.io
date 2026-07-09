@@ -34,3 +34,7 @@ HTTP 的语义（方法、状态码、首部）三十年几乎未变，但它在
 ## 幻灯片地址
 
 <a href="/SlideStack/net-http-evolution-slide/" target="_blank">HTTP 演进与性能</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=http-%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%80%A7%E8%83%BD" target="_blank" rel="noopener noreferrer">HTTP 演进与性能 测试题</a>

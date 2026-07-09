@@ -35,6 +35,11 @@ layout: doc
 
 [Preact 官网](https://preactjs.com/) | [快速上手](https://preactjs.com/guide/v10/getting-started/) | [与 React 的差异](https://preactjs.com/guide/v10/differences-to-react/) | [Hooks](https://preactjs.com/guide/v10/hooks/) | [Signals](https://preactjs.com/guide/v10/signals/) | [切换到 Preact](https://preactjs.com/guide/v10/switching-to-preact/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=preact" target="_blank" rel="noopener noreferrer">Preact 测试题</a>
+
+
 ## GitHub 地址
 
 [preactjs/preact](https://github.com/preactjs/preact)（主仓库，MIT 许可）| [@preact/signals](https://github.com/preactjs/signals)（信号）| [@preact/preset-vite](https://github.com/preactjs/preset-vite)（Vite 预设）

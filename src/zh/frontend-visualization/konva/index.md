@@ -43,3 +43,7 @@ Konva 是一个把「DOM 树 + 事件模型」搬进 HTML5 Canvas 的**声明式
 ## 幻灯片地址
 
 <a href="/SlideStack/konva-slide/" target="_blank">Konva</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=konva" target="_blank" rel="noopener noreferrer">Konva 测试题</a>

@@ -39,6 +39,11 @@ Vue.js 官方御用状态管理库，由 **Eduardo San Martin Morote**（Vue 核
 
 [Pinia 官网](https://pinia.vuejs.org/) | [Introduction](https://pinia.vuejs.org/introduction.html) | [Getting Started](https://pinia.vuejs.org/getting-started.html) | [Core Concepts](https://pinia.vuejs.org/core-concepts/) | [API Reference](https://pinia.vuejs.org/api/) | [Cookbook](https://pinia.vuejs.org/cookbook/) | [SSR + Nuxt](https://pinia.vuejs.org/ssr/) | [Cheat Sheet](https://pinia.vuejs.org/cheatsheet.html)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=pinia" target="_blank" rel="noopener noreferrer">Pinia 测试题</a>
+
+
 ## GitHub 地址
 
 [vuejs/pinia](https://github.com/vuejs/pinia) | [@pinia/nuxt](https://github.com/vuejs/pinia/tree/v3/packages/nuxt) | [@pinia/testing](https://github.com/vuejs/pinia/tree/v3/packages/testing) | [pinia-plugin-persistedstate](https://github.com/prazdevs/pinia-plugin-persistedstate)（社区最流行持久化插件）

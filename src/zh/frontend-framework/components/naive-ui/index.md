@@ -47,6 +47,11 @@ layout: doc
 
 [Naive UI 官网](https://www.naiveui.com/zh-CN/) | [介绍](https://www.naiveui.com/zh-CN/os-theme) | [安装](https://www.naiveui.com/zh-CN/os-theme/docs/installation) | [开始使用](https://www.naiveui.com/zh-CN/os-theme/docs/usage) | [按需引入](https://www.naiveui.com/zh-CN/os-theme/docs/import-on-demand) | [定制主题](https://www.naiveui.com/zh-CN/os-theme/docs/customize-theme) | [国际化](https://www.naiveui.com/zh-CN/os-theme/docs/i18n) | [服务端渲染](https://www.naiveui.com/zh-CN/os-theme/docs/ssr) | [Nuxt.js](https://www.naiveui.com/zh-CN/os-theme/docs/nuxtjs) | [组件总览](https://www.naiveui.com/zh-CN/os-theme/components) | [Playground](https://www.naiveui.com/zh-CN/os-theme/playground)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=naive-ui" target="_blank" rel="noopener noreferrer">Naive UI 测试题</a>
+
+
 ## GitHub 地址
 
 [tusen-ai/naive-ui](https://github.com/tusen-ai/naive-ui)（主仓库，18.3k Star）| [07akioni/xicons](https://github.com/07akioni/xicons)（图标系列：ionicons5 / antd / carbon / fa 等）| [07akioni/css-render](https://github.com/07akioni/css-render)（Naive UI 主题系统底层 CSS-in-JS 引擎）| [07akioni/vfonts](https://github.com/07akioni/vfonts)（推荐字体包，Inter / Fira Code）| [nuxtjs-naive-ui](https://github.com/07akioni/nuxtjs-naive-ui)（Nuxt 模块）| [jekip/naive-ui-admin](https://github.com/jekip/naive-ui-admin)（国内最流行 Naive UI 中后台模板，8k+ Star）| [zheng-changfu/pro-naive-ui](https://github.com/zheng-changfu/pro-naive-ui)（中后台二次封装）

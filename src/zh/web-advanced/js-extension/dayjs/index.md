@@ -44,3 +44,7 @@ Day.js 由 iamkun 维护，官方定位是「**a 2KB immutable date-time library
 ## 幻灯片地址
 
 <a href="/SlideStack/dayjs-slide/" target="_blank">Day.js</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=day-js" target="_blank" rel="noopener noreferrer">Day.js 测试题</a>

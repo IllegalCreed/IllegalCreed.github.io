@@ -46,3 +46,7 @@ axios 由 Matt Zabriskie 创建、现由社区团队维护，官方定位是「*
 ## 幻灯片地址
 
 <a href="/SlideStack/axios-slide/" target="_blank">axios</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=axios" target="_blank" rel="noopener noreferrer">axios 测试题</a>

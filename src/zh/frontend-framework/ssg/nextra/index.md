@@ -48,6 +48,11 @@ layout: doc
 
 [Nextra 官网](https://nextra.site/) | [Docs](https://nextra.site/docs) | [入门指引](https://nextra.site/docs/docs-theme/start) | [Built-in Components](https://nextra.site/docs/built-ins) | [Showcase](https://nextra.site/showcase) | [Blog](https://nextra.site/blog) | [API 速查](https://nextra.site/api)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=nextra" target="_blank" rel="noopener noreferrer">Nextra 测试题</a>
+
+
 ## GitHub 地址
 
 [shuding/nextra](https://github.com/shuding/nextra) | [nextra-docs-template](https://github.com/shuding/nextra-docs-template)（docs 模板） | [nextra-blog-template](https://github.com/shuding/nextra-blog-template)（博客模板）

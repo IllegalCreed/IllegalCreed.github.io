@@ -52,6 +52,11 @@ layout: doc
 
 [Nuxt UI 官网](https://ui.nuxt.com/) | [介绍](https://ui.nuxt.com/getting-started) | [Nuxt 安装](https://ui.nuxt.com/getting-started/installation/nuxt) | [Vue 安装](https://ui.nuxt.com/getting-started/installation/vue)（v4 新） | [主题](https://ui.nuxt.com/getting-started/theme) | [图标](https://ui.nuxt.com/getting-started/icons/nuxt) | [字体](https://ui.nuxt.com/getting-started/fonts/nuxt) | [暗色模式](https://ui.nuxt.com/getting-started/color-mode/nuxt) | [i18n](https://ui.nuxt.com/getting-started/i18n/nuxt) | [Content](https://ui.nuxt.com/getting-started/content/nuxt) | [v4 迁移](https://ui.nuxt.com/getting-started/migration/v4) | [组件总览](https://ui.nuxt.com/components) | [Composables](https://ui.nuxt.com/composables) | [模板](https://ui.nuxt.com/templates) | [Figma Kit](https://ui.nuxt.com/figma)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=nuxt-ui" target="_blank" rel="noopener noreferrer">Nuxt UI 测试题</a>
+
+
 ## GitHub 地址
 
 [nuxt/ui](https://github.com/nuxt/ui)（主仓库，9k+ Star）| [unovue/reka-ui](https://github.com/unovue/reka-ui)（底层 Vue 无样式 primitives 库，原 Radix Vue）| [tailwindlabs/tailwindcss](https://github.com/tailwindlabs/tailwindcss)（Tailwind CSS 4）| [TanStack/table](https://github.com/TanStack/table)（UTable 底层）| [nuxt-themes/dashboard](https://github.com/nuxt-themes/dashboard)（Nuxt UI Dashboard 模板） | [nuxt/icon](https://github.com/nuxt/icon)（图标模块，自动注册） | [nuxt/fonts](https://github.com/nuxt/fonts)（字体模块，自动注册） | [nuxtjs/color-mode](https://github.com/nuxt-modules/color-mode)（暗色模式，自动注册）

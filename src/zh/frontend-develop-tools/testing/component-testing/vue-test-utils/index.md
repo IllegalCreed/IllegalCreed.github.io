@@ -34,3 +34,7 @@ Vue 官方维护的组件测试工具库（`@vue/test-utils`，v2.x 对应 Vue 3
 ## 幻灯片地址
 
 <a href="/SlideStack/vue-test-utils-slide/" target="_blank">Vue Test Utils</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vue-test-utils" target="_blank" rel="noopener noreferrer">Vue Test Utils 测试题</a>

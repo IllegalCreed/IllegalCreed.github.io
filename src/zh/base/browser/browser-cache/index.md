@@ -35,3 +35,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/browser-cache-slide/" target="_blank">浏览器缓存机制</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6" target="_blank" rel="noopener noreferrer">浏览器缓存机制 测试题</a>

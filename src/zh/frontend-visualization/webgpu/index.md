@@ -41,3 +41,7 @@ WebGPU 是**浏览器原生的 W3C 标准 API**（不是第三方库），面向
 ## 幻灯片地址
 
 - <a href="/SlideStack/webgpu-slide/" target="_blank">WebGPU</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=webgpu" target="_blank" rel="noopener noreferrer">WebGPU 测试题</a>

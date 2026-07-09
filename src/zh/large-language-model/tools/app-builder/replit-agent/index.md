@@ -36,3 +36,7 @@ Replit 平台非开源，无公开主仓库。官方资料见 [Replit Docs](http
 ## 幻灯片地址
 
 <a href="/SlideStack/replit-agent-slide/" target="_blank">Replit Agent</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=replit-agent" target="_blank" rel="noopener noreferrer">Replit Agent 测试题</a>

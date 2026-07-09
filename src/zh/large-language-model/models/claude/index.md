@@ -67,3 +67,7 @@ Anthropic 推出的大语言模型家族，主打**安全可控 + 长上下文 +
 ## 幻灯片地址
 
 <a href="/SlideStack/claude-model-slide/" target="_blank">Claude</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=claude" target="_blank" rel="noopener noreferrer">Claude 测试题</a>

@@ -44,3 +44,7 @@ jsPDF 的官方定位是「**Client-side JavaScript PDF generation**」——在
 ## 幻灯片地址
 
 <a href="/SlideStack/jspdf-slide/" target="_blank">jsPDF</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=jspdf" target="_blank" rel="noopener noreferrer">jsPDF 测试题</a>

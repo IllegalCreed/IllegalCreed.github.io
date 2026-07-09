@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/visual-regression-slide/" target="_blank">视觉回归测试</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E8%A7%86%E8%A7%89%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95" target="_blank" rel="noopener noreferrer">视觉回归测试 测试题</a>

@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/commitlint-slide/" target="_blank">commitlint</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=commitlint" target="_blank" rel="noopener noreferrer">commitlint 测试题</a>

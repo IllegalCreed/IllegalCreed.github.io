@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/html-media-slide/" target="_blank">HTML 图片与多媒体</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=html-%E5%9B%BE%E7%89%87%E4%B8%8E%E5%A4%9A%E5%AA%92%E4%BD%93" target="_blank" rel="noopener noreferrer">HTML 图片与多媒体 测试题</a>

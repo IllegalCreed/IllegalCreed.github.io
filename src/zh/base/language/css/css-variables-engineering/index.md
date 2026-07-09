@@ -35,3 +35,7 @@ CSS 早已不只是「写死颜色和间距」的静态样式表。`--brand: #00
 ## 幻灯片地址
 
 <a href="/SlideStack/css-variables-engineering-slide/" target="_blank">CSS 自定义属性、函数与工程化</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=css-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%8C%96" target="_blank" rel="noopener noreferrer">CSS 自定义属性、函数与工程化 测试题</a>

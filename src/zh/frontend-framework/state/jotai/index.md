@@ -38,6 +38,11 @@ React 生态最具代表性的「**原子化（atom-based）状态管理库**」
 
 [Jotai 官网](https://jotai.org/) | [Introduction](https://jotai.org/docs/introduction) | [Concepts](https://jotai.org/docs/basics/concepts) | [Comparison](https://jotai.org/docs/basics/comparison) | [Core API: atom](https://jotai.org/docs/core/atom) | [Utilities](https://jotai.org/docs/utilities/storage) | [Guides](https://jotai.org/docs/guides/typescript) | [Extensions](https://jotai.org/docs/extensions/query) | [Migrating to v2](https://jotai.org/docs/guides/migrating-to-v2-api)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=jotai" target="_blank" rel="noopener noreferrer">Jotai 测试题</a>
+
+
 ## GitHub 地址
 
 [pmndrs/jotai](https://github.com/pmndrs/jotai) | [Poimandres 组织](https://github.com/pmndrs) | [Daishi Kato](https://github.com/dai-shi)（主要作者，Zustand / Valtio 等同作者） | [jotaijs](https://github.com/jotaijs)（Jotai 扩展生态组织） | [jotai-devtools](https://github.com/jotaijs/jotai-devtools) | [jotai-tanstack-query](https://github.com/jotaijs/jotai-tanstack-query) | [jotai-immer](https://github.com/jotaijs/jotai-immer)

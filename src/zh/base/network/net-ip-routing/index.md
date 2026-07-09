@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/net-ip-routing-slide/" target="_blank">网络层与路由</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E7%BD%91%E7%BB%9C%E5%B1%82%E4%B8%8E%E8%B7%AF%E7%94%B1" target="_blank" rel="noopener noreferrer">网络层与路由 测试题</a>

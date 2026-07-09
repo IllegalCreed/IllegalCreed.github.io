@@ -39,3 +39,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/browser-security-slide/" target="_blank">浏览器安全</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8" target="_blank" rel="noopener noreferrer">浏览器安全 测试题</a>

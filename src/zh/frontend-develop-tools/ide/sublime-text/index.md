@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/sublime-text-slide/" target="_blank">Sublime Text</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=sublime-text" target="_blank" rel="noopener noreferrer">Sublime Text 测试题</a>

@@ -39,6 +39,11 @@ layout: doc
 
 [Remix 官网](https://remix.run/) | [文档（v2）](https://v2.remix.run/docs) | [合并 Remix 与 React Router](https://remix.run/blog/merging-remix-and-react-router) | [从 Remix 升级到 RR7](https://reactrouter.com/upgrading/remix) | [React Router v7](https://reactrouter.com/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=remix" target="_blank" rel="noopener noreferrer">Remix 测试题</a>
+
+
 ## GitHub 地址
 
 [remix-run/remix](https://github.com/remix-run/remix)（主仓库，MIT；v2 为最后独立线）| [remix-run/react-router](https://github.com/remix-run/react-router)（React Router v7，Remix 框架能力的延续）

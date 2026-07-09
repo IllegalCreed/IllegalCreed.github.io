@@ -36,3 +36,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/codesandbox-slide/" target="_blank">CodeSandbox</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=codesandbox" target="_blank" rel="noopener noreferrer">CodeSandbox 测试题</a>

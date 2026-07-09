@@ -47,3 +47,7 @@ Nx 采用**模块化、渐进式采用**的设计：底座是 **Nx Core**（Rust
 ## 幻灯片地址
 
 - <a href="/SlideStack/nx-slide/" target="_blank">Nx</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=nx" target="_blank" rel="noopener noreferrer">Nx 测试题</a>

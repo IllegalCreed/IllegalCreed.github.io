@@ -58,6 +58,11 @@ layout: doc
 
 [NgRx 官网](https://ngrx.io/) | [Learn Global Store](https://ngrx.io/guide/store/walkthrough) | [Learn SignalStore](https://ngrx.io/guide/signals/signal-store) | [Store 完整指南](https://ngrx.io/guide/store) | [Effects 完整指南](https://ngrx.io/guide/effects) | [Signals 完整指南](https://ngrx.io/guide/signals) | [Entity 完整指南](https://ngrx.io/guide/entity) | [Router Store](https://ngrx.io/guide/router-store) | [Component Store](https://ngrx.io/guide/component-store) | [Operators](https://ngrx.io/guide/operators) | [Store DevTools](https://ngrx.io/guide/store-devtools) | [Schematics](https://ngrx.io/guide/schematics) | [API Reference](https://ngrx.io/api) | [v18 → v19 迁移](https://ngrx.io/guide/migration/v19)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=ngrx" target="_blank" rel="noopener noreferrer">NgRx 测试题</a>
+
+
 ## GitHub 地址
 
 [ngrx/platform](https://github.com/ngrx/platform)（monorepo：store + effects + entity + signals + router-store + component-store + operators + store-devtools + schematics + eslint-plugin） | [Rob Wormald](https://github.com/robwormald)（NgRx 联合创始人、前 Angular 团队）| [Brandon Roberts](https://github.com/brandonroberts)（NgRx 当前主维护者）| [Tim Deschryver](https://github.com/timdeschryver)（NgRx 核心维护者 + Signals 设计者）| [Marko Stanimirović](https://github.com/markostanimirovic)（NgRx Signals 主设计者）| [Mike Ryan](https://github.com/MikeRyanDev)（NgRx 联合创始人）

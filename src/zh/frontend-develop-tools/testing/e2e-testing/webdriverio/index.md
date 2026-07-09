@@ -34,3 +34,7 @@ WebdriverIO 是 Node.js 生态的**现代 WebDriver / BiDi 测试框架**，由 
 ## 幻灯片地址
 
 <a href="/SlideStack/webdriverio-slide/" target="_blank">WebdriverIO</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=webdriverio" target="_blank" rel="noopener noreferrer">WebdriverIO 测试题</a>

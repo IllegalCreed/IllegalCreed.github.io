@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/css-color-background-slide/" target="_blank">CSS 颜色与背景</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=css-%E9%A2%9C%E8%89%B2%E4%B8%8E%E8%83%8C%E6%99%AF" target="_blank" rel="noopener noreferrer">CSS 颜色与背景 测试题</a>

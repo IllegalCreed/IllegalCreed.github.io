@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/js-objects-prototype-slide/" target="_blank">JavaScript 对象与原型继承</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=javascript-%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF" target="_blank" rel="noopener noreferrer">JavaScript 对象与原型继承 测试题</a>

@@ -39,3 +39,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/esbuild-slide/" target="_blank">esbuild</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=esbuild" target="_blank" rel="noopener noreferrer">esbuild 测试题</a>

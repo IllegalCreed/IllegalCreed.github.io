@@ -32,3 +32,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/knip-slide/" target="_blank">Knip</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=knip" target="_blank" rel="noopener noreferrer">Knip 测试题</a>

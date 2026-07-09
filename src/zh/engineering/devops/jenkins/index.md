@@ -37,3 +37,7 @@ CI/CD 领域元老级开源服务器，Kohsuke Kawaguchi 在 Sun 时期开发，
 ## 幻灯片地址
 
 <a href="/SlideStack/jenkins-slide/" target="_blank">Jenkins</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=jenkins" target="_blank" rel="noopener noreferrer">Jenkins 测试题</a>

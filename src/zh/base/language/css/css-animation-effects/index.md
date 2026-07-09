@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/css-animation-effects-slide/" target="_blank">CSS 过渡、动画与视觉</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=css-%E8%BF%87%E6%B8%A1-%E5%8A%A8%E7%94%BB%E4%B8%8E%E8%A7%86%E8%A7%89" target="_blank" rel="noopener noreferrer">CSS 过渡、动画与视觉 测试题</a>

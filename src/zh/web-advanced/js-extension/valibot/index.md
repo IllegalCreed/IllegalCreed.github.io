@@ -45,3 +45,7 @@ Valibot 是由 **Fabian Hiller** 发起的开源 schema 校验库，官方一句
 ## 幻灯片地址
 
 <a href="/SlideStack/valibot-slide/" target="_blank">Valibot</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=valibot" target="_blank" rel="noopener noreferrer">Valibot 测试题</a>

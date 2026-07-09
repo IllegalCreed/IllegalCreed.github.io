@@ -40,6 +40,11 @@ layout: doc
 
 [Redux 官网](https://redux.js.org/) | [Redux Toolkit 官网](https://redux-toolkit.js.org/) | [React-Redux 官网](https://react-redux.js.org/) | [Redux Essentials Tutorial](https://redux.js.org/tutorials/essentials/part-1-overview-concepts)（官方教程）| [Migrating to RTK 2.0 & Redux 5.0](https://redux-toolkit.js.org/usage/migrating-rtk-2)（v4 → v5 迁移）| [Migrating to Modern Redux](https://redux.js.org/usage/migrating-to-modern-redux)（老 Redux → RTK 迁移）| [RTK Query 完整文档](https://redux-toolkit.js.org/rtk-query/overview) | [TypeScript Quick Start](https://redux-toolkit.js.org/tutorials/typescript) | [Usage With TypeScript](https://redux-toolkit.js.org/usage/usage-with-typescript)（进阶）
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=redux" target="_blank" rel="noopener noreferrer">Redux 测试题</a>
+
+
 ## GitHub 地址
 
 [reduxjs/redux](https://github.com/reduxjs/redux) | [reduxjs/redux-toolkit](https://github.com/reduxjs/redux-toolkit) | [reduxjs/react-redux](https://github.com/reduxjs/react-redux) | [reduxjs/reselect](https://github.com/reduxjs/reselect)（memoized selector）| [rt2zz/redux-persist](https://github.com/rt2zz/redux-persist)（localStorage 持久化）| [Dan Abramov](https://github.com/gaearon)（联合创始人、React 核心团队）| [Mark Erikson](https://github.com/markerikson)（当前主维护者、Redux 长期布道者）

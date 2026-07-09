@@ -34,3 +34,7 @@ Flexbox（弹性盒布局）是一套**一维**布局模型——它专注于把
 ## 幻灯片地址
 
 <a href="/SlideStack/css-flexbox-slide/" target="_blank">CSS Flexbox 弹性布局</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=css-flexbox-%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80" target="_blank" rel="noopener noreferrer">CSS Flexbox 弹性布局 测试题</a>

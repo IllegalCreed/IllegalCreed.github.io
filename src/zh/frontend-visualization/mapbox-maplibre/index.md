@@ -42,3 +42,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/mapbox-maplibre-slide/" target="_blank">Mapbox GL JS 与 MapLibre</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=mapbox-gl-js-%E4%B8%8E-maplibre" target="_blank" rel="noopener noreferrer">Mapbox GL JS 与 MapLibre 测试题</a>

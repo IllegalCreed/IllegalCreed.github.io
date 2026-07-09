@@ -26,6 +26,11 @@ VitePress 是 VuePress 1 的精神继任者（spiritual successor），由 Vue �
 
 [VitePress](https://vitepress.dev/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vitepress" target="_blank" rel="noopener noreferrer">VitePress 测试题</a>
+
+
 ## GitHub地址
 
 [VitePress](https://github.com/vuejs/vitepress)

@@ -36,3 +36,7 @@ Angular DevTools 是 Angular 官方维护的**浏览器扩展**（Chrome / Firef
 ## 幻灯片地址
 
 <a href="/SlideStack/angular-devtools-slide/" target="_blank">Angular DevTools</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=angular-devtools" target="_blank" rel="noopener noreferrer">Angular DevTools 测试题</a>

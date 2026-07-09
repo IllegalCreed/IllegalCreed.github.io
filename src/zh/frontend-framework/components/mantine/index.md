@@ -56,6 +56,11 @@ layout: doc
 
 [Mantine 官网](https://mantine.dev/) | [入门指南](https://mantine.dev/getting-started/) | [Vite 集成](https://mantine.dev/guides/vite/) | [Next.js 集成](https://mantine.dev/guides/next/) | [React Router 集成](https://mantine.dev/guides/react-router/) | [主题对象](https://mantine.dev/theming/theme-object/) | [Color Schemes](https://mantine.dev/theming/color-schemes/) | [Styles API](https://mantine.dev/styles/styles-api/) | [Style Props](https://mantine.dev/styles/style-props/) | [Polymorphic Components](https://mantine.dev/styles/polymorphic-components/) | [CSS Modules](https://mantine.dev/styles/css-modules/) | [组件总览](https://mantine.dev/core/package.json/) | [Hooks 总览](https://mantine.dev/hooks/use-disclosure/) | [Form](https://mantine.dev/form/use-form/) | [Dates](https://mantine.dev/dates/getting-started/) | [Notifications](https://mantine.dev/x/notifications/) | [Modals](https://mantine.dev/x/modals/) | [Spotlight](https://mantine.dev/x/spotlight/) | [Charts](https://mantine.dev/charts/getting-started/) | [Tiptap 富文本](https://mantine.dev/x/tiptap/) | [Mantine UI 业务组件](https://ui.mantine.dev) | [FAQ 帮助站](https://help.mantine.dev/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=mantine" target="_blank" rel="noopener noreferrer">Mantine 测试题</a>
+
+
 ## GitHub 地址
 
 [mantinedev/mantine](https://github.com/mantinedev/mantine)（主仓库，28k+ Star） | [mantinedev/ui.mantine.dev](https://github.com/mantinedev/ui.mantine.dev)（123 业务组件） | [mantinedev/mantine-next-template](https://github.com/mantinedev/next-app-template)（Next.js App Router 模板） | [mantinedev/vite-template](https://github.com/mantinedev/vite-template)（完整 Vite 模板含 Vitest + Storybook） | [mantinedev/vite-min-template](https://github.com/mantinedev/vite-min-template)（最小 Vite 模板） | [icflorescu/mantine-datatable](https://github.com/icflorescu/mantine-datatable)（社区流行的数据表格） | [KevinVandy/mantine-react-table](https://github.com/KevinVandy/mantine-react-table)（基于 TanStack Table 的高级表格）

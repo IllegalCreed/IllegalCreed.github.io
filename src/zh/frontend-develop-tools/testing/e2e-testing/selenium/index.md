@@ -35,3 +35,7 @@ Selenium 是历史最悠久、**W3C WebDriver 标准的发起者**——通过 W
 ## 幻灯片地址
 
 <a href="/SlideStack/selenium-slide/" target="_blank">Selenium</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=selenium" target="_blank" rel="noopener noreferrer">Selenium 测试题</a>

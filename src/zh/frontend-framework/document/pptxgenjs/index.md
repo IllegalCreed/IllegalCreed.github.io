@@ -43,3 +43,7 @@ PptxGenJS 的官方定位是「**Create PowerPoint presentations with a powerful
 ## 幻灯片地址
 
 <a href="/SlideStack/pptxgenjs-slide/" target="_blank">PptxGenJS</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=pptxgenjs" target="_blank" rel="noopener noreferrer">PptxGenJS 测试题</a>

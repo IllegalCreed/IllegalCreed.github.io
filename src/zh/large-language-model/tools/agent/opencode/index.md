@@ -51,3 +51,7 @@ sst 团队（SST framework 出品者）开源的 AI 编码 Agent ——「**The 
 ## 幻灯片地址
 
 <a href="/SlideStack/opencode-slide/" target="_blank">OpenCode</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=opencode" target="_blank" rel="noopener noreferrer">OpenCode 测试题</a>

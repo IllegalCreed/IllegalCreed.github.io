@@ -34,3 +34,7 @@ Vitest v4 转正（脱离 experimental）的「在真实浏览器里跑测试」
 ## 幻灯片地址
 
 <a href="/SlideStack/vitest-browser-mode-slide/" target="_blank">Vitest Browser Mode</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vitest-browser-mode" target="_blank" rel="noopener noreferrer">Vitest Browser Mode 测试题</a>

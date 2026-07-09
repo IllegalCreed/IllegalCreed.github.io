@@ -37,3 +37,7 @@ Wails 是**用 Go 写后端、用系统原生 WebView 渲染前端**的跨平台
 ## 幻灯片地址
 
 - <a href="/SlideStack/wails-slide/" target="_blank">Wails</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=wails" target="_blank" rel="noopener noreferrer">Wails 测试题</a>

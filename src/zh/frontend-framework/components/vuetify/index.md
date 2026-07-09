@@ -46,6 +46,11 @@ layout: doc
 
 [Vuetify 官网](https://vuetifyjs.com/zh-Hans/) | [安装](https://vuetifyjs.com/zh-Hans/getting-started/installation/) | [Vite 项目](https://vuetifyjs.com/zh-Hans/getting-started/installation/#using-vite) | [按需引入](https://vuetifyjs.com/zh-Hans/features/treeshaking/) | [主题](https://vuetifyjs.com/zh-Hans/features/theme/) | [全局默认值](https://vuetifyjs.com/zh-Hans/features/global-configuration/) | [国际化](https://vuetifyjs.com/zh-Hans/features/internationalization/) | [日期适配器](https://vuetifyjs.com/zh-Hans/features/dates/) | [SSR](https://vuetifyjs.com/zh-Hans/features/ssr/) | [Display & Platform](https://vuetifyjs.com/zh-Hans/features/display-and-platform/) | [Application Layout](https://vuetifyjs.com/zh-Hans/features/application-layout/) | [组件总览](https://vuetifyjs.com/zh-Hans/components/all/) | [Playground](https://play.vuetifyjs.com/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vuetify" target="_blank" rel="noopener noreferrer">Vuetify 测试题</a>
+
+
 ## GitHub 地址
 
 [vuetifyjs/vuetify](https://github.com/vuetifyjs/vuetify) | [vuetifyjs/nuxt-module](https://github.com/vuetifyjs/nuxt-module)（官方 Nuxt 模块）| [vuetifyjs/eslint-plugin-vuetify](https://github.com/vuetifyjs/eslint-plugin-vuetify)（v2 → v3 迁移辅助）| [vuetifyjs/create-vuetify](https://github.com/vuetifyjs/create-vuetify)（官方脚手架）| [vite-plugin-vuetify](https://github.com/vuetifyjs/vuetify-loader)（按需引入插件）| [@mdi/font](https://github.com/Templarian/MaterialDesign-Webfont)（Material Design Icons 9000+ 图标）| [@date-io](https://github.com/dmtrKovalenko/date-io)（Date Adapter 多框架抽象）

@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/net-access-mobile-slide/" target="_blank">接入与移动网络</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E6%8E%A5%E5%85%A5%E4%B8%8E%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C" target="_blank" rel="noopener noreferrer">接入与移动网络 测试题</a>

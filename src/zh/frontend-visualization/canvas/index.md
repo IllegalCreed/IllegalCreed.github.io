@@ -35,3 +35,7 @@ Canvas 2D 是浏览器原生的**立即模式（immediate mode）位图绘图 AP
 ## 幻灯片地址
 
 - <a href="/SlideStack/canvas-slide/" target="_blank">Canvas</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=canvas" target="_blank" rel="noopener noreferrer">Canvas 测试题</a>

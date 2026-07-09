@@ -37,3 +37,7 @@ layout: doc
 ## 幻灯片地址
 
 - <a href="/SlideStack/semantic-release-slide/" target="_blank">semantic-release</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=semantic-release" target="_blank" rel="noopener noreferrer">semantic-release 测试题</a>

@@ -32,3 +32,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/secretlint-slide/" target="_blank">Secretlint</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=secretlint" target="_blank" rel="noopener noreferrer">Secretlint 测试题</a>

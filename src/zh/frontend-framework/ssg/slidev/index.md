@@ -20,6 +20,11 @@ layout: doc
 
 [Slidev](https://sli.dev/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=slidev" target="_blank" rel="noopener noreferrer">Slidev 测试题</a>
+
+
 ## GitHub地址
 
 [Slidev](https://github.com/slidevjs/slidev)

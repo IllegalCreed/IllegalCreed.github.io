@@ -48,6 +48,11 @@ layout: doc
 
 [PrimeVue 官网](https://primevue.org) | [Installation Vite](https://primevue.org/installation/) | [Installation Nuxt](https://primevue.org/nuxt/) | [Auto Import](https://primevue.org/autoimport/) | [Configuration](https://primevue.org/configuration/) | [Styled Theming](https://primevue.org/theming/styled/) | [PassThrough](https://primevue.org/passthrough/) | [Tailwind](https://primevue.org/tailwind/) | [PrimeIcons](https://primevue.org/icons/) | [Forms](https://primevue.org/forms/) | [Custom Icons](https://primevue.org/customicons/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=primevue" target="_blank" rel="noopener noreferrer">PrimeVue 测试题</a>
+
+
 ## GitHub 地址
 
 [primefaces/primevue](https://github.com/primefaces/primevue)（主仓库 12k+ Star）| [primefaces/primeuix](https://github.com/primefaces/primeuix)（v4 主题系统底层 + `@primeuix/themes`）| [primefaces/primeicons](https://github.com/primefaces/primeicons)（PrimeIcons 图标包）| [primefaces/primevue-examples](https://github.com/primefaces/primevue-examples)（官方示例项目集合）| [primefaces/volt](https://github.com/primefaces/volt)（Volt UI Tailwind 重写版）| [primefaces/tailwindcss-primeui](https://github.com/primefaces/tailwindcss-primeui)（官方 Tailwind 插件）

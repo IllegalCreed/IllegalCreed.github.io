@@ -48,3 +48,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/rsbuild-slide/" target="_blank">Rsbuild</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=rsbuild" target="_blank" rel="noopener noreferrer">Rsbuild 测试题</a>

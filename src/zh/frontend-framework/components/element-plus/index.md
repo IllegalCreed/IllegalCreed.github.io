@@ -46,6 +46,11 @@ layout: doc
 
 [Element Plus 官网](https://element-plus.org/zh-CN/) | [设计原则](https://element-plus.org/zh-CN/guide/design.html) | [安装](https://element-plus.org/zh-CN/guide/installation.html) | [快速开始](https://element-plus.org/zh-CN/guide/quickstart.html) | [主题](https://element-plus.org/zh-CN/guide/theming.html) | [暗黑模式](https://element-plus.org/zh-CN/guide/dark-mode.html) | [国际化](https://element-plus.org/zh-CN/guide/i18n.html) | [SSR](https://element-plus.org/zh-CN/guide/ssr.html) | [组件总览](https://element-plus.org/zh-CN/component/overview.html) | [Playground](https://element-plus.org/zh-CN/playground)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=element-plus" target="_blank" rel="noopener noreferrer">Element Plus 测试题</a>
+
+
 ## GitHub 地址
 
 [element-plus/element-plus](https://github.com/element-plus/element-plus) | [@element-plus/icons-vue](https://github.com/element-plus/element-plus-icons) | [@element-plus/nuxt](https://github.com/element-plus/element-plus-nuxt) | [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components)（按需引入插件）| [unplugin-auto-import](https://github.com/unplugin/unplugin-auto-import)（API 自动导入）| [element-plus-vite-starter](https://github.com/element-plus/element-plus-vite-starter)（官方 Vite 模板）

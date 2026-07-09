@@ -54,6 +54,11 @@ layout: doc
 
 [PrimeNG 官网](https://primeng.org) | [Installation](https://primeng.org/installation) | [Theming](https://primeng.org/theming) | [Configuration](https://primeng.org/configuration) | [PassThrough](https://primeng.org/passthrough) | [Tailwind CSS](https://primeng.org/tailwind) | [PrimeIcons](https://primeng.org/icons) | [Components Overview](https://primeng.org/overview) | [Templates](https://primeng.org/templates) | [v20 Migration](https://primeng.org/guides/migration) | [PrimeNG GitHub](https://github.com/primefaces/primeng) | [PrimeUIX Themes](https://github.com/primefaces/primeuix)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=primeng" target="_blank" rel="noopener noreferrer">PrimeNG 测试题</a>
+
+
 ## GitHub 地址
 
 [primefaces/primeng](https://github.com/primefaces/primeng)（主仓库 10k+ Star）| [primefaces/primeuix](https://github.com/primefaces/primeuix)（v20 主题系统底层 + `@primeuix/themes`）| [primefaces/primeicons](https://github.com/primefaces/primeicons)（PrimeIcons 图标包）| [primefaces/primeng-templates](https://github.com/primefaces/primeng-templates)（官方示例项目集合）| [primefaces/tailwindcss-primeui](https://github.com/primefaces/tailwindcss-primeui)（官方 Tailwind 插件，与 PrimeVue 共用）| [PrimeNG 官方 Discord](https://discord.gg/gzKFYnpmCY)

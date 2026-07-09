@@ -44,3 +44,7 @@ ExcelJS 的官方定位是「**Read, manipulate and write spreadsheet data and s
 ## 幻灯片地址
 
 <a href="/SlideStack/exceljs-slide/" target="_blank">ExcelJS</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=exceljs" target="_blank" rel="noopener noreferrer">ExcelJS 测试题</a>

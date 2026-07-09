@@ -42,3 +42,7 @@ Caleb Porzio 创建并维护的极轻量 JavaScript 框架（gzip 约 ~16KB，ru
 ## 幻灯片地址
 
 <a href="/SlideStack/alpine-js-slide/" target="_blank">Alpine.js</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=alpine-js" target="_blank" rel="noopener noreferrer">Alpine.js 测试题</a>

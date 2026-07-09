@@ -35,3 +35,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/github-desktop-slide/" target="_blank">GitHub Desktop</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=github-desktop" target="_blank" rel="noopener noreferrer">GitHub Desktop 测试题</a>

@@ -37,3 +37,7 @@ GitLab 自带的 CI/CD 系统，配置文件 `.gitlab-ci.yml` 放仓库根目录
 ## 幻灯片地址
 
 <a href="/SlideStack/gitlab-cicd-slide/" target="_blank">GitLab CI/CD</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=gitlab-ci-cd" target="_blank" rel="noopener noreferrer">GitLab CI/CD 测试题</a>

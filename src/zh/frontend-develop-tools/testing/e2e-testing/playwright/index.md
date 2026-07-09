@@ -35,3 +35,7 @@ Playwright 是微软出品的跨浏览器端到端测试框架——**一套 API
 ## 幻灯片地址
 
 <a href="/SlideStack/playwright-slide/" target="_blank">Playwright</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=playwright" target="_blank" rel="noopener noreferrer">Playwright 测试题</a>

@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/snapshot-testing-slide/" target="_blank">快照测试</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E5%BF%AB%E7%85%A7%E6%B5%8B%E8%AF%95" target="_blank" rel="noopener noreferrer">快照测试 测试题</a>

@@ -34,3 +34,7 @@ HTTP 是明文协议——传输途中任何中间节点都能窃听、篡改、
 ## 幻灯片地址
 
 <a href="/SlideStack/net-https-tls-slide/" target="_blank">HTTPS 与传输安全</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=https-%E4%B8%8E%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8" target="_blank" rel="noopener noreferrer">HTTPS 与传输安全 测试题</a>

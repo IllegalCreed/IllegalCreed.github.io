@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/vim-neovim-slide/" target="_blank">Vim/Neovim</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vim-neovim" target="_blank" rel="noopener noreferrer">Vim/Neovim 测试题</a>

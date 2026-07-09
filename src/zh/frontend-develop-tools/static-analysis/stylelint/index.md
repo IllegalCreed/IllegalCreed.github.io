@@ -32,3 +32,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/stylelint-slide/" target="_blank">Stylelint</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=stylelint" target="_blank" rel="noopener noreferrer">Stylelint 测试题</a>

@@ -36,3 +36,7 @@ Fork 为闭源商业软件，无公开源码仓库；问题反馈见 [fork-dev/T
 ## 幻灯片地址
 
 <a href="/SlideStack/fork-slide/" target="_blank">Fork</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=fork" target="_blank" rel="noopener noreferrer">Fork 测试题</a>

@@ -36,3 +36,7 @@ JavaScript 包管理器（官方定位「**a package manager that doubles down a
 ## 幻灯片地址
 
 <a href="/SlideStack/yarn-slide/" target="_blank">Yarn</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=yarn" target="_blank" rel="noopener noreferrer">Yarn 测试题</a>

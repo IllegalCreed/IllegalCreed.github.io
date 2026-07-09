@@ -45,6 +45,11 @@ layout: doc
 
 [Analog 官网](https://analogjs.org/) | [文档首页](https://analogjs.org/docs) | [路由](https://analogjs.org/docs/features/routing/overview) | [服务端数据](https://analogjs.org/docs/features/data-fetching/server-side-data-fetching) | [API Routes](https://analogjs.org/docs/features/api/overview) | [SSR](https://analogjs.org/docs/features/server/server-side-rendering) | [SSG](https://analogjs.org/docs/features/server/static-site-generation) | [部署](https://analogjs.org/docs/features/deployment/overview) | [迁移指南](https://analogjs.org/docs/guides/migrating)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=analog" target="_blank" rel="noopener noreferrer">Analog 测试题</a>
+
+
 ## GitHub 地址
 
 [analogjs/analog](https://github.com/analogjs/analog)（含 examples / packages / docs 子目录） | [Brandon Roberts](https://github.com/brandonroberts)（创始人 + 主要维护者）

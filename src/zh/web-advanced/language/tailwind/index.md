@@ -35,3 +35,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/tailwind-slide/" target="_blank">Tailwind CSS</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=tailwind-css" target="_blank" rel="noopener noreferrer">Tailwind CSS 测试题</a>

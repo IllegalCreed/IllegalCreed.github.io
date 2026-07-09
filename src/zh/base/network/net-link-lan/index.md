@@ -35,3 +35,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/net-link-lan-slide/" target="_blank">链路层与局域网</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E9%93%BE%E8%B7%AF%E5%B1%82%E4%B8%8E%E5%B1%80%E5%9F%9F%E7%BD%91" target="_blank" rel="noopener noreferrer">链路层与局域网 测试题</a>

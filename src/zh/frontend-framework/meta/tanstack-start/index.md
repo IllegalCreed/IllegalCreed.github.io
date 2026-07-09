@@ -38,6 +38,11 @@ layout: doc
 
 [TanStack Start 官网](https://tanstack.com/start) | [TanStack Start React 文档](https://tanstack.com/start/latest/docs/framework/react/overview) | [TanStack Router 文档](https://tanstack.com/router/latest) | [示例集合](https://tanstack.com/start/latest/docs/framework/react/examples)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=tanstack-start" target="_blank" rel="noopener noreferrer">TanStack Start 测试题</a>
+
+
 ## GitHub 地址
 
 [TanStack/router](https://github.com/TanStack/router)（TanStack Router 与 TanStack Start 共仓库，Start 位于 `packages/start-*`）

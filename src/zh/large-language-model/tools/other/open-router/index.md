@@ -61,3 +61,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/open-router-slide/" target="_blank">OpenRouter</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=openrouter" target="_blank" rel="noopener noreferrer">OpenRouter 测试题</a>

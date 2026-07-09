@@ -34,3 +34,7 @@ HTTP 的请求-响应模型有个根本局限：**服务器无法主动向客户
 ## 幻灯片地址
 
 <a href="/SlideStack/net-realtime-slide/" target="_blank">实时通信协议</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener noreferrer">实时通信协议 测试题</a>

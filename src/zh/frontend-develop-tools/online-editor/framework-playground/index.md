@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/framework-playground-slide/" target="_blank">框架官方 Playground</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E6%A1%86%E6%9E%B6%E5%AE%98%E6%96%B9-playground" target="_blank" rel="noopener noreferrer">框架官方 Playground 测试题</a>

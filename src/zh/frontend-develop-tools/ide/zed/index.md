@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/zed-slide/" target="_blank">Zed</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=zed" target="_blank" rel="noopener noreferrer">Zed 测试题</a>

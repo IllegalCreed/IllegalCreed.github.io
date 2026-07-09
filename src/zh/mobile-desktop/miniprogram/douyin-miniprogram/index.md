@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 - <a href="/SlideStack/douyin-miniprogram-slide/" target="_blank">抖音小程序</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E6%8A%96%E9%9F%B3%E5%B0%8F%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener noreferrer">抖音小程序 测试题</a>

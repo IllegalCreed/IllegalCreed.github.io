@@ -32,3 +32,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/husky-slide/" target="_blank">Husky</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=husky" target="_blank" rel="noopener noreferrer">Husky 测试题</a>

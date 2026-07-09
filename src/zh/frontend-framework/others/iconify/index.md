@@ -33,6 +33,11 @@ layout: doc
 
 [Iconify 官网](https://iconify.design/) | [文档](https://iconify.design/docs/) | [iconify-icon Web Component](https://iconify.design/docs/iconify-icon/) | [React 组件](https://iconify.design/docs/icon-components/react/) | [Vue 组件](https://iconify.design/docs/icon-components/vue/) | [图标搜索](https://icon-sets.iconify.design/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=iconify" target="_blank" rel="noopener noreferrer">Iconify 测试题</a>
+
+
 ## GitHub 地址
 
 [iconify/iconify](https://github.com/iconify/iconify)（主仓库，MIT 许可）| [@iconify/utils](https://github.com/iconify/iconify/tree/main/packages/utils)（工具库）| [@iconify-json](https://github.com/iconify/icon-sets)（图标数据集）

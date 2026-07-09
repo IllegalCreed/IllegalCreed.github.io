@@ -36,3 +36,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/npm-slide/" target="_blank">npm</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=npm" target="_blank" rel="noopener noreferrer">npm 测试题</a>

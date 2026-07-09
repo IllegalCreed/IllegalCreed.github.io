@@ -44,6 +44,11 @@ layout: doc
 
 [Eleventy 官网](https://www.11ty.dev/) | [Docs](https://www.11ty.dev/docs/) | [快速上手](https://www.11ty.dev/docs/getting-started/) | [Plugin 列表](https://www.11ty.dev/docs/plugins/) | [Starter 模板](https://www.11ty.dev/docs/starter/) | [Eleventy Leaderboard 案例展示](https://www.11ty.dev/leaderboards/) | [Image Plugin](https://www.11ty.dev/docs/plugins/image/) | [WebC](https://www.11ty.dev/docs/languages/webc/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=eleventy" target="_blank" rel="noopener noreferrer">Eleventy 测试题</a>
+
+
 ## GitHub 地址
 
 [11ty/eleventy](https://github.com/11ty/eleventy) | [11ty/eleventy-img](https://github.com/11ty/eleventy-img) | [11ty/eleventy-base-blog](https://github.com/11ty/eleventy-base-blog)（官方维护的基础博客 starter）

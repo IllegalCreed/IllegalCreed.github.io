@@ -34,3 +34,7 @@ TypeScript 文档注释的**标准化语法规范**——官方原话是 “a pr
 ## 幻灯片地址
 
 <a href="/SlideStack/tsdoc-slide/" target="_blank">TSDoc</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=tsdoc" target="_blank" rel="noopener noreferrer">TSDoc 测试题</a>

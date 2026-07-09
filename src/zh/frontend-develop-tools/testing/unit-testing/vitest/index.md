@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/vitest-slide/" target="_blank">Vitest</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vitest" target="_blank" rel="noopener noreferrer">Vitest 测试题</a>

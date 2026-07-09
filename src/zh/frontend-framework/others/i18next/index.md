@@ -43,3 +43,7 @@ i18next 的官方定位是「**an internationalization-framework written in and 
 ## 幻灯片地址
 
 <a href="/SlideStack/i18next-slide/" target="_blank">i18next（JavaScript 国际化框架）</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=i18next-javascript-%E5%9B%BD%E9%99%85%E5%8C%96%E6%A1%86%E6%9E%B6" target="_blank" rel="noopener noreferrer">i18next（JavaScript 国际化框架） 测试题</a>

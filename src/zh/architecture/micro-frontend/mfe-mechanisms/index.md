@@ -42,3 +42,7 @@ layout: doc
 ## 幻灯片地址
 
 - <a href="/SlideStack/mfe-mechanisms-slide/" target="_blank">微前端核心机制</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E5%BE%AE%E5%89%8D%E7%AB%AF%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6" target="_blank" rel="noopener noreferrer">微前端核心机制 测试题</a>

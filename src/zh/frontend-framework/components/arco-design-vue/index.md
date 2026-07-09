@@ -46,6 +46,11 @@ layout: doc
 
 [Arco Design 设计系统](https://arco.design/) | [Arco Design Vue 官网](https://arco.design/vue) | [快速开始](https://arco.design/vue/docs/start) | [全局配置](https://arco.design/vue/docs/config-provider) | [国际化](https://arco.design/vue/docs/i18n) | [主题定制](https://arco.design/vue/docs/theme) | [暗黑模式](https://arco.design/vue/docs/dark) | [Design Lab 主题平台](https://arco.design/themes) | [Arco Icons 图标](https://arco.design/vue/component/icon) | [组件总览](https://arco.design/vue/component/button) | [更新日志](https://arco.design/vue/docs/changelog)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=arco-design-vue" target="_blank" rel="noopener noreferrer">Arco Design Vue 测试题</a>
+
+
 ## GitHub 地址
 
 [arco-design/arco-design-vue](https://github.com/arco-design/arco-design-vue)（主仓库，3.1k Star）| [arco-design/arco-design](https://github.com/arco-design/arco-design)（**React 版**，6.6k Star，共享同一设计系统）| [arco-design/arco-design-pro-vue](https://github.com/arco-design/arco-design-pro-vue)（**官方 Pro 中后台模板**，1.8k Star）| [arco-design/arco-design-pro](https://github.com/arco-design/arco-design-pro)（React 版 Pro 模板）| [arco-plugins](https://github.com/arco-design/arco-plugins)（Vite / Webpack / Babel 按需引入插件）

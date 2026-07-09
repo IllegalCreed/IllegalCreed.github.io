@@ -36,3 +36,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/stackblitz-slide/" target="_blank">StackBlitz</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=stackblitz" target="_blank" rel="noopener noreferrer">StackBlitz 测试题</a>

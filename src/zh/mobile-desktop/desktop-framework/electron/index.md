@@ -39,3 +39,7 @@ Electron 是**用 HTML/CSS/JavaScript + Chromium + Node.js 构建 Windows/macOS/
 ## 幻灯片地址
 
 - <a href="/SlideStack/electron-slide/" target="_blank">Electron</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=electron" target="_blank" rel="noopener noreferrer">Electron 测试题</a>

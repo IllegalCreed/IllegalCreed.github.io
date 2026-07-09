@@ -52,6 +52,11 @@ layout: doc
 
 [Chakra UI 官网](https://chakra-ui.com/) | [入门指南](https://chakra-ui.com/docs/get-started/installation) | [Vite 集成](https://chakra-ui.com/docs/get-started/frameworks/vite) | [Next.js App Router 集成](https://chakra-ui.com/docs/get-started/frameworks/next-app) | [v2 → v3 Migration](https://chakra-ui.com/docs/get-started/migration) | [Theming Overview](https://chakra-ui.com/docs/theming/overview) | [Styling Overview](https://chakra-ui.com/docs/styling/overview) | [Recipes](https://chakra-ui.com/docs/theming/recipes) | [Slot Recipes](https://chakra-ui.com/docs/theming/slot-recipes) | [Dark Mode](https://chakra-ui.com/docs/styling/dark-mode) | [Conditional Styles](https://chakra-ui.com/docs/styling/conditional-styles) | [Responsive Design](https://chakra-ui.com/docs/styling/responsive-design) | [Components 总览](https://chakra-ui.com/docs/components/concepts/overview) | [Composition](https://chakra-ui.com/docs/components/concepts/composition) | [Charts](https://chakra-ui.com/docs/charts/installation) | [CLI](https://chakra-ui.com/docs/get-started/cli) | [Playground](https://chakra-ui.com/docs/get-started/playground) | [Changelog](https://chakra-ui.com/docs/get-started/changelog) | [Ark UI（headless 底层）](https://ark-ui.com)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=chakra-ui" target="_blank" rel="noopener noreferrer">Chakra UI 测试题</a>
+
+
 ## GitHub 地址
 
 [chakra-ui/chakra-ui](https://github.com/chakra-ui/chakra-ui)（主仓库，38k+ Star） | [chakra-ui/ark](https://github.com/chakra-ui/ark)（Ark UI headless 组件库） | [chakra-ui/panda](https://github.com/chakra-ui/panda)（Panda CSS 设计系统引擎） | [chakra-ui/zag](https://github.com/chakra-ui/zag)（State machine 状态机底层）

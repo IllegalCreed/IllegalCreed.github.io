@@ -26,3 +26,7 @@ SVG（Scalable Vector Graphics，可缩放矢量图形）是基于 XML 的二维
 ## 幻灯片地址
 
 - <a href="/SlideStack/svg-slide/" target="_blank">SVG</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=svg" target="_blank" rel="noopener noreferrer">SVG 测试题</a>

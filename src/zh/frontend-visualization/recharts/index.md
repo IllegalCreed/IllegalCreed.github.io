@@ -43,3 +43,7 @@ React 生态下载量第一的图表库（npm 周下载约 5150 万，约为 cha
 ## 幻灯片地址
 
 <a href="/SlideStack/recharts-slide/" target="_blank">Recharts</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=recharts" target="_blank" rel="noopener noreferrer">Recharts 测试题</a>

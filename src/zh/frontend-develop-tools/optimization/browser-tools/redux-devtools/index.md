@@ -35,3 +35,7 @@ Redux DevTools 是用于调试 **可预测状态容器**的浏览器扩展，最
 ## 幻灯片地址
 
 <a href="/SlideStack/redux-devtools-slide/" target="_blank">Redux DevTools</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=redux-devtools" target="_blank" rel="noopener noreferrer">Redux DevTools 测试题</a>

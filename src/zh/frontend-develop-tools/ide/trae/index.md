@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/trae-slide/" target="_blank">Trae</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=trae" target="_blank" rel="noopener noreferrer">Trae 测试题</a>

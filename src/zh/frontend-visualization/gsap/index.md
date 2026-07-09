@@ -51,3 +51,7 @@ GSAP（GreenSock Animation Platform）是一个**框架无关**的专业级 Java
 ## 幻灯片地址
 
 <a href="/SlideStack/gsap-slide/" target="_blank">GSAP</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=gsap" target="_blank" rel="noopener noreferrer">GSAP 测试题</a>

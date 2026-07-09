@@ -44,3 +44,7 @@ date-fns 由 Sasha Koss（@kossnocorp）等维护，官方定位是「**modern J
 ## 幻灯片地址
 
 <a href="/SlideStack/date-fns-slide/" target="_blank">date-fns</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=date-fns" target="_blank" rel="noopener noreferrer">date-fns 测试题</a>

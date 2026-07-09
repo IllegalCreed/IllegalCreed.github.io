@@ -35,3 +35,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/toml-slide/" target="_blank">TOML</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=toml" target="_blank" rel="noopener noreferrer">TOML 测试题</a>

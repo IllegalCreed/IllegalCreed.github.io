@@ -34,6 +34,11 @@ layout: doc
 
 [VueHooks Plus 官网](https://inhiblabcore.github.io/docs/hooks/) | [English 文档](https://inhiblabcore.github.io/docs/hooks/en/) | [Guide 指南](https://inhiblabcore.github.io/docs/hooks/guide/) | [useRequest（旗舰）](https://inhiblabcore.github.io/docs/hooks/useRequest/) | [Playground 在线演示](https://inhiblabcore.github.io/vue-hooks-plus/) | [npm: vue-hooks-plus](https://www.npmjs.com/package/vue-hooks-plus)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vuehooks-plus" target="_blank" rel="noopener noreferrer">VueHooks Plus 测试题</a>
+
+
 ## GitHub 地址
 
 [InhiblabCore/vue-hooks-plus](https://github.com/InhiblabCore/vue-hooks-plus)（主仓库，MIT 许可）| [vscode-vue-hooks-plus](https://github.com/InhiblabCore/vscode-vue-hooks-plus)（VS Code 文档扩展）| [@vue-hooks-plus/resolvers](https://github.com/InhiblabCore/vue-hooks-plus)（自动导入解析器，配合 `unplugin-auto-import`）

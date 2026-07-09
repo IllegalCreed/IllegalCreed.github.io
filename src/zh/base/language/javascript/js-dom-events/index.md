@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/js-dom-events-slide/" target="_blank">JavaScript DOM 与事件</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=javascript-dom-%E4%B8%8E%E4%BA%8B%E4%BB%B6" target="_blank" rel="noopener noreferrer">JavaScript DOM 与事件 测试题</a>

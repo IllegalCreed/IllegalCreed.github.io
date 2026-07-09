@@ -50,3 +50,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/utility-libs-slide/" target="_blank">前端实用小库（7 合 1）</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%94%A8%E5%B0%8F%E5%BA%93-7-%E5%90%88-1" target="_blank" rel="noopener noreferrer">前端实用小库（7 合 1） 测试题</a>

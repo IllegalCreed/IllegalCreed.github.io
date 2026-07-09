@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/net-layering-slide/" target="_blank">网络分层模型</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E7%BD%91%E7%BB%9C%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B" target="_blank" rel="noopener noreferrer">网络分层模型 测试题</a>

@@ -36,3 +36,7 @@ Redocly 出品的**开源（MIT）OpenAPI 文档渲染器**——把一份已有
 ## 幻灯片地址
 
 <a href="/SlideStack/redoc-slide/" target="_blank">Redoc</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=redoc" target="_blank" rel="noopener noreferrer">Redoc 测试题</a>

@@ -32,3 +32,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/editorconfig-slide/" target="_blank">EditorConfig</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=editorconfig" target="_blank" rel="noopener noreferrer">EditorConfig 测试题</a>

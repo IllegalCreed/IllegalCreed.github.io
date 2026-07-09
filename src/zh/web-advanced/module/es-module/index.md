@@ -35,3 +35,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/es-module-slide/" target="_blank">ES Module</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=es-module" target="_blank" rel="noopener noreferrer">ES Module 测试题</a>

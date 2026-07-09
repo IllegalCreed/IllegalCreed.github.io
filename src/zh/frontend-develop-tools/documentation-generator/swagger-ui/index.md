@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/swagger-ui-slide/" target="_blank">Swagger UI</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=swagger-ui" target="_blank" rel="noopener noreferrer">Swagger UI 测试题</a>

@@ -44,3 +44,7 @@ pdf-lib 的官方定位是「**Create and modify PDF documents in any JavaScript
 ## 幻灯片地址
 
 <a href="/SlideStack/pdf-lib-slide/" target="_blank">pdf-lib</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=pdf-lib" target="_blank" rel="noopener noreferrer">pdf-lib 测试题</a>

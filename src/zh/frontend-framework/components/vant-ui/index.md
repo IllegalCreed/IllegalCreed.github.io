@@ -48,6 +48,11 @@ layout: doc
 
 [Vant 官网](https://vant-ui.github.io/vant/#/zh-CN) | [介绍](https://vant-ui.github.io/vant/#/zh-CN/home) | [快速上手](https://vant-ui.github.io/vant/#/zh-CN/quickstart) | [进阶用法](https://vant-ui.github.io/vant/#/zh-CN/advanced-usage) | [ConfigProvider 全局配置](https://vant-ui.github.io/vant/#/zh-CN/config-provider) | [Locale 国际化](https://vant-ui.github.io/vant/#/zh-CN/locale) | [更新日志](https://vant-ui.github.io/vant/#/zh-CN/changelog) | [Vant 2 文档](https://vant-ui.github.io/vant/v2/#/zh-CN) | [Vant Weapp（小程序）](https://vant-ui.github.io/vant-weapp/#/intro)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vant-ui" target="_blank" rel="noopener noreferrer">Vant UI 测试题</a>
+
+
 ## GitHub 地址
 
 [vant-ui/vant](https://github.com/vant-ui/vant) | [vant-ui/vant-weapp](https://github.com/vant-ui/vant-weapp)（微信小程序版）| [vant-ui/vant-demo](https://github.com/vant-ui/vant-demo)（官方示例合集）| [vant-ui/vant-nuxt](https://github.com/vant-ui/vant-nuxt)（Nuxt 模块）| [@vant/auto-import-resolver](https://github.com/vant-ui/vant/tree/main/packages/vant-auto-import-resolver)（按需引入 resolver）| [@vant/touch-emulator](https://github.com/vant-ui/vant/tree/main/packages/vant-touch-emulator)（桌面端 touch 事件模拟）| [3lang3/react-vant](https://github.com/3lang3/react-vant)（社区 React 版）| [Aisen60/vant-theme](https://github.com/Aisen60/vant-theme)（在线主题预览）

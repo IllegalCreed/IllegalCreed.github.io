@@ -35,3 +35,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/api-extractor-slide/" target="_blank">API Extractor</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=api-extractor" target="_blank" rel="noopener noreferrer">API Extractor 测试题</a>

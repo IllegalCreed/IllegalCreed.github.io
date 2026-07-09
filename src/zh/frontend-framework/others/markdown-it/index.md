@@ -34,6 +34,11 @@ layout: doc
 
 [markdown-it README](https://github.com/markdown-it/markdown-it#readme) | [API 参考](https://markdown-it.github.io/markdown-it/) | [在线 Demo](https://markdown-it.github.io/) | [架构与设计](https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md) | [npm: markdown-it](https://www.npmjs.com/package/markdown-it)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=markdown-it" target="_blank" rel="noopener noreferrer">Markdown-it 测试题</a>
+
+
 ## GitHub 地址
 
 [markdown-it/markdown-it](https://github.com/markdown-it/markdown-it)（主仓库，MIT 许可）| [markdown-it 组织](https://github.com/markdown-it)（官方插件 emoji / container / footnote 等）

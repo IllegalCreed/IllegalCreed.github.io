@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 - <a href="/SlideStack/baidu-miniprogram-slide/" target="_blank">百度智能小程序</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E7%99%BE%E5%BA%A6%E6%99%BA%E8%83%BD%E5%B0%8F%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener noreferrer">百度智能小程序 测试题</a>

@@ -44,3 +44,7 @@ Sortable.js 是一个**轻量、无第三方依赖**的可拖拽重排序 JavaSc
 ## 幻灯片地址
 
 <a href="/SlideStack/sortablejs-slide/" target="_blank">Sortable.js</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=sortable-js" target="_blank" rel="noopener noreferrer">Sortable.js 测试题</a>

@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/js-builtins-structures-slide/" target="_blank">JavaScript 内建对象与数据结构</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=javascript-%E5%86%85%E5%BB%BA%E5%AF%B9%E8%B1%A1%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" target="_blank" rel="noopener noreferrer">JavaScript 内建对象与数据结构 测试题</a>

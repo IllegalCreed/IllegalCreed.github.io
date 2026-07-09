@@ -48,3 +48,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/lint-staged-slide/" target="_blank">lint-staged</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=lint-staged" target="_blank" rel="noopener noreferrer">lint-staged 测试题</a>

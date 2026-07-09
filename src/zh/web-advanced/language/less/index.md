@@ -39,3 +39,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/less-slide/" target="_blank">Less</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=less" target="_blank" rel="noopener noreferrer">Less 测试题</a>

@@ -43,3 +43,7 @@ mammoth 的官方定位是把 .docx「**convert to simple and clean HTML**」。
 ## 幻灯片地址
 
 <a href="/SlideStack/mammoth-slide/" target="_blank">mammoth（docx → 干净 HTML）</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=mammoth-docx-%E5%B9%B2%E5%87%80-html" target="_blank" rel="noopener noreferrer">mammoth（docx → 干净 HTML） 测试题</a>

@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/browser-storage-slide/" target="_blank">浏览器存储</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8" target="_blank" rel="noopener noreferrer">浏览器存储 测试题</a>

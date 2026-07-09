@@ -32,3 +32,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/js-functions-scope-slide/" target="_blank">JavaScript 函数与作用域</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=javascript-%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F" target="_blank" rel="noopener noreferrer">JavaScript 函数与作用域 测试题</a>

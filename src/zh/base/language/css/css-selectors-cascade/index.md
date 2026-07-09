@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/css-selectors-cascade-slide/" target="_blank">CSS 选择器与层叠</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=css-%E9%80%89%E6%8B%A9%E5%99%A8%E4%B8%8E%E5%B1%82%E5%8F%A0" target="_blank" rel="noopener noreferrer">CSS 选择器与层叠 测试题</a>

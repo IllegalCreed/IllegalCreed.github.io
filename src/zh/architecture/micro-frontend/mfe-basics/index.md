@@ -37,3 +37,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/mfe-basics-slide/" target="_blank">微前端基础</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E5%BE%AE%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80" target="_blank" rel="noopener noreferrer">微前端基础 测试题</a>

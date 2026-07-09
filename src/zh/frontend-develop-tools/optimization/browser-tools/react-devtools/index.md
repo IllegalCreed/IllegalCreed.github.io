@@ -35,3 +35,7 @@ React DevTools 是 Meta（React 团队）官方维护的 **React 应用调试工
 ## 幻灯片地址
 
 <a href="/SlideStack/react-devtools-slide/" target="_blank">React DevTools</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=react-devtools" target="_blank" rel="noopener noreferrer">React DevTools 测试题</a>

@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/html-interactive-global-slide/" target="_blank">HTML 交互元素与全局属性</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=html-%E4%BA%A4%E4%BA%92%E5%85%83%E7%B4%A0%E4%B8%8E%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7" target="_blank" rel="noopener noreferrer">HTML 交互元素与全局属性 测试题</a>

@@ -106,6 +106,11 @@ pnpm dlx shadcn@latest add button
 
 [shadcn/ui 官网](https://ui.shadcn.com) | [文档主页](https://ui.shadcn.com/docs) | [安装入口](https://ui.shadcn.com/docs/installation) | [Next.js 安装](https://ui.shadcn.com/docs/installation/next) | [Vite 安装](https://ui.shadcn.com/docs/installation/vite) | [TanStack Start 安装](https://ui.shadcn.com/docs/installation/tanstack) | [Astro 安装](https://ui.shadcn.com/docs/installation/astro) | [React Router 安装](https://ui.shadcn.com/docs/installation/react-router) | [Laravel 安装](https://ui.shadcn.com/docs/installation/laravel) | [手动安装](https://ui.shadcn.com/docs/installation/manual) | [components.json 字段](https://ui.shadcn.com/docs/components-json) | [Theming](https://ui.shadcn.com/docs/theming) | [Dark Mode](https://ui.shadcn.com/docs/dark-mode) | [CLI 命令](https://ui.shadcn.com/docs/cli) | [Monorepo](https://ui.shadcn.com/docs/monorepo) | [Registry 系统](https://ui.shadcn.com/docs/registry) | [MCP Server](https://ui.shadcn.com/docs/mcp) | [组件总览](https://ui.shadcn.com/docs/components) | [Blocks 模板](https://ui.shadcn.com/blocks) | [Themes 主题](https://ui.shadcn.com/themes) | [Charts 图表](https://ui.shadcn.com/charts) | [Changelog](https://ui.shadcn.com/docs/changelog)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=shadcn-ui" target="_blank" rel="noopener noreferrer">shadcn/ui 测试题</a>
+
+
 ## GitHub 地址
 
 [shadcn-ui/ui](https://github.com/shadcn-ui/ui)（主仓库，115k+ Star） | [Releases](https://github.com/shadcn-ui/ui/releases) | [Discussions](https://github.com/shadcn-ui/ui/discussions) | [Issues](https://github.com/shadcn-ui/ui/issues) | [shadcn-vue（社区 fork）](https://github.com/unovue/shadcn-vue) | [shadcn-svelte（社区 fork）](https://github.com/huntabyte/shadcn-svelte) | [Magic UI](https://github.com/magicuidesign/magicui)（衍生 Registry） | [Aceternity UI](https://ui.aceternity.com)（衍生 Registry）

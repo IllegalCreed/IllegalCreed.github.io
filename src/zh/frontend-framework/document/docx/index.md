@@ -43,3 +43,7 @@ docx 的官方定位是「**Easily generate and modify .docx files with JS/TS. W
 ## 幻灯片地址
 
 <a href="/SlideStack/docx-slide/" target="_blank">docx</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=docx" target="_blank" rel="noopener noreferrer">docx 测试题</a>

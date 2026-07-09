@@ -40,6 +40,11 @@ layout: doc
 
 [VueUse 官网](https://vueuse.org/) | [Get Started 入门](https://vueuse.org/guide/) | [Best Practice 最佳实践](https://vueuse.org/guide/best-practice) | [Configurations 全局配置](https://vueuse.org/guide/config) | [Components 无渲染组件](https://vueuse.org/guide/components) | [函数总览（200+）](https://vueuse.org/functions) | [Add-ons 扩展包](https://vueuse.org/add-ons) | [useMouse](https://vueuse.org/core/useMouse/) | [useDark](https://vueuse.org/core/useDark/) | [useStorage](https://vueuse.org/core/useStorage/) | [useFetch](https://vueuse.org/core/useFetch/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vueuse" target="_blank" rel="noopener noreferrer">VueUse 测试题</a>
+
+
 ## GitHub 地址
 
 [vueuse/vueuse](https://github.com/vueuse/vueuse)（主仓库，22k+ Star，MIT 许可）| [Anthony Fu](https://github.com/antfu)（作者，Vue / Vite / Nuxt 核心团队成员）| [vueuse.org 源码](https://github.com/vueuse/vueuse/tree/main/packages)（monorepo：`core` / `shared` / `router` / `integrations` / `math` / `nuxt` 等各包）| [unplugin-auto-import](https://github.com/unplugin/unplugin-auto-import)（配合 VueUse preset 实现自动导入）

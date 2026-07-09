@@ -35,3 +35,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/lazygit-slide/" target="_blank">lazygit</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=lazygit" target="_blank" rel="noopener noreferrer">lazygit 测试题</a>

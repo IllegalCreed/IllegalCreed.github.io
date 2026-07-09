@@ -35,3 +35,7 @@ CodePen 为非开源产品，无公开源码仓库。官方文档与支持资源
 ## 幻灯片地址
 
 <a href="/SlideStack/codepen-slide/" target="_blank">CodePen</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=codepen" target="_blank" rel="noopener noreferrer">CodePen 测试题</a>

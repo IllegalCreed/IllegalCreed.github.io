@@ -37,3 +37,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/ai-era-testing-slide/" target="_blank">AI 时代如何测试</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=ai-%E6%97%B6%E4%BB%A3%E5%A6%82%E4%BD%95%E6%B5%8B%E8%AF%95" target="_blank" rel="noopener noreferrer">AI 时代如何测试 测试题</a>

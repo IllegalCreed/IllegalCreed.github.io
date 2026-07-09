@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/jsdoc-slide/" target="_blank">JSDoc</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=jsdoc" target="_blank" rel="noopener noreferrer">JSDoc 测试题</a>

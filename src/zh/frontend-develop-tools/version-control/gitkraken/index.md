@@ -35,3 +35,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/gitkraken-slide/" target="_blank">GitKraken</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=gitkraken" target="_blank" rel="noopener noreferrer">GitKraken 测试题</a>

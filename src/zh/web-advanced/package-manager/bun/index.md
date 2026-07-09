@@ -43,3 +43,7 @@ Bun 是用 Zig 写的 all-in-one JavaScript 工具箱，其中的包管理器被
 ## 幻灯片地址
 
 <a href="/SlideStack/bun-slide/" target="_blank">Bun（包管理器）</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=bun-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8" target="_blank" rel="noopener noreferrer">Bun（包管理器） 测试题</a>

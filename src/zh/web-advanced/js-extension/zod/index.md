@@ -43,3 +43,7 @@ Zod 由 **Colin McDonnell** 发起，官方一句话定位是「**TypeScript-fir
 ## 幻灯片地址
 
 <a href="/SlideStack/zod-slide/" target="_blank">Zod</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=zod" target="_blank" rel="noopener noreferrer">Zod 测试题</a>

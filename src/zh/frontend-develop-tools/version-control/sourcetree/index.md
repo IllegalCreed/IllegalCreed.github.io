@@ -36,3 +36,7 @@ Sourcetree **非开源**，无公开源码仓库。官方入口：[sourcetreeapp
 ## 幻灯片地址
 
 <a href="/SlideStack/sourcetree-slide/" target="_blank">Sourcetree</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=sourcetree" target="_blank" rel="noopener noreferrer">Sourcetree 测试题</a>

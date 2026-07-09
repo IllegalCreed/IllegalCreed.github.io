@@ -36,3 +36,7 @@ Lerna 是 **JavaScript/TypeScript 生态最早、最知名的 monorepo 管理工
 ## 幻灯片地址
 
 - <a href="/SlideStack/lerna-slide/" target="_blank">Lerna</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=lerna" target="_blank" rel="noopener noreferrer">Lerna 测试题</a>

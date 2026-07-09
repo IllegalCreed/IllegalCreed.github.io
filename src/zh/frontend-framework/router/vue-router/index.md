@@ -45,6 +45,11 @@ Vue.js 官方御用路由库，由 **Eduardo San Martin Morote**（Vue 核心团
 
 [Vue Router 官网](https://router.vuejs.org/) | [Introduction](https://router.vuejs.org/introduction.html) | [Installation](https://router.vuejs.org/installation.html) | [Getting Started](https://router.vuejs.org/guide/) | [Guide - Essentials](https://router.vuejs.org/guide/essentials/dynamic-matching.html) | [Guide - Advanced](https://router.vuejs.org/guide/advanced/navigation-guards.html) | [API Reference](https://router.vuejs.org/api/) | [中文文档](https://router.vuejs.org/zh/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vue-router" target="_blank" rel="noopener noreferrer">Vue Router 测试题</a>
+
+
 ## GitHub 地址
 
 [vuejs/router](https://github.com/vuejs/router) | [unplugin-vue-router](https://github.com/posva/unplugin-vue-router)（文件系统路由 + Typed Routes 自动化）| [Data Loaders 规范](https://github.com/vuejs/rfcs/discussions/700)

@@ -43,3 +43,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/antv-g6-slide/" target="_blank">AntV G6</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=antv-g6" target="_blank" rel="noopener noreferrer">AntV G6 测试题</a>

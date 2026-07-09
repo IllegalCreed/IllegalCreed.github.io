@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/panda-css-slide/" target="_blank">Panda CSS</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=panda-css" target="_blank" rel="noopener noreferrer">Panda CSS 测试题</a>

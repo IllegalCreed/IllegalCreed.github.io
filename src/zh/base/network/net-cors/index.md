@@ -34,3 +34,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/net-cors-slide/" target="_blank">跨域与同源策略</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E8%B7%A8%E5%9F%9F%E4%B8%8E%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5" target="_blank" rel="noopener noreferrer">跨域与同源策略 测试题</a>

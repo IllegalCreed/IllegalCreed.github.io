@@ -40,3 +40,7 @@ layout: doc
 ## 幻灯片地址
 
 - <a href="/SlideStack/wechat-miniprogram-slide/" target="_blank">微信小程序</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener noreferrer">微信小程序 测试题</a>

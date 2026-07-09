@@ -37,3 +37,7 @@ JavaScript 包管理器（官方标语「**Fast, disk space efficient package ma
 ## 幻灯片地址
 
 <a href="/SlideStack/pnpm-slide/" target="_blank">pnpm</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=pnpm" target="_blank" rel="noopener noreferrer">pnpm 测试题</a>

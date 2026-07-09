@@ -46,3 +46,7 @@ PapaParse 官方定位是「**The powerful, in-browser CSV parser for big boys a
 ## 幻灯片地址
 
 <a href="/SlideStack/papaparse-slide/" target="_blank">PapaParse</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=papaparse" target="_blank" rel="noopener noreferrer">PapaParse 测试题</a>

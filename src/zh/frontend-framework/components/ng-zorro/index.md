@@ -54,6 +54,11 @@ outline: [2, 3]
 
 [NG-ZORRO 官网](https://ng.ant.design/) | [中文文档](https://ng.ant.design/docs/introduce/zh) | [开始使用](https://ng.ant.design/docs/getting-started/zh) | [Schematics](https://ng.ant.design/docs/schematics/zh) | [定制主题](https://ng.ant.design/docs/customize-theme/zh) | [Dynamic Theme](https://ng.ant.design/docs/customize-theme-variable/zh) | [国际化](https://ng.ant.design/docs/i18n/zh) | [全局配置](https://ng.ant.design/docs/global-config/zh) | [v21 升级指南](https://ng.ant.design/docs/migration-v21/zh) | [FAQ](https://ng.ant.design/docs/faq/zh) | [组件总览](https://ng.ant.design/components/overview/zh) | [ng-alain 中后台脚手架](https://ng-alain.com/) | [Angular 框架主站](https://angular.dev/) | [Ant Design 设计规范](https://ant.design/docs/spec/values-cn)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=ng-zorro" target="_blank" rel="noopener noreferrer">NG-ZORRO 测试题</a>
+
+
 ## GitHub 地址
 
 [NG-ZORRO/ng-zorro-antd](https://github.com/NG-ZORRO/ng-zorro-antd)（主仓库、9.1k+ Star、最新 v21.2.2） | [angular/angular](https://github.com/angular/angular)（Angular 框架主仓） | [ant-design/ant-design-icons](https://github.com/ant-design/ant-design-icons)（图标库源） | [ng-alain/ng-alain](https://github.com/ng-alain/ng-alain)（中后台脚手架） | [NG-ZORRO/ng-zorro-antd-mobile](https://github.com/NG-ZORRO/ng-zorro-antd-mobile)（移动端配套） | [NG-ZORRO/vscode-ng-zorro-antd-helper](https://github.com/NG-ZORRO/vscode-ng-zorro-antd-helper)（VSCode 扩展）

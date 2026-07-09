@@ -45,6 +45,11 @@ layout: doc
 
 [React Navigation 官网](https://reactnavigation.org/) | [Getting Started](https://reactnavigation.org/docs/getting-started) | [Hello React Navigation](https://reactnavigation.org/docs/hello-react-navigation) | [Native Stack Navigator](https://reactnavigation.org/docs/native-stack-navigator) | [Bottom Tab Navigator](https://reactnavigation.org/docs/bottom-tab-navigator) | [Drawer Navigator](https://reactnavigation.org/docs/drawer-navigator) | [TypeScript](https://reactnavigation.org/docs/typescript) | [Deep Linking](https://reactnavigation.org/docs/deep-linking) | [Authentication Flow](https://reactnavigation.org/docs/auth-flow) | [State Persistence](https://reactnavigation.org/docs/state-persistence) | [Upgrading from 6.x](https://reactnavigation.org/docs/upgrading-from-6.x)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=react-navigation" target="_blank" rel="noopener noreferrer">React Navigation 测试题</a>
+
+
 ## GitHub 地址
 
 [react-navigation/react-navigation](https://github.com/react-navigation/react-navigation) | [software-mansion/react-native-screens](https://github.com/software-mansion/react-native-screens)（Native Stack 底层）| [expo/expo-router](https://github.com/expo/expo/tree/main/packages/expo-router)（Expo Router 7+ file-based 路由）

@@ -41,6 +41,11 @@ layout: doc
 
 [Hexo 官网](https://hexo.io/) | [Hexo 中文官网](https://hexo.io/zh-cn/) | [Hexo Docs](https://hexo.io/docs/) | [API 文档](https://hexo.io/api/) | [主题列表](https://hexo.io/themes/) | [插件列表](https://hexo.io/plugins/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=hexo" target="_blank" rel="noopener noreferrer">Hexo 测试题</a>
+
+
 ## GitHub 地址
 
 [hexojs/hexo](https://github.com/hexojs/hexo)

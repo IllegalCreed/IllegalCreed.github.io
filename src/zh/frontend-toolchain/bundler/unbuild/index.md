@@ -37,3 +37,7 @@ UnJS 出品的**统一 JavaScript 构建系统**（**A unified JavaScript build 
 ## 幻灯片地址
 
 <a href="/SlideStack/unbuild-slide/" target="_blank">unbuild</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=unbuild" target="_blank" rel="noopener noreferrer">unbuild 测试题</a>

@@ -44,3 +44,7 @@ Vercel 用 **Rust** 编写、**内置于 Next.js** 的增量打包器（incremen
 ## 幻灯片地址
 
 <a href="/SlideStack/turbopack-slide/" target="_blank">Turbopack</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=turbopack" target="_blank" rel="noopener noreferrer">Turbopack 测试题</a>

@@ -35,3 +35,7 @@ QQ小程序是**腾讯 QQ 客户端内的小程序平台**——用户在手机 
 ## 幻灯片地址
 
 - <a href="/SlideStack/qq-miniprogram-slide/" target="_blank">QQ小程序</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=qq%E5%B0%8F%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener noreferrer">QQ小程序 测试题</a>

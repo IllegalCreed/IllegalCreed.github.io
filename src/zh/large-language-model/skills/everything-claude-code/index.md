@@ -52,3 +52,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/everything-claude-code-slide/" target="_blank">Everything Claude Code</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=everything-claude-code-ecc" target="_blank" rel="noopener noreferrer">Everything Claude Code（ECC） 测试题</a>

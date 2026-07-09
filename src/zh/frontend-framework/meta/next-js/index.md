@@ -52,6 +52,11 @@ Vercel 维护的 React 全栈元框架。建在 React 之上，把"渲染库 Rea
 
 [Next.js Documentation](https://nextjs.org/docs)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=next-js" target="_blank" rel="noopener noreferrer">Next.js 测试题</a>
+
+
 ## GitHub 地址
 
 [vercel/next.js](https://github.com/vercel/next.js)

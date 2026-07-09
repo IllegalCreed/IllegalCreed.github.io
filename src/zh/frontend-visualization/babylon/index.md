@@ -38,3 +38,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/babylon-slide/" target="_blank">Babylon.js</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=babylon-js" target="_blank" rel="noopener noreferrer">Babylon.js 测试题</a>

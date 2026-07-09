@@ -45,6 +45,11 @@ layout: doc
 
 [TanStack Router 官网](https://tanstack.com/router) | [Overview](https://tanstack.com/router/v1/docs/framework/react/overview) | [Quick Start](https://tanstack.com/router/v1/docs/framework/react/quick-start) | [Routing Concepts](https://tanstack.com/router/v1/docs/routing/routing-concepts) | [File-Based Routing](https://tanstack.com/router/v1/docs/routing/file-based-routing) | [Code-Based Routing](https://tanstack.com/router/v1/docs/routing/code-based-routing) | [API Reference](https://tanstack.com/router/v1/docs/api/router)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=tanstack-router" target="_blank" rel="noopener noreferrer">TanStack Router 测试题</a>
+
+
 ## GitHub 地址
 
 [TanStack/router](https://github.com/TanStack/router)（TanStack Router 与 TanStack Start 共仓库，Router 位于 `packages/react-router` / `packages/solid-router` / `packages/router-core`，插件位于 `packages/router-plugin`）

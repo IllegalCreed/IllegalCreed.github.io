@@ -36,3 +36,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/vanilla-extract-slide/" target="_blank">vanilla-extract</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=vanilla-extract" target="_blank" rel="noopener noreferrer">vanilla-extract 测试题</a>

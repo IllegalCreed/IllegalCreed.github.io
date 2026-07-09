@@ -36,6 +36,11 @@ Builder.io 团队（Miško Hevery，Angular 原作者）打造的「**Resumable 
 
 [Qwik 官网](https://qwik.dev/) | [Qwik 文档](https://qwik.dev/docs/) | [Qwik City 文档](https://qwik.dev/docs/qwikcity/) | [Qwik 教程](https://qwik.dev/tutorial/) | [Qwik Playground](https://qwik.dev/playground/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=qwik" target="_blank" rel="noopener noreferrer">Qwik 测试题</a>
+
+
 ## GitHub 地址
 
 [QwikDev/qwik](https://github.com/QwikDev/qwik)

@@ -39,6 +39,11 @@ layout: doc
 
 [Docusaurus 官网](https://docusaurus.io/) | [Docusaurus 文档](https://docusaurus.io/docs) | [Showcase 案例](https://docusaurus.io/showcase) | [Playground](https://docusaurus.new) | [社区资源](https://docusaurus.io/community/resources)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=docusaurus" target="_blank" rel="noopener noreferrer">Docusaurus 测试题</a>
+
+
 ## GitHub 地址
 
 [facebook/docusaurus](https://github.com/facebook/docusaurus)

@@ -36,3 +36,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/jujutsu-slide/" target="_blank">Jujutsu</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=jujutsu" target="_blank" rel="noopener noreferrer">Jujutsu 测试题</a>

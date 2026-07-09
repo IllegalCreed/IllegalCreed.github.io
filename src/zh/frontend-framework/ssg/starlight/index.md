@@ -41,6 +41,11 @@ layout: doc
 
 [Starlight 官网](https://starlight.astro.build/) | [Starlight 文档](https://starlight.astro.build/getting-started/) | [配置参考](https://starlight.astro.build/reference/configuration/) | [Frontmatter 参考](https://starlight.astro.build/reference/frontmatter/) | [Plugins 列表](https://starlight.astro.build/resources/plugins/) | [Site Showcase 案例](https://starlight.astro.build/resources/showcase/) | [Astro 官方文档](https://docs.astro.build/) | [Expressive Code](https://expressive-code.com/) | [Pagefind](https://pagefind.app/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=starlight" target="_blank" rel="noopener noreferrer">Starlight 测试题</a>
+
+
 ## GitHub 地址
 
 [withastro/starlight](https://github.com/withastro/starlight) | [withastro/astro](https://github.com/withastro/astro)（Astro 主仓库）

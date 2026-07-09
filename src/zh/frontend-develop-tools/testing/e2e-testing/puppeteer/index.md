@@ -34,3 +34,7 @@ Puppeteer 是 Google 出品的 Node.js **浏览器自动化库**——注意它*
 ## 幻灯片地址
 
 <a href="/SlideStack/puppeteer-slide/" target="_blank">Puppeteer</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=puppeteer" target="_blank" rel="noopener noreferrer">Puppeteer 测试题</a>

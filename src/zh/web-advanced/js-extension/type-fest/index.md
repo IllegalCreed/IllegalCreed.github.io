@@ -42,3 +42,7 @@ type-fest 由 **Sindre Sorhus** 发起，官方一句话定位是「**A collecti
 ## 幻灯片地址
 
 <a href="/SlideStack/type-fest-slide/" target="_blank">type-fest</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=type-fest" target="_blank" rel="noopener noreferrer">type-fest 测试题</a>

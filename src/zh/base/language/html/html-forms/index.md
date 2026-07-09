@@ -33,3 +33,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/html-forms-slide/" target="_blank">HTML 表单与约束校验</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=html-%E8%A1%A8%E5%8D%95%E4%B8%8E%E7%BA%A6%E6%9D%9F%E6%A0%A1%E9%AA%8C" target="_blank" rel="noopener noreferrer">HTML 表单与约束校验 测试题</a>

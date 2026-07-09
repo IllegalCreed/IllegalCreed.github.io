@@ -43,3 +43,7 @@ SheetJS 的官方定位是「**a unified interface to every Excel file format as
 ## 幻灯片地址
 
 <a href="/SlideStack/sheetjs-slide/" target="_blank">SheetJS（xlsx）</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=sheetjs-xlsx" target="_blank" rel="noopener noreferrer">SheetJS（xlsx） 测试题</a>

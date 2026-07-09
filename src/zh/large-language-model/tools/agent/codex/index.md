@@ -51,3 +51,7 @@ OpenAI 官方的 AI 编码 Agent CLI ——「**Lightweight coding agent that ru
 ## 幻灯片地址
 
 <a href="/SlideStack/codex-slide/" target="_blank">Codex</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=codex-cli" target="_blank" rel="noopener noreferrer">Codex CLI 测试题</a>

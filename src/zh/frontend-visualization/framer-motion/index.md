@@ -44,3 +44,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/framer-motion-slide/" target="_blank">Framer Motion</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=framer-motion" target="_blank" rel="noopener noreferrer">Framer Motion 测试题</a>

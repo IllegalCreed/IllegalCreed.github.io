@@ -39,3 +39,7 @@ Meta（原 Facebook）开源的声明式 UI 库，把 UI 写成 `f(state) => vie
 ## 幻灯片地址
 
 <a href="/SlideStack/react-slide/" target="_blank">React</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=react" target="_blank" rel="noopener noreferrer">React 测试题</a>

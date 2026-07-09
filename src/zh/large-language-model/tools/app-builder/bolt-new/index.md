@@ -37,3 +37,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/bolt-new-slide/" target="_blank">bolt.new</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=bolt-new" target="_blank" rel="noopener noreferrer">bolt.new 测试题</a>

@@ -37,3 +37,7 @@ layout: doc
 ## 幻灯片地址
 
 <a href="/SlideStack/commonjs-slide/" target="_blank">CommonJS</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=commonjs" target="_blank" rel="noopener noreferrer">CommonJS 测试题</a>

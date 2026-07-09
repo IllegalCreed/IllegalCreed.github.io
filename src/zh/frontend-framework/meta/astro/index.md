@@ -62,6 +62,11 @@ layout: doc
 
 [Astro Documentation](https://docs.astro.build/)
 
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=astro" target="_blank" rel="noopener noreferrer">Astro 测试题</a>
+
+
 ## GitHub 地址
 
 [withastro/astro](https://github.com/withastro/astro)

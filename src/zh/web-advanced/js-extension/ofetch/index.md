@@ -44,3 +44,7 @@ ofetch 由 unjs 团队维护，官方定位是「**A better fetch API. Works on 
 ## 幻灯片地址
 
 <a href="/SlideStack/ofetch-slide/" target="_blank">ofetch</a>
+
+## 测试题
+
+<a href="https://quiz.illegalscreed.cn/?category=ofetch" target="_blank" rel="noopener noreferrer">ofetch 测试题</a>
