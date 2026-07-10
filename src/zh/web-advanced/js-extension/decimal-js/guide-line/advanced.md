@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **decimal.js 10.x**。本篇进入实战：金额计算的完整链路、`toFixed / toDecimalPlaces / toSignificantDigits` 的精确取舍、`Decimal.clone` 多精度策略、序列化（`toJSON`）与输出格式（指数记法阈值）。
+> 版本基线 **decimal.js 10.6.0**。本篇进入实战：金额计算的完整链路、`toFixed / toDecimalPlaces / toSignificantDigits` 的精确取舍、`Decimal.clone` 多精度策略、序列化（`toJSON`）与输出格式（指数记法阈值）。
+
+## 速查
+
+- 金额链路：字符串构造 → 全程 Decimal 运算 → 最末端 `toFixed()` 展示或传输
+- `toFixed()` / `toPrecision()` 返回字符串；`toDP()` / `toSD()` 返回 Decimal，可继续运算
+- 业务要求“每一步舍入”时要显式 `toDP()`，不要只在最终展示时猜测会计规则
+- 多套精度策略用 `Decimal.clone({ precision, rounding })` 隔离，避免反复修改全局配置
+- `toJSON()` 返回字符串并保留负零符号；需要固定尾随零时先调用 `toFixed()`
+- 与后端 `DECIMAL` / `NUMERIC` 列交换时使用字符串，不要经由 JavaScript number
+- `toExpNeg` / `toExpPos` 只控制字符串何时改用指数记法，不改变数值或精度
+- `toFraction(maxDenominator)` 返回两个 Decimal；`sum / min / max / hypot` 是常用静态聚合方法
 
 ## 一、金额计算的完整链路
 
@@ -134,7 +145,7 @@ Decimal.min('1', '2', '3').toString()         // '1'
 
 new Decimal(2).sqrt().toString()              // '1.4142135623730950488'
 new Decimal(8).cbrt().toString()              // '2'
-new Decimal(2).pow('0.5').toString()          // 平方根（非整数指数，big.js 做不到）
+new Decimal('2').pow('0.5').toString()        // 平方根（非整数指数，big.js 做不到）
 new Decimal('0.5').toFraction().join('/')     // '1/2'（最接近的分数）
 ```
 

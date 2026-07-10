@@ -5,7 +5,7 @@ layout: doc
 # decimal.js
 
 ::: tip 本篇范围
-本篇聚焦 **decimal.js —— 为 JavaScript 提供任意精度的十进制（Decimal）数类型**，用于规避 IEEE 754 浮点误差（`0.1 + 0.2 !== 0.3`）、做金额与高精度计算。它与同作者的 **big.js**（最精简）、**bignumber.js**（居中、支持多进制）属同一选型方向，本篇在取舍与对比时重点展开三者差异。版本基线 **decimal.js 10.x**（本地实测 10.6.0）。
+本篇聚焦 **decimal.js —— 为 JavaScript 提供任意精度的十进制（Decimal）数类型**，用于规避 IEEE 754 浮点误差（`0.1 + 0.2 !== 0.3`）、做金额与高精度计算。它与同作者的 **big.js**（最精简）、**bignumber.js**（居中、支持多进制）属同一选型方向，本篇在取舍与对比时重点展开三者差异。版本基线 **decimal.js 10.6.0**。
 :::
 
 decimal.js 由 Michael Mclaughlin 编写，官方定位是「**An arbitrary-precision Decimal type for JavaScript**」——把整数、浮点、各种进制都用任意精度的十进制表示，并复刻了大量 `Number.prototype` 与 `Math` 的方法。核心用法是 `new Decimal(value)` 构造、再用 `plus / minus / times / dividedBy / mod / pow / sqrt` 等方法运算：所有实例**不可变（immutable）**，每个运算都返回**新的** Decimal，因此天然支持链式调用，原值分毫不动。
@@ -16,7 +16,7 @@ decimal.js 由 Michael Mclaughlin 编写，官方定位是「**An arbitrary-prec
 
 **优点**
 
-- **彻底规避浮点误差**：任意精度十进制运算，`new Decimal(0.1).plus(0.2).equals(0.3)` 为 `true`
+- **彻底规避浮点误差**：任意精度十进制运算，`new Decimal('0.1').plus('0.2').equals('0.3')` 为 `true`
 - **功能最全**：四则之外还有 `sqrt / cbrt`、三角 / 反三角 / 双曲、`ln / log / log2 / log10`、`exp`、非整数 `pow`
 - **不可变 + 链式**：每步返回新实例，纯函数式变换，链式调用安全
 - **完善的舍入控制**：9 种 `ROUND_*` 模式（含银行家舍入 `ROUND_HALF_EVEN`），可全局或按调用指定

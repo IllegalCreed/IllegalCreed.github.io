@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 参考
 
-> decimal.js 常用方法、舍入常量与配置项速查。版本基线 **decimal.js 10.x**（本地实测 10.6.0）。
+> decimal.js 常用方法、舍入常量与配置项速查。版本基线 **decimal.js 10.6.0**。
+
+## 速查
+
+- 输入边界优先传字符串：`new Decimal('1.0000000000000001')`；number 在进入库前可能已经丢精度
+- 实例不可变：`plus / minus / times / dividedBy` 等方法返回新 Decimal，必须接住返回值
+- `precision` 默认 `20`，表示**有效数字**；`rounding` 默认 `ROUND_HALF_UP`（值 `4`）
+- 展示定点值用 `toFixed(dp)`；继续计算用 `toDecimalPlaces(dp)` / `toSignificantDigits(sd)`
+- 数值比较用 `equals / comparedTo / gt / gte / lt / lte`，不要对对象使用 `===` 或算术运算符
+- 全局策略用 `Decimal.set()`；多业务精度用 `Decimal.clone()` 派生独立构造函数
+- `Decimal.random(sd)` 的参数是**有效数字位数**；`crypto: true` 才改用平台安全随机源
+- 支持 `NaN` / `Infinity`；除零不会抛错，业务边界要用 `isFinite()` / `isNaN()` 显式校验
 
 ## 一、构造与导入
 
@@ -28,8 +39,8 @@ new Decimal(otherDecimal)  // 克隆
 | `minus(x)` | `sub` | 减 |
 | `times(x)` | `mul` | 乘 |
 | `dividedBy(x)` | `div` | 除（真除法，`7/2=3.5`） |
-| `dividedToIntegerBy(x)` | `idiv` | 整数除法 |
-| `mod(x)` | — | 取余（受 `modulo` 配置影响） |
+| `dividedToIntegerBy(x)` | `divToInt` | 整数除法 |
+| `modulo(x)` | `mod` | 取余（受 `modulo` 配置影响） |
 | `pow(x)` | `toPower` | 幂（**支持非整数指数**） |
 | `sqrt()` | — | 平方根 |
 | `cbrt()` | — | 立方根 |
@@ -82,7 +93,7 @@ Decimal 是对象；`===` 比较引用、`==` 走隐式转换。判等一律用 
 | `toFixed(dp, rm)` | string | 定点，补尾随零，总是普通记法 |
 | `toExponential(dp, rm)` | string | 科学计数法 |
 | `toPrecision(sd, rm)` | string | 按有效数字 |
-| `toFraction(maxDen?)` | `[Decimal, Decimal]` | 最接近的分数 [分子, 分母] |
+| `toFraction(maxDen?)` | `Decimal[]` | 两元素数组 `[分子, 分母]`，两项都是 Decimal |
 | `toBinary / toOctal / toHexadecimal(sd?, rm?)` | string | 进制输出（`toHex` 是别名） |
 | `decimalPlaces()` | number | 小数位数（别名 `dp`） |
 | `precision(incZeros?)` | number | 有效数字位数（别名 `sd`） |
@@ -108,7 +119,7 @@ Decimal 是对象；`===` 比较引用、`==` 走隐式转换。判等一律用 
 | `Decimal.max(...args)` / `Decimal.min(...args)` | 最大 / 最小 |
 | `Decimal.hypot(...args)` | 欧氏范数（√(x²+y²+…)） |
 | `Decimal.sign(x)` | 符号 |
-| `Decimal.random(dp?)` | 随机 Decimal（`crypto:true` 时加密安全） |
+| `Decimal.random(sd?)` | `[0, 1)` 随机 Decimal；参数为有效数字位数，`crypto:true` 时用安全随机源 |
 | `Decimal.isDecimal(obj)` | 是否 Decimal 实例 |
 | `Decimal.noConflict()` | 浏览器全局冲突恢复 |
 

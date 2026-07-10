@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 专家
 
-> 版本基线 **PapaParse 5.x**。本篇深入：Node.js 流式 `.pipe()`、内存模型、`fastMode` 取舍、与 SheetJS 的边界协作、TypeScript 用法、大文件三件套最佳实践。
+> 版本基线 **Papa Parse 5.5.4**。本篇深入：Node.js 流式 `.pipe()`、内存模型、`fastMode`、与 SheetJS 的边界协作、TypeScript 类型，以及大文件管线。
+
+## 速查
+
+- Node 可把 `fs.ReadStream` 直接交给 `parse`，或用 `Papa.NODE_STREAM_INPUT` 获得可 `.pipe()` 的 Duplex
+- `download: true` 是浏览器 XHR，不会读取 Node 本地路径；Node 本地文件使用 `fs.createReadStream`
+- `step` / `chunk` 只保证库不累计全部行；回调自行缓存、队列阻塞或下游背压仍会抬高内存
+- 流式 `complete` 不含累计数据；计数、聚合与错误统计应在每次回调中维护
+- `fastMode` 在输入不含 `"` 时自动启用；含引号却强制 true 会破坏字段边界
+- Papa Parse 只处理分隔符文本，不读取 `.xlsx`；二进制 Excel 文件使用 SheetJS 等工具
+- 主包没有 `.d.ts`，TypeScript 另装 `@types/papaparse`；泛型只描述预期，不做运行时校验
+- 浏览器大文件按需组合 Worker、step / chunk 与进度；每行跨线程成本高时优先评估 chunk
 
 ## 一、Node.js 流式：NODE_STREAM_INPUT 与 .pipe()
 
@@ -43,14 +54,14 @@ Papa.parse(fs.createReadStream("large.csv"), {
 | 方式 | data 内容 | 内存峰值 | 适用 |
 |---|---|---|---|
 | 非流式（`complete`） | 全部行累积进 `result.data` | ≈ 整个数据集，**O(n)** | 小文件 |
-| `step` 流式 | 每次只给当前一行，不保留 | ≈ 单行，**O(1)** | 大文件 |
+| `step` 流式 | 每次只给当前一行，库不累计 | 当前行 + 解析 / 业务缓冲 | 大文件 |
 | `chunk` 流式 | 每次给一块的行 | ≈ 一块大小 | 大文件批处理 |
 
 ```ts
 // ❌ 大文件这样会 OOM：把几百万行全堆进内存
 Papa.parse(hugeFile, { complete: (res) => save(res.data) });
 
-// ✅ 流式：内存恒定
+// ✅ 流式：回调不累计时，内存保持有界
 let n = 0;
 Papa.parse(hugeFile, {
   step: (res) => { saveRow(res.data); n++; },
@@ -58,7 +69,7 @@ Papa.parse(hugeFile, {
 });
 ```
 
-> 这就是大文件**必须**用 `step`/`chunk` 的根本原因——把峰值内存从 O(n) 降到 O(1)。
+> 流式把库自身从“保留全部结果”改成“交付当前行 / 块”，但不自动解决业务层内存：若 `saveRow` 把每行重新塞进数组，或异步下游没有背压，内存仍会增长。流式 `complete` 也不会再给出全量 `data`。
 
 ## 三、fastMode 取舍
 
@@ -93,7 +104,13 @@ const result = Papa.parse(csv, { header: true });
 
 ## 五、TypeScript 用法
 
-PapaParse 5.x 自带类型声明（或装 `@types/papaparse`）。用泛型给行数据标注类型：
+Papa Parse 5.5.4 的 npm 包**不带类型声明**，TypeScript 项目需要安装社区类型：
+
+```bash
+npm i -D @types/papaparse
+```
+
+随后用泛型给行数据标注预期类型：
 
 ```ts
 import Papa, { type ParseResult } from "papaparse";
@@ -123,7 +140,7 @@ Papa.parse<User>(file, {
 
 ## 六、大文件「三件套」最佳实践
 
-要同时满足「**不卡 UI + 不爆内存 + 实时进度**」，三手段叠加：
+要同时兼顾「**主线程响应 + 有界内存 + 实时进度**」，可按数据量组合这些手段：
 
 ```ts
 let processed = 0;
@@ -146,6 +163,8 @@ Papa.parse(hugeFile, {
 | 不爆内存 | `step` / `chunk` 流式，不保留全部行 |
 | 不卡 UI | `worker: true`，解析放后台线程 |
 | 实时进度 | 在回调里累加行数 / 借 `meta.cursor` 估算 |
+
+> `worker + step` 会为每行产生跨线程消息；吞吐优先时评估 `chunk` 批量处理。无论哪种模式，都要为异步写库 / 上传队列设置上限或暂停策略，避免业务侧重新无限缓存。
 
 ## 七、容错策略的工程含义
 

@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 基础
 
-> 版本基线 **PapaParse 5.x**。本篇把「会解析」用到「会处理真实数据」：CSV 为何不能手撕、同步 vs 异步、流式 `step`/`chunk`、Web Worker、错误处理。
+> 版本基线 **Papa Parse 5.5.4**。本篇把「会解析」用到「会处理真实数据」：CSV 为何不能手撕、返回值 vs 回调、流式 `step` / `chunk`、Web Worker 与错误处理。
+
+## 速查
+
+- CSV 的引号内可含分隔符和换行，引号用双写转义；不要用 `split()` 手工解析
+- 只有字符串非流式调用可靠地同步返回完整 `ParseResult`；其它模式按回调 / 事件消费
+- `step` 每次给一行，`results.data` 不是数组全集；不自行保留全部行时内存才保持有界
+- `chunk` 只用于本地 File / 远程 URL，适合批量写入；不要同时配置 `step`
+- `abort()` 会结束并触发 complete；`pause / resume` 只在非 Worker 模式可用
+- `worker: true` 只适用于浏览器 Web Worker，跨线程传输有成本，可能比主线程略慢
+- 解析问题查看每次 `results.errors`；File / 网络读取失败还要处理 `error` 回调
+- 自动分隔符探测后检查 `meta.delimiter`；对外部固定格式最好显式指定 delimiter
 
 ## 一、为什么 CSV 不能 split(',') 手撕
 
@@ -27,22 +38,22 @@ Papa.parse('"Hello, World",foo').data[0];
 
 > 结论：**永远用解析器**。PapaParse 内部是状态机，正确处理引号、转义、跨行字段。
 
-## 二、同步还是异步？一条规则记牢
+## 二、返回值还是回调？一条规则记牢
 
 ```ts
 // ✅ 同步：字符串 + 非流式（不开 step/worker）→ 用返回值
 const r = Papa.parse(csvString, { header: true });
 console.log(r.data);
 
-// ⏳ 异步：File / URL(download) / worker / step 流式 → 走回调
+// ⏳ 回调 / 事件：File / URL(download) / worker / Node 流
 Papa.parse(file, { complete: (res) => console.log(res.data) });
 ```
 
-简记：**「字符串 + 非流式 = 同步返回值；其余 = 异步回调」**。`Papa.parse` 不返回 Promise。
+简记：**「字符串 + 非流式 = 读取完整返回值；其它模式按回调 / 事件消费」**。字符串配 `step` 在 5.5.4 当前会在 `parse()` 返回前执行回调，但 API 仍不是 Promise，也不应从返回值读取累计数据。
 
 ## 三、流式逐行处理：step
 
-大文件（几百 MB、几百万行）若一次性堆进 `data`，内存峰值≈整个数据集、随行数线性增长，浏览器可能 OOM。`step` 让**每解析一行就回调一次**，处理完即可丢弃，内存占用降到常数级：
+大文件若一次性堆进 `data`，内存随数据量增长，浏览器可能 OOM。`step` 让**每解析一行就回调一次**；如果业务回调处理后释放该行、不另建全量数组，峰值内存主要受当前行、解析缓冲和业务队列控制：
 
 ```ts
 let count = 0;
@@ -61,11 +72,12 @@ Papa.parse(file, {
 ::: tip step 的关键点
 - `step(results, parser)`：`results.data` 是**单行**（`header:false` 为数组、`header:true` 为对象）。
 - `parser.abort()` 立即停止；`parser.pause()/resume()` 可暂停恢复（**非 Worker 时**）。
+- 流式 `complete` 只表示结束，不会再提供所有行的累计结果；汇总值要在 `step` 中自行维护。
 :::
 
 ## 四、流式逐块处理：chunk
 
-`chunk` 与 `step` 类似，但回调粒度是「**一块数据**」而非单行——适合批量处理（一次插一批库记录）：
+`chunk` 与 `step` 类似，但回调粒度是「**一块数据**」而非单行，适合批量处理。官方配置将它限定在本地 File / 远程 URL；不要和 `step` 同时使用：
 
 ```ts
 Papa.parse(url, {
@@ -102,7 +114,7 @@ if (Papa.WORKERS_SUPPORTED) {
 
 ## 六、错误处理：有 errors ≠ 失败
 
-PapaParse **容错**——遇到字段数不符、引号未闭合等，把错误收进 `errors` 数组而**不抛异常中断**，`data` 仍尽量返回：
+Papa Parse 会把字段数不符、引号未闭合等**解析问题**收进 `errors`，`data` 仍尽量返回：
 
 ```ts
 const r = Papa.parse(messyCsv, { header: true });
@@ -114,7 +126,7 @@ if (r.errors.length) {
 // data 里仍有能解析的行
 ```
 
-错误三类 `type`：`Quotes`（引号）、`Delimiter`（分隔符）、`FieldMismatch`（字段数不符，`code` 为 `TooFewFields`/`TooManyFields`）。**应主动检查 `errors`**，不能假设没异常就没问题。
+错误三类 `type`：`Quotes`、`Delimiter`、`FieldMismatch`。**应主动检查 `errors`**；FileReader / 网络失败另走 `error` 回调，无效参数等编程错误仍可能抛异常。
 
 ## 七、自动分隔符探测与 TSV
 

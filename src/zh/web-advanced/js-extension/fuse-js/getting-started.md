@@ -5,7 +5,7 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇讲 **Fuse.js 的核心用法**：安装、`new Fuse(list, options)`、`fuse.search(pattern)`、keys 指定字段、score 的含义、拿分数与高亮。版本基线 **Fuse.js 7.x**。对比对象：精确匹配（`includes`/正则）、后端搜索引擎。
+> 本篇讲 **Fuse.js 的核心用法**：安装、`new Fuse(list, options)`、`fuse.search(pattern)`、keys 指定字段、score 的含义、拿分数与高亮。版本基线 **Fuse.js 7.4.2**。对比对象：精确匹配（`includes`/正则）、后端搜索引擎。
 
 ## 速查
 

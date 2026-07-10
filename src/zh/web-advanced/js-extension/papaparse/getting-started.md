@@ -5,14 +5,14 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇讲 **PapaParse 5.x** 的最小可用知识：装包 → 解析字符串 → 表头与类型转换 → 反解析回 CSV → 解析用户上传文件。核心 API 只有 `Papa.parse`（CSV→JS）和 `Papa.unparse`（JS→CSV）两个。
+> 本篇讲 **Papa Parse 5.5.4** 的最小可用知识：装包 → 解析字符串 → 表头与类型转换 → 反解析回 CSV → 解析用户上传文件。核心 API 只有 `Papa.parse`（CSV→JS）和 `Papa.unparse`（JS→CSV）两个。
 
 ## 速查
 
-- 安装：`npm i papaparse`（TS 类型：`npm i -D @types/papaparse`，或直接用自带声明）
+- 安装：`npm i papaparse`；TypeScript 另装 `npm i -D @types/papaparse`（主包不含 `.d.ts`）
 - 解析字符串：`const r = Papa.parse(text)` → `{ data, errors, meta }`（同步返回）
 - 首行作表头：`Papa.parse(text, { header: true })` → 每行变对象
-- 自动转类型：`{ dynamicTyping: true }` → 数字/布尔转为对应类型
+- 自动转类型：`{ dynamicTyping: true }` → 数字、布尔、空值与完整 ISO 日期转型
 - 跳空行：`{ skipEmptyLines: true }`（或 `'greedy'` 连只含空白的行也跳）
 - 反解析：`Papa.unparse(arrayOrObjects)` → CSV 字符串
 - 解析 File：`Papa.parse(file, { complete: res => ... })`（异步回调）
@@ -39,7 +39,7 @@ import Papa from "papaparse";
 
 ## 二、解析一段 CSV 字符串
 
-传字符串、且不开 `step`/`worker` 时，`Papa.parse` **同步返回**结果对象：
+传字符串，且不开 `step` / `chunk` / `worker` / `download` 时，`Papa.parse` **同步返回**结果对象：
 
 ```ts
 const csv = `name,age
@@ -77,9 +77,9 @@ const result = Papa.parse(csv, { header: true, dynamicTyping: true });
 ```
 
 ::: warning 三个注意
-① **不转日期**（日期仍是字符串，需自己处理）；
-② 超出 `±2^53` 的数为保精度**不转**；
-③ `007` 这类**前导零标识符**会被转成 `7` 丢前导零——这类列别开（见[进阶篇](./guide-line/advanced)按列控制）。
+① 完整 ISO 8601 时间戳会转成 `Date`，空字符串会转成 `null`；
+② 超出安全整数边界的数为保精度会保持字符串；
+③ `007` 这类**前导零标识符**会变成 `7`——这类列要用对象 / 函数形式关闭转型（见[进阶篇](./guide-line/advanced)）。
 :::
 
 ## 五、清理空行（skipEmptyLines）
@@ -109,7 +109,7 @@ Papa.unparse([
 Papa.unparse(rows, { header: false });
 ```
 
-> `unparse` 默认 `header:true`、换行 `\r\n`（CRLF，符合 RFC 4180）。含逗号/引号/换行的字段会**自动加引号并转义**，保证能被正确解析回来。
+> 对象数组的 `unparse` 默认输出表头，换行默认 `\r\n`。数组的数组由数据本身决定首行，`header` 选项会被忽略；含分隔符、引号或换行的字段会自动加引号并转义。
 
 ## 七、解析用户上传的文件（File）
 

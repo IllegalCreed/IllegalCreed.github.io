@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **PapaParse 5.x**。本篇讲解析与反解析的精细控制：`dynamicTyping` 按列、`transform`/`transformHeader` 清洗、表头边界、`unparse` 进阶、远程下载、CSV 公式注入防护。
+> 版本基线 **Papa Parse 5.5.4**。本篇讲解析与反解析的精细控制：`dynamicTyping` 按列、`transform` / `transformHeader` 清洗、表头边界、`unparse`、远程下载与 CSV 公式注入防护。
+
+## 速查
+
+- `dynamicTyping` 可传布尔、按列对象或 `(field) => boolean`；ID / 邮编等前导零列保持字符串
+- 转型会识别 number、boolean、空字符串与完整 ISO 时间戳；超安全整数边界的数字保持字符串
+- `transform(value, field)` **先于** dynamicTyping，适合 trim / 规范化；`transformHeader` 只改键名
+- 重复表头自动重命名为 `_1 / _2`，`meta.renamedHeaders` 保存新名到原名的映射
+- `preview` 限制数据行数并令 `meta.truncated = true`；`skipFirstNLines` 先跳过文件前导行
+- 对象数组导出用 `columns` 固定列与顺序；`quotes` 可按全局、列或函数决定
+- 远程 `download` 走浏览器 XHR，受 CORS 约束；可配置请求头、body 与凭据
+- 用户可控 CSV 导出启用 `escapeFormulae`，默认拦截 `= + - @ Tab CR`，也可传自定义正则
 
 ## 一、dynamicTyping 按列控制（避免 007 变 7）
 
@@ -31,23 +42,23 @@ Papa.parse(csv, {
 ```
 
 ::: warning dynamicTyping 三条铁律
-① **不转日期**——日期仍是字符串，要 Date 自己在 `transform` 里转；
-② 超 `±2^53` 的数为**保精度不转**；
+① 完整 ISO 时间戳会转成 `Date`，空字符串会转成 `null`；
+② 超出安全整数边界的数为**保精度不转**；
 ③ **前导零标识符**列务必排除，否则数据被破坏。
 :::
 
 ## 二、transform：逐值清洗
 
-`transform(value, colIndexOrHeader)` 对**每个字段值**生效，可在解析时即时清洗：
+`transform(value, colIndexOrHeader)` 对**每个字段值**生效，并且在 `dynamicTyping` **之前**运行，可先清洗再让内置转换接手：
 
 ```ts
 Papa.parse(csv, {
   header: true,
   transform: (value, column) => {
     if (column === "name") return value.trim();
-    if (column === "createdAt") return new Date(value); // 自己转日期
-    return value;
+    return value.trim();
   },
+  dynamicTyping: (column) => column === "age" || column === "createdAt",
 });
 ```
 
@@ -70,8 +81,8 @@ Papa.parse(csv, {
 ```ts
 // 重复列名：自动重命名避免覆盖，映射记入 meta.renamedHeaders
 const r = Papa.parse("name,name\nAda,Lovelace", { header: true });
-// r.data → [{ name: "Ada", name_1: "Lovelace" }]（具体后缀以实现为准）
-// r.meta.renamedHeaders → 记录重命名映射
+// r.data → [{ name: "Ada", name_1: "Lovelace" }]
+// r.meta.renamedHeaders → { name_1: "name" }
 
 // 某行字段多于表头：多出的进 __parsed_extra，并报 TooManyFields
 const r2 = Papa.parse("a,b\n1,2,3", { header: true });
@@ -104,6 +115,8 @@ Papa.parse(file, {
   },
 });
 ```
+
+固定跳过若干完整行时优先 `skipFirstNLines`；`beforeFirstChunk` 更适合必须按原始文本做的自定义处理，并要保证待处理内容完整落在第一块中。
 
 ## 七、unparse 进阶：columns / quotes
 
@@ -148,14 +161,18 @@ Papa.parse(url, {
 });
 ```
 
+`download` 使用浏览器 XHR，目标服务必须允许当前站点的 CORS；`withCredentials: true` 时服务端还要显式允许凭据，不能使用通配来源。
+
 ## 九、CSV 公式注入防护：escapeFormulae
 
-导出的 CSV 被 Excel/Google Sheets 打开时，以 `=`、`+`、`-`、`@` 开头的单元格会被当**公式执行**，攻击者可注入恶意公式（CSV 注入）。导出**用户可控数据**时务必开启：
+导出的 CSV 被表格软件打开时，以 `=`、`+`、`-`、`@`、制表符或回车开头的值可能被当作公式。导出**用户可控数据**时应开启：
 
 ```ts
 const csv = Papa.unparse(userData, { escapeFormulae: true });
-// =SUM(A1) → '=SUM(A1)（前面加 ' 变纯文本，不会被当公式执行）
+// =SUM(A1) → '=SUM(A1)（前置单引号，令表格软件按文本处理）
 ```
+
+也可传正则覆盖默认识别范围；该选项优先于 `quotes`，但仍需结合下载来源校验、内容审查和目标表格软件策略做纵深防护。
 
 ::: danger 安全提醒
 任何把**用户输入**导出成 CSV 给人下载/在 Excel 打开的场景，都应开 `escapeFormulae:true`，否则存在公式注入风险。
