@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **Lodash 4.18.1**。把 lodash-es 用进真实项目：`debounce`/`throttle` 的选项与 `cancel`/`flush`、`memoize` 的缓存坑、`flow` 函数组合、`get`/`set` 动态路径实战、以及在 React 里的正确姿势。
 
+## 速查
+
+- **debounce 默认值**：默认尾沿触发；`leading` 控制首沿，`trailing` 控制尾沿，`maxWait` 给持续调用设置最长等待。
+- **生命周期控制**：`cancel()` 丢弃挂起调用，`flush()` 立即执行并返回挂起结果；组件卸载时通常应 `cancel()`。
+- **throttle 默认值**：默认首沿和尾沿都触发；按钮防连点等场景常显式关闭 `trailing`。
+- **memoize 键**：默认只取第一个参数作 key；多参数函数必须给 resolver，否则首参相同会错误命中。
+- **memoize 容量**：默认缓存不会自动过期或淘汰；长生命周期、高基数输入需主动清理或替换 Cache。
+- **组合方向**：`flow` 从左到右，`flowRight` 从右到左；体积敏感代码通常比 wrapper 链更易摇树。
+- **动态路径**：运行时字符串路径适合 `get` / `set`；静态路径优先可选链，且牢记 `set` 会修改原对象。
+- **React**：防抖函数引用必须跨渲染保持稳定，并在卸载时清理；传给防抖器的应是值而非易失效的事件对象。
+
 ## 一、debounce / throttle 的选项与控制方法
 
 ### leading / trailing：在窗口哪一端触发

@@ -5,14 +5,25 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **es-toolkit 1.47+**。把 es-toolkit 用进真实项目：从 lodash 迁移三步法、官方体积 / 性能基准（一手数字）、`es-toolkit/compat` 的深路径 / `get` / 链式、选型决策。
+> 版本基线 **es-toolkit 1.49.0**。把 es-toolkit 用进真实项目：从 lodash 迁移三步法、官方体积 / 性能基准（一手数字）、`es-toolkit/compat` 的深路径 / `get` 与兼容范围、选型决策。
 
-## 一、从 lodash 迁移：官方三步法
+## 速查
+
+- **迁移顺序**：先盘点 wrapper 链与范围外函数，再把普通函数导入切到 compat，跑回归后逐模块切主包。
+- **兼容口径**：compat 自 v1.39.3 起通过 Lodash 测试套件；方法链、跨 realm、修改内建原型与部分特化行为仍明确在范围外。
+- **体积基准**：官方当前表仍是 es-toolkit 1.43.0 对 lodash-es 4.17.21，使用 esbuild 0.28.0；它不是 1.49.0 的本项目实测。
+- **性能基准**：官方当前表是 es-toolkit 1.43.0 对 lodash 4.17.21，环境为 i5-13400F / Node 24.11.1 / win32 x64。
+- **别平均化**：当前表中 `pick` 约 3.9×、`omit` 约 3.3×，但 `union` 约 0.7×、`groupBy` 约 0.9×；热点应单测。
+- **深路径能力**：compat 提供 `get` / `set` 及 Lodash 风格 `pick` / `omit`；主包偏向键数组与类型安全签名。
+- **链式边界**：compat 默认导出可调用且挂有静态方法，但调用本身只是返回原值，**不会创建 Lodash wrapper**。
+- **选型原则**：新项目直接主包；存量项目用 compat 过渡，不能把主包的体积 / 性能数字直接套给 compat。
+
+## 一、从 lodash 迁移：三阶段落地法
 
 官方推荐**渐进式**迁移，而非一次性改写：
 
 ```ts
-// 第 1 步：把 import 路径整体改成 es-toolkit/compat（行为 1:1，几乎零风险）
+// 第 1 步：先确认没有 wrapper 链等范围外用法，再切兼容导入并跑测试
 import { chunk, debounce, get, cloneDeep } from 'es-toolkit/compat';
 
 // 第 2 步：随时间逐步清理调用点，去掉对 lodash 怪癖的依赖
@@ -23,11 +34,11 @@ import { chunk, debounce, cloneDeep } from 'es-toolkit';
 
 | 步骤 | 动作 | 风险 |
 |---|---|---|
-| ① | `lodash`/`lodash-es` → `es-toolkit/compat` | 极低（compat 过 lodash 测试套件） |
+| ① | 盘点 wrapper 链 / 范围外 API，再切 `es-toolkit/compat` | 较低，但必须跑现有测试 |
 | ② | 按模块清理 lodash 式写法 | 渐进可控 |
 | ③ | 逐步切到主包 `es-toolkit` | 需核对签名差异 |
 
-> 为什么不直接全切主包？主包签名更严格（不支持深路径、隐式转换等），大项目一次性切风险高。**先 compat 保功能，再逐步切主包**是最稳路径。
+> 为什么不直接全切主包？主包签名更严格（不支持深路径与 Lodash 的多形态签名），大项目一次性切风险高。**先用 compat 缩小改造面，再逐步切主包**通常更可控，但方法链等范围外代码要在第一步之前改写。
 
 ## 二、体积基准（官方一手数字）
 
@@ -47,21 +58,22 @@ import { chunk, debounce, cloneDeep } from 'es-toolkit';
 
 ## 三、性能基准（官方一手数字）
 
-官方 performance 页在 **MacBook Pro 14"（M1 Max, 2021）** 上对比 es-toolkit vs lodash-es（数值为每段时间内执行次数，越高越快）：
+官方当前 performance 页的口径是 **13th Gen Intel Core i5-13400F / Node 24.11.1 / win32 x64**，对比 **es-toolkit 1.43.0 与 lodash 4.17.21**。数值为单位时间执行次数，越高越快：
 
-| 函数 | es-toolkit | lodash-es | 提速 |
+| 函数 | es-toolkit | lodash | 提速 |
 |---|---:|---:|---:|
-| `omit` | 4,767,360 | 403,624 | **11.8×** |
-| `pick` | 9,121,839 | 2,663,072 | 3.43× |
-| `differenceWith` | 9,291,897 | 4,275,222 | 2.17× |
-| `intersection` | 9,999,571 | 4,630,316 | 2.15× |
-| `difference` | 10,436,101 | 5,155,631 | 2.02× |
-| `unionBy` | 6,435,983 | 3,794,899 | 1.69× |
-| `union` | 5,059,209 | 4,771,400 | 1.06× |
-| `groupBy` | 5,000,235 | 5,206,286 | 0.96× |
+| `omit` | 4,706,415 | 1,417,299 | **3.3×** |
+| `pick` | 10,746,586 | 2,789,742 | **3.9×** |
+| `differenceWith` | 18,522,078 | 5,651,942 | **3.3×** |
+| `intersectionWith` | 16,926,995 | 4,958,866 | **3.4×** |
+| `difference` | 12,202,488 | 6,828,896 | 1.8× |
+| `intersection` | 11,263,848 | 5,819,145 | 1.9× |
+| `unionBy` | 5,052,919 | 5,307,449 | 1.0× |
+| `union` | 4,664,881 | 6,287,776 | **0.7×** |
+| `groupBy` | 6,039,742 | 6,797,503 | **0.9×** |
 
 ::: tip 正确理解「平均约 2×」
-「平均约 2×」是**总体概括**，不是每个函数都恰好快 2 倍：`omit` 约 11.8×，而 `union` 约 1.06×、`groupBy` 约 0.96×（接近持平甚至略低）。**性能敏感处应看具体函数基准，不要套用「一律 2×」。**
+「平均约 2×」是**总体概括**，不是每个函数都恰好快 2 倍：当前样本里 `pick` / `omit` 明显更快，`union` / `groupBy` 则低于 lodash。**性能敏感处应按目标运行时和真实数据复测，不要套用「一律 2×」。**
 :::
 
 ## 四、es-toolkit/compat 的专属能力
@@ -88,14 +100,16 @@ get(obj, 'd.e', 'default'); // 4
 obj?.d?.e ?? 'default';     // 4（类型安全、零依赖）
 ```
 
-### 3. 链式调用 —— compat 专属
+### 3. 默认导出不是 Lodash wrapper
 
 ```ts
 import _ from 'es-toolkit/compat';
-_([1, 2, 3, 4]).chunk(2).value(); // [[1, 2], [3, 4]]
+
+_.chunk([1, 2, 3, 4], 2); // ✅ 默认函数对象挂有 compat 静态方法
+_([1, 2, 3, 4]);          // 只返回原数组，不会得到 .chunk().value() wrapper
 ```
 
-> 主包**有意不提供链式**（链式不利摇树与类型推导），推荐用具名函数组合或原生数组方法替代。
+> 官方把 `_(arr).map(...).filter(...)` 方法链明确列为 compat 范围外。本地 1.49.0 也没有导出 `chain` / `value` / `mixin`；迁移前应改成具名函数组合或原生数组方法。新代码仍建议具名导入，不依赖默认导出的可调用兼容外形。
 
 ### 4. lodash 风格的 debounce 选项
 
@@ -106,18 +120,18 @@ debounce(fn, 300, { leading: true, trailing: false, maxWait: 1000 }); // lodash 
 
 ## 五、compat 的代价
 
-官方明确：compat「**slightly larger and slightly slower than es-toolkit**」——为 1:1 复刻 lodash 行为（隐式转换、多参数形态、边界处理）背负额外逻辑，所以**比主包略大、略慢，但仍比 lodash 本身更小更快**。这正是「先迁 compat、再切主包」的动机。
+官方明确：compat「**slightly larger and slightly slower than es-toolkit**」——为复刻 Lodash 的多参数形态与边界处理背负额外逻辑，所以**比主包略大、略慢**。官方 bundle / performance 明细测的是主包，不能据此断言某个 compat 调用一定比 Lodash 更小或更快；迁移项目应看自己的构建报告与基准。
 
 ## 六、选型决策
 
 ```text
 项目已大量用 lodash？
-├─ 是 → 先全局换 es-toolkit/compat（零行为变化）→ 再按模块渐进切主包
+├─ 是 → 先盘点范围外 API，再换 es-toolkit/compat 并跑回归 → 按模块切主包
 └─ 否（新项目 / 无 lodash 包袱）→ 直接用主包 es-toolkit
 
-需要 lodash 的深路径 get/set、隐式转换、链式？
-├─ 是 → 用 es-toolkit/compat
-└─ 否 → 用主包 es-toolkit（最小、最快、类型最好）
+需要 Lodash 的深路径 get/set 或多形态签名？
+├─ 是 → 用 es-toolkit/compat 过渡，并核对官方范围外清单
+└─ 否 → 用主包 es-toolkit（包内体积 / 性能最优、类型更严格）
 ```
 
 > 官方原话：「If your project does not already use Lodash, please use es-toolkit instead.」——compat 只为迁移而生。

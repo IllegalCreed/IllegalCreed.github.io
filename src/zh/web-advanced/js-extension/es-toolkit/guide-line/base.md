@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 基础
 
-> 版本基线 **es-toolkit 1.47+**。本篇把「会装会用」推进到「懂常用函数族与语义」：数组 / 对象 / 函数 / 断言 / 字符串常用函数、tree-shaking 与 `sideEffects`、可变 vs 不可变语义。
+> 版本基线 **es-toolkit 1.49.0**。本篇把「会装会用」推进到「懂常用函数族与语义」：数组 / 对象 / 函数 / 断言 / 字符串常用函数、tree-shaking 与 `sideEffects`、可变 vs 不可变语义。
+
+## 速查
+
+- **入口选择**：新代码从 `es-toolkit` 或领域子路径具名导入；`es-toolkit/compat` 只服务 Lodash 渐进迁移。
+- **包边界**：1.49.0 同时提供 ESM / CommonJS 条件导出、内置类型、`sideEffects: false`，且没有运行时依赖。
+- **对象签名**：主包 `pick` / `omit` 只收键数组，不解析点号深路径；兼容签名在 compat。
+- **函数控制**：主包 `debounce` / `throttle` 使用 `{ edges, signal }`，而 Lodash 风格 `{ leading, trailing, maxWait }` 在 compat。
+- **memoize**：主包按单参数设计，默认直接以该参数作 key；对象和数组按引用比较，内容键需 `getCacheKey`。
+- **类型守卫**：`isString`、`isNil`、`isPlainObject` 等 predicate 可在 TypeScript 中收窄 `unknown`。
+- **变异警戒**：`merge`、`pull`、`remove`、`fill` 会改入参；不可变数据流优先 `toMerged`、`difference`、`without`。
+- **官方入口**：[安装与用法](https://es-toolkit.dev/usage.html) ｜ [严格 API Reference](https://es-toolkit.dev/reference/array/at.html)
 
 ## 一、函数分类全景
 
@@ -74,11 +85,11 @@ const onScroll = throttle(() => updateUI(), 200);
 // once：无论调用多少次，只执行一次并缓存结果（惰性单例）
 const init = once(() => expensiveSetup());
 
-// memoize：按参数缓存（默认以第一个参数为缓存键）
+// memoize：主包按单参数设计，默认直接用该参数作缓存键
 const slowSquare = memoize((n: number) => n * n);
 ```
 
-> 主包的 `debounce`/`throttle` 用现代化的 **`edges`** 选项控制开头/结尾执行（`{ edges: ['leading'] }`），并支持 `AbortSignal`；lodash 风格的 `{ leading, trailing, maxWait }` 在 compat 里。详见[专家篇](./expert)。
+> 对数组 / 对象参数，默认 key 是对象引用；两次内容相同但引用不同的数组不会命中同一缓存。用 `getCacheKey` 提取稳定键，或把多参数函数先收束成一个对象 / 元组参数。主包的 `debounce`/`throttle` 用 **`edges`** 控制开头/结尾执行并支持 `AbortSignal`；Lodash 风格的 `{ leading, trailing, maxWait }` 在 compat。详见[专家篇](./expert)。
 
 ## 五、断言族（类型守卫）
 
@@ -149,4 +160,4 @@ const next = toMerged(state, patch);
 
 ---
 
-进入 [指南 · 进阶](./advanced)：从 lodash 迁移三步法、体积 / 性能基准数字、compat 的 `get`/深路径 / 链式、选型决策。
+进入 [指南 · 进阶](./advanced)：从 lodash 迁移三步法、体积 / 性能基准数字、compat 的 `get` / 深路径能力与明确范围外行为、选型决策。

@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **Lodash 4.18.1**。深入 lodash-es 的进阶主题：`_.chain` 的惰性求值与 ESM 取舍、`memoize` 自定义 LRU、`lodash/fp`（不可变 + data-last）、不可变更新方案、ESM↔CJS 互操作排查、防抖节流的单元测试，以及与 es-toolkit 的迁移取舍。
 
+## 速查
+
+- **惰性链条件**：wrapper 链在合适的数组管线中可做 lazy evaluation / shortcut fusion；不是每条链都只遍历一次。
+- **体积取舍**：`chain` 依赖 wrapper 方法体系，通常比具名导入 + `flow` 更难摇树；先以实际 bundle 报告判断。
+- **memoize 扩展点**：返回函数暴露 `.cache`，全局构造器是 `memoize.Cache`；替换为 LRU 会影响之后创建的所有 memoized 函数。
+- **lodash/fp**：核心语义是不可变、自动柯里化、iteratee-first / data-last，并默认限制 iteratee 参数个数。
+- **不可变更新**：常规 `set` / `merge` 会修改目标；可用 fp、`cloneDeep` 后修改或 Immer，数组合并规则要单独测试。
+- **模块边界**：`lodash-es` 是 ESM，`lodash` 与 `lodash/fp` 来自 CommonJS 包；库模式、SSR 与测试环境要分别验证互操作。
+- **计时器测试**：防抖节流使用假定时器，并覆盖首沿、尾沿、`maxWait`、`cancel`、`flush`。
+- **迁移策略**：`es-toolkit/compat` 可降低迁移成本，但方法链、realm、修改原型等被官方列为范围外，关键路径仍需回归测试。
+
 ## 一、_.chain 的惰性求值与取舍
 
 Lodash 的**显式链** `_.chain(arr).filter().map().take(n).value()` 在满足条件时会启用**惰性求值（lazy evaluation）与 shortcut fusion**：把多次迭代「融合」成一趟遍历，并在 `take` 等场景**提前短路**，对超大数组性能收益显著。
@@ -168,10 +179,11 @@ test("debounce 只在静默后触发一次", () => {
 
 ## 七、与 es-toolkit 的迁移取舍
 
-`es-toolkit` 是现代 TS 优先工具库，主打**更小、更快、原生 TypeScript 类型**，大量函数对位 lodash，并提供 `es-toolkit/compat` 兼容层逼近 lodash API。
+`es-toolkit` 是现代 TS 优先工具库，主打**更小、更快、原生 TypeScript 类型**，大量函数对位 lodash，并提供 `es-toolkit/compat` 迁移层。
 
 - **迁移动机**：减小 bundle、获得原生类型与更活跃的维护。
-- **风险**：并非 100% 等价——部分 lodash 方法 es-toolkit 没有或边界/容错略有差异（如对 `null`、超量参数的处理，或某些冷门方法）。迁移需**逐一核对并补测试**，尤其是依赖 lodash 特定边界行为的代码。
+- **兼容口径**：官方称 compat 自 v1.39.3 起通过 Lodash 测试套件，但同时把方法链、跨 realm、修改内建原型及部分特化函数列为设计范围外；不要把里程碑理解成所有历史行为都无条件等价。
+- **风险控制**：迁移需**逐一核对并补测试**，尤其是依赖隐式转换、冷门方法或 wrapper 链的代码。
 - **务实策略**：新项目可优先评估 es-toolkit（自带类型、体积更优）；存量 lodash-es 项目按需、分批迁移，用 `compat` 平滑过渡，关键路径加测试守护。
 
 ---

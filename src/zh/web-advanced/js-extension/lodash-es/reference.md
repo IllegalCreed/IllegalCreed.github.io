@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > `lodash-es` 常用方法、关键 API 形态、变异性与原生平替速查。版本基线 **Lodash 4.18.1**。冷门方法见[官方文档](https://lodash.com/docs)。
 
+## 速查
+
+- **版本与格式**：`lodash-es@4.18.1` 是 Lodash 的 ESM 发行形态，包元数据含 `"type": "module"` 与 `"sideEffects": false`；`lodash@4.18.1` 仍以 CommonJS 主入口发布。
+- **推荐导入**：应用代码优先从 `lodash-es` 具名导入；原生 ESM 子路径需带 `.js`，如 `lodash-es/cloneDeep.js`。
+- **类型包**：`lodash-es` 不内置 TypeScript 声明，安装 `@types/lodash-es`；后者复用 `@types/lodash`。
+- **高风险 API**：`set`、`unset`、`update`、`merge`、`assign`、`defaults` 以及 `pull` / `remove` 会修改入参。
+- **函数控制**：`debounce` 支持 `leading` / `trailing` / `maxWait` 与 `cancel` / `flush`；`memoize` 默认只用首参作 key。
+- **原生替代**：数组常规操作、静态可选路径、原始值去重与纯数据深拷贝优先评估原生 API。
+- **wrapper 边界**：`chain` 可用且可能惰性求值，但通常扩大 bundle；体积敏感处优先具名函数组合。
+- **官方入口**：[API 文档](https://lodash.com/docs/) ｜ [4.18.1 Changelog](https://github.com/lodash/lodash/wiki/Changelog)
+
 ## 一、方法分类总览
 
 Lodash 官方按以下 category 组织方法（注意：**没有** Promise/异步分类）：
@@ -33,10 +44,10 @@ import { debounce, cloneDeep, get } from "lodash-es";
 // ✅ 子路径直达（更显式）
 import cloneDeep from "lodash-es/cloneDeep.js";
 
-// ❌ 避免：整体导入 CJS lodash（不可摇树）
+// ⚠️ 避免：整体导入 CJS lodash（无法像 ESM 那样可靠摇树）
 import _ from "lodash";
 
-// ❌ 避免：per-method 包（重复内联依赖，v5 将移除）
+// ⚠️ 新代码不建议：per-method 包会重复内联内部依赖，版本管理也更分散
 // import debounce from 'lodash.debounce'
 ```
 

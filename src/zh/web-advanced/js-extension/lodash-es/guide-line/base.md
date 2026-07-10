@@ -7,6 +7,16 @@ outline: [2, 3]
 
 > 版本基线 **Lodash 4.18.1**。本篇把「会用」推进到「懂机制」：tree-shaking 是怎么生效的、哪些方法会变异入参、iteratee 简写的三种形态、以及和原生方法的取舍边界。
 
+## 速查
+
+- **模块基线**：`lodash-es@4.18.1` 的包元数据同时声明 `"type": "module"`、`"module": "lodash.js"` 与 `"sideEffects": false`，面向 ESM 静态分析与 tree-shaking。
+- **导入建议**：优先 `import { debounce } from 'lodash-es'`；子路径直达在原生 ESM 中写成 `lodash-es/debounce.js`。
+- **变异警戒**：`merge`、`set`、`assign`、`defaults`、`pull`、`remove` 会修改目标入参；`pick`、`omit`、`mapValues`、`uniq` 返回新值。
+- **iteratee 简写**：字符串是 `property`，对象是 `matches`，`[path, value]` 是 `matchesProperty`；复杂条件直接写函数更清楚。
+- **原生优先**：静态路径用 `?.` / `??`，普通数组映射过滤用原生方法，原始值去重用 `Set`。
+- **仍适合 Lodash**：动态深路径、深合并、深比较、防抖节流，以及需要自定义遍历语义的集合操作。
+- **深拷贝边界**：纯结构化数据优先评估 `structuredClone`；含函数时它会抛 `DataCloneError`，`cloneDeep` 会保留函数引用。
+
 ## 一、tree-shaking 到底是怎么生效的
 
 `lodash-es` 能按需打包，靠的是三件事**同时**成立：
@@ -19,7 +29,7 @@ outline: [2, 3]
 // ✅ 摇树友好：只有 cloneDeep 及其内部依赖进 bundle
 import { cloneDeep } from "lodash-es";
 
-// ❌ 整体导入 CJS lodash：全部方法进 bundle
+// ⚠️ 整体导入 CJS lodash：打包器无法像 ESM 那样可靠静态摇树
 import _ from "lodash";
 _.cloneDeep(x);
 ```

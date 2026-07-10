@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 参考
 
-> 7 个小库的 API 速查。版本基线：mitt 3.x、qs 6.x、JSZip 3.10.x、FileSaver 2.0.x、qrcode 1.5.x、chroma.js 3.x、marked 18.x。
+> 7 个小库的 API 速查。版本基线：mitt 3.0.1、qs 6.15.3、JSZip 3.10.1、FileSaver 2.0.5、qrcode 1.5.4、chroma.js 3.2.0、marked 18.0.6。
+
+## 速查
+
+- **mitt**：`mitt()` → `{ on, off, emit, all }`；无 once；类型 handler 先于 wildcard，同组 handler 使用快照。
+- **qs**：`parse` 默认 depth 5 / parameterLimit 1000 / arrayLimit 20；索引 20 起转对象，超限可选择抛错。
+- **JSZip**：`generateAsync` / `loadAsync` / `ZipObject#async` 返回 Promise；完整结果占内存，3.8+ 仅额外处理 zip-slip 路径。
+- **FileSaver**：`saveAs(Blob | File | URL, filename?, { autoBom? })`；只保存、不生成内容，跨源受 CORS 和用户手势约束。
+- **qrcode**：浏览器 API 为 create / canvas / data URL / SVG string；Node 另有 buffer / file / stream 与 utf8 / terminal string。
+- **chroma.js**：连续域用 `domain`，离散断点用 `classes`，分位数断点由 `chroma.limits(data, 'q', n)` 计算。
+- **marked**：默认 GFM + 同步字符串；`async:true` 才返回 Promise，renderer 接收 token，输出不自带净化。
+- **官方入口**：[mitt](https://github.com/developit/mitt) ｜ [qs](https://github.com/ljharb/qs) ｜ [JSZip](https://stuk.github.io/jszip/) ｜ [FileSaver](https://github.com/eligrey/FileSaver.js) ｜ [qrcode](https://github.com/soldair/node-qrcode) ｜ [chroma.js](https://gka.github.io/chroma.js/) ｜ [marked](https://marked.js.org/)
 
 ## 一、mitt
 
@@ -38,7 +49,7 @@ qs.stringify(obj, options?);
 |---|---|---|
 | `depth` | `5` | 最大嵌套深度 |
 | `parameterLimit` | `1000` | 最大参数数 |
-| `arrayLimit` | `20` | 超过则数组转对象 |
+| `arrayLimit` | `20` | 数字下标达到 20 起转对象；不是总元素数硬上限 |
 | `allowDots` | `false` | 支持 `a.b=c` |
 | `ignoreQueryPrefix` | `false` | 剥离前导 `?` |
 | `delimiter` | `'&'` | 分隔符（可正则） |
@@ -105,9 +116,9 @@ import QRCode from "qrcode";
 
 | 方法 | 输出 | 环境 |
 |---|---|---|
-| `toCanvas(canvas, text, opts?)` | 画到 canvas | 浏览器 / Node |
+| `toCanvas(canvas, text, opts?)` | 画到传入 canvas | 浏览器 / 兼容 Canvas 实现 |
 | `toDataURL(text, opts?)` | base64 Data URL | 浏览器 / Node |
-| `toString(text, opts?)` | 字符串（`utf8`/`svg`/`terminal`） | 浏览器 / Node |
+| `toString(text, opts?)` | 浏览器仅 SVG；Node 支持 `utf8` / `svg` / `terminal` | 浏览器 / Node |
 | `toFile(path, text, opts?)` | 写文件（`png`/`svg`/`utf8`） | **仅 Node** |
 | `toBuffer(text, opts?)` | Buffer | Node |
 | `create(text, opts?)` | QR 数据对象（不渲染） | 通用 |
@@ -123,7 +134,7 @@ import QRCode from "qrcode";
 | `width` | — | 总宽（覆盖 scale） |
 | `color.dark` / `color.light` | `#000` / `#fff` | RGBA hex |
 
-> 所有渲染方法均支持回调与 Promise 两种风格。
+> `create` 同步返回数据对象；常规渲染方法支持回调与 Promise，`toFileStream` 走 stream 约定。
 
 ## 六、chroma.js
 
@@ -155,6 +166,7 @@ import chroma from "chroma-js";
 | `scale.classes(n)` | 切 n 个离散分级 |
 | `scale.mode('lab')` | 插值空间（默认 `rgb`） |
 | `scale.colors(n)` | 取 n 个等距色 |
+| `chroma.limits(data, mode, n)` | 计算分级断点；`mode='q'` 为分位数 |
 | `chroma.contrast(a, b)` | WCAG 对比度（1~21） |
 | `chroma.deltaE(a, b)` | CIE2000 色差（0~100） |
 | `chroma.brewer` | ColorBrewer 调色板 |
@@ -173,7 +185,7 @@ marked.parseInline(md); // 仅行内
 | `gfm` | `true` | GitHub Flavored Markdown |
 | `breaks` | `false` | 单换行 → `<br>` |
 | `pedantic` | `false` | 严格 markdown.pl |
-| `async` | `false` | 返回 `Promise<string>` |
+| `async` | `false` | 设为 `true` 时返回 `Promise<string>` |
 | `renderer` | — | 自定义渲染（`marked.use`） |
 | `tokenizer` | — | 自定义分词 |
 | `walkTokens` | — | 遍历每个 token |
