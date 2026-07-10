@@ -7,6 +7,16 @@ outline: [2, 3]
 
 > 版本基线 **date-fns 4.x**。把 date-fns 用进真实业务：区间 Interval、Duration 与人类可读时长、`date-fns/fp` 函数式组合、tree-shaking 实操、与 Moment/Day.js/Luxon 的选型对比。
 
+## 速查
+
+- **Interval 形态**：区间是 `{ start, end }` 普通对象；`isWithinInterval` 默认包含端点，`areIntervalsOverlapping` 用 `inclusive` 决定相切是否重叠。
+- **反向区间**：v3 起多数区间函数会归一化或返回反向结果；需要拒绝反向端点时使用 `interval(start, end, { assertPositive: true })`。
+- **Duration 形态**：`intervalToDuration()` 返回单位对象，`formatDuration()` 负责人类可读输出；零值字段自 v3 起通常省略。
+- **相对时间**：`formatDistance` 用 date-fns locale，`intlFormatDistance` 用宿主 `Intl.RelativeTimeFormat`；`*Strict` 版本固定为单一单位，并可配置舍入方式。
+- **函数式入口**：`date-fns/fp` 提供柯里化、数据后置版本，适合 `pipe` / `compose`；带 options 的函数通常使用 `*WithOptions` 名称。
+- **tree-shaking**：使用 ESM + 具名导入；命名空间导入和 CommonJS 会降低静态裁剪效果。
+- **选型**：原生 Date + 函数式按需选 date-fns；极小链式 API 选 Day.js；内建时区、Duration、Interval 的富对象模型选 Luxon。
+
 ## 一、区间 Interval
 
 date-fns 用普通对象 `{ start, end }` 表示区间，配套一组函数：
@@ -31,7 +41,7 @@ eachDayOfInterval({ start: new Date(2024, 0, 1), end: new Date(2024, 0, 5) });
 同族 `eachXOfInterval`：`eachHourOfInterval`、`eachWeekOfInterval`、`eachMonthOfInterval`、`eachYearOfInterval`、`eachWeekendOfInterval`，部分支持 `step` 选项。
 
 ::: tip v3 起区间不再抛错
-v3 起，接受 Interval 的函数对「start 晚于 end」的处理改为**归一化**而非抛错：`eachDayOfInterval` 返回**反向数组**；`isWithinInterval` 把 `{start:a,end:b}` 视同 `{start:b,end:a}`；端点为 `Invalid Date` 时返回 `false` / 空数组 / `0`。想要显式校验区间，用新增的 `interval(start, end)`（非法时抛错）。
+v3 起，接受 Interval 的函数对「start 晚于 end」的处理改为**归一化**而非抛错：`eachDayOfInterval` 返回**反向数组**；`isWithinInterval` 把 `{start:a,end:b}` 视同 `{start:b,end:a}`；端点为 `Invalid Date` 时返回 `false` / 空数组 / `0`。新增的 `interval(start, end)` 会校验无效日期，但默认仍允许反向端点；要恢复「end 必须晚于 start」的约束，传 `{ assertPositive: true }`。
 :::
 
 ## 二、Duration 与人类可读时长
@@ -68,7 +78,7 @@ formatDistanceToNow(past, { addSuffix: true }); //=> '3 days ago'
 intlFormatDistance(past, new Date(), { locale: "zh" }); //=> '3天前'
 ```
 
-> `intlFormatDistance`（v2.29 引入）借运行时 `Intl.RelativeTimeFormat` 做本地化，省去 locale 包导入；`formatDistance` 则用 date-fns 自带的 locale 数据，需显式传 `locale`。严格版 `formatDistanceStrict` / `formatDistanceToNowStrict` 不取整到最大单位。
+> `intlFormatDistance`（v2.29 引入）借运行时 `Intl.RelativeTimeFormat` 做本地化，省去 locale 包导入；`formatDistance` 则用 date-fns 自带的 locale 数据，需显式传 `locale`。严格版 `formatDistanceStrict` / `formatDistanceToNowStrict` 输出单一单位，可用 `unit` 固定单位，并用 `roundingMethod` 控制数值舍入。
 
 ## 四、date-fns/fp：函数式组合
 

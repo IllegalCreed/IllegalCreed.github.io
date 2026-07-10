@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > date-fns **常用函数、format token、子模块与时区 API** 速查。版本基线 date-fns 4.x。
 
+## 速查
+
+- **函数分组**：格式化、解析、增减、差值、起止、比较、区间、取设值与最值均从 `date-fns` 具名导入。
+- **关键 token**：日历年 `yyyy`、月 `MM`、月内日 `dd`、24 小时 `HH`；`Y` / `D` 是周编号年 / 年内日，需额外开关。
+- **解析约束**：`parse(value, format, referenceDate, options)` 必须给参考日期；技术标准字符串优先使用 `parseISO` / `parseJSON`。
+- **locale**：从 `date-fns/locale` 按需导入；`setDefaultOptions` 可设置默认 locale 和周规则，但会产生全局状态。
+- **函数式入口**：`date-fns/fp` 使用柯里化和数据后置；常量从 `date-fns/constants` 引入。
+- **时区**：v4 使用 `@date-fns/tz` 的 `TZDate` 或 `in: tz(zone)`；`format` 系列的 `in` 需 v4.1+。
+- **包边界**：`@date-fns/tz` 是官方 Date 扩展方案，`date-fns-tz` 是第三方格式转换方案，`@date-fns/utc` 提供 `UTCDate`。
+- **返回语义**：转换函数返回新 Date；解析失败多为 `Invalid Date`，区间 / Duration API 另有各自的空值或无效结果约定。
+
 ## 一、常用函数分组
 
 | 分组 | 代表函数 | 说明 |
@@ -58,7 +69,7 @@ outline: [2, 3]
 | `firstWeekContainsDate` | 一年的第一周须包含的日期 |
 | `useAdditionalWeekYearTokens` | 允许使用 `YY`/`YYYY` |
 | `useAdditionalDayOfYearTokens` | 允许使用 `D`/`DD` |
-| `in` | 计算/输出所用时区（配 `@date-fns/tz` 的 `tz()`，v4+） |
+| `in` | 计算/输出所用时区（配 `@date-fns/tz` 的 `tz()`；`format` 系列需 v4.1+） |
 
 ## 四、子模块
 

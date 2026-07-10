@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **date-fns 4.x**。深入内核与演进：v2→v3→v4 破坏性变更全梳理、v4 时区 `in` 选项与类型推断、`@date-fns/tz` 机制、`UTCDate`、迁移实战与陷阱。
 
+## 速查
+
+- **版本节奏**：v3 完成 ESM / CJS 双包、扁平结构、具名导出与 TypeScript 重写；v4 增加官方一等时区支持，主要破坏点在类型层。
+- **v3 导入迁移**：深路径 CommonJS 默认导出改为具名导出，constants 从 `date-fns/constants` 引入，运行时参数检查更多交给类型系统。
+- **v4 时区上下文**：相关函数通过 `{ in: tz('Asia/Tokyo') }` 明确计算时区；`format` 系列从 v4.1 起补齐该能力。
+- **类型归一化**：混用原生 `Date`、`TZDate`、`UTCDate`、字符串和时间戳时，显式 `in` 优先；否则首个对象参数决定返回上下文。
+- **官方时区包**：`@date-fns/tz` 提供 `TZDate` / `TZDateMini`、`tz`、`tzOffset`、`tzScan`、`tzName`。
+- **不要混包名**：官方 `@date-fns/tz` 与第三方 `date-fns-tz` 是不同实现，不是改名或别名。
+- **纯 UTC**：`@date-fns/utc` 的 `UTCDate` 让 date-fns 按 UTC 日历规则计算，并尽量保留扩展 Date 类型。
+- **迁移高风险点**：Moment token、月份零基、原生可变 setter、命名空间导入、`parse` 的 referenceDate 与跨时区缺少 `in`。
+
 ## 一、版本演进与节奏
 
 | 版本 | 时间 | 头条 |
@@ -40,7 +51,7 @@ v3 是一次彻底的现代化重构，核心 **BREAKING**：
 8. **`roundToNearestMinutes`**：`nearestTo` < 1 或 > 30 时返回 `Invalid Date`（不再抛错）。
 9. **统一 `Math.trunc` 舍入**：`differenceInX` 新增 `roundingMethod` 选项，默认向零截断。
 10. **弃 IE、弃 Flow**：拥抱现代 JS / ESM；TypeScript 类型完全重写。
-11. **新增 `interval()` 函数**：显式校验区间，模拟 v2 行为。
+11. **新增 `interval()` 函数**：校验无效日期；要拒绝反向端点并模拟 v2 行为，需传 `{ assertPositive: true }`。
 
 ## 三、v4 时区支持深入
 

@@ -7,6 +7,16 @@ outline: [2, 3]
 
 > 版本基线 **Luxon 3.x**。本篇把「会用」用到「懂机制」：不可变到底意味着什么、日历数学 vs 时间数学、`startOf`/`endOf`、`diff` 返回 `Duration`、`hasSame` 与比较。
 
+## 速查
+
+- **全对象不可变**：DateTime、Duration、Interval 的修改 API 都返回新对象；`plus`、`setZone`、`startOf` 不改变原值。
+- **日历数学**：年 / 月 / 周 / 天保持当地日历语义，跨 DST 时“加 1 天”不保证等于 24 小时。
+- **时间数学**：小时 / 分 / 秒 / 毫秒按固定时长计算；跨 DST 时与日历单位结果可能不同。
+- **多单位顺序**：一次 `plus({ months, days })` 从高阶到低阶应用，不一定等于交换顺序的多次调用。
+- **边界归一**：`startOf(unit)` / `endOf(unit)` 返回该日历单位的起止 DateTime。
+- **差值**：`diff()` 返回 Duration，默认单位是毫秒；要数字用属性或 `.as(unit)`。
+- **三类比较**：时间戳比较绝对时刻，`equals()` 还比较 zone / locale，`hasSame()` 比较本地日历刻度并忽略时区元数据。
+
 ## 一、不可变：贯穿全库的第一原则
 
 文档原话：「Luxon objects are immutable. That means that you can't alter them in place, just create altered copies.」

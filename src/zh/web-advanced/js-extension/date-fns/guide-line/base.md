@@ -7,9 +7,19 @@ outline: [2, 3]
 
 > 版本基线 **date-fns 4.x**。本篇把「会用函数」升级到「懂心智」：纯函数 / 不可变模型、token 体系（与 Moment 的差异）、locale 本地化、`Invalid Date` 处理、原生 Date 的固有坑。
 
+## 速查
+
+- **不可变主线**：`addDays`、`setHours` 等转换函数不修改传入的 `Date`，而是返回新实例；原生 `date.setHours()` 仍会原地修改。
+- **纯函数边界**：大多数转换与比较函数由显式参数决定；`formatDistanceToNow` / `isToday` 等“现在”函数和 `setDefaultOptions` 会读取或修改外部上下文。
+- **格式 token**：date-fns 遵循 Unicode TR#35，日历年与月内日写 `yyyy-MM-dd`；Moment 的 `YYYY` / `DD` 在这里分别表示周编号年 / 年内日。
+- **字面量**：固定文字用单引号包裹，连续 `''` 输出一个单引号；未转义拉丁字母会触发 `RangeError`。
+- **本地化**：从 `date-fns/locale` 具名导入 locale 并通过 options 传入；默认 en-US，不自动跟随浏览器语言。
+- **无效值**：解析失败通常得到 `Invalid Date`，先用 `isValid()` 守卫，再格式化或计算。
+- **原生 Date 边界**：构造函数月份从 0 开始，format 的月份按 1–12 输出；date-fns 不会消除 JavaScript Date 的历史语义。
+
 ## 一、纯函数 / 不可变心智
 
-date-fns 的每个操作函数都是**纯函数**：给定相同输入永远得到相同输出，且**不修改入参、无副作用**。这意味着：
+date-fns 的核心转换与比较 API 以**纯函数 + 不可变**为主：显式参数相同就得到相同结果，且不修改日期入参。这意味着：
 
 ```js
 import { addDays, setHours } from "date-fns";
@@ -22,6 +32,8 @@ const d3 = setHours(d, 14); // 又一个新 Date
 ```
 
 对比 Moment（可变）：`moment().add(1, 'day')` 会**原地改**那个 moment 实例，多处引用同一对象时容易互相干扰。date-fns 没有这个隐患——它根本不持有可变状态。
+
+但“纯函数”不能无限外推：`formatDistanceToNow`、`isToday` 等函数会读取当前时间，`setDefaultOptions()` 会修改全局默认配置。需要可重复测试时固定系统时钟，并优先把 locale、周起始等 options 显式传入。
 
 ::: tip 与 React 数据流天然契合
 React/Vue 推崇不可变更新。date-fns「输入旧值、返回新值」正好匹配：`setState(prev => addDays(prev, 1))` 不会意外改到旧 state。

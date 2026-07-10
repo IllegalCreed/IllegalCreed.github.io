@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > Day.js 常用 API、format token 与官方插件清单速查。版本基线 **Day.js 1.11.x**。标注「插件」者需先 `dayjs.extend()`。
 
+## 速查
+
+- **构造**：`dayjs()`、ISO 字符串、Date 与毫秒时间戳属于核心；秒时间戳用 `dayjs.unix()`。
+- **不可变 setter**：`year(v)`、`month(v)`、`date(v)`、`set()` 等都返回新实例；月份 0-based，星期日为 0。
+- **操作与差值**：`add` / `subtract` / `startOf` / `endOf` 返回新实例；`diff` 默认毫秒，第三参数 `true` 保留浮点。
+- **输出**：机器交换用 `toISOString()` / `valueOf()`，展示用 `format()`；方括号在格式串中转义字面量。
+- **插件 token**：本地化 `L*` 需 LocalizedFormat，季度 / 序数 / Unix token 等需 AdvancedFormat。
+- **时区**：UTC 与 Timezone 是两个插件，后者依赖前者并使用宿主 Intl；默认时区只作用于 `dayjs.tz()`。
+- **相对时间与时长**：RelativeTime 提供 `fromNow` 等，Duration 提供 `dayjs.duration`，Duration 的 `humanize` 还要 RelativeTime。
+- **插件清单**：区间比较、周 / 季度 / 年内日、对象 / 数组解析、locale 定制与可变兼容均需独立 extend。
+
 ## 一、解析（构造）
 
 | 写法 | 说明 |

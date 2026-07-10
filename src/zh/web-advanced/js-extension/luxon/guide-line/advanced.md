@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **Luxon 3.x**。把 Luxon 用进真实项目：时区与 `keepLocalTime`、基于 Intl 的本地化、`Duration` 的 `as` vs `shiftTo`、`Interval` 区间运算、`fromFormat` 严格解析。
 
+## 速查
+
+- **换时区默认语义**：`setZone(zone)` 保持绝对时刻，只改变当地显示；`keepLocalTime: true` 保持钟点并改变时间戳，通常应谨慎使用。
+- **全局默认**：`Settings.defaultZone` 影响之后的本地构造；恢复系统时区用 `system`。
+- **Intl 本地化**：`setLocale()` / `toLocaleString()` 使用宿主 Intl，不需要 locale 包；预设常量本质是 `Intl.DateTimeFormat` options。
+- **格式 locale**：`toFormat` / `fromFormat` 未显式配置 locale 时按 en-US 处理，不等同于 `toLocaleString` 的本地化路径。
+- **Duration 换算**：`as(unit)` 返回数字；`shiftTo`、`normalize`、`rescale` 返回新的 Duration；`toHuman()` 生成单位列表文案。
+- **Interval 语义**：区间按 `[start, end)` 理解，支持 contains、overlaps、intersection、union、split 与 length。
+- **精确跨单位**：需要锚定真实起止点时用 Interval；孤立 Duration 的月 / 年换算依赖 conversionAccuracy 近似规则。
+- **自定义解析**：`fromFormat` 按 token 解析并返回有效 / 无效 DateTime；失败时用 `fromFormatExplain` 查看 tokens、regex 与 matches。
+
 ## 一、时区：同一时刻 vs 同一钟点
 
 Luxon 时区基于原生 Intl，能直接用任意 IANA 时区。`setZone` 默认**保持绝对时刻**，只换展示时区：

@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **Day.js 1.11.x**。深入内核与工程实践：自定义插件签名、badMutable 取舍、updateLocale 定制、Timezone 在 SSR 的 ICU 坑、extend 幂等与依赖顺序、体积优化。
 
+## 速查
+
+- **插件签名**：`(option, dayjsClass, dayjsFactory)`；prototype 增加实例方法，factory 增加静态方法，覆盖旧方法前保存引用。
+- **BadMutable**：只用于兼容依赖 Moment 可变语义的旧代码，会破坏 Day.js 的核心保证，不应成为长期方案。
+- **UpdateLocale**：`dayjs.locale()` 负责切换已加载语言，`dayjs.updateLocale()` 负责修改该语言配置，两者都不会自动下载 locale。
+- **ICU 前提**：timezone 不携带时区数据库，SSR / WebView / React Native 的 IANA 结果依赖宿主 `Intl.DateTimeFormat` 与 ICU 数据。
+- **extend 幂等**：同一个插件重复 extend 不会重复安装；仍应在入口集中挂载，降低配置分散。
+- **依赖顺序**：UTC 先于 Timezone，IsLeapYear 先于 IsoWeeksInYear；先加载被依赖插件。
+- **包体控制**：只 import 实际使用的插件与 locale；Day.js 体积优势来自小核心加显式能力，而非“所有 API 都自动 tree-shake”。
+- **能力辨识**：format / add / diff / 基础比较是核心，时区、相对时间、Duration、严格解析和扩展比较都是插件。
+
 ## 一、写一个自定义插件
 
 Day.js 插件是一个函数，官方签名为 **`(option, dayjsClass, dayjsFactory)`**：

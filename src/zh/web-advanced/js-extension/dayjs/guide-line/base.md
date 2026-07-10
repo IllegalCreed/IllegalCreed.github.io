@@ -7,6 +7,16 @@ outline: [2, 3]
 
 > 版本基线 **Day.js 1.11.x**。本篇把「会用」升级到「懂机制」：不可变原理、插件系统 `extend`、UTC 模式、本地化 locale、常用查询/格式化插件。
 
+## 速查
+
+- **不可变**：`add`、`subtract`、`set`、`startOf` 等修改型 API 返回新实例；原对象保持不变，迁移 Moment 时要重新赋值。
+- **插件启用**：只 import 不生效，必须 `dayjs.extend(plugin)`；插件会修改全局 Day.js 工厂，通常在应用入口集中挂载。
+- **UTC**：extend `utc` 后可用 `dayjs.utc()`、`.utc()`、`.local()` 与 `.isUTC()`；核心 `.utcOffset()` 只读写固定偏移，不代表 IANA 时区。
+- **IANA 时区**：核心与 UTC 插件只处理本地 / UTC / 偏移；地区时区需要依赖 UTC 的 timezone 插件。
+- **locale**：默认仅英文；先导入 `dayjs/locale/xx`，再全局 `dayjs.locale()` 或实例 `.locale()`。
+- **格式化插件**：`L` / `LL` 等来自 LocalizedFormat，`Q` / `Do` / `X` / `x` 来自 AdvancedFormat。
+- **查询插件**：核心只有 `isBefore` / `isAfter` / `isSame`；区间、含等比较、闰年和相对时间均按需 extend。
+
 ## 一、不可变（Immutable）：Day.js 的地基
 
 官方原文：**「All API operations that change the Day.js object in some way will return a new instance of it.」**
@@ -56,7 +66,7 @@ dayjs('1999-01-01').fromNow()     // 'x years ago'
 
 ## 三、UTC 模式（UTC 插件）
 
-UTC 相关方法**不是核心**，由 UTC 插件提供：
+UTC 模式相关方法由 UTC 插件提供；核心已有 `.utcOffset()`，但它只读写固定偏移：
 
 ```js
 import utc from 'dayjs/plugin/utc'
@@ -66,8 +76,8 @@ dayjs.utc()                       // 以 UTC 模式创建/解析
 dayjs.utc('2024-01-15T10:00:00')  // 按 UTC 解释
 dayjs().utc()                     // 把本地时间转为 UTC 显示
 dayjs.utc().local()               // 转回本地时间
-dayjs().utcOffset()               // 取/设 UTC 偏移
 dayjs.utc().isUTC()               // true
+dayjs().utcOffset()               // 核心方法：取/设固定 UTC 偏移
 ```
 
 > UTC 转换是基于偏移的**纯本地计算**，不联网。要处理 IANA 时区（`'America/New_York'`）则需 Timezone 插件，它依赖 UTC，见[进阶篇](./advanced)。

@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > Luxon **3.x** 常用 API、`toFormat` token、`toLocaleString` 预设、`Settings` 速查。机器交换优先 `toISO`，人类阅读优先 `toLocaleString`，`toFormat` 仅用于特殊自定义格式。
 
+## 速查
+
+- **创建**：优先按输入协议选择 `fromISO`、`fromRFC2822`、`fromHTTP`、`fromSQL`、`fromMillis`；自定义人类格式才用 `fromFormat`。
+- **字段基准**：月份 1-based，weekday 按 ISO 周一=1；zoneName、offset、isInDST 与有效性均为 getter。
+- **不可变运算**：`plus`、`minus`、`set`、`startOf`、`setZone`、`setLocale` 均返回新 DateTime。
+- **机器与展示**：机器交换用 `toISO*` / Unix 时间戳，人类展示用 `toLocaleString`，自定义 token 用 `toFormat`。
+- **比较**：`+dt` / `toMillis()` 比绝对时刻，`equals` 比完整元数据，`hasSame` 比本地日历单位。
+- **Duration**：`as()` 返回数字，`shiftTo()` 返回 Duration，`toHuman()` 本地化单位列表，`toISO()` 输出 ISO 8601 duration。
+- **Interval**：半开区间 `[start, end)`，提供长度、包含、重叠、交并差与拆分 API。
+- **全局与能力**：Settings 控制默认 zone / locale / 无效策略；Info 提供月份、星期和 Intl 能力探测。
+
 ## 一、DateTime 创建
 
 | 方法 | 作用 |
@@ -112,6 +123,7 @@ outline: [2, 3]
 | `shiftTo(...units)` | 重分配到给定单位，返回 **Duration** |
 | `plus` / `minus` / `negate` | 加 / 减 / 取负 |
 | `normalize()` / `rescale()` | 进位归一 / 自动选最合适单位 |
+| `toHuman(opts?)` | 本地化单位列表，如 `'2 hours, 7 minutes'` |
 | `toObject()` / `toISO()` | `{ hours, minutes }` / `'PT2H7M'` |
 
 | Interval 方法 | 作用 |

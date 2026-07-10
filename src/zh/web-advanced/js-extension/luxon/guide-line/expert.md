@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **Luxon 3.x**。深入边界与工程实践：有效性模型与 `throwOnInvalid`、相对时间与 Intl 兼容性、ICU 环境要求、token 体系对位、与 Moment/Day.js/date-fns 的取舍。
 
+## 速查
+
+- **默认软失败**：非法字段、未知时区或矛盾日历字段会生成无效对象；检查 `isValid`、`invalidReason`、`invalidExplanation`。
+- **无效传播**：无效 DateTime 的计算继续产出无效 Duration / Interval；`toISO()` 返回 null，数值 getter 常为 NaN。
+- **fail-fast**：`Settings.throwOnInvalid = true` 将 DateTime、Duration、Interval 的无效创建改为抛错，是全局开关。
+- **相对时间**：`DateTime#toRelative()` / `toRelativeCalendar()` 依赖 `Intl.RelativeTimeFormat`，用 `Info.features()` 探测环境能力。
+- **Duration 文案**：Luxon 3.7.2 提供 `Duration#toHuman()`，可配置 listStyle、unitDisplay 与 showZeros；它是单位列表，不是相对某时刻。
+- **ICU 前提**：Luxon 不打包时区或 locale 数据；非英文与 IANA 时区能力取决于宿主 Intl / ICU。
+- **token 迁移**：Luxon 使用 `yyyy` / `dd`，不能直接照搬 Moment 的 `YYYY` / `DD`，并区分 format 与 standalone 词形。
+- **选型边界**：富时区与 Duration / Interval 选 Luxon；极小插件式链式 API 选 Day.js；函数式与按函数裁剪选 date-fns。
+
 ## 一、有效性模型：默认软失败
 
 Luxon 遇到坏数据**不抛异常**，而是产出「无效 DateTime」。无效来源主要三类：
@@ -64,7 +75,7 @@ import { Info } from "luxon";
 Info.features(); //=> { relative: false } 表示缺该能力
 ```
 
-> 另注：Luxon **没有** Moment `Duration#humanize`（把时长本身人性化成「a few seconds」）的等价物。`toRelative` 是「相对某时刻」，语义不同。
+> Luxon 3.x 有 `Duration#toHuman()`，例如 `{ months: 1, hours: 5 }` 可输出 `1 month, 5 hours`；它展示 Duration 的单位列表，不会像 Moment `humanize()` 那样压缩成模糊的单一量级。`DateTime#toRelative()` 则表达“相对某时刻”，三者语义不同。
 
 ## 四、ICU 环境要求：i18n 的隐形前提
 
@@ -104,7 +115,7 @@ Luxon 的 `toFormat` token 与 Moment **不通用**，文档明说「the same fo
 |---|---|---|---|---|
 | 范式 | 面向对象 + 不可变 | 面向对象 + 可变 | 面向对象链式 | 纯函数式 |
 | 体积 | 中等（富功能） | 较大 | 极小（~2KB 核心 + 插件） | 按需引入，最易 tree-shaking |
-| 时区 | 原生 Intl（不打包数据） | moment-timezone 打包数据 | 插件 | 配套 date-fns-tz |
+| 时区 | 原生 Intl（不打包数据） | moment-timezone 打包数据 | 插件 | v4 官方 `@date-fns/tz` |
 | i18n | 原生 Intl | 自带 locale 文件 | 插件 | 自带 locale 模块 |
 | Duration/Interval | 原生齐备 | Duration 有，Interval 需插件 | 弱 | 函数式 |
 
@@ -122,7 +133,7 @@ Luxon 的 `toFormat` token 与 Moment **不通用**，文档明说「the same fo
 - **机器 vs 人类**：接口用 `toISO`，显示用 `toLocaleString`，`toFormat` 仅特殊自定义。
 - **token 与 Moment 不通用**：`yyyy`≠`YYYY`、`dd`≠`DD`。
 - **解析严格**：给程序读的数据用 ISO，别依赖宽松解析。
-- **相对时间依赖 Intl.RelativeTimeFormat**：缺失回退英文，且无 `humanize` 等价物。
+- **文案能力分工**：DateTime 相对时间用 `toRelative`，Duration 单位列表用 `toHuman`；两者都依赖宿主 Intl 能力。
 
 ---
 

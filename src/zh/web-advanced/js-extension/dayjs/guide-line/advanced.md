@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **Day.js 1.11.x**。把 Day.js 用进真实项目：自定义格式解析、IANA 时区、Duration 时长、quarter/week 插件、对象/数组解析、从 Moment 迁移。
 
+## 速查
+
+- **自定义解析**：extend `customParseFormat` 后传输入、格式、可选 locale 与 strict；用户输入应组合严格模式和 `isValid()`。
+- **时区依赖顺序**：先 extend `utc`，再 extend `timezone`；`dayjs.tz(str, zone)` 按该时区解释，`dayjs(str).tz(zone)` 转换已有时刻。
+- **保持钟点**：`.tz(zone, true)` 保持墙上时间但改变绝对时刻；默认 `.tz(zone)` 保持绝对时刻。
+- **默认时区边界**：`dayjs.tz.setDefault()` 只影响无 zone 参数的 `dayjs.tz()`，不会改变普通 `dayjs()` 的本地时区语义。
+- **Duration**：extend `duration` 后使用 `dayjs.duration()`；`.diff()` 仍返回数字，`.humanize()` 还依赖 RelativeTime。
+- **日历能力**：季度、locale 周、ISO 周、年内日分别来自独立插件，不能因 core 有 `startOf` 就假定这些方法存在。
+- **对象 / 数组**：ObjectSupport 与 ArraySupport 才能按结构化字段构造；月份仍从 0 开始，输出数组 / 对象又是独立插件。
+- **Moment 迁移**：token 大体兼容，但可变行为不兼容；依赖 `m.add()` 副作用的代码必须改为接收返回值。
+
 ## 一、CustomParseFormat：解析非 ISO 字符串
 
 核心**只可靠解析 ISO 8601**。要按自定义格式解析（如 `DD/MM/YYYY`），用 CustomParseFormat 插件：
