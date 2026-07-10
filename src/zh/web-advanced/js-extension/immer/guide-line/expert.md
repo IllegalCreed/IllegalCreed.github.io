@@ -5,11 +5,21 @@ outline: [2, 3]
 
 # 指南 · 专家
 
-> 版本基线 **Immer 11.x**。深入性能与内核：auto-freeze 权衡、`freeze` 预冻结、批处理、array methods 插件、`setUseStrictShallowCopy` / `setUseStrictIteration`、独立 Immer 实例、单向树假设、与 structuredClone 取舍。
+> 版本基线 **Immer 11.1.11**。深入性能与内核：auto-freeze 权衡、`freeze` 预冻结、批处理、array methods 插件、`setUseStrictShallowCopy` / `setUseStrictIteration`、独立 Immer 实例、单向树假设、与 structuredClone 取舍。
+
+## 速查
+
+- 性能结论必须基于业务基准；官方旧基准的 2–3 倍是一个最坏场景，不是固定倍率
+- 大块只读输入可先 `freeze(value)` **浅冻结根节点**，避免 auto-freeze 递归扫描整棵数据
+- 把循环收进一次 `produce`；大数组查找可先在 `original(draft)` 上定位
+- `enableArrayMethods()` 后，数组回调多接收 base 值；`filter`/`find` 返回 draft，`concat`/`flat` 返回 base 值
+- strict copy / iteration 默认关闭；只在确实依赖 symbol、非可枚举属性时开启
+- 配置隔离用 `new Immer()`；状态必须是无重复引用、无循环的单向树
+- 嵌套 `produce` 时必须接住内层返回值，再赋回外层 draft
 
 ## 一、性能定位：客观看待 Proxy 开销
 
-官方基准：基于 Proxy 的 Immer 比**纯手写 reducer 慢约 2–3 倍**，但实践中通常**可忽略**；而且 Immer 能因「**无改动返回原引用**」**避免不必要的重渲染**，整体有时反而更快。与 Immutable.js 速度相当，却省去了 `toJS()` 来回转换普通对象的成本。
+官方旧基准中的一个最坏场景里，Proxy 版 Immer 约为纯手写 reducer 的 **2–3 倍耗时**；这不是适用于所有数据形状和操作的固定倍率。另一方面，Immer 能因「**无改动返回原引用**」避免不必要的重渲染，应用整体有时反而更快。真正的热路径应以本项目基准为准。
 
 结论：绝大多数场景放心用；只在**超热路径**（极高频、极大数据）才考虑局部弃用 Immer 改手写。
 
@@ -20,8 +30,8 @@ outline: [2, 3]
 ```js
 import { setAutoFreeze, freeze, produce } from "immer"
 
-// 方案 A：对某块大数据预先一次性深冻结，之后 Immer 不再重复递归处理
-const frozenBig = freeze(bigData, true) // 第二参 true = 深冻结
+// 方案 A：浅冻结根节点，告诉 Immer 这整块数据可直接复用
+const frozenBig = freeze(bigData) // 默认 shallow；大数据入口优先这样做
 const next = produce(state, draft => { draft.big = frozenBig })
 
 // 方案 B：全局关闭自动冻结（牺牲防错换性能，谨慎）
@@ -50,7 +60,7 @@ state = produce(state, d => { for (const x of items) d.list.push(x) })
 
 ```js
 import { enableArrayMethods, produce } from "immer"
-enableArrayMethods() // 约 +2KB
+enableArrayMethods()
 
 produce(largeState, draft => {
   const hit = draft.items.filter(x => x.value > 10) // 回调收 base 值
@@ -94,14 +104,15 @@ const next = myImmer.produce(state, draft => { /* ... */ })
 ## 七、单向树假设 & 与 structuredClone 取舍
 
 - **单向树**：Immer 假设同一对象不在树中出现两次、无循环引用。违反会出错——图结构应**规范化（normalize）**，用 id 引用替代直接对象引用。
+- **嵌套 produce**：内层会产出新状态，不会自动写回外层 draft；必须接住返回值并赋回，例如 `draft.user = produce(draft.user, recipe)`。
 - **何时不用 Immer**：浅层 / 一次性 / 大面积替换的更新，直接 `return` 新对象或 `structuredClone` 可能更简单；状态含 Immer 不支持的 exotic 对象、或需真正深拷贝隔离时，`structuredClone` 更合适。
 - **Immer 的甜区**：**深层、局部、频繁**的不可变更新——这正是它 Proxy + 结构共享最划算之处。
 
-## 八、版本演进（截至 2026）
+## 八、版本演进
 
-- **v11.0.0**（2025-11）：重写终态化系统（借鉴 Mutative 的 finalization callback 替代递归树遍历，提速），**默认迭代改为 loose iteration**（破坏性变更）。
-- **v11.1.0**（2025-12）：新增可选 **array methods 插件**（`enableArrayMethods`），加速数组方法。
-- v10 起移除 ES5 回退，**要求 Proxy 环境**。Redux Toolkit 2.x 内置依赖 immer 11.x。
+- **v11**：重写终态化系统，**默认迭代改为 loose iteration**，并加入可选 **array methods 插件**（`enableArrayMethods`）。
+- **v10**：移除 ES5 回退，运行环境必须支持 **Proxy**。
+- 本文按 **11.1.11** 验证；升级时应重新核对插件语义与破坏性变更。
 
 ---
 

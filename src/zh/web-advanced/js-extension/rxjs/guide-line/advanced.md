@@ -5,7 +5,17 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **RxJS 7.x**。把 RxJS 用进真实业务：高阶映射四兄弟（最高频考点）、组合多个流、错误处理与重试、防抖节流、与 Promise 互操作。
+> 版本基线 **RxJS 7.8.2**。把 RxJS 用进真实业务：高阶映射四兄弟（最高频考点）、组合多个流、错误处理与重试、防抖节流、与 Promise 互操作。
+
+## 速查
+
+- `switchMap` 退订旧内层；要真正中止 fetch，内层应使用带 AbortController teardown 的 `fromFetch`
+- `mergeMap` 并发、`concatMap` 排队保序、`exhaustMap` 忙时忽略新值
+- `combineLatest` 任一源更新就重算；`withLatestFrom` 只由主源触发；`forkJoin` 等全部 complete
+- 错误重试顺序：`source.pipe(retry(...), catchError(...))`
+- `catchError` 放在高阶映射内部只终止该内层；放在外部会替换整条外层链
+- `from(Promise)` 不会让 Promise 可取消；可中止网络请求使用 `fromFetch`
+- `firstValueFrom` / `lastValueFrom` 要搭配确定会发值或终止的源，必要时加 `take` / `timeout`
 
 ## 一、高阶映射四兄弟（必须分清）
 
@@ -22,16 +32,19 @@ outline: [2, 3]
 
 ```ts
 import { fromEvent, map, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { fromFetch } from 'rxjs/fetch';
 
 fromEvent(input, 'input').pipe(
   map((e) => (e.target as HTMLInputElement).value),
   debounceTime(300),
   distinctUntilChanged(),
-  switchMap((term) => fetch(`/search?q=${term}`).then((r) => r.json())),
+  switchMap((term) => fromFetch(`/search?q=${term}`, {
+    selector: (response) => response.json(),
+  })),
 ).subscribe(renderResults);
 ```
 
-为什么不用 `mergeMap`？敲入新字符会发起新请求，`switchMap` 会**取消上一个尚未返回的请求**，避免「旧关键词响应后到、覆盖了正确结果」的竞态。
+为什么不用 `mergeMap`？敲入新字符会发起新请求，`switchMap` 会退订旧内层；`fromFetch` 用 AbortController 响应退订，因此尚未完成的请求会被中止，避免旧响应覆盖新结果。若内层只是普通 `fetch()` Promise，`switchMap` 只能停止投递结果，不能中止请求。
 
 ### exhaustMap：防重复提交
 
@@ -87,11 +100,12 @@ fromEvent(saveBtn, 'click').pipe(
 
 ```ts
 import { forkJoin } from 'rxjs';
+import { fromFetch } from 'rxjs/fetch';
 
 // 类似 Promise.all：等三个请求都完成，组合各自最后值
 forkJoin({
-  user: from(fetch('/user').then((r) => r.json())),
-  posts: from(fetch('/posts').then((r) => r.json())),
+  user: fromFetch('/user', { selector: (r) => r.json() }),
+  posts: fromFetch('/posts', { selector: (r) => r.json() }),
 }).subscribe(({ user, posts }) => render(user, posts));
 ```
 
@@ -141,18 +155,23 @@ fromEvent(window, 'scroll').pipe(
 
 ## 五、与 Promise / async-await 取舍
 
-何时用 Observable 而非 Promise？看是否需要：**多个值 / 可取消 / 惰性 / 操作符组合**（debounce、retry、switchMap…）。一次性、单值的简单异步，用 Promise/async-await 更轻——盲目上 RxJS 是过度工程。
+何时用 Observable 而非 Promise？看是否需要：**多个值 / teardown / 惰性 / 操作符组合**（debounce、retry、switchMap…）。一次性、单值的简单异步，用 Promise/async-await 更轻。注意 Observable 可退订不等于任意底层工作都可取消。
 
 ```ts
-import { from, switchMap, firstValueFrom } from 'rxjs';
+import { from, switchMap, firstValueFrom, timeout } from 'rxjs';
+import { fromFetch } from 'rxjs/fetch';
 
 // 不能在 pipe 里 await；把 Promise 接入流的两种方式：
-from(fetch('/api').then((r) => r.json())).subscribe(handle);        // 1) from
-trigger$.pipe(switchMap((id) => fetch(`/api/${id}`))).subscribe();  // 2) 映射里返回 Promise
+from(fetch('/api').then((r) => r.json())).subscribe(handle); // 1) 适配 Promise；退订不取消 fetch
+trigger$.pipe(
+  switchMap((id) => fromFetch(`/api/${id}`, { selector: (r) => r.json() })),
+).subscribe(handle); // 2) fromFetch 的请求可响应退订
 
 // 反向：Observable → Promise（在 async 函数里）
-const data = await firstValueFrom(source$);
+const data = await firstValueFrom(source$.pipe(timeout(5000)));
 ```
+
+`fromFetch` 若只发出 `Response` 就会随即 complete，而 `response.json()` 等 body Promise 可能继续运行；把 body 消费放进 `selector`，才能让取消覆盖到完整请求流程。`lastValueFrom` 只适合确定会 complete 的源，否则 Promise 会永久挂起。
 
 ---
 

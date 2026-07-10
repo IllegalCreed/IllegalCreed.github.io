@@ -5,7 +5,16 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **Immer 11.x**。把 Immer 用进真实项目：柯里化 producer、`current`/`original`、patches（undo/redo / 增量同步）、`createDraft`/`finishDraft`、与 React / Redux Toolkit 集成。
+> 版本基线 **Immer 11.1.11**。把 Immer 用进真实项目：柯里化 producer、`current`/`original`、patches（undo/redo / 增量同步）、`createDraft`/`finishDraft`、与 React / Redux Toolkit 集成。
+
+## 速查
+
+- `produce(recipe)` 返回可复用生产者，调用形态是 `(state, ...args) => nextState`
+- `original(draft)` 取改动前对象，`current(draft)` 取当前普通快照；非 draft 输入会抛错
+- patches 先 `enablePatches()`；正向补丁重放变更，`inversePatches` 支持撤销
+- Immer patch 类似 JSON Patch，但 `path` 是数组且结果不保证最小
+- `createDraft` / `finishDraft` 是手动生命周期 API；不要把 draft 跨过 `await`
+- Redux Toolkit 已集成 Immer；case reducer 中写的是 draft，不是直接修改原状态
 
 ## 一、柯里化 producer：复用配方
 
@@ -30,7 +39,9 @@ const next = toggleTodo(baseState, "id-1") // 之后随时传状态
 ```js
 import { current, original, produce } from "immer"
 
-produce({ x: 0, users: [{ name: "Richie" }] }, draft => {
+const baseState = { x: 0, users: [{ name: "Richie" }] }
+
+produce(baseState, draft => {
   draft.x++
   original(draft).x          // 0  —— 改动前的原值
   current(draft).x           // 1  —— 当前改动后的「普通快照」
@@ -40,6 +51,8 @@ produce({ x: 0, users: [{ name: "Richie" }] }, draft => {
 
 - `original(draft)`：返回**基础状态**里对应的**原始对象**，常用于严格相等比较（如树中定位节点）。
 - `current(draft)`：返回 draft **当前状态**的一份**普通对象快照**（非 Proxy、未冻结），常用于**调试打印**中间态。`current` 偏贵，少用。
+
+两者都要求参数确实是 draft；把普通对象传入会抛错，而不是返回空值。
 
 > 为什么不能直接 `draft.users === base.users`？因为 draft 是 Proxy，与原对象不 `===`。要比身份，先 `original()`。
 
@@ -74,21 +87,21 @@ produce(base, draft => { draft.age++ }, (patches, inverse) => {
 
 ## 四、createDraft / finishDraft：脱离配方的 draft
 
-低级 API，主要给**库作者**或**跨时间更新**用：
+这是主要面向**库作者**的低级 API，需要调用方手动管理 draft 生命周期：
 
 ```js
 import { createDraft, finishDraft } from "immer"
 
-const draft = createDraft(base) // 创建可长期持有的 draft
-draft.user.name = "Bob"         // 随时改
+const draft = createDraft(base) // 创建手动管理的 draft
+draft.user.name = "Bob"
 const next = finishDraft(draft) // 终态化产出新状态
 ```
 
-约束：**不能用 `finishDraft` 去终态化一个由 `produce` 产生的 draft**（会破坏 produce 的作用域）。`finishDraft` 第二参也可传 patchListener。官方建议**应用代码优先用 `produce`**（更不易错）。
+约束：**不能用 `finishDraft` 去终态化一个由 `produce` 产生的 draft**（会破坏 produce 的作用域）。`finishDraft` 第二参也可传 patchListener。应尽快终态化，尤其不要跨过 `await`：异步期间 base 上发生的新变化不会被这个旧 draft 纳入。官方建议**应用代码优先用 `produce`**。
 
 ## 五、异步：先取数据，再 draft
 
-Immer 核心**不支持异步配方**——所有异步工作必须在配方返回**之前**完成；把 draft 泄漏到 `await` 之后再改是**反模式**（异步期间的更新会被「丢失」）。正确姿势：
+不要让 draft 跨过 `await`。无论是异步 recipe，还是用 `createDraft` 暂存草稿，都会让异步期间 base 上的新变化脱离当前 draft；官方将这种用法视为反模式。正确姿势是先完成异步工作，再进入一次同步 `produce`：
 
 ```js
 // ✅ 先 fetch，后 produce
@@ -125,7 +138,7 @@ const slice = createSlice({
 })
 ```
 
-> RTK 2.x 内置依赖 immer 11.x，无需你单独安装或配置 Immer。
+> 使用 Redux Toolkit 的 reducer API 时无需为该语法再手动包一层 `produce`；具体依赖版本以项目锁文件为准。
 
 ---
 

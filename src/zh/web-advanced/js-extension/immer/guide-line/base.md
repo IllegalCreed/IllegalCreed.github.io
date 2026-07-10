@@ -5,7 +5,17 @@ outline: [2, 3]
 
 # 指南 · 基础
 
-> 版本基线 **Immer 11.x**。本篇把「会用 produce」升到「懂机制」：draft/Proxy 工作原理、结构共享、auto-freeze、返回值规则、Map/Set 与类的支持。
+> 版本基线 **Immer 11.1.11**。本篇把「会用 produce」升到「懂机制」：draft/Proxy 工作原理、结构共享、auto-freeze、返回值规则、Map/Set 与类的支持。
+
+## 速查
+
+- `produce` 按需创建 Proxy，终态化时只复制改动路径；未改子树继续共享引用
+- auto-freeze 默认递归冻结产出结果；进入结果的外部普通对象/数组也可能被冻住
+- 配方中要么修改 draft，要么返回全新状态；两者同时做会抛错
+- `return undefined` 表示未替换；真正产出 `undefined` 要 `return nothing`
+- Map/Set 先 `enableMapSet()`；Map 的 key 不会被 draft 化
+- 自定义类需设置 `[immerable] = true`；Date、DOM Node 等奇异对象应整体替换
+- Immer 假设状态是单向树，不支持循环引用或同一对象在树中重复出现
 
 ## 一、produce 内部到底发生了什么
 
@@ -47,6 +57,7 @@ next.a.x = 999 // 严格模式下抛错：Cannot assign to read only property
 - 目的：从根上**防止意外 mutate** 破坏不可变性。
 - 范围：递归冻结（深层也冻），但默认不冻非可枚举/非自有/symbol 属性（除非它们在配方里被 draft 过）。
 - 副作用提醒：**任何进入产出结果的普通对象/数组都会被冻结**，哪怕它原本没冻——所以配方并非完全无副作用。
+- 闭包数据提醒：从配方外直接插入 draft 的对象**不会自动变成 draft**；在配方里继续修改它会修改原对象，应先把它纳入状态再于后续 `produce` 中更新。
 - 关闭：`setAutoFreeze(false)`（性能调优见[专家篇](./expert)）。
 
 ## 四、返回值规则（务必记牢）

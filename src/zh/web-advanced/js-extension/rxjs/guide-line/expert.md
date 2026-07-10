@@ -5,7 +5,17 @@ outline: [2, 3]
 
 # 指南 · 专家
 
-> 版本基线 **RxJS 7.x**。深入内核：调度器与执行时机、多播底层、`TestScheduler` 弹珠测试、自定义 pipeable 操作符、内存泄漏防治、以及 v6 → v7 破坏性变更全清单。
+> 版本基线 **RxJS 7.8.2**。深入内核：调度器与执行时机、多播底层、`TestScheduler` 弹珠测试、自定义 pipeable 操作符、内存泄漏防治，以及迁移与弃用时间线。
+
+## 速查
+
+- `subscribeOn` 控制订阅起点，`observeOn` 控制其后的通知投递；Scheduler 不提供真正并行
+- `shareReplay({ bufferSize: 1, refCount: false })` 会在零订阅者后继续连接未完成源；按生命周期选择 `refCount`
+- `connectable()` 需显式 `connect()`；返回的连接 Subscription 也要纳入生命周期管理
+- 时间流测试用 `TestScheduler.run()`，不要让真实定时器拖慢测试
+- 自定义操作符优先组合现有 pipeable 操作符；手写 Observable 时必须返回 teardown
+- `finalize` 在 complete、error、主动退订三种路径都会运行，适合统一释放资源
+- `toPromise` / 位置参数 `subscribe` 计划 v8 移除；`retryWhen` 计划 v9 或 v10 移除
 
 ## 一、Scheduler：控制执行时机
 
@@ -46,7 +56,8 @@ const source$ = connectable(interval(1000).pipe(take(3)), {
 source$.subscribe((v) => console.log('A:', v));
 source$.subscribe((v) => console.log('B:', v));
 // 此时源还没开始执行！
-source$.connect(); // 显式开闸，A、B 同时从头收到 0,1,2
+const connection = source$.connect(); // 显式开闸，A、B 同时从头收到 0,1,2
+// 提前停止共享执行时：connection.unsubscribe()
 ```
 
 `connectable` 让你「先把所有订阅者接好，再统一 `connect()` 开闸」，避免早订阅者错过值。它是已废弃的 `multicast()` / `ConnectableObservable` 系列的现代替代。
@@ -122,20 +133,20 @@ class Component {
 }
 ```
 
-## 六、v6 → v7 破坏性变更全清单
+## 六、迁移与弃用时间线
 
 | 变更 | 说明 |
 |---|---|
 | **扁平导入** | 操作符与创建函数从 `'rxjs'` 直接导出；`'rxjs/operators'` 仍可用但非首选 |
-| **`toPromise()` 废弃** | 改用 `firstValueFrom`/`lastValueFrom`；空流 **reject `EmptyError`**（旧版 resolve `undefined`），可传 `{ defaultValue }` |
-| **`subscribe` 位置回调废弃** | `subscribe(next, error, complete)` 改为 `subscribe({ next, error, complete })`；单 `subscribe(fn)` 仍合法 |
-| **`retryWhen` 废弃** | 改用 `retry({ count, delay })`，`delay` 可为 ms 或 `(err, n) => 通知流` |
+| **`toPromise()` 废弃** | 改用 `firstValueFrom`/`lastValueFrom`；空流 **reject `EmptyError`**（旧版 resolve `undefined`），计划 v8 移除 |
+| **`subscribe` 位置回调废弃** | `subscribe(next, error, complete)` 改为 observer 对象；`subscribe(fn)` 与 `subscribe()` 本身未废弃，位置参数重载计划 v8 移除 |
+| **`retryWhen` 废弃** | 改用 `retry({ count, delay })`；官方标注计划在 v9 或 v10 移除，不是 v8 |
 | **多播 API 重构** | `multicast`/`publish`/`refCount` 系列废弃，改用 `share`/`shareReplay`/`connectable`/`connect` |
 | **pipeable 全面取代 patch** | 不再支持 `obs.map(...).filter(...)` 原型链操作符 |
 | **`retry` 负数行为移除** | 旧的「传负数 = 无限重试」被移除 |
 | **tree-shaking 优化** | 纯函数操作符 + 扁平导出，未用到的可被摇掉，7.x 体积与类型推断更优 |
 
-> 迁移建议：坚持「扁平导入 + pipeable 操作符 + `firstValueFrom`/`lastValueFrom`」，并把旧 `toPromise`/`retryWhen`/多播 patch 逐步替换。RxJS 8 仍在演进，上述废弃项多计划在 v8 移除。
+> 迁移建议：坚持「扁平导入 + pipeable 操作符 + `firstValueFrom`/`lastValueFrom`」，并逐步替换旧 `toPromise`、位置参数版 `subscribe`、`retryWhen` 与多播 patch。不要把弃用等同于已经移除，也不要把不同 API 的移除版本混在一起。
 
 ---
 

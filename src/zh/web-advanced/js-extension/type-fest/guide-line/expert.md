@@ -5,7 +5,17 @@ outline: [2, 3]
 
 # 指南 · 专家
 
-> 版本基线 **type-fest 4.x**。深入原理与权衡：`Simplify` 的两大用途、标称类型 `Tagged`（及 `Opaque` 废弃）、`UnionToIntersection`、`EmptyObject` 陷阱、按路径访问（`Get`/`Paths`）、与同类库的取舍、编译期性能。纯类型，`import type` 引入。
+> 版本基线 **type-fest 5.8.0**。深入原理与权衡：`Simplify` 的两大用途、标称类型 `Tagged`（及 `Opaque` 废弃）、`UnionToIntersection`、`EmptyObject` 陷阱、按路径访问（`Get`/`Paths`）、与同类库的取舍、编译期性能。纯类型，推荐 `import type` 引入。
+
+## 速查
+
+- `Simplify<T>` 摊平映射结果并可把可声明合并的 interface 映射成封闭对象类型
+- `Tagged<Base, Name, Meta?>` 支持多标签与元数据；tagged 值可赋给 base，反向需显式构造或断言
+- `Opaque` / `UnwrapOpaque` 仍导出但已 deprecated；迁移到 `Tagged` / `UnwrapTagged`
+- `UnionToIntersection<U>` 把联合成员合并成交叉，复杂联合可能增加类型实例化成本
+- `{}` 不是空对象类型；严格空对象用 `EmptyObject`
+- `Paths<T>` 生成路径联合，`Get<T, P>` 取路径类型；深大对象上使用前应观察编辑器性能
+- type-fest 没有运行时代码，但 5.8.0 仍要求 Node.js ≥20、TypeScript ≥5.9、ESM 与 strict
 
 ## 一、Simplify 的两大用途与原理
 
@@ -104,7 +114,7 @@ read('user.profile.name'); // 返回 string，且 path 有自动补全
 
 **与同类库**：`ts-toolbelt`、`utility-types` 等同属补充内置工具的**纯类型库**，定位相近、功能有重叠。选型按 **API 覆盖 / 维护活跃度 / 文档质量 / 团队习惯** 综合判断，通常**择一为主**避免概念重复。type-fest 以维护活跃、用例文档完善、单一职责的 essential 类型见长。
 
-**编译性能**：type-fest 零运行时，对运行时与 bundle 体积**零影响**。唯一潜在代价在**编译期**——极复杂的递归类型（深层变换、长路径推导、`UnionToTuple` 等）会增加 `tsc`/编辑器的类型实例化负担。实践建议：
+**编译性能**：type-fest 零运行时，对运行时与 bundle 体积**零影响**。代价主要在**编译期**——极复杂的递归类型（深层变换、长路径推导、`UnionToTuple` 等）会增加 `tsc`/编辑器的类型实例化负担。同时，5.8.0 的 Node、TypeScript、ESM 和 strict 要求仍会约束工具链。实践建议：
 
 | 手段 | 说明 |
 |---|---|

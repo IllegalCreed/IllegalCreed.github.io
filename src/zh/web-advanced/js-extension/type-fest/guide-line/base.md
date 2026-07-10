@@ -5,7 +5,17 @@ outline: [2, 3]
 
 # 指南 · 基础
 
-> 版本基线 **type-fest 4.x**。本篇把「会装会引」用到「会用对象类型族」：深浅层变换、键的增删改（`SetOptional`/`SetRequired`/`Merge`/`Except`）、键约束（至少/恰好一个）、取值（`ValueOf`/`Entries`）。纯类型，`import type` 引入。
+> 版本基线 **type-fest 5.8.0**。本篇把「会装会引」用到「会用对象类型族」：深浅层变换、键的增删改（`SetOptional`/`SetRequired`/`Merge`/`Except`）、键约束（至少/恰好一个）、取值（`ValueOf`/`Entries`）。纯类型，推荐 `import type` 引入。
+
+## 速查
+
+- 内置 `Partial` / `Required` / `Readonly` 只处理第一层；对应 Deep 类型递归处理嵌套结构
+- `PartialDeep` 默认 `recurseIntoArrays: false`，需要递归数组元素时显式开启
+- `SetOptional` / `SetRequired` 只改指定键；`Except` 比内置 `Omit` 更严格地校验键名
+- `Merge<A, B>` 是浅层「B 覆盖 A」；递归合并使用 `MergeDeep`
+- 只允许覆盖已有字段时用 `OverrideProperties`，拼错字段会在编译期报错
+- 至少一个用 `RequireAtLeastOne`，恰好一个用 `RequireExactlyOne`
+- `Entries<T>` 配合 `Object.entries()` 时通常需要断言；断言不校验真实键值
 
 ## 一、深浅层：内置浅层 vs type-fest 深层
 
@@ -133,6 +143,8 @@ type Values = ValueOf<typeof config>;
 const entries = Object.entries(config) as Entries<typeof config>;
 entries.forEach(([k, v]) => { /* k、v 都有精确类型 */ });
 ```
+
+这里的 `as Entries<...>` 只是类型断言，不会在运行时转换或检查 `Object.entries()` 的结果。对象若可能含类型声明之外的键，断言就可能不再可靠。
 
 ---
 

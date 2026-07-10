@@ -5,7 +5,17 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **type-fest 4.x**。把 type-fest 用进真实场景：字符串类型族（大小写/切分/替换/对象键批量转换）、JSON 类型族（`Jsonify`/`JsonValue`）、异步（`Promisable`/`AsyncReturnType`）、按值条件筛选键。纯类型，`import type` 引入。
+> 版本基线 **type-fest 5.8.0**。把 type-fest 用进真实场景：字符串类型族（大小写/切分/替换/对象键批量转换）、JSON 类型族（`Jsonify`/`JsonValue`）、异步（`Promisable`/`AsyncReturnType`）、按值条件筛选键。纯类型，推荐 `import type` 引入。
+
+## 速查
+
+- 字符串字面量：`CamelCase` / `SnakeCase` / `KebabCase` / `Split` / `Join` / `Replace`
+- 对象键命名转换：浅层用 `*CasedProperties`，递归用 `*CasedPropertiesDeep`
+- `JsonValue` 表示合法 JSON 值；`Jsonify<T>` 近似描述 stringify + parse 后的静态形态
+- `Promisable<T>` 表示同步值或 PromiseLike；调用方统一 `await` 即可
+- `AsyncReturnType<F>` 仍存在，但简单场景优先考虑内置 `Awaited<ReturnType<F>>`
+- 按值类型选键用 `ConditionalKeys`，取子对象用 `ConditionalPick`
+- `Schema<T, V>` 保留 T 的嵌套结构，并把叶子替换成 V
 
 ## 一、字符串：单个字面量的大小写变换
 
@@ -104,7 +114,7 @@ logger(() => 'foo');                 // ✅ 同步
 logger(() => Promise.resolve('bar')); // ✅ 异步
 ```
 
-`AsyncReturnType<F>` 取异步函数解析后的返回类型（解包它返回的 `Promise`）：
+`AsyncReturnType<F>` 取异步函数解析后的返回类型（解包它返回的 `Promise`）。5.8.0 仍然导出它，但简单场景也可直接用 TypeScript 内置组合 `Awaited<ReturnType<F>>`：
 
 ```ts
 import type { AsyncReturnType } from 'type-fest';

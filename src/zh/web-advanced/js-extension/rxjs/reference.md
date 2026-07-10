@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 参考
 
-> **RxJS 7.x** 常用 API 速查：创建函数、核心操作符、Subject 家族、调度器与子路径。所有操作符均从 `'rxjs'` 扁平导出，用 `source$.pipe(...)` 组合。
+> **RxJS 7.8.2** 常用 API 速查：创建函数、核心操作符、Subject 家族、调度器与子路径。操作符从 `'rxjs'` 扁平导出，用 `source$.pipe(...)` 组合。
+
+## 速查
+
+- 创建与消费：`of` / `from` / `fromEvent` / `defer` → `pipe(...)` → `subscribe({ next, error, complete })`
+- 高阶映射：最新值用 `switchMap`，并发用 `mergeMap`，保序用 `concatMap`，忙时忽略用 `exhaustMap`
+- 组合：持续状态用 `combineLatest`，主源触发取快照用 `withLatestFrom`，全部完成取末值用 `forkJoin`
+- 错误：`retry` 放在 `catchError` 之前；清理逻辑用 `finalize`
+- 退订只保证关闭订阅并执行 teardown；`from(Promise)` 不会取消底层 Promise
+- `shareReplay` 的 `refCount` 默认是 `false`；无限源需明确决定是否在零订阅者时断开
+- 转 Promise：`firstValueFrom` 取首值，`lastValueFrom` 必须等待源 complete
+- 迁移：位置参数版 `subscribe` 与 `toPromise` 计划 v8 移除；`retryWhen` 计划 v9 或 v10 移除
 
 ## 一、创建函数（Creation）
 
@@ -55,7 +66,7 @@ outline: [2, 3]
 
 | 操作符 | 新值到来时对未完成内层的处理 | 典型场景 |
 |---|---|---|
-| `switchMap` | **取消**上一个内层，切到新的 | 搜索补全（取最新、防竞态） |
+| `switchMap` | **退订**上一个内层，切到新的；底层副作用仅在支持 teardown 时真正取消 | 搜索补全（取最新、防竞态） |
 | `mergeMap` | **并发**保留所有内层（可传 `concurrent` 限流） | 并行请求 |
 | `concatMap` | **排队**：等上一个完成再订阅下一个（保序不丢） | 顺序写操作 |
 | `exhaustMap` | **忽略**新外层值直到当前内层完成 | 防重复提交 |
@@ -99,7 +110,7 @@ outline: [2, 3]
 | 操作符 | 作用 |
 |---|---|
 | `share(config?)` | 用 Subject 多播 + 引用计数，多订阅者共享**一次**源执行 |
-| `shareReplay({ bufferSize, refCount })` | 在多播之上**缓存并重放**给后来的订阅者（缓存 HTTP 响应） |
+| `shareReplay({ bufferSize, refCount })` | 缓存并重放；`refCount` 默认 `false`，无限源可能在零订阅者后仍保持连接 |
 | `connectable(source, { connector })` | 需手动 `.connect()` 才开始多播，精确控制开闸时机 |
 | `connect(selector)` | 在局部把源多播给多个分支再合并 |
 
@@ -120,7 +131,7 @@ outline: [2, 3]
 | 用法 | 说明 |
 |---|---|
 | `firstValueFrom(obs[, {defaultValue}])` | Observable → Promise（第一个值，空流 reject `EmptyError`） |
-| `lastValueFrom(obs[, {defaultValue}])` | Observable → Promise（最后一个值） |
+| `lastValueFrom(obs[, {defaultValue}])` | Observable → Promise（等待 complete 后取最后值；不终止的源会一直挂起） |
 | `import { ... } from 'rxjs'` | **7.x 扁平导入**（操作符 + 创建函数） |
 | `'rxjs/operators'` | 旧式子路径，仍可用但非首选 |
 | `'rxjs/ajax'` / `'rxjs/fetch'` | `ajax` / `fromFetch` HTTP 工具 |

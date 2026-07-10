@@ -5,23 +5,24 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇讲 **type-fest** 的安装、核心心智与第一批最常用的类型。版本基线 **type-fest 4.x**（要求 **TypeScript ≥5.1** 且 `strict: true`）。它是**纯类型库**——只 `import type`，编译后零运行时代码。
+> 本篇讲 **type-fest** 的安装、核心心智与第一批最常用的类型。版本基线 **type-fest 5.8.0**（要求 **Node.js ≥20、TypeScript ≥5.9、ESM 与 `strict: true`**）。它是纯类型库，编译后零运行时代码。
 
 ## 速查
 
 - 安装：`npm i type-fest`（多数项目放 `devDependencies` 即可，见下）
-- 引入：`import type { PartialDeep } from 'type-fest'` —— **必须用 `import type`**（导出全是类型）
-- 前置：TypeScript ≥5.1 + `tsconfig` 开启 `strict: true`
+- 引入：`import type { PartialDeep } from 'type-fest'` —— 推荐明确写成类型导入；开启 `verbatimModuleSyntax` 时必须如此
+- 前置：Node.js ≥20、TypeScript ≥5.9、ESM + `tsconfig` 开启 `strict: true`
 - 心智一：**零运行时**——编译后不产生任何 JS，对包体积/运行时零影响
 - 心智二：**补齐内置**——内置搞不定的（深层、标称、字符串、JSON、键约束）才用它
 - ⚠️ 它**不做运行时校验**，那是 `zod`/`valibot` 的事
 - ⚠️ `Opaque` 已废弃，标称类型请用 **`Tagged`**
+- 包本身没有运行时 JS，但 `engines.node` 仍会影响安装器与项目工具链检查
 
 ## 一、type-fest 是什么
 
 官方一句话定位：「**A collection of essential TypeScript types**」。三个关键点：
 
-1. **纯类型**：所有导出都是 `type`，没有一行运行时代码。所以引入只能用 `import type`，编译产物里会被完全擦除。
+1. **纯类型**：所有导出都是 `type`，没有运行时代码。应使用 `import type` 明确类型导入，编译产物里会被完全擦除。
 2. **补空白**：它解决 TS 内置工具类型（`Partial`/`Pick`/`Omit`/`Readonly`…）覆盖不到的场景——深层变换、标称类型、字符串大小写、JSON 序列化形态等。
 3. **经验证**：这些类型边界极多（递归、分布式条件、索引签名），手写极易出错；type-fest 提供社区验证、测试充分的实现。
 
@@ -34,7 +35,7 @@ npm i type-fest
 ```
 
 ```ts
-// ✅ 正确：用 import type（导出全是类型）
+// ✅ 推荐：用 import type 明确这是编译期依赖
 import type { PartialDeep, Tagged, Simplify } from 'type-fest';
 
 // ❌ 错误：它没有运行时值导出，require 拿不到东西
@@ -48,13 +49,16 @@ import type { PartialDeep, Tagged, Simplify } from 'type-fest';
 - **应用 / 不暴露它的库** → 放 `devDependencies`（仅构建期需要）。
 - **发布的库，且公共 `.d.ts` 里直接 re-export / 引用了 type-fest 的类型** → 放 `dependencies`，否则下游解析你的类型时会缺包。
 
-## 三、TS 版本与 strict
+## 三、工具链版本、ESM 与 strict
 
-type-fest 4.x 的 readme 明确要求：
+type-fest 5.8.0 的包元数据与 README 要求：
 
-> Requires TypeScript >=5.1 and `{strict: true}` in your tsconfig.
+- Node.js ≥20
+- TypeScript ≥5.9
+- ESM
+- `tsconfig` 开启 `strict: true`
 
-很多类型依赖严格模式下的类型行为（区分 optional/可空、深层变换等），关闭 `strict` 会导致部分推断不符预期。不同 4.x 小版本可能进一步抬高 TS 基线，升级时留意 readme。
+很多类型依赖严格模式下的类型行为（区分 optional/可空、深层变换等），关闭 `strict` 会导致部分推断不符预期。包里没有运行时 JS，但 Node engine 与 ESM 声明仍会参与包管理器、构建工具和发布链路的兼容性判断；升级前不能只看「纯类型」就忽略工具链基线。
 
 ## 四、第一个深层类型：PartialDeep
 
@@ -134,7 +138,7 @@ getBalance(acc);       // ✅
 const n = acc + 2;     // ✅ tagged 值仍可当普通 number 用（底层未被隐藏）
 ```
 
-> 注意：`Opaque` 是 `Tagged` 的**已废弃旧名**，新代码一律用 `Tagged`。
+> 注意：`Opaque` 是已废弃的旧 API；`Tagged` 支持多标签和标签元数据，并非只做了改名。新代码使用 `Tagged`。
 
 ---
 

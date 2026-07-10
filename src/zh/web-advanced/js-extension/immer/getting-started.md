@@ -5,7 +5,7 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇讲 **Immer 的核心用法**：安装、`produce` 与 draft、改对象/数组、返回新状态、配合 React。版本基线 **Immer 11.x**。对比对象：手写不可变更新、`structuredClone`。
+> 本篇讲 **Immer 的核心用法**：安装、`produce` 与 draft、改对象/数组、返回新状态、配合 React。版本基线 **Immer 11.1.11**。对比对象：手写不可变更新、`structuredClone`。
 
 ## 速查
 
@@ -15,6 +15,7 @@ outline: [2, 3]
 - 改对象：`draft.a.b = 1`、`delete draft.k`；改数组：`draft.list.push(x)`、`splice`…
 - 整体替换状态：**直接 `return 新对象`**（前提：没同时改 draft）
 - 默认 **auto-freeze**：产出结果被深冻结，越界 mutate 会报错
+- 外部对象一旦进入产出结果也可能被冻结；不要在配方里直接修改未被 draft 化的闭包对象
 - 核心约 **3KB gzipped**；Map/Set、patches 需各自显式启用
 - ⚠️ `draft = newObj`（重新赋值）**无效**；不能「既改 draft 又 return 新值」
 

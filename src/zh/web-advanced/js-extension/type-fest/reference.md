@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 参考
 
-> type-fest **常用类型速查**，按类型族分组。版本基线 type-fest 4.x。全部为纯类型，用 `import type` 引入。完整清单见官方 README。
+> type-fest **常用类型速查**，按类型族分组。版本基线 **type-fest 5.8.0**。全部为纯类型，推荐用 `import type` 引入。完整清单见官方 README。
+
+## 速查
+
+- 环境：Node.js ≥20、TypeScript ≥5.9、ESM、`strict: true`
+- 深层变换：`PartialDeep` / `RequiredDeep` / `ReadonlyDeep`；数组递归行为先看选项
+- 精确改键：`SetOptional` / `SetRequired` / `Except` / `Merge` / `OverrideProperties`
+- 业务约束：`RequireAtLeastOne` / `RequireExactlyOne` / `RequireAllOrNone`
+- 标称类型：新代码用 `Tagged` / `UnwrapTagged`；`Opaque` 仍导出但已废弃
+- 字符串与路径：`CamelCase` / `Split` / `Paths` / `Get`
+- JSON 与异步：`Jsonify` 描述序列化形态；`AsyncReturnType<F>` 常可用内置 `Awaited<ReturnType<F>>` 替代
+- `Entries<T>` 只提供静态类型；对 `Object.entries()` 的断言不会转换或校验运行时数据
 
 ## 一、对象 · 深浅层变换
 
@@ -46,7 +57,7 @@ outline: [2, 3]
 | 类型 | 作用 |
 |---|---|
 | `ValueOf<T>` | 所有值的联合（`keyof` 的值版） |
-| `Entries<T>` | `[key, value][]`，对应 `.entries()` 返回类型 |
+| `Entries<T>` | `[key, value][]`，为 `.entries()` 结果提供静态类型，不做运行时转换 |
 | `Get<T, 'a.b.c'>` | 按点路径取深层属性类型（类型版 `_.get`） |
 | `Paths<T>` | 所有可达属性路径的联合（配合 `Get`） |
 | `ConditionalKeys<T, C>` | 值满足条件 C 的键的联合 |
@@ -95,7 +106,7 @@ outline: [2, 3]
 | 类型 | 作用 |
 |---|---|
 | `Promisable<T>` | `T \| PromiseLike<T>`（值或其 Promise） |
-| `AsyncReturnType<F>` | 异步函数解析后的返回类型 |
+| `AsyncReturnType<F>` | 异步函数解析后的返回类型；常等价于 `Awaited<ReturnType<F>>` |
 | `Asyncify<F>` | 把返回值包进 `Promise` |
 
 ## 九、联合/元组 与 类型守卫

@@ -5,7 +5,17 @@ outline: [2, 3]
 
 # 指南 · 基础
 
-> 版本基线 **RxJS 7.x**。本篇把「会订阅」用到「懂机制」：操作符分类、冷热 Observable、Subject 多播、以及取消订阅的几种标准模式。
+> 版本基线 **RxJS 7.8.2**。本篇把「会订阅」用到「懂机制」：操作符分类、冷热 Observable、Subject 多播、以及取消订阅的几种标准模式。
+
+## 速查
+
+- pipeable 操作符不修改源，而是返回新 Observable；同一源可组合成多条独立链
+- 冷源通常为每次订阅创建独立生产过程；热源共享生产者，晚订阅者会错过历史值
+- `Subject` 只推未来值；`BehaviorSubject` 有当前值；`ReplaySubject` 重放历史；`AsyncSubject` 完成时发末值
+- `share()` 使用引用计数共享一次并发执行；完成后的新订阅仍可能触发新一轮源执行
+- 持续型源用 `unsubscribe`、`take`、`takeUntil` 或框架生命周期能力收尾
+- 退订会执行 teardown，但 `from(Promise)` 等无法取消的底层任务仍可能继续运行
+- `error` 与 `complete` 互斥且只发生一次；`finalize` 还会在主动退订时执行
 
 ## 一、操作符的两条主线
 
@@ -99,7 +109,7 @@ req$.subscribe(); // 共享同一次请求结果，不再重复发
 
 ## 五、取消订阅：四种标准模式
 
-活跃订阅**不会被垃圾回收**。持续型流必须收尾，否则内存泄漏。
+当长生命周期源持续持有订阅者时，订阅者及其闭包无法被垃圾回收。持续型流必须收尾，否则会泄漏资源。
 
 ```ts
 import { interval, take, takeUntil, Subject } from 'rxjs';

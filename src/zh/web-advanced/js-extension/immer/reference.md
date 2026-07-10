@@ -5,7 +5,17 @@ outline: [2, 3]
 
 # 参考
 
-> Immer **核心 API、插件开关、配置、补丁格式、返回值规则与常见模式** 速查。版本基线 Immer 11.x。
+> Immer **核心 API、插件开关、配置、补丁格式、返回值规则与常见模式** 速查。版本基线 **Immer 11.1.11**。
+
+## 速查
+
+- 核心更新：`produce(base, recipe)`；无改动时返回 `base` 原引用，改动时只复制变更路径
+- draft 检视：`current(draft)` 看当前快照，`original(draft)` 取原始对象；两者都只接受 draft
+- 可选能力：Map/Set、patches、array methods 分别调用 `enableMapSet()`、`enablePatches()`、`enableArrayMethods()`
+- 补丁：`produceWithPatches()` 返回 `[next, patches, inversePatches]`；路径是数组，且不保证最小集
+- 冻结：auto-freeze 默认开启；`freeze(value)` 浅冻结，`freeze(value, true)` 深冻结
+- 手动 draft：`createDraft()` / `finishDraft()` 是低级 API，应尽快完成，不要让 draft 跨越异步流程
+- 返回值：改 draft 与返回新对象二选一；要产出 `undefined` 请 `return nothing`
 
 ## 一、核心 API
 
@@ -14,9 +24,9 @@ outline: [2, 3]
 | `produce` | `produce(base, recipe, patchListener?)` → 新不可变状态；第一参为函数时返回柯里化生产者 |
 | `produceWithPatches` | 同 produce，返回 `[nextState, patches, inversePatches]` |
 | `applyPatches` | `applyPatches(base, patches)` → 把补丁重放到状态，产出新状态 |
-| `current` | `current(draft)` → draft 当前状态的普通快照（非 Proxy、未冻结） |
-| `original` | `original(draft)` → draft 对应的原始基对象（非 draft 返回 undefined） |
-| `createDraft` | `createDraft(base)` → 脱离配方、可长期持有的 draft |
+| `current` | `current(draft)` → draft 当前状态的普通快照（非 Proxy、未冻结）；非 draft 会抛错 |
+| `original` | `original(draft)` → draft 对应的原始基对象；非 draft 会抛错 |
+| `createDraft` | `createDraft(base)` → 创建需手动终态化的 draft（低级 API） |
 | `finishDraft` | `finishDraft(draft, patchListener?)` → 终态化 draft（不可用于 produce 的 draft） |
 | `freeze` | `freeze(obj, deep?)` → 冻结对象，`deep=true` 递归深冻结 |
 | `isDraft` | 判断是否为 draft 对象 |
@@ -32,11 +42,11 @@ outline: [2, 3]
 
 ## 三、插件开关（默认关闭，需显式启用）
 
-| 函数 | 启用能力 | 体积 |
+| 函数 | 启用能力 | 注意 |
 |---|---|---|
-| `enableMapSet()` | 支持 `Map` / `Set` 作为状态 | ~1–2KB |
-| `enablePatches()` | 启用 patches（produceWithPatches / applyPatches / patchListener） | ~1–2KB |
-| `enableArrayMethods()` | 数组方法性能优化（v11+，回调收 base 值） | ~2KB |
+| `enableMapSet()` | 支持 `Map` / `Set` 作为状态 | 应用入口调用一次 |
+| `enablePatches()` | 启用 patches（produceWithPatches / applyPatches / patchListener） | 补丁不保证最小集 |
+| `enableArrayMethods()` | 数组方法性能优化（v11+，回调收 base 值） | 部分方法返回 draft，部分返回 base 值 |
 
 ```js
 import { enableMapSet, enablePatches, enableArrayMethods } from "immer"
