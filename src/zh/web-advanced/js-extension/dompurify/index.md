@@ -5,12 +5,12 @@ layout: doc
 # DOMPurify
 
 ::: tip 本篇范围
-本篇聚焦 **DOMPurify —— 一个基于 DOM、超快、高容错的 XSS 净化器**，用于把不可信的 HTML / MathML / SVG 清洗成可安全插入页面的内容。它解决的是「**要把用户提交的富文本渲染成 HTML**」这一类场景的安全问题，与 `v-html`、`dangerouslySetInnerHTML`、`innerHTML` 配套使用。版本基线 **DOMPurify 3.x**（源码 TypeScript、自带类型、发布产物为纯 JS）。
+本篇聚焦 **DOMPurify —— 一个基于 DOM、超快、高容错的 XSS 净化器**，用于把不可信的 HTML / MathML / SVG 清洗成可安全插入页面的内容。它解决的是「**要把用户提交的富文本渲染成 HTML**」这一类场景的安全问题，与 `v-html`、`dangerouslySetInnerHTML`、`innerHTML` 配套使用。版本基线 **DOMPurify 3.4.11**（源码 TypeScript、自带类型、发布产物为纯 JS）。
 :::
 
 DOMPurify 由 [cure53](https://cure53.de/) 安全团队维护，官方定位是「**a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG**」。它的核心思路与「用正则过滤」截然不同：**借浏览器自身的 DOM 解析器把脏字符串解析成真实 DOM 树，再按白名单移除危险标签与属性，最后序列化回安全字符串**。正因为复用了浏览器解析器，它能扛住大小写变体、编码实体、畸形嵌套、命名空间混淆乃至 mutation XSS（mXSS）这类「自己写正则永远补不全」的绕过。
 
-最该记牢的几条「现状」：**核心 API 只有一个 `DOMPurify.sanitize(dirty, config?)`**，默认返回**净化后的字符串**；返回类型随配置变化——`RETURN_DOM`→`Node`、`RETURN_DOM_FRAGMENT`→`DocumentFragment`、`RETURN_TRUSTED_TYPE`→`TrustedHTML`、`IN_PLACE`→就地净化的 `Node`，且 3.x 用 **TypeScript 函数重载**精确刻画了这些返回类型。**默认白名单相当丰富**（HTML + SVG + MathML + 文本），`ALLOW_DATA_ATTR` / `ALLOW_ARIA_ATTR` 默认 `true`，`SANITIZE_DOM` 默认 `true`（防 DOM Clobbering）。**净化必须紧挨着「写入 DOM」这一步**——先净化、之后再被别的库改写 HTML，可能让净化失效。**Node 端要用 jsdom 提供 window**（`createDOMPurify(window)`），同构项目可用 `isomorphic-dompurify`。
+最该记牢的几条「现状」：**核心 API 只有一个 `DOMPurify.sanitize(dirty, config?)`**，默认返回**净化后的字符串**；返回类型随配置变化——`RETURN_DOM`→`Node`、`RETURN_DOM_FRAGMENT`→`DocumentFragment`、支持 Trusted Types 时 `RETURN_TRUSTED_TYPE`→`TrustedHTML`、`IN_PLACE`→就地净化的 `Node`，且 3.x 用 **TypeScript 函数重载**刻画这些返回类型。**默认 allowlist 相当丰富**（HTML + SVG + MathML + 文本），`ALLOW_DATA_ATTR` / `ALLOW_ARIA_ATTR` 默认 `true`，`SANITIZE_DOM` 默认 `true`（防 DOM Clobbering）。**净化必须紧挨着「写入 DOM」这一步**——先净化、之后再被别的库改写 HTML，可能让净化失效。**Node 端要用最新 jsdom 提供 window**（`createDOMPurify(window)`）；服务端 DOM 本身属于可信计算基，官方当前明确不推荐 happy-dom。
 
 ## 评价
 

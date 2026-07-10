@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **DOMPurify 3.x**。把净化用进真实项目：`addHook` 定制、Trusted Types 集成、Node/jsdom 与 SSR、协议/URI 控制、安全放行 iframe、与 Markdown 管线协作。
+> 版本基线 **DOMPurify 3.4.11**。把净化用进真实项目：`addHook` 定制、Trusted Types 集成、Node/jsdom 与 SSR、协议/URI 控制、安全放行 iframe、与 Markdown 管线协作。
+
+## 速查
+
+- hooks 属于实例级可变状态，会影响该实例后续所有 `sanitize`；临时 hook 要在 `try/finally` 中移除
+- `forceKeepAttr` 能绕过普通属性 allowlist，只应用于经过独立验证的属性，不能拿来放行事件处理器
+- Node / SSR 必须提供 DOM；使用**最新 jsdom**并保持默认不加载资源、不执行脚本，官方不推荐 happy-dom
+- `RETURN_TRUSTED_TYPE: true` 在浏览器支持时返回 `TrustedHTML`；创建 policy 时回调内应传 `false` 取得字符串
+- URI 默认拒绝危险协议；iframe 等高风险元素需同时限制 HTTPS、精确 hostname、属性与 sandbox
+- Markdown 管线顺序是“渲染最终 HTML → DOMPurify → 立即写入 sink”，不是净化 Markdown 源文本
+- `setConfig()` 是持久配置且会让单次 `sanitize` 的 config 失效；模块化代码优先显式单次配置或独立实例
+- `DOMPurify.removed` 只能做日志 / 测试观察，不能据此决定输入是否可信或授权业务动作
 
 ## 一、hooks：在净化过程里插逻辑
 
@@ -46,8 +57,12 @@ DOMPurify.addHook('uponSanitizeAttribute', (node, hookEvent, config) => {
 ```js
 // 用完务必清理，避免污染后续调用
 DOMPurify.addHook('afterSanitizeAttributes', myHook);
-const clean = DOMPurify.sanitize(dirty);
-DOMPurify.removeHook('afterSanitizeAttributes'); // 移除最近一个
+let clean;
+try {
+  clean = DOMPurify.sanitize(dirty);
+} finally {
+  DOMPurify.removeHook('afterSanitizeAttributes'); // 即使 sanitize 抛错也清理
+}
 // 或 DOMPurify.removeAllHooks(); 清空全部
 ```
 
@@ -71,8 +86,8 @@ const clean = DOMPurify.sanitize('<b>hello</b><script>alert(1)</script>');
 // → '<b>hello</b>'
 ```
 
-::: warning jsdom 要最小化
-DOMPurify 本身**不发任何网络请求**。风险来自 jsdom：若开了 `resources: 'usable'` 之类配置，它会去加载外链资源（SSRF/隐私风险）。把 jsdom 当**纯 DOM 宿主**即可——不加载子资源、不执行外部脚本（这也是 jsdom 默认行为）。
+::: warning jsdom 既要最新，也要最小权限
+服务端 DOM 是净化链的可信计算基。官方明确要求保持 jsdom 最新：旧版 DOM 实现曾存在即使 DOMPurify 本身正确也可导致 XSS 的解析缺陷（例如 jsdom 19 的已知向量在 20 修复）。同时把 jsdom 当**纯 DOM 宿主**：不要开启外链资源加载或脚本执行；官方当前也明确不建议与 happy-dom 组合。
 :::
 
 **同构项目（Next.js / Nuxt / Astro / SvelteKit）** 推荐直接用封装：
@@ -126,14 +141,27 @@ DOMPurify.sanitize('<a href="javascript:alert(1)">x</a>');
 DOMPurify.addHook('uponSanitizeElement', (node, data) => {
   if (data.tagName === 'iframe') {
     const src = node.getAttribute('src') || '';
-    const ok = /^https:\/\/(www\.)?youtube\.com\//.test(src);
-    if (!ok) node.parentNode?.removeChild(node); // 非白名单来源直接移除
+    let ok = false;
+    try {
+      const url = new URL(src);
+      ok = url.protocol === 'https:'
+        && ['youtube.com', 'www.youtube.com'].includes(url.hostname)
+        && url.pathname.startsWith('/embed/');
+    } catch {
+      // 非法或相对 URL 不在本例信任范围内
+    }
+    if (!ok) {
+      node.parentNode?.removeChild(node); // 非白名单来源直接移除
+    } else {
+      node.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation');
+      node.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+    }
   }
 });
 
 const clean = DOMPurify.sanitize(dirty, {
   ADD_TAGS: ['iframe'],
-  ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'src'],
+  ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'src', 'sandbox', 'referrerpolicy'],
 });
 ```
 

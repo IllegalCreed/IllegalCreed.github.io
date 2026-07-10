@@ -5,11 +5,22 @@ outline: [2, 3]
 
 # 指南 · 专家
 
-> 版本基线 **nanoid 5**。深入：纯 ESM 与 CommonJS 互操作、3.x → 5.x 迁移、内部均匀性算法（拒绝采样）、缓冲池与性能、tree-shaking 与体积。
+> 版本基线 **nanoid 5.1.16**。深入：ESM-only 产物与 CommonJS 互操作、3.x → 5.x 迁移、内部均匀性算法（拒绝采样）、缓冲池与性能、tree-shaking 与体积。
+
+## 速查
+
+- 5.1.16 只发布 ESM 源码，但较新 Node 能从 CJS 同步加载 ESM；“ESM-only”不等于所有 `require()` 都必然失败
+- Node 22.12+ 可直接 `require('nanoid')`，Node 20 按官方说明需实验标志，Node 18 使用动态 `import()` 或 nanoid 3
+- 3 → 5 迁移重点：移除 `nanoid/async`、移除 `nanoid/url-alphabet`、Node 基线提高，核心生成 API 保持稳定
+- 非 2 的幂字母表通过 cutoff + 拒绝采样消除模偏置；2 的幂字母表走位掩码快路径
+- Node 入口维护 128 倍随机字节池；浏览器入口直接按次调用 `crypto.getRandomValues`
+- `sideEffects: false` 支持 bundler tree-shaking，但最终体积仍取决于入口、构建器与压缩配置
+- TypeScript 类型内置，`nanoid<OpaqueType>()` 可直接生成 branded / opaque string 类型
+- 工程兜底仍是容量评估、大小写敏感唯一索引和冲突重试；CSPRNG 只降低碰撞与猜测概率，不承诺唯一
 
 ## 一、纯 ESM 与 CommonJS 互操作
 
-nanoid 5.x 的 `package.json` 是 `"type": "module"`，且 exports **只含 `import`/`default` 条件、没有 `require`**——它不再发布 CommonJS 产物。在 CommonJS 项目里用它有三条路：
+nanoid 5.1.16 的 `package.json` 是 `"type": "module"`，且不再发布 CommonJS 产物。这里的“ESM-only”描述的是包产物，不代表所有 Node 版本的 `require()` 都失败：新 Node 已能同步加载符合条件的 ESM。在 CommonJS 项目里有三条路：
 
 ```ts
 // 路 1（最稳妥）：装 3.x，它有 CJS 产物
@@ -29,7 +40,7 @@ module.exports.createId = async () => {
 
 | Node 版本 | 在 CJS 里 require 纯 ESM 的 nanoid 5 |
 |---|---|
-| 22.12+ | 默认支持 `require(ESM)` |
+| 22.12+ | 默认支持 `require(ESM)`；本地 Node 22.19 已验证可直接解构 `nanoid` |
 | 20 | 需 `--experimental-require-module` 标志 |
 | 18 | 不支持，须用动态 `import()` 或改用 3.x |
 
@@ -39,7 +50,7 @@ module.exports.createId = async () => {
 
 | 主题 | nanoid 3.x | nanoid 5.x |
 |---|---|---|
-| 模块系统 | ESM + CJS 双产物（可 `require`） | **纯 ESM**（无 `require`） |
+| 模块系统 | ESM + CJS 双产物（可 `require`） | **ESM-only 产物**（新 Node 可从 CJS 加载） |
 | `nanoid/async` | 提供异步入口 | **已移除** |
 | `nanoid/url-alphabet` | 独立子入口 | **已移除**（`urlAlphabet` 从主入口导出） |
 | `engines.node` | `^10 \|\| ^12 \|\| … \|\| >=15` | `^18 \|\| >=20` |
@@ -80,7 +91,7 @@ function fillPool(bytes) {
 }
 ```
 
-> 同步加密随机的固有特性：**极少数情况**下，硬件随机源收集噪声时可能短暂阻塞 CPU。常规使用极快（secure 与 non-secure 均在数百万 ops/sec 量级），无需担心；早期用 `nanoid/async` 规避，但该入口已在新版移除。
+> 同步加密随机在极少数熵不足场景可能短暂等待。具体吞吐依赖运行时与机器，不应把 README 某次 benchmark 当成应用 SLA；先测真实工作负载。早期 `nanoid/async` 入口已在新版移除。
 
 ## 五、tree-shaking 与体积
 
@@ -93,16 +104,20 @@ import { nanoid } from "nanoid"; // customRandom 等不会进 bundle
 
 ## 六、TypeScript
 
-nanoid **自带 `.d.ts` 类型声明**（exports 每个入口都配了 `types`），无需 `@types/nanoid`。直接 import 即有完整提示（`nanoid: (size?: number) => string` 等）。
+nanoid **自带 `.d.ts` 类型声明**（exports 每个入口都配了 `types`），无需 `@types/nanoid`。5.1.16 的生成函数还支持泛型返回 opaque string 类型。
 
 ```ts
 import { nanoid } from "nanoid";
-const id: string = nanoid(); // 类型开箱即用
+
+declare const userIdBrand: unique symbol;
+type UserId = string & { [userIdBrand]: true };
+
+const id = nanoid<UserId>(); // id: UserId
 ```
 
 ## 七、最佳实践小结
 
-- **CJS 项目用 3.x**，ESM 项目用 5.x；别在 5.x 上硬 `require`。
+- **ESM 项目直接用 5.x**；CJS 项目按 Node 版本选择同步 `require`、动态 `import()` 或仍受支持的 3.x。
 - **敏感 ID 用默认版**（加密随机），非敏感且追求快才用 `nanoid/non-secure`。
 - **短码必评估碰撞**：用 nano-id-cc，并配数据库唯一约束 + 冲突重试。
 - **自定义字母表保证字符唯一、≤256**；缩小字母表要加长补熵。

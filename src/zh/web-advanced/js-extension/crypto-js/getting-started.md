@@ -22,9 +22,9 @@ outline: [2, 3]
 
 官方定位：「**JavaScript implementations of standard and secure cryptographic algorithms**」。三个关键点：
 
-1. **纯 JS、同步**：自带算法实现，不依赖原生加密 API，调用是同步的，没有 Promise。
+1. **算法纯 JS、同步**：哈希与密码算法由 JavaScript 实现，调用没有 Promise；但 4.x 的 salt / IV 随机数会调用环境的原生 Crypto。
 2. **算法齐全**：哈希、HMAC、对称加密、编码器、密钥派生一站式。
-3. **跨环境**：能跑在没有 Web Crypto 的旧浏览器、小程序、旧 webview。
+3. **多模块形态**：提供 CommonJS、AMD 与浏览器全局构建；涉及随机数的 API 要求环境存在 `getRandomValues` 或 `randomBytes`。
 
 > ⚠️ **维护现状**：crypto-js 官方已声明「停止主动开发、不再维护」，并建议新项目改用原生 `crypto`（Node）/ Web Crypto（浏览器）。本篇会教你正确使用它，同时在安全关键处给出原生替代建议。
 
@@ -58,7 +58,7 @@ console.log(hash.toString(CryptoJS.enc.Base64)); // 也可输出 Base64
 - WordArray 的 `toString()` **默认用 Hex**，等价于 `toString(CryptoJS.enc.Hex)`。
 - 方法名**全大写**：`SHA256`、`MD5`、`RIPEMD160`；SHA3 要指定位数：`CryptoJS.SHA3("Message", { outputLength: 512 })`。
 
-支持的哈希：`MD5`、`SHA1`、`SHA224`、`SHA256`、`SHA384`、`SHA512`、`SHA3`、`RIPEMD160`。
+支持的哈希：`MD5`、`SHA1`、`SHA224`、`SHA256`、`SHA384`、`SHA512`、`SHA3`、`RIPEMD160`。其中 `CryptoJS.SHA3` 是历史误命名的 **Keccak[c=2d]**，与 NIST 标准 SHA-3 的 padding 和结果不同。
 
 > ⚠️ MD5/SHA1 已不抗碰撞，只能用于非安全的校验和 / 对接老接口，**不可用于签名、防篡改、密码存储**。
 

@@ -5,7 +5,7 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇讲 **DOMPurify 的基本用法**：它是什么、为什么要用、`sanitize` 怎么调、与 `v-html` / `dangerouslySetInnerHTML` 怎么配套。版本基线 **DOMPurify 3.x**。对比对象：手写正则过滤、HTML 转义。
+> 本篇讲 **DOMPurify 的基本用法**：它是什么、为什么要用、`sanitize` 怎么调、与 `v-html` / `dangerouslySetInnerHTML` 怎么配套。版本基线 **DOMPurify 3.4.11**。对比对象：手写正则过滤、HTML 转义。
 
 ## 速查
 
@@ -16,6 +16,7 @@ outline: [2, 3]
 - 核心认知：**解析成 DOM → 按白名单清理 → 序列化**，不是「字符转义」也不是「正则删标签」
 - ⚠️ 必须**先净化、再插入**：写入 `innerHTML` 即解析执行，净化要赶在执行之前
 - ⚠️ Node 端没有 DOM，需 **jsdom** 提供 `window`（见[进阶篇](./guide-line/advanced)）
+- ⚠️ 净化后不要再拼接或让其它库改写 HTML；服务端应保持 jsdom 最新，且不要改用官方不推荐的 happy-dom
 
 ## 一、DOMPurify 是什么
 

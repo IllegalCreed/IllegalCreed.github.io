@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **crypto-js 4.2.0**。本篇把「会调用」用到「懂机制」：WordArray 与编码器、哈希 vs 加密的本质、AES 两种模式的内部分流、加密模式与填充、口令派生入门。
 
+## 速查
+
+- `WordArray` 用 32 位 `words` 存数据，以 `sigBytes` 标记真实字节数；手工构造时两者必须一致
+- 编码器：`enc.*.parse()` 把字符串变成 `WordArray`，`stringify()` / `toString(encoder)` 反向输出；默认输出 Hex
+- 摘要不是加密：哈希不可逆且不带密钥；需要来源认证时使用 HMAC，不要拼接 `hash(key + message)`
+- `AES.encrypt(msg, "pass")` 走口令 KDF；`AES.encrypt(msg, keyWordArray, { iv })` 直接用原始密钥，两条路径不能混用
+- `CipherParams#toString()` 默认输出 OpenSSL `Salted__` 格式；裸 `ciphertext` 不包含 salt、key 或 IV
+- 默认分组配置是 **CBC + Pkcs7**；IV 不保密但必须随机且不可复用，ECB 不应使用
+- crypto-js 不提供 AEAD；需要同时保证机密性与完整性时优先 AES-GCM，或严格采用 Encrypt-then-MAC
+- 4.2.0 `PBKDF2` 默认 SHA-256 / 250000 次；`WordArray.random()` 使用原生安全随机源，缺失时会抛错
+
 ## 一、WordArray：贯穿全库的数据结构
 
 crypto-js 内部不直接用字符串或 `Uint8Array`，而是用 **WordArray**（`CryptoJS.lib.WordArray`）——一个 **32 位字（word）的数组**。哈希结果、密钥、IV、salt、密文，全是 WordArray。
@@ -30,7 +41,7 @@ console.log(wa.words.length); // 2（8 字节空间，但有效 5 字节）
 const salt = CryptoJS.lib.WordArray.random(16); // 参数单位是字节，16 字节 = 128 位
 ```
 
-> ⚠️ crypto-js 的随机数质量取决于其内部实现，安全敏感场景应优先原生 `crypto.getRandomValues`/`crypto.randomBytes`。
+> crypto-js 4.x 的 `WordArray.random()` 会调用原生 `crypto.getRandomValues` / `crypto.randomBytes`，不会回退到 `Math.random()`；环境没有可用原生 Crypto 时会直接抛错。新项目仍应优先直接使用平台 API，减少停更依赖与格式误用。
 
 ## 二、编码器：字符串 ↔ WordArray
 

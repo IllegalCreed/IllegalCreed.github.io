@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **crypto-js 4.2.0**。深入安全内核：KDF 默认值与加固、密码存储为何不能用通用哈希、时序攻击与常量时间比较、加密模式的安全取舍、与 Web Crypto 的对比、选型决策、维护现状再辨析。
 
+## 速查
+
+- KDF 必须分清：4.2.0 `PBKDF2` 默认 SHA-256 / 250000 次，AES 字符串口令模式仍走 MD5 / 1 次的 `EvpKDF`
+- 密码存储不要用 SHA-256 / SHA-512；应在服务端使用 Argon2、scrypt、bcrypt 或按策略配置的 PBKDF2
+- MAC / 签名比较不要自写“常量时间”JavaScript；Node 用 `crypto.timingSafeEqual`，Web Crypto 用 `subtle.verify`
+- CBC / CTR 等只提供机密性，没有认证标签；优先 AES-GCM，遗留协议才考虑 Encrypt-then-MAC
+- `CryptoJS.SHA3` 是 Keccak[c=2d]，与 NIST SHA3-224 / 256 / 384 / 512 的 padding 和结果不同
+- 4.x 随机盐与 IV 来自原生 Crypto，不会回退 `Math.random()`；原生随机源缺失时抛错
+- 前端持有对称密钥不等于端到端安全，前端加密不能替代 TLS、密钥管理与服务端授权
+- 项目已停止维护且缺 AEAD；仅为存量格式互通或受控兼容保留，新系统迁移到平台加密 API
+
 ## 一、两个 KDF 的默认值（必须分清）
 
 crypto-js 有两个密钥派生函数，**默认值天差地别**：
@@ -19,7 +30,7 @@ crypto-js 有两个密钥派生函数，**默认值天差地别**：
 关键结论：
 
 - **口令模式底层是 EvpKDF（MD5 + 单次迭代）**，对暴力破解几乎没有抵抗力——它存在的意义是 **OpenSSL 兼容**，不是真正的口令防护。
-- `PBKDF2` 在 4.x 已被安全加固：早期版本曾默认 **SHA1 + 极低迭代**（被 CVE 诟病），4.x 改为 **SHA256 + 250000 次**。
+- `PBKDF2` 在 **4.2.0** 修正了危险默认值：更早版本默认 **SHA-1 + 极低迭代**，4.2.0 改为 **SHA-256 + 250000 次**。
 - 要安全地保护口令，**显式用 PBKDF2 大迭代派生 key**，再以 WordArray key+IV 加密（见进阶篇）。
 
 ```ts
@@ -47,19 +58,16 @@ CryptoJS.AES.encrypt("msg", key, { iv });
 
 校验 HMAC/签名时，用普通 `===` 或字符串比较可能**短路**（发现第一个不同字符就返回），比对耗时随匹配前缀长度变化，理论上可被**时序攻击**逐位试探出正确值。
 
-应使用**常量时间比较**（逐字节全程比对，用时与内容无关）。crypto-js **不内置**该工具，需自行实现或借助其它库：
+应使用平台提供并经过审查的**常量时间比较 / 验签 API**。crypto-js **不内置**该工具，也不要把普通 JavaScript 循环包装成“绝对常量时间”实现，因为 JIT 优化和运行时行为不受应用代码控制：
 
 ```ts
-// 简化示意：长度不同直接失败，长度相同则逐字节异或累加
-function timingSafeEqual(aHex: string, bHex: string): boolean {
-  if (aHex.length !== bHex.length) return false;
-  let diff = 0;
-  for (let i = 0; i < aHex.length; i++) diff |= aHex.charCodeAt(i) ^ bHex.charCodeAt(i);
-  return diff === 0;
-}
+import { timingSafeEqual } from "node:crypto";
+
+const valid = actual.length === expected.length
+  && timingSafeEqual(actual, expected);
 ```
 
-> Node 环境直接用内置 `crypto.timingSafeEqual` 更稳妥。
+浏览器端若使用 Web Crypto 计算 HMAC，可直接用 `crypto.subtle.verify()` 完成校验，避免先转字符串再自行比较。
 
 ## 四、加密模式的安全取舍
 
@@ -82,8 +90,8 @@ function timingSafeEqual(aHex: string, bHex: string): boolean {
 | API | 同步、极简 | 异步（Promise）/ Node 同步可选 |
 | 性能 | 较慢 | 快 |
 | AEAD（GCM） | ❌ 不支持 | ✅ 支持 AES-GCM |
-| 安全随机 | 自实现，较弱 | `getRandomValues`/`randomBytes` |
-| 兼容性 | 旧浏览器/小程序也能跑 | 需较新环境（Web Crypto 需 HTTPS/安全上下文） |
+| 安全随机 | 4.x 包装原生 `getRandomValues` / `randomBytes`，缺失即报错 | 直接提供 `getRandomValues` / `randomBytes` |
+| 兼容性 | 算法为纯 JS，但随机相关 API 要求环境提供原生 Crypto | 取决于具体平台与算法支持 |
 | 维护 | ❌ 已停更 | ✅ 平台持续维护 |
 
 结论：**新项目的安全场景优先原生**（Node 用内置 `crypto`，浏览器用 Web Crypto）；crypto-js 留给「无原生能力的受限环境、需同步 API、与既有 crypto-js/OpenSSL 数据互通」的场景。
@@ -94,7 +102,7 @@ function timingSafeEqual(aHex: string, bHex: string): boolean {
 
 1. **密钥若在前端**（写死或前端派生后发往服务器），任何拿到前端代码/流量的人都能得到密钥，加密形同虚设；
 2. **传输安全应交给 HTTPS/TLS**，前端加密替代不了它；
-3. crypto-js 已停更、缺 AEAD、随机源弱。
+3. crypto-js 已停更且缺 AEAD；即便 4.x 已改用原生安全随机源，也没有解决协议设计与维护风险。
 
 前端对称加密**只在端到端、密钥始终不离开用户/不经服务器**的特定模型下才有意义，且这类高安全需求更应用经过审计的方案与原生加密。
 
@@ -102,10 +110,9 @@ function timingSafeEqual(aHex: string, bHex: string): boolean {
 
 **适合继续用 crypto-js：**
 
-- 运行在不支持 Web Crypto 的旧浏览器 / 小程序 / 旧 webview
 - 对接历史上用 crypto-js 或 `openssl enc` 口令模式加密的**存量数据**
-- 只需非安全用途的可逆混淆 / 校验和 / 内容指纹
-- 必须同步 API、不便引入异步流程
+- 在受控环境处理既有同步调用，且已经明确算法、随机源和完整性保护边界
+- 只做非安全用途的兼容校验和 / 内容指纹，并接受停更依赖风险
 
 **应改用原生 / 专用方案：**
 

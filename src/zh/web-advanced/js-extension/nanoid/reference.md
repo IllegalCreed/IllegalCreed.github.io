@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 参考
 
-> nanoid **5** 的导出入口、API、CLI、字母表与碰撞概率速查。标注 ⚠️ 处为 3.x → 5.x 变化点。导入统一假定 `import { ... } from "nanoid"`。
+> nanoid **5.1.16** 的导出入口、API、CLI、字母表与碰撞概率速查。标注 ⚠️ 处为 3.x → 5.x 变化点。导入统一假定 `import { ... } from "nanoid"`。
+
+## 速查
+
+- 运行基线：5.1.16 的 `engines.node` 为 `^18 || >=20`，主包是 ESM 且自带 TypeScript 类型
+- 默认 ID：`nanoid()` 生成 21 个 URL 安全字符，64 字符字母表约提供 126 位随机性，但**不保证绝对唯一**
+- 核心 API：`nanoid(size?)`、`customAlphabet()`、`customRandom()`、`random()` 与 `urlAlphabet`
+- 随机源：Node 用 `node:crypto` Web Crypto，浏览器用 `crypto.getRandomValues`；`nanoid/non-secure` 才使用 `Math.random()`
+- 自定义字母表最多 256 个符号且应无重复；缩短长度或缩小字母表都会降低熵，需重新评估碰撞概率
+- CommonJS：Node 22.12+ 可直接 `require()`；Node 20 需官方所述实验标志；Node 18 用动态 `import()` 或 nanoid 3
+- React：不要在 render 中用 `nanoid()` 生成列表 key；优先数据稳定 ID，关联 label / input 使用 `useId`
+- 存储：保持大小写敏感、建立唯一约束并在冲突时重试；需要时间有序主键时改选 UUID v7 / ULID
 
 ## 一、导出入口（exports）
 
@@ -74,7 +85,7 @@ const b = customRandom(urlAlphabet, 10, (size) =>
 | 随机位 | ~126 位 | ~122 位 | 含时间戳 |
 | 字母表 | 64（URL 安全） | 16（hex）+ `-` | 视实现 |
 | 时间有序 | 否 | 否 | **是** |
-| 适用 | 短链、资源 ID、前端 key | 通用唯一 ID | 时间有序主键 |
+| 适用 | 短链、资源 ID、不可枚举标识 | 通用唯一 ID | 时间有序主键 |
 
 > 「十亿分之一的重复概率，需生成约 **103 万亿**个 UUID v4」——nanoid 默认值碰撞概率与之相当。
 
@@ -82,11 +93,11 @@ const b = customRandom(urlAlphabet, 10, (size) =>
 
 | 项 | nanoid 5.x | nanoid 3.x |
 |---|---|---|
-| 最新版本 | 5.1.x | 3.3.x（维护中） |
-| 模块系统 | **纯 ESM**（无 `require`） | ESM + CJS 双产物（可 `require`） |
+| 最新版本 | **5.1.16** | 3.3.x（官方仍支持） |
+| 模块系统 | **ESM-only 产物**；新 Node 可同步加载 ESM | ESM + CJS 双产物（可 `require`） |
 | `engines.node` | `^18 \|\| >=20` | 更宽（含 ^10/^12…） |
 | 子入口 | `.`、`./non-secure` | 还有 `./async`、`./url-alphabet` |
-| 适用 | ESM 项目 | CommonJS 项目 |
+| 适用 | ESM 项目；或支持加载 ESM 的新 Node CJS | 旧 Node / 传统 CommonJS 工具链 |
 
 ## 八、生态工具
 

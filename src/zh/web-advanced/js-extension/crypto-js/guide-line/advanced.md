@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **crypto-js 4.2.0**。把 crypto-js 用进真实项目：按需引入与体积、各算法实战、与 OpenSSL 互通、解裸密文、渐进式哈希、TypeScript、常见坑排查。
 
+## 速查
+
+- 子路径引入：`crypto-js/sha256`、`crypto-js/aes` 等可缩小依赖面；主包是 UMD / CommonJS，类型来自 `@types/crypto-js`
+- 外部 key / IV 必须先按约定用 Hex 或 Base64 解析；AES key 只能是 16 / 24 / 32 字节，CBC IV 为 16 字节
+- OpenSSL 互通要显式对齐算法、模式、KDF、摘要、salt 与编码；不要依赖不同 OpenSSL 版本的命令默认值
+- 裸 Base64 密文要先放进 `CipherParams.create({ ciphertext })`，再用同一 key、IV、mode、padding 解密
+- 大数据摘要可用 `algo.SHA256.create()` 分块 `update()`；独立消息之间重用实例要显式 `reset()`
+- 口令加密应显式 PBKDF2 派生 key，并把 salt、IV、迭代数和算法版本与密文一起保存
+- `WordArray.random()` 在 4.x 依赖原生安全随机源；没有 `getRandomValues` / `randomBytes` 的环境会失败而非降级
+- 安全新系统优先 Web Crypto / Node `crypto` 的 AES-GCM、HMAC 与平台验签；crypto-js 主要用于存量互通
+
 ## 一、按需引入：减小打包体积
 
 整包 `import CryptoJS from "crypto-js"` 会把**所有算法**（全部哈希/密码/模式/编码器）打进产物。crypto-js 每个算法是**独立子模块**，按子路径只引用到的，可显著瘦身：
@@ -58,7 +69,7 @@ echo -n "Message" | openssl enc -aes-256-cbc -e -base64 -pass pass:"Secret Passp
 const pt = CryptoJS.AES.decrypt(opensslBase64, "Secret Passphrase").toString(CryptoJS.enc.Utf8);
 ```
 
-互通条件：① 两端**口令一致**；② **算法/密钥长度/模式匹配**（如都 AES-256-CBC）；③ 用 Base64 互传。注意现代 openssl 默认 KDF 可能是 PBKDF2，需用 `-md md5`（或对应参数）才能与 crypto-js 的 EvpKDF 对齐。
+互通条件：① 两端**口令一致**；② **算法/密钥长度/模式匹配**（如都 AES-256-CBC）；③ KDF、摘要、salt 与 Base64 参数一致。OpenSSL 不同版本的默认摘要与弃用提示会变化；与 crypto-js 口令模式互通时应显式使用传统 KDF 对应的 `-md md5`，不要依赖命令默认值。若命令启用 `-pbkdf2`，就不能直接交给 crypto-js 的默认口令模式解密。
 
 ## 四、解密「裸密文」：构造 CipherParams
 

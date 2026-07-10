@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > crypto-js **常用 API、命名空间、模式 / 填充 / 编码器** 速查。版本基线 **crypto-js 4.2.0**。所有内容都挂在 `CryptoJS` 命名空间下。
 
+## 速查
+
+- 维护状态：**当前最新为 4.2.0，项目已停止维护**；新项目安全功能优先 Web Crypto / Node `crypto`
+- 哈希：`SHA256` / `SHA512` 可用于摘要；`MD5` / `SHA1` 仅兼容；`CryptoJS.SHA3` 实际是 **Keccak[c=2d]**，不等同 NIST SHA-3
+- HMAC：`CryptoJS.HmacSHA256(message, key)` 返回 `WordArray`；验签应使用平台常量时间 API
+- AES：第二参数为字符串时走口令模式，为 `WordArray` 时走原始 key 模式；后者必须显式传 IV
+- 模式：默认 **CBC + Pkcs7**；库没有 GCM / CCM 等 AEAD，密文认证需另做 Encrypt-then-MAC 或改用 AES-GCM
+- KDF：4.2.0 的 `PBKDF2` 默认 SHA-256 / 250000 次；口令模式内部 `EvpKDF` 仍是 MD5 / 1 次
+- 随机数：`WordArray.random(n)` 的单位是字节，4.x 调用原生 `getRandomValues` / `randomBytes`，不可用时直接抛错
+- TypeScript：主包不带声明，需安装 `@types/crypto-js`；`keySize` 的单位是 32 位 word，不是字节
+
 ## 一、哈希（Hash）
 
 | 函数 | 说明 | 输出 |
@@ -17,7 +28,7 @@ outline: [2, 3]
 | `CryptoJS.SHA256(msg)` | SHA-256（常用） | 256 位 |
 | `CryptoJS.SHA384(msg)` | SHA-384 | 384 位 |
 | `CryptoJS.SHA512(msg)` | SHA-512 | 512 位 |
-| `CryptoJS.SHA3(msg, { outputLength })` | SHA-3 / Keccak，位数 224/256/384/512 | 按 outputLength |
+| `CryptoJS.SHA3(msg, { outputLength })` | **Keccak[c=2d]**（历史命名为 SHA3），位数 224/256/384/512 | 按 outputLength |
 | `CryptoJS.RIPEMD160(msg)` | RIPEMD-160 | 160 位 |
 
 ```ts
@@ -122,7 +133,7 @@ const b64 = CryptoJS.enc.Base64.stringify(wa);
 
 | 函数 | 默认 hasher | 默认迭代 | 用途 |
 |---|---|---|---|
-| `CryptoJS.PBKDF2(pwd, salt, { keySize, iterations, hasher })` | **SHA256** | **250000**（4.x） | 推荐的口令派生 |
+| `CryptoJS.PBKDF2(pwd, salt, { keySize, iterations, hasher })` | **SHA256** | **250000**（4.2.0） | 显式口令派生；参数仍应按安全策略调优 |
 | `CryptoJS.EvpKDF(pwd, salt, { keySize, iterations, hasher })` | **MD5** | **1** | OpenSSL 兼容（口令模式内部用，⚠️ 弱） |
 
 ```ts

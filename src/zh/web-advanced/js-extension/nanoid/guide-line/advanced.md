@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **nanoid 5**。把 nanoid 用进真实项目：`customRandom` 自定义随机源、多端适配（浏览器 / React Native）、与 UUID/ULID 的选型决策、短码与前缀实战、数据库存储要点。
+> 版本基线 **nanoid 5.1.16**。把 nanoid 用进真实项目：`customRandom` 自定义随机源、多端适配（浏览器 / React Native）、与 UUID/ULID 的选型决策、短码与前缀实战、数据库存储要点。
+
+## 速查
+
+- `customRandom(alphabet, size, getRandom)` 可替换随机字节源；种子 RNG 适合测试复现，不适合令牌等安全场景
+- 版本升级可能改变 `getRandom` 的调用顺序，不能把 seeded Nano ID 的跨版本输出当稳定协议
+- `urlAlphabet` 在 5.x 从主入口导出；`nanoid/async` 与 `nanoid/url-alphabet` 子入口已移除
+- 浏览器 CDN 用 ESM `import`；官方不建议生产依赖 CDN 直连，正式应用应随构建产物发布
+- React render 中不要生成随机 key；React Native 要在导入 nanoid 前安装并载入随机数 polyfill
+- CJS 兼容取决于 Node：22.12+ 可 `require()` ESM，20 需实验标志，18 用动态 `import()` 或 nanoid 3
+- PouchDB / CouchDB `_id` 不能以 `_` 开头，命令行值也可能以 `-` 开头；固定前缀比生成后替换更稳妥
+- 数据库使用大小写敏感唯一索引并处理冲突重试；高写入局部性 / 时间排序诉求改用 UUID v7 / ULID
 
 ## 一、customRandom：替换随机源
 
@@ -74,11 +85,11 @@ import { nanoid } from "nanoid";
 | 需求 | 推荐 |
 |---|---|
 | 短链 slug、API 资源 ID、不可枚举 ID | **nanoid**（默认加密随机） |
-| 前端临时元素 key、非敏感短码（追求快） | **nanoid/non-secure** |
+| 非敏感、只在内存中生成且不承担身份或授权的临时标识 | **nanoid/non-secure** |
 | 通用唯一 ID、与现有 UUID 体系兼容 | UUID v4 |
 | 主键需时间有序（索引写入局部性 / 按创建时间排序） | **UUID v7 / ULID** |
 
-最该记住的反例：**当核心诉求是「时间有序」时，别用 nanoid**——它纯随机、不含时间戳，会让数据库 B-Tree 索引随机写入、局部性差。
+最该记住的两个反例：**核心诉求是「时间有序」时别用 nanoid**；**React 列表 key 需要跨渲染稳定时也不要在 render 中调用 nanoid**。前者应选 UUID v7 / ULID，后者应使用数据已有 ID，并在数据创建时持久化缺失的 ID。
 
 ## 六、CouchDB / PouchDB 的 _id
 

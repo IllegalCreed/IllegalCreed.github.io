@@ -5,7 +5,7 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇带你装上 nanoid 并生成第一个 ID。版本基线 **nanoid 5**（当前最新 5.1.x，**纯 ESM**）。核心认知：**默认 21 字符 + 64 个 URL 安全字符 + 加密随机源**——这条贯穿全篇。涉及 3.x 旧行为处会标注 ⚠️。
+> 本篇带你装上 nanoid 并生成第一个 ID。版本基线 **nanoid 5.1.16**（ESM-only 产物）。核心认知：**默认 21 字符 + 64 个 URL 安全字符 + 加密随机源**——这条贯穿全篇。涉及 3.x 旧行为处会标注 ⚠️。
 
 ## 速查
 
@@ -16,7 +16,7 @@ outline: [2, 3]
 - 非加密快版：`import { nanoid } from 'nanoid/non-secure'`（用 `Math.random()`，仅非敏感场景）
 - 命令行：`npx nanoid`（`--size 10` / `--alphabet abc --size 15`）
 - 核心认知：**默认用 `crypto` / Web Crypto 加密随机源**，不是 `Math.random()`
-- ⚠️ nanoid 5 是**纯 ESM**：CommonJS（`require`）项目请用 `npm install nanoid@3`
+- ⚠️ 5.x 只发布 ESM：Node 22.12+ 的 CJS 可直接 `require()`，Node 20 需实验标志，Node 18 用动态 `import()` 或 nanoid 3
 - ⚠️ 5.x 已移除 `nanoid/async` 与 `nanoid/url-alphabet` 子入口（`urlAlphabet` 从主入口导出）
 
 ## 一、nanoid 是什么
@@ -27,7 +27,7 @@ outline: [2, 3]
 2. **安全**：默认用 Node 的 `crypto` / 浏览器 Web Crypto 的硬件随机源，避免 `Math.random()` 可预测。
 3. **URL 友好**：默认字母表 `A-Za-z0-9_-`（64 符），可直接放进 URL、文件名、DOM id。
 
-> 边界提醒：nanoid 是一个**被调用的 ID 生成器**，不是运行时也不是打包器。它在任何标准 JS 环境 import 即用，与你的运行时无关。
+> 边界提醒：nanoid 是一个**随机 ID 生成函数库**，不是分布式唯一性服务。能否加载以及随机源来自哪里都与 Node 版本、模块系统和目标运行时有关；业务仍要用唯一约束处理极低概率碰撞。
 
 ## 二、安装
 
@@ -41,7 +41,7 @@ bun add nanoid
 
 nanoid **自带 TypeScript 类型**、零运行时依赖。
 
-> ⚠️ **模块系统**：nanoid 5 是**纯 ESM 包**（`"type": "module"`，exports 无 `require` 条件）。如果你的项目还在用 CommonJS（`require`），请改装 **3.x**：`npm install nanoid@3`，它仍提供可被 `require` 的 CJS 产物。详见[专家篇](./guide-line/expert)。
+> ⚠️ **模块系统**：nanoid 5 只发布 ESM 产物。Node 22.12+ 已可从 CommonJS 直接 `require()`；Node 20 按官方说明需 `--experimental-require-module`；Node 18 可动态 `import()`，或改装仍受支持且提供 CJS 产物的 **3.x**。详见[专家篇](./guide-line/expert)。
 
 ## 三、第一个 ID
 
@@ -97,7 +97,7 @@ nanoid(); //=> "Uakgb_J5m9g-0JDMbcJqLJ"（更快，但不安全）
 const code = customAlphabet("0123456789", 6); // non-secure 也有 customAlphabet
 ```
 
-> ⚠️ **安全红线**：会话 token、密码重置链接、API 密钥等敏感 ID **必须用默认（加密）版**，绝不能用 non-secure。non-secure 适合前端列表临时 key、非敏感短码等。
+> ⚠️ **安全红线**：会话 token、密码重置链接、API 密钥等敏感值 **必须用默认（加密）版**，绝不能用 non-secure。non-secure 只适合不承担身份、授权或不可预测性要求的临时标识；React 列表 key 仍应使用跨渲染稳定的数据 ID，而不是在 render 中随机生成。
 
 ## 七、命令行临时生成
 

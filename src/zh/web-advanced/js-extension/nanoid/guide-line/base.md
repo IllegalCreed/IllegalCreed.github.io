@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 基础
 
-> 版本基线 **nanoid 5**。本篇把「会装会用」推进到「懂设计与权衡」：默认值拆解、自定义 API 全景、与 UUID 的对比、碰撞概率直觉。标注 ⚠️ 处为 3.x → 5.x 差异。
+> 版本基线 **nanoid 5.1.16**。本篇把「会装会用」推进到「懂设计与权衡」：默认值拆解、自定义 API 全景、与 UUID 的对比、碰撞概率直觉。标注 ⚠️ 处为 3.x → 5.x 差异。
+
+## 速查
+
+- 默认设计：64 字符 × 21 位约为 126 bit 熵，与 UUID v4 的随机位规模相近，且适合 URL
+- 默认版使用 CSPRNG：Node 走 `node:crypto` Web Crypto，浏览器走 `crypto.getRandomValues`；不会回退 `Math.random()`
+- `nanoid(size)` 直接指定长度；长度越短熵越低，不能用“通常不会撞”代替容量计算
+- `customAlphabet(alphabet, size)` 返回可复用生成器；字母表应字符唯一、最多 256 个符号
+- Nano ID 是随机标识，不携带时间、机器或分片信息；需要排序语义时选 UUID v7 / ULID
+- 默认值只给出碰撞概率，不给出唯一性承诺；数据库仍需唯一索引和冲突重试
+- 大小写属于熵的一部分；存储列若使用大小写不敏感 collation，会把不同 ID 错判为相同
+- React 列表 key 必须跨渲染稳定，不能在 render 中调用 `nanoid()`；ID 应在数据创建时生成并保存
 
 ## 一、默认值拆解：为什么是 21 + 64
 
@@ -26,10 +37,10 @@ nanoid(); //=> "V1StGXR8_Z5jdHi6B-myT"（21 字符，URL 安全）
 
 nanoid 默认用**加密级随机源**：
 
-- **Node.js**：`node:crypto` 的 `webcrypto.getRandomValues`。
+- **Node.js**：`node:crypto` 的 `webcrypto.getRandomValues`，并用随机字节池减少重复申请。
 - **浏览器**：Web Crypto API 的 `crypto.getRandomValues`。
 
-它们由**不可预测的硬件随机源**驱动。相比之下，`Math.random()` 是伪随机、可被预测，用它生成 token/ID 存在被猜解的安全风险——这正是默认版刻意避开它的原因。
+它们由平台的密码学安全随机数生成器提供熵。相比之下，`Math.random()` 不适合安全用途，用它生成 token / ID 存在被猜测的风险——这正是默认版刻意避开它的原因。
 
 ```ts
 // 默认版：加密随机，安全

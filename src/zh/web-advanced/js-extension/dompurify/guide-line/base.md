@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 基础
 
-> 版本基线 **DOMPurify 3.x**。本篇把「会调 `sanitize`」用到「会配白名单」：标签/属性白名单的替换与追加、`USE_PROFILES`、`data-*` / `aria-*` 控制、返回类型选择、`KEEP_CONTENT` 与文本保留。
+> 版本基线 **DOMPurify 3.4.11**。本篇把「会调 `sanitize`」用到「会配白名单」：标签/属性白名单的替换与追加、`USE_PROFILES`、`data-*` / `aria-*` 控制、返回类型选择、`KEEP_CONTENT` 与文本保留。
+
+## 速查
+
+- 净化流程：不可信字符串先由 DOM 解析器建树，再按 allowlist 清理，最后序列化；它不是正则替换
+- `ALLOWED_TAGS` / `ALLOWED_ATTR` 会替换默认集合；`ADD_*` 在默认集合上扩展，`FORBID_*` 精确收窄
+- `USE_PROFILES: { html: true }` 适合普通富文本；它会覆盖 `ALLOWED_TAGS`，不要把两者混用
+- 默认同时允许安全 HTML、SVG、SVG Filters 与 MathML；业务不需要的命名空间应主动关闭
+- `data-*` / `aria-*` 默认允许，可分别用 `ALLOW_DATA_ATTR: false` / `ALLOW_ARIA_ATTR: false` 禁用
+- 默认返回字符串；`RETURN_DOM` 返回 `HTMLBodyElement`，`RETURN_DOM_FRAGMENT` 返回 `DocumentFragment`
+- `KEEP_CONTENT` 默认保留被移除标签的文本；需连内容删除时使用 `KEEP_CONTENT: false` 或精确配置 `FORBID_CONTENTS`
+- 安全顺序：在内存中净化，紧接着写入目标 sink；净化后再拼接、换上下文或改写 HTML 会破坏保证
 
 ## 一、净化的全流程发生了什么
 
@@ -62,6 +73,8 @@ DOMPurify.sanitize(dirty, { USE_PROFILES: { mathMl: true } });
 ```
 
 可选键：`html`、`svg`、`svgFilters`、`mathMl`。profile 同时决定**标签和属性**集合，比手动 `ADD_TAGS` 列一堆 SVG 标签更可靠（profile 自带配套属性白名单）。
+
+> `USE_PROFILES` 会覆盖 `ALLOWED_TAGS`，两者不要同时使用。需要 profile 基础上的少量扩展时，再配合 `ADD_TAGS` / `ADD_ATTR`。
 
 ## 四、默认白名单里有什么
 
