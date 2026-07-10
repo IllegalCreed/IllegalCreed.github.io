@@ -7,8 +7,6 @@ outline: [2, 3]
 
 > 基于 Astryx 0.1.3（Beta）· 核于 2026-07
 
-本文假设你已读过[入门](./getting-started.md)、装好 Astryx 并跑通第一个组件。这里深入八条主线：**StyleX 关系**、**组件与 Layout**、**主题系统**、**CLI 全命令**、**AI-agent-ready 全景（MCP + manifest 契约）**、**模板系统**、**升级/诊断/swizzle**、**选型对比与常见坑**。⚠️ Astryx 仍是 0.1.x Beta，边缘特性以官方最新文档为准，本文对存疑处标注「早期/待观察」。
-
 ## 速查
 
 - **StyleX 关系**：Astryx 用 StyleX 写样式，**编译期**编译为原子 CSS，对使用者**不可见**；语法/编译细节归 [StyleX 叶](/zh/web-advanced/language/stylex/)，本叶只讲关系。
@@ -21,6 +19,8 @@ outline: [2, 3]
 - **agent 文档**：`astryx init --features agents --agent claude|cursor|codex` → `CLAUDE.md`/`.cursorrules`/`AGENTS.md`。
 - **升级/深改**：`astryx upgrade`（codemod 迁移）、`astryx doctor`（诊断）、`astryx swizzle`（复制源码深度定制）。
 - **选型**：vs shadcn（受管依赖 vs 复制源码）、vs MUI（编译期 vs Emotion 运行时）、vs Radix（带样式 vs 无头）、vs Chakra（编译期 vs 运行时 style props）。
+
+本文假设你已读过[入门](./getting-started.md)、装好 Astryx 并跑通第一个组件。这里深入八条主线：**StyleX 关系**、**组件与 Layout**、**主题系统**、**CLI 全命令**、**AI-agent-ready 全景（MCP + manifest 契约）**、**模板系统**、**升级/诊断/swizzle**、**选型对比与常见坑**。⚠️ Astryx 仍是 0.1.x Beta，边缘特性以官方最新文档为准，本文对存疑处标注「早期/待观察」。
 
 ## 一、Astryx 与 StyleX：编译期原子化 CSS
 

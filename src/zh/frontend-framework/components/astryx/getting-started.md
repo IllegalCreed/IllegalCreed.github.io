@@ -7,8 +7,6 @@ outline: [2, 3]
 
 > 基于 Astryx 0.1.3（Beta）· 核于 2026-07
 
-本文以 **React + TypeScript + `@astryxdesign/core` 0.1.x（Beta）** 为基线，带你从零装好 Astryx、跑出第一个组件、切主题与暗色、覆盖样式，并接上 AI agent 工作流。⚠️ Astryx 2026-06 才开源、仍是 0.1.x，**组件 props 等细节可能随版本变动**，以官方最新文档为准；本文只写官方文档/仓库明确支持的内容。
-
 ## 速查
 
 - **是什么**：Meta 开源的 React 设计系统，样式引擎为 [StyleX](/zh/web-advanced/language/stylex/)（编译期原子化 CSS，对使用者不可见）。当前 v0.1.3 Beta，MIT。
@@ -21,6 +19,8 @@ outline: [2, 3]
 - **覆盖样式**：给组件传 `className`（Tailwind / CSS Modules / 纯 CSS），**无需写 StyleX**。
 - **接 AI**：`npx astryx init --features agents --agent claude`（生成 `CLAUDE.md`）+ 配置托管 MCP `https://astryx.atmeta.com/mcp`。
 - **别忘了**：主题包**必装**（组件 token 来自它）；CSS 三行都要导入；组件用**子路径**导入利于 tree-shaking。
+
+本文以 **React + TypeScript + `@astryxdesign/core` 0.1.x（Beta）** 为基线，带你从零装好 Astryx、跑出第一个组件、切主题与暗色、覆盖样式，并接上 AI agent 工作流。⚠️ Astryx 2026-06 才开源、仍是 0.1.x，**组件 props 等细节可能随版本变动**，以官方最新文档为准；本文只写官方文档/仓库明确支持的内容。
 
 ## 一、环境与前置要求
 

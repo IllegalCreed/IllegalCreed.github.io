@@ -12,6 +12,14 @@ const defaultReportPath =
   "/Users/zhangxu/illegal/quiz-monorepo/docs/audits/20260710-vitepress-content-baseline.md";
 const args = new Set(process.argv.slice(2));
 
+// 这些根级页面服务于站点介绍或 VitePress 脚手架演示，不属于技术节点内容页。
+const QUICK_CHECK_EXCLUSIONS = new Map([
+  ["src/zh/api-examples.md", "VitePress 运行时 API 脚手架示例"],
+  ["src/zh/CV.md", "个人简历"],
+  ["src/zh/markdown-examples.md", "VitePress Markdown 脚手架示例"],
+  ["src/zh/start.md", "站点使用说明"],
+]);
+
 function toPosix(filePath) {
   return filePath.split(path.sep).join("/");
 }
@@ -64,13 +72,31 @@ function getTitle(text, fileRel) {
   return dirName.replace(/-/g, " ");
 }
 
-function getQuickCheckStatus(text) {
-  if (!hasHeading(text, "速查")) return "missing";
+function getQuickCheckAnalysis(text) {
+  if (!hasHeading(text, "速查")) {
+    return {
+      status: "missing",
+      characters: 0,
+      listItems: 0,
+      tableRows: 0,
+      codeFences: 0,
+      links: 0,
+    };
+  }
 
   const body = stripFrontmatter(text);
   const lines = body.split(/\r?\n/);
   let index = lines.findIndex((line) => /^#\s+/.test(line.trim()));
-  if (index === -1) return "misplaced";
+  if (index === -1) {
+    return {
+      status: "misplaced",
+      characters: 0,
+      listItems: 0,
+      tableRows: 0,
+      codeFences: 0,
+      links: 0,
+    };
+  }
 
   index += 1;
   while (index < lines.length && lines[index].trim() === "") index += 1;
@@ -81,7 +107,43 @@ function getQuickCheckStatus(text) {
     while (index < lines.length && lines[index].trim() === "") index += 1;
   }
 
-  return lines[index]?.trim() === "## 速查" ? "ok" : "misplaced";
+  const quickCheckIndex = lines.findIndex((line) => line.trim() === "## 速查");
+  const nextHeadingIndex = lines.findIndex(
+    (line, lineIndex) =>
+      lineIndex > quickCheckIndex && /^##\s+/.test(line.trim()),
+  );
+  const section = lines
+    .slice(
+      quickCheckIndex + 1,
+      nextHeadingIndex === -1 ? lines.length : nextHeadingIndex,
+    )
+    .join("\n")
+    .trim();
+  const listItems = (section.match(/^\s*(?:[-*]|\d+\.)\s+/gm) ?? []).length;
+  const tableRows = (section.match(/^\s*\|.*\|\s*$/gm) ?? []).filter(
+    (line) => !/^\s*\|(?:\s*:?-+:?\s*\|)+\s*$/.test(line),
+  ).length;
+  const codeFences = Math.floor(
+    (section.match(/^\s*(?:```|~~~)/gm) ?? []).length / 2,
+  );
+  const links =
+    (section.match(/\[[^\]]+\]\([^)]+\)/g) ?? []).length +
+    (section.match(/<https?:\/\/[^>]+>/g) ?? []).length;
+  const characters = section.replace(/[`*_#>|:\-\s]/g, "").length;
+
+  return {
+    status:
+      lines[index]?.trim() !== "## 速查"
+        ? "misplaced"
+        : section === ""
+          ? "empty"
+          : "ok",
+    characters,
+    listItems,
+    tableRows,
+    codeFences,
+    links,
+  };
 }
 
 function sectionBucket(fileRel) {
@@ -123,6 +185,9 @@ async function audit() {
     const text = await readFile(filePath, "utf8");
     const file = relativePath(filePath);
     const isIndex = path.basename(filePath) === "index.md";
+    const quickCheckExclusionReason = QUICK_CHECK_EXCLUSIONS.get(file) ?? null;
+    const quickCheckRequired = !isIndex && !quickCheckExclusionReason;
+    const quickCheck = quickCheckRequired ? getQuickCheckAnalysis(text) : null;
     const hasDocLink = hasHeading(text, "文档地址");
     const hasSlideLink = hasHeading(text, "幻灯片地址");
     const hasQuizLink = hasHeading(text, "测试题");
@@ -135,6 +200,9 @@ async function audit() {
       route: pageRoute(file),
       title: getTitle(text, file),
       isIndex,
+      quickCheckRequired,
+      quickCheckExclusionReason,
+      quickCheck,
       hasDocLink,
       hasSlideLink,
       hasQuizLink,
@@ -142,12 +210,19 @@ async function audit() {
       slidePackage: slideHrefMatch?.[2] ?? null,
       quizHref: quizHrefMatch?.[1] ?? null,
       quizCategory: quizHrefMatch?.[2] ?? null,
-      quickCheckStatus: isIndex ? "index" : getQuickCheckStatus(text),
+      quickCheckStatus: isIndex
+        ? "index"
+        : quickCheckExclusionReason
+          ? "excluded"
+          : quickCheck.status,
     });
   }
 
   const indexPages = pages.filter((page) => page.isIndex);
-  const contentPages = pages.filter((page) => !page.isIndex);
+  const contentPages = pages.filter((page) => page.quickCheckRequired);
+  const excludedQuickCheck = pages.filter(
+    (page) => page.quickCheckStatus === "excluded",
+  );
   const techIndexPages = indexPages.filter(
     (page) => page.hasDocLink || page.hasSlideLink || page.hasQuizLink,
   );
@@ -159,6 +234,9 @@ async function audit() {
   );
   const misplacedQuickCheck = contentPages.filter(
     (page) => page.quickCheckStatus === "misplaced",
+  );
+  const emptyQuickCheck = contentPages.filter(
+    (page) => page.quickCheckStatus === "empty",
   );
   const missingQuizLink = pagesExpectingQuiz.filter(
     (page) => !page.hasQuizLink,
@@ -173,6 +251,7 @@ async function audit() {
       markdown: pages.length,
       indexPages: indexPages.length,
       contentPages: contentPages.length,
+      excludedQuickCheck: excludedQuickCheck.length,
       techIndexPages: techIndexPages.length,
       docLinks: techIndexPages.filter((page) => page.hasDocLink).length,
       slideLinks: techIndexPages.filter((page) => page.hasSlideLink).length,
@@ -183,13 +262,16 @@ async function audit() {
       ).length,
       missingQuickCheck: missingQuickCheck.length,
       misplacedQuickCheck: misplacedQuickCheck.length,
+      emptyQuickCheck: emptyQuickCheck.length,
       missingQuizLink: missingQuizLink.length,
       invalidQuizLink: invalidQuizLink.length,
     },
     pages,
+    excludedQuickCheck,
     techIndexPages,
     missingQuickCheck,
     misplacedQuickCheck,
+    emptyQuickCheck,
     missingQuizLink,
     invalidQuizLink,
   };
@@ -197,10 +279,10 @@ async function audit() {
 
 function renderReport(result) {
   const quickRows = countByBucket(
-    result.pages.filter((page) => !page.isIndex),
+    result.pages.filter((page) => page.quickCheckRequired),
   ).map(([bucket, total]) => {
     const pages = result.pages.filter(
-      (page) => !page.isIndex && sectionBucket(page.file) === bucket,
+      (page) => page.quickCheckRequired && sectionBucket(page.file) === bucket,
     );
     const missing = pages.filter(
       (page) => page.quickCheckStatus === "missing",
@@ -208,12 +290,16 @@ function renderReport(result) {
     const misplaced = pages.filter(
       (page) => page.quickCheckStatus === "misplaced",
     ).length;
+    const empty = pages.filter(
+      (page) => page.quickCheckStatus === "empty",
+    ).length;
     return [
       bucket,
       String(total),
-      String(total - missing - misplaced),
+      String(total - missing - misplaced - empty),
       String(missing),
       String(misplaced),
+      String(empty),
     ];
   });
 
@@ -243,7 +329,7 @@ function renderReport(result) {
 
 > 生成时间：${result.generatedAt}
 > 审计仓库：\`/Users/zhangxu/workspace/IllegalCreedWebsite\`
-> 规则口径：除 \`index.md\` 概览页外，所有 Markdown 内容页都应在标题和版本说明后紧跟 \`## 速查\`；带 \`## 文档地址\` 或 \`## 幻灯片地址\` 的技术节点首页应带 \`## 测试题\`。
+> 规则口径：技术内容页应在标题和版本说明后紧跟 \`## 速查\`；\`index.md\` 概览页及明确登记的根级非技术页面除外。带 \`## 文档地址\` 或 \`## 幻灯片地址\` 的技术节点首页应带 \`## 测试题\`。
 
 ## 摘要
 
@@ -252,9 +338,11 @@ function renderReport(result) {
 | Markdown 总数 | ${result.totals.markdown} |
 | index 概览页 | ${result.totals.indexPages} |
 | 内容页（需速查） | ${result.totals.contentPages} |
+| 非技术页（免速查） | ${result.totals.excludedQuickCheck} |
 | 速查合规 | ${result.totals.quickCheckOk} |
 | 缺失速查 | ${result.totals.missingQuickCheck} |
 | 速查位置不合规 | ${result.totals.misplacedQuickCheck} |
+| 空速查 | ${result.totals.emptyQuickCheck} |
 | 技术节点首页 | ${result.totals.techIndexPages} |
 | 文档链接首页 | ${result.totals.docLinks} |
 | 幻灯片链接首页 | ${result.totals.slideLinks} |
@@ -265,7 +353,20 @@ function renderReport(result) {
 
 ## 速查审计
 
-${markdownTable(["目录", "内容页", "合规", "缺失", "位置不合规"], quickRows)}
+### 免速查页面
+
+${markdownTable(
+  ["文件", "原因"],
+  result.excludedQuickCheck.map((page) => [
+    `\`${page.file}\``,
+    page.quickCheckExclusionReason,
+  ]),
+)}
+
+${markdownTable(
+  ["目录", "内容页", "合规", "缺失", "位置不合规", "空速查"],
+  quickRows,
+)}
 
 ### 缺失速查文件
 
@@ -274,6 +375,10 @@ ${formatPathList(result.missingQuickCheck)}
 ### 速查位置不合规文件
 
 ${formatPathList(result.misplacedQuickCheck)}
+
+### 空速查文件
+
+${formatPathList(result.emptyQuickCheck)}
 
 ## 技术节点链接审计
 
@@ -305,7 +410,7 @@ if (args.has("--json")) {
     [
       `Markdown: ${result.totals.markdown}`,
       `Content pages: ${result.totals.contentPages}`,
-      `Quick check missing/misplaced: ${result.totals.missingQuickCheck}/${result.totals.misplacedQuickCheck}`,
+      `Quick check missing/misplaced/empty: ${result.totals.missingQuickCheck}/${result.totals.misplacedQuickCheck}/${result.totals.emptyQuickCheck}`,
       `Tech index pages: ${result.totals.techIndexPages}`,
       `Quiz links missing/invalid: ${result.totals.missingQuizLink}/${result.totals.invalidQuizLink}`,
     ].join("\n"),

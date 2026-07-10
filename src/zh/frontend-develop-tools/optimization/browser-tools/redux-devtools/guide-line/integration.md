@@ -7,8 +7,6 @@ outline: [2, 3]
 
 > 基于 Redux DevTools 扩展 + Redux Toolkit 2.x 编写
 
-Redux DevTools 虽因 Redux 得名，但已成为状态调试的**通用协议**，多个状态库开箱接入。
-
 ## 速查
 
 - Redux Toolkit：`configureStore` 默认集成（开发环境）
@@ -16,6 +14,8 @@ Redux DevTools 虽因 Redux 得名，但已成为状态调试的**通用协议**
 - Zustand：`devtools` 中间件，第三参标注 action 名
 - Jotai：`jotai-devtools` / atom devtools
 - NgRx：`StoreDevtoolsModule.instrument()`
+
+Redux DevTools 虽因 Redux 得名，但已成为状态调试的**通用协议**，多个状态库开箱接入。
 
 ## Redux Toolkit（推荐）
 

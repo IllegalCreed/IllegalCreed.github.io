@@ -7,14 +7,14 @@ outline: [2, 3]
 
 > 基于 Firefox 140+ 稳定版编写
 
-这三个是 Firefox **独家或显著领先**于 Chrome 的 CSS 工具。
-
 ## 速查
 
 - Fonts：Inspector → Fonts 标签，拖滑块调可变字体轴（weight/width/slant/自定义轴）
 - Shape Path：Rules 里 `clip-path` / `shape-outside` 值旁点图标，可视化拖拽多边形 / 圆 / 椭圆
 - Changes：Inspector → Changes 标签，列出本会话所有 CSS 改动，可复制导出
 - Compatibility：Inspector → Compatibility，标注当前 CSS 的跨浏览器支持，可配目标浏览器
+
+这三个是 Firefox **独家或显著领先**于 Chrome 的 CSS 工具。
 
 ## Fonts Editor（可变字体）
 

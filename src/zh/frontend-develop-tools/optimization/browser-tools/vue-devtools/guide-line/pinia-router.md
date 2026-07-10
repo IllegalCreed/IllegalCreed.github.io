@@ -7,14 +7,14 @@ outline: [2, 3]
 
 > 基于 Vue 3.5 + Vue DevTools v7 / vite-plugin-vue-devtools 8.x 编写
 
-Vue DevTools 深度集成 Pinia 与 Vue Router，这是它相对浏览器内置 DevTools 的关键优势。
-
 ## 速查
 
 - Pinia：查看所有 store 的 state / getters / actions，可直接编辑 state
 - time-travel：Timeline 里按 action 回溯状态变更（Pinia 集成的杀手锏）
 - Routing：当前路由、history、所有路由配置、params / query / meta
 - 本项目用 Pinia，store 调试走 Vue DevTools（不必装 Redux DevTools）
+
+Vue DevTools 深度集成 Pinia 与 Vue Router，这是它相对浏览器内置 DevTools 的关键优势。
 
 ## Pinia 面板
 

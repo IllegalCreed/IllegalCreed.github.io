@@ -7,8 +7,6 @@ outline: [2, 3]
 
 > 基于 Vue 3.5 + Vue DevTools v7 / vite-plugin-vue-devtools 8.x 编写
 
-这些是 Vite 插件形态额外提供的能力，集成自 Vite 生态工具。
-
 ## 速查
 
 - Inspector：点选页面元素 → 跳编辑器对应 `.vue` 源码行（vite-plugin-vue-inspector）
@@ -16,6 +14,8 @@ outline: [2, 3]
 - Graph：组件关系图，可视化组件依赖
 - Inspect：检查 Vite 转换步骤（vite-plugin-inspect）
 - Pages / Assets：路由页面、静态资源（Vite 项目）
+
+这些是 Vite 插件形态额外提供的能力，集成自 Vite 生态工具。
 
 ## Inspector：点选跳源码
 

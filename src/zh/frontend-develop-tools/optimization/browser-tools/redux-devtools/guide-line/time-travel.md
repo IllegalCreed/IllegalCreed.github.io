@@ -7,8 +7,6 @@ outline: [2, 3]
 
 > 基于 Redux DevTools 扩展 + Redux Toolkit 2.x 编写
 
-时间旅行（time-travel）是 Redux DevTools 最标志性的能力，也是「可预测状态容器」的最大价值体现。
-
 ## 速查
 
 - jump：点 action 列表任意 action，跳转到那一刻的 state
@@ -17,6 +15,8 @@ outline: [2, 3]
 - reorder：在历史里重排 action
 - replay：回放整个 action 序列
 - 前提：纯函数 reducer + 可序列化 state
+
+时间旅行（time-travel）是 Redux DevTools 最标志性的能力，也是「可预测状态容器」的最大价值体现。
 
 ## 为什么能时间旅行
 

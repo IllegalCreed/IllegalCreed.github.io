@@ -7,8 +7,6 @@ outline: [2, 3]
 
 > 基于 HTTP 现代标准 · 核于 2026-06
 
-CORS 解决的是「页面能否读取跨域响应」，而本页四个机制管的是另一条线：**浏览器要不要带 Cookie、跨源资源能不能被引用、不同源的 window 要不要隔离**。它们共同支撑起现代浏览器的「跨源隔离」边界。
-
 ## 速查
 
 - **SameSite=Strict**：完全禁止跨站请求携带 Cookie，连从外站点击链接跳回来的首次导航都不带（适合纯粹的会话敏感场景）。
@@ -21,6 +19,8 @@ CORS 解决的是「页面能否读取跨域响应」，而本页四个机制管
 - **COOP（Cross-Origin-Opener-Policy）**：响应头，`same-origin` 将本页放入独立的浏览上下文组，切断与跨源 `window.opener` 的互访。
 - **COEP（Cross-Origin-Embedder-Policy）**：响应头，`require-corp` 要求所有跨源子资源都带 CORP 或 CORS，否则拒载；`credentialless` 则以无凭证方式加载。
 - **跨源隔离 crossOriginIsolated**：COOP `same-origin` + COEP `require-corp` 同时满足后解锁 `SharedArrayBuffer`、高精度 `performance.now()`（5µs 级）、`measureUserAgentSpecificMemory()`，用 `self.crossOriginIsolated` 检测。
+
+CORS 解决的是「页面能否读取跨域响应」，而本页四个机制管的是另一条线：**浏览器要不要带 Cookie、跨源资源能不能被引用、不同源的 window 要不要隔离**。它们共同支撑起现代浏览器的「跨源隔离」边界。
 
 ## 一、Cookie SameSite 属性
 

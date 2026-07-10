@@ -7,8 +7,6 @@ outline: [2, 3]
 
 > 基于 Safari 26（macOS / iOS 26）编写
 
-这是 Safari Web Inspector **不可替代的核心能力**——调试 iPhone / iPad 上的真实 WebKit。
-
 ## 速查
 
 - 真机：iPhone 设置 → Apps → Safari → 高级 → 开「网页检查器」
@@ -17,6 +15,8 @@ outline: [2, 3]
 - 可调试：Safari 标签页、主屏 Web App(PWA)、WKWebView、App 内 WebView
 - WebView 调试需 App 设 `isInspectable = true`（iOS 16.4+）
 - 唯一性：iOS 所有浏览器都跑 WebKit，真实行为只能在此还原
+
+这是 Safari Web Inspector **不可替代的核心能力**——调试 iPhone / iPad 上的真实 WebKit。
 
 ## 真机调试步骤
 

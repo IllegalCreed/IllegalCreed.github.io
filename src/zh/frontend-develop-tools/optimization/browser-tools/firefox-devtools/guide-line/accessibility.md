@@ -7,8 +7,6 @@ outline: [2, 3]
 
 > 基于 Firefox 140+ 稳定版编写
 
-Firefox 的 **Accessibility Inspector** 是其另一张王牌，提供比 Chrome 更细致的原生可访问性检查。
-
 ## 速查
 
 - 打开：DevTools → **Accessibility** 面板（首次需启用可访问性功能）
@@ -17,6 +15,8 @@ Firefox 的 **Accessibility Inspector** 是其另一张王牌，提供比 Chrome
 - 色觉模拟：模拟红色盲 / 绿色盲 / 蓝色盲 / 全色盲 + 对比度损失
 - 自动检查：「Check for issues」扫描对比度 / 键盘 / 文本标签问题
 - 边界：手动逐元素检查；自动化测试（axe）属「前端测试 · 可访问性测试」
+
+Firefox 的 **Accessibility Inspector** 是其另一张王牌，提供比 Chrome 更细致的原生可访问性检查。
 
 ## Accessibility Tree（可访问性树）
 

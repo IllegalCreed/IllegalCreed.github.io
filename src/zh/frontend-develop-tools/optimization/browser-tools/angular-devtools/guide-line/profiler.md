@@ -7,8 +7,6 @@ outline: [2, 3]
 
 > 基于 Angular 20 + Angular DevTools 编写
 
-Angular Profiler 的核心是可视化 **变更检测（Change Detection, CD）**——这是 Angular 性能调试的关键。
-
 ## 速查
 
 - 录制：Profiler 点录制 → 交互 → 停止
@@ -17,6 +15,8 @@ Angular Profiler 的核心是可视化 **变更检测（Change Detection, CD）*
 - 捕获事件：变更检测 + 生命周期钩子执行
 - 点组件看它在本周期的 CD 耗时与触发
 - 目标：减少不必要的 CD（OnPush / Signals / zoneless）
+
+Angular Profiler 的核心是可视化 **变更检测（Change Detection, CD）**——这是 Angular 性能调试的关键。
 
 ## 什么是变更检测
 
