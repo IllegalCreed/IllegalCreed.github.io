@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **axios 1.x**。深入内核与演进：v0.x→v1 关键变更、`AxiosHeaders` 规范化时机、适配器切换（含 fetch）、`transitional` 过渡开关、重试与缓存生态、安全护栏（XSRF / redact / maxDepth）。
 
+## 速查
+
+- **v1 迁移主线**：取消改用 `AbortController`，请求头改用 `AxiosHeaders`，跨域 XSRF 头由 `withXSRFToken` 显式控制。
+- **拦截器头对象**：`config.headers` 已是 `AxiosHeaders`；优先调用 `.set()` / `.setContentType()`，直接属性访问仅作兼容。
+- **适配器**：内置 `xhr`、`http`、`fetch`，可传名称数组选择首个受支持实现，也可提供返回 Axios 响应结构的自定义 adapter。
+- **历史行为**：`transitional` 控制静默 JSON 解析、强制 JSON 解析和超时错误码兼容，升级时应显式测试而非长期依赖默认值。
+- **重试与缓存**：axios 核心不自动重试或缓存；可用响应拦截器实现，或选择 `axios-retry`、`axios-cache-interceptor` 等社区方案。
+- **XSRF**：同源默认读取 XSRF cookie；跨域发送头需要 `withXSRFToken: true`，是否携带 cookie 仍由 `withCredentials` 单独控制。
+- **日志与载荷护栏**：`redact` 只影响 `AxiosError.toJSON()`；表单深度、响应大小和重定向凭据仍需按运行环境设置边界。
+- **类型收窄**：用 `axios.isAxiosError()` / `isAxiosError()` 守卫未知错误，再读取 `code`、`response` 与泛型响应体。
+
 ## 一、v0.x → v1 关键变更（升级必读）
 
 v1（2022 年发布）是 axios 的现代化里程碑，几条最影响代码的变更：
@@ -17,26 +28,21 @@ v1（2022 年发布）是 axios 的现代化里程碑，几条最影响代码的
 4. **自动数据序列化增强**：按 `Content-Type` 自动序列化到 FormData / URLSearchParams（`postForm` / `getForm` / `putForm` 等快捷方法）。
 5. **`transitional` 过渡开关**：把若干历史行为收敛为可配置项（见下文）。
 
-## 二、AxiosHeaders 的规范化时机（隐蔽陷阱）
+## 二、AxiosHeaders 在拦截器中的使用
 
-一个常见报错：在请求拦截器里调用 `config.headers.setContentType(...)` 却报「不是函数」。原因是——
-
-> `config.headers` 真正被规范化成 `AxiosHeaders` 实例，发生在**适配器内部**（`resolveConfig` 阶段），即**请求拦截器执行之后**。
-
-所以在拦截器里，`config.headers` 可能仍是普通对象，过早调用实例方法会失败。稳妥做法：
+Axios 1.x 会在请求拦截器与转换器中初始化 `AxiosHeaders`，因此可直接调用大小写不敏感的方法：
 
 ```js
 import axios from "axios";
 
 api.interceptors.request.use((config) => {
-  // 显式转成 AxiosHeaders，再用方法
-  config.headers = axios.AxiosHeaders.from(config.headers);
   config.headers.setContentType("application/json");
+  config.headers.setAuthorization("Bearer token");
   return config;
 });
 ```
 
-> 或者直接走属性赋值 `config.headers['Content-Type'] = '...'`（轻量场景够用），又或把头配在实例 `defaults` 上（那里已被规范化）。
+> `config.headers['Content-Type'] = '...'` 仍兼容，但官方已将直接属性访问标为弃用。若手头确实是外部 raw headers，可用 `axios.AxiosHeaders.from(raw)` 显式转换。
 
 ## 三、切换适配器（adapter）
 

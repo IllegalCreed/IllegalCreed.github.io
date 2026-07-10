@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **ofetch 1.x**。本篇把「会用」升级到「懂机制」：四个拦截器、retry / timeout 默认行为、ofetch.raw 与 _data、ignoreResponseError、与 axios/ky 的取舍。
 
+## 速查
+
+- **四个拦截器**：`onRequest`、`onRequestError`、`onResponse`、`onResponseError` 覆盖请求发出、网络失败、响应成功与非 2xx。
+- **请求头修改**：`onRequest` 中的 `options.headers` 已是 `Headers`，使用 `.set()` / `.delete()`，不要按普通对象替换。
+- **hook 叠加**：每个 hook 可传函数或函数数组；实例默认 hook 与单次 hook 会合并并依次执行。
+- **默认重试**：GET / HEAD 等读请求重试 1 次，POST / PUT / PATCH / DELETE 默认 0 次；默认状态码包含 408、409、425、429 和常见 5xx。
+- **超时**：`timeout` 单位为毫秒，默认关闭；可同时传自己的 `signal` 做主动取消。
+- **返回层级**：`ofetch()` 直接返回解析数据；`ofetch.raw()` 返回完整响应，解析数据位于 `response._data`。
+- **错误策略**：非 2xx 默认抛 `FetchError`，解析后的错误体在 `error.data`；`ignoreResponseError` 可关闭自动抛错。
+- **选型**：ofetch 适合轻量同构与 UnJS / Nuxt 生态；需要进度或庞大适配器生态时再考虑 axios。
+
 ## 一、四个拦截器：请求生命周期
 
 ofetch 在请求生命周期上挂了四个钩子，都接收一个 `context` 对象：

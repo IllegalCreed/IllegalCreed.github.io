@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **ofetch 1.x**。深入内核与工程实践：createFetch 自定义底座、Node 代理 / dispatcher、timeout 与 abort 的重试边界、拦截器实现 401 刷新的死循环防护、同构 fetch 选择、依赖与解析机制。
 
+## 速查
+
+- **自定义底座**：`createFetch()` 可注入 fetch、Headers、AbortController 与 defaults；`ofetch.create()` 复用当前底座并合并默认选项。
+- **Node 网络层**：Node 18+ 通过 undici `dispatcher` 配置代理或连接池；旧 polyfill 环境才使用 `agent`。
+- **中止与重试**：纯手动 `signal.abort()` 视为用户取消并跳过重试；由 `timeout` 触发的中止仍可能进入 retry 流程。
+- **401 刷新**：必须同时设置单次重试标记和共享刷新 Promise，分别阻止死循环与并发重复刷新。
+- **请求前阻断**：`onRequest` 没有 `return false` 约定；要取消就抛错或触发 AbortSignal。
+- **同构入口**：浏览器 / Worker 优先平台 fetch，Node 入口适配 undici 或 `node-fetch-native`。
+- **解析内核**：默认使用 `destr`；HEAD 及 101 / 204 / 205 / 304 跳过 body 解析，错误提供 `status` / `statusCode` 双命名。
+- **能力边界**：ofetch 提供解析、序列化、错误、retry、timeout、URL 与 hooks；运行时校验、进度、缓存和 token 刷新仍由应用负责。
+
 ## 一、createFetch：自定义底层 fetch / Headers
 
 `ofetch` 是 `createFetch()` 用默认全局对象建出来的。需要注入自定义底座时直接用 `createFetch`：

@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **ky 2.x**。深入 ky 的边界与机制：ESM-only 与 CommonJS 接入、`ky.stop` 的限制、`init` hook、`parseJson` 防原型污染、`context` 传上下文、`totalTimeout`/`retryOnTimeout`、上传/下载进度与 FormData、`Retry-After` 处理、与 axios/ofetch 的取舍。
 
+## 速查
+
+- **模块格式**：ky 2.x 是 ESM-only；CommonJS 使用动态 `import()` 或迁移 ESM，浏览器直连使用 `<script type="module">` 与 ESM CDN。
+- **静默停重试**：`beforeRetry` 返回 `ky.stop` 会 resolve `undefined`，因此不能继续链式调用 `.json()`；多数业务更适合抛错。
+- **最早 hook**：`init` 同步修改尚未构造 Request 的 options；URL 查询等应在这里改，已构造 request 的内容放 `beforeRequest`。
+- **JSON 边界**：`parseJson` / `stringifyJson` 可替换默认 JSON 处理，用于安全解析、reviver 或特殊序列化。
+- **上下文**：`context` 始终是对象并传给 hooks，但只做浅合并，嵌套对象会整体替换。
+- **双重超时**：`timeout` 限制单次尝试，`totalTimeout` 限制包含退避在内的整个操作；超时默认不重试，需开启 `retryOnTimeout`。
+- **进度与表单**：FormData 放 `body` 且不手写 Content-Type；上传进度依赖运行时请求流能力。
+- **服务端节奏**：413 / 429 / 503 默认读取 `Retry-After`，并受 `maxRetryAfter` 约束。
+
 ## 一、ESM-only 与 CommonJS 接入
 
 ky 是**纯 ESM 包**（`type: "module"`、`exports` 只暴露 ESM）。在 ESM 项目里直接 `import ky from 'ky'`。在 **CommonJS（`require`）项目**里：

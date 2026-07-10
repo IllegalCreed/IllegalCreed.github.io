@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **axios 1.x**。把 axios 用进真实业务：取消请求、表单/文件上传、上传下载进度、查询串序列化、并发、自定义数据转换、与 fetch 的取舍。
 
+## 速查
+
+- **取消请求**：传入 `AbortController.signal`，调用 `abort()` 后以 `axios.isCancel(error)` 或 `ERR_CANCELED` 识别；旧 `CancelToken` 已弃用。
+- **表单编码**：`URLSearchParams` 或 `postForm()` 发送 `application/x-www-form-urlencoded`；复杂嵌套规则用 `paramsSerializer` 或 `qs` 明确约定。
+- **文件上传**：把 `FormData` 直接作为 data 发送，不手写 `multipart/form-data`，让运行时补齐 boundary。
+- **进度反馈**：`onUploadProgress` / `onDownloadProgress` 提供 `loaded`、`total`、`progress`、`rate` 等字段；二进制下载同时设置正确的 `responseType`。
+- **查询串**：`paramsSerializer.encode` 定制单值编码，`serialize` 完全接管序列化，`indexes` 控制数组下标形式。
+- **并发**：新代码直接使用 `Promise.all`；共享一个 signal 可同时取消一组在途请求。
+- **数据转换**：自定义 `transformRequest` / `transformResponse` 会接管默认转换，尤其要自行保留 JSON 解析行为。
+- **选型**：简单且体积敏感的现代运行时优先原生 fetch；需要实例、拦截器、进度、适配器与成熟生态时 axios 更省工程成本。
+
 ## 一、取消请求：AbortController
 
 v0.22.0 起，axios 用 fetch 风格的 `AbortController` 取消请求——把 `controller.signal` 传给 `config.signal`，调用 `abort()` 即取消：

@@ -7,6 +7,16 @@ outline: [2, 3]
 
 > 版本基线 **ofetch 1.x**。把 ofetch 用进真实项目：create 分层与继承、responseType 与流式 / SSE、parseResponse 自定义解析、retryDelay 指数退避、TypeScript 类型、从 axios 迁移。
 
+## 速查
+
+- **实例分层**：`ofetch.create(defaults)` 固化 `baseURL`、headers 与 hooks；普通选项子级覆盖父级，hook 会合并后依次执行。
+- **响应类型**：可强制 `json`、`text`、`blob`、`arrayBuffer`、`stream`；`text/event-stream` 默认识别为流。
+- **自定义解析**：`parseResponse(text)` 替换默认解析器，参数是响应文本而非 Response，返回值成为最终 data。
+- **重试退避**：`retryDelay` 可传固定毫秒数或函数；每次重试会重新经过请求生命周期，hook 副作用要可重复。
+- **类型边界**：`ofetch<T>()` 只提供编译期类型，不做运行时校验；不可信响应仍需 Zod / Valibot 等 schema。
+- **请求体**：普通对象自动 JSON 化；urlencoded 明确设置 content-type，FormData 与流直接透传，流会自动设置 `duplex: 'half'`。
+- **迁移心智**：Axios 的 `res.data` 变为直接返回 data，`params` 对应 `query`，拦截器对应四类 hook，错误体改读 `error.data`。
+
 ## 一、create 分层：基础实例派生专用实例
 
 `create` 返回的实例本身也带 `.create()`，可以做「基础实例 → 派生子实例」：

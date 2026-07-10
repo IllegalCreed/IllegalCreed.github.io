@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > ky **2.x** 常用方法、选项、默认值、hooks、错误类型与导出速查。版本基线 **ky 2.0.2**。⚠️ ky 是 ESM-only，全部用 `import`。
 
+## 速查
+
+- **主 API**：`ky(input, options)` 加 `get/post/put/patch/head/delete`；`create` 创建全新默认，`extend` 继承父默认。
+- **响应读取**：直接 await 得到增强 Response；可链 `.json()`、`.text()`、`.blob()`、`.arrayBuffer()`、`.formData()`，支持时还有 `.bytes()`。
+- **URL 选项**：`baseUrl` 标准解析，`prefix` 字符串拼接；ky 2.x 不再提供 `prefixUrl`。
+- **超时默认**：每次尝试 `timeout: 10000`，整体 `totalTimeout: false`；通过 `AbortSignal` 主动取消。
+- **重试默认**：`limit: 2`，仅幂等方法和指定状态码；超时默认不重试，`jitter` 与 `Retry-After` 负责节奏控制。
+- **hooks**：五类 hook 均为数组；`beforeRequest` 可替换 Request / 返回 Response，`afterResponse` 可返回 `ky.retry()`。
+- **错误读取**：用 `isHTTPError` 等守卫；ky 2.x 的 HTTP 错误体位于 `error.data`，Standard Schema 失败单独抛 `SchemaValidationError`。
+- **运行环境**：ESM-only、Node.js 22+、现代浏览器 / Bun / Deno，零运行时依赖。
+
 ## 一、方法快捷方式
 
 | 方法 | 说明 |

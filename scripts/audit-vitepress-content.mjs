@@ -20,6 +20,10 @@ const QUICK_CHECK_EXCLUSIONS = new Map([
   ["src/zh/start.md", "站点使用说明"],
 ]);
 
+// 版本说明允许自然语言、vN、语义版本、技术名 + 主版本及常见运行时基线。
+const VERSION_SIGNAL_PATTERN =
+  /(?:版本|基于|截至|适用|\bv\d+(?:\.\d+)*(?:\.x)?\b|\b\d+\.(?:\d+|x)(?:\.\d+)?\b|\b[A-Za-z][\w.-]*\s+(?:v\s*)?\d+(?:\.\d+)*(?:\.x|\+)?\b|ES20\d{2}|Node(?:\.js)?\s*(?:>=|≥|v)?\s*\d+|浏览器)/i;
+
 function toPosix(filePath) {
   return filePath.split(path.sep).join("/");
 }
@@ -70,6 +74,32 @@ function getTitle(text, fileRel) {
   if (match) return match[1].trim();
   const dirName = path.basename(path.dirname(fileRel));
   return dirName.replace(/-/g, " ");
+}
+
+function getVersionAnalysis(text) {
+  const lines = stripFrontmatter(text).split(/\r?\n/);
+  let index = lines.findIndex((line) => /^#\s+/.test(line.trim()));
+  if (index === -1) return { status: "missing", text: null };
+
+  index += 1;
+  while (index < lines.length && lines[index].trim() === "") index += 1;
+
+  const quote = [];
+  while (index < lines.length && lines[index].trim().startsWith(">")) {
+    quote.push(lines[index].trim().replace(/^>\s?/, ""));
+    index += 1;
+  }
+
+  if (quote.length === 0) return { status: "missing", text: null };
+
+  const versionText = quote.join(" ").trim();
+  const normalizedVersionText = versionText.replace(/[`*_]/g, "");
+  return {
+    status: VERSION_SIGNAL_PATTERN.test(normalizedVersionText)
+      ? "ok"
+      : "unspecified",
+    text: versionText,
+  };
 }
 
 function getQuickCheckAnalysis(text) {
@@ -188,6 +218,7 @@ async function audit() {
     const quickCheckExclusionReason = QUICK_CHECK_EXCLUSIONS.get(file) ?? null;
     const quickCheckRequired = !isIndex && !quickCheckExclusionReason;
     const quickCheck = quickCheckRequired ? getQuickCheckAnalysis(text) : null;
+    const version = quickCheckRequired ? getVersionAnalysis(text) : null;
     const hasDocLink = hasHeading(text, "文档地址");
     const hasSlideLink = hasHeading(text, "幻灯片地址");
     const hasQuizLink = hasHeading(text, "测试题");
@@ -203,6 +234,7 @@ async function audit() {
       quickCheckRequired,
       quickCheckExclusionReason,
       quickCheck,
+      version,
       hasDocLink,
       hasSlideLink,
       hasQuizLink,
@@ -238,6 +270,12 @@ async function audit() {
   const emptyQuickCheck = contentPages.filter(
     (page) => page.quickCheckStatus === "empty",
   );
+  const missingVersion = contentPages.filter(
+    (page) => page.version.status === "missing",
+  );
+  const unspecifiedVersion = contentPages.filter(
+    (page) => page.version.status === "unspecified",
+  );
   const missingQuizLink = pagesExpectingQuiz.filter(
     (page) => !page.hasQuizLink,
   );
@@ -263,6 +301,10 @@ async function audit() {
       missingQuickCheck: missingQuickCheck.length,
       misplacedQuickCheck: misplacedQuickCheck.length,
       emptyQuickCheck: emptyQuickCheck.length,
+      versionOk: contentPages.filter((page) => page.version.status === "ok")
+        .length,
+      missingVersion: missingVersion.length,
+      unspecifiedVersion: unspecifiedVersion.length,
       missingQuizLink: missingQuizLink.length,
       invalidQuizLink: invalidQuizLink.length,
     },
@@ -272,6 +314,8 @@ async function audit() {
     missingQuickCheck,
     misplacedQuickCheck,
     emptyQuickCheck,
+    missingVersion,
+    unspecifiedVersion,
     missingQuizLink,
     invalidQuizLink,
   };
@@ -343,6 +387,9 @@ function renderReport(result) {
 | 缺失速查 | ${result.totals.missingQuickCheck} |
 | 速查位置不合规 | ${result.totals.misplacedQuickCheck} |
 | 空速查 | ${result.totals.emptyQuickCheck} |
+| 版本说明合规 | ${result.totals.versionOk} |
+| 缺失版本说明块 | ${result.totals.missingVersion} |
+| 版本说明未给出基线 | ${result.totals.unspecifiedVersion} |
 | 技术节点首页 | ${result.totals.techIndexPages} |
 | 文档链接首页 | ${result.totals.docLinks} |
 | 幻灯片链接首页 | ${result.totals.slideLinks} |
@@ -380,6 +427,16 @@ ${formatPathList(result.misplacedQuickCheck)}
 
 ${formatPathList(result.emptyQuickCheck)}
 
+## 版本说明审计
+
+### 缺失版本说明块
+
+${formatPathList(result.missingVersion)}
+
+### 版本说明未给出基线
+
+${formatPathList(result.unspecifiedVersion)}
+
 ## 技术节点链接审计
 
 ${markdownTable(["目录", "技术首页", "文档链接", "幻灯片链接", "应有测试题", "已有测试题"], techRows)}
@@ -411,6 +468,7 @@ if (args.has("--json")) {
       `Markdown: ${result.totals.markdown}`,
       `Content pages: ${result.totals.contentPages}`,
       `Quick check missing/misplaced/empty: ${result.totals.missingQuickCheck}/${result.totals.misplacedQuickCheck}/${result.totals.emptyQuickCheck}`,
+      `Version missing/unspecified: ${result.totals.missingVersion}/${result.totals.unspecifiedVersion}`,
       `Tech index pages: ${result.totals.techIndexPages}`,
       `Quiz links missing/invalid: ${result.totals.missingQuizLink}/${result.totals.invalidQuizLink}`,
     ].join("\n"),

@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **axios 1.x**。把「会发请求」升级到「会封装」：实例 `create`、默认配置与三级合并、请求/响应拦截器、`AxiosHeaders`、配置项全景。
 
+## 速查
+
+- **实例隔离**：按后端服务创建 `axios.create({ baseURL, timeout, headers })`，每个实例拥有独立的 `defaults` 与 `interceptors`，避免把鉴权头泄漏给无关域名。
+- **配置优先级**：库默认值 < `instance.defaults` < 单次请求 `config`；离本次请求越近，优先级越高。
+- **请求拦截器**：适合注入 token、追踪信息与 loading；必须返回 `config` 或一个 Promise。
+- **响应拦截器**：适合拆出 `response.data`、统一处理 401 和错误提示；拒绝分支要继续 `Promise.reject(error)`。
+- **执行顺序**：请求拦截器后注册先执行（LIFO），响应拦截器先注册先执行（FIFO）。
+- **生命周期管理**：`use()` 返回 id，使用 `eject(id)` 移除；`clear()` 清空该实例同类拦截器。
+- **请求头**：拦截器中的 `config.headers` 是 `AxiosHeaders`，优先使用 `.set()`、`.get()`、`.delete()` 等大小写不敏感 API。
+- **常用配置**：`baseURL`、`params`、`timeout`、`responseType`、`withCredentials`、`validateStatus` 与 `signal` 覆盖大多数业务请求。
+
 ## 一、用 axios.create 封装实例
 
 真实项目几乎不会裸用全局 `axios`，而是按服务/模块建实例，集中默认配置：
@@ -118,7 +129,7 @@ headers.has("Authorization"); // true
 headers.delete("X-Temp");
 ```
 
-> 在请求拦截器里，`config.headers` 多数情况已是 AxiosHeaders，可直接用其方法；但要注意「规范化时机」——见[专家篇](./expert)的细节。
+> 在请求拦截器里，`config.headers` 已初始化为 `AxiosHeaders`，可直接使用 `.set()` 等方法；直接属性赋值仍兼容，但已不推荐。
 
 ## 七、常用配置项全景
 

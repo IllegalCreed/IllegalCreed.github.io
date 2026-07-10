@@ -7,6 +7,16 @@ outline: [2, 3]
 
 > 版本基线 **ky 2.x**。本篇把「会发请求」用到「懂机制」：URL 前缀（`baseUrl` vs `prefix`）、重试机制全貌、hooks 五件套入门、实例 `create` / `extend`、请求取消。
 
+## 速查
+
+- **URL 基址**：`baseUrl` 按标准 `new URL()` 解析，前导 `/` 回到 origin 根；`prefix` 是字符串前缀，会剥掉 input 的前导 `/`。
+- **迁移边界**：ky 2.x 已移除 `prefixUrl`；需要标准解析改用 `baseUrl`，需要旧式强制前缀语义改用 `prefix`。
+- **默认重试**：`limit: 2`，只覆盖幂等方法与指定状态码；POST / PATCH 默认不重试。
+- **退避节奏**：默认约 300ms、600ms、1200ms 递增；写请求若显式加入重试，业务必须提供幂等保障。
+- **五类 hooks**：`init`、`beforeRequest`、`beforeRetry`、`beforeError`、`afterResponse` 均按数组顺序执行；只有 `init` 必须同步。
+- **实例关系**：`create()` 从干净默认值创建实例；`extend()` 继承父实例并合并 headers、hooks、searchParams 与 context。
+- **取消请求**：直接传 Web 标准 `AbortSignal`，无需库私有取消 API。
+
 ## 一、URL 前缀：baseUrl vs prefix
 
 实际项目里很少裸写完整 URL，通常给一个基地址、各处只写相对路径。**ky 2.x 把旧 `prefixUrl` 拆成了两个语义更清晰的选项**：

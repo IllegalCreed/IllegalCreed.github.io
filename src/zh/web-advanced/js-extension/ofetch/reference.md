@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > ofetch 常用 API、选项、拦截器与 FetchError 字段速查。版本基线 **ofetch 1.x**。
 
+## 速查
+
+- **导入**：`ofetch` / `$fetch` 是增强客户端，`fetch` 是原生 polyfill，`createFetch` 用于自定义底层实现。
+- **三种返回**：`ofetch()` 返回解析数据，`.raw()` 返回带 `_data` 的完整响应，`.native()` 直接走原生 Response。
+- **核心选项**：`baseURL`、`query`、`body`、`responseType`、`parseResponse`、`timeout`、`retry`、`signal` 与 `ignoreResponseError`。
+- **重试默认**：读方法 1 次、写方法 0 次，`retryDelay: 0`；显式传 `retry: n` 后所有方法都按 n 次。
+- **hooks**：四类 FetchHooks 可传函数或数组；解析后的成功 / 错误数据都位于 `response._data`，错误对象额外暴露 `data`。
+- **错误字段**：`FetchError` 提供 `request`、`options`、`response`、`data`、`cause`，并兼容 `status` / `statusCode` 与 `statusText` / `statusMessage`。
+- **类型映射**：`json` 对应泛型 `T`，`text` / `blob` / `arrayBuffer` / `stream` 对应各自运行时类型。
+- **运行依赖**：`destr` 解析、`ufo` 处理 URL、`node-fetch-native` 提供 Node / 旧环境 fetch 适配。
+
 ## 一、导入
 
 | 写法 | 说明 |

@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > axios **请求方法、配置项与默认值、响应结构、错误码、实例方法与静态 API** 速查。版本基线 axios 1.x。
 
+## 速查
+
+- **调用形式**：`axios(config)` / `axios(url, config)`，以及 `get`、`delete`、`post`、`put`、`patch` 和 `*Form` 方法别名。
+- **关键默认值**：`method: 'get'`、`timeout: 0`、`withCredentials: false`、`responseType: 'json'`，默认仅 2xx 由 `validateStatus` 判定成功。
+- **请求体位置**：`post/put/patch` 的第二参数是 data；`delete` 如需 body，写在 `config.data`。
+- **响应结构**：`data`、`status`、`statusText`、`headers`、`config`、`request`；响应头可用属性或 `AxiosHeaders.get()` 读取。
+- **错误识别**：先用 `isAxiosError`，再看 `code`、`response`、`request`；取消通常是 `ERR_CANCELED`，超时常见 `ECONNABORTED` / `ETIMEDOUT`。
+- **实例能力**：`axios.create()` 创建隔离客户端，实例仍支持完整请求方法、`defaults`、`interceptors` 与 `getUri()`。
+- **拦截器顺序**：请求 LIFO、响应 FIFO；`eject(id)` 移除，`clear()` 清空。
+- **取消机制**：新代码使用 `AbortController.signal`；`CancelToken` 只保留历史兼容。
+
 ## 一、请求方法别名
 
 | 方法 | 签名 | 说明 |

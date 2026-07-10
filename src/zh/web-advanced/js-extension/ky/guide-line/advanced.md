@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **ky 2.x**。把 ky 用进真实项目：hooks 实战（token 续期 / mock）、`ky.retry()` 强制重试、`jitter` 抖动与 `shouldRetry`、错误体系、TypeScript 泛型与 Standard Schema 校验、自定义 fetch。
 
+## 速查
+
+- **401 续期**：在 `afterResponse` 检查首次 401，刷新 token 后返回 `ky.retry({ request })`；用 `retryCount` 阻止循环。
+- **请求短路**：`beforeRequest` 返回 `Request` 可替换请求，返回 `Response` 可直接命中 mock / 缓存；抛错属于致命错误，不进入重试。
+- **业务重试**：`afterResponse` 返回 `ky.retry()` 可让 2xx 业务错误也重试，并可携带 `delay`、`code`、`cause` 或替代 request。
+- **惊群控制**：`jitter: true` 使用 full jitter；服务端存在 `Retry-After` 时仍优先服从服务端时间。
+- **职责区分**：`shouldRetry` 决定是否重试，`beforeRetry` 在决定重试后修改请求。
+- **错误类型**：分别处理 `HTTPError`、`NetworkError`、`TimeoutError`；ky 2.x 的 HTTP 错误体直接读 `error.data`。
+- **类型与校验**：`.json<T>()` 默认类型为 `unknown`；传 Standard Schema 可同时完成运行时校验与类型推断。
+- **底层替换**：`fetch` 选项注入兼容 Fetch API 的实现，适合 SSR、测试和统一观测。
+
 ## 一、hooks 实战：401 自动续期
 
 最经典的鉴权场景——首次拿到 401 时刷新 token 并重试一次：
