@@ -5,52 +5,63 @@ outline: [2, 3]
 
 # 参考
 
-> Zod **4** 常用 schema、校验方法、转换与错误处理 API 速查。标注 ⚠️ 处为 v3 → v4 变化点。导入统一假定 `import * as z from "zod"`。
+> Zod **4.4.3** 常用 schema、校验方法、转换与错误处理 API 速查。标注 ⚠️ 处为 v3 → v4 变化点。导入统一假定 `import * as z from "zod"`。
+
+## 速查
+
+- 环境：Zod `4.4.3`，零依赖，ESM / CommonJS 双入口；官方测试 TypeScript `5.5+` 并要求 `strict`
+- 基础解析：`.parse()` 失败抛 `ZodError`，`.safeParse()` 返回判别联合；含异步 refine / transform 时必须改用 Async 版本
+- v4 字符串格式优先顶层 `z.email()`、`z.url()`、`z.uuid()`、`z.ipv4()`；旧链式格式多为弃用兼容项
+- 对象默认剥离未知键；严格、透传与 rest 值校验分别用 `z.strictObject`、`z.looseObject`、`.catchall()`
+- `.default()`、`.prefault()`、`.catch()` 分别对应输出短路、默认输入继续解析、任意失败兜底
+- 错误读取 `.issues`，格式化用 `z.treeifyError` / `z.flattenError` / `z.prettifyError`
+- 元数据与交换：`.meta()` / `z.registry()`、`z.toJSONSchema()`；不可表达类型默认使 JSON Schema 转换抛错
+- 双向转换用 `z.codec()` 的 `decode` / `encode`；单向、不可逆转换继续用 `.transform()`
 
 ## 一、原语与字面量
 
-| API | 说明 |
-|---|---|
-| `z.string()` `z.number()` `z.boolean()` | 字符串 / 数字 / 布尔 |
-| `z.bigint()` `z.date()` `z.symbol()` | 大整数 / 日期对象 / Symbol |
-| `z.null()` `z.undefined()` `z.nan()` | null / undefined / NaN |
-| `z.any()` `z.unknown()` `z.never()` `z.void()` | 任意 / 未知 / 无 / void |
-| `z.literal("tuna")` | 字面量（v4 也支持 `z.literal(["a","b"])`） |
-| `z.int()` `z.int32()` | 安全整数 / int32（⚠️ v4 仅安全整数） |
+| API                                            | 说明                                       |
+| ---------------------------------------------- | ------------------------------------------ |
+| `z.string()` `z.number()` `z.boolean()`        | 字符串 / 数字 / 布尔                       |
+| `z.bigint()` `z.date()` `z.symbol()`           | 大整数 / 日期对象 / Symbol                 |
+| `z.null()` `z.undefined()` `z.nan()`           | null / undefined / NaN                     |
+| `z.any()` `z.unknown()` `z.never()` `z.void()` | 任意 / 未知 / 无 / void                    |
+| `z.literal("tuna")`                            | 字面量（v4 也支持 `z.literal(["a","b"])`） |
+| `z.int()` `z.int32()`                          | 安全整数 / int32（⚠️ v4 仅安全整数）       |
 
 ## 二、字符串格式（v4 顶层函数）
 
 ⚠️ v4 把格式校验提升为顶层函数，链式 `z.string().email()` 已弃用：
 
-| API | 校验 |
-|---|---|
-| `z.email()` | 邮箱（可传 `{ pattern: z.regexes.html5Email }` 等） |
-| `z.url()` `z.httpUrl()` | URL（可限定 `protocol`/`hostname`） |
-| `z.uuid()` `z.uuidv4()` `z.guid()` | UUID / 指定版本 / 宽松 GUID |
-| `z.ipv4()` `z.ipv6()` `z.cidrv4()` `z.cidrv6()` | IP / CIDR（⚠️ v4 拆分，`.ip()`/`.cidr()` 已移除） |
-| `z.emoji()` `z.nanoid()` `z.cuid2()` `z.ulid()` | 各类 ID / emoji |
-| `z.base64()` `z.jwt()` `z.e164()` | base64 / JWT / E.164 电话 |
-| `z.iso.date()` `z.iso.time()` `z.iso.datetime()` | ISO 日期/时间字符串 |
+| API                                              | 校验                                                |
+| ------------------------------------------------ | --------------------------------------------------- |
+| `z.email()`                                      | 邮箱（可传 `{ pattern: z.regexes.html5Email }` 等） |
+| `z.url()` `z.httpUrl()`                          | URL（可限定 `protocol`/`hostname`）                 |
+| `z.uuid()` `z.uuidv4()` `z.guid()`               | UUID / 指定版本 / 宽松 GUID                         |
+| `z.ipv4()` `z.ipv6()` `z.cidrv4()` `z.cidrv6()`  | IP / CIDR（⚠️ v4 拆分，`.ip()`/`.cidr()` 已移除）   |
+| `z.emoji()` `z.nanoid()` `z.cuid2()` `z.ulid()`  | 各类 ID / emoji                                     |
+| `z.base64()` `z.jwt()` `z.e164()`                | base64 / JWT / E.164 电话                           |
+| `z.iso.date()` `z.iso.time()` `z.iso.datetime()` | ISO 日期/时间字符串                                 |
 
 ## 三、字符串校验与转换（链式）
 
-| 校验 | 转换 |
-|---|---|
-| `.min(n)` `.max(n)` `.length(n)` | `.trim()` |
-| `.regex(/.../)` | `.toLowerCase()` `.toUpperCase()` |
-| `.startsWith(s)` `.endsWith(s)` `.includes(s)` | `.normalize()` |
-| `.uppercase()` `.lowercase()` | — |
+| 校验                                           | 转换                              |
+| ---------------------------------------------- | --------------------------------- |
+| `.min(n)` `.max(n)` `.length(n)`               | `.trim()`                         |
+| `.regex(/.../)`                                | `.toLowerCase()` `.toUpperCase()` |
+| `.startsWith(s)` `.endsWith(s)` `.includes(s)` | `.normalize()`                    |
+| `.uppercase()` `.lowercase()`                  | —                                 |
 
 ## 四、数字校验
 
-| API | 含义 |
-|---|---|
-| `.gt(n)` `.gte(n)`（别名 `.min`） | 大于 / 大于等于 |
-| `.lt(n)` `.lte(n)`（别名 `.max`） | 小于 / 小于等于 |
-| `.int()` | 整数（⚠️ v4 仅安全整数，且拒绝 Infinity） |
-| `.positive()` `.nonnegative()` | `>0` / `>=0` |
-| `.negative()` `.nonpositive()` | `<0` / `<=0` |
-| `.multipleOf(n)`（别名 `.step`） | 倍数 |
+| API                               | 含义                                      |
+| --------------------------------- | ----------------------------------------- |
+| `.gt(n)` `.gte(n)`（别名 `.min`） | 大于 / 大于等于                           |
+| `.lt(n)` `.lte(n)`（别名 `.max`） | 小于 / 小于等于                           |
+| `.int()`                          | 整数（⚠️ v4 仅安全整数，且拒绝 Infinity） |
+| `.positive()` `.nonnegative()`    | `>0` / `>=0`                              |
+| `.negative()` `.nonpositive()`    | `<0` / `<=0`                              |
+| `.multipleOf(n)`（别名 `.step`）  | 倍数                                      |
 
 ## 五、复合类型
 
@@ -74,16 +85,16 @@ z.custom<T>((v) => ...);             // 自定义判定
 
 ## 六、可选 / 可空 / 默认 / 兜底
 
-| API | 作用 |
-|---|---|
-| `.optional()` / `z.optional(s)` | 允许 `undefined` |
-| `.nullable()` / `z.nullable(s)` | 允许 `null` |
-| `.nullish()` | 允许 `null` 与 `undefined` |
-| `.default(v)` | ⚠️ v4：`undefined` 时短路填充，`v` 须匹配输出类型 |
-| `.prefault(v)` | 默认值先过解析（v3 `.default()` 旧行为） |
-| `.catch(v)` | 校验失败时回退到 `v` |
-| `.readonly()` | 类型只读 + 运行时 `Object.freeze` |
-| `.brand<"X">()` | 名义类型标记（编译期） |
+| API                             | 作用                                              |
+| ------------------------------- | ------------------------------------------------- |
+| `.optional()` / `z.optional(s)` | 允许 `undefined`                                  |
+| `.nullable()` / `z.nullable(s)` | 允许 `null`                                       |
+| `.nullish()`                    | 允许 `null` 与 `undefined`                        |
+| `.default(v)`                   | ⚠️ v4：`undefined` 时短路填充，`v` 须匹配输出类型 |
+| `.prefault(v)`                  | 默认值先过解析（v3 `.default()` 旧行为）          |
+| `.catch(v)`                     | 校验失败时回退到 `v`                              |
+| `.readonly()`                   | 类型只读 + 运行时 `Object.freeze`                 |
+| `.brand<"X">()`                 | 名义类型标记（编译期）                            |
 
 ## 七、对象派生方法
 
@@ -100,43 +111,57 @@ Schema.catchall(z.string());     // 未声明键的值 schema
 
 ## 八、校验、转换与组合
 
-| API | 作用 |
-|---|---|
-| `.refine(fn, { error, path })` | 自定义布尔校验（产生单个 issue，支持 async） |
-| `.superRefine((v, ctx) => ...)` | 多 issue / 自定义 code（`ctx.addIssue`） |
-| `.transform((v, ctx) => ...)` | 校验后转换；失败用 `ctx.issues.push` + `return z.NEVER` |
-| `z.preprocess(fn, schema)` | 校验**前**预处理 |
-| `.pipe(next)` | 串联：前一段输出作为后一段输入 |
-| `z.coerce.number()` 等 | 强制转换后校验（⚠️ v4 输入为 `unknown`） |
-| `z.stringbool()` | "true"/"1"/"yes" → boolean |
+| API                             | 作用                                                    |
+| ------------------------------- | ------------------------------------------------------- |
+| `.refine(fn, { error, path })`  | 自定义布尔校验（产生单个 issue，支持 async）            |
+| `.superRefine((v, ctx) => ...)` | 多 issue / 自定义 code（`ctx.addIssue`）                |
+| `.transform((v, ctx) => ...)`   | 校验后转换；失败用 `ctx.issues.push` + `return z.NEVER` |
+| `z.preprocess(fn, schema)`      | 校验**前**预处理                                        |
+| `.pipe(next)`                   | 串联：前一段输出作为后一段输入                          |
+| `z.coerce.number()` 等          | 强制转换后校验（⚠️ v4 输入为 `unknown`）                |
+| `z.stringbool()`                | "true"/"1"/"yes" → boolean                              |
 
 ## 九、类型推导
 
-| API | 含义 |
-|---|---|
-| `z.infer<typeof S>` | 输出类型（= `z.output`） |
-| `z.input<typeof S>` | 输入类型（有 transform/coerce/default 时与输出不同） |
-| `z.output<typeof S>` | 输出类型 |
+| API                  | 含义                                                 |
+| -------------------- | ---------------------------------------------------- |
+| `z.infer<typeof S>`  | 输出类型（= `z.output`）                             |
+| `z.input<typeof S>`  | 输入类型（有 transform/coerce/default 时与输出不同） |
+| `z.output<typeof S>` | 输出类型                                             |
 
 ## 十、错误处理（⚠️ v4 顶层函数）
 
-| API | 作用 |
-|---|---|
-| `error.issues` | 错误数组（每项 `code`/`path`/`message`，⚠️ `error.errors` 已移除） |
-| `z.treeifyError(error)` | 嵌套错误树（取代 `error.format()`） |
-| `z.flattenError(error)` | `{ formErrors, fieldErrors }`（取代 `error.flatten()`） |
-| `z.prettifyError(error)` | 人类可读多行字符串 |
-| `z.config({ customError })` | 全局错误映射（⚠️ 取代 `z.setErrorMap`） |
-| `z.config(z.locales.en())` | 加载内置语言包 |
+| API                         | 作用                                                               |
+| --------------------------- | ------------------------------------------------------------------ |
+| `error.issues`              | 错误数组（每项 `code`/`path`/`message`，⚠️ `error.errors` 已移除） |
+| `z.treeifyError(error)`     | 嵌套错误树（取代 `error.format()`）                                |
+| `z.flattenError(error)`     | `{ formErrors, fieldErrors }`（取代 `error.flatten()`）            |
+| `z.prettifyError(error)`    | 人类可读多行字符串                                                 |
+| `z.config({ customError })` | 全局错误映射（⚠️ 取代 `z.setErrorMap`）                            |
+| `z.config(z.locales.en())`  | 加载内置语言包                                                     |
 
 ## 十一、元数据与 JSON Schema（v4 内置）
 
-| API | 作用 |
-|---|---|
-| `.meta({ id, title, description })` | 登记元数据进 `z.globalRegistry`（返回新 schema） |
-| `.describe("...")` | 仅设 description 的简写 |
-| `z.registry<Meta>()` | 自定义注册表 |
-| `z.toJSONSchema(schema, opts)` | 转 JSON Schema（`target`/`io`/`unrepresentable`/`override`） |
+| API                                 | 作用                                                         |
+| ----------------------------------- | ------------------------------------------------------------ |
+| `.meta({ id, title, description })` | 登记元数据进 `z.globalRegistry`（返回新 schema）             |
+| `.describe("...")`                  | 仅设 description 的简写                                      |
+| `z.registry<Meta>()`                | 自定义注册表                                                 |
+| `z.toJSONSchema(schema, opts)`      | 转 JSON Schema（`target`/`io`/`unrepresentable`/`override`） |
+
+## 十二、双向转换 codec
+
+```ts
+const IsoDate = z.codec(z.iso.datetime(), z.date(), {
+  decode: (iso) => new Date(iso),
+  encode: (date) => date.toISOString(),
+});
+
+IsoDate.decode("2026-07-10T00:00:00.000Z"); // Date
+IsoDate.encode(new Date("2026-07-10T00:00:00.000Z")); // string
+```
+
+`codec` 的两端都有 schema，并在 `decode` / `encode` 时分别校验；它适合可逆转换。`.transform()` 只有前向转换语义，不能直接用于反向编码。
 
 ---
 

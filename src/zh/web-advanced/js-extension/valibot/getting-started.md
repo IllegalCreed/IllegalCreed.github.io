@@ -5,11 +5,11 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇带你装上 Valibot 并写出第一段校验代码。版本基线 **Valibot 1.x**（当前最新 1.4.1）。对比对象：Zod 3/4。核心认知：**Valibot 用「schema + action + pipe」的函数式管道，替代 Zod 的方法链**——这条贯穿全篇。
+> 本篇带你装上 Valibot 并写出第一段校验代码。版本基线 **Valibot 1.4.2**。对比对象：Zod 3/4。核心认知：**Valibot 用「schema + action + pipe」的函数式管道，替代 Zod 的方法链**——这条贯穿全篇。
 
 ## 速查
 
-- 安装（Node 18+）：`npm install valibot`（pnpm `pnpm add`、yarn `yarn add`、bun `bun add`）
+- 安装：`npm install valibot`（pnpm `pnpm add valibot`、yarn `yarn add valibot`、bun `bun add valibot`）
 - JSR（Node/Deno/Bun）：`npx jsr add @valibot/valibot`，导入用 `@valibot/valibot`
 - 推荐导入：`import * as v from 'valibot'`，再用 `v.string()` / `v.pipe()` 调用
 - 链式 → 管道：Zod `z.string().email()` ⇒ Valibot `v.pipe(v.string(), v.email())`
@@ -32,7 +32,7 @@ outline: [2, 3]
 ## 二、安装
 
 ```bash
-# Node.js（18 及以上）
+# Node.js / 前端工程
 npm install valibot
 pnpm add valibot
 yarn add valibot
@@ -44,14 +44,14 @@ bun add valibot
 npx jsr add @valibot/valibot
 ```
 
-Valibot **自带 TypeScript 类型**，零运行时依赖，同时提供 ESM 与 CommonJS 双产物。要求 **TypeScript ≥ 5.0.2**，并建议在 `tsconfig.json` 开启 `strict` 模式以获得正确的类型推导。
+Valibot **自带 TypeScript 类型**，零运行时依赖，同时提供 ESM 与 CommonJS 双产物。分发代码以 **ES2020** 为目标，要求 **TypeScript ≥ 5.0.2**，并建议在 `tsconfig.json` 开启 `strict` 模式以获得正确的类型推导。
 
 ## 三、导入方式
 
-官方推荐**通配符导入**，用 `v` 前缀：
+本文统一使用**通配符导入**与 `v` 前缀：
 
 ```ts
-import * as v from 'valibot';
+import * as v from "valibot";
 
 const NameSchema = v.string();
 ```
@@ -59,7 +59,7 @@ const NameSchema = v.string();
 也可以具名导入：
 
 ```ts
-import { string, pipe, email } from 'valibot';
+import { string, pipe, email } from "valibot";
 ```
 
 > 关键认知：官方明确说明——**通配符导入与具名导入对 tree-shaking 没有区别**，两种都能正确摇树。通配符写法可读性好、不易命名冲突，也方便从 Zod 迁移（把 `z.` 换成 `v.`）。本系列统一用 `v.` 前缀。
@@ -67,18 +67,18 @@ import { string, pipe, email } from 'valibot';
 ## 四、第一段代码
 
 ```ts
-import * as v from 'valibot';
+import * as v from "valibot";
 
 // 1. 定义 schema（每个类型都是函数）
 const LoginSchema = v.object({
   email: v.pipe(
-    v.string('邮箱必须是字符串'),
-    v.nonEmpty('请输入邮箱'),
-    v.email('邮箱格式不正确')
+    v.string("邮箱必须是字符串"),
+    v.nonEmpty("请输入邮箱"),
+    v.email("邮箱格式不正确"),
   ),
   password: v.pipe(
-    v.string('密码必须是字符串'),
-    v.minLength(8, '密码至少 8 位')
+    v.string("密码必须是字符串"),
+    v.minLength(8, "密码至少 8 位"),
   ),
 });
 
@@ -88,8 +88,8 @@ type LoginData = v.InferOutput<typeof LoginSchema>;
 
 // 3. 校验数据
 const data = v.parse(LoginSchema, {
-  email: 'jane@example.com',
-  password: 'secret123',
+  email: "jane@example.com",
+  password: "secret123",
 });
 ```
 
@@ -120,14 +120,14 @@ if (result.success) {
 
 ## 六、从 Zod 迁移（核心对照）
 
-| Zod | Valibot |
-|---|---|
-| `z.string().email().min(5)` | `v.pipe(v.string(), v.email(), v.minLength(5))` |
+| Zod                                       | Valibot                                         |
+| ----------------------------------------- | ----------------------------------------------- |
+| `z.string().email().min(5)`               | `v.pipe(v.string(), v.email(), v.minLength(5))` |
 | `Schema.parse(x)` / `Schema.safeParse(x)` | `v.parse(Schema, x)` / `v.safeParse(Schema, x)` |
-| `z.infer<typeof S>` | `v.InferOutput<typeof S>` |
-| `.optional()` | `v.optional(...)` 包裹 |
-| `z.enum([...])` | `v.picklist([...])` |
-| `z.object({...}).strict()` | `v.strictObject({...})` |
+| `z.infer<typeof S>`                       | `v.InferOutput<typeof S>`                       |
+| `.optional()`                             | `v.optional(...)` 包裹                          |
+| `z.enum([...])`                           | `v.picklist([...])`                             |
+| `z.object({...}).strict()`                | `v.strictObject({...})`                         |
 
 第一步只需把 `import { z } from 'zod'` 改成 `import * as v from 'valibot'`，再把 `z.` 换成 `v.`，并把方法链改写成 `v.pipe(...)`。官方还提供 codemod：`npx @valibot/zod-to-valibot` 自动转写大部分写法。完整迁移见[专家篇](./guide-line/expert)。
 

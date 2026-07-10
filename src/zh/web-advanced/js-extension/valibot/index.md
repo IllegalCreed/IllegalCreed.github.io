@@ -5,7 +5,7 @@ layout: doc
 # Valibot
 
 ::: tip 本篇范围
-本篇聚焦 **Valibot**——模块化、类型安全的 schema 校验库，定位为 **Zod 的极小体积替代**。重点在：相比 Zod 的 **bundle 体积优势**（起步 < 700 字节，官方对比小约 90%）、**函数式 `pipe()` 管道**与方法链的根本差异、schema + action（校验/转换）的心智模型、`parse`/`safeParse` 与 `InferInput`/`InferOutput`、以及从 Zod 迁移的取舍。版本基线 **Valibot 1.x**（当前最新 1.4.1）。
+本篇聚焦 **Valibot**——模块化、类型安全的 schema 校验库，定位为 **Zod 的极小体积替代**。重点在：相比 Zod 的 **bundle 体积优势**（起步 < 700 字节，官方对比小约 90%）、**函数式 `pipe()` 管道**与方法链的根本差异、schema + action（校验/转换）的心智模型、`parse`/`safeParse` 与 `InferInput`/`InferOutput`、以及从 Zod 迁移的取舍。版本基线 **Valibot 1.4.2**。
 :::
 
 Valibot 是由 **Fabian Hiller** 发起的开源 schema 校验库，官方一句话定位是「**The modular and type-safe schema library for validating structural data**」。它在运行时校验结构化数据，同时由 schema 静态推导 TypeScript 类型——一份 schema 既是**运行时校验规则**又是**类型来源**。它主打三个特性：**极小体积**（起步不到 700 字节，官方对比比标准 Zod 小约 90%）、**完全类型安全**（`InferInput`/`InferOutput` 双向推导）、**模块化的函数式 API**（每个能力都是独立小函数，用 `pipe()` 组合）。
@@ -22,7 +22,7 @@ Valibot 是由 **Fabian Hiller** 发起的开源 schema 校验库，官方一句
 - **完全类型安全**：一份 schema 同时给出运行时校验与静态类型，`InferInput`/`InferOutput` 区分输入/输出类型，避免「interface + 校验」双份维护
 - **零运行时依赖**：dependencies 为空，降低供应链风险与依赖膨胀
 - **函数式管道清晰**：`pipe(schema, ...actions)` 数据从左到右逐步处理，校验与转换可读、可组合、可复用
-- **API 表达力强**：丰富的 schema（`object`/`strictObject`/`looseObject`/`variant`/`lazy`…）与 action（`transform`/`brand`/`readonly`/`check`/`forward`…），覆盖递归、判别联合、跨字段校验
+- **API 表达力强**：丰富的 schema（`object`/`strictObject`/`looseObject`/`variant`/`lazy`…）、action（`transform`/`brand`/`readonly`/`check`…）与 `forward` 等 method，覆盖递归、判别联合、跨字段校验
 - **ESM + CommonJS 双格式**：同时提供 `.mjs`/`.cjs` 与对应类型声明，跨 Node / Deno / Bun / 浏览器
 - **生态与标准**：实现社区 **Standard Schema** 规范，可被 React Hook Form、TanStack Form 等通过 resolver 直接接入；官方提供 `@valibot/zod-to-valibot` codemod 从 Zod 迁移
 

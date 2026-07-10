@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 基础
 
-> 版本基线 **ts-pattern 5.x**。本篇把「会写 match」用到「懂模式语言」：集合模式（`P.array`/`P.set`/`P.record`）、组合模式（`P.union`/`P.not`/`P.optional`）、守卫 `P.when`，以及类型收窄的基本机制。
+> 版本基线 **ts-pattern 5.9.0**。本篇把「会写 match」用到「懂模式语言」：集合模式（`P.array`/`P.set`/`P.record`）、组合模式（`P.union`/`P.not`/`P.optional`）、守卫 `P.when`，以及类型收窄的基本机制。
+
+## 速查
+
+- 基线：ts-pattern `5.9.0`，零依赖、ESM / CommonJS 双入口、`sideEffects: false`
+- `match(value)` 自上而下短路，第一个命中的 `.with()` 胜出；具体模式应放在宽模式之前
+- 对象模式只要求列出的键匹配，输入可以含额外属性；命中后 handler 参数会按结构收窄
+- 集合：`P.array(sub)` / `P.set(sub)` 校验所有元素，`P.record(key, value)` 校验动态键值字典
+- 组合：`P.union` 是或、`P.intersection` 是与、`P.not` 是否定；组合越复杂越要保留明确兜底
+- `P.optional(sub)` 表示对象键可缺失；`P.nullish` 匹配值 `null | undefined`，两者不是同一语义
+- `P.when(predicate)` 是嵌入模式的守卫；`.when(predicate, handler)` 是 match 链上的独立分支
+- `.exhaustive()` 同时执行与检查穷尽性；开放类型无法列尽时用 `.otherwise()` 明确兜底
 
 ## 一、匹配是怎么进行的
 
@@ -23,16 +34,16 @@ outline: [2, 3]
 对象模式是结构性的：只校验你列出的键，输入可带额外属性。命中后 handler 参数被收窄：
 
 ```ts
-import { match, P } from 'ts-pattern';
+import { match, P } from "ts-pattern";
 
 type Shape =
-  | { kind: 'circle'; radius: number }
-  | { kind: 'rect'; width: number; height: number };
+  | { kind: "circle"; radius: number }
+  | { kind: "rect"; width: number; height: number };
 
 const area = (s: Shape) =>
   match(s)
-    .with({ kind: 'circle' }, (c) => Math.PI * c.radius ** 2)  // c: circle 成员
-    .with({ kind: 'rect' }, (r) => r.width * r.height)         // r: rect 成员
+    .with({ kind: "circle" }, (c) => Math.PI * c.radius ** 2) // c: circle 成员
+    .with({ kind: "rect" }, (r) => r.width * r.height) // r: rect 成员
     .exhaustive();
 ```
 
@@ -41,7 +52,7 @@ const area = (s: Shape) =>
 ## 三、集合模式
 
 ```ts
-import { match, P } from 'ts-pattern';
+import { match, P } from "ts-pattern";
 
 match(input)
   // 数组：每个元素都满足子模式
@@ -49,10 +60,10 @@ match(input)
   // 对象数组
   .with(P.array({ id: P.number }), (rows) => `共 ${rows.length} 行`)
   // 字典：所有键为 string、值为 number
-  .with(P.record(P.string, P.number), (scores) => '分数表')
+  .with(P.record(P.string, P.number), (scores) => "分数表")
   // Set
-  .with(P.set(P.string), () => '字符串集合')
-  .otherwise(() => '其它');
+  .with(P.set(P.string), () => "字符串集合")
+  .otherwise(() => "其它");
 ```
 
 - `P.array(sub)` 逐元素校验子模式，不限长度（含空数组）；省略 `sub` 则不约束元素。
@@ -61,15 +72,15 @@ match(input)
 ## 四、组合模式：union / not / intersection
 
 ```ts
-import { match, P } from 'ts-pattern';
+import { match, P } from "ts-pattern";
 
 match(input)
   // 或：命中任一即可
-  .with({ type: P.union('user', 'org') }, (x) => x.name)
+  .with({ type: P.union("user", "org") }, (x) => x.name)
   // 否定：非布尔值
   .with(P.not(P.boolean), (v) => v)
   // 与：既是 A 实例又有 foo === 'bar'
-  .with(P.intersection(P.instanceOf(A), { foo: 'bar' }), (a) => a.foo)
+  .with(P.intersection(P.instanceOf(A), { foo: "bar" }), (a) => a.foo)
   .otherwise(() => null);
 ```
 
@@ -82,7 +93,7 @@ match(input)
 `P.optional` 只在**对象属性**位置有意义——标记某键可缺失，存在则须满足子模式：
 
 ```ts
-import { match, P } from 'ts-pattern';
+import { match, P } from "ts-pattern";
 
 const f = (input: { key?: string }) =>
   match(input)
@@ -99,13 +110,13 @@ const f = (input: { key?: string }) =>
 结构和字面量表达不了的条件（如「大于 5」「长度为偶数」），用 `P.when(predicate)`：
 
 ```ts
-import { match, P } from 'ts-pattern';
+import { match, P } from "ts-pattern";
 
 const emoji = (input: { score: number }) =>
   match(input)
-    .with({ score: P.when((n) => n >= 90) }, () => '🏆')
-    .with({ score: P.when((n) => n < 60) }, () => '😞')
-    .otherwise(() => '🙂');
+    .with({ score: P.when((n) => n >= 90) }, () => "🏆")
+    .with({ score: P.when((n) => n < 60) }, () => "😞")
+    .otherwise(() => "🙂");
 ```
 
 谓词返回 `true` 才命中。若写成**类型守卫**（返回 `x is T`），命中分支里还会进一步收窄类型：

@@ -5,7 +5,7 @@ layout: doc
 # ts-pattern
 
 ::: tip 本篇范围
-本篇聚焦 **ts-pattern —— TypeScript 的类型安全模式匹配库**。它与 Zod / Valibot（运行时数据校验）、type-fest（类型工具）同属「让 TypeScript 更好用」的方向，但定位不同：ts-pattern 解决的是「**控制流**」——对已知类型的值做分支选择并收窄类型。版本基线 **ts-pattern 5.x**（5.9.0，`P.array` 变长元组、`P.string`/`P.number` 链式断言、`isMatching`、`P.infer` 等已稳定）。
+本篇聚焦 **ts-pattern —— TypeScript 的类型安全模式匹配库**。它与 Zod / Valibot（运行时数据校验）、type-fest（类型工具）同属「让 TypeScript 更好用」的方向，但定位不同：ts-pattern 主要解决「**控制流**」——对值做分支选择并收窄类型；`isMatching` 也能对 `unknown` 做布尔式结构守卫，但不提供 schema 库的错误树、转换与默认值。版本基线 **ts-pattern 5.9.0**。
 :::
 
 ts-pattern 由 Gabriel Vergnaud 创建，官方定位是「**The exhaustive Pattern Matching library for TypeScript**」。它把函数式语言里的「模式匹配（pattern matching）」带进 TypeScript：用一条 `match(value).with(pattern, handler).exhaustive()` 表达式，替代层层嵌套的 `if/else` 与 `switch`。核心卖点不是运行性能，而是**类型安全**——每个 `.with` 分支命中后，handler 拿到的值会被**精确收窄**到对应类型；末尾的 `.exhaustive()` 还能在**编译期**检查你是否漏掉了联合类型的某个分支，漏了就直接报类型错误。
@@ -32,7 +32,7 @@ ts-pattern 由 Gabriel Vergnaud 创建，官方定位是「**The exhaustive Patt
 - **学习曲线**：`P` 命名空间下模式众多，`P._` 与 `P.any`、`P.optional` 与 `P.nullish`、`.when` 与 `P.when` 等容易混淆，初学需要建立心智模型
 - **顺序敏感**：分支自上而下短路，把宽泛模式（`P._`、宽条件 `P.when`）写在前会「截胡」后续具体分支，需自觉把具体模式放前
 - **并非银弹**：对简单的单值判断，原生 `switch`/`if` 仍然合适，不必强行替换；它的价值集中在「复杂结构 + 需要穷尽保证」的场景
-- **运行时不做 schema 校验**：它处理「已知类型的值」，不验证「未知输入」——那是 Zod/Valibot 的职责，二者互补而非替代
+- **不是完整 schema 系统**：`isMatching` 可判断并收窄未知输入，但不提供结构化错误、转换、默认值、序列化等 schema 能力；复杂边界仍应配合 Zod/Valibot
 - **类型报错可能晦涩**：复杂模式不匹配时，TypeScript 给出的错误信息有时较长、定位需要经验
 
 ## 文档地址

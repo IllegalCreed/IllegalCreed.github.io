@@ -5,11 +5,11 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇带你装上 Zod 并写出第一段校验代码。版本基线 **Zod 4**（当前最新 4.4.x）。核心认知：**声明一次 schema，同时拿到运行时校验与静态类型**——这条贯穿全篇。涉及 v3 旧写法处会标注 ⚠️。
+> 本篇带你装上 Zod 并写出第一段校验代码。版本基线 **Zod 4.4.3**。核心认知：**声明一次 schema，同时拿到运行时校验与静态类型**——这条贯穿全篇。涉及 v3 旧写法处会标注 ⚠️。
 
 ## 速查
 
-- 安装（Node 18+）：`npm install zod`（pnpm `pnpm add zod`、yarn、bun 同理）
+- 安装：`npm install zod`（pnpm `pnpm add zod`、yarn、bun 同理）
 - 推荐导入：`import * as z from "zod"`，再用 `z.string()` / `z.object()` 调用
 - 定义：`const S = z.object({ name: z.string() })`；推类型：`type S = z.infer<typeof S>`
 - 校验：`S.parse(data)`（失败抛 `ZodError`）/ `S.safeParse(data)`（返回结果对象，不抛）
@@ -31,14 +31,14 @@ outline: [2, 3]
 ## 二、安装
 
 ```bash
-# Node.js（18 及以上）
+# Node.js / 前端工程
 npm install zod
 pnpm add zod
 yarn add zod
 bun add zod
 ```
 
-Zod **自带 TypeScript 类型**、零运行时依赖，同时提供 ESM 与 CommonJS 产物。建议在 `tsconfig.json` 开启 `strict` 模式，以获得正确的类型推导。
+Zod **自带 TypeScript 类型**、零运行时依赖，同时提供 ESM 与 CommonJS 产物。Zod 4 官方测试 TypeScript **5.5 及以上**，并要求在 `tsconfig.json` 开启 `strict` 模式。
 
 ## 三、导入方式
 
@@ -53,7 +53,7 @@ const NameSchema = z.string();
 也可以具名导入：
 
 ```ts
-import { string, object, infer } from "zod"; // 较少用，通配符更常见
+import { object, string } from "zod"; // 较少用，通配符更常见
 ```
 
 > Zod 4 还提供两个特殊入口：`zod/mini`（函数式、可摇树的极小变体）与 `zod/v4/core`（供库作者使用的稳定内核）。日常应用用 `"zod"` 即可，细节见[专家篇](./guide-line/expert)。
@@ -65,7 +65,7 @@ import * as z from "zod";
 
 // 1. 定义 schema
 const LoginSchema = z.object({
-  email: z.email("邮箱格式不正确"),          // v4：顶层 z.email()
+  email: z.email("邮箱格式不正确"), // v4：顶层 z.email()
   password: z.string().min(8, "密码至少 8 位"),
 });
 
@@ -97,7 +97,7 @@ try {
 // 方式 B：safeParse —— 返回判别联合，不抛异常
 const result = LoginSchema.safeParse(data);
 if (result.success) {
-  console.log(result.data);  // 校验后的值（带推导类型）
+  console.log(result.data); // 校验后的值（带推导类型）
 } else {
   console.log(result.error); // ZodError
 }
@@ -110,24 +110,23 @@ if (result.success) {
 如果 schema 里用到 **async** 的 `refine` 或 `transform`（如查库验证唯一性），同步 `parse` 会抛错要求改用异步方法：
 
 ```ts
-const UsernameSchema = z.string().refine(
-  async (name) => await isAvailable(name),
-  { error: "用户名已被占用" }
-);
+const UsernameSchema = z
+  .string()
+  .refine(async (name) => await isAvailable(name), { error: "用户名已被占用" });
 
 const r = await UsernameSchema.safeParseAsync("alice"); // 必须 async
 ```
 
 ## 七、v3 → v4 关键差异一览
 
-| 主题 | Zod 3 | Zod 4 |
-|---|---|---|
-| 邮箱格式 | `z.string().email()` | `z.email()`（顶层函数） |
-| 错误消息 | `{ message: "..." }` | `{ error: "..." }`（统一） |
-| 必填/类型错 | `invalid_type_error` / `required_error` | 统一进 `error`（函数形式按 `issue.input` 区分） |
-| 错误格式化 | `error.format()` / `error.flatten()` | `z.treeifyError()` / `z.flattenError()` / `z.prettifyError()` |
-| 记录类型 | `z.record(valueSchema)`（单参） | `z.record(keySchema, valueSchema)`（必须两参） |
-| JSON Schema | 需第三方 `zod-to-json-schema` | 内置 `z.toJSONSchema()` |
+| 主题        | Zod 3                                   | Zod 4                                                         |
+| ----------- | --------------------------------------- | ------------------------------------------------------------- |
+| 邮箱格式    | `z.string().email()`                    | `z.email()`（顶层函数）                                       |
+| 错误消息    | `{ message: "..." }`                    | `{ error: "..." }`（统一）                                    |
+| 必填/类型错 | `invalid_type_error` / `required_error` | 统一进 `error`（函数形式按 `issue.input` 区分）               |
+| 错误格式化  | `error.format()` / `error.flatten()`    | `z.treeifyError()` / `z.flattenError()` / `z.prettifyError()` |
+| 记录类型    | `z.record(valueSchema)`（单参）         | `z.record(keySchema, valueSchema)`（必须两参）                |
+| JSON Schema | 需第三方 `zod-to-json-schema`           | 内置 `z.toJSONSchema()`                                       |
 
 第一步迁移：把链式 `.email()`/`.url()`/`.uuid()` 改成顶层 `z.email()` 等，把 `{ message }` 改成 `{ error }`，把 `error.format()` 改成 `z.treeifyError(error)`。完整迁移见[专家篇](./guide-line/expert)。
 

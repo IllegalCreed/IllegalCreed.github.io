@@ -5,27 +5,38 @@ outline: [2, 3]
 
 # 指南 · 专家
 
-> 版本基线 **Zod 4**。深入：v3 → v4 完整迁移、Zod Mini 与 tree-shaking、`z.toJSONSchema` 与元数据注册表、品牌类型、全局错误与 i18n、不可变性、库作者最佳实践。
+> 版本基线 **Zod 4.4.3**。深入：v3 → v4 完整迁移、Zod Mini 与 tree-shaking、`z.toJSONSchema` 与元数据注册表、品牌类型、全局错误与 i18n、不可变性、库作者最佳实践。
+
+## 速查
+
+- v3 → v4 先处理已移除项：`invalid_type_error` / `required_error`、字符串 `.ip()`、`z.record` 单参和 `error.errors`
+- Zod Mini 共享 `zod/v4/core`，以函数式 API 换取更好的 tree-shaking；Classic 与 Mini 的选择应以真实构建产物为准
+- `z.toJSONSchema()` 默认输出 Draft 2020-12；Date、Map、transform 等不可表达项默认抛错，可显式设 `unrepresentable: "any"`
+- `.meta()` 绑定到具体 schema 实例；后续不可变链式调用会产生新实例，元数据不会自动跟随
+- `.brand<"Name">()` 只改变静态类型，不改变运行时值；可信品牌值仍应由 parse 产生
+- 错误优先级：schema 级 → 单次 parse → 全局 `customError` → locale
+- 库作者同时接 Classic / Mini 时依赖 `zod/v4/core`；只需黑盒校验时优先面向 Standard Schema
+- `z.codec(input, output, { decode, encode })` 表达可逆双向转换；普通 transform 仍是单向的
 
 ## 一、v3 → v4 完整迁移清单
 
-| 主题 | Zod 3 | Zod 4 |
-|---|---|---|
-| 错误定制 | `message` / `invalid_type_error` / `required_error` / `errorMap` | 统一为单个 `error`（字符串或 `(issue)=>...`） |
-| 字符串格式 | `z.string().email()` `.url()` `.uuid()` | 顶层 `z.email()` `z.url()` `z.uuid()` |
-| IP / CIDR | `z.string().ip()` `.cidr()` | `z.ipv4()` `z.ipv6()` `z.cidrv4()` `z.cidrv6()`（旧的已移除） |
-| 枚举 | `z.nativeEnum(E)` | `z.enum(E)`（重载支持 TS enum） |
-| 错误格式化 | `error.format()` / `error.flatten()` | `z.treeifyError()` / `z.flattenError()` / `z.prettifyError()` |
-| 错误明细字段 | `error.errors` | `error.issues`（`errors` 已移除） |
-| 全局错误 | `z.setErrorMap(map)` | `z.config({ customError })` |
-| 默认值 | `.default()` 解析默认值 | `.default()` 短路（值匹配输出类型）；旧行为用 `.prefault()` |
-| 记录 | `z.record(value)`（单参） | `z.record(key, value)`（必须两参） |
-| 函数 | `z.function()` 返回 schema | `z.function({input,output})` 返回工厂，用 `.implement()` |
-| 对象合并 | `A.merge(B)` | `A.extend(B.shape)`（merge 已弃用） |
-| 严格/透传 | `.strict()` / `.passthrough()` | `z.strictObject()` / `z.looseObject()` |
-| 非空数组 | `.nonempty()` → `[T,...T[]]` | `.nonempty()` ≈ `.min(1)`，类型仍 `T[]` |
-| JSON Schema | 第三方 `zod-to-json-schema` | 内置 `z.toJSONSchema()` |
-| 内部定义 | `schema._def` | `schema._zod.def`（库作者） |
+| 主题         | Zod 3                                                            | Zod 4                                                         |
+| ------------ | ---------------------------------------------------------------- | ------------------------------------------------------------- |
+| 错误定制     | `message` / `invalid_type_error` / `required_error` / `errorMap` | 统一为单个 `error`（字符串或 `(issue)=>...`）                 |
+| 字符串格式   | `z.string().email()` `.url()` `.uuid()`                          | 顶层 `z.email()` `z.url()` `z.uuid()`                         |
+| IP / CIDR    | `z.string().ip()` `.cidr()`                                      | `z.ipv4()` `z.ipv6()` `z.cidrv4()` `z.cidrv6()`（旧的已移除） |
+| 枚举         | `z.nativeEnum(E)`                                                | `z.enum(E)`（重载支持 TS enum）                               |
+| 错误格式化   | `error.format()` / `error.flatten()`                             | `z.treeifyError()` / `z.flattenError()` / `z.prettifyError()` |
+| 错误明细字段 | `error.errors`                                                   | `error.issues`（`errors` 已移除）                             |
+| 全局错误     | `z.setErrorMap(map)`                                             | `z.config({ customError })`                                   |
+| 默认值       | `.default()` 解析默认值                                          | `.default()` 短路（值匹配输出类型）；旧行为用 `.prefault()`   |
+| 记录         | `z.record(value)`（单参）                                        | `z.record(key, value)`（必须两参）                            |
+| 函数         | `z.function()` 返回 schema                                       | `z.function({input,output})` 返回工厂，用 `.implement()`      |
+| 对象合并     | `A.merge(B)`                                                     | `A.extend(B.shape)`（merge 已弃用）                           |
+| 严格/透传    | `.strict()` / `.passthrough()`                                   | `z.strictObject()` / `z.looseObject()`                        |
+| 非空数组     | `.nonempty()` → `[T,...T[]]`                                     | `.nonempty()` ≈ `.min(1)`，类型仍 `T[]`                       |
+| JSON Schema  | 第三方 `zod-to-json-schema`                                      | 内置 `z.toJSONSchema()`                                       |
+| 内部定义     | `schema._def`                                                    | `schema._zod.def`（库作者）                                   |
 
 > 多数旧 API 在 v4 仍**兼容但弃用**（编辑器有删除线提示），可渐进迁移；少数（`invalid_type_error`、`.ip()`、`z.record` 单参、`error.errors`）已直接移除，需立即改。
 
@@ -40,7 +51,7 @@ import * as z from "zod/mini";
 // Mini:
 z.optional(z.string().check(z.minLength(5)));
 
-z.union([z.string(), z.number()]);   // 函数式组合
+z.union([z.string(), z.number()]); // 函数式组合
 ```
 
 - Classic 把方法挂在类上，未用到的功能当前打包器**难以摇掉**；Mini 每个能力是独立函数，只打进实际 import 的部分。
@@ -84,12 +95,14 @@ myReg.add(z.string(), { examples: ["hello", "world"] });
 `.brand<"X">()` 在**编译期**给值打标记，模拟名义类型——结构相同但语义不同的值（如 `UserId` 与普通 `string`）不可混用：
 
 ```ts
-const UserId = z.string().uuid().brand<"UserId">();
+const UserId = z.uuid().brand<"UserId">();
 type UserId = z.infer<typeof UserId>; // string & z.$brand<"UserId">
 
-function load(id: UserId) { /* ... */ }
-load("any-string");          // ❌ 类型错误
-load(UserId.parse(input));   // ✅ 必须经校验产出
+function load(id: UserId) {
+  /* ... */
+}
+load("any-string"); // ❌ 类型错误
+load(UserId.parse(input)); // ✅ 必须经校验产出
 ```
 
 运行时不改变值，纯类型层面增强区分度，防止「把任意 string 误当 ID」。
@@ -117,7 +130,7 @@ Zod schema **不可变**：每个方法返回新实例，原 schema 不变。
 
 ```ts
 const a = z.string();
-const b = a.min(5);   // a 仍无约束，b 才带约束
+const b = a.min(5); // a 仍无约束，b 才带约束
 ```
 
 在 `transform`/`superRefine` 里报告失败用结构化 issue，而非 throw：
@@ -134,6 +147,22 @@ const b = a.min(5);   // a 仍无约束，b 才带约束
 - **导入内核用 `"zod/v4/core"`**：它是「指向 Zod 4 的永久链接」，跨未来主版本稳定，且同时支撑 Classic 与 Mini；避免直接依赖 `"zod"`（随版本变）、`"zod/v4"`（仅 Classic）、`"zod/v4/mini"`（仅 Mini）。
 - **运行时区分版本**：检查 schema 上的 `_zod` 属性——只有 Zod 4 schema 有。
 - **黑盒校验考虑 Standard Schema**：若库只需「接受用户传入的 schema 做校验」，面向 **Standard Schema** 接口编程即可同时兼容 Zod / Valibot / ArkType，无需绑定 Zod。
+
+## 八、双向转换：codec
+
+普通 `transform` 只定义「输入 → 输出」，无法从输出安全还原输入。`z.codec` 同时声明输入 schema、输出 schema、`decode` 与 `encode`，适合日期、URL、字节序列等可逆边界：
+
+```ts
+const IsoDate = z.codec(z.iso.datetime(), z.date(), {
+  decode: (iso) => new Date(iso),
+  encode: (date) => date.toISOString(),
+});
+
+IsoDate.decode("2026-07-10T00:00:00.000Z"); // Date
+IsoDate.encode(new Date("2026-07-10T00:00:00.000Z")); // ISO string
+```
+
+`decode` 先校验输入、再校验输出；`encode` 反向执行并同样受两端 schema 约束。若转换本身不可逆，继续使用 `transform`，不要伪造 codec。
 
 ---
 

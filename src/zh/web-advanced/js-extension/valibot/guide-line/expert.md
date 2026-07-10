@@ -5,17 +5,28 @@ outline: [2, 3]
 
 # 指南 · 专家
 
-> 版本基线 **Valibot 1.x**（当前最新 1.4.1）。本篇讲原理与边界：体积/tree-shaking 真相、safeParse 的三态 `typed`、parser 预编译、brand 名义类型、命名约定、性能定位、从 Zod 迁移的取舍。
+> 版本基线 **Valibot 1.4.2**。本篇讲原理与边界：体积/tree-shaking 真相、safeParse 的三态 `typed`、可复用 parser、brand 名义类型、命名约定、性能定位、从 Zod 迁移的取舍。
+
+## 速查
+
+- 小体积来自模块化纯函数与 `sideEffects: false`；官方数字是特定登录 schema 和打包器的快照，不是所有项目的固定结果
+- `safeParse` 先看 `success`；`typed: true, success: false` 表示基础类型已成立但 pipeline 规则失败，`output` 仍可能存在
+- `v.parser(schema, config)` / `v.safeParser(...)` 只是固化参数并返回可复用函数，不会生成或预编译专用校验代码
+- `brand`、`readonly` 只增强输出类型语义；运行时数据仍必须经过 schema 解析才能可信
+- 通配符可写 `v.enum()` / `v.null()`；具名导入保留字 API 时使用 `enum_` / `null_` 等下划线导出
+- Valibot 优先包体与启动；官方口径是运行时约为 Zod v3 的两倍、与 Zod v4 接近，仍慢于代码生成路线
+- 官方 Zod codemod 仍是 beta；先用 `--dry` 预览，再人工复核默认值、转换、错误与生态集成
+- Valibot 实现 Standard Schema；接入框架时优先使用通用接口或官方 resolver，避免无必要地转成 Zod
 
 ## 一、体积优势的真相：tree-shaking
 
 Valibot 比 Zod 小，根因是**架构对打包器友好**，而非压缩魔法：
 
 - **独立函数**：每个能力是单独 export 的函数，你没 `import` 的就被 tree-shake 删掉。
-- **`sideEffects: false`**：v1.4.1 的 `package.json` 显式声明，告诉打包器可安全摇树。
+- **`sideEffects: false`**：v1.4.2 的 `package.json` 显式声明，告诉打包器可安全摇树。
 - **对比 Zod**：Zod 把功能做成对象/类上的方法。官方原话——这些带额外功能的方法，当前打包器在它们**未被调用时很难删除**，于是即便你没用 `.email()`，它也可能被打进产物。
 
-官方对比页给出的数字（仅一个 string+email 例子量级）：Valibot ≈ **1.37 kB**，标准 Zod ≈ 17.7 kB（约小 **90%**），Zod Mini ≈ 6.88 kB（约小 **73%**）。
+官方对比页给出的数字来自一份登录表单 schema：以 esbuild 为例，Valibot ≈ **1.37 kB**，标准 Zod ≈ 17.7 kB（约小 **90%**），Zod Mini ≈ 6.88 kB（约小 **73%**）。这是特定代码、版本与打包器的快照，项目结论应以自己的生产构建为准。
 
 > 注意：通配符导入 `import * as v` 与具名导入**摇树效果相同**，不必为体积刻意改写成具名导入。
 
@@ -37,7 +48,7 @@ Valibot 比 Zod 小，根因是**架构对打包器友好**，而非压缩魔法
 
 所以「输入是 string（类型对），但没通过 `minLength(8)`」时，`typed:true` 而 `success:false`，且 `output` 仍是那个字符串。日常判断用 `success` 即可；需要「类型已对、仅业务规则没过」这种细分时，`typed` 才派上用场。
 
-## 三、parser：预编译可复用解析器
+## 三、parser：固化参数的可复用解析函数
 
 ```ts
 // 把 schema + config 固化成一个解析函数
@@ -49,18 +60,20 @@ const safeParseUser = v.safeParser(UserSchema);
 safeParseUser(data); // 返回结果对象
 ```
 
-适合在模块边界导出「现成的解析器」，调用方只传 input，无需每次重复传 schema 与配置。
+`parser` 只是把 schema 与 config 固化进一个函数，适合在模块边界导出「现成的解析器」，调用方只传 input；它不会编译或生成一份更快的专用校验程序。
 
 ## 四、brand 与 readonly：名义类型
 
 结构相同但语义不同的值（`UserId` vs `PostId`）默认可互换，用 `brand` 在类型层面隔离：
 
 ```ts
-const UserId = v.pipe(v.string(), v.uuid(), v.brand('UserId'));
+const UserId = v.pipe(v.string(), v.uuid(), v.brand("UserId"));
 type UserId = v.InferOutput<typeof UserId>; // string & Brand<'UserId'>
 
-function getUser(id: UserId) { /* ... */ }
-getUser('随便一个 uuid 字符串'); // ❌ 类型错误：缺少品牌
+function getUser(id: UserId) {
+  /* ... */
+}
+getUser("随便一个 uuid 字符串"); // ❌ 类型错误：缺少品牌
 getUser(v.parse(UserId, uuid)); // ✅
 ```
 
@@ -88,7 +101,7 @@ import { enum } from 'valibot';         // ❌ 语法错误：enum 是保留字
 
 ## 六、性能定位：有意的取舍
 
-官方对比页坦诚 Valibot 运行时速度处于「**中游**」：约为 Zod v3 的 **2 倍**，但**明显慢于** Typia、TypeBox——后者用编译器生成优化代码或用 `Function` 构造器，Valibot 都不用。它换来的是：
+官方对比页坦诚 Valibot 运行时速度处于「**中游**」：约为 Zod v3 的 **2 倍**、与 Zod v4（含 Mini）接近，但**明显慢于** Typia、TypeBox——后者用编译器生成优化代码或用 `Function` 构造器，Valibot 都不用。它换来的是：
 
 - **极小 bundle**（更小传输、更快下载）；
 - **极快启动**（初始化开销低）。
@@ -99,21 +112,21 @@ import { enum } from 'valibot';         // ❌ 语法错误：enum 是保留字
 
 核心 API 映射：
 
-| Zod | Valibot |
-|---|---|
-| `z.string().email().min(5)` | `v.pipe(v.string(), v.email(), v.minLength(5))` |
-| `z.infer` / `z.input` | `v.InferOutput` / `v.InferInput` |
-| `Schema.parse/safeParse` | `v.parse/safeParse(Schema, ...)` |
-| `.optional()` / `.nullable()` | `v.optional(...)` / `v.nullable(...)` |
-| `z.enum([...])` | `v.picklist([...])` |
-| `z.nativeEnum(E)` | `v.enum(E)`（即 `enum_`） |
-| `z.or` / `z.and` | `v.union` / `v.intersect` |
-| `.refine()` | `v.check()` / `v.forward(v.partialCheck(...))` |
-| `.catch()` | `v.fallback()` |
-| `.strict()` / `.passthrough()` | `v.strictObject()` / `v.looseObject()` |
-| `z.discriminatedUnion` | `v.variant()` |
+| Zod                            | Valibot                                         |
+| ------------------------------ | ----------------------------------------------- |
+| `z.string().email().min(5)`    | `v.pipe(v.string(), v.email(), v.minLength(5))` |
+| `z.infer` / `z.input`          | `v.InferOutput` / `v.InferInput`                |
+| `Schema.parse/safeParse`       | `v.parse/safeParse(Schema, ...)`                |
+| `.optional()` / `.nullable()`  | `v.optional(...)` / `v.nullable(...)`           |
+| `z.enum([...])`                | `v.picklist([...])`                             |
+| `z.nativeEnum(E)`              | `v.enum(E)`（即 `enum_`）                       |
+| `z.or` / `z.and`               | `v.union` / `v.intersect`                       |
+| `.refine()`                    | `v.check()` / `v.forward(v.partialCheck(...))`  |
+| `.catch()`                     | `v.fallback()`                                  |
+| `.strict()` / `.passthrough()` | `v.strictObject()` / `v.looseObject()`          |
+| `z.discriminatedUnion`         | `v.variant()`                                   |
 
-自动化：`npx @valibot/zod-to-valibot` 官方 codemod 能转写大部分写法（方法链转 pipe、`z.`→`v.`、重命名），边缘/复杂用法仍需人工核对。
+自动化：`npx @valibot/zod-to-valibot src/**/* --dry` 可先预览官方 codemod 的转写结果（方法链转 pipe、`z.`→`v.`、重命名）。该工具仍为 beta，边缘/复杂用法必须人工核对后再应用。
 
 **何时该迁**：包体敏感（前端 SDK、组件库、边缘函数）、想要 `InferInput`/`InferOutput` 的细粒度类型、偏好函数式组合时，Valibot 很合适。**何时可不迁**：已深度使用 Zod 生态插件、团队更习惯方法链、服务端追求极致运行时速度时，迁移收益有限。
 
