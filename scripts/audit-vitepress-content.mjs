@@ -3,10 +3,13 @@ import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const websiteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const websiteRoot = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "..",
+);
 const srcRoot = path.join(websiteRoot, "src", "zh");
 const defaultReportPath =
-  "/Users/zhangxu/illegal/quiz-monorepo/docs/plans/20260709-vitepress-full-audit-and-quiz-link.md";
+  "/Users/zhangxu/illegal/quiz-monorepo/docs/audits/20260710-vitepress-content-baseline.md";
 const args = new Set(process.argv.slice(2));
 
 function toPosix(filePath) {
@@ -15,6 +18,17 @@ function toPosix(filePath) {
 
 function relativePath(filePath) {
   return toPosix(path.relative(websiteRoot, filePath));
+}
+
+/**
+ * 将 Markdown 文件转换为 VitePress cleanUrls 路由。
+ */
+function pageRoute(fileRel) {
+  const sourceRel = fileRel.replace(/^src\//, "");
+  if (sourceRel.endsWith("/index.md")) {
+    return `/${sourceRel.slice(0, -"index.md".length)}`;
+  }
+  return `/${sourceRel.replace(/\.md$/, "")}`;
 }
 
 async function listMarkdownFiles(dir) {
@@ -62,7 +76,8 @@ function getQuickCheckStatus(text) {
   while (index < lines.length && lines[index].trim() === "") index += 1;
 
   if (lines[index]?.trim().startsWith(">")) {
-    while (index < lines.length && lines[index].trim().startsWith(">")) index += 1;
+    while (index < lines.length && lines[index].trim().startsWith(">"))
+      index += 1;
     while (index < lines.length && lines[index].trim() === "") index += 1;
   }
 
@@ -82,7 +97,9 @@ function countByBucket(items, key = "file") {
     const current = counts.get(bucket) ?? 0;
     counts.set(bucket, current + 1);
   }
-  return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  return [...counts.entries()].sort(
+    (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]),
+  );
 }
 
 function markdownTable(headers, rows) {
@@ -109,15 +126,22 @@ async function audit() {
     const hasDocLink = hasHeading(text, "文档地址");
     const hasSlideLink = hasHeading(text, "幻灯片地址");
     const hasQuizLink = hasHeading(text, "测试题");
-    const quizHrefMatch = text.match(/https:\/\/quiz\.illegalscreed\.cn\/\?category=([^"'\s)]+)/);
+    const slideHrefMatch = text.match(/(\/SlideStack\/([^\/"'\s)]+)\/?)/);
+    const quizHrefMatch = text.match(
+      /(https:\/\/quiz\.illegalscreed\.cn\/\?category=([^"'\s)]+))/,
+    );
     pages.push({
       file,
+      route: pageRoute(file),
       title: getTitle(text, file),
       isIndex,
       hasDocLink,
       hasSlideLink,
       hasQuizLink,
-      quizCategory: quizHrefMatch?.[1] ?? null,
+      slideHref: slideHrefMatch?.[1] ?? null,
+      slidePackage: slideHrefMatch?.[2] ?? null,
+      quizHref: quizHrefMatch?.[1] ?? null,
+      quizCategory: quizHrefMatch?.[2] ?? null,
       quickCheckStatus: isIndex ? "index" : getQuickCheckStatus(text),
     });
   }
@@ -127,10 +151,18 @@ async function audit() {
   const techIndexPages = indexPages.filter(
     (page) => page.hasDocLink || page.hasSlideLink || page.hasQuizLink,
   );
-  const pagesExpectingQuiz = techIndexPages.filter((page) => page.hasDocLink || page.hasSlideLink);
-  const missingQuickCheck = contentPages.filter((page) => page.quickCheckStatus === "missing");
-  const misplacedQuickCheck = contentPages.filter((page) => page.quickCheckStatus === "misplaced");
-  const missingQuizLink = pagesExpectingQuiz.filter((page) => !page.hasQuizLink);
+  const pagesExpectingQuiz = techIndexPages.filter(
+    (page) => page.hasDocLink || page.hasSlideLink,
+  );
+  const missingQuickCheck = contentPages.filter(
+    (page) => page.quickCheckStatus === "missing",
+  );
+  const misplacedQuickCheck = contentPages.filter(
+    (page) => page.quickCheckStatus === "misplaced",
+  );
+  const missingQuizLink = pagesExpectingQuiz.filter(
+    (page) => !page.hasQuizLink,
+  );
   const invalidQuizLink = pagesExpectingQuiz.filter(
     (page) => page.hasQuizLink && !page.quizCategory,
   );
@@ -146,13 +178,16 @@ async function audit() {
       slideLinks: techIndexPages.filter((page) => page.hasSlideLink).length,
       quizLinks: techIndexPages.filter((page) => page.hasQuizLink).length,
       expectedQuizLinks: pagesExpectingQuiz.length,
-      quickCheckOk: contentPages.filter((page) => page.quickCheckStatus === "ok").length,
+      quickCheckOk: contentPages.filter(
+        (page) => page.quickCheckStatus === "ok",
+      ).length,
       missingQuickCheck: missingQuickCheck.length,
       misplacedQuickCheck: misplacedQuickCheck.length,
       missingQuizLink: missingQuizLink.length,
       invalidQuizLink: invalidQuizLink.length,
     },
     pages,
+    techIndexPages,
     missingQuickCheck,
     misplacedQuickCheck,
     missingQuizLink,
@@ -161,19 +196,39 @@ async function audit() {
 }
 
 function renderReport(result) {
-  const quickRows = countByBucket(result.pages.filter((page) => !page.isIndex)).map(
-    ([bucket, total]) => {
-      const pages = result.pages.filter((page) => !page.isIndex && sectionBucket(page.file) === bucket);
-      const missing = pages.filter((page) => page.quickCheckStatus === "missing").length;
-      const misplaced = pages.filter((page) => page.quickCheckStatus === "misplaced").length;
-      return [bucket, String(total), String(total - missing - misplaced), String(missing), String(misplaced)];
-    },
-  );
+  const quickRows = countByBucket(
+    result.pages.filter((page) => !page.isIndex),
+  ).map(([bucket, total]) => {
+    const pages = result.pages.filter(
+      (page) => !page.isIndex && sectionBucket(page.file) === bucket,
+    );
+    const missing = pages.filter(
+      (page) => page.quickCheckStatus === "missing",
+    ).length;
+    const misplaced = pages.filter(
+      (page) => page.quickCheckStatus === "misplaced",
+    ).length;
+    return [
+      bucket,
+      String(total),
+      String(total - missing - misplaced),
+      String(missing),
+      String(misplaced),
+    ];
+  });
 
-  const techRows = countByBucket(result.pages.filter((page) => page.isIndex)).map(([bucket]) => {
-    const pages = result.pages.filter((page) => page.isIndex && sectionBucket(page.file) === bucket);
-    const techPages = pages.filter((page) => page.hasDocLink || page.hasSlideLink || page.hasQuizLink);
-    const expectedQuiz = techPages.filter((page) => page.hasDocLink || page.hasSlideLink);
+  const techRows = countByBucket(
+    result.pages.filter((page) => page.isIndex),
+  ).map(([bucket]) => {
+    const pages = result.pages.filter(
+      (page) => page.isIndex && sectionBucket(page.file) === bucket,
+    );
+    const techPages = pages.filter(
+      (page) => page.hasDocLink || page.hasSlideLink || page.hasQuizLink,
+    );
+    const expectedQuiz = techPages.filter(
+      (page) => page.hasDocLink || page.hasSlideLink,
+    );
     return [
       bucket,
       String(techPages.length),
@@ -237,7 +292,8 @@ ${formatPathList(result.invalidQuizLink)}
 const result = await audit();
 
 if (args.has("--write-report")) {
-  const reportPath = process.env.VITEPRESS_AUDIT_REPORT_PATH ?? defaultReportPath;
+  const reportPath =
+    process.env.VITEPRESS_AUDIT_REPORT_PATH ?? defaultReportPath;
   await writeFile(reportPath, renderReport(result));
   console.log(`Wrote ${reportPath}`);
 }
