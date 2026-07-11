@@ -1583,8 +1583,44 @@ export default defineConfig({
                       { text: "参考", link: "/zh/web-advanced/web-api/indexeddb/reference" },
                     ],
                   },
-                  { text: "Web Workers API" },
-                  { text: "Service Worker 与 PWA" },
+                  {
+                    text: "Web Workers API",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/web-workers/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/web-workers/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "专用 Worker", link: "/zh/web-advanced/web-api/web-workers/guide-line/dedicated-worker" },
+                          { text: "共享 Worker", link: "/zh/web-advanced/web-api/web-workers/guide-line/shared-worker" },
+                          { text: "数据传输与 OffscreenCanvas", link: "/zh/web-advanced/web-api/web-workers/guide-line/transfer-offscreen" },
+                          { text: "工程模式与 Comlink", link: "/zh/web-advanced/web-api/web-workers/guide-line/patterns-comlink" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/web-workers/reference" },
+                    ],
+                  },
+                  {
+                    text: "Service Worker 与 PWA",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/service-worker-pwa/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/service-worker-pwa/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "生命周期与更新模型", link: "/zh/web-advanced/web-api/service-worker-pwa/guide-line/lifecycle" },
+                          { text: "fetch 拦截与离线", link: "/zh/web-advanced/web-api/service-worker-pwa/guide-line/fetch-offline" },
+                          { text: "推送、通知与后台同步", link: "/zh/web-advanced/web-api/service-worker-pwa/guide-line/push-notification-sync" },
+                          { text: "Manifest 与安装", link: "/zh/web-advanced/web-api/service-worker-pwa/guide-line/manifest-install" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/service-worker-pwa/reference" },
+                    ],
+                  },
                   { text: "Streams API" },
                   { text: "Observer 观察器 API" },
                   { text: "History 与 Navigation API" },
