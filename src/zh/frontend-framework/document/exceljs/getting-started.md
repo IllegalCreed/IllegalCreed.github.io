@@ -5,7 +5,7 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇讲 **ExcelJS 的基本读写**：创建工作簿、加工作表/列/行、写单元格、读已有文件、浏览器导出。版本基线 **ExcelJS 4.x**（latest `4.4.0`）。样式细节见[指南 · 基础](./guide-line/base)，流式/保护见[指南 · 进阶](./guide-line/advanced)与[专家](./guide-line/expert)。
+> 本篇讲 **ExcelJS 的基本读写**：创建工作簿、加工作表/列/行、写单元格、读已有文件、浏览器导出。版本基线 **ExcelJS 4.4.0**。样式细节见[指南 · 基础](./guide-line/base)，流式/保护见[指南 · 进阶](./guide-line/advanced)与[专家](./guide-line/expert)。
 
 ## 速查
 
@@ -18,6 +18,7 @@ outline: [2, 3]
 - 写文件（Node）：`await workbook.xlsx.writeFile('out.xlsx')`
 - 读文件（Node）：`await workbook.xlsx.readFile('data.xlsx')`
 - 浏览器导出：`const buf = await workbook.xlsx.writeBuffer()` → `new Blob([buf])` → 下载
+- 浏览器构建只支持普通 `Workbook`；`stream.xlsx.WorkbookReader/Writer` 是 Node 专用
 - ⚠️ 颜色用 ARGB 对象 `{ argb: 'FFFF0000' }`（首两位是透明度）
 - ⚠️ 纯色填充看 `fgColor`，不是 `bgColor`
 

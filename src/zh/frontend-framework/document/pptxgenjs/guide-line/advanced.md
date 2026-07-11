@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **4.0.1**。把 PptxGenJS 用进真实场景：图表全家桶与组合图、批量生成多页报告、浏览器导出下载、Node 服务端把 pptx 作为 HTTP 响应、媒体嵌入、超链接与节、HTML 表格转幻灯片。
 
+## 速查
+
+- 图表数据：`[{ name, labels, values }]`；组合图把 `{ type, data, options }[]` 作为首参
+- 批量报告：循环内部每条数据都调用一次 `pres.addSlide()`
+- 浏览器下载：`await pres.writeFile({ fileName, compression? })`
+- Node 响应：`await pres.write({ outputType:'nodebuffer' })` 后直接 `res.send(buffer)`
+- `pres.stream()` 在 4.0.1 也返回 Buffer，不是可 `pipe()` 的 `Readable`
+- 媒体：`addMedia({ type:'video'|'audio'|'online', ... })`
+- 链接：`hyperlink:{ url }` 或 `hyperlink:{ slide:N }`
+- HTML 表格：浏览器中 `pres.tableToSlides(elementId)`；同步返回 `void` 并自动建页
+
 ## 一、图表：类型、数据与选项
 
 ```ts
@@ -122,7 +133,7 @@ app.get('/report', async (req, res) => {
 });
 ```
 
-> 服务端取 `'nodebuffer'`（不是浏览器的 `'blob'`）。也可用 `pres.stream()` 流式输出。
+> 服务端取 `'nodebuffer'`（不是浏览器的 `'blob'`）。`pres.stream()` 在 `4.0.1` 的 Node 发布包中也会一次性生成并返回 `Buffer`，**不是** Node `Readable`，不要直接调用 `.pipe()`；需要流接口时可用 `Readable.from([buf])` 包装。
 
 ## 七、媒体：音视频与 YouTube
 
@@ -191,4 +202,4 @@ slide.addTable(longRows, {
 
 ---
 
-进入 [指南 · 专家](./guide-line/expert)：母版与占位符深入、输出形态与压缩、只生成不解析的边界与 pptx-automizer、性能与大文件、与 docx/SheetJS 等同类库的取舍。
+进入 [指南 · 专家](./expert)：母版与占位符深入、输出形态与压缩、只生成不解析的边界与 pptx-automizer、性能与大文件、与 docx/SheetJS 等同类库的取舍。

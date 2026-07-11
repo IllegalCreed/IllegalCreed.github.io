@@ -18,6 +18,7 @@ outline: [2, 3]
 - 加字：`slide.addText('Hello', { x: 1, y: 1, w: 8, h: 1, fontSize: 24, color: '0088CC' })`
 - 落地（Node 写盘 / 浏览器下载）：`await pres.writeFile({ fileName: 'out.pptx' })`
 - 拿数据：`const b64 = await pres.write({ outputType: 'base64' })`
+- `4.0.1` 调用 `writeFile` 时应显式传 `{ fileName }`；无参调用存在运行时缺陷
 - ⚠️ 颜色无 `#`（`'0088CC'`，不是 `'#0088CC'`）；输出全是 Promise，记得 `await`
 
 ## 一、PptxGenJS 是什么
@@ -94,6 +95,10 @@ await pres.writeFile({ fileName: 'hello.pptx' });
 ```
 
 > `writeFile` 是**环境自适应**的：Node 里写入磁盘，浏览器里自动触发下载——你不必手动拼 Blob。
+
+::: warning 4.0.1 的无参 writeFile
+类型声明和部分官方示例把参数标成可选，但发布包 `4.0.1` 的运行时代码会直接读取 `props.fileName`；`pres.writeFile()` 无参调用会抛错。请始终传入对象，例如 `await pres.writeFile({ fileName: 'Presentation.pptx' })`。
+:::
 
 ## 五、坐标与颜色：两条必记规则
 

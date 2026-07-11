@@ -7,12 +7,23 @@ outline: [2, 3]
 
 > SheetJS（`xlsx`）常用 API、读写选项、单元格/工作表字段与 `utils` 速查。版本基线 **0.20.3**。
 
+## 速查
+
+- 内存读写：`XLSX.read(data, opts)` / `XLSX.write(wb, { bookType, type })`
+- 文件读写：`XLSX.readFile(path)` / `XLSX.writeFile(wb, path)`；Node ESM 先执行 `XLSX.set_fs(fs)`
+- 常用转换：`sheet_to_json` / `json_to_sheet` / `aoa_to_sheet` / `sheet_add_json`
+- `sheet_to_json` 默认 `raw:true`；`header:1` 返回二维数组；`defval` 补齐空值
+- `json_to_sheet(..., { header })` 的 `header` 只控制列顺序，**不会过滤**对象中的其他字段
+- 大表解析：`sheetRows` 限行、`sheets` 选表、`dense:true` 使用 `!data` 二维数组
+- 社区版 `password` 只支持 **XOR 加密的旧式 XLS**；AES-CBC XLSX/XLSM/XLSB 等需 Pro
+- 官方安装：`https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz`
+
 ## 一、顶层 I/O 函数
 
 | 函数 | 作用 | 备注 |
 |---|---|---|
 | `XLSX.read(data, opts)` | 解析内存中的数据 → workbook | 需 `type` 声明数据形态；浏览器/通用 |
-| `XLSX.readFile(path, opts)` | 从磁盘读取 → workbook | **仅 Node** |
+| `XLSX.readFile(path, opts)` | 从本地文件读取 → workbook | 浏览器不可用；Node ESM 先 `XLSX.set_fs(fs)` |
 | `XLSX.write(wb, opts)` | 生成文件数据（字节/字符串） | 需 `bookType` + `type`；不落地 |
 | `XLSX.writeFile(wb, name, opts)` | 生成并落地（Node 写盘 / 浏览器下载） | 按文件名后缀推断 `bookType` |
 | `XLSX.writeFileXLSX(wb, name, opts)` | 只写 xlsx 的精简变体 | 利于 tree-shaking 减小包体积 |
@@ -32,7 +43,7 @@ outline: [2, 3]
 | `sheets` | number/string/array | — | 只解析指定工作表 |
 | `dense` | boolean | `false` | 生成密集工作表（单元格存进 `!data`） |
 | `raw` | boolean | `false` | 纯文本格式下禁用值解析（保留原样字符串） |
-| `password` | string | `""` | 解密受保护的工作簿 |
+| `password` | string | `""` | CE 仅解密 XOR 加密的 XLS；其他加密方案会报错 |
 | `WTF` | boolean | `false` | 不抑制解析错误（调试用） |
 
 > `type` 取值：`array`=Uint8Array/ArrayBuffer 字节数组、`buffer`=Node Buffer、`base64`=Base64 串、`binary`=二进制字符串、`string`=UTF-8 文本（仅纯文本格式）、`file`=磁盘路径（仅 Node）。
@@ -78,6 +89,8 @@ outline: [2, 3]
 | `sheet_to_txt(ws)` | 表 → 文本 | 制表符分隔 |
 | `sheet_to_formulae(ws)` | 表 → 公式 | `['A1=42','B2=A1+1', ...]` |
 | `table_to_sheet(el)` / `table_to_book(el)` | DOM → 表/簿 | 把页面 `<table>` 转进来 |
+
+> `json_to_sheet(data, { header: ['b', 'a'] })` 会优先按 `b, a` 排列，但数据里出现的其他键仍会继续写出；`header` 是顺序提示，不是字段白名单。
 
 ### `sheet_to_json` 选项
 

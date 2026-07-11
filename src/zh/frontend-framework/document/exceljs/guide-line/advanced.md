@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **ExcelJS 4.x**。把样式能力延伸到「交互与富内容」：富文本、渐变填充、数据校验（下拉/区间）、条件格式、图片、冻结窗格、自动筛选、行的插入/删除/剪切。
+> 版本基线 **ExcelJS 4.4.0**。把样式能力延伸到「交互与富内容」：富文本、渐变填充、数据校验（下拉/区间）、条件格式、图片、冻结窗格、自动筛选、行的插入/删除/剪切。
+
+## 速查
+
+- 富文本：`cell.value = { richText:[{ text, font }] }`
+- 数据校验：`cell.dataValidation = { type, operator, formulae }`
+- 条件格式：`ws.addConditionalFormatting({ ref, rules })`
+- 图片：先 `workbook.addImage(...)` 得到 id，再 `ws.addImage(id, rangeOrAnchor)`
+- 冻结：`ws.views = [{ state:'frozen', xSplit, ySplit }]`
+- 筛选：`ws.autoFilter = 'A1:D1'`，它是属性而不是方法
+- 插入/删除：`insertRow` / `spliceRows` / `duplicateRow`
+- 边界：移动合并单元格的 `spliceRows/spliceColumns` 结果可能不可预测
 
 ## 一、富文本：一格多样式
 
@@ -115,6 +126,8 @@ ws.addConditionalFormatting({
   ],
 });
 ```
+
+> 这里是条件格式的 differential style（官方示例使用 `bgColor`）；普通单元格的纯色 `cell.fill` 仍使用 `fgColor`。两种序列化上下文不要机械混用。
 
 规则 `type` 可选：`expression` / `cellIs` / `top10` / `aboveAverage` / `colorScale` / `iconSet` / `dataBar` / `containsText` / `timePeriod`。
 

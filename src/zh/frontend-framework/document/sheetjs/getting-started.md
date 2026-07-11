@@ -11,6 +11,7 @@ outline: [2, 3]
 
 - 安装（Node，**官方推荐 CDN**）：`npm i --save https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz`
 - 导入：`import * as XLSX from 'xlsx'`（CJS：`const XLSX = require('xlsx')`）
+- Node ESM 文件读写：`import * as fs from 'node:fs'; XLSX.set_fs(fs)`（CJS 会自动绑定 `fs`）
 - 读（Node）：`const wb = XLSX.readFile('data.xlsx')`
 - 读（浏览器）：`const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' })`
 - 取第一个工作表：`const ws = wb.Sheets[wb.SheetNames[0]]`
@@ -63,7 +64,15 @@ XLSX.read(/* ... */);
 XLSX.utils.sheet_to_json(/* ... */);
 ```
 
-> 顶层有 `read`/`readFile`/`write`/`writeFile`/`writeFileXLSX`；数据转换工具都在 `XLSX.utils.*` 下。
+Node ESM 若要调用文件 API，再单独注入 `fs`（这段不要放进浏览器代码）：
+
+```ts
+import * as fs from 'node:fs';
+
+XLSX.set_fs(fs);
+```
+
+> 顶层有 `read`/`readFile`/`write`/`writeFile`/`writeFileXLSX`；数据转换工具都在 `XLSX.utils.*` 下。CommonJS 的 `require('xlsx')` 会自动载入 Node 文件系统，ESM 构建则要显式 `set_fs(fs)`；只处理内存数据的 `read`/`write` 不受影响。
 
 ## 四、第一次「读」
 

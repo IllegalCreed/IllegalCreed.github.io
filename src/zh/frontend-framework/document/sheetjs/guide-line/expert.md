@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **0.20.3**。深入边界与权衡：大文件性能与 Web Worker、dense 密集模式、加密/密码、公式不重算、社区版样式限制、`!merges`/`!cols` 等结构细节，以及与 ExcelJS 的选型。
 
+## 速查
+
+- 大文件：`sheetRows` / `sheets` 减少解析量，Web Worker 避免阻塞 UI
+- 密集模式：`dense:true` 后从 `ws['!data'][row][col]` 访问单元格
+- 加密边界：CE 只读 XOR 加密 XLS；现代 XLSX AES-CBC、较新 XLS 的 RC4 需 Pro
+- 公式：`f` 保存公式、`v` 保存缓存值；SheetJS 不提供计算引擎
+- CE 样式：可处理数据、数字格式和结构，但复杂视觉样式写出属于 Pro
+- Node ESM：文件系统先 `XLSX.set_fs(fs)`；流 API 先 `XLSX.stream.set_readable(Readable)`
+- 写出优化：`compression:true`；只写 XLSX 时用 `writeFileXLSX`
+- 发布源：公共 npm 的 `xlsx` 停在 0.18.5，0.20.3 从官方 CDN tarball 安装并建议 vendoring
+
 ## 一、大文件性能
 
 SheetJS 的解析是**同步、CPU 密集**操作，浏览器里直接 `read` 大文件会**阻塞主线程**卡 UI。组合手段：
@@ -35,13 +46,13 @@ const ws = wb.Sheets[wb.SheetNames[0]];
 const a1 = ws['!data'][0][0]; // 第 1 行第 1 列的单元格对象
 ```
 
-## 三、加密工作簿
+## 三、加密工作簿的边界
 
 ```ts
-const wb = XLSX.read(buf, { type: 'array', password: 'secret' });
+const wb = XLSX.read(legacyXlsBytes, { type: 'array', password: 'secret' });
 ```
 
-> 社区版支持常见的 ECMA-376 加密；文件加密却不传 `password` 会解析失败。
+> SheetJS CE 的 `password` **目前只支持 XOR 加密的 XLS 文件**。采用 AES-CBC 的 XLSX/XLSM/XLSB，以及采用 RC4 的较新 XLS，需要 SheetJS Pro；CE 遇到不支持的加密方案会直接抛错。这里的文件级加密也不同于 `ws['!protect']` 的工作表编辑保护。
 
 ## 四、公式：SheetJS 不重算
 
@@ -107,7 +118,22 @@ XLSX.writeFileXLSX(wb, 'out.xlsx', { compression: true });
 - 要**导出带丰富样式的报表** / **流式写超大 xlsx** → **ExcelJS**（或 SheetJS Pro）。
 - 简单读写 + 跨格式 → SheetJS 足矣。
 
-## 九、安装来源再强调
+## 九、Node ESM：手动注入平台能力
+
+CommonJS 构建会自动载入 Node 文件系统和流实现；ESM 为了可移植与 tree-shaking，不会自动绑定这些可选能力：
+
+```ts
+import * as XLSX from 'xlsx';
+import * as fs from 'node:fs';
+import { Readable } from 'node:stream';
+
+XLSX.set_fs(fs);                       // readFile / writeFile
+XLSX.stream.set_readable(Readable);    // XLSX.stream.*
+```
+
+只调用处理内存数据的 `read` / `write` 不需要 `set_fs`。若要读取旧代码页，还需导入 `xlsx/dist/cpexcel.full.mjs` 并调用 `XLSX.set_cptable(...)`。
+
+## 十、安装来源再强调
 
 最后回到那条贯穿全篇的提醒：**最新版从官方 CDN 装**。
 
@@ -116,7 +142,7 @@ npm rm --save xlsx
 npm i --save https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
 ```
 
-> `npm i xlsx` 只会装到滞后的 0.18.5（known registry bug）。authoritative source 是 `https://cdn.sheetjs.com/`。
+> `npm i xlsx` 只会装到滞后的 0.18.5（known registry bug）。authoritative source 是 `https://cdn.sheetjs.com/`。生产环境可把官方 tarball vendoring 到自己的制品库，避免安装流程依赖 CDN 可用性。
 
 ---
 

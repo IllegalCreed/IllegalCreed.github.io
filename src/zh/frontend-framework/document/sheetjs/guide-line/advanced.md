@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **0.20.3**。把 SheetJS 用进真实项目：浏览器读写（ArrayBuffer/Blob/fetch）、Node 服务端把文件作为响应返回、`sheet_add_*` 追加、CSV/HTML/DOM 互转、格式选择与压缩。
 
+## 速查
+
+- 浏览器本地文件：`XLSX.read(await file.arrayBuffer(), { type:'array' })`
+- 远程文件：`XLSX.read(await response.arrayBuffer(), { type:'array' })`，不要用 `text()`
+- 浏览器下载：`XLSX.writeFile(wb, 'report.xlsx')`
+- 内存字节：`XLSX.write(wb, { bookType:'xlsx', type:'array' })`
+- Node 响应：`XLSX.write(wb, { bookType:'xlsx', type:'buffer' })`
+- 追加：`sheet_add_json(..., { origin:-1, skipHeader:true })`
+- 格式互转：`sheet_to_csv` / `sheet_to_html` / `table_to_sheet`
+- 限定解析：`sheets` 选表、`sheetRows` 限行；`raw:false` 取格式化文本
+
 ## 一、浏览器：读取本地文件
 
 浏览器没有文件系统，先把 `File` 转二进制再 `read`：
@@ -40,7 +51,7 @@ XLSX.writeFile(wb, 'report.xlsx', { compression: true });
 `writeFile` 在浏览器内部做的事（等价代码，帮助理解）：
 
 ```ts
-const u8 = XLSX.write(wb, { bookType: 'xlsx', type: 'buffer' });
+const u8 = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
 const blob = new Blob([u8]);
 const url = URL.createObjectURL(blob);
 const a = document.createElement('a');
@@ -135,4 +146,4 @@ XLSX.utils.sheet_to_json(ws, { raw: false });
 
 ---
 
-进入 [指南 · 专家](./guide-line/expert)：大文件与 Web Worker、dense 模式、加密/密码、公式与样式的边界、与 ExcelJS 的取舍。
+进入 [指南 · 专家](./expert)：大文件与 Web Worker、dense 模式、加密/密码、公式与样式的边界、与 ExcelJS 的取舍。

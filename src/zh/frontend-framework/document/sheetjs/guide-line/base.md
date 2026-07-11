@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **0.20.3**。本篇把「会读写」用到「懂模型」：CSF 数据模型（Workbook/Worksheet/Cell）、A1 地址与 `!ref`、单元格对象 `v`/`t`/`w`/`z`、`sheet_to_json` 的 `header`/`range`/`defval`、日期处理。
 
+## 速查
+
+- 工作簿：`wb.SheetNames` 保存顺序，`wb.Sheets[name]` 取得工作表
+- 稀疏工作表：单元格以 `A1` 地址作键；`!ref` 决定工具函数遍历范围
+- 单元格：`v` 原始值、`t` 类型、`w` 显示文本、`z` 数字格式、`f` 公式
+- 地址转换：`encode_cell` / `decode_cell` / `encode_range` / `decode_range`
+- `sheet_to_json(ws)`：首行作键；`header:1`：返回二维数组
+- 空值与范围：`defval` 补默认值，`range` 指定起始行或 A1 区域
+- 日期：默认读作数字序列号；`cellDates:true` 才生成 `Date`
+- `json_to_sheet` 的 `header` 只排序字段，不会排除对象里的额外键
+
 ## 一、CSF 数据模型：三层结构
 
 SheetJS 把所有格式解析成统一的 **Common Spreadsheet Format**：
@@ -129,4 +140,4 @@ XLSX.writeFile(wb, 'out.xlsx');
 
 ---
 
-进入 [指南 · 进阶](./guide-line/advanced)：浏览器读写（ArrayBuffer/Blob/fetch）、Node 服务端返回文件、`sheet_add_*` 追加、CSV/HTML 导出、格式选择。
+进入 [指南 · 进阶](./advanced)：浏览器读写（ArrayBuffer/Blob/fetch）、Node 服务端返回文件、`sheet_add_*` 追加、CSV/HTML 导出、格式选择。

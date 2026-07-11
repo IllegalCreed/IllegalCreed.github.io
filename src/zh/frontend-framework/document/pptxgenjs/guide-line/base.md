@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **4.0.1**。本篇把「会跑」用到「懂模型」：Presentation → Slide → 元素三层结构、坐标与尺寸单位（英寸/百分比）、颜色规则、addText 的混排与项目符号、addImage/addTable/addShape、布局与母版入门。
 
+## 速查
+
+- 三层模型：`Presentation` → `Slide` → 文本/图片/图表/表格/形状/媒体
+- `addSlide()` 返回 Slide；`addText/addImage/...` 也返回当前 Slide，可链式调用
+- `x/y/w/h` 默认单位是英寸，也可写 `'50%'`；`fontSize` 单位是 pt
+- 十六进制颜色写 6 位且不带 `#`；水平居中 `align:'center'`，垂直居中 `valign:'middle'`
+- 混排：`addText([{ text, options }, ...], boxOptions)`；列表用 `bullet` / `indentLevel`
+- 图片：`path` 或 base64 `data`；缩放裁切用 `sizing.type`
+- 表格：二维行数组；单元格可写 `{ text, options }`，合并用 `colspan/rowspan`
+- 布局与母版：`pres.layout` / `defineSlideMaster` / `addSlide({ masterName })`
+
 ## 一、对象模型：三层结构
 
 PptxGenJS 的一切围绕三层展开：
@@ -53,9 +64,9 @@ slide.addText('居中标题', {
 
 > 字号 `fontSize` 的单位是**磅(pt)**，与坐标的英寸是两码事，别混。
 
-## 三、颜色：永远不带 `#`
+## 三、十六进制颜色：不带 `#`
 
-全库颜色（文本 `color`、填充 `fill.color`、边框 `line.color`、图表、背景）都用**6 位十六进制、无 `#`**：
+显式 HEX 颜色（文本 `color`、填充 `fill.color`、边框 `line.color`、图表、背景）使用**6 位十六进制、无 `#`**：
 
 ```ts
 slide.addText('红字蓝底', {
@@ -189,4 +200,4 @@ const slide = pres.addSlide({ masterName: 'BRAND' }); // 字段名是 masterName
 
 ---
 
-进入 [指南 · 进阶](./guide-line/advanced)：图表全家桶、多页报告、浏览器下载与 Node 服务端响应、媒体嵌入、超链接与节。
+进入 [指南 · 进阶](./advanced)：图表全家桶、多页报告、浏览器下载与 Node 服务端响应、媒体嵌入、超链接与节。

@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 参考
 
-> PptxGenJS（`pptxgenjs`）常用 API、元素选项、枚举与输出方式速查。版本基线 **4.0.1**。颜色一律为**不带 `#` 的 6 位十六进制**；坐标尺寸默认**英寸**，也可用百分比字符串。
+> PptxGenJS（`pptxgenjs`）常用 API、元素选项、枚举与输出方式速查。版本基线 **4.0.1**。自定义十六进制颜色使用**不带 `#` 的 6 位值**；坐标尺寸默认**英寸**，也可用百分比字符串。
+
+## 速查
+
+- 对象模型：`new pptxgen()` → `pres.addSlide()` → `slide.addText/addImage/addChart/...`
+- 位置尺寸：`x/y/w/h` 用英寸或百分比；`fontSize` 用 pt；十六进制颜色不带 `#`
+- 布局：`pres.layout = 'LAYOUT_WIDE'`；母版：`defineSlideMaster` + `addSlide({ masterName })`
+- 图表：数据为 `[{ name, labels, values }]`；竖柱是 `ChartType.bar + barDir:'col'`
+- 输出文件：`await pres.writeFile({ fileName:'out.pptx' })`；`4.0.1` 不要无参调用
+- 输出数据：`await pres.write({ outputType:'nodebuffer'|'blob'|... })`
+- `stream()` 在 Node `4.0.1` 返回 `Promise<Buffer>`，**不是** Node `Readable`
+- 边界：只能生成新 PPTX，不能加载、解析或修改既有 PPTX
 
 ## 一、演示文稿（Presentation）级 API
 
@@ -18,9 +29,9 @@ outline: [2, 3]
 | `pres.layout = '...'` | 设置幻灯片尺寸 | 赋布局常量名或自定义名（字符串） |
 | `pres.addSection(opts)` | 新建节 | `{ title }`；`addSlide({ sectionTitle })` 归入 |
 | `pres.tableToSlides(eleId, opts?)` | HTML 表格 → 幻灯片 | 参数是元素 **id 字符串**；浏览器环境；返回 void |
-| `pres.writeFile(opts?)` | 写盘(Node)/下载(浏览器) | 返回 `Promise<string>`；`{ fileName, compression }` |
+| `pres.writeFile(opts)` | 写盘(Node)/下载(浏览器) | 返回 `Promise<string>`；4.0.1 显式传 `{ fileName, compression? }` |
 | `pres.write(opts?)` | 拿数据 | 返回 Promise；`{ outputType, compression }` |
-| `pres.stream(opts?)` | 流式/Buffer 输出 | 返回 Promise，适合服务端 |
+| `pres.stream(opts?)` | Node 二进制输出 | 4.0.1 返回 `Promise<Buffer>`，不是 `Readable` |
 
 ### 元数据（直接属性赋值）
 
@@ -164,11 +175,13 @@ outline: [2, 3]
 |---|---|---|
 | `writeFile({ fileName, compression })` | Node 写盘 / 浏览器下载 | resolve 为文件名 |
 | `write({ outputType, compression })` | 拿数据 | 见下方 outputType |
-| `stream({ compression })` | 流式/Buffer | 服务端流式响应 |
+| `stream({ compression })` | Node Buffer | 名称虽为 stream，但 4.0.1 不返回 `Readable` |
 
 **`outputType` 合法值（全小写）**：`'arraybuffer'`、`'base64'`、`'binarystring'`、`'blob'`（默认）、`'nodebuffer'`、`'uint8array'`。
 
 > 注意大小写：是 `'nodebuffer'`（非 `'buffer'`/`'nodeBuffer'`）、`'arraybuffer'`（非 `'arrayBuffer'`）。`compression: true` 启用 ZIP DEFLATE 压缩减小体积。
+
+> 服务端通常直接用 `write({ outputType:'nodebuffer' })`。`stream()` 在 4.0.1 发布包中同样解析为 Buffer；若框架必须接收可管道流，可用 `Readable.from([buffer])` 包装。
 
 ## 十、母版（defineSlideMaster）
 

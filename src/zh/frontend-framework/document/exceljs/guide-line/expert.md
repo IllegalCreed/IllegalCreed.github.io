@@ -5,11 +5,22 @@ outline: [2, 3]
 
 # 指南 · 专家
 
-> 版本基线 **ExcelJS 4.x**。深入工程实践：流式读写大文件、样式引用与克隆陷阱、工作表保护、列宽自适应、解析提速、以及与 SheetJS 的选型边界。
+> 版本基线 **ExcelJS 4.4.0**。深入工程实践：流式读写大文件、样式引用与克隆陷阱、工作表保护、列宽自适应、解析提速、以及与 SheetJS 的选型边界。
+
+## 速查
+
+- 流式写：`WorkbookWriter({ filename|stream })`；每行 `commit()`，最后 `await workbook.commit()`
+- 流式读：`WorkbookReader(filenameOrStream, options?)` + `for await`；不要传 `{ filename }`
+- 流式 API 仅 Node 可用；不支持图片，已提交行不可回头修改，`unMergeCells()` 不可用
+- 样式引用会共享；需要独立修改时创建新对象或克隆
+- 保护：先解锁可编辑单元格，再 `await ws.protect(...)`；默认 `spinCount` 会带来 CPU 开销
+- 自适应列宽没有内置 `autoFit`，需遍历单元格估算
+- 解析提速：`xlsx.load(buffer, { ignoreNodes:[...] })`
+- `getWorksheet(id)` 按内部 id，不等于 `worksheets[0]`
 
 ## 一、流式写入大文件（WorkbookWriter）
 
-普通 `Workbook` 把整个文档保留在内存，几十万行会 OOM。流式写入用 `stream.xlsx.WorkbookWriter`，配 `commit()` 边写边释放：
+普通 `Workbook` 把整个文档保留在内存，数据量很大时可能 OOM。流式写入用 `stream.xlsx.WorkbookWriter`，配 `commit()` 边写边释放：
 
 ```javascript
 const workbook = new ExcelJS.stream.xlsx.WorkbookWriter({
@@ -28,7 +39,7 @@ for (let i = 1; i <= 500000; i++) {
   ws.addRow({ id: i, value: Math.random() }).commit();  // 每行 commit
 }
 
-await ws.commit();        // 提交工作表
+ws.commit();              // 提交工作表（同步）
 await workbook.commit();  // 完成文件
 ```
 
@@ -38,10 +49,16 @@ await workbook.commit();  // 完成文件
 
 `useSharedStrings: true` 让重复文本走共享字符串表（只存一份、用索引引用），重复文本多时显著减小体积；`useStyles: true` 让流式写入也输出样式（默认关闭以省开销）。
 
+> 流式模式只在 Node 中提供，浏览器构建没有 `WorkbookReader/Writer`。流式模式不支持图片；行提交后不可访问，`unMergeCells()` 也不可用。
+
 ## 二、流式读取大文件（WorkbookReader）
 
 ```javascript
-const workbook = new ExcelJS.stream.xlsx.WorkbookReader({ filename: 'large.xlsx' });
+const workbook = new ExcelJS.stream.xlsx.WorkbookReader('large.xlsx', {
+  sharedStrings: 'cache',
+  hyperlinks: 'ignore',
+  styles: 'ignore',
+});
 
 for await (const worksheet of workbook) {
   for await (const row of worksheet) {
@@ -139,7 +156,7 @@ workbook.getWorksheet('名字'); // 按名取，最稳妥
 | 强项 | 带样式/格式的**写出**（报表导出） | 广泛格式的**解析**与数据转换 |
 | 样式写入 | 精细（font/fill/border/条件格式/校验/图片） | 社区版有限 |
 | 支持格式 | xlsx / csv | xlsx/xls/csv/ods 等众多 |
-| 流式 | `stream.xlsx` 读写省内存 | 有流式 API |
+| 流式 | Node 下 `stream.xlsx` 增量读写 XLSX | 无 ExcelJS 式 XLSX 增量 writer |
 | 公式计算 | 不求值（需缓存 result） | 不求值 |
 | 典型场景 | 生成漂亮的带样式报表 | 解析各种来源的杂格式 / 纯数据进出 |
 

@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 参考
 
-> ExcelJS **常用 API、样式对象、枚举值** 速查。版本基线 ExcelJS 4.x（latest `4.4.0`，MIT，Node 引擎 `>=8.3.0`）。
+> ExcelJS **常用 API、样式对象、枚举值** 速查。版本基线 **ExcelJS 4.4.0**（MIT，Node 引擎 `>=8.3.0`）。
+
+## 速查
+
+- 文档模式：`new ExcelJS.Workbook()`；Node 用 `readFile/writeFile`，浏览器用 `load/writeBuffer`
+- 工作表：`addWorksheet` / `getWorksheet` / `columns` / `addRow` / `getCell`
+- 样式：`font` / `fill` / `border` / `alignment` / `numFmt`；纯色填充看 `fgColor`
+- 公式：`{ formula:'A1+B1', result:3 }`；ExcelJS 不计算公式
+- 流式写：`new ExcelJS.stream.xlsx.WorkbookWriter({ filename })`，逐行 `commit()`
+- 流式读：`new ExcelJS.stream.xlsx.WorkbookReader(pathOrStream, options?)`，输入不是 `{ filename }`
+- 浏览器不包含流式 Reader/Writer；流式模式也不支持图片
+- 工作表保护：`await ws.protect(password, options)`；单元格 `locked` 只有保护后才生效
 
 ## 一、对象层级与创建
 
@@ -29,7 +40,7 @@ outline: [2, 3]
 | 从 Buffer 读 | `await workbook.xlsx.load(buffer, { ignoreNodes? })` |
 | CSV 读写 | `workbook.csv.writeFile/readFile(path, options?)` |
 | 流式写 | `new ExcelJS.stream.xlsx.WorkbookWriter({ filename, useStyles, useSharedStrings })` |
-| 流式读 | `new ExcelJS.stream.xlsx.WorkbookReader({ filename })` |
+| 流式读 | `new ExcelJS.stream.xlsx.WorkbookReader(filenameOrStream, options?)` |
 
 ## 三、Worksheet 常用
 

@@ -7,6 +7,17 @@ outline: [2, 3]
 
 > 版本基线 **4.0.1**。深入边界与权衡：母版与占位符、输出形态与 outputType 大小写、压缩、**「只生成不解析」的根本边界与 pptx-automizer**、无渲染/预览、依赖与版本、命名大小写陷阱，以及与同类文档库的选型。
 
+## 速查
+
+- 母版：`defineSlideMaster({ title, objects })`；套用时用 `addSlide({ masterName })`
+- `write` 输出类型全小写：`blob/base64/arraybuffer/uint8array/nodebuffer/binarystring`
+- `stream()` 在 Node 4.0.1 实际返回 Buffer，不是 `Readable`
+- `writeFile` / `write` / `stream` 都是 Promise；4.0.1 的 `writeFile` 应显式传参数对象
+- `compression:true` 使用 ZIP DEFLATE，体积更小但生成更慢
+- 根本边界：PptxGenJS 只生成，不加载既有 PPTX；模板替换改用 pptx-automizer 等方案
+- 它不负责渲染或预览；网页预览通常要先转 PDF/图片或接在线查看器
+- 自带 TypeScript 类型；注意 `bar3d`、`LAYOUT_16x9`、`nodebuffer` 等大小写
+
 ## 一、母版与占位符（深入）
 
 母版让多页共享品牌外观；占位符让母版上预留「填内容的坑」。
@@ -49,6 +60,8 @@ slide.addText('真正的正文', { placeholder: 'body' });
 const b64 = await pres.write({ outputType: 'base64' });
 const buf = await pres.write({ outputType: 'nodebuffer' }); // 服务端
 ```
+
+`stream()` 这个名字容易误导：`4.0.1` 的 Node CJS 发布包内部调用 JSZip 的 `generateAsync({ type:'nodebuffer' })`，最终解析为一个完整 `Buffer`，并不是可逐块读取或 `.pipe()` 的 Node `Readable`。要接流式接口，可在生成后用 `Readable.from([buf])` 包一层，但生成阶段仍会占用整份文件的内存。
 
 ::: warning 大小写陷阱
 - `'nodebuffer'`（全小写、一个词）—— 不是 `'buffer'`、不是 `'nodeBuffer'`。
@@ -126,6 +139,8 @@ pres.writeFile({ fileName: 'a.pptx' });
 // ✅
 await pres.writeFile({ fileName: 'a.pptx' });
 ```
+
+`4.0.1` 还有一个发布包边界：虽然类型把 `writeFile` 参数标成可选，运行时会直接读取 `props.fileName`，所以 `pres.writeFile()` 无参调用会抛错。始终传 `{ fileName }` 即可规避。
 
 ## 九、与同类文档库的选型
 
