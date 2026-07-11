@@ -5,11 +5,21 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **1.5.0**。把 docx-editor 用进真实项目：基于 **Yjs** 的实时协同、受控批注同步、**headless** 服务端解析/序列化/模板填充、`DocumentAgent` 链式操作、内容控件（content controls）。
+> 版本基线 **1.9.0（已 deprecated）**。把 docx-editor 用进存量项目：React 端 **Yjs** 协同与受控批注、**headless** 解析/序列化/模板填充、`DocumentAgent` 链式操作，以及 1.9.0 扩展后的内容控件。
+
+## 速查
+
+- 协同示例仅适用于 React：`document` 作 schema 种子，`externalContent` + `externalPlugins` 接 Yjs
+- Vue 1.9.0 没有 `externalContent` 和受控 `comments` prop，不能复制 React 接线
+- headless：`parseDocx` → 修改 → `repackDocx`；从零文档用 `createDocx`
+- `serializeDocx` 只返回 `document.xml`，不是可打开的 `.docx`
+- `DocumentAgent.getPageCount()` 在 headless 环境是估算值，不是浏览器排版后的权威页数
+- 模板：`processTemplate(buffer, data)` 同步返回 `ArrayBuffer`
+- 内容控件：1.9.0 支持 block、inline、table cell，并可覆盖页眉页脚；批量变更优先原子操作
 
 ## 一、实时协同：基于 Yjs（CRDT）
 
-把 `DocxEditor` 绑定到一个 Yjs 文档即可获得多用户实时编辑：光标、在场（presence）、批注同步、修订归属。要点是把 `document` 当 schema 种子并设 **`externalContent`**（禁用内置加载，改由 Yjs 填充），再用 **`externalPlugins`** 传入 `y-prosemirror` 的插件：
+React 适配器可把 `DocxEditor` 绑定到 Yjs：要点是把 `document` 当 schema 种子并设 **`externalContent`**（禁用内置加载，改由 Yjs 填充），再用 **`externalPlugins`** 传入 `y-prosemirror` 插件。下面是接线骨架，不包含鉴权、持久化、初始文档竞争与 provider 重连策略：
 
 ```tsx
 import { useMemo } from 'react';
@@ -43,6 +53,8 @@ function CollaborativeEditor({ ydoc, provider }) {
 ::: danger 必须设 externalContent，否则会污染共享文档
 不设 `externalContent` 时，挂载期的 `useEffect` 会调用 `loadDocument()` **重置 ProseMirror 状态**；若 `ySyncPlugin` 已用 Y.Doc 内容填充了 ProseMirror，这个重置会清空它——随后 ySync 又把空状态同步回 Y.Doc，**破坏每个已连接客户端的共享文档**。设了 `externalContent`，`document` 仅作 schema 种子、挂载时不加载。
 :::
+
+> 这是 **React 1.9.0** 的公开入口。Vue 1.9.0 类型没有 `externalContent` 或受控 `comments` prop；若必须在 Vue 做协同，需要自行验证更底层的 ProseMirror/插件接入，或选择仍受维护且明确支持 Vue 协同的编辑器。
 
 ## 二、修订与批注的同步差异
 
@@ -121,7 +133,9 @@ const out = await filled.toBuffer(); // ArrayBuffer（浏览器用 toBlob()）
 
 > 还有 `insertTable` / `insertImage` / `insertHyperlink` / `replaceRange` / `deleteRange` / `applyFormatting` / `mergeParagraphs` / `executeCommands` 等。
 
-## 五、模板变量：{{mustache}}
+`getPageCount()` 在 headless 环境没有浏览器字体测量与可见分页结果，只能作为近似值；合同页码、打印份数等流程应在最终渲染环境确认。
+
+## 五、模板变量：<code v-pre>{{mustache}}</code>
 
 headless 内置 docxtemplater 支撑的模板管线：
 
@@ -138,7 +152,7 @@ const out = processTemplate(buffer, { customer_name: 'Acme GmbH', date: '2026-07
 
 ## 六、内容控件：按 tag/alias/id 寻址
 
-Word 内容控件（`w:sdt`，Structured Document Tags）是带稳定 `tag`/`alias`/`id` 的有界区域，是模板与文档自动化的天然锚点（与 `{{mustache}}` 是并存的两套系统）：
+Word 内容控件（`w:sdt`，Structured Document Tags）是带稳定 `tag`/`alias`/`id` 的有界区域，是模板与文档自动化的天然锚点（与 <code v-pre>{{mustache}}</code> 是并存的两套系统）：
 
 ```ts
 import { parseDocx, findContentControls, setContentControlContent } from '@eigenpal/docx-editor-core/headless';
@@ -150,8 +164,8 @@ const intro = findContentControls(doc, { tag: 'intro' });
 let next = setContentControlContent(doc, { tag: 'intro' }, 'Filled by template');
 ```
 
-> 编辑器会把块级控件解析进文档模型、保持可编辑、渲染边界并无损往返（含 `w:dataBinding`、`w15:repeatingSection` 等未建模属性）。`showingPlaceholder` 为 `true` 时 `text` 是占位样板，不是真数据。
+1.9.0 已不只处理块级控件：还支持 inline 与 table-cell 内容控件，并提供 `createContentControl`、`includeHeadersFooters` 查询，以及 `{ all: true }` 的原子批量更新。未建模属性会尽量往返；`showingPlaceholder: true` 时 `text` 是占位样板，不是真数据。锁定、重复区段、数据绑定与跨部件更新都应拿真实模板回归。
 
 ---
 
-进入 [指南 · 专家](./guide-line/expert)：双渲染器架构、AI/agents 三种集成形态（live editor / DocxReviewer / MCP）、自动保存与崩溃恢复、性能与打包、与同类库的选型。
+进入 [指南 · 专家](./expert)：双渲染器架构、AI/agents 三种集成形态（live editor / DocxReviewer / MCP）、自动保存与崩溃恢复、性能与打包、与同类库的选型。

@@ -5,7 +5,16 @@ outline: [2, 3]
 
 # 指南 · 专家
 
-> 版本基线 **1.5.0**。深入边界与权衡：双渲染器架构、AI/agents 三种集成形态、选择性保存与全量重打包、自动保存与崩溃恢复、性能与打包、稳定性与许可，以及与 docx / mammoth / docx-preview / docxtemplater 的选型。
+> 版本基线 **1.9.0（已 deprecated）**。深入边界与权衡：双渲染器架构、AI/agents 三种集成形态、选择性保存、自动保存、性能、安全修复、维护中断，以及与 docx / mammoth / docx-preview / docxtemplater 的选型。
+
+## 速查
+
+- 架构：隐藏 ProseMirror 管编辑状态，可见布局层负责分页 DOM；两者通过位置映射联动
+- agents：1.9.0 实际为 15 个工具，支持 live editor、headless `DocxReviewer` 与 MCP bridge
+- 保存：React 可 `save({ selective: false })`；Vue 1.9.0 只公开无参数 `save()`
+- 恢复：React `/hooks` 提供 `useAutoSave`，服务端持久化仍要自己做防抖、并发与失败重试
+- 安全：1.9.0 修复打印注入、剪贴板 HTML 清洗、正则 DoS 与字体 CSS 转义等问题；继续使用不应停在旧版
+- 维护：1.9.0 已 deprecated、仓库 404、无继任说明；新项目不推荐，存量项目要准备退出路径
 
 ## 一、双渲染器架构（为什么能 Word 级保真）
 
@@ -26,7 +35,7 @@ outline: [2, 3]
 
 ## 二、AI / agents：三种集成形态
 
-`@eigenpal/docx-editor-agents` 把 DOCX 编辑暴露成 **14 个模型工具**（定位 7 + 变更 6 + 导航 1），可三种形态运行：
+`@eigenpal/docx-editor-agents@1.9.0` 把 DOCX 编辑暴露成 **15 个模型工具**（定位 7 + 变更 7 + 导航 1；新增项包括 `insert_break`），可三种形态运行：
 
 | | live editor 面板 | headless DocxReviewer | MCP server |
 |---|---|---|---|
@@ -65,13 +74,13 @@ const server = new McpServer(createReviewerBridge(reviewer), { name: 'acme-revie
 
 ## 三、选择性保存 vs 全量重打包
 
-默认 `save()` 做**选择性保存**：只修补你编辑触及过的 XML 部件，其余部件逐字节从原包带过（这保留了编辑器未建模的一切）。强制全量重打包传 `selective: false`：
+默认 `save()` 做**选择性保存**：只修补你编辑触及过的 XML 部件，其余未触及部件从原包带过。React ref 可用 `selective: false` 强制全量重打包：
 
 ```ts
 const out = await ref.current?.save({ selective: false });
 ```
 
-> `save()` 在无文档可序列化时返回 `null`，记得判空。
+> `save()` 在无文档可序列化时返回 `null`，记得判空。Vue 1.9.0 的 ref 只公开无参数 `save()`，不能照搬上面的 React 选项。
 
 ## 四、自动保存与崩溃恢复
 
@@ -103,7 +112,9 @@ const onChange = () => {
 - **普通编辑器用法仅浏览器**：编辑器包不上传文档、不调转换 API。
 - **不执行宏**：VBA 宏与嵌入代码不被求值。
 - **AI 集成由宿主掌控**：live-editor 让 `.docx` 留在客户端，只把聊天/工具调用文本发给你自己的路由。
-- **SemVer + 机器校验**：所有包共享一个版本号，公共 API 由 API Extractor 快照在 CI 跟踪、漂移即失败；React/Vue 对等是受检契约（`agentPanel` 与受控 `comments` 仍 React 独占）；`layout-engine`/`layout-painter`/`layout-bridge`/`plugin-api` 标注 `@experimental`。
+- **至少升级到 1.9.0**：其发布说明包含打印 `document.write` 注入、剪贴板 HTML 清洗、正则 DoS、字体 CSS 转义等安全修复；继续使用更旧版本会保留这些已知问题。
+- **类型门禁有缺口**：`-i18n@1.9.0` 把含运行时代码的文件声明为 `.d.ts`，严格依赖声明检查会失败；打开 `skipLibCheck` 只能绕过，不会修复包。
+- **不要把停更当稳定**：npm deprecation、仓库 404 与官网/包 API 漂移意味着公开 CI 契约已无法验证；宿主仍需对不可信 DOCX、HTML 粘贴、文件大小和服务端模板输入设置边界。
 
 ## 七、与同类库的选型
 
@@ -112,20 +123,22 @@ const onChange = () => {
 | 角色 | **浏览器内可编辑** | 生成 | 解析转 HTML | 只读渲染 | 模板批量生成 |
 | 编辑 | ✓ WYSIWYG | ✗ | ✗ | ✗ | ✗ |
 | 修订追踪 | ✓（w:ins/w:del） | ✗ | ✗ | ✗ | ✗ |
-| 协同 | ✓（Yjs） | ✗ | ✗ | ✗ | ✗ |
+| 协同 | ✓（官方接线以 React 为主） | ✗ | ✗ | ✗ | ✗ |
 | 模板填充 | ✓（headless 内置 docxtemplater） | 手写 | ✗ | ✗ | ✓（核心强项） |
 | 服务端无 UI | ✓（-core/headless、DocxReviewer） | ✓ | ✓ | — | ✓ |
 
 **经验法则**：
 
-- 要**在浏览器里让人/AI 真正编辑 Word** → **docx-editor**（独一档）。
+- 要**在浏览器里让人/AI 编辑 Word** → docx-editor 的能力模型值得参考，但新项目应选择仍受维护、能审计供应链的实现。
 - 只**从零生成报表** → **docx**；只**把 docx 转 HTML 展示** → **mammoth**；只**只读预览** → **docx-preview**。
 - 纯 **mail-merge 式占位符填充**且无需可视化编辑 → **docxtemplater**（或直接用 docx-editor 的 headless 模板管线，再串联 reviewer/editor）。
 
-## 八、版本与许可再强调
+## 八、版本、许可与退出策略
 
-- 版本基线 **1.5.0**，全部包 **Apache-2.0**（agents 包在 0.x 曾是 AGPL-3.0，1.0 起放宽）。
-- 从 0.x 单体 `@eigenpal/docx-js-editor` 迁移：拆成多包，但常规 React 应用仍只装 `-react`；官方建议至少升到 **1.0.1**（修复若干导入路径痛点）。
+- 本页核验的发布包为 **1.9.0**，包内 metadata / LICENSE 为 **Apache-2.0**；npm deprecation 不会自动改变许可证。
+- 全部相关包应锁在同一个精确版本，保存 lockfile、integrity 与可恢复的私有制品；不要再使用 `^1.9.0` 等浮动范围。
+- 存量系统至少准备三条退路：可导出的原始 `.docx` 永远保留；业务操作不要只存在编辑器私有状态；建立替代编辑器或内部 fork 的兼容验证集。
+- 迁移验收要覆盖真实模板、修订/批注、页眉页脚、内容控件、旧式 VML、宏/OLE 保留、保存后 Word/LibreOffice 重开与 OOXML 差异。
 
 ---
 

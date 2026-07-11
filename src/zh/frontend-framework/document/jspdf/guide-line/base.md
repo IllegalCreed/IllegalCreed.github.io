@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 基础
 
-> 版本基线 **4.x**。本篇把「会画」用到「懂模型」：命令式绘图范式、坐标系与单位、状态型样式（颜色/线宽/字体）、长文本换行 `splitTextToSize`、页面尺寸读取与居中、`text`/`rect`/图形的 style。
+> 版本基线 **4.2.1**。本篇把「会画」用到「懂模型」：命令式绘图范式、坐标系与单位、状态型样式（颜色/线宽/字体）、长文本换行 `splitTextToSize`、页面尺寸读取与居中、`text`/`rect`/图形的 style。
+
+## 速查
+
+- jsPDF 是命令式绘图：坐标、留白、换行与分页由调用方管理
+- 坐标原点在左上，x 向右、y 向下；坐标单位由构造器 `unit` 决定
+- `setFontSize()` 永远是 pt；`setLineWidth()` 跟随文档 unit
+- 颜色/线宽/字体是状态，必须先设置再绘制
+- 图形 style：`S` 描边、`F` 填充、`FD`/`DF` 两者兼有
+- 文本对齐以传入 x 为锚点；整页居中要先取页宽的一半
+- `text()` 不做内容流；长文本先 `splitTextToSize()`，再计算是否 `addPage()`
+- TypeScript 取尺寸用 `doc.internal.pageSize.getWidth()/getHeight()`
 
 ## 一、命令式绘图：一块画布
 
@@ -113,14 +124,11 @@ doc.text(lines, margin, 30); // 传数组即按行排版
 ```ts
 const w = doc.internal.pageSize.getWidth();  // 当前单位下的页宽
 const h = doc.internal.pageSize.getHeight(); // 页高
-// 便捷别名
-const w2 = doc.getPageWidth();
-const h2 = doc.getPageHeight();
 
 doc.line(20, h - 15, w - 20, h - 15); // 距底 15 单位画页脚线
 ```
 
-> 不要写死 `210×297`——那只是 A4 + mm 的值，换 `format`/`unit` 就不对。
+> 不要写死 `210×297`——那只是 A4 + mm 的值，换 `format`/`unit` 就不对。运行时虽有 `getPageWidth()` / `getPageHeight()`，4.2.1 类型声明没有这两个方法，TS 项目用 `internal.pageSize` 更稳。
 
 ## 八、一个最小「卡片」示例
 
@@ -142,4 +150,4 @@ doc.save('card.pdf');
 
 ---
 
-进入 [指南 · 进阶](./guide-line/advanced)：图片与 `addImage`、`jspdf-autotable` 表格、`.html()` 栅格化、多页页眉页脚、导出形态与上传。
+进入 [指南 · 进阶](./advanced)：图片与 `addImage`、`jspdf-autotable` 表格、`.html()` 转换、多页页眉页脚、导出形态与上传。

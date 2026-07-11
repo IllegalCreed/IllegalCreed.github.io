@@ -5,14 +5,26 @@ outline: [2, 3]
 
 # 参考
 
-> PDF.js（`pdfjs-dist`）常用 API、`getDocument` 选项、渲染参数、对象方法与文本/注解层速查。版本基线 **6.0.x**。
+> PDF.js（`pdfjs-dist`）常用 API、`getDocument` 选项、渲染参数、对象方法与文本/注解层速查。版本基线 **6.1.200**。
+
+## 速查
+
+- 主入口：`getDocument(src)` 返回 `PDFDocumentLoadingTask`，文档从 `.promise` 获取
+- 页面：`pdf.getPage(1)` 从 **1** 开始；渲染尺寸由 `page.getViewport({ scale })` 决定
+- 画布：`page.render({ canvas, viewport })` 返回 `RenderTask`，等待 `.promise`，切页可 `.cancel()`
+- worker：浏览器直接集成时配置同版本 `pdf.worker.mjs`；封装已注入时不要重复覆盖
+- 文本层：`getTextContent()` + `TextLayer`，并加载 `pdf_viewer.css` 或等价层样式
+- 注解层：`AnnotationLayer` 是低层 API，还需要 link/download service 与 `annotationStorage`
+- 字体/图像资源：按需部署 `cmaps/`、`standard_fonts/`、`iccs/`、`wasm/` 并传对应 URL
+- Node：6.1.200 要求 `>=22.13.0 || >=24`，使用 `legacy/build/pdf.mjs`
+- `saveDocument()` 只保存 viewer 注解存储等受支持变更，不是通用 PDF 生成 API
 
 ## 一、顶层 API（pdfjsLib.*）
 
 | 成员 | 作用 | 备注 |
 |---|---|---|
 | `getDocument(src)` | 加载 PDF | 返回 `PDFDocumentLoadingTask`，取 `.promise` 得文档 |
-| `GlobalWorkerOptions.workerSrc` | 指定 worker 脚本路径 | **使用前必设**；与主库同版本 |
+| `GlobalWorkerOptions.workerSrc` | 指定 worker 脚本路径 | 直接集成时设置；也可由封装注入 `workerPort`；必须与主库同版本 |
 | `version` | 当前 PDF.js 版本号 | 用于核对主库/worker 一致 |
 | `TextLayer` | 文本层类 | 渲染可选中文字（替代旧 `renderTextLayer`） |
 | `AnnotationLayer` | 注解层类 | 渲染链接/表单等交互注解 |
@@ -30,10 +42,13 @@ outline: [2, 3]
 | `password` | string | — | 解密受口令保护的 PDF |
 | `cMapUrl` | string | — | Adobe CMap 资源目录（CJK 字体需要，含尾斜杠） |
 | `cMapPacked` | boolean | `true` | CMap 是否二进制打包 |
+| `iccUrl` | string | — | ICC profile 资源目录（含尾斜杠） |
 | `standardFontDataUrl` | string | — | 标准字体资源目录（非内嵌字体需要） |
 | `wasmUrl` | string | — | wasm 资源目录（图像解码/ICC 等） |
+| `useSystemFonts` | boolean | Web `true` / Node `false` | 非内嵌字体是否回退系统字体 |
 | `disableRange` | boolean | `false` | 禁用范围请求分块加载 |
 | `disableStream` | boolean | `false` | 禁用流式加载 |
+| `disableAutoFetch` | boolean | `false` | 禁用预取；要真正生效还需同时 `disableStream: true` |
 | `worker` | PDFWorker | — | 复用一个自建 worker 实例 |
 | `verbosity` | number | — | 日志级别（VerbosityLevel） |
 
@@ -58,6 +73,7 @@ outline: [2, 3]
 | `getOutline()` | 取大纲/书签树 |
 | `getAttachments()` | 取附件 |
 | `getData()` | 取原始 PDF 字节 |
+| `saveDocument()` | 保存 annotation storage 等受支持变更并返回 `Uint8Array`；不是任意编辑器 |
 | `destroy()` | 释放文档资源、解除与 worker 关联 |
 
 ## 五、PDFPageProxy（页面对象）
@@ -113,7 +129,7 @@ outline: [2, 3]
 | `str` | 该片段的文本字符串 |
 | `transform` | 6 元素变换矩阵（位置/缩放，用于文本层定位） |
 | `width` / `height` | 该片段的宽高 |
-| `dir` | 书写方向（`ltr` / `rtl`） |
+| `dir` | 书写方向（`ltr` / `rtl` / `ttb`） |
 | `fontName` | 字体名（对应 `styles` 字典） |
 | `hasEOL` | 是否片段末尾换行 |
 
@@ -128,19 +144,22 @@ const textLayer = new pdfjsLib.TextLayer({
 });
 await textLayer.render();
 
-// 注解层：链接、表单等交互
+// 注解层：低层 API；linkService / downloadManager 由 viewer 层或宿主提供
 const annotationLayer = new pdfjsLib.AnnotationLayer({
   div: annotationLayerDiv,
   viewport,
   page,
+  linkService,
+  annotationStorage: pdf.annotationStorage,
 });
 await annotationLayer.render({
-  annotations: await page.getAnnotations(),
-  viewport,
+  annotations: await page.getAnnotations({ intent: "display" }),
+  downloadManager,
+  renderForms: true,
 });
 ```
 
-> 旧的函数式 `renderTextLayer(...)` 已**弃用**，改用 `TextLayer` 类。
+> 旧的函数式 `renderTextLayer(...)` 已**弃用**，改用 `TextLayer` 类。两层都需要 `pdfjs-dist/web/pdf_viewer.css` 中的定位样式或你自己的等价 CSS；只创建 DOM 节点并不足以正确对齐。
 
 ---
 

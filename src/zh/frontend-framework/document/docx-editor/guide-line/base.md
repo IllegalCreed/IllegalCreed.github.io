@@ -5,7 +5,16 @@ outline: [2, 3]
 
 # 指南 · 基础
 
-> 版本基线 **1.5.0**。本篇把「会加载保存」用到「懂模型」：`mode` 三态、`documentBuffer` 哨兵状态、**修订追踪**（tracked changes）、批注、ref 方法，以及「canonical OOXML、语义无损往返」到底意味着什么。
+> 版本基线 **1.9.0（已 deprecated）**。本篇把「会加载保存」用到「懂模型」：`mode` 三态、`documentBuffer` 哨兵状态、**修订追踪**（tracked changes）、批注、ref 方法，以及选择性 OOXML 往返的真实边界。
+
+## 速查
+
+- 模式：`editing` 直接修改、`suggesting` 生成修订、`viewing` 查看；`readOnly` 是另一层输入开关
+- 输入：buffer 加载文件、`null` 建空文档、`undefined` 推迟挂载；预解析树走 `document`
+- 修订：保存为 Word 原生 `w:ins` / `w:del`；接受/拒绝命令需要 ProseMirror `view`
+- 主动保存：调用 ref 的 `save()`；工具栏保存回调以所用适配器的 1.9.0 类型为准
+- 往返：未改部件尽量原样保留，改过的 XML 会重写；这不是字节级相同或任意 Word 特性零损失
+- 风险：1.9.0 已 deprecated 且仓库不可访问，必须用真实文档做 Word 重开回归
 
 ## 一、三种 mode：editing / suggesting / viewing
 
@@ -42,7 +51,7 @@ const [mode, setMode] = useState<EditorMode>('editing');
 
 ## 三、修订追踪：写进 .docx 的是真 OOXML
 
-在 `suggesting` 模式下，每次编辑都成为修订而非直接改动，并序列化为 Word 原生的 **`<w:ins>` / `<w:del>`**，因此「编辑器里审阅的文档」与「Word 里审阅的文档」可互换。
+在 `suggesting` 模式下，每次编辑都成为修订而非直接改动，并序列化为 Word 原生的 **`<w:ins>` / `<w:del>`**，Word 审阅窗格可识别这些记录；复杂结构仍需用目标 Word 版本回归。
 
 ```tsx
 <DocxEditor documentBuffer={buf} author="Jess Lin" mode="suggesting" />
@@ -89,7 +98,7 @@ ref.current?.proposeChange({
 
 > 这是「AI 红线（redlining）」构建于其上的原语。
 
-## 五、回调：onChange / onSave / onError
+## 五、回调：onChange / onSave / onError（React）
 
 ```tsx
 <DocxEditor
@@ -100,21 +109,21 @@ ref.current?.proposeChange({
 />
 ```
 
-> 区别：`ref.save()` 是你**主动**要字节（自动保存、自定义保存按钮）；`onSave` 是用户**通过内置 UI** 触发保存时的回调。
+> 区别：`ref.save()` 是你**主动**要字节（自动保存、自定义保存按钮）；React 的 `onSave` 是用户**通过内置 UI** 触发保存时的回调。Vue 1.9.0 的公开 props 没有同名 `onSave`，应由宿主按钮调用 ref。
 
 ## 六、「无损往返」到底是什么意思
 
 `.docx` 是一堆 XML 部件的 ZIP，Word 还会写很多编辑器无须建模的 XML（书签、自定义 XML、邮件合并域、兼容性设置、VBA 工程……）。docx-editor 的管线是 **解析 → 文档模型 → 编辑 → 序列化**，保存时：
 
 - 只重写它改过的部件（正文，以及被改动的页眉/页脚/批注/注释）；
-- 其余部件（`styles.xml`、主题、字体表、设置、媒体、关系、自定义 XML、VBA、嵌入字体、OLE 对象）**逐字节从原 ZIP 带过**；
-- 关系 ID、书签名、域代码、样式 ID、编号定义**不被重命名或重排**；
+- 其余未触及部件（`styles.xml`、主题、字体表、设置、媒体、关系、自定义 XML、VBA、嵌入字体、OLE 对象）尽量**逐字节从原 ZIP 带过**；
+- 未触及部件里的关系 ID、书签名、域代码、样式 ID、编号定义因而更有机会保持原样；
 - 输出是 **canonical OOXML**：修订是 Word 审阅窗格认得的真 `w:ins`/`w:del`，主题色保持主题引用。
 
 ::: warning 「无损」≠「字节级相同」
-ZIP 容器会被重建、XML 会被重新序列化，所以空白与部件顺序可能不同。目标是**语义保留**：你没编辑的内容不会丢失或被重新解释。若某文档破坏了这一行为，按官方说法那是 bug，应附 `.docx` 提 issue。
+ZIP 容器会被重建、改动过的 XML 会被重新序列化，所以空白与部件顺序可能不同。目标是尽可能**语义保留**，但不能推导为所有 Word 构造都零损失。官方保真说明列出的已知例外包括部分 run 级 legacy VML shape（watermark 除外）；仓库当前又无法提交 issue，因此要保留原件并对业务模板逐份做打开、保存、Word 重开与差异检查。
 :::
 
 ---
 
-进入 [指南 · 进阶](./guide-line/advanced)：基于 Yjs 的实时协同、受控批注同步、headless 服务端处理、`DocumentAgent` 与模板填充、内容控件。
+进入 [指南 · 进阶](./advanced)：React 端 Yjs 协同、受控批注同步、headless 服务端处理、`DocumentAgent` 与模板填充、内容控件。

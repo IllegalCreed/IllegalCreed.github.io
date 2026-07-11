@@ -5,7 +5,19 @@ outline: [2, 3]
 
 # 参考
 
-> jsPDF 常用 API、构造选项、绘图/文字/字体/导出方法与 `jspdf-autotable` 速查。版本基线 **4.x**。
+> jsPDF 常用 API、构造选项、绘图/文字/字体/导出方法与 `jspdf-autotable` 速查。版本基线 **4.2.1**；表格插件基线 **5.0.8**。
+
+## 速查
+
+- 构造：`new jsPDF({ orientation, unit, format, compress, putOnlyUsedFonts })`
+- 坐标/尺寸跟随 `unit`，`setFontSize()` 始终使用 pt
+- 文本不自动分页；换行用 `splitTextToSize()`，分页逻辑自行管理
+- 中文：`addFileToVFS()` → `addFont()` → `setFont()`，字体必须包含目标字形
+- 图片：`addImage()`；SVG 保持矢量用 `svg2pdf.js` 的 `doc.svg()`
+- 表格：`autoTable(doc, options)`；5.0.8 的 `lastAutoTable` 是运行时属性，TS 需声明/收窄
+- DOM：`doc.html()` 通过 html2canvas 输出到 jsPDF context2d，不等于整页截图
+- 导出：`save()` / `output('blob'|'arraybuffer'|'bloburl')`；对象 URL 用完要释放
+- 安全：至少 4.2.1，并在进入 jsPDF 前净化所有不可信文本、HTML 与资源
 
 ## 一、构造器选项（new jsPDF(options)）
 
@@ -96,7 +108,9 @@ addImage(imageData, format, x, y, w, h, alias?, compression?, rotation?)
 | `getNumberOfPages()` | 总页数 |
 | `deletePage(n)` | 删除某页 |
 | `insertPage(n)` | 在第 n 页前插入页 |
-| `internal.pageSize.getWidth()/getHeight()` | 当前页宽/高（当前单位）；便捷别名 `getPageWidth()`/`getPageHeight()` |
+| `internal.pageSize.getWidth()/getHeight()` | 当前页宽/高（当前单位），也是 4.2.1 类型声明覆盖的稳定写法 |
+
+> 4.2.1 运行时还存在 `getPageWidth()` / `getPageHeight()`，但包内 `index.d.ts` 未声明它们。TypeScript 代码优先使用 `internal.pageSize.getWidth()/getHeight()`，避免示例运行能过、类型检查却失败。
 
 ## 七、导出（save / output）
 
@@ -106,7 +120,7 @@ addImage(imageData, format, x, y, w, h, alias?, compression?, rotation?)
 | `output()` | 原始 PDF body 字符串（type 未定义时） |
 | `output('arraybuffer')` | `ArrayBuffer` |
 | `output('blob')` | `Blob` |
-| `output('bloburl')`（别名 `'bloburi'`） | `blob:` 对象 URL（iframe 预览） |
+| `output('bloburl')`（别名 `'bloburi'`） | `blob:` 对象 URL（iframe 预览）；替换预览或卸载时 `URL.revokeObjectURL()` |
 | `output('datauristring')`（别名 `'dataurlstring'`） | `data:` 开头字符串 |
 | `output('datauri')` / `output('dataurlnewwindow')` | 导航/新窗口打开 |
 

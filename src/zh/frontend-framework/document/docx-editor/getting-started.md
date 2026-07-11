@@ -5,18 +5,19 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇带你装上 docx-editor 并完成第一次「加载 → 编辑 → 保存」。版本基线 **1.5.0**，许可证 **Apache-2.0**。核心认知：**`documentBuffer` 进、`ref.save()` 出**，全程客户端；外加一条贯穿全篇的提醒——**编辑器必须客户端渲染**，SSR 框架要做 client-only 边界。
+> 本篇按最后可核验发行版 **1.9.0** 演示「加载 → 编辑 → 保存」，包内许可证 **Apache-2.0**。该版本已被 npm 标为 deprecated，原仓库不可访问；以下内容服务于存量系统维护与迁移评估，不构成新项目选型推荐。
 
 ## 速查
 
-- 安装（React）：`npm install @eigenpal/docx-editor-react`
-- 安装（Vue 3）：`npm install @eigenpal/docx-editor-vue`
-- 安装（Nuxt 3/4）：`npm install @eigenpal/nuxt-docx-editor`
+- 状态：`1.9.0` 已 deprecated；新生产项目应先选替代方案，存量项目固定精确版本与 lockfile
+- 安装（React）：`npm install @eigenpal/docx-editor-react@1.9.0`
+- 安装（Vue 3）：`npm install @eigenpal/docx-editor-vue@1.9.0`
+- 安装（Nuxt 3/4）：`npm install @eigenpal/nuxt-docx-editor@1.9.0`
 - 导入组件 + 样式：`import { DocxEditor } from '@eigenpal/docx-editor-react'` + `import '@eigenpal/docx-editor-react/styles.css'`
 - 加载：`<DocxEditor documentBuffer={buf} mode="editing" />`（`buf` 可为 `File`/`Blob`/`ArrayBuffer`/`Uint8Array`/`null`）
 - 保存：`const out = await editorRef.current?.save()`（返回 `Promise<ArrayBuffer | null>`）
 - 修订模式：`mode="suggesting"`（编辑记成 `w:ins`/`w:del`）
-- ⚠️ SSR（Next.js/Remix/Astro）需 client-only 边界；Nuxt 用官方模块自动 SSR 安全
+- SSR（Next.js/Remix/Astro）需 client-only 边界；Nuxt 模块可自动注册客户端组件
 
 ## 一、docx-editor 是什么
 
@@ -33,21 +34,25 @@ outline: [2, 3]
 适配器会把 `-core` 与 `-i18n` 作为传递依赖带入，多数应用一次安装即可：
 
 ```bash
-# React
-npm install @eigenpal/docx-editor-react
+# React（存量系统锁定最后可核验版）
+npm install @eigenpal/docx-editor-react@1.9.0
 
 # Vue 3
-npm install @eigenpal/docx-editor-vue
+npm install @eigenpal/docx-editor-vue@1.9.0
 
 # Nuxt 3 & 4（封装 Vue 适配器的模块）
-npm install @eigenpal/nuxt-docx-editor
+npm install @eigenpal/nuxt-docx-editor@1.9.0
 
 # 无 UI 的服务端处理
-npm install @eigenpal/docx-editor-core
+npm install @eigenpal/docx-editor-core@1.9.0
 
 # AI / agent 工具（叠加在适配器之上）
-npm install @eigenpal/docx-editor-agents
+npm install @eigenpal/docx-editor-agents@1.9.0
 ```
+
+::: danger 安装成功不等于适合新项目
+npm 的 deprecated 状态不会阻止安装。存量系统继续使用时，应把精确版本、lockfile 与完整性哈希纳入制品，并保留一组真实 `.docx` 的加载、编辑、保存、Word 重开回归；不要依赖浮动版本或在线仓库始终可用。
+:::
 
 ::: warning ProseMirror 是 peer 依赖
 为避免重复的编辑器状态包导致状态分裂，`prosemirror-*` 系列被声明为 `peerDependencies`。npm 7+ 会自动安装；**pnpm（关闭 peer 自动安装）/ Yarn PnP** 需显式补齐：
@@ -57,6 +62,10 @@ npm i prosemirror-commands prosemirror-dropcursor prosemirror-history \
       prosemirror-keymap prosemirror-model prosemirror-state \
       prosemirror-tables prosemirror-transform prosemirror-view
 ```
+:::
+
+::: warning TypeScript 项目先跑一次真实检查
+1.9.0 的 `@eigenpal/docx-editor-i18n/dist/index.d.ts` 实际包含 JavaScript 初始化代码，`tsc` 在 `skipLibCheck: false` 下会报 TS1046/TS1039。隔离验证中，Vue 3 + `vue-tsc` 在 `skipLibCheck: true` 下可通过，但这只是绕过依赖声明检查；采用前应确认团队是否接受该折衷，并把替换/fork 纳入计划。
 :::
 
 ## 三、挂载：组件 + 样式表缺一不可
@@ -72,7 +81,7 @@ export default function App() {
 
 > 样式作用域在 `.ep-root` 下，**不会泄漏**到你的应用。不导入 `styles.css` 编辑器仍能工作，但工具栏会渲染成无样式。
 
-Vue 写法对等（同组件名、同 props）：
+Vue 的基础加载写法相近，但完整 props/ref 不能按 React 原样照搬：
 
 ```vue
 <script setup lang="ts">
@@ -137,7 +146,7 @@ const ref = useRef<DocxEditorRef>(null);
 const out = await ref.current?.save(); // ArrayBuffer | null
 ```
 
-也可用 `onSave` prop 接住用户通过工具栏（Ctrl/Cmd+S 或文件菜单）触发的保存：
+React 还可用 `onSave` prop 接住用户通过工具栏（Ctrl/Cmd+S 或文件菜单）触发的保存；Vue 1.9.0 没有同名 prop，应由宿主按钮调用 ref：
 
 ```tsx
 <DocxEditor
@@ -184,4 +193,4 @@ const DocxEditor = dynamic(
 
 ---
 
-跑通「加载→编辑→保存」后，进入 [指南 · 基础](./guide-line/base)：mode 三态、修订追踪、批注、`documentBuffer` 哨兵状态、ref 方法全览与无损往返的含义。
+跑通「加载→编辑→保存」后，进入 [指南 · 基础](./guide-line/base)：mode 三态、修订追踪、批注、`documentBuffer` 哨兵状态、ref 方法与选择性往返的边界。

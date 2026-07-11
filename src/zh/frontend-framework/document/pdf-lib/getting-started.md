@@ -45,7 +45,7 @@ npm install --save @pdf-lib/fontkit
 ```
 
 ::: warning 维护现状要知道
-原仓库 `Hopding/pdf-lib` 的 npm 稳定版长期停在 **1.17.1（2021 年底）**、维护基本停滞。需要新特性/修复时，社区活跃 fork **`@cantoo/pdf-lib`**（已 2.x、API 基本兼容）是常见替代，迁移多半只换导入包名。详见[专家篇](./guide-line/expert)。
+原仓库 `Hopding/pdf-lib` 的 npm 稳定版仍是 **1.17.1（2021 年底）**。社区 fork **`@cantoo/pdf-lib` 2.7.1** 延续了主要 API，并提供密码、增量保存和整段 SVG 等新能力；它不是原库官方续作，升级也不应只换包名后直接上线。详见[专家篇](./guide-line/expert)。
 :::
 
 ## 三、第一次「新建」

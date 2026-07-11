@@ -7,6 +7,16 @@ outline: [2, 3]
 
 > pdf-lib 常用 API、绘制选项、表单方法、字体与颜色辅助函数速查。版本基线 **1.17.1**。坐标系：原点左下、y 向上、单位 **point**（72pt = 1 英寸）。
 
+## 速查
+
+- 生命周期：`PDFDocument.create()` / `PDFDocument.load(bytes)` → 修改 → `save()`
+- 页面：`addPage`、`insertPage`、`removePage`、`copyPages`；整页复用用 `embedPage` + `drawPage`
+- 资源：`embedFont`、`embedPng`、`embedJpg`；自定义字体先 `registerFontkit(fontkit)`
+- 绘制：`drawText`、`drawImage`、`drawRectangle`、`drawLine`，坐标原点在左下
+- 表单：`getForm()`、类型化字段 getter、`updateFieldAppearances(font)`、`flatten()`
+- 加密文件：原库不能解密；`ignoreEncryption` 只跳过保护检查，不是密码支持
+- 版本：本页 API 对应原库 `pdf-lib@1.17.1`；`@cantoo/pdf-lib@2.7.1` 需按独立升级验证
+
 ## 一、PDFDocument 静态方法
 
 | 方法 | 作用 | 备注 |
@@ -18,7 +28,7 @@ outline: [2, 3]
 
 | 选项 | 默认 | 含义 |
 |---|---|---|
-| `ignoreEncryption` | `false` | 加密 PDF 默认抛 `EncryptedPDFError`；设 true 强行解析（**不解密**，结果可能异常） |
+| `ignoreEncryption` | `false` | 加密 PDF 默认抛 `EncryptedPDFError`；`true` 只跳过检查、**不会解密**，不要把它当密码处理方案 |
 | `updateMetadata` | `true` | 保存时是否刷新 ModDate/Producer；设 false 原样保留原元数据 |
 | `parseSpeed` | `Slow` | `ParseSpeeds.{Slow,Medium,Fast,Fastest}`，越快越少让出事件循环 |
 
@@ -139,7 +149,7 @@ outline: [2, 3]
 | `getButton(name)` | 取按钮（可 `setImage`） |
 | `getFields()` | 列出全部字段 |
 | `getField(name)` / `getFieldMaybe(name)` | 取字段（后者不存在返回 undefined，不抛错） |
-| `createTextField(name)` 等 | 工厂创建字段，再 `addToPage(page, {x,y,w,h})` |
+| `createTextField(name)` 等 | 工厂创建字段，再 `addToPage(page, { x, y, width, height })` |
 | `removeField(field)` | 删字段 |
 | `flatten()` | 扁平化：字段外观固化为页面内容、不再可编辑 |
 | `updateFieldAppearances(font)` | 用指定字体重绘字段外观（**中文字段必须**） |

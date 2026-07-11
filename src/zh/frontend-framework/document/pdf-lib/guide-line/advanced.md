@@ -7,6 +7,16 @@ outline: [2, 3]
 
 > 版本基线 **1.17.1**。把 pdf-lib 用进真实项目：**修改既有 PDF**（叠加水印/盖章）、**copyPages 合并**、**表单 AcroForm**（填写 / 扁平化 / 中文字段）、浏览器与 Node 的读写差异、嵌图与缩放。
 
+## 速查
+
+- 修改既有文件：`PDFDocument.load(bytes)` 后在页面上叠加绘制，不能就地替换原文字
+- 合并/拆分：目标文档调用 `copyPages(source, indices)`，再逐页 `addPage`
+- 表单：`getForm()` + 类型化 getter；字段可能缺失时用 `getFieldMaybe`
+- 中文表单：嵌入 CJK 字体并调用 `form.updateFieldAppearances(font)`，先以非 subset 字体验证兼容性
+- 固化结果：确认外观正确后再 `form.flatten()`
+- 浏览器输入输出：`file.arrayBuffer()` / `fetch(...).arrayBuffer()`，导出 Blob 后释放 object URL
+- 图片：同一资源只 `embed` 一次，用 `scale` / `scaleToFit` 后重复绘制
+
 ## 一、修改既有 PDF：加水印
 
 `load` 进来，遍历每页用 `drawText` 叠加半透明、倾斜的水印。
@@ -105,7 +115,8 @@ import fontkit from '@pdf-lib/fontkit';
 
 const pdfDoc = await PDFDocument.load(formBytes);
 pdfDoc.registerFontkit(fontkit);
-const cnFont = await pdfDoc.embedFont(cnFontBytes, { subset: true });
+// 表单外观先用完整字体保证兼容；确认目标字体支持后再评估 subset
+const cnFont = await pdfDoc.embedFont(cnFontBytes);
 
 const form = pdfDoc.getForm();
 form.getTextField('name').setText('张三');
@@ -208,4 +219,4 @@ page.drawImage(png, { x: 50, y: 200, width: fit.width, height: fit.height });
 
 ---
 
-进入 [指南 · 专家](./guide-line/expert)：embedPage 整页复用与 N-up 拼版、加密 PDF 的边界、save/parse 性能调优、维护停滞与 `@cantoo/pdf-lib`、与 jsPDF 的选型。
+进入 [指南 · 专家](./expert)：embedPage 整页复用与 N-up 拼版、加密 PDF 的边界、save/parse 性能调优、原库与 `@cantoo/pdf-lib` 的维护取舍、与 jsPDF 的选型。

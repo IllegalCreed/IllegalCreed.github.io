@@ -5,12 +5,12 @@ layout: doc
 # pdf-lib
 
 ::: tip 本篇范围
-本篇聚焦 **pdf-lib —— 用纯 JavaScript 创建并「修改既有」PDF 的库**，可在浏览器、Node、Deno、React Native 等任意 JS 运行时工作。重点在：**`PDFDocument.create`（新建）vs `PDFDocument.load`（载入既有）** 的双入口、**修改既有 PDF**（加删页 / 合并 copyPages / 整页复用 embedPage）、**表单 AcroForm** 的填写与扁平化 flatten、`drawText`/`drawImage`/`drawRectangle` 等绘制、**嵌入字体**（标准 14 字体只支持 Latin，中文需 `@pdf-lib/fontkit` + `embedFont`）、`save()` → `Uint8Array`、以及与 jsPDF 的取舍。版本基线 **1.17.1**，并在关键处点明 **「原库维护停滞、活跃 fork 是 `@cantoo/pdf-lib`」** 这个高频现状。
+本篇聚焦 **pdf-lib —— 用纯 JavaScript 创建并「修改既有」PDF 的库**，可在浏览器、Node、Deno、React Native 等 JavaScript 运行时工作。重点在：**`PDFDocument.create`（新建）vs `PDFDocument.load`（载入既有）** 的双入口、**修改既有 PDF**（加删页 / 合并 copyPages / 整页复用 embedPage）、**表单 AcroForm** 的填写与扁平化 flatten、`drawText`/`drawImage`/`drawRectangle` 等绘制、**嵌入字体**（标准 14 字体只支持 Latin，中文需 `@pdf-lib/fontkit` + `embedFont`）、`save()` → `Uint8Array`、以及与 jsPDF 的取舍。版本基线为原库 **1.17.1**；另核验社区 fork **`@cantoo/pdf-lib` 2.7.1**，但两者不是可盲换的同一发行线。
 :::
 
-pdf-lib 的官方定位是「**Create and modify PDF documents in any JavaScript environment**」——它最大的卖点不是「新建 PDF」（那很多库能做），而是**修改一份既有 PDF**：`load` 进来后加页、画字、盖章、填表单、合并，再 `save` 出去。这一能力让它在 JS 生态里**独占「修改既有 PDF」生态位**：同类的 jsPDF 只能从零新建、不能编辑既有文件；PDF.js 是 Mozilla 的渲染/解析库，负责把 PDF 画到 canvas，也不做编辑。pdf-lib 是**纯 JS、零原生依赖**，因此「runs everywhere」：浏览器、Node、Deno、React Native 同一套 API。
+pdf-lib 的官方定位是「**Create and modify PDF documents in any JavaScript environment**」——它最大的卖点不是「新建 PDF」（那很多库能做），而是**修改一份既有 PDF**：`load` 进来后加页、画字、盖章、填表单、合并，再 `save` 出去。这使它在纯 JavaScript 库中很有辨识度：jsPDF 更偏从零生成，PDF.js 则负责解析与渲染。pdf-lib 是**纯 JS、零原生依赖**，浏览器、Node、Deno、React Native 使用同一套核心 API。
 
-理解 pdf-lib 的关键是它的 **「绘制式」心智模型**：你不是在「编辑文档对象树」，而是在**页面坐标系上叠加绘制**——`page.drawText`/`drawImage`/`drawRectangle` 把新内容画在既有内容**之上**。坐标系沿用 PDF 规范：**原点在左下角、y 轴向上**（与 canvas/CSS 相反，是头号新手坑）。**一个必须记牢的现状**：原仓库 `Hopding/pdf-lib` 的 npm 最新稳定版长期停在 **1.17.1（2021 年底）**、维护基本停滞，但每周下载量仍有数百万；社区维护的活跃 fork 是 **`@cantoo/pdf-lib`**（已发到 2.x），需要新特性/修复时常作为 API 兼容的替代。
+理解 pdf-lib 的关键是它的 **「绘制式」心智模型**：你不是在「编辑文档对象树」，而是在**页面坐标系上叠加绘制**——`page.drawText`/`drawImage`/`drawRectangle` 把新内容画在既有内容**之上**。坐标系沿用 PDF 规范：**原点在左下角、y 轴向上**（与 canvas/CSS 相反，是头号新手坑）。**一个必须记牢的现状**：原仓库 `Hopding/pdf-lib` 的 npm 最新稳定版仍是 **1.17.1（2021 年底）**；社区 fork **`@cantoo/pdf-lib` 2.7.1** 延续了主要 API，并增加密码、增量保存和整段 SVG 等能力，但维护目标与兼容风险要独立评估。
 
 ## 评价
 
@@ -25,13 +25,13 @@ pdf-lib 的官方定位是「**Create and modify PDF documents in any JavaScript
 
 **缺点**
 
-- **原库维护停滞**：稳定版停在 1.17.1（2021），新特性/修复需转向社区 fork `@cantoo/pdf-lib`（这是新手最该知道的现状）
+- **原库长期未发新版**：稳定版仍是 1.17.1（2021）；需要新能力时可评估社区 fork `@cantoo/pdf-lib`，迁移前应跑回归测试
 - **不抽取文本、不渲染**：读不出 PDF 里已有的文字（那是 PDF.js 的活），也不把 PDF 画到屏幕
 - **不能就地改写原文字**：drawText 只能叠加新内容，无法定位并修改既有文本对象
 - **不支持加密 PDF**：load 加密文件抛 `EncryptedPDFError`，`ignoreEncryption` 也不解密
 - **中文需自备字体**：标准 14 字体只覆盖 WinAnsi(Latin)，写中文必须 `registerFontkit` + 嵌入 CJK 字体，且建议 `subset:true` 控体积
 - **不渲染 HTML/CSS**：它是底层绘制库，「HTML → PDF」要用 Puppeteer(`page.pdf()`) 等无头浏览器方案
-- **图片仅 PNG/JPEG**：且 JPEG 偏向 baseline，渐进式 JPEG 易出问题
+- **图片格式有限**：原库直接嵌入 PNG/JPEG（包括常见 baseline/progressive JPEG），不负责 GIF/WebP 转码，也不能直接嵌入完整 SVG 文档
 
 ## 文档地址
 

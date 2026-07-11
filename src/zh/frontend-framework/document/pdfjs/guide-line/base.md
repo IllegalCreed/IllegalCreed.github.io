@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 基础
 
-> 版本基线 **6.0.x**。本篇把「会渲染」用到「懂模型」：渲染链路与三个核心对象（loadingTask / PDFDocumentProxy / PDFPageProxy）、worker 的角色、viewport 与 scale、RenderTask 的取消、页码 1 基这些易错点。
+> 版本基线 **6.1.200**。本篇把「会渲染」用到「懂模型」：渲染链路与三个核心对象（loadingTask / PDFDocumentProxy / PDFPageProxy）、worker 的角色、viewport 与 scale、RenderTask 的取消、页码 1 基这些易错点。
+
+## 速查
+
+- `getDocument()` 与 `render()` 都返回任务对象，分别等待 `.promise`
+- `PDFDocumentProxy.getPage(n)` 的页码从 **1** 开始，没有同步 `pages[]`
+- `getViewport({ scale, rotation })` 同时给出尺寸与 PDF → canvas 坐标变换
+- TypedArray 作为 `data` 时通常会转移给 worker，提交后不要继续依赖原 buffer
+- 同一 canvas 不能并发渲染；快速翻页先取消旧 `RenderTask`
+- `rotation` 参数替换页面固有旋转；要叠加需自行 `(page.rotate + delta) % 360`
+- 用完等待 `pdf.destroy()`；单页缓存可 `page.cleanup()`
+- 密码可通过 `password` 或 `loadingTask.onPassword` 提供
 
 ## 一、渲染链路：四步对象流
 
@@ -31,14 +42,14 @@ RenderTask  → await .promise（完成） / .cancel()（取消）
 PDF 的解析（解压、字体、构建绘制指令）是 CPU 密集的同步活儿。PDF.js 把它放进 **Web Worker** 后台线程，主线程只负责把指令画到 canvas，从而不卡 UI。
 
 ```ts
-// 使用前必设，否则报错或退化到主线程
+// 浏览器直接集成 display build 时设置；封装已接管则沿用封装配置
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.mjs",
   import.meta.url,
 ).toString();
 ```
 
-> 这就是为什么 worker 是「核心机制」而非「可选优化」。主库与 worker **必须同版本**。
+> 这就是为什么 worker 是核心机制。主库与 worker **必须完全同版本**；若 react-pdf 等上层封装已注入 worker URL / port，不要再用另一版本覆盖。
 
 ## 三、加载：url 还是 data
 
@@ -124,4 +135,4 @@ try {
 
 ---
 
-进入 [指南 · 进阶](./guide-line/advanced)：文本层（可选中/搜索）、注解层（链接/表单）、本地文件与远程加载、导出图片、HiDPI 完整处理。
+进入 [指南 · 进阶](./advanced)：文本层（可选中/搜索）、注解层（链接/表单）、本地文件与远程加载、导出图片、HiDPI 完整处理。

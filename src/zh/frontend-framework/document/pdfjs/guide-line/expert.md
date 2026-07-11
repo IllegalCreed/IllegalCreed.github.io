@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 专家
 
-> 版本基线 **6.0.x**。深入边界与权衡：CJK/字体资源（cMapUrl / standardFontDataUrl）、大文档虚拟化、Node 端抽文本、现代 vs legacy 构建、打包器里的 worker 配置、版本一致性，以及与 jsPDF / pdf-lib 的选型。
+> 版本基线 **6.1.200**。深入边界与权衡：CJK/字体资源（cMapUrl / standardFontDataUrl）、大文档虚拟化、Node 端抽文本、现代 vs legacy 构建、打包器里的 worker 配置、版本一致性，以及与 jsPDF / pdf-lib 的选型。
+
+## 速查
+
+- CJK/非内嵌字体问题要区分 CMap、standard font、system font 与字体本身缺字
+- 6.1.200 资源目录包括 `cmaps/`、`standard_fonts/`、`iccs/`、`wasm/`
+- 大文档只保留可见页附近 canvas，离屏页取消任务并回收资源
+- Node engine：`>=22.13.0 || >=24`；导入 `pdfjs-dist/legacy/build/pdf.mjs`
+- Node 抽文本不需要 canvas；渲染图片需要可用的 canvas 实现（包有可选 `@napi-rs/canvas`）
+- worker 与主库必须精确同版，CDN worker 也不能只写 `latest`
+- `intent` 是 display/print/any 用途，不是 DPI；清晰度由 viewport 与 HiDPI transform 决定
+- PDF.js 可保存部分 viewer 注解，但不是通用创建/改写库
 
 ## 一、CJK 与字体资源：方块/乱码的根因
 
@@ -20,7 +31,7 @@ const pdf = await pdfjsLib.getDocument({
 }).promise;
 ```
 
-> 中文显示成方块，多半是缺 `cMapUrl`/`standardFontDataUrl`，与 `scale`、渲染目标无关。把 `pdfjs-dist` 里的 `cmaps/`、`standard_fonts/` 作为静态资源部署，再指给它即可。
+> 中文方块/乱码可能来自缺 CMap、缺标准字体数据、系统字体回退关闭，或 PDF/替代字体本身缺字。不要只凭现象断定一个原因；按控制台 warning 与文件字体信息排查，并按需部署 `cmaps/`、`standard_fonts/`、`iccs/`、`wasm/`。
 
 ## 二、大文档：虚拟化/懒渲染
 
@@ -43,7 +54,7 @@ function renderPageLazily(page: any, canvas: HTMLCanvasElement, viewport: any) {
 
 ## 三、Node.js 端抽取文本
 
-Node 端应使用 **legacy 构建**（现代构建假定最新浏览器特性）。**纯抽文本不需要 canvas**：
+Node 端使用 **legacy 构建**；6.1.200 的 package engine 为 `>=22.13.0 || >=24`。**纯抽文本不需要 canvas**：
 
 ```ts
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
@@ -60,13 +71,13 @@ for (let i = 1; i <= pdf.numPages; i++) {
 await pdf.destroy();
 ```
 
-> 只有要在 Node 里**渲染成图片**时才需额外的 canvas 实现；抽文本只走 `getTextContent`。
+> 只有要在 Node 里**渲染成图片**时才需要可用的 canvas 实现；`pdfjs-dist` 把 `@napi-rs/canvas` 列为可选依赖。抽文本只走 `getTextContent`，不应为此额外创建画布。
 
 ## 四、现代构建 vs legacy 构建
 
 | 维度 | 现代构建（`build/...`） | legacy 构建（`legacy/build/...`） |
 |---|---|---|
-| 目标 | 最新浏览器 | 较老浏览器 + **Node.js** |
+| 目标 | 最新浏览器 | 较老浏览器 + **Node.js 22.13+** |
 | 特性 | 用较新 JS | 转译/兼容处理 |
 | 体积 | 较小 | 较大（含 polyfill） |
 | 何时用 | 现代 Web 应用 | 老环境报语法错、Node 端 |
@@ -86,7 +97,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
 ```
 
 ::: warning 两个高频 worker 坑
-1. **不配 workerSrc** → 退化成 fake worker 在主线程跑，卡 UI。
+1. **直接集成却不配 workerSrc/workerPort** → 初始化失败或尝试 fake worker；封装库可能已替你配置。
 2. **主库与 worker 版本不一致** → 报「The API version does not match the Worker version」。务必同一个 `pdfjs-dist` 安装。
 :::
 
@@ -104,9 +115,9 @@ await page.render({ canvas, viewport, intent: "print" }).promise;
 
 | 维度 | **PDF.js** | **jsPDF** | **pdf-lib** |
 |---|---|---|---|
-| 核心用途 | **解析 / 渲染 / 查看** | **从零生成** PDF | **修改 / 拼接**现有 PDF |
+| 核心用途 | **解析 / 渲染 / 查看**（含有限注解编辑） | **从零生成** PDF | **修改 / 拼接**现有 PDF |
 | 渲染到屏幕 | **强**（canvas） | 不做 | 不做 |
-| 抽文本/元数据 | **支持** | 不适用 | 部分 |
+| 抽取既有正文文字 | **支持** | 不适用 | 不支持 |
 | 创建新文档 | **不做** | **强** | 强（含表单/合并） |
 | 典型场景 | 在线 PDF 阅读器 | 导出报表/票据 | 给已有 PDF 加水印/填表单/合并 |
 
@@ -118,11 +129,11 @@ await page.render({ canvas, viewport, intent: "print" }).promise;
 
 ## 八、边界再强调
 
-最后回到那条贯穿全篇的提醒：**PDF.js 只解析与渲染，不生成 PDF**。
+最后回到那条贯穿全篇的提醒：**PDF.js 不是通用 PDF 生成/编辑库**。viewer 可写入一部分受支持注解并通过 `saveDocument()` 导出，但这不等于任意改正文、建页或排版。
 
 - canvas 渲染的文字是**位图**，可选中/搜索要另叠**文本层**。
 - 链接/表单交互要另叠**注解层**。
-- worker **必须配置且与主库同版本**。
+- 直接集成时 worker **必须正确接线且与主库同版本**；上层封装已接线时不要重复覆盖。
 
 ---
 

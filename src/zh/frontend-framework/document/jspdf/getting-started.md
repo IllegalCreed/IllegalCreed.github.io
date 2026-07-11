@@ -5,7 +5,7 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇带你装上 jsPDF 并完成第一份 PDF：写一行字、画几个图形、新增一页、导出下载。版本基线 **4.x**。核心认知：**命令式绘图**（坐标即绝对位置）+ **导出三形态**（`save` 下载 / `output` 拿数据 / `output('bloburl')` 预览），以及贯穿全篇的一条提醒——**内置字体只覆盖 ASCII，中文要嵌入字体**。
+> 本篇带你装上 jsPDF 并完成第一份 PDF：写一行字、画几个图形、新增一页、导出下载。版本基线 **4.2.1**。核心认知：**命令式绘图**（坐标即绝对位置）+ **导出三形态**（`save` 下载 / `output` 拿数据 / `output('bloburl')` 预览），以及贯穿全篇的一条提醒——**内置字体只覆盖 ASCII，中文要嵌入字体**。
 
 ## 速查
 
@@ -19,6 +19,7 @@ outline: [2, 3]
 - 新增一页：`doc.addPage()`；回到某页：`doc.setPage(1)`
 - 下载：`doc.save('out.pdf')`；拿 Blob：`doc.output('blob')`
 - ⚠️ 内置 14 标准字体仅 ASCII，中文须 `addFileToVFS` + `addFont` + `setFont`
+- ⚠️ 处理用户输入至少使用 **4.2.1**，并在传给 jsPDF 前自行净化
 
 ## 一、jsPDF 是什么
 
@@ -26,7 +27,7 @@ outline: [2, 3]
 
 1. **纯客户端**：浏览器本地把数据画成 PDF 并下载，无需后端（也能在 Node 跑）。
 2. **命令式绘图**：按坐标一步步 `text`/`line`/`rect`/`addImage` 把内容画上去，自己管布局与分页。
-3. **矢量 vs 栅格**：原生 `text()` 出可选矢量文字；`.html()` 走 html2canvas 栅格化（文字不可选）。
+3. **直接绘制 vs HTML 解释**：原生 `text()` 最可控；`.html()` 让 html2canvas 输出到 jsPDF context2d，文本通常仍是 PDF 文本，但 CSS/字体/分页有边界。
 
 > 边界提醒：jsPDF 只负责**生成**新 PDF，不解析/渲染已有 PDF（那是 PDF.js），也不编辑现有 PDF（那是 pdf-lib）。
 
@@ -38,7 +39,7 @@ npm install jspdf
 npm install jspdf-autotable
 ```
 
-> 不同于 SheetJS，jsPDF 是正常发布在 npm 的开源包，`npm install jspdf` 直接拿到最新版即可，**没有**必须走官方 CDN 的限制。
+> 不同于 SheetJS，jsPDF 正常发布在 npm，**没有**必须走官方 CDN 的限制。生产依赖应锁到 4.2.1 或更新补丁；4.0.0~4.2.0 之间连续修复过文件读取、PDF/HTML 注入与恶意图片 DoS 问题。
 
 浏览器也可用 `<script>` 引入（挂全局）：
 

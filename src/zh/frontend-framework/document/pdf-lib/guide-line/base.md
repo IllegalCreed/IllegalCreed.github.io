@@ -7,6 +7,15 @@ outline: [2, 3]
 
 > 版本基线 **1.17.1**。本篇把「会画」用到「画对」：左下角坐标系、标准字体与**中文字体（fontkit + subset）**、颜色辅助函数、加删页与基础排版（居中、换行、底框）。
 
+## 速查
+
+- 坐标：左下角为原点，单位 point，A4 约 `595 × 842`；向下排版要递减 y
+- 标准字体：先 `embedFont(StandardFonts.Helvetica)`，再把返回的 `PDFFont` 传给 `drawText`
+- 中文：`registerFontkit(fontkit)` + 嵌入覆盖 CJK 的 TTF/OTF；`subset: true` 是体积优化，不是所有字体都兼容
+- 测量：`font.widthOfTextAtSize()` / `heightAtSize()`，可用于居中和底框
+- 换行：显式 `\n`，或使用 `maxWidth` + `lineHeight`
+- 页操作：`addPage`、`insertPage`、`removePage`；批量删除时从后向前
+
 ## 一、坐标系：左下角原点、y 向上
 
 PDF 把页面原点定在**左下角**，**y 轴向上为正**，单位是 **point**（72pt = 1 英寸，A4 ≈ 595×842pt）。这与 canvas/CSS 相反，是最容易翻车的地方。
@@ -66,8 +75,8 @@ page.drawText('你好，pdf-lib！', {
 });
 ```
 
-::: tip subset 是中文场景的刚需
-中文字体动辄数 MB，全量嵌入会让 PDF 巨大。`embedFont(bytes, { subset: true })` **只嵌入文档实际用到的字形**，通常能从数 MB 降到几十 KB。子集化依赖 fontkit。
+::: tip subset 是重要的体积优化
+中文字体动辄数 MB，全量嵌入会让 PDF 很大。`embedFont(bytes, { subset: true })` 只嵌入文档实际用到的字形，通常能明显缩小文件；子集化依赖 fontkit，但官方也提示它并非适配所有字体。生成后要用目标阅读器检查字形，遇到缺字或损坏时去掉 `subset` 再验证。
 :::
 
 ## 四、颜色：用辅助函数，分量 0~1
@@ -172,4 +181,4 @@ page.drawCircle({ x: 100, y: 200, size: 30, color: rgb(0.2,0.7,0.4) });
 
 ---
 
-进入 [指南 · 进阶](./guide-line/advanced)：修改既有 PDF、copyPages 合并、表单填写与扁平化、浏览器/Node 实战、嵌图与缩放。
+进入 [指南 · 进阶](./advanced)：修改既有 PDF、copyPages 合并、表单填写与扁平化、浏览器/Node 实战、嵌图与缩放。

@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **4.x**。把 jsPDF 用进真实项目：`addImage` 嵌图、`jspdf-autotable` 自动分页表格、`.html()` 栅格化导出、多页页眉页脚与全页页码、导出形态（下载/上传/预览）。
+> 版本基线 **4.2.1**，`jspdf-autotable` **5.0.8**。把 jsPDF 用进真实项目：`addImage` 嵌图、自动分页表格、`.html()` 的 context2d 转换、多页页眉页脚与全页页码、导出形态（下载/上传/预览）。
+
+## 速查
+
+- `addImage()` 接收 DataURL、元素或字节，不会替你 fetch 远程 URL
+- SVG 保持矢量：`await doc.svg(svgElement, options)`（`svg2pdf.js`）
+- `autoTable(doc, opts)` 自动分页；表后位置读运行时 `lastAutoTable.finalY`
+- `lastAutoTable` 未进入 jsPDF 4.2.1 类型，需要局部交叉类型或模块增补
+- `.html()` 异步使用 html2canvas + jsPDF context2d；支持的文字通常仍可选择
+- `width + windowWidth` 决定 HTML 缩放时，不要再传 `html2canvas.scale` 覆盖它
+- 全文页码要在内容绘制完、总页数确定后再逐页补
+- `bloburl` 适合预览，但替换 iframe/卸载组件时必须 revoke
 
 ## 一、嵌入图片：addImage
 
@@ -76,7 +87,7 @@ autoTable(doc, {
 });
 ```
 
-直接读页面 DOM 表（仍是矢量可选文字，区别于 `.html()` 截图）：
+也可直接读取页面里的 `<table>`；AutoTable 会把单元格转成自身的表格绘制流程，因此比通用 `.html()` 更容易控制列宽、分页和钩子：
 
 ```ts
 autoTable(doc, { html: '#my-table', theme: 'grid' });
@@ -88,12 +99,16 @@ autoTable(doc, { html: '#my-table', theme: 'grid' });
 
 ```ts
 autoTable(doc, { head, body: rows1 });
+type AutoTableDocument = jsPDF & { lastAutoTable?: { finalY: number } };
+const finalY = (doc as AutoTableDocument).lastAutoTable?.finalY ?? 10;
 autoTable(doc, {
-  startY: doc.lastAutoTable.finalY + 10, // 接在上表下方
+  startY: finalY + 10, // 接在上表下方
   head,
   body: rows2,
 });
 ```
+
+> `jspdf-autotable` 5.0.8 会在运行时写入 `doc.lastAutoTable`，但没有向 jsPDF 的公开类型做 module augmentation。不要靠 `any` 掩盖，局部声明上面的交叉类型即可。
 
 单元格级定制用钩子：
 
@@ -111,24 +126,24 @@ autoTable(doc, {
 });
 ```
 
-## 五、html()：把 DOM 栅格化进 PDF
+## 五、html()：把 DOM 解释进 PDF
 
-`.html()` 借 **html2canvas 把 DOM 截图成位图**再嵌入。**注意：产出的文字是图片像素，不可选、不可搜、缩放会糊**——这与原生 `text()` 的矢量文字本质不同。
+`.html()` 借 html2canvas 遍历 DOM，但把绘制目标指向 jsPDF 的 canvas/context2d 适配层；`fillText` 会转成 PDF 文本指令。因此它**不是把整个 DOM 截成一张图**，受支持的文字通常可选中/搜索。图片、阴影、滤镜和不受支持的 CSS 仍可能栅格化或降级，版式也不会达到浏览器打印引擎的完整程度。
 
 ```ts
 const doc = new jsPDF('p', 'mm', 'a4');
 await doc.html(document.getElementById('content'), {
-  callback: (doc) => doc.save('from-html.pdf'), // 异步：必须在 callback 里导出
   x: 10,
   y: 10,
   width: 180,        // PDF 中目标宽度
   windowWidth: 800,  // 渲染时的源窗口宽度（CSS 像素）
   autoPaging: 'text',// 'text' 尽量不切断文字 | 'slice'/true 硬切 | false 不分页
-  html2canvas: { scale: 2, useCORS: true }, // 提清晰度 / 允许跨域图片
+  html2canvas: { useCORS: true }, // 允许满足 CORS 的跨域图片
 });
+doc.save('from-html.pdf');
 ```
 
-> html2canvas 渲染是**异步**的，必须在 `callback`（首参是 doc 实例）里或 `await` 后再 `save`/`output`；HTML **字符串**输入还会用到 dompurify 净化（务必先 sanitize 不可信内容）。
+> html2canvas 渲染是**异步**的，必须 `await` 或在 callback 中再导出。`width/windowWidth` 会计算转换比例；若同时显式传 `html2canvas.scale`，它会覆盖这项比例。HTML **字符串**输入会动态加载 DOMPurify，但官方仍要求调用前先净化所有不可信输入。
 
 ## 六、多页：页眉、页脚、全页页码
 
@@ -164,11 +179,13 @@ fd.append('file', blob, 'report.pdf');
 await fetch('/api/upload', { method: 'POST', body: fd });
 
 // ③ iframe 预览（不下载）
-iframe.src = doc.output('bloburl');
+const previewUrl = doc.output('bloburl');
+iframe.src = previewUrl;
+// 替换预览或组件卸载时：URL.revokeObjectURL(previewUrl)
 ```
 
 > 大文件预览优先 `bloburl`（对象 URL），别用 `datauristring`（超长 base64，受 URL 长度/性能限制）。
 
 ---
 
-进入 [指南 · 专家](./guide-line/expert)：中文字体嵌入与子集化、矢量 vs html() 取舍、Node 服务端生成、`compress`/`putOnlyUsedFonts` 瘦身、与 pdfmake/@react-pdf/pdf-lib 的选型。
+进入 [指南 · 专家](./expert)：中文字体嵌入与字体裁剪策略、矢量 vs html() 取舍、Node 服务端生成、`compress`/`putOnlyUsedFonts` 瘦身、与 pdfmake/@react-pdf/pdf-lib 的选型。

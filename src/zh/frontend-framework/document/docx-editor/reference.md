@@ -5,20 +5,31 @@ outline: [2, 3]
 
 # 参考
 
-> docx-editor（`@eigenpal/docx-editor-*`）常用包、`DocxEditor` props、ref 方法、mode 取值、headless 与 agents 入口速查。版本基线 **1.5.0**。React 与 Vue 适配器的根 API 形状相同（同 props、同 ref 方法，hooks↔composables）。
+> docx-editor（`@eigenpal/docx-editor-*`）常用包、`DocxEditor` props、ref 方法、mode、headless 与 agents 入口速查。版本基线 **1.9.0（已 deprecated）**；本页直接比对了 React/Vue 发布包类型，两端共享核心但不是同一套 props/ref。
+
+## 速查
+
+- 供应链：所有已核验的 `@eigenpal` docx-editor 1.9.0 包都被 npm 标为 deprecated，原仓库返回 404
+- React 特有：`externalContent`、受控 `comments`、`agentPanel`、`save({ selective })`
+- Vue 差异：没有上述同名入口；`save()` 无参数，另有 Vue 菜单栏、插槽与部分 ref 能力
+- 公共核心：`documentBuffer`、`document`、三种 mode、修订、基础加载保存和 headless 引擎
+- headless：`parseDocx` / `repackDocx` / `createDocx` / `DocumentAgent`
+- agents：1.9.0 运行时共 15 个工具，而不是官网旧文档写的 14 个
+- 类型：`-i18n` 根 `.d.ts` 发布错误；`skipLibCheck:false` 会失败，Vue `vue-tsc + skipLibCheck:true` 的隔离探针可通过
+- 采用策略：存量项目锁精确版本与制品；新项目优先评估仍受维护的方案
 
 ## 一、包一览
 
 | 包 | 作用 |
 |---|---|
 | `@eigenpal/docx-editor-react` | React 适配器：工具栏、分页编辑器、插件（传递带入 -core / -i18n） |
-| `@eigenpal/docx-editor-vue` | Vue 3 适配器：与 React 对等 |
+| `@eigenpal/docx-editor-vue` | Vue 3 适配器：共享核心，但公开 props/ref 与 React 有差异 |
 | `@eigenpal/nuxt-docx-editor` | Nuxt 3 & 4 模块，封装 Vue 适配器、SSR 安全、自动导入 |
 | `@eigenpal/docx-editor-core` | 框架无关核心：OOXML 解析器、序列化器、布局引擎、ProseMirror schema |
 | `@eigenpal/docx-editor-i18n` | 共享语言字符串与类型 |
 | `@eigenpal/docx-editor-agents` | Agent SDK 与聊天 UI：工具桥、MCP server、AI SDK 适配器 |
 
-> 两个适配器都导出 `DocxEditor`、`DocxEditorProps`、`DocxEditorRef`、`DocxEditorHandle`、`EditorMode`、`renderAsync`；框架特定定制走显式子路径 `/ui`、`/hooks`（Vue 为 `/composables`）、`/dialogs`、`/plugin-api`。
+> 两个适配器都提供 `DocxEditor`、props/ref 类型与 `renderAsync` 等核心入口；框架扩展走 `/hooks` 或 `/composables` 等子路径。名称相近不代表签名对等，升级时应以安装包 `.d.ts` 为准。
 
 ## 二、DocxEditor 常用 props
 
@@ -30,28 +41,28 @@ outline: [2, 3]
 | `mode` | `'editing' \| 'suggesting' \| 'viewing'` | `'editing'` | 编辑 / 修订（tracked changes）/ 只读查看 |
 | `onModeChange` | `(mode: EditorMode) => void` | — | 用户切换模式时回调 |
 | `readOnly` | `boolean` | `false` | 只读预览（隐藏工具栏、标尺、面板） |
-| `externalContent` | `boolean` | `false` | `document` 仅作 schema 种子，内容由外部（如 Yjs）提供 |
+| `externalContent` | `boolean` | `false` | **React**：`document` 仅作 schema 种子，内容由外部（如 Yjs）提供；Vue 无此 prop |
 | `showToolbar` | `boolean` | `true` | 是否显示格式工具栏 |
 | `showRuler` | `boolean` | `false` | 显示水平/垂直标尺 |
 | `showOutline` | `boolean` | `false` | 显示文档大纲侧栏（目录） |
 | `initialZoom` | `number` | `1.0` | 初始缩放 |
 | `comments` | `Comment[]` | — | 受控批注，配 `onCommentsChange` 经 Yjs/Liveblocks 同步（**React 端**） |
 | `onChange` | `(doc: Document) => void` | — | 文档变更时回调 |
-| `onSave` | `(buffer: ArrayBuffer) => void` | — | 工具栏触发保存时回调 |
+| `onSave` | `(buffer: ArrayBuffer) => void` | — | **React**：工具栏触发保存时回调；Vue 无此 prop，改由宿主调用 ref |
 | `onError` | `(error: Error) => void` | — | 出错回调（解析/渲染错误从这里抛出） |
 | `onSelectionChange` | `(state: SelectionState \| null) => void` | — | 选区变化回调 |
 | `onPrint` | `() => void` | — | 传入才启用「文件→打印」与 `editor.print()`，省略则隐藏菜单项 |
 | `documentName` | `string` | — | 标题栏里可编辑的文档名 |
 | `disableFindReplaceShortcuts` | `boolean` | `false` | 让浏览器/宿主接管 Cmd/Ctrl+F、Cmd/Ctrl+H |
 
-> Vue 端：`toolbarExtra` / `renderLogo` / `renderTitleBarRight` 用 `VNodeChild` 渲染函数；SFC 模板里对应具名插槽 `toolbar-extra`、`title-bar-left`、`title-bar-right`。
+> Vue 端：`toolbarExtra` / `renderLogo` / `renderTitleBarRight` 用 `VNodeChild` 渲染函数；SFC 模板里还可用具名插槽。它有 `showMenuBar` 等 Vue 入口，但没有 React 的 `externalContent`、受控 `comments` 或 `agentPanel`。
 
 ## 三、DocxEditorRef 方法
 
 | 方法 | 签名 | 作用 |
 |---|---|---|
-| `save` | `(opts?: { selective?: boolean }) => Promise<ArrayBuffer \| null>` | 序列化为 `.docx`；默认选择性保存，`selective:false` 全量重打包 |
-| `getDocument` | `() => Document` | 取当前文档对象 |
+| `save` | React: `(opts?: { selective?: boolean })`; Vue: `()` | 序列化为 `.docx` → `Promise<ArrayBuffer \| null>`；强制全量重打包选项仅 React 公开 |
+| `getDocument` | `() => Document \| null` | 取当前文档对象；尚未加载时可能为 null |
 | `loadDocumentBuffer` | `(input: DocxInput) => Promise<void>` | 运行时换一份 `.docx`（不重挂组件） |
 | `loadDocument` | `(doc: Document) => void` | 加载一个预解析的 `Document` |
 | `setZoom` | `(n: number) => void` | 设缩放（如 `1.5` = 150%） |
@@ -94,7 +105,7 @@ await ref.current?.loadDocumentBuffer(nextBuffer); // 运行时换文档
 | `serializeDocx(doc)` | 返回 `document.xml` 字符串（不是 `.docx` 文件） |
 | `getParagraphs` / `getParagraphText` / `getBodyText` / `getBodyWordCount` | 文本读取助手 |
 | `DocumentAgent` | 链式不可变文档操作（`insertText`/`applyStyle`/`applyVariables`/`toBuffer` 等） |
-| `detectVariables` / `processTemplate` | `{{变量}}` 模板检测与填充（docxtemplater 支撑） |
+| `detectVariables` / `processTemplate` | <code v-pre>{{变量}}</code> 模板检测与填充（docxtemplater 支撑） |
 | `findContentControls` / `setContentControlContent` | 内容控件（按 tag/alias/id 寻址）查找与填充 |
 | `createEmptyDocument` / `createDocumentWithText` | 新建空/带文本文档 |
 
@@ -110,7 +121,7 @@ await ref.current?.loadDocumentBuffer(nextBuffer); // 运行时换文档
 | `/ai-sdk/server` | 给 Vercel AI SDK `streamText` 的 `getAiSdkTools()` |
 | `/ai-sdk/react`、`/ai-sdk/vue` | `toAgentMessages()` 把 `useChat` 输出喂给 `<AgentChatLog>` |
 
-> 14 个工具：定位 7（`read_document`/`read_selection`/`read_page`/`read_pages`/`find_text`/`read_comments`/`read_changes`）+ 变更 6（`add_comment`/`reply_comment`/`resolve_comment`/`suggest_change`/`apply_formatting`/`set_paragraph_style`）+ 导航 1（`scroll`）。
+> 1.9.0 运行时共 **15 个工具**：定位 7（`read_document` / `read_selection` / `read_page` / `read_pages` / `find_text` / `read_comments` / `read_changes`）+ 变更 7（`add_comment` / `reply_comment` / `resolve_comment` / `suggest_change` / `apply_formatting` / `set_paragraph_style` / `insert_break`）+ 导航 1（`scroll`）。官网仍写 14，发布包运行时是本页依据。
 
 ---
 

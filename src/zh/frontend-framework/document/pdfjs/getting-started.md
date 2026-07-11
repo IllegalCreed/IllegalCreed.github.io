@@ -5,19 +5,20 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇带你装上 PDF.js（`pdfjs-dist`）并完成第一次「加载 → 渲染一页到 canvas」。版本基线 **6.0.x**。核心认知：**getDocument → getPage → getViewport → render 四步链路**，外加一条贯穿全篇的前置提醒——**先配 `GlobalWorkerOptions.workerSrc`**，否则 worker 缺失会报错。
+> 本篇带你装上 PDF.js（`pdfjs-dist`）并完成第一次「加载 → 渲染一页到 canvas」。版本基线 **6.1.200**。核心认知：**getDocument → getPage → getViewport → render 四步链路**，外加一条贯穿全篇的前置提醒——直接使用 display build 时先配同版本 worker；若框架封装已接管 worker，则沿用其配置。
 
 ## 速查
 
 - 安装：`npm i pdfjs-dist`（包名是 `pdfjs-dist`，不是 `pdf.js`）
 - 导入：`import * as pdfjsLib from "pdfjs-dist"`
-- 配 worker（**必做**）：`pdfjsLib.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.mjs", import.meta.url).toString()`
+- 配 worker（直接集成时）：`pdfjsLib.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.mjs", import.meta.url).toString()`
 - 加载：`const pdf = await pdfjsLib.getDocument({ url }).promise`
 - 取页（**1 基**）：`const page = await pdf.getPage(1)`
 - 算尺寸：`const viewport = page.getViewport({ scale: 1.5 })`
 - 渲染：`await page.render({ canvas, viewport }).promise`
 - 总页数：`pdf.numPages`；释放：`await pdf.destroy()`
-- ⚠️ PDF.js **只渲染/解析，不生成 PDF**（生成用 jsPDF / pdf-lib）
+- Node：6.1.200 要求 `>=22.13.0 || >=24`，从 `pdfjs-dist/legacy/build/pdf.mjs` 导入
+- ⚠️ PDF.js 不是通用生成器；有限注解保存不等于任意创建/修改 PDF
 
 ## 一、PDF.js 是什么
 
@@ -27,7 +28,7 @@ outline: [2, 3]
 2. **worker 架构**：CPU 密集的解析放后台线程，主线程只绘制。
 3. **分层设计**：core（解析）/ display（渲染 API，最常用）/ viewer（完整 UI）。
 
-> 边界提醒：要「生成 PDF」请用 jsPDF（编程式画）或 pdf-lib（改/拼现有 PDF）。把 PDF.js 当生成器是最常见的误解。
+> 边界提醒：PDF.js viewer 能编辑并保存一部分注解，但不提供通用建页与排版 API。要从零生成用 jsPDF，要改/拼既有 PDF 用 pdf-lib。
 
 ## 二、安装与导入
 
@@ -43,11 +44,11 @@ pdfjsLib.getDocument(/* ... */);
 pdfjsLib.GlobalWorkerOptions.workerSrc = /* ... */;
 ```
 
-> 新版 `pdfjs-dist`（v4/v5/v6）以 **ES Module** 为主：入口 `build/pdf.mjs`、worker `build/pdf.worker.mjs`。**老浏览器或 Node** 用 legacy 构建（`pdfjs-dist/legacy/build/...`）。
+> `pdfjs-dist` 6.1.200 以 **ES Module** 为主：入口 `build/pdf.mjs`、worker `build/pdf.worker.mjs`。**较老浏览器或 Node** 用 legacy 构建（`pdfjs-dist/legacy/build/...`）；该版本 package engine 要求 Node `>=22.13.0 || >=24`。
 
 ## 三、配置 worker（绕不开的一步）
 
-PDF.js 把解析放进 Web Worker，使用前**必须**告诉它 worker 脚本在哪：
+PDF.js 把解析放进 Web Worker。直接使用 display build 时，应明确告诉它 worker 脚本在哪：
 
 ```ts
 // 推荐：交给打包器（Vite/webpack）解析资源 URL
@@ -58,7 +59,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
 ```
 
 ::: warning 不配会怎样
-不设 `workerSrc` 通常报错，或退化成「fake worker」在主线程解析——卡 UI 且常出问题。另外**主库与 worker 版本必须一致**，否则报「The API version does not match the Worker version」。
+若既没有设置 `workerSrc` / `workerPort`，上层封装也没有接管 worker，初始化会报错或尝试 fake worker。**主库与 worker 必须是完全相同的版本**，否则会报「The API version does not match the Worker version」。react-pdf 等封装可能自行管理 worker，先遵循其集成文档。
 :::
 
 ## 四、第一次「加载」

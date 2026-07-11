@@ -5,7 +5,18 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **6.0.x**。把 PDF.js 用进真实项目：文本层（可选中/可搜索）、注解层（链接/表单）、用户本地文件、远程加载与凭据、导出图片、HiDPI 完整处理、加载进度条。
+> 版本基线 **6.1.200**。把 PDF.js 用进真实项目：文本层（可选中/可搜索）、注解层（链接/表单）、用户本地文件、远程加载与凭据、导出图片、HiDPI 完整处理、加载进度条。
+
+## 速查
+
+- 文本层：`new TextLayer({ textContentSource, container, viewport }).render()`
+- 文本/注解层必须与 canvas 共用同一 viewport，并加载 viewer layer CSS
+- 搜索应基于 `getTextContent()` 的片段与坐标，不是在 canvas 上做 OCR
+- 注解层是低层 API：基础链接/表单还要 link service、download manager、annotation storage
+- 本地文件：`file.arrayBuffer()` → `getDocument({ data })`
+- 远程文件：CORS 由目标服务器配置；凭据分别用 `withCredentials` / `httpHeaders`
+- 导图：先 render 到 canvas，再 `toBlob()`；下载后释放对象 URL
+- HiDPI：放大物理画布并通过 `transform` 缩放，CSS 尺寸保持 viewport 大小
 
 ## 一、文本层：让文字可选中/可搜索
 
@@ -21,7 +32,7 @@ const textLayer = new pdfjsLib.TextLayer({
 await textLayer.render();
 ```
 
-> 旧的函数式 `renderTextLayer(...)` 已弃用，新版用 `TextLayer` 类。文本层与 canvas **必须用一致的 scale/rotation**，否则文字与图错位。
+> 旧的函数式 `renderTextLayer(...)` 已弃用，新版用 `TextLayer` 类。文本层与 canvas **必须用一致的 scale/rotation**，还要加载 `pdfjs-dist/web/pdf_viewer.css`（或实现等价定位样式），否则文字与图错位。
 
 ## 二、整本搜索关键字并高亮（思路）
 
@@ -53,14 +64,17 @@ const annotationLayer = new pdfjsLib.AnnotationLayer({
   div: annotationLayerDiv,
   viewport,
   page,
+  linkService,
+  annotationStorage: pdf.annotationStorage,
 });
 await annotationLayer.render({
-  annotations: await page.getAnnotations(),
-  viewport,
+  annotations: await page.getAnnotations({ intent: "display" }),
+  downloadManager,
+  renderForms: true,
 });
 ```
 
-> 链接可点、表单可填都靠注解层 DOM。它独立于 canvas 位图层与文本层，三层从下到上叠放。
+> 链接可点、表单可填都靠注解层 DOM。`AnnotationLayer` 是低层 display API，`linkService` / `downloadManager` 需由 `pdfjs-dist/web/pdf_viewer.mjs` 或宿主适配；完整 viewer 通常直接复用 `AnnotationLayerBuilder`。三层仍按 canvas → text → annotation 叠放。
 
 ## 四、用户本地文件（input/拖拽）
 
@@ -103,10 +117,13 @@ const dataUrl = canvas.toDataURL("image/png");
 
 // 或转 Blob 下载
 canvas.toBlob((blob) => {
+  if (!blob) return;
   const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob!);
+  const objectUrl = URL.createObjectURL(blob);
+  a.href = objectUrl;
   a.download = "page-1.png";
   a.click();
+  URL.revokeObjectURL(objectUrl);
 }, "image/png");
 ```
 
@@ -145,4 +162,4 @@ const pdf = await loadingTask.promise;
 
 ---
 
-进入 [指南 · 专家](./guide-line/expert)：CJK/字体资源（cMapUrl）、大文档虚拟化、Node 端抽文本、legacy 构建、打包器 worker 配置、与 jsPDF/pdf-lib 的选型。
+进入 [指南 · 专家](./expert)：CJK/字体资源（cMapUrl）、大文档虚拟化、Node 端抽文本、legacy 构建、打包器 worker 配置、与 jsPDF/pdf-lib 的选型。
