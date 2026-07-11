@@ -1434,8 +1434,44 @@ export default defineConfig({
                 text: "Web API",
                 collapsed: true,
                 items: [
-                  { text: "Web Components" },
-                  { text: "Web Assembly" },
+                  {
+                    text: "Web Components",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/web-components/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/web-components/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "自定义元素与生命周期", link: "/zh/web-advanced/web-api/web-components/guide-line/custom-elements" },
+                          { text: "Shadow DOM 封装与样式", link: "/zh/web-advanced/web-api/web-components/guide-line/shadow-dom" },
+                          { text: "template、slot 与声明式 Shadow DOM", link: "/zh/web-advanced/web-api/web-components/guide-line/templates-slots" },
+                          { text: "表单、可访问性与框架互操作", link: "/zh/web-advanced/web-api/web-components/guide-line/forms-frameworks" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/web-components/reference" },
+                    ],
+                  },
+                  {
+                    text: "Web Assembly",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/webassembly/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/webassembly/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "模块模型与线性内存", link: "/zh/web-advanced/web-api/webassembly/guide-line/module-and-memory" },
+                          { text: "JS API 全解", link: "/zh/web-advanced/web-api/webassembly/guide-line/js-api" },
+                          { text: "工具链与互操作", link: "/zh/web-advanced/web-api/webassembly/guide-line/toolchains-interop" },
+                          { text: "Wasm 3.0 与前沿", link: "/zh/web-advanced/web-api/webassembly/guide-line/wasm3-and-frontier" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/webassembly/reference" },
+                    ],
+                  },
                   { text: "WebRTC API" },
                   { text: "Server-Sent Events" },
                   { text: "Fetch API" },
