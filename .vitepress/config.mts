@@ -1659,8 +1659,44 @@ export default defineConfig({
                       { text: "参考", link: "/zh/web-advanced/web-api/observers/reference" },
                     ],
                   },
-                  { text: "History 与 Navigation API" },
-                  { text: "View Transitions API" },
+                  {
+                    text: "History 与 Navigation API",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/history-navigation/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/history-navigation/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "History API", link: "/zh/web-advanced/web-api/history-navigation/guide-line/history-api" },
+                          { text: "Navigation API 基础", link: "/zh/web-advanced/web-api/history-navigation/guide-line/navigation-api-basics" },
+                          { text: "navigate 事件与拦截", link: "/zh/web-advanced/web-api/history-navigation/guide-line/navigate-intercept" },
+                          { text: "迁移与模式", link: "/zh/web-advanced/web-api/history-navigation/guide-line/migration-patterns" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/history-navigation/reference" },
+                    ],
+                  },
+                  {
+                    text: "View Transitions API",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/view-transitions/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/view-transitions/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "基础与伪元素树", link: "/zh/web-advanced/web-api/view-transitions/guide-line/basics-pseudo" },
+                          { text: "命名与定制", link: "/zh/web-advanced/web-api/view-transitions/guide-line/naming-customization" },
+                          { text: "SPA、MPA 与类型", link: "/zh/web-advanced/web-api/view-transitions/guide-line/spa-mpa-types" },
+                          { text: "工程模式与降级", link: "/zh/web-advanced/web-api/view-transitions/guide-line/patterns-fallback" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/view-transitions/reference" },
+                    ],
+                  },
                   { text: "File 与文件系统 API" },
                   { text: "跨上下文通信" },
                   { text: "常用杂项 API" },
