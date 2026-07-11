@@ -1429,6 +1429,8 @@ export default defineConfig({
                 ],
               },
               {
+                // 2026-07-11 选型定案 17 叶（spec: quiz-monorepo docs/plans/20260711-web-api-trilogy.md）
+                // 本章讲「浏览器 API 用法」；协议原理在网络章、存储模型在浏览器章。产出叶才 text→link。
                 text: "Web API",
                 collapsed: true,
                 items: [
@@ -1441,6 +1443,14 @@ export default defineConfig({
                   { text: "Web Storage API" },
                   { text: "IndexedDB" },
                   { text: "Web Workers API" },
+                  { text: "Service Worker 与 PWA" },
+                  { text: "Streams API" },
+                  { text: "Observer 观察器 API" },
+                  { text: "History 与 Navigation API" },
+                  { text: "View Transitions API" },
+                  { text: "File 与文件系统 API" },
+                  { text: "跨上下文通信" },
+                  { text: "常用杂项 API" },
                 ],
               },
               {
