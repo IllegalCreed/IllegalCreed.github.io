@@ -1621,8 +1621,44 @@ export default defineConfig({
                       { text: "参考", link: "/zh/web-advanced/web-api/service-worker-pwa/reference" },
                     ],
                   },
-                  { text: "Streams API" },
-                  { text: "Observer 观察器 API" },
+                  {
+                    text: "Streams API",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/streams/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/streams/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "ReadableStream", link: "/zh/web-advanced/web-api/streams/guide-line/readable-stream" },
+                          { text: "WritableStream 与 TransformStream", link: "/zh/web-advanced/web-api/streams/guide-line/writable-transform" },
+                          { text: "背压与排队策略", link: "/zh/web-advanced/web-api/streams/guide-line/backpressure-strategy" },
+                          { text: "字节流与压缩实战", link: "/zh/web-advanced/web-api/streams/guide-line/bytes-compression" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/streams/reference" },
+                    ],
+                  },
+                  {
+                    text: "Observer 观察器 API",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/observers/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/observers/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "IntersectionObserver", link: "/zh/web-advanced/web-api/observers/guide-line/intersection-observer" },
+                          { text: "ResizeObserver", link: "/zh/web-advanced/web-api/observers/guide-line/resize-observer" },
+                          { text: "MutationObserver", link: "/zh/web-advanced/web-api/observers/guide-line/mutation-observer" },
+                          { text: "PerformanceObserver 与其他", link: "/zh/web-advanced/web-api/observers/guide-line/performance-reporting-observer" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/observers/reference" },
+                    ],
+                  },
                   { text: "History 与 Navigation API" },
                   { text: "View Transitions API" },
                   { text: "File 与文件系统 API" },
