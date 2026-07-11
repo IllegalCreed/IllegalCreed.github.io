@@ -1528,9 +1528,61 @@ export default defineConfig({
                       { text: "参考", link: "/zh/web-advanced/web-api/fetch/reference" },
                     ],
                   },
-                  { text: "WebSocket" },
-                  { text: "Web Storage API" },
-                  { text: "IndexedDB" },
+                  {
+                    text: "WebSocket",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/websocket/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/websocket/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "API 全解", link: "/zh/web-advanced/web-api/websocket/guide-line/api-deep-dive" },
+                          { text: "二进制与背压", link: "/zh/web-advanced/web-api/websocket/guide-line/binary-backpressure" },
+                          { text: "生命周期与封装模式", link: "/zh/web-advanced/web-api/websocket/guide-line/lifecycle-patterns" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/websocket/reference" },
+                    ],
+                  },
+                  {
+                    text: "Web Storage API",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/web-storage/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/web-storage/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "API 与事件", link: "/zh/web-advanced/web-api/web-storage/guide-line/api-and-events" },
+                          { text: "序列化与异常", link: "/zh/web-advanced/web-api/web-storage/guide-line/serialization-exceptions" },
+                          { text: "封装模式", link: "/zh/web-advanced/web-api/web-storage/guide-line/patterns" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/web-storage/reference" },
+                    ],
+                  },
+                  {
+                    text: "IndexedDB",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/indexeddb/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/indexeddb/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "事务模型", link: "/zh/web-advanced/web-api/indexeddb/guide-line/transactions" },
+                          { text: "CRUD、索引与游标", link: "/zh/web-advanced/web-api/indexeddb/guide-line/crud-index-cursor" },
+                          { text: "版本与多标签页", link: "/zh/web-advanced/web-api/indexeddb/guide-line/versioning-multitab" },
+                          { text: "包装库与生态", link: "/zh/web-advanced/web-api/indexeddb/guide-line/wrappers-ecosystem" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/indexeddb/reference" },
+                    ],
+                  },
                   { text: "Web Workers API" },
                   { text: "Service Worker 与 PWA" },
                   { text: "Streams API" },
