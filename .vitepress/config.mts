@@ -1472,9 +1472,62 @@ export default defineConfig({
                       { text: "参考", link: "/zh/web-advanced/web-api/webassembly/reference" },
                     ],
                   },
-                  { text: "WebRTC API" },
-                  { text: "Server-Sent Events" },
-                  { text: "Fetch API" },
+                  {
+                    text: "WebRTC API",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/webrtc/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/webrtc/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "媒体捕获与设备", link: "/zh/web-advanced/web-api/webrtc/guide-line/media-capture" },
+                          { text: "RTCPeerConnection 生命周期", link: "/zh/web-advanced/web-api/webrtc/guide-line/peer-connection" },
+                          { text: "perfect negotiation 与 DataChannel", link: "/zh/web-advanced/web-api/webrtc/guide-line/negotiation-datachannel" },
+                          { text: "getStats 与 Encoded Transform", link: "/zh/web-advanced/web-api/webrtc/guide-line/stats-transform" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/webrtc/reference" },
+                    ],
+                  },
+                  {
+                    text: "Server-Sent Events",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/sse/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/sse/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "EventSource API 全解", link: "/zh/web-advanced/web-api/sse/guide-line/eventsource-api" },
+                          { text: "重连机制与工程局限", link: "/zh/web-advanced/web-api/sse/guide-line/reconnect-and-limits" },
+                          { text: "fetch 流式替代方案", link: "/zh/web-advanced/web-api/sse/guide-line/fetch-streaming-alternative" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/sse/reference" },
+                    ],
+                  },
+                  {
+                    text: "Fetch API",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/fetch/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/fetch/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "Request、Response 与 Headers", link: "/zh/web-advanced/web-api/fetch/guide-line/request-response" },
+                          { text: "取消与超时", link: "/zh/web-advanced/web-api/fetch/guide-line/abort-timeout" },
+                          { text: "mode、credentials 与 cache", link: "/zh/web-advanced/web-api/fetch/guide-line/cors-credentials-cache" },
+                          { text: "流式与离页请求", link: "/zh/web-advanced/web-api/fetch/guide-line/streaming-keepalive" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/fetch/reference" },
+                    ],
+                  },
                   { text: "WebSocket" },
                   { text: "Web Storage API" },
                   { text: "IndexedDB" },
