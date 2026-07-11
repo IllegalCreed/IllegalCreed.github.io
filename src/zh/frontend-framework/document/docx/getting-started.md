@@ -5,7 +5,7 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇带你装上 docx 并完成第一份文档的「生成 → 导出」。版本基线 **9.x**。核心认知：**Document → Section → Paragraph → TextRun 声明式对象树**，外加一条贯穿全篇的环境差异——**Node 用 `Packer.toBuffer` 写盘、浏览器用 `Packer.toBlob` 下载**。
+> 本篇带你装上 docx 并完成第一份文档的「生成 → 导出」。版本基线 **9.7.1**。核心认知：**Document → Section → Paragraph → TextRun 声明式对象树**，外加一条贯穿全篇的环境差异——**Node 用 `Packer.toBuffer` 写盘、浏览器用 `Packer.toBlob` 下载**。
 
 ## 速查
 
@@ -106,7 +106,7 @@ Packer.toBlob(doc).then((blob) => {
 ```
 
 ::: warning 不要在浏览器 import fs
-浏览器无 Node 文件系统，`fs.writeFileSync` 不可用。下载一律走 `toBlob` → `saveAs`（或 `URL.createObjectURL` + `<a download>`）。另注意 `Packer.toBuffer` 在浏览器里返回的是 **`Uint8Array`** 而非 Node `Buffer`，所以浏览器下载首选 `toBlob`。
+浏览器无 Node 文件系统，`fs.writeFileSync` 不可用。下载走 `toBlob` → `saveAs`（或 `URL.createObjectURL` + `<a download>`）；若要交给 Web API，可用 `toArrayBuffer`。`toBuffer` 的公开类型是 Node `Buffer`，不要把它当浏览器通用出口。
 :::
 
 ## 六、段落与文本：简写 vs children

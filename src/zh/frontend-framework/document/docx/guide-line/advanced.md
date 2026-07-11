@@ -5,7 +5,16 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **9.x**。把 docx 用进真实文档：表格 `Table`、图片 `ImageRun`、页眉页脚与页码、命名样式 `styles`（像 CSS 一样复用）、多 section 分区排版、目录 TOC。
+> 版本基线 **9.7.1**。把 docx 用进真实文档：表格 `Table`、图片 `ImageRun`、页眉页脚与页码、命名样式 `styles`（像 CSS 一样复用）、多 section 分区排版、目录 TOC。
+
+## 速查
+
+- 表格层级：`Table → TableRow → TableCell → Paragraph`，单元格不能直接放字符串
+- 图片：`new ImageRun({ type, data, transformation })`；`data` 支持 Buffer、字符串、Uint8Array、ArrayBuffer，不支持 Blob
+- SVG 必须提供 `fallback` 栅格图；远程图片要先自行 `fetch(...).arrayBuffer()`
+- 页眉页脚放在 section 的 `headers` / `footers`；页码用 `PageNumber` 字段，由 Word 排版时计算
+- 自定义命名样式：在 `Document.styles` 定义、段落用 `style: id` 引用；常用 Heading/List 内置样式无需重定义
+- TOC 依赖 `HeadingLevel` 与域更新，`features.updateFields: true` 只请求阅读器打开时更新
 
 ## 一、表格：Table → Row → Cell → Paragraph
 
@@ -60,7 +69,7 @@ new Paragraph({
   children: [
     new ImageRun({
       type: 'png',                // 显式声明格式：png/jpg/gif/bmp/svg
-      data: fs.readFileSync('logo.png'), // 二进制：Buffer/Uint8Array/ArrayBuffer/Base64/Blob
+      data: fs.readFileSync('logo.png'), // Buffer / Uint8Array / ArrayBuffer / Base64 字符串
       transformation: { width: 120, height: 120 }, // 像素尺寸
     }),
   ],
@@ -147,7 +156,7 @@ const doc = new Document({
 });
 ```
 
-> 思路同外部 CSS：样式与内容分离、一处定义多处复用。**注意**：若引用了内置 `HeadingX`/`Title`/`ListParagraph` 等 id，必须确保对应样式已定义，否则显示成默认。
+> 思路同外部 CSS：样式与内容分离、一处定义多处复用。9.7.1 已提供 `Heading1`~`Heading6`、`Title`、`ListParagraph` 等常用内置定义；这里的 `styles` 主要用于注册业务自己的样式 ID 或覆盖默认表现。
 
 ## 五、多 section：分区排版
 

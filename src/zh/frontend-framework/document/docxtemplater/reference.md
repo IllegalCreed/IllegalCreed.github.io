@@ -5,7 +5,16 @@ outline: [2, 3]
 
 # 参考
 
-> docxtemplater 常用标签语法、构造选项、核心方法、错误结构与免费/付费模块速查。版本基线 **3.x**。
+> docxtemplater 常用标签语法、构造选项、核心方法、错误结构与免费/付费模块速查。版本基线 **3.69.0**。
+
+## 速查
+
+- 免费核心格式：docx、pptx；xlsx 需要商业模块
+- 推荐构造：`new Docxtemplater(zip, options)`，会立即编译；无参数构造与链式配置已弃用并计划在 v4 移除
+- 同步数据：`doc.render(data)`；含 Promise：`await doc.renderAsync(data)`，但最终编译/渲染仍占用同步 CPU
+- Node 导出：`doc.toBuffer()`；浏览器：`doc.toBlob()`；3.62.0+ 还提供 Base64、Uint8Array、ArrayBuffer 便捷出口
+- expressions：适配器在 `docxtemplater/expressions.js`，底层 `angular-expressions` 需单独安装且至少为 1.5.2
+- 一个 Docxtemplater 实例只能 render 一次；模块实例也不要跨文档复用
 
 ## 一、标签类型（语法）
 
@@ -29,9 +38,9 @@ outline: [2, 3]
 | `linebreaks` | boolean | `false` | 把数据值里的 `\n` 渲染成文档换行 |
 | `delimiters` | object | `{ start:'{', end:'}' }` | 自定义分隔符，如 `{ start:'[[', end:']]' }` |
 | `parser` | function | 简单属性查找 | 传 `expressionParser` 启用表达式能力 |
-| `nullGetter` | function | 普通标签返回 `'undefined'` | 自定义缺值（undefined）时的输出 |
+| `nullGetter` | function | 普通标签返回 `'undefined'` | 自定义 null/undefined 时的输出；模块标签默认空串 |
 | `modules` | array | `[]` | 传入（多为付费）模块实例 |
-| `errorLogging` | string\|false | `'json'` | 错误日志格式；错误仍会照常抛出 |
+| `errorLogging` | boolean\|string | `'json'` | `false` 可关闭自动日志；错误仍会照常抛出 |
 | `syntax` | object | — | 如 `allowUnclosedTag` / `allowUnopenedTag` |
 
 ## 三、核心方法
@@ -40,9 +49,10 @@ outline: [2, 3]
 |---|---|---|
 | `new Docxtemplater(zip, opts)` | 构造并编译模板 | 模板结构非法会在此抛 TemplateError |
 | `doc.render(data)` | **同步**填充替换 | 数据含 Promise 时不可用 |
-| `doc.renderAsync(data)` | **异步**填充，返回 Promise | 内部先 resolve 数据里的 Promise |
+| `doc.renderAsync(data)` | 返回 Promise | 异步 resolve 数据后，仍同步执行 compile/render |
 | `doc.toBuffer()` | 导出 Node Buffer | 3.62.0+；等价 `getZip().generate({type:'nodebuffer'})` |
 | `doc.toBlob()` | 导出浏览器 Blob | 3.62.0+；等价 `getZip().generate({type:'blob'})` |
+| `doc.toBase64()` / `toUint8Array()` / `toArrayBuffer()` | 其他输出 | 3.62.0+ 便捷方法 |
 | `doc.getZip()` | 取底层 PizZip 对象 | 老写法 `.generate(opts)` 仍可用 |
 
 > 旧链式 API（已不推荐）：`new Docxtemplater().attachModule().loadZip().setOptions().compile()` + `resolveData()` + `getZip().generate()`。新版统一在构造函数一次性传 `zip + options`（含 `modules`）。
@@ -53,8 +63,8 @@ outline: [2, 3]
 |---|---|
 | 导入 | `const expressionParser = require('docxtemplater/expressions.js')` |
 | 启用 | `new Docxtemplater(zip, { parser: expressionParser })` |
-| 加过滤器 | `expressionParser.configure({ filters: { upper: x => x.toUpperCase() } })` |
-| 依赖 | 基于开源 `angular-expressions`，随包提供、**免费** |
+| 加过滤器 | `const parser = expressionParser.configure({ filters: { upper: x => x.toUpperCase() } })`，再把 `parser` 传入构造选项 |
+| 依赖 | 适配器随 docxtemplater 导出；`angular-expressions` 需另装，版本至少 1.5.2 |
 | 默认解析器对比 | 默认**不支持**点号/运算/比较/过滤器 |
 
 ## 五、错误结构
@@ -95,8 +105,10 @@ try {
 | 循环 `{#}{/}` / 反向 `{^}{/}` | **免费核心** |
 | raw XML `{@}`（段落级） | **免费核心** |
 | 自定义分隔符 / `nullGetter` | **免费核心** |
-| expressions 解析器（点号/运算/过滤器） | **免费**（随包） |
+| expressions 解析器（点号/运算/过滤器） | **免费适配器**，另装 `angular-expressions` |
 | 表格行循环（标签放进表格行） | **免费核心** |
+| docx / pptx 模板填充 | **免费核心** |
+| xlsx 模板填充 | **付费** xlsx 模块 |
 | 插入图片 | **付费** image 模块 |
 | 插入 HTML 富文本 | **付费** html 模块 |
 | 图表数据绑定 | **付费** chart 模块 |

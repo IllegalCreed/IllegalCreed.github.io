@@ -5,7 +5,7 @@ outline: [2, 3]
 
 # 入门
 
-> 本篇带你装上 mammoth 并完成第一次「docx → HTML」转换。版本基线 **1.12.0**。核心认知：**mammoth 按语义样式名映射、忽略直接格式**；返回 `{ value, messages }`；**浏览器用 `{ arrayBuffer }`、Node 用 `{ path }`/`{ buffer }`**。
+> 本篇带你装上 mammoth 并完成第一次「docx → HTML」转换。版本基线 **1.12.0**。核心认知：**mammoth 优先按语义样式映射，不追求视觉还原**；返回 `{ value, messages }`；**浏览器用 `{ arrayBuffer }`、Node 用 `{ path }`/`{ buffer }`**。
 
 ## 速查
 
@@ -16,14 +16,15 @@ outline: [2, 3]
 - 转 HTML（浏览器）：`await mammoth.convertToHtml({ arrayBuffer: await file.arrayBuffer() })`
 - 抽纯文本：`await mammoth.extractRawText({ path: "doc.docx" })`
 - 自定义映射：`convertToHtml(input, { styleMap: ["p[style-name='Title'] => h1:fresh"] })`
+- 输出：`value` 是 HTML **片段**，不是带 `<html>/<body>` 的完整页面；表格结构可保留但边框/底纹等格式会丢失
 - ⚠️ mammoth **不做消毒**：输出注入页面前务必 `DOMPurify.sanitize(value)`
-- ⚠️ 它**忽略直接格式**（手动字号/颜色），只认**样式名**
+- ⚠️ 它会保留粗体/斜体/链接等部分语义，但忽略手动字号、颜色、分页等大部分视觉格式
 
 ## 一、mammoth 是什么
 
 官方定位：把 .docx「**convert to simple and clean HTML**」。三个关键点：
 
-1. **重语义、轻外观**：依据样式名（如 “Heading 1”）映射成 `<h1>`，而不照搬 Word 里手动设的字号/颜色。
+1. **重语义、轻外观**：依据样式名（如 “Heading 1”）映射成 `<h1>`，保留粗体/斜体/链接等部分语义，但不照搬手动字号/颜色等视觉细节。
 2. **环境无关**：浏览器与 Node 通用，只是「喂数据」的方式不同（arrayBuffer vs path/buffer）。
 3. **可定制**：用 styleMap 这套小语言精确控制「哪个样式 → 哪个标签」。
 
@@ -65,7 +66,7 @@ console.log(result.value);    // 生成的 HTML 字符串
 console.log(result.messages); // 警告/错误数组（如未识别的样式）
 ```
 
-所有转换函数都返回 `Promise<{ value, messages }>`：`value` 是结果字符串，`messages` 收集转换过程中的 warning / error。**别忽略 messages**——它会告诉你哪些样式没被识别。
+`convertToHtml` 与 `extractRawText` 都返回 `Promise<{ value, messages }>`：`value` 是结果字符串，`messages` 收集转换过程中的 warning / error。HTML 的 `value` 是可嵌入页面的片段，不是完整 HTML 文档。**别忽略 messages**——它会告诉你哪些样式没被识别。
 
 ## 五、浏览器里转换上传的文件
 

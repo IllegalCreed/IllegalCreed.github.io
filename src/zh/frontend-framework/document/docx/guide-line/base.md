@@ -5,7 +5,16 @@ outline: [2, 3]
 
 # 指南 · 基础
 
-> 版本基线 **9.x**。本篇把「会生成」用到「懂模型」：Document/Section/Paragraph/TextRun 对象树、Document 的常用选项、TextRun 文本样式全家桶、单位换算（半磅 / twips / EMU）、标题与对齐、列表与编号。
+> 版本基线 **9.7.1**。本篇把「会生成」用到「懂模型」：Document/Section/Paragraph/TextRun 对象树、Document 的常用选项、TextRun 文本样式全家桶、单位换算（半磅 / twips / EMU）、标题与对齐、列表与编号。
+
+## 速查
+
+- 对象树：`Document.sections[] → Paragraph/Table → TextRun/ImageRun`
+- `new Document({ sections })` 中 `sections` 必填；页面、页眉页脚等属性属于各个 section
+- 段落级：`heading`、`alignment`、`spacing`、`bullet`、`numbering`；字符级：`bold`、`italics`、`size`、`color`
+- 单位：字号用 half-point（12pt = 24），间距/宽度常用 twip（1in = 1440），绘图偏移用 EMU（1in = 914400）
+- `HeadingLevel.HEADING_1`、`TITLE`、`ListParagraph` 等常用内置样式由库提供；只有自定义样式才需要在 `Document.styles` 定义
+- 有序列表先在 `Document.numbering.config` 定义方案，再由段落用 `{ reference, level }` 引用
 
 ## 一、对象模型：四层结构
 
@@ -109,8 +118,8 @@ new Paragraph({ text: '两端对齐', alignment: AlignmentType.JUSTIFIED });
 - `heading` 取 **HeadingLevel** 枚举：`HEADING_1`~`HEADING_6`、`TITLE`。它不仅套用标题样式，也是后续生成目录（TOC）识别层级的依据。
 - `alignment` 取 **AlignmentType** 枚举：`START`/`LEFT`、`CENTER`、`END`/`RIGHT`、`BOTH`/`JUSTIFIED`。
 
-::: warning 标题/列表没样式？
-若用了 `heading`、自定义 `paragraphStyles` 或列表，却**没在 `Document.styles` 里定义对应的 `HeadingX`/`Title`/`ListParagraph` 样式**，导出后会显示成「未套样式」的默认样子。详见[进阶 · 命名样式](./advanced)。
+::: tip 内置样式与自定义样式
+9.7.1 会把 `Title`、`Heading1`~`Heading6`、`ListParagraph` 等常用内置样式写入文档，直接使用 `HeadingLevel` 或 `bullet` 不必重复定义。只有业务自己的样式 ID（如 `myHeading`）才需要在 `Document.styles` 中注册，详见[进阶 · 命名样式](./advanced)。
 :::
 
 ## 六、无序列表：bullet
@@ -120,7 +129,7 @@ new Paragraph({ text: '第一层', bullet: { level: 0 } });
 new Paragraph({ text: '第二层', bullet: { level: 1 } }); // 缩进一级
 ```
 
-> `bullet.level` 从 0（顶层）到 9（最深），控制嵌套缩进。**有序/多级编号**（1./1.1/a)）不用 bullet，要用 `numbering`，见下。
+> `bullet.level` 从 0（顶层）到 8（第 9 级），控制嵌套缩进。**有序/多级编号**（1./1.1/a)）不用 bullet，要用 `numbering`，见下。
 
 ## 七、有序与多级编号：numbering
 

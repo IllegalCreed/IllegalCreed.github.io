@@ -5,7 +5,7 @@ layout: doc
 # docx
 
 ::: tip 本篇范围
-本篇聚焦 **docx（`dolanmiu/docx`）—— 用 JS/TS 以声明式对象树「生成（并可修改）」Word `.docx` 文件的库**，是「代码生成 Word」的事实标准。重点在：**`Document → Section → Paragraph → TextRun` 对象模型**、样式（粗斜体/字号/颜色/对齐）、表格 `Table`、图片 `ImageRun`、页眉页脚、列表/编号、`Packer.toBuffer/toBlob/...` 的环境差异（浏览器 vs Node），以及与 **docxtemplater（模板填充）/ mammoth（解析读取）** 的分工。版本基线 **9.x**（npm latest `9.7.1`，MIT 许可）。
+本篇聚焦 **docx（`dolanmiu/docx`）—— 用 JS/TS 以声明式对象树「生成（并可修改）」Word `.docx` 文件的库**，是「代码生成 Word」的事实标准。重点在：**`Document → Section → Paragraph → TextRun` 对象模型**、样式（粗斜体/字号/颜色/对齐）、表格 `Table`、图片 `ImageRun`、页眉页脚、列表/编号、`Packer.toBuffer/toBlob/...` 的环境差异（浏览器 vs Node），以及与 **docxtemplater（模板填充）/ mammoth（解析读取）** 的分工。版本基线 **9.7.1**（MIT 许可）。
 :::
 
 docx 的官方定位是「**Easily generate and modify .docx files with JS/TS. Works for Node and on the Browser**」。它**不依赖也不调用 Microsoft Word**——纯用 JavaScript 直接构造 OOXML（Office Open XML）并打包成 `.docx`（本质是一个 ZIP/OPC 容器，内含 `word/document.xml`、`styles.xml`、`[Content_Types].xml` 等部件）。因此在没装 Office 的服务器、CI、甚至浏览器里都能跑。
@@ -26,9 +26,9 @@ docx 的官方定位是「**Easily generate and modify .docx files with JS/TS. W
 **缺点**
 
 - **不是解析库**：它主攻「生成/修改」，**把已有 `.docx` 读出来转 HTML/纯文本**是 mammoth 的活，方向相反
-- **复刻复杂既有版式成本高**：若设计师已在 Word 里排好精美模板、只想填数据，用 **docxtemplater** 往 `{{占位符}}` 填更省心（docx 也有 `patchDocument` 但体验不及）
+- **复刻复杂既有版式成本高**：若设计师已在 Word 里排好精美模板、只想填数据，用 **docxtemplater** 往 `{占位符}` 填更省心（docx 自己的 `patchDocument` 默认才使用 <code v-pre>{{占位符}}</code>）
 - **单位与命名有学习成本**：字号是 **half-points（半磅）**、表格宽度/段间距常用 **twips**、绘图/浮动图片用 **EMU**（1in=914400），斜体属性名是 `italics`（复数），初见易踩
-- **样式需配套定义**：用了 `heading`/列表却没在 `styles` 里定义对应 `HeadingX`/`ListParagraph`，会显示成「未套样式」的默认样子
+- **自定义样式需集中治理**：库内置常用标题/列表样式，但业务样式仍要在 `Document.styles` 注册并保持稳定 ID；复杂品牌规范会带来不少配置
 - **字段类内容靠 Word 计算**：目录、页码总数等是「字段（field）」，docx 只放占位，**真实内容由 Word 打开时更新域**才生成
 - **无内置高层图表 API**：要在文档里放图表，常见做法是先把图表渲成图片再用 `ImageRun` 插入
 

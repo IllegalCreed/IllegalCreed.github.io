@@ -7,6 +7,15 @@ outline: [2, 3]
 
 > 版本基线 **1.12.0**。把 mammoth 用进真实项目：浏览器上传转换、Node 服务端处理、嵌套结构与 `separator`、前缀/ID 匹配、图片自定义 `convertImage`、以及与 DOMPurify 的安全组合。
 
+## 速查
+
+- 浏览器：`mammoth.convertToHtml({ arrayBuffer })`；Node：`{ path }` 或 `{ buffer }`
+- 嵌套容器用 `>`；连续段落聚合用 `separator`，此时不要给聚合容器加 `:fresh`
+- 默认图片是 data URI；自定义上传用 `images.imgElement`，浏览器不要调用 `readAsBuffer()`
+- 输出 HTML 必须在信任边界消毒；`externalFileAccess` 默认 false，只有可信文档才可开启
+- 同页嵌入多份结果时设置不同 `idPrefix`，避免书签/脚注锚点冲突
+- 不可信上传还要限制文件大小、转换时长、并发与内存；DOMPurify 只解决输出注入，不解决资源耗尽
+
 ## 一、浏览器：转换上传的 docx
 
 ```ts
@@ -113,7 +122,7 @@ const { value } = await mammoth.convertToHtml({ arrayBuffer });
 el.innerHTML = DOMPurify.sanitize(value);
 ```
 
-并保持 `externalFileAccess` 默认 `false`（禁止文档访问外部文件，防 SSRF/读本地文件）。仅在**信任**文档时才显式开启。
+并保持 `externalFileAccess` 默认 `false`（禁止文档访问外部文件，防 SSRF/读本地文件）。仅在**信任**文档时才显式开启。对用户上传还要设置体积、超时、并发与内存上限；HTML 消毒不能防止病态文档拖垮转换进程。
 
 ## 八、空段落与 id 前缀
 
@@ -137,4 +146,4 @@ mammoth report.docx --output-dir=out-dir
 
 ---
 
-进入 [指南 · 专家](./guide-line/expert)：默认映射的精确顺序与优先级、transformDocument 按字体识别代码、embedStyleMap 内嵌映射、与 docx-preview / docx 的选型。
+进入 [指南 · 专家](./expert)：默认映射的精确顺序与优先级、transformDocument 按字体识别代码、embedStyleMap 内嵌映射、与 docx-preview / docx 的选型。

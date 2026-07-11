@@ -5,7 +5,16 @@ outline: [2, 3]
 
 # 指南 · 进阶
 
-> 版本基线 **3.x**。把 docxtemplater 用进真实项目：表格行循环、异步数据 `renderAsync`、浏览器下载、Node 服务端把文档作为响应返回、错误聚合处理、自定义分隔符。
+> 版本基线 **3.69.0**。把 docxtemplater 用进真实项目：表格行循环、异步数据 `renderAsync`、浏览器下载、Node 服务端把文档作为响应返回、错误聚合处理、自定义分隔符。
+
+## 速查
+
+- 表格行循环：开闭区块标签放在**同一模板行**的首尾单元格，避免把表头一起复制
+- Promise 数据：`await doc.renderAsync(data)`；它异步解析数据，最终 XML 渲染仍同步占用 CPU
+- 浏览器模板必须按 ArrayBuffer/二进制读取，导出 `doc.toBlob()`；Node 导出 `doc.toBuffer()`
+- 构造函数会立即编译，结构错误可能在 `new Docxtemplater(...)` 时抛出；MultiError 子错误在 `error.properties.errors`
+- 保留大量字面花括号时用 `delimiters` 或 `{=[[ ]]=}`，不要自行发明反斜杠转义
+- 每份输出新建 Docxtemplater 实例；商业模块实例也不要跨多个文档实例复用
 
 ## 一、表格里按数据增删行（免费）
 
@@ -14,8 +23,8 @@ outline: [2, 3]
 在 Word 表格里这样写（开/闭标签放在行首尾单元格）：
 
 ```text
-| {#rows}姓名 | 金额 |
-| {name} | {amount}{/rows} |
+| 姓名 | 金额 |
+| {#rows}{name} | {amount}{/rows} |
 ```
 
 ```ts
@@ -47,7 +56,7 @@ const buf = doc.toBuffer();
 fs.writeFileSync('out.docx', buf);
 ```
 
-> `renderAsync(data)` 返回 Promise，内部会**先 resolve 数据里所有 Promise** 再渲染。旧版等价写法是 `await doc.resolveData(data)` 然后 `doc.render()`。付费 image 模块常因「图片需异步加载」而要求走这条路。
+> `renderAsync(data)` 返回 Promise，内部先 resolve 数据里的 Promise，再同步执行最终渲染；它不会把 CPU 密集的 XML 编译/渲染自动移出主线程。旧链式 `resolveData()` 写法已弃用；浏览器批量生成或大模板应放到 Worker，并限制并发。
 
 ## 三、浏览器：拉模板 + 触发下载
 
@@ -158,6 +167,10 @@ const doc = new Docxtemplater(zip, {
 
 > 旧链式 `.attachModule(mod)` 已不推荐；统一在构造函数一次传入。
 
+::: warning 模块实例不要共享
+Docxtemplater 实例只能渲染一次；模块对象也会持有文档状态。批量生成时可以缓存模板的原始二进制，但每份输出都要重新创建 PizZip、模块实例与 Docxtemplater。
+:::
+
 ---
 
-进入 [指南 · 专家](./guide-line/expert)：免费/付费边界全表、Word 拆标签经典坑、安全（GPLv3 含义）、与 docx/SheetJS 的选型。
+进入 [指南 · 专家](./expert)：免费/付费边界、模板结构边界、授权、性能与 docx/SheetJS 的选型。

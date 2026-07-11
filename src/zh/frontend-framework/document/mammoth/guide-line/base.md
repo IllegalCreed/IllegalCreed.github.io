@@ -7,14 +7,23 @@ outline: [2, 3]
 
 > 版本基线 **1.12.0**。本篇把「会转换」用到「懂机制」：样式映射（style map）模型、内置默认映射、`:fresh` 与元素复用、字符级格式的默认处理、`messages` 的解读。
 
+## 速查
+
+- 核心目标：把 Word 语义映射为干净 HTML，而非还原字号、颜色、分页与表格视觉样式
+- style map：`文档匹配器 => HTML 路径`，如 `p[style-name='Title'] => h1:fresh`
+- 自定义规则先于内嵌与默认规则；`includeDefaultStyleMap: false` 可完全关闭内置映射
+- 独立段落/标题通常用 `:fresh`；共享容器（如列表外层 `ul`）不加 `:fresh`
+- 粗体、斜体、删除线、链接等部分直接语义会保留；下划线默认忽略
+- `messages` 中未识别样式通常不会丢文字，但提示应补映射或治理源文档样式
+
 ## 一、核心心智模型：按样式名映射
 
-mammoth 不照搬 Word 的直接格式（手动设的字号、颜色、缩进），而是**只看段落/文字应用了哪个「样式名」**，据此决定输出的 HTML。
+mammoth 不照搬 Word 的字号、颜色、缩进等视觉性直接格式，而是**优先看段落/文字应用了哪个「样式名」**，据此决定输出结构；粗体、斜体、删除线、链接等少量直接语义另有默认映射。
 
 ```text
 Word 段落（样式名 = "Heading 1"，且作者手动调成 20px 红色）
         │  mammoth 忽略「20px 红色」这类直接格式
-        ▼  只认样式名 "Heading 1"
+        ▼  结构主要由样式名 "Heading 1" 决定
 <h1>…</h1>      ← 由默认映射 p[style-name='Heading 1'] => h1:fresh 得到
 ```
 
@@ -120,4 +129,4 @@ styleMap: ["p[style-name='Comment'] => !"]
 
 ---
 
-进入 [指南 · 进阶](./guide-line/advanced)：浏览器/Node 实战、嵌套结构与 `separator`、图片自定义 `convertImage`、与 DOMPurify 的安全组合。
+进入 [指南 · 进阶](./advanced)：浏览器/Node 实战、嵌套结构与 `separator`、图片自定义 `convertImage`、与 DOMPurify 的安全组合。

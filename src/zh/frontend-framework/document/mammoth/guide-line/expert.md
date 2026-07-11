@@ -7,6 +7,15 @@ outline: [2, 3]
 
 > 版本基线 **1.12.0**。深入边界与权衡：映射的优先级与合并顺序、`transformDocument` 按字体识别代码、`embedStyleMap` 内嵌映射、Markdown 的取舍、安全细节，以及与 docx-preview / docx 的选型。
 
+## 速查
+
+- 映射优先级：自定义 `styleMap` → 文档内嵌映射 → 内置默认映射，第一条匹配生效
+- `transformDocument` 可在转换前改 AST，但官方标为 unstable：锁定 1.12.0 并对真实样本文档回归测试
+- `embedStyleMap` 把规则写回 docx；读取时由 `includeEmbeddedStyleMap` 控制是否采用
+- `convertToMarkdown` 已弃用，推荐 docx → HTML → 专用 HTML-to-Markdown 工具
+- 不可信输入同时防 HTML 注入、外部文件访问和 CPU/内存耗尽；转换应隔离并设超时
+- 要语义内容选 mammoth；要视觉预览选 docx-preview；要生成文档选 docx/docxtemplater
+
 ## 一、映射的合并顺序与优先级
 
 转换时，mammoth 把三类映射**按此顺序拼接**，并取「**第一条匹配**」的规则：

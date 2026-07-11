@@ -5,18 +5,29 @@ outline: [2, 3]
 
 # 指南 · 专家
 
-> 版本基线 **9.x**。深入边界与权衡：Packer 四种导出与环境差异、流式写大文件、内嵌字体、SVG 回退、`patchDocument` 模板补丁、`.docx` 内部结构（OOXML/OPC），以及与 docxtemplater / mammoth 的选型。
+> 版本基线 **9.7.1**。深入边界与权衡：Packer 输出与环境差异、Stream 的真实内存语义、内嵌字体、SVG 回退、`patchDocument` 模板补丁、`.docx` 内部结构（OOXML/OPC），以及与 docxtemplater / mammoth 的选型。
 
-## 一、Packer 四法与环境差异
+## 速查
 
-Packer 与 Document 完全解耦，提供四种导出（**全部异步，返回 Promise**）：
+- `toBuffer` / `toBlob` / `toArrayBuffer` / `toBase64String` / `toString` 都返回 Promise；`toStream` 同步返回 Stream
+- 浏览器选 `toBlob` 或 `toArrayBuffer`，不要依赖 Node 专用的 `toBuffer`
+- `toStream` 9.7.1 仍先在内存中生成完整 Buffer，再一次性发出；它解决接口衔接，不保证降低峰值内存
+- 内嵌字体通过 `Document.fonts` 提供字体数据；SVG 图片必须附栅格 `fallback`
+- `patchDetector({ data })` 可先扫描 <code v-pre>{{tag}}</code>，`patchDocument` 支持输出类型、自定义分隔符、保留样式与递归补丁
+- 复杂既有模板优先 docxtemplater；读取/转换现有 docx 优先 mammoth
+
+## 一、Packer 输出与环境差异
+
+Packer 与 Document 完全解耦。便捷方法覆盖常见输出，底层还可用泛型 `pack(doc, type)` 选择 `uint8array`、`arraybuffer`、`blob`、`nodebuffer` 等类型：
 
 | 方法 | 返回 | 场景 |
 |---|---|---|
-| `toBuffer(doc)` | Node `Buffer`（**浏览器里是 `Uint8Array`**） | Node 写盘 / 作 HTTP 响应体 |
-| `toBlob(doc)` | `Blob` | 浏览器下载 |
-| `toBase64String(doc)` | Base64 字符串 | 内嵌、传输、邮件附件 |
-| `toStream(doc)` | 可读流 | Node 流式写超大文档 |
+| `toBuffer(doc)` | `Promise<Buffer>` | Node 写盘 / HTTP 响应体 |
+| `toBlob(doc)` | `Promise<Blob>` | 浏览器下载 |
+| `toArrayBuffer(doc)` | `Promise<ArrayBuffer>` | Web API / Worker 传输 |
+| `toBase64String(doc)` | `Promise<string>`（Base64） | 内嵌、传输、邮件附件 |
+| `toString(doc)` | `Promise<string>`（ZIP 二进制字符串） | 兼容场景；不是 `document.xml` 文本 |
+| `toStream(doc)` | `Stream`（立即返回） | 对接 `pipe()` 等 Node 流接口 |
 
 ```ts
 // Node 写盘
@@ -26,15 +37,15 @@ Packer.toBuffer(doc).then((buf) => fs.writeFileSync('out.docx', buf));
 Packer.toBlob(doc).then((blob) => saveAs(blob, 'out.docx'));
 ```
 
-::: warning toBuffer 的跨环境陷阱
-`toBuffer` 在 Node 给 `Buffer`、**在浏览器给 `Uint8Array`**（浏览器没有 Node Buffer）。跨环境代码别假设拿到的一定是 Buffer；浏览器下载请直接用 `toBlob`。
+::: warning 按环境选公开出口
+`toBuffer` 的 TypeScript 签名是 `Promise<Buffer>`，用于 Node。浏览器下载用 `toBlob`，需要裸二进制用 `toArrayBuffer`；若确实要 Uint8Array，调用 `Packer.pack(doc, 'uint8array')`，不要依赖打包器对 Node Buffer 的垫片行为。
 :::
 
 可选参数：第二个 `prettify`（布尔/缩进字符）让输出 XML 缩进美化，便于调试（生产不开，增大体积）；第三个 `overrides` 可覆写包内某些子文件。
 
-## 二、Node：流式写大文件
+## 二、toStream：流接口不等于增量生成
 
-超大文档用 `toStream` 边生成边写，降低内存峰值：
+`toStream` 可以直接接入 Node 流管道：
 
 ```ts
 import * as fs from 'fs';
@@ -44,7 +55,9 @@ stream.pipe(fs.createWriteStream('big.docx'));
 stream.on('end', () => console.log('done'));
 ```
 
-> `toBuffer` 会把整个文件一次性载入内存；大文档优先 `toStream`。Base64 体积更大、最不省内存。
+::: warning 9.7.1 的实现边界
+当前实现先异步生成完整 `nodebuffer`，完成后再通过 Stream 一次发出，因此它**不会边构建 OOXML 边写盘，也不保证降低内存峰值**。超大文档仍需压测并设置任务并发/内存上限；Base64 还会额外膨胀体积。
+:::
 
 ## 三、Node：作为 HTTP 响应返回
 
@@ -93,24 +106,29 @@ new ImageRun({
 
 ## 六、patchDocument：往模板打补丁
 
-`docx` 除了从零生成，还能**在已有 `.docx` 模板里替换占位符**。模板里用 mustache 写 `{{tag}}`：
+`docx` 除了从零生成，还能**在已有 `.docx` 模板里替换占位符**。模板里用 mustache 写 <code v-pre>{{tag}}</code>：
 
 ```ts
-import { patchDocument, PatchType, TextRun, Paragraph } from 'docx';
+import { patchDetector, patchDocument, PatchType, TextRun, Paragraph } from 'docx';
 import * as fs from 'fs';
+
+const data = fs.readFileSync('template.docx');
+const keys = await patchDetector({ data }); // ['name', 'intro']
 
 const patched = await patchDocument({
   outputType: 'nodebuffer',
-  data: fs.readFileSync('template.docx'),
+  data,
   patches: {
     name: { type: PatchType.PARAGRAPH, children: [new TextRun('John Doe')] }, // 段内替换
     intro: { type: PatchType.DOCUMENT, children: [new Paragraph('整段/表格替换')] }, // 块级替换
   },
+  keepOriginalStyles: true,
+  recursive: false,
 });
 fs.writeFileSync('out.docx', patched);
 ```
 
-> `PatchType.PARAGRAPH` 在段落**内部**替换片段，`PatchType.DOCUMENT` 替换整段或插入块级元素（如表格）。这与 docxtemplater 思路相近，但 API 贴近 docx。
+> `patchDetector` 先列出默认 <code v-pre>{{tag}}</code> 占位符。`PatchType.PARAGRAPH` 在段落**内部**替换片段，`PatchType.DOCUMENT` 替换整个段落级元素并可放入 Paragraph/Table；还可用 `placeholderDelimiters` 改分隔符、用 `recursive` 继续处理补丁新生成的占位符。
 
 ## 七、`.docx` 的真面目：ZIP + OOXML
 
@@ -138,10 +156,10 @@ word/media/...           # 图片等媒体
 | 维度 | **docx** | **docxtemplater** | **mammoth** |
 |---|---|---|---|
 | 方向 | **生成 / 修改** | 模板填充 | **解析 / 读取** |
-| 典型用法 | 用代码从零搭结构 | 设计师在 Word 排模板，代码填 `{{占位符}}` | 把 `.docx` 转 HTML/纯文本 |
+| 典型用法 | 用代码从零搭结构 | 设计师在 Word 排模板，代码填 `{占位符}` | 把 `.docx` 转 HTML/纯文本 |
 | 复杂既有版式 | 复刻成本高 | **强**（保留模板原貌） | — |
 | 动态结构 | **强**（map/循环/条件） | 一般（受模板约束） | — |
-| 环境 | Node + 浏览器 | Node + 浏览器 | 主要 Node |
+| 环境 | Node + 浏览器 | Node + 浏览器 | Node + 浏览器 |
 
 **经验法则**：
 
@@ -153,7 +171,7 @@ word/media/...           # 图片等媒体
 ## 十、几条实战提醒
 
 - **单位别混**：字号半磅、间距/宽度 twips、绘图 EMU（1in=914400）。
-- **样式要配套**：用 `heading`/列表就得在 `styles` 定义对应 `HeadingX`/`ListParagraph`。
+- **区分样式来源**：标题/列表常用内置样式可直接用；业务自定义样式要在 `Document.styles` 注册稳定 ID。
 - **别共享引用**：用工厂/`map` 按数据**每次新建**元素实例，别把同一对象塞到树多处。
 - **浏览器无 fs**：下载走 `toBlob` + `saveAs`，不要 `import fs`。
 

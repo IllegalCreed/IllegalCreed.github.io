@@ -5,7 +5,16 @@ outline: [2, 3]
 
 # 参考
 
-> docx **常用类、构造选项、枚举与单位** 速查。版本基线 **9.x**（npm latest `9.7.1`，MIT）。
+> docx **常用类、构造选项、枚举与单位** 速查。版本基线 **9.7.1**（MIT）。
+
+## 速查
+
+- Node 导出：`await Packer.toBuffer(doc)`；浏览器下载：`await Packer.toBlob(doc)`
+- Web 二进制接口：`await Packer.toArrayBuffer(doc)`；通用底层出口：`await Packer.pack(doc, outputType)`
+- `toBuffer`、`toBlob`、`toArrayBuffer`、`toBase64String`、`toString` 返回 Promise；只有 `toStream` 立即返回 Stream
+- 9.7.1 的 `toStream` 仍先生成完整 Buffer 再发出，不是增量 OOXML/ZIP 生成器
+- `ImageRun.data` 支持 Buffer、字符串、Uint8Array、ArrayBuffer，不接受 Blob；SVG 另需 `fallback`
+- 模板补丁默认识别 <code v-pre>{{tag}}</code>；可先用 `await patchDetector({ data })` 枚举占位符
 
 ## 一、核心类与对象层级
 
@@ -28,12 +37,15 @@ outline: [2, 3]
 
 | 方法 | 返回 | 场景 |
 |---|---|---|
-| `Packer.toBuffer(doc, prettify?, overrides?)` | Node `Buffer` / 浏览器 `Uint8Array` | Node 写盘 / HTTP 响应 |
-| `Packer.toBlob(doc, ...)` | `Blob` | 浏览器下载（配 `saveAs`） |
-| `Packer.toBase64String(doc, ...)` | `string` | 内嵌 / 传输 |
-| `Packer.toStream(doc, ...)` | 可读流 | Node 流式写大文件 |
+| `Packer.pack<T>(doc, type, prettify?, overrides?)` | `Promise<OutputByType[T]>` | 按输出类型统一调用 |
+| `Packer.toBuffer(doc, prettify?, overrides?)` | `Promise<Buffer>` | Node 写盘 / HTTP 响应 |
+| `Packer.toBlob(doc, ...)` | `Promise<Blob>` | 浏览器下载（配 `saveAs`） |
+| `Packer.toArrayBuffer(doc, ...)` | `Promise<ArrayBuffer>` | 浏览器 Web API / 跨线程传输 |
+| `Packer.toBase64String(doc, ...)` | `Promise<string>` | 内嵌 / 传输 |
+| `Packer.toString(doc, ...)` | `Promise<string>`（ZIP 二进制字符串） | 兼容旧接口；不是 OOXML 源文本 |
+| `Packer.toStream(doc, ...)` | `Stream`（同步返回） | 对接 Node 流接口 |
 
-> 全部**异步**（返回 Promise）。`prettify` 控制 XML 缩进美化（调试用）；`overrides` 覆写包内子文件。
+> 除 `toStream` 外均异步返回 Promise。9.7.1 的 `toStream` 内部仍先 `generateAsync({ type: 'nodebuffer' })`，完成后一次发出 Buffer，因此不能据此推断内存峰值更低。`prettify` 控制包内 XML 缩进；`overrides` 覆写包内子文件。
 
 ## 三、Document 常用选项
 
@@ -68,7 +80,7 @@ outline: [2, 3]
 | `alignment` | `AlignmentType` | `START`/`CENTER`/`END`/`BOTH` 等 |
 | `spacing` | object | `{ before, after, line, lineRule }`（twips） |
 | `indent` | object | `{ left, right, firstLine, hanging }`（twips） |
-| `bullet` | object | `{ level }`（无序列表 0~9） |
+| `bullet` | object | `{ level }`（无序列表 0~8，共 9 级） |
 | `numbering` | object | `{ reference, level, instance? }`（有序/多级） |
 | `style` | string | 引用命名样式 id |
 | `border` | object | 段落边框 |
@@ -109,7 +121,7 @@ outline: [2, 3]
 | 选项 | 说明 |
 |---|---|
 | `type` | `'png'` / `'jpg'` / `'gif'` / `'bmp'` / `'svg'` |
-| `data` | 二进制：Buffer / Uint8Array / ArrayBuffer / Base64 / Blob |
+| `data` | Buffer / 字符串（如 Base64）/ Uint8Array / ArrayBuffer；**不含 Blob** |
 | `transformation` | `{ width, height }`（像素） |
 | `floating` | 浮动定位（offset 单位 **EMU**） + `wrap` 环绕 |
 | `fallback` | SVG 必备的回退位图 |
@@ -141,16 +153,22 @@ outline: [2, 3]
 ## 十一、patchDocument（模板补丁）
 
 ```ts
+const keys = await patchDetector({ data: templateBuffer });
+
 await patchDocument({
   outputType: 'nodebuffer',   // 或 'uint8array' / 'blob' / 'base64'
   data: templateBuffer,       // 已有 .docx 模板
   patches: {
-    tag: { type: PatchType.PARAGRAPH | PatchType.DOCUMENT, children: [...] },
+    name: { type: PatchType.PARAGRAPH, children: [new TextRun('Ada')] },
+    intro: { type: PatchType.DOCUMENT, children: [new Paragraph('整段内容')] },
   },
+  keepOriginalStyles: true,
+  placeholderDelimiters: { start: '{{', end: '}}' },
+  recursive: false,
 });
 ```
 
-> 模板里用 `{{tag}}` 占位；`PARAGRAPH` 段内替换，`DOCUMENT` 块级替换。
+> 模板默认用 <code v-pre>{{tag}}</code> 占位；`patchDetector` 返回模板中的 key。`PARAGRAPH` 在原段内替换，`DOCUMENT` 替换整个段落级元素；`placeholderDelimiters` 可改分隔符，`recursive` 控制补丁产生的新占位符是否继续处理。
 
 ---
 
