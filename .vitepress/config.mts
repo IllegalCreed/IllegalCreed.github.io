@@ -1697,9 +1697,63 @@ export default defineConfig({
                       { text: "参考", link: "/zh/web-advanced/web-api/view-transitions/reference" },
                     ],
                   },
-                  { text: "File 与文件系统 API" },
-                  { text: "跨上下文通信" },
-                  { text: "常用杂项 API" },
+                  {
+                    text: "File 与文件系统 API",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/file-system/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/file-system/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "File、Blob 与 FileReader", link: "/zh/web-advanced/web-api/file-system/guide-line/file-blob-reader" },
+                          { text: "File System Access API", link: "/zh/web-advanced/web-api/file-system/guide-line/file-system-access" },
+                          { text: "OPFS", link: "/zh/web-advanced/web-api/file-system/guide-line/opfs" },
+                          { text: "工程模式", link: "/zh/web-advanced/web-api/file-system/guide-line/patterns" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/file-system/reference" },
+                    ],
+                  },
+                  {
+                    text: "跨上下文通信",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/cross-context-messaging/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/cross-context-messaging/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "window.postMessage 与安全", link: "/zh/web-advanced/web-api/cross-context-messaging/guide-line/postmessage" },
+                          { text: "MessageChannel 与 MessagePort", link: "/zh/web-advanced/web-api/cross-context-messaging/guide-line/message-channel" },
+                          { text: "BroadcastChannel", link: "/zh/web-advanced/web-api/cross-context-messaging/guide-line/broadcast-channel" },
+                          { text: "多标签页方案对比", link: "/zh/web-advanced/web-api/cross-context-messaging/guide-line/multi-tab-patterns" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/cross-context-messaging/reference" },
+                    ],
+                  },
+                  {
+                    text: "常用杂项 API",
+                    collapsed: true,
+                    link: "/zh/web-advanced/web-api/misc-apis/",
+                    items: [
+                      { text: "入门", link: "/zh/web-advanced/web-api/misc-apis/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "剪贴板与分享", link: "/zh/web-advanced/web-api/misc-apis/guide-line/clipboard-share" },
+                          { text: "通知、页面状态与唤醒锁", link: "/zh/web-advanced/web-api/misc-apis/guide-line/notification-visibility-wake" },
+                          { text: "定位、URL 与其他", link: "/zh/web-advanced/web-api/misc-apis/guide-line/geolocation-url-others" },
+                          { text: "权限模型与工程模式", link: "/zh/web-advanced/web-api/misc-apis/guide-line/permissions-patterns" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/web-advanced/web-api/misc-apis/reference" },
+                    ],
+                  },
                 ],
               },
               {
