@@ -60,6 +60,4 @@ gstack 是 Garry Tan（Y Combinator 总裁兼 CEO）开源的一套 Claude Code 
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">gstack 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=589" target="_blank" rel="noopener noreferrer">gstack 测试题</a>

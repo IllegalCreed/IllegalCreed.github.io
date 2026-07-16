@@ -59,6 +59,4 @@ Agent Skills 是由 Anthropic 发起并开源的**轻量开放标准**：一个�
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">Agent Skills 规范与生态 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=583" target="_blank" rel="noopener noreferrer">Agent Skills 规范与生态 测试题</a>
