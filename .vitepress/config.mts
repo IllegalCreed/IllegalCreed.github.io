@@ -9861,6 +9861,70 @@ export default defineConfig({
                           },
                         ],
                       },
+                      {
+                        text: "框架与应用开发",
+                        collapsed: true,
+                        items: [
+                          {
+                            text: "Web 框架与元框架",
+                            collapsed: true,
+                            items: [
+                              {
+                                text: "Vercel Agent Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/vercel-agent-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/vercel-agent-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/vercel-agent-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/vercel-agent-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "Next.js Workflow Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/nextjs-workflow-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/nextjs-workflow-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/nextjs-workflow-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/nextjs-workflow-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "Vue Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/vue-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/vue-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/vue-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/vue-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "Antfu Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/antfu-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/antfu-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/antfu-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/antfu-skills/reference" },
+                                ],
+                              },
+                              { text: "Nuxt Skills" },
+                              {
+                                text: "Angular Developer Skill",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/angular-developer-skill/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/angular-developer-skill/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/angular-developer-skill/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/angular-developer-skill/reference" },
+                                ],
+                              },
+                              { text: "Svelte AI Tools" },
+                            ],
+                          },
+                        ],
+                      },
                     ],
                   },
                   {
