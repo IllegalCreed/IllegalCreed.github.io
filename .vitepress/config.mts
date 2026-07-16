@@ -9730,40 +9730,84 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                       {
-                        text: "Superpowers",
+                        text: "规范、发现与创作",
                         collapsed: true,
-                        link: "/zh/large-language-model/skills/superpowers/",
                         items: [
                           {
-                            text: "入门",
-                            link: "/zh/large-language-model/skills/superpowers/getting-started",
+                            text: "Agent Skills 规范与生态",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/agent-skills-spec/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/agent-skills-spec/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/agent-skills-spec/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/agent-skills-spec/reference" },
+                            ],
                           },
                           {
-                            text: "指南",
-                            link: "/zh/large-language-model/skills/superpowers/guide-line",
-                          },
-                          {
-                            text: "参考",
-                            link: "/zh/large-language-model/skills/superpowers/reference",
+                            text: "Skills CLI 与 find-skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/skills-cli-find-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/skills-cli-find-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/skills-cli-find-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/skills-cli-find-skills/reference" },
+                            ],
                           },
                         ],
                       },
                       {
-                        text: "Everything Claude Code",
+                        text: "工程方法与上下文管理",
                         collapsed: true,
-                        link: "/zh/large-language-model/skills/everything-claude-code/",
                         items: [
                           {
-                            text: "入门",
-                            link: "/zh/large-language-model/skills/everything-claude-code/getting-started",
+                            text: "Superpowers",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/superpowers/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/superpowers/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/superpowers/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/superpowers/reference" },
+                            ],
                           },
                           {
-                            text: "指南",
-                            link: "/zh/large-language-model/skills/everything-claude-code/guide-line",
+                            text: "Everything Claude Code",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/everything-claude-code/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/everything-claude-code/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/everything-claude-code/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/everything-claude-code/reference" },
+                            ],
                           },
                           {
-                            text: "参考",
-                            link: "/zh/large-language-model/skills/everything-claude-code/reference",
+                            text: "Grill Me",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/grill-me/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/grill-me/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/grill-me/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/grill-me/reference" },
+                            ],
+                          },
+                          {
+                            text: "Grill With Docs",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/grill-with-docs/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/grill-with-docs/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/grill-with-docs/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/grill-with-docs/reference" },
+                            ],
+                          },
+                          {
+                            text: "gstack",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/gstack/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/gstack/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/gstack/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/gstack/reference" },
+                            ],
                           },
                         ],
                       },
