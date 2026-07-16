@@ -9809,6 +9809,56 @@ export default defineConfig({
                               { text: "参考", link: "/zh/large-language-model/skills/gstack/reference" },
                             ],
                           },
+                          {
+                            text: "Compound Engineering",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/compound-engineering/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/compound-engineering/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/compound-engineering/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/compound-engineering/reference" },
+                            ],
+                          },
+                          {
+                            text: "GSD Core",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/gsd-core/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/gsd-core/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/gsd-core/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/gsd-core/reference" },
+                            ],
+                          },
+                          {
+                            text: "Addy Osmani Agent Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/addy-osmani-agent-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/addy-osmani-agent-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/addy-osmani-agent-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/addy-osmani-agent-skills/reference" },
+                            ],
+                          },
+                          {
+                            text: "BMAD Method",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/bmad-method/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/bmad-method/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/bmad-method/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/bmad-method/reference" },
+                            ],
+                          },
+                          {
+                            text: "Caveman",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/caveman/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/caveman/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/caveman/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/caveman/reference" },
+                            ],
+                          },
                         ],
                       },
                     ],
