@@ -60,6 +60,4 @@ Caveman（"why use many token when few token do trick"）是 Julius Brussee 开�
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">Caveman 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=594" target="_blank" rel="noopener noreferrer">Caveman 测试题</a>

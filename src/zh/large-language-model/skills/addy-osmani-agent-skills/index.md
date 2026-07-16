@@ -60,6 +60,4 @@ Addy Osmani（Google Chrome 团队）开源的 **agent-skills** 是一套「生�
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">Addy Osmani Agent Skills 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=592" target="_blank" rel="noopener noreferrer">Addy Osmani Agent Skills 测试题</a>
