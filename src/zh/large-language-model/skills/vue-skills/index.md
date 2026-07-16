@@ -62,6 +62,4 @@ Vue Skills（`vuejs-ai/skills`）是一组面向 Vue 3 开发的 AI agent 技能
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">Vue Skills 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=599" target="_blank" rel="noopener noreferrer">Vue Skills 测试题</a>

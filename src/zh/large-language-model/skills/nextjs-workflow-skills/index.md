@@ -58,6 +58,4 @@ Next.js Workflow Skills 是 Next.js **官方**的一组「工作流技能」，�
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">Next.js Workflow Skills 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=598" target="_blank" rel="noopener noreferrer">Next.js Workflow Skills 测试题</a>
