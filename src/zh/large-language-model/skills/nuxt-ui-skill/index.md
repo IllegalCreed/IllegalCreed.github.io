@@ -60,6 +60,4 @@ Nuxt UI Skill（`nuxt/ui` 官方仓库 v4 分支内 `skills/nuxt-ui/SKILL.md`，
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">Nuxt UI Skill 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=610" target="_blank" rel="noopener noreferrer">Nuxt UI Skill 测试题</a>

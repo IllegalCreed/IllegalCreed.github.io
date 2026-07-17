@@ -59,6 +59,4 @@ Stripe Skills 是 **Stripe 官方**（源在 `stripe/ai`，即原 `stripe/agent-
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">Stripe Skills 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=613" target="_blank" rel="noopener noreferrer">Stripe Skills 测试题</a>

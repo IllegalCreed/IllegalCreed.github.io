@@ -60,6 +60,4 @@ Better Auth Skills（`better-auth/skills`）是 Better Auth 官方 org 维护的
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">Better Auth Skills 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=612" target="_blank" rel="noopener noreferrer">Better Auth Skills 测试题</a>
