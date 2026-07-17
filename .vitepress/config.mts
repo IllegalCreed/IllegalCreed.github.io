@@ -10238,6 +10238,62 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "云原生、DevOps 与可观测性",
+                    collapsed: true,
+                    items: [
+                      {
+                        text: "Azure Skills Plugin",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/azure-skills-plugin/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/azure-skills-plugin/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/azure-skills-plugin/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/azure-skills-plugin/reference" },
+                        ],
+                      },
+                      {
+                        text: "AWS Agent Toolkit",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/aws-agent-toolkit/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/aws-agent-toolkit/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/aws-agent-toolkit/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/aws-agent-toolkit/reference" },
+                        ],
+                      },
+                      {
+                        text: "Cloudflare Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/cloudflare-skills/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/cloudflare-skills/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/cloudflare-skills/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/cloudflare-skills/reference" },
+                        ],
+                      },
+                      {
+                        text: "HashiCorp Agent Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/hashicorp-agent-skills/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/hashicorp-agent-skills/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/hashicorp-agent-skills/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/hashicorp-agent-skills/reference" },
+                        ],
+                      },
+                      {
+                        text: "可观测性 Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/observability-skills/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/observability-skills/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/observability-skills/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/observability-skills/reference" },
+                        ],
+                      },
+                    ],
+                  },
+                  {
                     text: "AI 辅助开发工具",
                     collapsed: true,
                     items: [{ text: "react-doctor" }],
