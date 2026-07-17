@@ -61,6 +61,4 @@ React Router Skill 是 React Router 官方（remix-run）出品的 AI 编码 age
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">React Router Skill 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=605" target="_blank" rel="noopener noreferrer">React Router Skill 测试题</a>

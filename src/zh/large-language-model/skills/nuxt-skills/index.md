@@ -60,6 +60,4 @@ Nuxt Skills（`onmax/nuxt-skills`）是一套面向 AI 编码助手的 **Vue / N
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">Nuxt Skills 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=601" target="_blank" rel="noopener noreferrer">Nuxt Skills 测试题</a>
