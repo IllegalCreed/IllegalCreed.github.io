@@ -9977,6 +9977,58 @@ export default defineConfig({
                               },
                             ],
                           },
+                          {
+                            text: "组件系统",
+                            collapsed: true,
+                            items: [
+                              {
+                                text: "shadcn Skill",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/shadcn-skill/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/shadcn-skill/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/shadcn-skill/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/shadcn-skill/reference" },
+                                ],
+                              },
+                              {
+                                text: "Nuxt UI Skill",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/nuxt-ui-skill/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/nuxt-ui-skill/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/nuxt-ui-skill/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/nuxt-ui-skill/reference" },
+                                ],
+                              },
+                            ],
+                          },
+                          {
+                            text: "应用服务集成",
+                            collapsed: true,
+                            items: [
+                              {
+                                text: "Better Auth Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/better-auth-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/better-auth-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/better-auth-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/better-auth-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "Stripe Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/stripe-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/stripe-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/stripe-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/stripe-skills/reference" },
+                                ],
+                              },
+                            ],
+                          },
                         ],
                       },
                     ],
