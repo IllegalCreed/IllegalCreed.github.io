@@ -10075,6 +10075,42 @@ export default defineConfig({
                               },
                             ],
                           },
+                          {
+                            text: "后端框架与运行时",
+                            collapsed: true,
+                            items: [
+                              {
+                                text: "Matteo Collina Node.js Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/matteo-collina-nodejs-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/matteo-collina-nodejs-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/matteo-collina-nodejs-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/matteo-collina-nodejs-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "NestJS Best Practices",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/nestjs-best-practices/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/nestjs-best-practices/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/nestjs-best-practices/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/nestjs-best-practices/reference" },
+                                ],
+                              },
+                              {
+                                text: "Deno Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/deno-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/deno-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/deno-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/deno-skills/reference" },
+                                ],
+                              },
+                            ],
+                          },
                         ],
                       },
                     ],
