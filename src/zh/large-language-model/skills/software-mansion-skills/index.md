@@ -58,6 +58,4 @@ Software Mansion Skills（`software-mansion-labs/skills`）是 Software Mansion 
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">Software Mansion Skills 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=617" target="_blank" rel="noopener noreferrer">Software Mansion Skills 测试题</a>

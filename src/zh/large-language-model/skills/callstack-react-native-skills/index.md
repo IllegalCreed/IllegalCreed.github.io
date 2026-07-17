@@ -63,6 +63,4 @@ Callstack React Native Skills（`callstackincubator/agent-skills`）是 Callstac
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">Callstack React Native Skills 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=616" target="_blank" rel="noopener noreferrer">Callstack React Native Skills 测试题</a>
