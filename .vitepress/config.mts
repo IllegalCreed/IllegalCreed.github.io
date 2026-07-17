@@ -10111,6 +10111,62 @@ export default defineConfig({
                               },
                             ],
                           },
+                          {
+                            text: "AI 应用开发",
+                            collapsed: true,
+                            items: [
+                              {
+                                text: "Vercel AI SDK Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/vercel-ai-sdk-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/vercel-ai-sdk-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/vercel-ai-sdk-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/vercel-ai-sdk-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "Mastra Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/mastra-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/mastra-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/mastra-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/mastra-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "LangChain & LangGraph Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/langchain-langgraph-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/langchain-langgraph-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/langchain-langgraph-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/langchain-langgraph-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "CopilotKit Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/copilotkit-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/copilotkit-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/copilotkit-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/copilotkit-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "assistant-ui Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/assistant-ui-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/assistant-ui-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/assistant-ui-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/assistant-ui-skills/reference" },
+                                ],
+                              },
+                            ],
+                          },
                         ],
                       },
                     ],
