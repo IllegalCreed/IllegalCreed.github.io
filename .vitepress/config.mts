@@ -9909,7 +9909,16 @@ export default defineConfig({
                                   { text: "参考", link: "/zh/large-language-model/skills/antfu-skills/reference" },
                                 ],
                               },
-                              { text: "Nuxt Skills" },
+                              {
+                                text: "Nuxt Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/nuxt-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/nuxt-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/nuxt-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/nuxt-skills/reference" },
+                                ],
+                              },
                               {
                                 text: "Angular Developer Skill",
                                 collapsed: true,
@@ -9920,7 +9929,52 @@ export default defineConfig({
                                   { text: "参考", link: "/zh/large-language-model/skills/angular-developer-skill/reference" },
                                 ],
                               },
-                              { text: "Svelte AI Tools" },
+                              {
+                                text: "Svelte AI Tools",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/svelte-ai-tools/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/svelte-ai-tools/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/svelte-ai-tools/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/svelte-ai-tools/reference" },
+                                ],
+                              },
+                            ],
+                          },
+                          {
+                            text: "路由、状态与数据流",
+                            collapsed: true,
+                            items: [
+                              {
+                                text: "React Router Skill",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/react-router-skill/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/react-router-skill/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/react-router-skill/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/react-router-skill/reference" },
+                                ],
+                              },
+                              {
+                                text: "TanStack Router & Start Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/tanstack-router-start-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/tanstack-router-start-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/tanstack-router-start-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/tanstack-router-start-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "Redux Toolkit Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/redux-toolkit-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/redux-toolkit-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/redux-toolkit-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/redux-toolkit-skills/reference" },
+                                ],
+                              },
                             ],
                           },
                         ],
