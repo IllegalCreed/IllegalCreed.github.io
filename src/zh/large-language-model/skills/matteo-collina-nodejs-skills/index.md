@@ -62,6 +62,4 @@ Matteo Collina Node.js Skills（`mcollina/skills`）是 Matteo Collina **个人*
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">Matteo Collina Node.js Skills 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=620" target="_blank" rel="noopener noreferrer">Matteo Collina Node.js Skills 测试题</a>

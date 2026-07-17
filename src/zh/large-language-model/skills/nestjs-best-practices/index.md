@@ -60,6 +60,4 @@ NestJS Best Practices（`Kadajett/agent-nestjs-skills`）是一份为 AI 编码 
 
 ## 测试题
 
-<a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">NestJS Best Practices 测试题</a>
-
-> 测试题链接待生产库分类导入、获得真实数字叶节点 ID 后回填。
+<a href="https://quiz.illegalscreed.cn/?category=621" target="_blank" rel="noopener noreferrer">NestJS Best Practices 测试题</a>
