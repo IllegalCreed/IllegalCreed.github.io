@@ -10029,6 +10029,52 @@ export default defineConfig({
                               },
                             ],
                           },
+                          {
+                            text: "移动与跨端",
+                            collapsed: true,
+                            items: [
+                              {
+                                text: "Expo Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/expo-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/expo-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/expo-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/expo-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "Callstack React Native Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/callstack-react-native-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/callstack-react-native-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/callstack-react-native-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/callstack-react-native-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "Software Mansion Skills",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/software-mansion-skills/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/software-mansion-skills/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/software-mansion-skills/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/software-mansion-skills/reference" },
+                                ],
+                              },
+                              {
+                                text: "Flutter Agent Plugins",
+                                collapsed: true,
+                                link: "/zh/large-language-model/skills/flutter-agent-plugins/",
+                                items: [
+                                  { text: "入门", link: "/zh/large-language-model/skills/flutter-agent-plugins/getting-started" },
+                                  { text: "指南", link: "/zh/large-language-model/skills/flutter-agent-plugins/guide-line" },
+                                  { text: "参考", link: "/zh/large-language-model/skills/flutter-agent-plugins/reference" },
+                                ],
+                              },
+                            ],
+                          },
                         ],
                       },
                     ],
