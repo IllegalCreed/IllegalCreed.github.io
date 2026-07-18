@@ -7092,16 +7092,81 @@ export default defineConfig({
                 text: "性能优化",
                 collapsed: true,
                 items: [
-                  { text: "异步组件" },
-                  { text: "按需引入" },
-                  { text: "虚拟化" },
-                  { text: "事件及属性优化" },
+                  {
+                    text: "异步组件",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/performance/async-components/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/async-components/getting-started.md" },
+                      { text: "Vue", link: "/zh/frontend-develop-tools/optimization/performance/async-components/guide-line/vue-async-components.md" },
+                      { text: "React", link: "/zh/frontend-develop-tools/optimization/performance/async-components/guide-line/react-async-components.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/performance/async-components/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "按需引入",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/performance/on-demand-import/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/on-demand-import/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/performance/on-demand-import/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/performance/on-demand-import/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "虚拟化",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/performance/list-virtualization/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/list-virtualization/getting-started.md" },
+                      { text: "原理", link: "/zh/frontend-develop-tools/optimization/performance/list-virtualization/guide-line/principle.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/performance/list-virtualization/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "事件及属性优化",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/performance/event-props-optimization/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/event-props-optimization/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/performance/event-props-optimization/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/performance/event-props-optimization/reference.md" },
+                    ],
+                  },
                   {
                     text: "性能评估",
+                    collapsed: true,
                     items: [
-                      { text: "Lighthouse" },
-                      { text: "Webpack Bundle Analyzer" },
-                      { text: "rollup-plugin-visualizer" },
+                      {
+                        text: "Lighthouse",
+                        collapsed: true,
+                        link: "/zh/frontend-develop-tools/optimization/performance/lighthouse/",
+                        items: [
+                          { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/lighthouse/getting-started.md" },
+                          { text: "指南", link: "/zh/frontend-develop-tools/optimization/performance/lighthouse/guide-line.md" },
+                          { text: "参考", link: "/zh/frontend-develop-tools/optimization/performance/lighthouse/reference.md" },
+                        ],
+                      },
+                      {
+                        text: "Webpack Bundle Analyzer",
+                        collapsed: true,
+                        link: "/zh/frontend-develop-tools/optimization/performance/webpack-bundle-analyzer/",
+                        items: [
+                          { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/webpack-bundle-analyzer/getting-started.md" },
+                          { text: "指南", link: "/zh/frontend-develop-tools/optimization/performance/webpack-bundle-analyzer/guide-line.md" },
+                          { text: "参考", link: "/zh/frontend-develop-tools/optimization/performance/webpack-bundle-analyzer/reference.md" },
+                        ],
+                      },
+                      {
+                        text: "rollup-plugin-visualizer",
+                        collapsed: true,
+                        link: "/zh/frontend-develop-tools/optimization/performance/rollup-plugin-visualizer/",
+                        items: [
+                          { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/rollup-plugin-visualizer/getting-started.md" },
+                          { text: "指南", link: "/zh/frontend-develop-tools/optimization/performance/rollup-plugin-visualizer/guide-line.md" },
+                          { text: "参考", link: "/zh/frontend-develop-tools/optimization/performance/rollup-plugin-visualizer/reference.md" },
+                        ],
+                      },
                     ],
                   },
                 ],
