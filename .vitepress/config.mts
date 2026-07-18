@@ -10294,6 +10294,52 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "设计、Web 质量与多媒体",
+                    collapsed: true,
+                    items: [
+                      {
+                        text: "Impeccable",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/impeccable/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/impeccable/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/impeccable/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/impeccable/reference" },
+                        ],
+                      },
+                      {
+                        text: "Web Quality Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/web-quality-skills/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/web-quality-skills/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/web-quality-skills/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/web-quality-skills/reference" },
+                        ],
+                      },
+                      {
+                        text: "Remotion Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/remotion-skills/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/remotion-skills/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/remotion-skills/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/remotion-skills/reference" },
+                        ],
+                      },
+                      {
+                        text: "HyperFrames",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/hyperframes/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/hyperframes/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/hyperframes/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/hyperframes/reference" },
+                        ],
+                      },
+                    ],
+                  },
+                  {
                     text: "AI 辅助开发工具",
                     collapsed: true,
                     items: [{ text: "react-doctor" }],
