@@ -10291,214 +10291,214 @@ export default defineConfig({
                           { text: "参考", link: "/zh/large-language-model/skills/observability-skills/reference" },
                         ],
                       },
-                    ],
-                  },
-                  {
-                    text: "设计、Web 质量与多媒体",
-                    collapsed: true,
-                    items: [
                       {
-                        text: "Impeccable",
+                        text: "设计、Web 质量与多媒体",
                         collapsed: true,
-                        link: "/zh/large-language-model/skills/impeccable/",
                         items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/impeccable/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/impeccable/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/impeccable/reference" },
+                          {
+                            text: "Impeccable",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/impeccable/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/impeccable/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/impeccable/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/impeccable/reference" },
+                            ],
+                          },
+                          {
+                            text: "Web Quality Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/web-quality-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/web-quality-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/web-quality-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/web-quality-skills/reference" },
+                            ],
+                          },
+                          {
+                            text: "Remotion Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/remotion-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/remotion-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/remotion-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/remotion-skills/reference" },
+                            ],
+                          },
+                          {
+                            text: "HyperFrames",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/hyperframes/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/hyperframes/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/hyperframes/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/hyperframes/reference" },
+                            ],
+                          },
                         ],
                       },
                       {
-                        text: "Web Quality Skills",
+                        text: "浏览器、测试与检索自动化",
                         collapsed: true,
-                        link: "/zh/large-language-model/skills/web-quality-skills/",
                         items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/web-quality-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/web-quality-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/web-quality-skills/reference" },
+                          {
+                            text: "Agent Browser",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/agent-browser/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/agent-browser/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/agent-browser/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/agent-browser/reference" },
+                            ],
+                          },
+                          {
+                            text: "Playwright CLI",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/playwright-cli/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/playwright-cli/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/playwright-cli/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/playwright-cli/reference" },
+                            ],
+                          },
+                          {
+                            text: "Browser Use",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/browser-use/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/browser-use/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/browser-use/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/browser-use/reference" },
+                            ],
+                          },
+                          {
+                            text: "Firecrawl CLI",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/firecrawl-cli/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/firecrawl-cli/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/firecrawl-cli/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/firecrawl-cli/reference" },
+                            ],
+                          },
                         ],
                       },
                       {
-                        text: "Remotion Skills",
+                        text: "安全审计与供应链治理",
                         collapsed: true,
-                        link: "/zh/large-language-model/skills/remotion-skills/",
                         items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/remotion-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/remotion-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/remotion-skills/reference" },
+                          {
+                            text: "Skill 安全与供应链治理",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/skill-security-supply-chain/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/skill-security-supply-chain/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/skill-security-supply-chain/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/skill-security-supply-chain/reference" },
+                            ],
+                          },
+                          {
+                            text: "Trail of Bits Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/trail-of-bits-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/trail-of-bits-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/trail-of-bits-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/trail-of-bits-skills/reference" },
+                            ],
+                          },
                         ],
                       },
                       {
-                        text: "HyperFrames",
+                        text: "AI / ML 与科研工作流",
                         collapsed: true,
-                        link: "/zh/large-language-model/skills/hyperframes/",
                         items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/hyperframes/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/hyperframes/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/hyperframes/reference" },
-                        ],
-                      },
-                    ],
-                  },
-                  {
-                    text: "浏览器、测试与检索自动化",
-                    collapsed: true,
-                    items: [
-                      {
-                        text: "Agent Browser",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/agent-browser/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/agent-browser/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/agent-browser/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/agent-browser/reference" },
-                        ],
-                      },
-                      {
-                        text: "Playwright CLI",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/playwright-cli/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/playwright-cli/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/playwright-cli/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/playwright-cli/reference" },
-                        ],
-                      },
-                      {
-                        text: "Browser Use",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/browser-use/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/browser-use/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/browser-use/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/browser-use/reference" },
-                        ],
-                      },
-                      {
-                        text: "Firecrawl CLI",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/firecrawl-cli/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/firecrawl-cli/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/firecrawl-cli/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/firecrawl-cli/reference" },
-                        ],
-                      },
-                    ],
-                  },
-                  {
-                    text: "安全审计与供应链治理",
-                    collapsed: true,
-                    items: [
-                      {
-                        text: "Skill 安全与供应链治理",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/skill-security-supply-chain/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/skill-security-supply-chain/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/skill-security-supply-chain/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/skill-security-supply-chain/reference" },
+                          {
+                            text: "Hugging Face Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/huggingface-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/huggingface-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/huggingface-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/huggingface-skills/reference" },
+                            ],
+                          },
+                          {
+                            text: "Gemini Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/gemini-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/gemini-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/gemini-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/gemini-skills/reference" },
+                            ],
+                          },
+                          {
+                            text: "Google DeepMind Science Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/deepmind-science-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/deepmind-science-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/deepmind-science-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/deepmind-science-skills/reference" },
+                            ],
+                          },
+                          {
+                            text: "AI 论文复现 Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/reference" },
+                            ],
+                          },
                         ],
                       },
                       {
-                        text: "Trail of Bits Skills",
+                        text: "文档、办公与业务工作流",
                         collapsed: true,
-                        link: "/zh/large-language-model/skills/trail-of-bits-skills/",
                         items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/trail-of-bits-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/trail-of-bits-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/trail-of-bits-skills/reference" },
-                        ],
-                      },
-                    ],
-                  },
-                  {
-                    text: "AI / ML 与科研工作流",
-                    collapsed: true,
-                    items: [
-                      {
-                        text: "Hugging Face Skills",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/huggingface-skills/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/huggingface-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/huggingface-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/huggingface-skills/reference" },
-                        ],
-                      },
-                      {
-                        text: "Gemini Skills",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/gemini-skills/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/gemini-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/gemini-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/gemini-skills/reference" },
-                        ],
-                      },
-                      {
-                        text: "Google DeepMind Science Skills",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/deepmind-science-skills/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/deepmind-science-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/deepmind-science-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/deepmind-science-skills/reference" },
-                        ],
-                      },
-                      {
-                        text: "AI 论文复现 Skills",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/reference" },
-                        ],
-                      },
-                    ],
-                  },
-                  {
-                    text: "文档、办公与业务工作流",
-                    collapsed: true,
-                    items: [
-                      {
-                        text: "Anthropic Knowledge Work Plugins",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/anthropic-knowledge-work/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/anthropic-knowledge-work/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/anthropic-knowledge-work/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/anthropic-knowledge-work/reference" },
-                        ],
-                      },
-                      {
-                        text: "Google Workspace CLI Skills",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/google-workspace-cli/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/google-workspace-cli/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/google-workspace-cli/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/google-workspace-cli/reference" },
-                        ],
-                      },
-                      {
-                        text: "Lark / 飞书 CLI Skills",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/lark-feishu-cli/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/lark-feishu-cli/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/lark-feishu-cli/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/lark-feishu-cli/reference" },
-                        ],
-                      },
-                      {
-                        text: "Marketing Skills",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/marketing-skills/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/marketing-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/marketing-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/marketing-skills/reference" },
+                          {
+                            text: "Anthropic Knowledge Work Plugins",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/anthropic-knowledge-work/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/anthropic-knowledge-work/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/anthropic-knowledge-work/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/anthropic-knowledge-work/reference" },
+                            ],
+                          },
+                          {
+                            text: "Google Workspace CLI Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/google-workspace-cli/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/google-workspace-cli/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/google-workspace-cli/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/google-workspace-cli/reference" },
+                            ],
+                          },
+                          {
+                            text: "Lark / 飞书 CLI Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/lark-feishu-cli/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/lark-feishu-cli/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/lark-feishu-cli/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/lark-feishu-cli/reference" },
+                            ],
+                          },
+                          {
+                            text: "Marketing Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/marketing-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/marketing-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/marketing-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/marketing-skills/reference" },
+                            ],
+                          },
                         ],
                       },
                     ],
