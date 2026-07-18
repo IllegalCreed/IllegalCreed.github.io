@@ -10169,70 +10169,70 @@ export default defineConfig({
                           },
                         ],
                       },
-                    ],
-                  },
-                  {
-                    text: "数据库与数据工程",
-                    collapsed: true,
-                    items: [
                       {
-                        text: "Supabase Agent Skills",
+                        text: "数据库与数据工程",
                         collapsed: true,
-                        link: "/zh/large-language-model/skills/supabase-agent-skills/",
                         items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/supabase-agent-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/supabase-agent-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/supabase-agent-skills/reference" },
-                        ],
-                      },
-                      {
-                        text: "Firebase Agent Skills",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/firebase-agent-skills/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/firebase-agent-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/firebase-agent-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/firebase-agent-skills/reference" },
-                        ],
-                      },
-                      {
-                        text: "Prisma Skills",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/prisma-skills/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/prisma-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/prisma-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/prisma-skills/reference" },
-                        ],
-                      },
-                      {
-                        text: "dbt Agent Skills",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/dbt-agent-skills/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/dbt-agent-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/dbt-agent-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/dbt-agent-skills/reference" },
-                        ],
-                      },
-                      {
-                        text: "ClickHouse Agent Skills",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/clickhouse-agent-skills/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/clickhouse-agent-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/clickhouse-agent-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/clickhouse-agent-skills/reference" },
-                        ],
-                      },
-                      {
-                        text: "DuckDB Skills",
-                        collapsed: true,
-                        link: "/zh/large-language-model/skills/duckdb-skills/",
-                        items: [
-                          { text: "入门", link: "/zh/large-language-model/skills/duckdb-skills/getting-started" },
-                          { text: "指南", link: "/zh/large-language-model/skills/duckdb-skills/guide-line" },
-                          { text: "参考", link: "/zh/large-language-model/skills/duckdb-skills/reference" },
+                          {
+                            text: "Supabase Agent Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/supabase-agent-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/supabase-agent-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/supabase-agent-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/supabase-agent-skills/reference" },
+                            ],
+                          },
+                          {
+                            text: "Firebase Agent Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/firebase-agent-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/firebase-agent-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/firebase-agent-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/firebase-agent-skills/reference" },
+                            ],
+                          },
+                          {
+                            text: "Prisma Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/prisma-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/prisma-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/prisma-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/prisma-skills/reference" },
+                            ],
+                          },
+                          {
+                            text: "dbt Agent Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/dbt-agent-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/dbt-agent-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/dbt-agent-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/dbt-agent-skills/reference" },
+                            ],
+                          },
+                          {
+                            text: "ClickHouse Agent Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/clickhouse-agent-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/clickhouse-agent-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/clickhouse-agent-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/clickhouse-agent-skills/reference" },
+                            ],
+                          },
+                          {
+                            text: "DuckDB Skills",
+                            collapsed: true,
+                            link: "/zh/large-language-model/skills/duckdb-skills/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/skills/duckdb-skills/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/skills/duckdb-skills/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/skills/duckdb-skills/reference" },
+                            ],
+                          },
                         ],
                       },
                       {
