@@ -10340,6 +10340,52 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "浏览器、测试与检索自动化",
+                    collapsed: true,
+                    items: [
+                      {
+                        text: "Agent Browser",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/agent-browser/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/agent-browser/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/agent-browser/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/agent-browser/reference" },
+                        ],
+                      },
+                      {
+                        text: "Playwright CLI",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/playwright-cli/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/playwright-cli/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/playwright-cli/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/playwright-cli/reference" },
+                        ],
+                      },
+                      {
+                        text: "Browser Use",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/browser-use/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/browser-use/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/browser-use/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/browser-use/reference" },
+                        ],
+                      },
+                      {
+                        text: "Firecrawl CLI",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/firecrawl-cli/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/firecrawl-cli/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/firecrawl-cli/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/firecrawl-cli/reference" },
+                        ],
+                      },
+                    ],
+                  },
+                  {
                     text: "AI 辅助开发工具",
                     collapsed: true,
                     items: [{ text: "react-doctor" }],
