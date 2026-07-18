@@ -7174,7 +7174,28 @@ export default defineConfig({
               {
                 text: "代码优化",
                 collapsed: true,
-                items: [{ text: "代码分割" }, { text: "Tree Shaking" }],
+                items: [
+                  {
+                    text: "代码分割",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/code-optimization/code-splitting/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/code-optimization/code-splitting/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/code-optimization/code-splitting/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/code-optimization/code-splitting/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "Tree Shaking",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/code-optimization/tree-shaking/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/code-optimization/tree-shaking/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/code-optimization/tree-shaking/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/code-optimization/tree-shaking/reference.md" },
+                    ],
+                  },
+                ],
               },
               {
                 text: "网络优化",
