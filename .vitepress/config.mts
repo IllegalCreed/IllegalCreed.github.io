@@ -10412,6 +10412,52 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "AI / ML 与科研工作流",
+                    collapsed: true,
+                    items: [
+                      {
+                        text: "Hugging Face Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/huggingface-skills/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/huggingface-skills/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/huggingface-skills/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/huggingface-skills/reference" },
+                        ],
+                      },
+                      {
+                        text: "Gemini Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/gemini-skills/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/gemini-skills/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/gemini-skills/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/gemini-skills/reference" },
+                        ],
+                      },
+                      {
+                        text: "Google DeepMind Science Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/deepmind-science-skills/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/deepmind-science-skills/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/deepmind-science-skills/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/deepmind-science-skills/reference" },
+                        ],
+                      },
+                      {
+                        text: "AI 论文复现 Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/reference" },
+                        ],
+                      },
+                    ],
+                  },
+                  {
                     text: "AI 辅助开发工具",
                     collapsed: true,
                     items: [{ text: "react-doctor" }],
