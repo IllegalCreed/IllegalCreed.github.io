@@ -10458,6 +10458,52 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "文档、办公与业务工作流",
+                    collapsed: true,
+                    items: [
+                      {
+                        text: "Anthropic Knowledge Work Plugins",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/anthropic-knowledge-work/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/anthropic-knowledge-work/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/anthropic-knowledge-work/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/anthropic-knowledge-work/reference" },
+                        ],
+                      },
+                      {
+                        text: "Google Workspace CLI Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/google-workspace-cli/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/google-workspace-cli/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/google-workspace-cli/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/google-workspace-cli/reference" },
+                        ],
+                      },
+                      {
+                        text: "Lark / 飞书 CLI Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/lark-feishu-cli/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/lark-feishu-cli/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/lark-feishu-cli/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/lark-feishu-cli/reference" },
+                        ],
+                      },
+                      {
+                        text: "Marketing Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/marketing-skills/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/marketing-skills/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/marketing-skills/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/marketing-skills/reference" },
+                        ],
+                      },
+                    ],
+                  },
+                  {
                     text: "AI 辅助开发工具",
                     collapsed: true,
                     items: [{ text: "react-doctor" }],
