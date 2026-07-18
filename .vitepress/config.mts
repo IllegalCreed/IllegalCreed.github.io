@@ -10386,6 +10386,32 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "安全审计与供应链治理",
+                    collapsed: true,
+                    items: [
+                      {
+                        text: "Skill 安全与供应链治理",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/skill-security-supply-chain/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/skill-security-supply-chain/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/skill-security-supply-chain/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/skill-security-supply-chain/reference" },
+                        ],
+                      },
+                      {
+                        text: "Trail of Bits Skills",
+                        collapsed: true,
+                        link: "/zh/large-language-model/skills/trail-of-bits-skills/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/skills/trail-of-bits-skills/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/skills/trail-of-bits-skills/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/skills/trail-of-bits-skills/reference" },
+                        ],
+                      },
+                    ],
+                  },
+                  {
                     text: "AI 辅助开发工具",
                     collapsed: true,
                     items: [{ text: "react-doctor" }],
