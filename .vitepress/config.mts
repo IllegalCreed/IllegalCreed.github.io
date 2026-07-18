@@ -9702,6 +9702,16 @@ export default defineConfig({
                           { text: "NotebookLM" },
                         ],
                       },
+                      {
+                        text: "AI 辅助开发工具",
+                        collapsed: true,
+                        items: [{ text: "react-doctor" }],
+                      },
+                      {
+                        text: "AI 设计",
+                        collapsed: true,
+                        items: [{ text: "Stitch" }, { text: "Claude Design" }],
+                      },
                     ],
                   },
                   {
@@ -10502,16 +10512,6 @@ export default defineConfig({
                         ],
                       },
                     ],
-                  },
-                  {
-                    text: "AI 辅助开发工具",
-                    collapsed: true,
-                    items: [{ text: "react-doctor" }],
-                  },
-                  {
-                    text: "AI 设计",
-                    collapsed: true,
-                    items: [{ text: "Stitch" }, { text: "Claude Design" }],
                   },
                 ],
               },
