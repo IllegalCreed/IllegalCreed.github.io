@@ -7134,6 +7134,26 @@ export default defineConfig({
                     ],
                   },
                   {
+                    text: "渲染性能",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/performance/rendering-performance/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/rendering-performance/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/performance/rendering-performance/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/performance/rendering-performance/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "图片优化",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/performance/image-optimization/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/image-optimization/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/performance/image-optimization/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/performance/image-optimization/reference.md" },
+                    ],
+                  },
+                  {
                     text: "性能评估",
                     collapsed: true,
                     items: [
@@ -7193,6 +7213,26 @@ export default defineConfig({
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/code-optimization/tree-shaking/getting-started.md" },
                       { text: "指南", link: "/zh/frontend-develop-tools/optimization/code-optimization/tree-shaking/guide-line.md" },
                       { text: "参考", link: "/zh/frontend-develop-tools/optimization/code-optimization/tree-shaking/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "代码压缩",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/code-optimization/minification/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/code-optimization/minification/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/code-optimization/minification/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/code-optimization/minification/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "Polyfill 按需加载",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/code-optimization/polyfill-loading/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/code-optimization/polyfill-loading/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/code-optimization/polyfill-loading/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/code-optimization/polyfill-loading/reference.md" },
                     ],
                   },
                 ],
