@@ -7240,7 +7240,58 @@ export default defineConfig({
               {
                 text: "网络优化",
                 collapsed: true,
-                items: [{ text: "CDN" }, { text: "缓存" }, { text: "压缩" }],
+                items: [
+                  {
+                    text: "CDN",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/network-optimization/cdn/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/network-optimization/cdn/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/network-optimization/cdn/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/network-optimization/cdn/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "HTTP 缓存",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/network-optimization/http-cache/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/network-optimization/http-cache/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/network-optimization/http-cache/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/network-optimization/http-cache/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "压缩",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/network-optimization/compression/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/network-optimization/compression/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/network-optimization/compression/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/network-optimization/compression/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "HTTP/2·HTTP/3",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/network-optimization/http2-http3/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/network-optimization/http2-http3/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/network-optimization/http2-http3/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/network-optimization/http2-http3/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "Service Worker 缓存",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/network-optimization/service-worker-cache/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/network-optimization/service-worker-cache/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/network-optimization/service-worker-cache/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/network-optimization/service-worker-cache/reference.md" },
+                    ],
+                  },
+                ],
               },
               {
                 text: "用户体验优化",
