@@ -7297,9 +7297,46 @@ export default defineConfig({
                 text: "用户体验优化",
                 collapsed: true,
                 items: [
-                  { text: "懒加载和预加载" },
-                  { text: "交互优化" },
-                  { text: "可访问性" },
+                  {
+                    text: "懒加载和预加载",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/ux-optimization/lazy-loading/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/ux-optimization/lazy-loading/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/ux-optimization/lazy-loading/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/ux-optimization/lazy-loading/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "交互优化",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/ux-optimization/interaction-optimization/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/ux-optimization/interaction-optimization/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/ux-optimization/interaction-optimization/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/ux-optimization/interaction-optimization/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "过渡动画",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/ux-optimization/view-transitions/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/ux-optimization/view-transitions/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/ux-optimization/view-transitions/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/ux-optimization/view-transitions/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "可访问性",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/ux-optimization/accessibility/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/ux-optimization/accessibility/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/ux-optimization/accessibility/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/ux-optimization/accessibility/reference.md" },
+                    ],
+                  },
                 ],
               },
               { text: "搜索引擎优化" },
