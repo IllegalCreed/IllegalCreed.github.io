@@ -7339,7 +7339,52 @@ export default defineConfig({
                   },
                 ],
               },
-              { text: "搜索引擎优化" },
+              {
+                text: "搜索引擎优化",
+                collapsed: true,
+                items: [
+                  {
+                    text: "技术 SEO",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/seo/technical-seo/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/seo/technical-seo/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/seo/technical-seo/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/seo/technical-seo/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "页面 SEO",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/seo/on-page-seo/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/seo/on-page-seo/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/seo/on-page-seo/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/seo/on-page-seo/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "结构化数据",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/seo/structured-data/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/seo/structured-data/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/seo/structured-data/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/seo/structured-data/reference.md" },
+                    ],
+                  },
+                  {
+                    text: "GEO",
+                    collapsed: true,
+                    link: "/zh/frontend-develop-tools/optimization/seo/geo/",
+                    items: [
+                      { text: "入门", link: "/zh/frontend-develop-tools/optimization/seo/geo/getting-started.md" },
+                      { text: "指南", link: "/zh/frontend-develop-tools/optimization/seo/geo/guide-line.md" },
+                      { text: "参考", link: "/zh/frontend-develop-tools/optimization/seo/geo/reference.md" },
+                    ],
+                  },
+                ],
+              },
             ],
           },
 
