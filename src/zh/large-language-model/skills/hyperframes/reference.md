@@ -115,4 +115,4 @@ npx skills add heygen-com/hyperframes --skill motion-graphics --full-depth
 ## 下一步
 
 - 回看 [指南](./guide-line) 的路由/域 skill 与 seek-safe 反模式。
-- 过一遍 <a href="/SlideStack/hyperframes-slide/" target="_blank">幻灯片</a> 或做 <a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">测试题</a>。
+- 过一遍 <a href="/SlideStack/hyperframes-slide/" target="_blank">幻灯片</a> 或做 <a href="https://quiz.illegalscreed.cn/?category=646" target="_blank" rel="noopener noreferrer">测试题</a>。

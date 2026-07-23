@@ -84,4 +84,4 @@ npx remotion still
 ## 下一步
 
 - 回看 [指南](./guide-line) 的帧驱动铁律与反模式清单。
-- 过一遍 <a href="/SlideStack/remotion-skills-slide/" target="_blank">幻灯片</a> 或做 <a href="https://quiz.illegalscreed.cn/?category=PENDING" target="_blank" rel="noopener noreferrer">测试题</a>。
+- 过一遍 <a href="/SlideStack/remotion-skills-slide/" target="_blank">幻灯片</a> 或做 <a href="https://quiz.illegalscreed.cn/?category=645" target="_blank" rel="noopener noreferrer">测试题</a>。
