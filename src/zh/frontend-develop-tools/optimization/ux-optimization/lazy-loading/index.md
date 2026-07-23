@@ -45,4 +45,3 @@ layout: doc
 
 <a href="https://quiz.illegalscreed.cn/?category=688" target="_blank" rel="noopener noreferrer">懒加载和预加载 测试题</a>
 
-> 待回填：题目入库后，将上面链接的 `category=688` 替换为实际分类 ID（见 `apps/quiz-backend/prisma/content/lazy-loading.json` 导入后回填的 categoryId）。

@@ -52,4 +52,3 @@ layout: doc
 
 <a href="https://quiz.illegalscreed.cn/?category=693" target="_blank" rel="noopener noreferrer">技术 SEO 测试题</a>
 
-> 题目分类 ID 待回填：题库入库（`import:content:prod`）后取得 `技术方向 / 技术 SEO` 的 groupId，把 `PENDING` 替换为该 ID。

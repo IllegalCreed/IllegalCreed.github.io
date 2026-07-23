@@ -47,4 +47,3 @@ layout: doc
 
 <a href="https://quiz.illegalscreed.cn/?category=690" target="_blank" rel="noopener noreferrer">过渡动画测试题</a>
 
-> 待回填：测试题 `category` 与笔记 / 幻灯片同步 import 到生产库后，将 `PENDING` 替换为题目所属分类的真实 categoryId。

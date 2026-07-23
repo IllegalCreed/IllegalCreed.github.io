@@ -45,7 +45,6 @@ layout: doc
 
 ## 测试题
 
-> 待回填：题目入库生产库后，把链接中的 `category=679` 替换为「代码压缩」分类的真实 ID。
 
 <a href="https://quiz.illegalscreed.cn/?category=679" target="_blank" rel="noopener noreferrer">代码压缩 测试题</a>
 

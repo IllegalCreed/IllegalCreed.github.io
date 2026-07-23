@@ -46,4 +46,3 @@ layout: doc
 
 <a href="https://quiz.illegalscreed.cn/?category=677" target="_blank" rel="noopener noreferrer">渲染性能 测试题</a>
 
-> 待回填：测试题 `category` 参数（题库 `stem` 含「渲染性能：」前缀的题目在导入生产库后会获得 group 内的 `categoryId`，部署上线时需把此处 `PENDING` 替换为真实 ID）。

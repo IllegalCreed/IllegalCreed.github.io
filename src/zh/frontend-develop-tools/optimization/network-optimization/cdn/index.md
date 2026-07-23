@@ -43,7 +43,6 @@ CDN（Content Delivery Network，内容分发网络）是把内容缓存到**离
 
 <a href="https://quiz.illegalscreed.cn/?category=682" target="_blank" rel="noopener noreferrer">CDN 测试题</a>
 
-> 待回填：题库 `cdn.json` 经 `import:content:prod` 入库后，把 `PENDING` 换成实际 categoryId。
 
 ## 相关章节
 

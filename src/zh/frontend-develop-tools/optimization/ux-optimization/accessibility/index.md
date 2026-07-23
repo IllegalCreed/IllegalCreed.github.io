@@ -49,7 +49,3 @@ layout: doc
 ## 测试题
 
 <a href="https://quiz.illegalscreed.cn/?category=691" target="_blank" rel="noopener noreferrer">可访问性 测试题</a>
-
-## 待回填
-
-> 待 import:content:prod 执行后回填：本页 `测试题` 链接 `?category=691` 的 category ID、子页面引用的官方文档版本号、各准则 SC 编号交叉链接。

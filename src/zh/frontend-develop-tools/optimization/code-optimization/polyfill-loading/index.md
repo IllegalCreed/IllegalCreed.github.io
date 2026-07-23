@@ -47,4 +47,3 @@ Polyfill 按需加载是前端兼容性工程的核心抓手：在「**给老浏
 
 <a href="https://quiz.illegalscreed.cn/?category=680" target="_blank" rel="noopener noreferrer">Polyfill 按需加载测试题</a>
 
-> 待回填：`category=680` 是占位符，待题库 `import:content:prod` 入库拿到真实 ID 后回填此处与 sidebar。

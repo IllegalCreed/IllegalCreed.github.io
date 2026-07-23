@@ -57,4 +57,3 @@ layout: doc
 
 ## 参考文献
 
-> 待回填：本节将在三件套完成后补充具体引用的官方文档版本号与更新日期。当前参考 Google Search Central（developers.google.com/search/docs）2026-04-20 更新的 snippet 页、2025-12-10 更新的 title-link 与 url-structure 页、2026-03-02 更新的 google-images 页，以及 ogp.me 与 docs.x.com 的稳定版本。

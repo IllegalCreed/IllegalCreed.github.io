@@ -48,4 +48,3 @@ layout: doc
 
 <a href="https://quiz.illegalscreed.cn/?category=689" target="_blank" rel="noopener noreferrer">交互优化 测试题</a>
 
-> 待回填：题目入库后，将上面链接的 `category=689` 替换为实际分类 ID（见 `apps/quiz-backend/prisma/content/interaction-optimization.json` 导入后回填的 categoryId）。

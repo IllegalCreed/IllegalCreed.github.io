@@ -6,7 +6,6 @@ layout: doc
 
 代码分割（Code Splitting）是前端构建优化的核心手段之一：把单一的、首屏全量下载的主 bundle，按「路由 / 依赖 / 业务模块」拆成多个独立 chunk，让浏览器只在真正需要某段代码时才去拉它。它的底层原语只有一个——**动态 `import()`**（ES2020 标准、Baseline Widely Available）：所有现代打包器（Webpack、Rollup、Rolldown、esbuild）都把它识别为「分割点」，凡是用 `import()` 包起来的模块都会从主 bundle 里剥离，单独产出一个 JS 文件。围绕这个原语，构建器在「切多碎、怎么命名、谁跟谁合并、什么时候预取」这四件事上各自提供了配置面：Webpack 是 `optimization.splitChunks` + `cacheGroups` + 魔法注释（`webpackChunkName` / `webpackPrefetch` / `webpackPreload` / `webpackMode`），Vite 8 起随 Rolldown 切换到 `build.rolldownOptions.output.codeSplitting.groups`（Rollup 的 `manualChunks` 已不再支持）；路由层面，Vue Router 用 `component: () => import('./X.vue')` 一行就能让某个路由独立成 chunk，React Router v6.4+ 的 `lazy: () => import()` 在 v7.5 又升级为对象式 `lazy: { Component, loader, action }` 逐属性并行加载。配套还有两类「资源提示」让浏览器在合适时机拉 chunk：`preload`（当前导航必用、高优先级）与 `prefetch`（未来导航投机、低优先级），以及部署侧的兜底——HTML 设 `Cache-Control: no-cache`、资源带 hash、监听 `vite:preloadError` 在新部署让旧 chunk 失效时自动 reload，否则用户会卡在 `ChunkLoadError` / `Failed to fetch dynamically imported module` 白屏。本叶专讲分割策略与 chunk 治理；组件级懒加载 API（`defineAsyncComponent` / `React.lazy` + `Suspense` 选项）归【异步组件】叶，本叶只点到「底层是动态 `import()`」不展开。
 
-> 待回填：本叶 quiz 入库后，把下面的 `PENDING` 替换为真实 category id（生产库 `技术方向 / 代码分割` 的 id）；笔记 sidebar 与幻灯片 / 测试题链接待在父目录索引页接入。
 
 ## 评价
 

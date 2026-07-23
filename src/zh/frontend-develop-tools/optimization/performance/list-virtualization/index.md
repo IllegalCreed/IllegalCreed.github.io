@@ -67,4 +67,3 @@ layout: doc
 
 <a href="https://quiz.illegalscreed.cn/?category=668" target="_blank" rel="noopener noreferrer">虚拟化测试题</a>
 
-> 待回填：题目入库后用 `import:content:prod` 拿到分类 ID，再把 `?category=668` 替换为 `?category=list-virtualization`，并把本页与 sidebar 的占位补齐。

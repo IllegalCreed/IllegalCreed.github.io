@@ -46,4 +46,3 @@ layout: doc
 
 <a href="https://quiz.illegalscreed.cn/?category=695" target="_blank" rel="noopener noreferrer">结构化数据测试题</a>
 
-> 待回填：题目入库后，将 `?category=695` 替换为实际 category ID；幻灯片链接在 SlideStack 部署后生效。

@@ -40,7 +40,3 @@ Webpack Bundle Analyzer 是 **webpack-contrib 组织**（Webpack 官方贡献者
 ## 测试题
 
 <a href="https://quiz.illegalscreed.cn/?category=672" target="_blank" rel="noopener noreferrer">Webpack Bundle Analyzer 测试题</a>
-
-## 待回填
-
-> 题库 `categories` 的 `技术方向` 叶子名待入库后回填至上面测试题链接的 `?category=` 参数（替换 `PENDING`）。入库前先用 `import:content:prod` 增量更新拿到 groupId，再回填此处的 slug。

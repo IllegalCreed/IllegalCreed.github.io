@@ -46,4 +46,3 @@ Tree Shaking 是**构建期死代码消除**（dead code elimination）的工程
 
 <a href="https://quiz.illegalscreed.cn/?category=676" target="_blank" rel="noopener noreferrer">Tree Shaking 测试题</a>
 
-> 待回填：题库 import 到生产 RDS 后，把 `?category=676` 替换为该叶子真实分类 ID。

@@ -46,6 +46,5 @@ layout: doc
 
 ## 测试题
 
-> 待回填：导入生产库后用 `import:content:prod` 拿到的分类 ID 替换 `PENDING`。
 
 <a href="https://quiz.illegalscreed.cn/?category=678" target="_blank" rel="noopener noreferrer">图片优化 测试题</a>

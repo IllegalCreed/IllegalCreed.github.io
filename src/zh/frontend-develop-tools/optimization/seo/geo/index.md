@@ -43,7 +43,5 @@ GEO（**Generative Engine Optimization**，生成式引擎优化）是 Princeton
 
 ## 测试题
 
-> 待回填：题库入库后用 `?category=<categoryId>` 替换 PENDING
->
 
 <a href="https://quiz.illegalscreed.cn/?category=696" target="_blank" rel="noopener noreferrer">GEO 测试题</a>
