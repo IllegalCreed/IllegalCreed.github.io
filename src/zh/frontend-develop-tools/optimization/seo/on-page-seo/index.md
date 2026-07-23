@@ -49,11 +49,9 @@ layout: doc
 
 ## 相关章节
 
-- [Lighthouse（SEO 审计）](../../performance/lighthouse/index.md)：Lighthouse 的 SEO 类审计检查 title / meta description / robots / viewport / hreflang
-- [结构化数据 / Schema.org 富结果]：JSON-LD、Article / Product / Breadcrumb schema（独立章）
-- [技术 SEO / 爬取与索引]：robots.txt、sitemap、noindex、redirect、canonical 深入（独立章）
-- [Core Web Vitals / 性能优化](../../performance/lighthouse/index.md)：LCP / INP / CLS（独立章）
-- [可访问性（a11y）]：alt / heading 语义的 a11y 视角（独立章）
-
-## 参考文献
+- [Lighthouse（SEO 审计）](../../performance/lighthouse/)：Lighthouse 的 SEO 类审计检查 title / meta description / robots / viewport / hreflang
+- [结构化数据 / Schema.org 富结果](../structured-data/)：JSON-LD、Article / Product / Breadcrumb schema
+- [技术 SEO / 爬取与索引](../technical-seo/)：robots.txt、sitemap、noindex、redirect、canonical 深入
+- [Core Web Vitals / 性能优化](../../performance/lighthouse/)：LCP / INP / CLS
+- [可访问性（a11y）](../../ux-optimization/accessibility/)：alt / heading 语义的 a11y 视角
 
