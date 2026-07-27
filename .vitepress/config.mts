@@ -9742,13 +9742,11 @@ export default defineConfig({
             ],
           },
 
+          // 2026-07-28 去「人工智能」伞级：5 大块各自顶级（AI基础/AI框架/大语言模型/AI开发工具/AI全栈），
+          // 对齐前端多顶级结构。原 items 内容直接提升为同级顶级块（缩进暂保留，功能不受影响）。
           {
-            text: "人工智能",
-            collapsed: false,
-            items: [
-              {
-                text: "AI 基础",
-                collapsed: true,
+            text: "AI 基础",
+            collapsed: true,
                 items: [
                   {
                     text: "机器学习基础",
@@ -9756,15 +9754,63 @@ export default defineConfig({
                     items: [
                       {
                         text: "监督学习",
+                        collapsed: true,
+                        link: "/zh/ai-foundation/machine-learning/supervised-learning/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-foundation/machine-learning/supervised-learning/getting-started" },
+                          { text: "指南", link: "/zh/ai-foundation/machine-learning/supervised-learning/guide-line" },
+                          { text: "参考", link: "/zh/ai-foundation/machine-learning/supervised-learning/reference" },
+                        ],
                       },
                       {
                         text: "无监督学习",
+                        collapsed: true,
+                        link: "/zh/ai-foundation/machine-learning/unsupervised-learning/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-foundation/machine-learning/unsupervised-learning/getting-started" },
+                          { text: "指南", link: "/zh/ai-foundation/machine-learning/unsupervised-learning/guide-line" },
+                          { text: "参考", link: "/zh/ai-foundation/machine-learning/unsupervised-learning/reference" },
+                        ],
                       },
                       {
                         text: "强化学习",
+                        collapsed: true,
+                        link: "/zh/ai-foundation/machine-learning/reinforcement-learning/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-foundation/machine-learning/reinforcement-learning/getting-started" },
+                          { text: "指南", link: "/zh/ai-foundation/machine-learning/reinforcement-learning/guide-line" },
+                          { text: "参考", link: "/zh/ai-foundation/machine-learning/reinforcement-learning/reference" },
+                        ],
                       },
                       {
                         text: "AutoML",
+                        collapsed: true,
+                        link: "/zh/ai-foundation/machine-learning/automl/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-foundation/machine-learning/automl/getting-started" },
+                          { text: "指南", link: "/zh/ai-foundation/machine-learning/automl/guide-line" },
+                          { text: "参考", link: "/zh/ai-foundation/machine-learning/automl/reference" },
+                        ],
+                      },
+                      {
+                        text: "集成学习与树模型",
+                        collapsed: true,
+                        link: "/zh/ai-foundation/machine-learning/ensemble-trees/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-foundation/machine-learning/ensemble-trees/getting-started" },
+                          { text: "指南", link: "/zh/ai-foundation/machine-learning/ensemble-trees/guide-line" },
+                          { text: "参考", link: "/zh/ai-foundation/machine-learning/ensemble-trees/reference" },
+                        ],
+                      },
+                      {
+                        text: "特征工程",
+                        collapsed: true,
+                        link: "/zh/ai-foundation/machine-learning/feature-engineering/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-foundation/machine-learning/feature-engineering/getting-started" },
+                          { text: "指南", link: "/zh/ai-foundation/machine-learning/feature-engineering/guide-line" },
+                          { text: "参考", link: "/zh/ai-foundation/machine-learning/feature-engineering/reference" },
+                        ],
                       },
                     ],
                   },
@@ -9774,15 +9820,63 @@ export default defineConfig({
                     items: [
                       {
                         text: "神经网络",
+                        collapsed: true,
+                        link: "/zh/ai-foundation/deep-learning/neural-network/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-foundation/deep-learning/neural-network/getting-started" },
+                          { text: "指南", link: "/zh/ai-foundation/deep-learning/neural-network/guide-line" },
+                          { text: "参考", link: "/zh/ai-foundation/deep-learning/neural-network/reference" },
+                        ],
                       },
                       {
-                        text: "卷积神经网络 (CNN)",
+                        text: "卷积神经网络（CNN）",
+                        collapsed: true,
+                        link: "/zh/ai-foundation/deep-learning/cnn/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-foundation/deep-learning/cnn/getting-started" },
+                          { text: "指南", link: "/zh/ai-foundation/deep-learning/cnn/guide-line" },
+                          { text: "参考", link: "/zh/ai-foundation/deep-learning/cnn/reference" },
+                        ],
                       },
                       {
-                        text: "循环神经网络 (RNN)",
+                        text: "循环神经网络（RNN）",
+                        collapsed: true,
+                        link: "/zh/ai-foundation/deep-learning/rnn/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-foundation/deep-learning/rnn/getting-started" },
+                          { text: "指南", link: "/zh/ai-foundation/deep-learning/rnn/guide-line" },
+                          { text: "参考", link: "/zh/ai-foundation/deep-learning/rnn/reference" },
+                        ],
                       },
                       {
                         text: "Transformer",
+                        collapsed: true,
+                        link: "/zh/ai-foundation/deep-learning/transformer/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-foundation/deep-learning/transformer/getting-started" },
+                          { text: "指南", link: "/zh/ai-foundation/deep-learning/transformer/guide-line" },
+                          { text: "参考", link: "/zh/ai-foundation/deep-learning/transformer/reference" },
+                        ],
+                      },
+                      {
+                        text: "生成对抗网络（GAN）",
+                        collapsed: true,
+                        link: "/zh/ai-foundation/deep-learning/gan/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-foundation/deep-learning/gan/getting-started" },
+                          { text: "指南", link: "/zh/ai-foundation/deep-learning/gan/guide-line" },
+                          { text: "参考", link: "/zh/ai-foundation/deep-learning/gan/reference" },
+                        ],
+                      },
+                      {
+                        text: "扩散模型",
+                        collapsed: true,
+                        link: "/zh/ai-foundation/deep-learning/diffusion-model/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-foundation/deep-learning/diffusion-model/getting-started" },
+                          { text: "指南", link: "/zh/ai-foundation/deep-learning/diffusion-model/guide-line" },
+                          { text: "参考", link: "/zh/ai-foundation/deep-learning/diffusion-model/reference" },
+                        ],
                       },
                     ],
                   },
@@ -9796,31 +9890,40 @@ export default defineConfig({
                     text: "通用机器学习框架",
                     collapsed: true,
                     items: [
-                      {
-                        text: "TensorFlow",
-                      },
-                      {
-                        text: "PyTorch",
-                      },
-                      {
-                        text: "scikit-learn",
-                      },
+                      { text: "PyTorch 基础" },
+                      { text: "PyTorch 分布式训练" },
+                      { text: "TensorFlow" },
+                      { text: "Keras" },
+                      { text: "scikit-learn" },
+                      { text: "JAX" },
+                      { text: "PaddlePaddle" },
+                      { text: "MindSpore" },
+                      { text: "ONNX" },
                     ],
                   },
                   {
                     text: "自然语言处理 (NLP)",
                     collapsed: true,
                     items: [
-                      {
-                        text: "Hugging Face Transformers",
-                      },
+                      { text: "Hugging Face Transformers" },
+                      { text: "Hugging Face PEFT 与 TRL" },
+                      { text: "Hugging Face Datasets 与 Tokenizers" },
                       { text: "spaCy" },
+                      { text: "NLTK" },
+                      { text: "Gensim" },
                     ],
                   },
                   {
                     text: "计算机视觉",
                     collapsed: true,
-                    items: [{ text: "OpenCV" }, { text: "YOLO" }],
+                    items: [
+                      { text: "OpenCV" },
+                      { text: "Ultralytics YOLO" },
+                      { text: "MediaPipe" },
+                      { text: "OpenMMLab" },
+                      { text: "timm" },
+                      { text: "Albumentations" },
+                    ],
                   },
                 ],
               },
@@ -9894,6 +9997,8 @@ export default defineConfig({
                       { text: "DeepSeek" },
                       { text: "Qwen" },
                       { text: "MiniMax" },
+                      { text: "Kimi" },
+                      { text: "Llama" },
                     ],
                   },
                   {
@@ -10050,10 +10155,10 @@ export default defineConfig({
                       {
                         text: "编排工具",
                         collapsed: true,
-                        items: [{ text: "Dify" }],
+                        items: [{ text: "Dify" }, { text: "n8n" }, { text: "ComfyUI" }],
                       },
                       {
-                        text: "其他",
+                        text: "其他工具",
                         collapsed: true,
                         items: [
                           { text: "RAG" },
@@ -10078,6 +10183,13 @@ export default defineConfig({
                             ],
                           },
                           { text: "NotebookLM" },
+                          { text: "向量数据库" },
+                          { text: "嵌入模型" },
+                          { text: "AI 网关" },
+                          { text: "Vercel AI SDK" },
+                          { text: "AI 内容审核" },
+                          { text: "AI 搜索 API" },
+                          { text: "Perplexity API" },
                         ],
                       },
                       {
@@ -10095,22 +10207,19 @@ export default defineConfig({
                   {
                     text: "提示词工程",
                     collapsed: true,
-                    items: [{ text: "基础提示设计" }, { text: "高级提示技巧" }],
+                    items: [
+                      { text: "基础提示设计" },
+                      { text: "高级提示技巧" },
+                      { text: "LLM 可观测与评测" },
+                      { text: "LLM 测试与红队" },
+                    ],
                   },
                   {
                     text: "MCP",
                     collapsed: true,
                     items: [
-                      { text: "Brave Search" },
-                      { text: "GitHub MCP" },
-                      { text: "Context7 MCP" },
-                      { text: "Playwright MCP" },
-                      { text: "Chrome DevTools MCP" },
-                      { text: "Figma MCP" },
-                      { text: "Blender MCP" },
-                      { text: "Notion MCP" },
-                      { text: "Sentry MCP" },
-                      { text: "Supabase MCP" },
+                      { text: "MCP 协议基础（Transport / Resource / Tool / Prompt / Sampling）" },
+                      { text: "常用 MCP Server 集成" },
                     ],
                   },
                   {
@@ -10898,27 +11007,38 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   {
-                    text: "模型训练与部署",
+                    text: "开发环境与社区平台",
                     collapsed: true,
                     items: [
-                      {
-                        text: "Jupyter Notebook",
-                      },
+                      { text: "Jupyter Notebook" },
                       { text: "Google Colab" },
-                      {
-                        text: "SageMaker (AWS)",
-                      },
-                      { text: "MLflow" },
+                      { text: "Hugging Face 平台" },
                     ],
                   },
                   {
-                    text: "模型推理与服务化",
+                    text: "训练平台与实验追踪",
                     collapsed: true,
                     items: [
-                      {
-                        text: "FastAPI + AI 模型",
-                      },
+                      { text: "AWS SageMaker" },
+                      { text: "MLflow" },
+                      { text: "Weights & Biases" },
+                      { text: "DVC" },
+                    ],
+                  },
+                  {
+                    text: "LLM 推理引擎",
+                    collapsed: true,
+                    items: [{ text: "vLLM" }, { text: "Ollama" }],
+                  },
+                  {
+                    text: "模型服务化与托管",
+                    collapsed: true,
+                    items: [
+                      { text: "FastAPI 模型服务化" },
                       { text: "Gradio" },
+                      { text: "NVIDIA Triton" },
+                      { text: "BentoML" },
+                      { text: "Serverless GPU 平台" },
                     ],
                   },
                 ],
@@ -10930,53 +11050,23 @@ export default defineConfig({
                   {
                     text: "前端智能",
                     collapsed: true,
-                    items: [
-                      {
-                        text: "智能表单验证",
-                      },
-                      {
-                        text: "实时图像处理",
-                      },
-                      {
-                        text: "语音识别",
-                      },
-                    ],
+                    items: [{ text: "Web Speech API" }],
                   },
                   {
                     text: "后端智能",
                     collapsed: true,
-                    items: [
-                      {
-                        text: "推荐系统",
-                      },
-                      {
-                        text: "聊天机器人",
-                      },
-                      {
-                        text: "日志异常检测",
-                      },
-                    ],
+                    items: [{ text: "推荐系统" }],
                   },
                   {
                     text: "自动化与优化",
                     collapsed: true,
                     items: [
-                      {
-                        text: "代码生成 (Copilot-like)",
-                      },
-                      {
-                        text: "测试用例生成",
-                      },
-                      {
-                        text: "性能预测",
-                      },
+                      { text: "代码生成（Copilot-like）" },
+                      { text: "AI 测试用例生成" },
                     ],
                   },
                 ],
               },
-            ],
-          },
-
           {
             text: "数据结构和算法",
             collapsed: false,
