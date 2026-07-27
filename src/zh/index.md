@@ -1,11 +1,10 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
-  name: "illegalCreed"
+  name: "IllegalCreed"
   text: "程序员路线图"
-  tagline: 目标全栈架构师，JS/TS方向
+  tagline: 持续维护的 Web 工程、算法、系统与软件架构学习地图
   image:
     light: /light-logo.svg
     dark: /dark-logo.svg
@@ -19,7 +18,7 @@ hero:
       link: https://illegalcreed.github.io/low-code-platform/login
     - theme: alt
       text: 我的算法可视化
-      link: https://illegalcreed.github.io/algorithms-visualization/
+      link: https://algo.illegalscreed.cn/
     - theme: alt
       text: 我的程序员刷题站
       link: https://quiz.illegalscreed.cn/
@@ -38,3 +37,21 @@ features:
   - title: 后端知识
     details: 包括后端基础的语言及框架，数据存储，处理，分布式架构，DevOps等
 ---
+
+## 这是什么
+
+这是 IllegalCreed 持续维护的个人技术知识库和项目入口。内容按学习路径组织，从
+Web 基础、前端与后端工程逐步延伸到数据存储、操作系统、安全、DevOps 和架构，
+尽量说明知识之间的前后关系，而不是堆放彼此孤立的文章。
+
+## 正在维护的项目
+
+- [算法可视化](https://algo.illegalscreed.cn/)：92 个交互式学习条目，
+  支持逐步动画、四语言代码同步、自定义输入和中英文页面。
+- [程序员刷题站](https://quiz.illegalscreed.cn/)：把知识路线转成可练习、可复盘的题目。
+- [LumiDeck](https://lumideck.illegalscreed.cn/)：浏览器中的幻灯片创作工具。
+- [仙剑 Web 版](https://pal.illegalscreed.cn/)：面向浏览器运行环境的游戏实现探索。
+
+项目源码和维护记录可在 [GitHub](https://github.com/IllegalCreed) 查看。站点归属、
+联系入口和数据使用说明见[关于本站](/zh/about)、[联系](/zh/contact)和
+[隐私政策](/zh/privacy)。

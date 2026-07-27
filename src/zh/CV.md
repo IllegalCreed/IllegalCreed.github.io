@@ -599,7 +599,7 @@ _时间范围: 2007 年 - 2011 年_
 
 ## 个人作品
 
-- **算法可视化**: [项目链接](https://illegalcreed.github.io/algorithms-visualization/)
+- **算法可视化**: [项目链接](https://algo.illegalscreed.cn/)
 
   - 描述: 学习算法过程中为了加深印象做的开源网站。
 

@@ -4,14 +4,25 @@ import { fileURLToPath, URL } from "url";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "illegalCreed",
-  description: "A Roadmap of Dev",
+  description:
+    "Developer roadmap, learning notes, and open web projects by IllegalCreed.",
   srcDir: "./src",
   cleanUrls: true,
   ignoreDeadLinks: true,
+  sitemap: {
+    hostname: "https://illegalscreed.cn",
+  },
 
   head: [
     // 站点图标(favicon):复用阶梯塔 logo
     ["link", { rel: "icon", type: "image/svg+xml", href: "/light-logo.svg" }],
+    [
+      "meta",
+      {
+        name: "google-adsense-account",
+        content: "ca-pub-4047630223754404",
+      },
+    ],
     // Google Analytics 跟踪脚本
     [
       "script",
@@ -92,21 +103,25 @@ export default defineConfig({
         // https://vitepress.dev/reference/default-theme-config
         nav: [
           { text: "Home", link: "/" },
-          { text: "Examples", link: "/markdown-examples" },
+          { text: "Roadmap", link: "/zh/start" },
+          { text: "About", link: "/about" },
+          { text: "Contact", link: "/contact" },
+          { text: "Privacy", link: "/privacy" },
         ],
 
         sidebar: [
           {
-            text: "Examples",
+            text: "IllegalCreed",
             items: [
-              { text: "Markdown Examples", link: "/markdown-examples" },
-              { text: "Runtime API Examples", link: "/api-examples" },
+              { text: "About", link: "/about" },
+              { text: "Contact", link: "/contact" },
+              { text: "Privacy", link: "/privacy" },
             ],
           },
         ],
 
         socialLinks: [
-          { icon: "github", link: "https://github.com/vuejs/vitepress" },
+          { icon: "github", link: "https://github.com/IllegalCreed" },
         ],
       },
     },
@@ -119,6 +134,31 @@ export default defineConfig({
         nav: [
           { text: "首页", link: "/zh/" },
           { text: "文档", link: "/zh/start" },
+          {
+            text: "项目",
+            items: [
+              {
+                text: "算法可视化",
+                link: "https://algo.illegalscreed.cn/",
+              },
+              {
+                text: "程序员刷题站",
+                link: "https://quiz.illegalscreed.cn/",
+              },
+              {
+                text: "幻灯片生成站",
+                link: "https://lumideck.illegalscreed.cn/",
+              },
+            ],
+          },
+          {
+            text: "关于",
+            items: [
+              { text: "关于本站", link: "/zh/about" },
+              { text: "联系", link: "/zh/contact" },
+              { text: "隐私", link: "/zh/privacy" },
+            ],
+          },
         ],
 
         sidebar: [
@@ -127,6 +167,9 @@ export default defineConfig({
             items: [
               { text: "开始", link: "/zh/start" },
               { text: "简历", link: "/zh/CV" },
+              { text: "关于本站", link: "/zh/about" },
+              { text: "联系", link: "/zh/contact" },
+              { text: "隐私政策", link: "/zh/privacy" },
             ],
           },
 
@@ -11098,7 +11141,7 @@ export default defineConfig({
         socialLinks: [
           {
             icon: "github",
-            link: "https://github.com/IllegalCreed/IllegalCreed.github.io",
+            link: "https://github.com/IllegalCreed",
           },
         ],
       },

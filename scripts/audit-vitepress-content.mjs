@@ -12,11 +12,9 @@ const defaultReportPath =
   "/Users/zhangxu/illegal/quiz-monorepo/docs/audits/20260710-vitepress-content-baseline.md";
 const args = new Set(process.argv.slice(2));
 
-// 这些根级页面服务于站点介绍或 VitePress 脚手架演示，不属于技术节点内容页。
+// 这些根级页面服务于个人信息或站点说明，不属于技术节点内容页。
 const QUICK_CHECK_EXCLUSIONS = new Map([
-  ["src/zh/api-examples.md", "VitePress 运行时 API 脚手架示例"],
   ["src/zh/CV.md", "个人简历"],
-  ["src/zh/markdown-examples.md", "VitePress Markdown 脚手架示例"],
   ["src/zh/start.md", "站点使用说明"],
 ]);
 
