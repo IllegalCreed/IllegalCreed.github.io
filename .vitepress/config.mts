@@ -11458,19 +11458,59 @@ export default defineConfig({
                   {
                     text: "前端智能",
                     collapsed: true,
-                    items: [{ text: "Web Speech API" }],
+                    items: [
+                      {
+                        text: "Web Speech API",
+                        collapsed: true,
+                        link: "/zh/ai-fullstack/frontend/web-speech-api/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-fullstack/frontend/web-speech-api/getting-started" },
+                          { text: "指南", link: "/zh/ai-fullstack/frontend/web-speech-api/guide-line" },
+                          { text: "参考", link: "/zh/ai-fullstack/frontend/web-speech-api/reference" },
+                        ],
+                      },
+                    ],
                   },
                   {
                     text: "后端智能",
                     collapsed: true,
-                    items: [{ text: "推荐系统" }],
+                    items: [
+                      {
+                        text: "推荐系统",
+                        collapsed: true,
+                        link: "/zh/ai-fullstack/backend/recommendation-system/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-fullstack/backend/recommendation-system/getting-started" },
+                          { text: "指南", link: "/zh/ai-fullstack/backend/recommendation-system/guide-line" },
+                          { text: "参考", link: "/zh/ai-fullstack/backend/recommendation-system/reference" },
+                        ],
+                      },
+                    ],
                   },
                   {
                     text: "自动化与优化",
                     collapsed: true,
                     items: [
-                      { text: "代码生成（Copilot-like）" },
-                      { text: "AI 测试用例生成" },
+                      {
+                        text: "代码生成（Copilot-like）",
+                        collapsed: true,
+                        link: "/zh/ai-fullstack/automation/code-generation/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-fullstack/automation/code-generation/getting-started" },
+                          { text: "指南", link: "/zh/ai-fullstack/automation/code-generation/guide-line" },
+                          { text: "参考", link: "/zh/ai-fullstack/automation/code-generation/reference" },
+                        ],
+                      },
+                      {
+                        text: "AI 测试用例生成",
+                        collapsed: true,
+                        link: "/zh/ai-fullstack/automation/ai-test-generation/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-fullstack/automation/ai-test-generation/getting-started" },
+                          { text: "指南", link: "/zh/ai-fullstack/automation/ai-test-generation/guide-line" },
+                          { text: "参考", link: "/zh/ai-fullstack/automation/ai-test-generation/reference" },
+                        ],
+                      },
                     ],
                   },
                 ],
