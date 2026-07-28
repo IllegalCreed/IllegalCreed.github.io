@@ -10371,14 +10371,86 @@ export default defineConfig({
                               },
                             ],
                           },
-                          { text: "NotebookLM" },
-                          { text: "向量数据库" },
-                          { text: "嵌入模型" },
-                          { text: "AI 网关" },
-                          { text: "Vercel AI SDK" },
-                          { text: "AI 内容审核" },
-                          { text: "AI 搜索 API" },
-                          { text: "Perplexity API" },
+                          {
+                            text: "NotebookLM",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/other/notebooklm/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/other/notebooklm/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/other/notebooklm/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/other/notebooklm/reference" },
+                            ],
+                          },
+                          {
+                            text: "向量数据库",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/other/vector-database/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/other/vector-database/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/other/vector-database/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/other/vector-database/reference" },
+                            ],
+                          },
+                          {
+                            text: "嵌入模型",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/other/embedding-model/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/other/embedding-model/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/other/embedding-model/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/other/embedding-model/reference" },
+                            ],
+                          },
+                          {
+                            text: "AI 网关",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/other/ai-gateway/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/other/ai-gateway/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/other/ai-gateway/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/other/ai-gateway/reference" },
+                            ],
+                          },
+                          {
+                            text: "Vercel AI SDK",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/other/vercel-ai-sdk/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/other/vercel-ai-sdk/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/other/vercel-ai-sdk/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/other/vercel-ai-sdk/reference" },
+                            ],
+                          },
+                          {
+                            text: "AI 内容审核",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/other/ai-content-moderation/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/other/ai-content-moderation/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/other/ai-content-moderation/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/other/ai-content-moderation/reference" },
+                            ],
+                          },
+                          {
+                            text: "AI 搜索 API",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/other/ai-search-api/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/other/ai-search-api/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/other/ai-search-api/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/other/ai-search-api/reference" },
+                            ],
+                          },
+                          {
+                            text: "Perplexity API",
+                            collapsed: true,
+                            link: "/zh/large-language-model/tools/other/perplexity-api/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/tools/other/perplexity-api/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/tools/other/perplexity-api/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/tools/other/perplexity-api/reference" },
+                            ],
+                          },
                         ],
                       },
                       {
@@ -10399,8 +10471,26 @@ export default defineConfig({
                     items: [
                       { text: "基础提示设计" },
                       { text: "高级提示技巧" },
-                      { text: "LLM 可观测与评测" },
-                      { text: "LLM 测试与红队" },
+                      {
+                        text: "LLM 可观测与评测",
+                        collapsed: true,
+                        link: "/zh/large-language-model/prompt-engineering/llm-observability/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/prompt-engineering/llm-observability/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/prompt-engineering/llm-observability/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/prompt-engineering/llm-observability/reference" },
+                        ],
+                      },
+                      {
+                        text: "LLM 测试与红队",
+                        collapsed: true,
+                        link: "/zh/large-language-model/prompt-engineering/llm-testing-redteam/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/prompt-engineering/llm-testing-redteam/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/prompt-engineering/llm-testing-redteam/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/prompt-engineering/llm-testing-redteam/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
