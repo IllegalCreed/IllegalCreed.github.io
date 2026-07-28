@@ -11289,35 +11289,164 @@ export default defineConfig({
                     text: "开发环境与社区平台",
                     collapsed: true,
                     items: [
-                      { text: "Jupyter Notebook" },
-                      { text: "Google Colab" },
-                      { text: "Hugging Face 平台" },
+                      {
+                        text: "Jupyter Notebook",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/dev-env/jupyter-notebook/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/dev-env/jupyter-notebook/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/dev-env/jupyter-notebook/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/dev-env/jupyter-notebook/reference" },
+                        ],
+                      },
+                      {
+                        text: "Google Colab",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/dev-env/google-colab/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/dev-env/google-colab/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/dev-env/google-colab/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/dev-env/google-colab/reference" },
+                        ],
+                      },
+                      {
+                        text: "Hugging Face 平台",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/dev-env/huggingface-platform/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/dev-env/huggingface-platform/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/dev-env/huggingface-platform/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/dev-env/huggingface-platform/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
                     text: "训练平台与实验追踪",
                     collapsed: true,
                     items: [
-                      { text: "AWS SageMaker" },
-                      { text: "MLflow" },
-                      { text: "Weights & Biases" },
-                      { text: "DVC" },
+                      {
+                        text: "AWS SageMaker",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/training/aws-sagemaker/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/training/aws-sagemaker/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/training/aws-sagemaker/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/training/aws-sagemaker/reference" },
+                        ],
+                      },
+                      {
+                        text: "MLflow",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/training/mlflow/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/training/mlflow/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/training/mlflow/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/training/mlflow/reference" },
+                        ],
+                      },
+                      {
+                        text: "Weights & Biases",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/training/weights-and-biases/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/training/weights-and-biases/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/training/weights-and-biases/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/training/weights-and-biases/reference" },
+                        ],
+                      },
+                      {
+                        text: "DVC",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/training/dvc/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/training/dvc/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/training/dvc/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/training/dvc/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
                     text: "LLM 推理引擎",
                     collapsed: true,
-                    items: [{ text: "vLLM" }, { text: "Ollama" }],
+                    items: [
+                      {
+                        text: "vLLM",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/inference/vllm/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/inference/vllm/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/inference/vllm/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/inference/vllm/reference" },
+                        ],
+                      },
+                      {
+                        text: "Ollama",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/inference/ollama/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/inference/ollama/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/inference/ollama/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/inference/ollama/reference" },
+                        ],
+                      },
+                    ],
                   },
                   {
                     text: "模型服务化与托管",
                     collapsed: true,
                     items: [
-                      { text: "FastAPI 模型服务化" },
-                      { text: "Gradio" },
-                      { text: "NVIDIA Triton" },
-                      { text: "BentoML" },
-                      { text: "Serverless GPU 平台" },
+                      {
+                        text: "FastAPI 模型服务化",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/serving/fastapi-model-serving/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/serving/fastapi-model-serving/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/serving/fastapi-model-serving/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/serving/fastapi-model-serving/reference" },
+                        ],
+                      },
+                      {
+                        text: "Gradio",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/serving/gradio/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/serving/gradio/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/serving/gradio/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/serving/gradio/reference" },
+                        ],
+                      },
+                      {
+                        text: "NVIDIA Triton",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/serving/nvidia-triton/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/serving/nvidia-triton/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/serving/nvidia-triton/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/serving/nvidia-triton/reference" },
+                        ],
+                      },
+                      {
+                        text: "BentoML",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/serving/bentoml/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/serving/bentoml/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/serving/bentoml/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/serving/bentoml/reference" },
+                        ],
+                      },
+                      {
+                        text: "Serverless GPU 平台",
+                        collapsed: true,
+                        link: "/zh/ai-dev-platform/serving/serverless-gpu/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-dev-platform/serving/serverless-gpu/getting-started" },
+                          { text: "指南", link: "/zh/ai-dev-platform/serving/serverless-gpu/guide-line" },
+                          { text: "参考", link: "/zh/ai-dev-platform/serving/serverless-gpu/reference" },
+                        ],
+                      },
                     ],
                   },
                 ],
