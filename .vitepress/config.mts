@@ -10181,13 +10181,76 @@ export default defineConfig({
                           },
                         ],
                       },
-                      { text: "Grok" },
-                      { text: "GLM" },
-                      { text: "DeepSeek" },
-                      { text: "Qwen" },
-                      { text: "MiniMax" },
-                      { text: "Kimi" },
-                      { text: "Llama" },
+                      {
+                        text: "Grok",
+                        collapsed: true,
+                        link: "/zh/large-language-model/models/grok/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/models/grok/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/models/grok/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/models/grok/reference" },
+                        ],
+                      },
+                      {
+                        text: "GLM",
+                        collapsed: true,
+                        link: "/zh/large-language-model/models/glm/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/models/glm/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/models/glm/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/models/glm/reference" },
+                        ],
+                      },
+                      {
+                        text: "DeepSeek",
+                        collapsed: true,
+                        link: "/zh/large-language-model/models/deepseek/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/models/deepseek/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/models/deepseek/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/models/deepseek/reference" },
+                        ],
+                      },
+                      {
+                        text: "Qwen",
+                        collapsed: true,
+                        link: "/zh/large-language-model/models/qwen/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/models/qwen/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/models/qwen/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/models/qwen/reference" },
+                        ],
+                      },
+                      {
+                        text: "MiniMax",
+                        collapsed: true,
+                        link: "/zh/large-language-model/models/minimax/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/models/minimax/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/models/minimax/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/models/minimax/reference" },
+                        ],
+                      },
+                      {
+                        text: "Kimi",
+                        collapsed: true,
+                        link: "/zh/large-language-model/models/kimi/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/models/kimi/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/models/kimi/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/models/kimi/reference" },
+                        ],
+                      },
+                      {
+                        text: "Llama",
+                        collapsed: true,
+                        link: "/zh/large-language-model/models/llama/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/models/llama/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/models/llama/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/models/llama/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
@@ -10344,14 +10407,63 @@ export default defineConfig({
                       {
                         text: "编排工具",
                         collapsed: true,
-                        items: [{ text: "Dify" }, { text: "n8n" }, { text: "ComfyUI" }],
+                        items: [
+                          {
+                            text: "Dify",
+                            collapsed: true,
+                            link: "/zh/large-language-model/workflow-tools/orchestration/dify/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/workflow-tools/orchestration/dify/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/workflow-tools/orchestration/dify/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/workflow-tools/orchestration/dify/reference" },
+                            ],
+                          },
+                          {
+                            text: "n8n",
+                            collapsed: true,
+                            link: "/zh/large-language-model/workflow-tools/orchestration/n8n/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/workflow-tools/orchestration/n8n/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/workflow-tools/orchestration/n8n/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/workflow-tools/orchestration/n8n/reference" },
+                            ],
+                          },
+                          {
+                            text: "ComfyUI",
+                            collapsed: true,
+                            link: "/zh/large-language-model/workflow-tools/orchestration/comfyui/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/workflow-tools/orchestration/comfyui/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/workflow-tools/orchestration/comfyui/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/workflow-tools/orchestration/comfyui/reference" },
+                            ],
+                          },
+                        ],
                       },
                       {
                         text: "其他工具",
                         collapsed: true,
                         items: [
-                          { text: "RAG" },
-                          { text: "LangChain" },
+                          {
+                            text: "RAG",
+                            collapsed: true,
+                            link: "/zh/large-language-model/workflow-tools/other/rag/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/workflow-tools/other/rag/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/workflow-tools/other/rag/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/workflow-tools/other/rag/reference" },
+                            ],
+                          },
+                          {
+                            text: "LangChain",
+                            collapsed: true,
+                            link: "/zh/large-language-model/workflow-tools/other/langchain/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/workflow-tools/other/langchain/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/workflow-tools/other/langchain/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/workflow-tools/other/langchain/reference" },
+                            ],
+                          },
                           {
                             text: "OpenRouter",
                             collapsed: true,
@@ -10456,7 +10568,18 @@ export default defineConfig({
                       {
                         text: "AI 辅助开发工具",
                         collapsed: true,
-                        items: [{ text: "react-doctor" }],
+                        items: [
+                          {
+                            text: "react-doctor",
+                            collapsed: true,
+                            link: "/zh/large-language-model/ai-dev-tools/react-doctor/",
+                            items: [
+                              { text: "入门", link: "/zh/large-language-model/ai-dev-tools/react-doctor/getting-started" },
+                              { text: "指南", link: "/zh/large-language-model/ai-dev-tools/react-doctor/guide-line" },
+                              { text: "参考", link: "/zh/large-language-model/ai-dev-tools/react-doctor/reference" },
+                            ],
+                          },
+                        ],
                       },
                       {
                         text: "AI 设计",
@@ -10469,8 +10592,26 @@ export default defineConfig({
                     text: "提示词工程",
                     collapsed: true,
                     items: [
-                      { text: "基础提示设计" },
-                      { text: "高级提示技巧" },
+                      {
+                        text: "基础提示设计",
+                        collapsed: true,
+                        link: "/zh/large-language-model/prompt-engineering/basic-prompt-design/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/prompt-engineering/basic-prompt-design/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/prompt-engineering/basic-prompt-design/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/prompt-engineering/basic-prompt-design/reference" },
+                        ],
+                      },
+                      {
+                        text: "高级提示技巧",
+                        collapsed: true,
+                        link: "/zh/large-language-model/prompt-engineering/advanced-prompt-techniques/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/prompt-engineering/advanced-prompt-techniques/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/prompt-engineering/advanced-prompt-techniques/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/prompt-engineering/advanced-prompt-techniques/reference" },
+                        ],
+                      },
                       {
                         text: "LLM 可观测与评测",
                         collapsed: true,
@@ -10497,8 +10638,26 @@ export default defineConfig({
                     text: "MCP",
                     collapsed: true,
                     items: [
-                      { text: "MCP 协议基础（Transport / Resource / Tool / Prompt / Sampling）" },
-                      { text: "常用 MCP Server 集成" },
+                      {
+                        text: "MCP 协议基础（Transport / Resource / Tool / Prompt / Sampling）",
+                        collapsed: true,
+                        link: "/zh/large-language-model/mcp/mcp-protocol/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/mcp/mcp-protocol/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/mcp/mcp-protocol/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/mcp/mcp-protocol/reference" },
+                        ],
+                      },
+                      {
+                        text: "常用 MCP Server 集成",
+                        collapsed: true,
+                        link: "/zh/large-language-model/mcp/mcp-servers/",
+                        items: [
+                          { text: "入门", link: "/zh/large-language-model/mcp/mcp-servers/getting-started" },
+                          { text: "指南", link: "/zh/large-language-model/mcp/mcp-servers/guide-line" },
+                          { text: "参考", link: "/zh/large-language-model/mcp/mcp-servers/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
