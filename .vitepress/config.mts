@@ -9986,12 +9986,66 @@ export default defineConfig({
                     text: "自然语言处理 (NLP)",
                     collapsed: true,
                     items: [
-                      { text: "Hugging Face Transformers" },
-                      { text: "Hugging Face PEFT 与 TRL" },
-                      { text: "Hugging Face Datasets 与 Tokenizers" },
-                      { text: "spaCy" },
-                      { text: "NLTK" },
-                      { text: "Gensim" },
+                      {
+                        text: "Hugging Face Transformers",
+                        collapsed: true,
+                        link: "/zh/ai-framework/nlp/hf-transformers/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/nlp/hf-transformers/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/nlp/hf-transformers/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/nlp/hf-transformers/reference" },
+                        ],
+                      },
+                      {
+                        text: "Hugging Face PEFT 与 TRL",
+                        collapsed: true,
+                        link: "/zh/ai-framework/nlp/hf-peft-trl/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/nlp/hf-peft-trl/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/nlp/hf-peft-trl/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/nlp/hf-peft-trl/reference" },
+                        ],
+                      },
+                      {
+                        text: "Hugging Face Datasets 与 Tokenizers",
+                        collapsed: true,
+                        link: "/zh/ai-framework/nlp/hf-datasets-tokenizers/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/nlp/hf-datasets-tokenizers/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/nlp/hf-datasets-tokenizers/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/nlp/hf-datasets-tokenizers/reference" },
+                        ],
+                      },
+                      {
+                        text: "spaCy",
+                        collapsed: true,
+                        link: "/zh/ai-framework/nlp/spacy/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/nlp/spacy/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/nlp/spacy/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/nlp/spacy/reference" },
+                        ],
+                      },
+                      {
+                        text: "NLTK",
+                        collapsed: true,
+                        link: "/zh/ai-framework/nlp/nltk/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/nlp/nltk/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/nlp/nltk/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/nlp/nltk/reference" },
+                        ],
+                      },
+                      {
+                        text: "Gensim",
+                        collapsed: true,
+                        link: "/zh/ai-framework/nlp/gensim/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/nlp/gensim/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/nlp/gensim/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/nlp/gensim/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
