@@ -9890,15 +9890,96 @@ export default defineConfig({
                     text: "通用机器学习框架",
                     collapsed: true,
                     items: [
-                      { text: "PyTorch 基础" },
-                      { text: "PyTorch 分布式训练" },
-                      { text: "TensorFlow" },
-                      { text: "Keras" },
-                      { text: "scikit-learn" },
-                      { text: "JAX" },
-                      { text: "PaddlePaddle" },
-                      { text: "MindSpore" },
-                      { text: "ONNX" },
+                      {
+                        text: "PyTorch 基础",
+                        collapsed: true,
+                        link: "/zh/ai-framework/general-ml/pytorch-basic/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/general-ml/pytorch-basic/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/general-ml/pytorch-basic/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/general-ml/pytorch-basic/reference" },
+                        ],
+                      },
+                      {
+                        text: "PyTorch 分布式训练",
+                        collapsed: true,
+                        link: "/zh/ai-framework/general-ml/pytorch-distributed/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/general-ml/pytorch-distributed/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/general-ml/pytorch-distributed/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/general-ml/pytorch-distributed/reference" },
+                        ],
+                      },
+                      {
+                        text: "TensorFlow",
+                        collapsed: true,
+                        link: "/zh/ai-framework/general-ml/tensorflow/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/general-ml/tensorflow/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/general-ml/tensorflow/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/general-ml/tensorflow/reference" },
+                        ],
+                      },
+                      {
+                        text: "Keras",
+                        collapsed: true,
+                        link: "/zh/ai-framework/general-ml/keras/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/general-ml/keras/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/general-ml/keras/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/general-ml/keras/reference" },
+                        ],
+                      },
+                      {
+                        text: "scikit-learn",
+                        collapsed: true,
+                        link: "/zh/ai-framework/general-ml/scikit-learn/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/general-ml/scikit-learn/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/general-ml/scikit-learn/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/general-ml/scikit-learn/reference" },
+                        ],
+                      },
+                      {
+                        text: "JAX",
+                        collapsed: true,
+                        link: "/zh/ai-framework/general-ml/jax/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/general-ml/jax/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/general-ml/jax/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/general-ml/jax/reference" },
+                        ],
+                      },
+                      {
+                        text: "PaddlePaddle",
+                        collapsed: true,
+                        link: "/zh/ai-framework/general-ml/paddlepaddle/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/general-ml/paddlepaddle/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/general-ml/paddlepaddle/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/general-ml/paddlepaddle/reference" },
+                        ],
+                      },
+                      {
+                        text: "MindSpore",
+                        collapsed: true,
+                        link: "/zh/ai-framework/general-ml/mindspore/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/general-ml/mindspore/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/general-ml/mindspore/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/general-ml/mindspore/reference" },
+                        ],
+                      },
+                      {
+                        text: "ONNX",
+                        collapsed: true,
+                        link: "/zh/ai-framework/general-ml/onnx/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/general-ml/onnx/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/general-ml/onnx/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/general-ml/onnx/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
