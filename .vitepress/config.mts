@@ -9998,12 +9998,66 @@ export default defineConfig({
                     text: "计算机视觉",
                     collapsed: true,
                     items: [
-                      { text: "OpenCV" },
-                      { text: "Ultralytics YOLO" },
-                      { text: "MediaPipe" },
-                      { text: "OpenMMLab" },
-                      { text: "timm" },
-                      { text: "Albumentations" },
+                      {
+                        text: "OpenCV",
+                        collapsed: true,
+                        link: "/zh/ai-framework/cv/opencv/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/cv/opencv/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/cv/opencv/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/cv/opencv/reference" },
+                        ],
+                      },
+                      {
+                        text: "Ultralytics YOLO",
+                        collapsed: true,
+                        link: "/zh/ai-framework/cv/ultralytics-yolo/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/cv/ultralytics-yolo/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/cv/ultralytics-yolo/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/cv/ultralytics-yolo/reference" },
+                        ],
+                      },
+                      {
+                        text: "MediaPipe",
+                        collapsed: true,
+                        link: "/zh/ai-framework/cv/mediapipe/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/cv/mediapipe/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/cv/mediapipe/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/cv/mediapipe/reference" },
+                        ],
+                      },
+                      {
+                        text: "OpenMMLab",
+                        collapsed: true,
+                        link: "/zh/ai-framework/cv/openmmlab/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/cv/openmmlab/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/cv/openmmlab/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/cv/openmmlab/reference" },
+                        ],
+                      },
+                      {
+                        text: "timm",
+                        collapsed: true,
+                        link: "/zh/ai-framework/cv/timm/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/cv/timm/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/cv/timm/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/cv/timm/reference" },
+                        ],
+                      },
+                      {
+                        text: "Albumentations",
+                        collapsed: true,
+                        link: "/zh/ai-framework/cv/albumentations/",
+                        items: [
+                          { text: "入门", link: "/zh/ai-framework/cv/albumentations/getting-started" },
+                          { text: "指南", link: "/zh/ai-framework/cv/albumentations/guide-line" },
+                          { text: "参考", link: "/zh/ai-framework/cv/albumentations/reference" },
+                        ],
+                      },
                     ],
                   },
                 ],
