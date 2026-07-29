@@ -9371,6 +9371,110 @@ export default defineConfig({
           },
 
           {
+            text: "数据结构和算法",
+            collapsed: false,
+            items: [
+              {
+                text: "数据结构",
+                collapsed: true,
+                items: [
+                  {
+                    text: "基本数据结构",
+                    collapsed: true,
+                    items: [
+                      { text: "数组" },
+                      { text: "链表" },
+                      { text: "栈" },
+                      { text: "队列" },
+                      { text: "哈希表" },
+                    ],
+                  },
+                  {
+                    text: "高级数据结构",
+                    collapsed: true,
+                    items: [
+                      { text: "二叉树与二叉搜索树" },
+                      { text: "堆" },
+                      { text: "图的表示" },
+                      { text: "前缀树（Trie）" },
+                      { text: "并查集" },
+                      { text: "线段树与树状数组" },
+                      { text: "工程实用结构（LRU / 跳表 / 布隆过滤器）" },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "算法",
+                collapsed: true,
+                items: [
+                  {
+                    text: "排序",
+                    collapsed: true,
+                    items: [
+                      { text: "简单排序（冒泡 / 选择 / 插入）" },
+                      { text: "快速排序" },
+                      { text: "归并排序" },
+                      { text: "堆排序" },
+                      { text: "希尔排序" },
+                      { text: "非比较排序（计数 / 桶 / 基数）" },
+                    ],
+                  },
+                  {
+                    text: "搜索",
+                    collapsed: true,
+                    items: [
+                      { text: "线性查找与二分查找" },
+                      { text: "二分查找变体（旋转数组 / 二分答案 / 三分）" },
+                    ],
+                  },
+                  {
+                    text: "图算法",
+                    collapsed: true,
+                    items: [
+                      { text: "图遍历（DFS / BFS）" },
+                      { text: "最短路径算法" },
+                      { text: "最小生成树算法" },
+                      { text: "拓扑排序" },
+                    ],
+                  },
+                  {
+                    text: "高级算法",
+                    collapsed: true,
+                    items: [
+                      { text: "动态规划基础" },
+                      { text: "序列与区间动态规划" },
+                      { text: "进阶动态规划" },
+                      { text: "贪心算法" },
+                      { text: "分治算法" },
+                      { text: "回溯算法" },
+                    ],
+                  },
+                  {
+                    text: "字符串算法",
+                    collapsed: true,
+                    items: [
+                      { text: "字符串匹配（KMP / Rabin-Karp / Boyer-Moore）" },
+                      { text: "回文与 Z 函数（Manacher / Z）" },
+                    ],
+                  },
+                  {
+                    text: "数学与数论",
+                    collapsed: true,
+                    items: [
+                      { text: "GCD 与扩展欧几里得" },
+                      { text: "素数筛（埃氏筛 / 线性筛）" },
+                      { text: "快速幂与模运算" },
+                      { text: "欧拉函数与组合数" },
+                      { text: "位运算" },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+
+          {
             text: "软技能",
             collapsed: true,
             items: [
@@ -11811,124 +11915,6 @@ export default defineConfig({
                   },
                 ],
               },
-          {
-            text: "数据结构和算法",
-            collapsed: false,
-            items: [
-              {
-                text: "数据结构",
-                collapsed: true,
-                items: [
-                  {
-                    text: "基本数据结构",
-                    collapsed: true,
-                    items: [
-                      { text: "数组" },
-                      { text: "链表" },
-                      { text: "栈" },
-                      { text: "队列" },
-                      { text: "哈希表" },
-                    ],
-                  },
-                  {
-                    text: "高级数据结构",
-                    collapsed: true,
-                    items: [
-                      { text: "树" },
-                      { text: "堆" },
-                      { text: "图" },
-                      { text: "前缀树" },
-                    ],
-                  },
-                ],
-              },
-              {
-                text: "基本算法",
-                collapsed: true,
-                items: [
-                  {
-                    text: "排序",
-                    collapsed: true,
-                    items: [
-                      { text: "冒泡" },
-                      { text: "选择" },
-                      { text: "插入" },
-                      { text: "快速" },
-                      { text: "归并" },
-                      { text: "堆" },
-                    ],
-                  },
-                  {
-                    text: "搜索",
-                    collapsed: true,
-                    items: [
-                      { text: "线性" },
-                      { text: "二分" },
-                      { text: "深度优先" },
-                      { text: "广度优先" },
-                    ],
-                  },
-                  {
-                    text: "数学",
-                    collapsed: true,
-                    items: [{ text: "最大公约数" }, { text: "最小公倍数" }],
-                  },
-                  {
-                    text: "位运算",
-                    collapsed: true,
-                    items: [
-                      { text: "基本位运算" },
-                      { text: "位运算技巧和应用" },
-                    ],
-                  },
-                ],
-              },
-              {
-                text: "高级算法",
-                collapsed: true,
-                items: [
-                  { text: "动态规划" },
-                  { text: "贪心算法" },
-                  { text: "分治算法" },
-                  { text: "回溯算法" },
-                  {
-                    text: "图算法",
-                    collapsed: true,
-                    items: [
-                      { text: "最短路径算法" },
-                      { text: "最小生成树算法" },
-                      { text: "拓扑排序" },
-                    ],
-                  },
-                ],
-              },
-              {
-                text: "实际应用",
-                collapsed: true,
-                items: [
-                  {
-                    text: "在线练习",
-                    collapsed: true,
-                    items: [
-                      { text: "LeetCode" },
-                      { text: "HackerRank" },
-                      { text: "CodeSignal" },
-                    ],
-                  },
-                  {
-                    text: "比赛",
-                    collapsed: true,
-                    items: [{ text: "ACM" }],
-                  },
-                  {
-                    text: "算法可视化工具",
-                    collapsed: true,
-                    items: [{ text: "VisuAlgo" }],
-                  },
-                ],
-              },
-            ],
-          },
 
           {
             text: "操作系统基础",
