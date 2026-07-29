@@ -9542,9 +9542,57 @@ export default defineConfig({
                           { text: "参考", link: "/zh/dsa/data-structures/advanced/trie/reference" },
                         ],
                       },
-                      { text: "并查集" },
-                      { text: "线段树与树状数组" },
-                      { text: "工程实用结构（LRU / 跳表 / 布隆过滤器）" },
+                      {
+                        text: "并查集",
+                        collapsed: true,
+                        link: "/zh/dsa/data-structures/advanced/union-find/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/data-structures/advanced/union-find/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "路径压缩与按秩合并", link: "/zh/dsa/data-structures/advanced/union-find/guide-line/optimizations" },
+                              { text: "工程应用", link: "/zh/dsa/data-structures/advanced/union-find/guide-line/applications" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/data-structures/advanced/union-find/reference" },
+                        ],
+                      },
+                      {
+                        text: "线段树与树状数组",
+                        collapsed: true,
+                        link: "/zh/dsa/data-structures/advanced/segment-tree/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/data-structures/advanced/segment-tree/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "线段树与懒标记", link: "/zh/dsa/data-structures/advanced/segment-tree/guide-line/segment-tree" },
+                              { text: "树状数组（BIT）", link: "/zh/dsa/data-structures/advanced/segment-tree/guide-line/fenwick-tree" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/data-structures/advanced/segment-tree/reference" },
+                        ],
+                      },
+                      {
+                        text: "工程实用结构（LRU / 跳表 / 布隆过滤器）",
+                        collapsed: true,
+                        link: "/zh/dsa/data-structures/advanced/utility-structures/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/data-structures/advanced/utility-structures/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "LRU 缓存", link: "/zh/dsa/data-structures/advanced/utility-structures/guide-line/lru-cache" },
+                              { text: "跳表与布隆过滤器", link: "/zh/dsa/data-structures/advanced/utility-structures/guide-line/skip-list-and-bloom" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/data-structures/advanced/utility-structures/reference" },
+                        ],
+                      },
                     ],
                   },
                 ],
@@ -9557,20 +9605,148 @@ export default defineConfig({
                     text: "排序",
                     collapsed: true,
                     items: [
-                      { text: "简单排序（冒泡 / 选择 / 插入）" },
-                      { text: "快速排序" },
-                      { text: "归并排序" },
-                      { text: "堆排序" },
-                      { text: "希尔排序" },
-                      { text: "非比较排序（计数 / 桶 / 基数）" },
+                      {
+                        text: "简单排序（冒泡 / 选择 / 插入）",
+                        collapsed: true,
+                        link: "/zh/dsa/sorting/simple-sort/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/sorting/simple-sort/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "三种算法对比", link: "/zh/dsa/sorting/simple-sort/guide-line/comparison" },
+                              { text: "优化与稳定性", link: "/zh/dsa/sorting/simple-sort/guide-line/optimization" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/sorting/simple-sort/reference" },
+                        ],
+                      },
+                      {
+                        text: "快速排序",
+                        collapsed: true,
+                        link: "/zh/dsa/sorting/quick-sort/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/sorting/quick-sort/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "分区策略与优化", link: "/zh/dsa/sorting/quick-sort/guide-line/partition" },
+                              { text: "工程实践", link: "/zh/dsa/sorting/quick-sort/guide-line/engineering" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/sorting/quick-sort/reference" },
+                        ],
+                      },
+                      {
+                        text: "归并排序",
+                        collapsed: true,
+                        link: "/zh/dsa/sorting/merge-sort/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/sorting/merge-sort/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "分治与合并", link: "/zh/dsa/sorting/merge-sort/guide-line/divide-and-merge" },
+                              { text: "应用与外排序", link: "/zh/dsa/sorting/merge-sort/guide-line/applications" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/sorting/merge-sort/reference" },
+                        ],
+                      },
+                      {
+                        text: "堆排序",
+                        collapsed: true,
+                        link: "/zh/dsa/sorting/heap-sort/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/sorting/heap-sort/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "算法实现", link: "/zh/dsa/sorting/heap-sort/guide-line/algorithm" },
+                              { text: "特性与应用", link: "/zh/dsa/sorting/heap-sort/guide-line/characteristics" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/sorting/heap-sort/reference" },
+                        ],
+                      },
+                      {
+                        text: "希尔排序",
+                        collapsed: true,
+                        link: "/zh/dsa/sorting/shell-sort/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/sorting/shell-sort/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "间隔序列", link: "/zh/dsa/sorting/shell-sort/guide-line/gap-sequence" },
+                              { text: "性能分析", link: "/zh/dsa/sorting/shell-sort/guide-line/performance" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/sorting/shell-sort/reference" },
+                        ],
+                      },
+                      {
+                        text: "非比较排序（计数 / 桶 / 基数）",
+                        collapsed: true,
+                        link: "/zh/dsa/sorting/non-comparison-sort/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/sorting/non-comparison-sort/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "三种算法", link: "/zh/dsa/sorting/non-comparison-sort/guide-line/algorithms" },
+                              { text: "选型与应用", link: "/zh/dsa/sorting/non-comparison-sort/guide-line/selection" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/sorting/non-comparison-sort/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
                     text: "搜索",
                     collapsed: true,
                     items: [
-                      { text: "线性查找与二分查找" },
-                      { text: "二分查找变体（旋转数组 / 二分答案 / 三分）" },
+                      {
+                        text: "线性查找与二分查找",
+                        collapsed: true,
+                        link: "/zh/dsa/searching/linear-binary-search/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/searching/linear-binary-search/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "二分查找详解", link: "/zh/dsa/searching/linear-binary-search/guide-line/binary-search" },
+                              { text: "边界与坑", link: "/zh/dsa/searching/linear-binary-search/guide-line/pitfalls" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/searching/linear-binary-search/reference" },
+                        ],
+                      },
+                      {
+                        text: "二分查找变体（旋转数组 / 二分答案 / 三分）",
+                        collapsed: true,
+                        link: "/zh/dsa/searching/binary-search-variants/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/searching/binary-search-variants/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "旋转数组搜索", link: "/zh/dsa/searching/binary-search-variants/guide-line/rotated-array" },
+                              { text: "二分答案与三分", link: "/zh/dsa/searching/binary-search-variants/guide-line/binary-answer" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/searching/binary-search-variants/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
