@@ -9372,12 +9372,17 @@ export default defineConfig({
 
           {
             text: "软技能",
-            collapsed: false,
+            collapsed: true,
             items: [
               {
                 text: "软件工程",
                 collapsed: true,
-                items: [{ text: "敏捷开发" }, { text: "Scrum" }],
+                items: [
+                      { text: "敏捷开发" },
+                      { text: "Scrum" },
+                      { text: "看板方法（Kanban）" },
+                      { text: "精益开发与目标管理" },
+                ],
               },
               {
                 text: "开源分享",
@@ -9389,7 +9394,7 @@ export default defineConfig({
                     items: [
                       { text: "Medium" },
                       { text: "dev.to" },
-                      { text: "stackoverflow" },
+                      { text: "Stack Overflow" },
                       { text: "掘金" },
                       { text: "简书" },
                     ],
@@ -9398,7 +9403,7 @@ export default defineConfig({
                     text: "代码仓库",
                     collapsed: true,
                     items: [
-                      { text: "Github" },
+                      { text: "GitHub" },
                       { text: "GitLab" },
                       { text: "Gitee" },
                     ],
@@ -9409,22 +9414,10 @@ export default defineConfig({
                 text: "团队协作",
                 collapsed: true,
                 items: [
-                  {
-                    text: "团队协作工具",
-                    collapsed: true,
-                    items: [
-                      { text: "Jira" },
-                      { text: "Trello" },
-                      { text: "BitBucket" },
-                    ],
-                  },
-                  {
-                    text: "远程协作工具",
-                    collapsed: true,
-                    items: [{ text: "Slack" }, { text: "Discord" }],
-                  },
-                  { text: "沟通技巧" },
-                  { text: "技术写作" },
+                      { text: "项目管理工具（Jira / Trello / Linear）" },
+                      { text: "即时通讯与协作工具（Slack / Discord / 飞书 / 钉钉）" },
+                      { text: "沟通技巧" },
+                      { text: "技术写作" },
                 ],
               },
             ],
