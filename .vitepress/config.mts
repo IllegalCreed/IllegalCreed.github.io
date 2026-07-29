@@ -9474,10 +9474,74 @@ export default defineConfig({
                     text: "高级数据结构",
                     collapsed: true,
                     items: [
-                      { text: "二叉树与二叉搜索树" },
-                      { text: "堆" },
-                      { text: "图的表示" },
-                      { text: "前缀树（Trie）" },
+                      {
+                        text: "二叉树与二叉搜索树",
+                        collapsed: true,
+                        link: "/zh/dsa/data-structures/advanced/binary-tree/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/data-structures/advanced/binary-tree/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "遍历", link: "/zh/dsa/data-structures/advanced/binary-tree/guide-line/traversal" },
+                              { text: "二叉搜索树与平衡树", link: "/zh/dsa/data-structures/advanced/binary-tree/guide-line/bst-and-balance" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/data-structures/advanced/binary-tree/reference" },
+                        ],
+                      },
+                      {
+                        text: "堆",
+                        collapsed: true,
+                        link: "/zh/dsa/data-structures/advanced/heap/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/data-structures/advanced/heap/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "堆的核心操作", link: "/zh/dsa/data-structures/advanced/heap/guide-line/heap-operations" },
+                              { text: "工程应用", link: "/zh/dsa/data-structures/advanced/heap/guide-line/applications" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/data-structures/advanced/heap/reference" },
+                        ],
+                      },
+                      {
+                        text: "图的表示",
+                        collapsed: true,
+                        link: "/zh/dsa/data-structures/advanced/graph-representation/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/data-structures/advanced/graph-representation/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "三种表示法", link: "/zh/dsa/data-structures/advanced/graph-representation/guide-line/representations" },
+                              { text: "工程实现与选型", link: "/zh/dsa/data-structures/advanced/graph-representation/guide-line/implementation" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/data-structures/advanced/graph-representation/reference" },
+                        ],
+                      },
+                      {
+                        text: "前缀树（Trie）",
+                        collapsed: true,
+                        link: "/zh/dsa/data-structures/advanced/trie/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/data-structures/advanced/trie/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "核心操作", link: "/zh/dsa/data-structures/advanced/trie/guide-line/operations" },
+                              { text: "工程应用", link: "/zh/dsa/data-structures/advanced/trie/guide-line/applications" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/data-structures/advanced/trie/reference" },
+                        ],
+                      },
                       { text: "并查集" },
                       { text: "线段树与树状数组" },
                       { text: "工程实用结构（LRU / 跳表 / 布隆过滤器）" },
