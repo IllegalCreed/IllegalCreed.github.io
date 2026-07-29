@@ -9753,41 +9753,313 @@ export default defineConfig({
                     text: "图算法",
                     collapsed: true,
                     items: [
-                      { text: "图遍历（DFS / BFS）" },
-                      { text: "最短路径算法" },
-                      { text: "最小生成树算法" },
-                      { text: "拓扑排序" },
+                      {
+                        text: "图遍历（DFS / BFS）",
+                        collapsed: true,
+                        link: "/zh/dsa/graph/dfs-bfs/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/graph/dfs-bfs/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "DFS 与 BFS 详解", link: "/zh/dsa/graph/dfs-bfs/guide-line/dfs-bfs" },
+                              { text: "应用与连通性", link: "/zh/dsa/graph/dfs-bfs/guide-line/applications" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/graph/dfs-bfs/reference" },
+                        ],
+                      },
+                      {
+                        text: "最短路径算法",
+                        collapsed: true,
+                        link: "/zh/dsa/graph/shortest-path/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/graph/shortest-path/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "Dijkstra 与 Bellman-Ford", link: "/zh/dsa/graph/shortest-path/guide-line/dijkstra-bellman" },
+                              { text: "Floyd 与应用", link: "/zh/dsa/graph/shortest-path/guide-line/floyd-and-applications" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/graph/shortest-path/reference" },
+                        ],
+                      },
+                      {
+                        text: "最小生成树算法",
+                        collapsed: true,
+                        link: "/zh/dsa/graph/mst/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/graph/mst/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "Kruskal 与 Prim", link: "/zh/dsa/graph/mst/guide-line/kruskal-prim" },
+                              { text: "选型与应用", link: "/zh/dsa/graph/mst/guide-line/selection" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/graph/mst/reference" },
+                        ],
+                      },
+                      {
+                        text: "拓扑排序",
+                        collapsed: true,
+                        link: "/zh/dsa/graph/topological-sort/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/graph/topological-sort/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "Kahn 与 DFS 两种方法", link: "/zh/dsa/graph/topological-sort/guide-line/kahn-and-dfs" },
+                              { text: "应用与环检测", link: "/zh/dsa/graph/topological-sort/guide-line/applications" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/graph/topological-sort/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
                     text: "高级算法",
                     collapsed: true,
                     items: [
-                      { text: "动态规划基础" },
-                      { text: "序列与区间动态规划" },
-                      { text: "进阶动态规划" },
-                      { text: "贪心算法" },
-                      { text: "分治算法" },
-                      { text: "回溯算法" },
+                      {
+                        text: "动态规划基础",
+                        collapsed: true,
+                        link: "/zh/dsa/advanced-algorithms/dp-basics/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/advanced-algorithms/dp-basics/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "背包与零钱", link: "/zh/dsa/advanced-algorithms/dp-basics/guide-line/knapsack-and-coins" },
+                              { text: "DP 设计方法", link: "/zh/dsa/advanced-algorithms/dp-basics/guide-line/design-method" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/advanced-algorithms/dp-basics/reference" },
+                        ],
+                      },
+                      {
+                        text: "序列与区间动态规划",
+                        collapsed: true,
+                        link: "/zh/dsa/advanced-algorithms/dp-sequence-interval/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/advanced-algorithms/dp-sequence-interval/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "LCS 与 LIS", link: "/zh/dsa/advanced-algorithms/dp-sequence-interval/guide-line/lcs-lis" },
+                              { text: "编辑距离与区间 DP", link: "/zh/dsa/advanced-algorithms/dp-sequence-interval/guide-line/edit-distance-interval" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/advanced-algorithms/dp-sequence-interval/reference" },
+                        ],
+                      },
+                      {
+                        text: "进阶动态规划",
+                        collapsed: true,
+                        link: "/zh/dsa/advanced-algorithms/dp-advanced/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/advanced-algorithms/dp-advanced/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "树形与数位 DP", link: "/zh/dsa/advanced-algorithms/dp-advanced/guide-line/tree-and-digit-dp" },
+                              { text: "换根 DP 与优化", link: "/zh/dsa/advanced-algorithms/dp-advanced/guide-line/reroot-and-optimization" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/advanced-algorithms/dp-advanced/reference" },
+                        ],
+                      },
+                      {
+                        text: "贪心算法",
+                        collapsed: true,
+                        link: "/zh/dsa/advanced-algorithms/greedy/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/advanced-algorithms/greedy/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "贪心策略与证明", link: "/zh/dsa/advanced-algorithms/greedy/guide-line/strategy-and-proof" },
+                              { text: "经典贪心问题", link: "/zh/dsa/advanced-algorithms/greedy/guide-line/classic-problems" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/advanced-algorithms/greedy/reference" },
+                        ],
+                      },
+                      {
+                        text: "分治算法",
+                        collapsed: true,
+                        link: "/zh/dsa/advanced-algorithms/divide-conquer/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/advanced-algorithms/divide-conquer/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "分治三步与主定理", link: "/zh/dsa/advanced-algorithms/divide-conquer/guide-line/master-theorem" },
+                              { text: "经典应用", link: "/zh/dsa/advanced-algorithms/divide-conquer/guide-line/applications" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/advanced-algorithms/divide-conquer/reference" },
+                        ],
+                      },
+                      {
+                        text: "回溯算法",
+                        collapsed: true,
+                        link: "/zh/dsa/advanced-algorithms/backtracking/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/advanced-algorithms/backtracking/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "回溯框架与剪枝", link: "/zh/dsa/advanced-algorithms/backtracking/guide-line/framework-and-pruning" },
+                              { text: "经典问题", link: "/zh/dsa/advanced-algorithms/backtracking/guide-line/classic-problems" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/advanced-algorithms/backtracking/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
                     text: "字符串算法",
                     collapsed: true,
                     items: [
-                      { text: "字符串匹配（KMP / Rabin-Karp / Boyer-Moore）" },
-                      { text: "回文与 Z 函数（Manacher / Z）" },
+                      {
+                        text: "字符串匹配（KMP / Rabin-Karp / Boyer-Moore）",
+                        collapsed: true,
+                        link: "/zh/dsa/strings/string-matching/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/strings/string-matching/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "KMP 算法", link: "/zh/dsa/strings/string-matching/guide-line/kmp" },
+                              { text: "Rabin-Karp 与 Boyer-Moore", link: "/zh/dsa/strings/string-matching/guide-line/rk-and-bm" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/strings/string-matching/reference" },
+                        ],
+                      },
+                      {
+                        text: "回文与 Z 函数（Manacher / Z）",
+                        collapsed: true,
+                        link: "/zh/dsa/strings/palindrome-z-function/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/strings/palindrome-z-function/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "Manacher 算法", link: "/zh/dsa/strings/palindrome-z-function/guide-line/manacher" },
+                              { text: "Z 函数", link: "/zh/dsa/strings/palindrome-z-function/guide-line/z-function" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/strings/palindrome-z-function/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
                     text: "数学与数论",
                     collapsed: true,
                     items: [
-                      { text: "GCD 与扩展欧几里得" },
-                      { text: "素数筛（埃氏筛 / 线性筛）" },
-                      { text: "快速幂与模运算" },
-                      { text: "欧拉函数与组合数" },
-                      { text: "位运算" },
+                      {
+                        text: "GCD 与扩展欧几里得",
+                        collapsed: true,
+                        link: "/zh/dsa/math/gcd/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/math/gcd/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "辗转相除与扩展欧几里得", link: "/zh/dsa/math/gcd/guide-line/euclidean" },
+                              { text: "应用与方程", link: "/zh/dsa/math/gcd/guide-line/applications" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/math/gcd/reference" },
+                        ],
+                      },
+                      {
+                        text: "素数筛（埃氏筛 / 线性筛）",
+                        collapsed: true,
+                        link: "/zh/dsa/math/prime-sieve/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/math/prime-sieve/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "埃氏筛与线性筛", link: "/zh/dsa/math/prime-sieve/guide-line/sieves" },
+                              { text: "优化与应用", link: "/zh/dsa/math/prime-sieve/guide-line/optimization" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/math/prime-sieve/reference" },
+                        ],
+                      },
+                      {
+                        text: "快速幂与模运算",
+                        collapsed: true,
+                        link: "/zh/dsa/math/fast-power/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/math/fast-power/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "快速幂原理", link: "/zh/dsa/math/fast-power/guide-line/principle" },
+                              { text: "模运算性质与应用", link: "/zh/dsa/math/fast-power/guide-line/modular-arithmetic" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/math/fast-power/reference" },
+                        ],
+                      },
+                      {
+                        text: "欧拉函数与组合数",
+                        collapsed: true,
+                        link: "/zh/dsa/math/euler-function/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/math/euler-function/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "欧拉函数", link: "/zh/dsa/math/euler-function/guide-line/euler-phi" },
+                              { text: "组合数与逆元", link: "/zh/dsa/math/euler-function/guide-line/combinatorics" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/math/euler-function/reference" },
+                        ],
+                      },
+                      {
+                        text: "位运算",
+                        collapsed: true,
+                        link: "/zh/dsa/math/bit-manipulation/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/math/bit-manipulation/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "常用技巧", link: "/zh/dsa/math/bit-manipulation/guide-line/tricks" },
+                              { text: "经典应用", link: "/zh/dsa/math/bit-manipulation/guide-line/applications" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/math/bit-manipulation/reference" },
+                        ],
+                      },
                     ],
                   },
                 ],
