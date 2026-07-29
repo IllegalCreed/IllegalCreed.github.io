@@ -9382,11 +9382,92 @@ export default defineConfig({
                     text: "基本数据结构",
                     collapsed: true,
                     items: [
-                      { text: "数组" },
-                      { text: "链表" },
-                      { text: "栈" },
-                      { text: "队列" },
-                      { text: "哈希表" },
+                      {
+                        text: "数组",
+                        collapsed: true,
+                        link: "/zh/dsa/data-structures/basic/array/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/data-structures/basic/array/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "双指针与滑动窗口", link: "/zh/dsa/data-structures/basic/array/guide-line/two-pointers-and-sliding-window" },
+                              { text: "前缀和与差分", link: "/zh/dsa/data-structures/basic/array/guide-line/prefix-sum-and-difference" },
+                              { text: "矩阵遍历", link: "/zh/dsa/data-structures/basic/array/guide-line/matrix-traversal" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/data-structures/basic/array/reference" },
+                        ],
+                      },
+                      {
+                        text: "链表",
+                        collapsed: true,
+                        link: "/zh/dsa/data-structures/basic/linked-list/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/data-structures/basic/linked-list/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "经典算法", link: "/zh/dsa/data-structures/basic/linked-list/guide-line/classic-algorithms" },
+                              { text: "进阶操作", link: "/zh/dsa/data-structures/basic/linked-list/guide-line/advanced-operations" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/data-structures/basic/linked-list/reference" },
+                        ],
+                      },
+                      {
+                        text: "栈",
+                        collapsed: true,
+                        link: "/zh/dsa/data-structures/basic/stack/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/data-structures/basic/stack/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "经典应用", link: "/zh/dsa/data-structures/basic/stack/guide-line/classic-applications" },
+                              { text: "单调栈", link: "/zh/dsa/data-structures/basic/stack/guide-line/monotonic-stack" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/data-structures/basic/stack/reference" },
+                        ],
+                      },
+                      {
+                        text: "队列",
+                        collapsed: true,
+                        link: "/zh/dsa/data-structures/basic/queue/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/data-structures/basic/queue/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "循环队列与双端队列", link: "/zh/dsa/data-structures/basic/queue/guide-line/circular-queue-and-deque" },
+                              { text: "工程应用", link: "/zh/dsa/data-structures/basic/queue/guide-line/applications" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/data-structures/basic/queue/reference" },
+                        ],
+                      },
+                      {
+                        text: "哈希表",
+                        collapsed: true,
+                        link: "/zh/dsa/data-structures/basic/hash-table/",
+                        items: [
+                          { text: "入门", link: "/zh/dsa/data-structures/basic/hash-table/getting-started" },
+                          {
+                            text: "指南",
+                            collapsed: true,
+                            items: [
+                              { text: "冲突解决", link: "/zh/dsa/data-structures/basic/hash-table/guide-line/collision-resolution" },
+                              { text: "哈希函数与工程应用", link: "/zh/dsa/data-structures/basic/hash-table/guide-line/hash-functions-and-applications" },
+                            ],
+                          },
+                          { text: "参考", link: "/zh/dsa/data-structures/basic/hash-table/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
