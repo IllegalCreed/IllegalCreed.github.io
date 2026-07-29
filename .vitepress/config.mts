@@ -9378,10 +9378,46 @@ export default defineConfig({
                 text: "软件工程",
                 collapsed: true,
                 items: [
-                      { text: "敏捷开发" },
-                      { text: "Scrum" },
-                      { text: "看板方法（Kanban）" },
-                      { text: "精益开发与目标管理" },
+                      {
+                        text: "敏捷开发",
+                        collapsed: true,
+                        link: "/zh/soft-skills/software-engineering/agile/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/software-engineering/agile/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/software-engineering/agile/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/software-engineering/agile/reference" },
+                        ],
+                      },
+                      {
+                        text: "Scrum",
+                        collapsed: true,
+                        link: "/zh/soft-skills/software-engineering/scrum/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/software-engineering/scrum/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/software-engineering/scrum/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/software-engineering/scrum/reference" },
+                        ],
+                      },
+                      {
+                        text: "看板方法（Kanban）",
+                        collapsed: true,
+                        link: "/zh/soft-skills/software-engineering/kanban/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/software-engineering/kanban/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/software-engineering/kanban/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/software-engineering/kanban/reference" },
+                        ],
+                      },
+                      {
+                        text: "精益开发与目标管理",
+                        collapsed: true,
+                        link: "/zh/soft-skills/software-engineering/lean-okr/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/software-engineering/lean-okr/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/software-engineering/lean-okr/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/software-engineering/lean-okr/reference" },
+                        ],
+                      },
                 ],
               },
               {
@@ -9392,20 +9428,92 @@ export default defineConfig({
                     text: "技术社区",
                     collapsed: true,
                     items: [
-                      { text: "Medium" },
-                      { text: "dev.to" },
-                      { text: "Stack Overflow" },
-                      { text: "掘金" },
-                      { text: "简书" },
+                      {
+                        text: "Medium",
+                        collapsed: true,
+                        link: "/zh/soft-skills/open-source/tech-community/medium/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/open-source/tech-community/medium/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/open-source/tech-community/medium/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/open-source/tech-community/medium/reference" },
+                        ],
+                      },
+                      {
+                        text: "dev.to",
+                        collapsed: true,
+                        link: "/zh/soft-skills/open-source/tech-community/devto/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/open-source/tech-community/devto/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/open-source/tech-community/devto/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/open-source/tech-community/devto/reference" },
+                        ],
+                      },
+                      {
+                        text: "Stack Overflow",
+                        collapsed: true,
+                        link: "/zh/soft-skills/open-source/tech-community/stackoverflow/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/open-source/tech-community/stackoverflow/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/open-source/tech-community/stackoverflow/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/open-source/tech-community/stackoverflow/reference" },
+                        ],
+                      },
+                      {
+                        text: "掘金",
+                        collapsed: true,
+                        link: "/zh/soft-skills/open-source/tech-community/juejin/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/open-source/tech-community/juejin/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/open-source/tech-community/juejin/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/open-source/tech-community/juejin/reference" },
+                        ],
+                      },
+                      {
+                        text: "简书",
+                        collapsed: true,
+                        link: "/zh/soft-skills/open-source/tech-community/jianshu/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/open-source/tech-community/jianshu/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/open-source/tech-community/jianshu/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/open-source/tech-community/jianshu/reference" },
+                        ],
+                      },
                     ],
                   },
                   {
                     text: "代码仓库",
                     collapsed: true,
                     items: [
-                      { text: "GitHub" },
-                      { text: "GitLab" },
-                      { text: "Gitee" },
+                      {
+                        text: "GitHub",
+                        collapsed: true,
+                        link: "/zh/soft-skills/open-source/code-repo/github/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/open-source/code-repo/github/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/open-source/code-repo/github/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/open-source/code-repo/github/reference" },
+                        ],
+                      },
+                      {
+                        text: "GitLab",
+                        collapsed: true,
+                        link: "/zh/soft-skills/open-source/code-repo/gitlab/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/open-source/code-repo/gitlab/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/open-source/code-repo/gitlab/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/open-source/code-repo/gitlab/reference" },
+                        ],
+                      },
+                      {
+                        text: "Gitee",
+                        collapsed: true,
+                        link: "/zh/soft-skills/open-source/code-repo/gitee/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/open-source/code-repo/gitee/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/open-source/code-repo/gitee/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/open-source/code-repo/gitee/reference" },
+                        ],
+                      },
                     ],
                   },
                 ],
@@ -9414,10 +9522,46 @@ export default defineConfig({
                 text: "团队协作",
                 collapsed: true,
                 items: [
-                      { text: "项目管理工具（Jira / Trello / Linear）" },
-                      { text: "即时通讯与协作工具（Slack / Discord / 飞书 / 钉钉）" },
-                      { text: "沟通技巧" },
-                      { text: "技术写作" },
+                      {
+                        text: "项目管理工具（Jira / Trello / Linear）",
+                        collapsed: true,
+                        link: "/zh/soft-skills/teamwork/project-management/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/teamwork/project-management/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/teamwork/project-management/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/teamwork/project-management/reference" },
+                        ],
+                      },
+                      {
+                        text: "即时通讯与协作工具（Slack / Discord / 飞书 / 钉钉）",
+                        collapsed: true,
+                        link: "/zh/soft-skills/teamwork/instant-messaging/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/teamwork/instant-messaging/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/teamwork/instant-messaging/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/teamwork/instant-messaging/reference" },
+                        ],
+                      },
+                      {
+                        text: "沟通技巧",
+                        collapsed: true,
+                        link: "/zh/soft-skills/teamwork/communication/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/teamwork/communication/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/teamwork/communication/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/teamwork/communication/reference" },
+                        ],
+                      },
+                      {
+                        text: "技术写作",
+                        collapsed: true,
+                        link: "/zh/soft-skills/teamwork/technical-writing/",
+                        items: [
+                          { text: "入门", link: "/zh/soft-skills/teamwork/technical-writing/getting-started" },
+                          { text: "指南", link: "/zh/soft-skills/teamwork/technical-writing/guide-line" },
+                          { text: "参考", link: "/zh/soft-skills/teamwork/technical-writing/reference" },
+                        ],
+                      },
                 ],
               },
             ],
