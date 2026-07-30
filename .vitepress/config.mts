@@ -23,22 +23,6 @@ export default defineConfig({
         content: "ca-pub-4047630223754404",
       },
     ],
-    // Google Analytics 跟踪脚本
-    [
-      "script",
-      {
-        async: "",
-        src: "https://www.googletagmanager.com/gtag/js?id=G-YZWQCNFFG3",
-      },
-    ],
-    [
-      "script",
-      {},
-      `window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);}
-       gtag('js', new Date());
-       gtag('config', 'G-YZWQCNFFG3');`,
-    ],
   ],
 
   vite: {
