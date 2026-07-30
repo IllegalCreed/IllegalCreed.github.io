@@ -12,7 +12,7 @@ concept can be explored directly.
 
 - [Algorithm Visualizer](https://algo.illegalscreed.cn/) for interactive data
   structures and algorithms
-- [Programmer Quiz](https://quiz.illegalscreed.cn/) for knowledge practice
+- [IllegalCreed Quiz](https://quiz.illegalscreed.cn/) for developer knowledge practice
 - [LumiDeck](https://lumideck.illegalscreed.cn/) for browser-based slide
   authoring
 - [PAL Web](https://pal.illegalscreed.cn/) for browser game engineering

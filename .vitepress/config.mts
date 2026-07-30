@@ -126,7 +126,7 @@ export default defineConfig({
                 link: "https://algo.illegalscreed.cn/",
               },
               {
-                text: "程序员刷题站",
+                text: "IllegalCreed Quiz",
                 link: "https://quiz.illegalscreed.cn/",
               },
               {

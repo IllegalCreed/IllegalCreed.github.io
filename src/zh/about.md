@@ -9,7 +9,7 @@ IllegalCreed 是 Zhang Xu 持续维护的个人技术知识库和项目入口，
 ## 当前项目
 
 - [算法可视化](https://algo.illegalscreed.cn/)：交互式数据结构与算法学习站
-- [程序员刷题站](https://quiz.illegalscreed.cn/)：知识练习与复盘
+- [IllegalCreed Quiz](https://quiz.illegalscreed.cn/)：开发者知识练习与复盘
 - [LumiDeck](https://lumideck.illegalscreed.cn/)：浏览器幻灯片创作
 - [仙剑 Web 版](https://pal.illegalscreed.cn/)：浏览器游戏工程探索
 

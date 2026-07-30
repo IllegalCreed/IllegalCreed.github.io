@@ -41,7 +41,7 @@ snippets.
 
 - [Algorithm Visualizer](https://algo.illegalscreed.cn/) explains data
   structures and algorithms through interactive, deterministic playback.
-- [Programmer Quiz](https://quiz.illegalscreed.cn/) turns the roadmap into
+- [IllegalCreed Quiz](https://quiz.illegalscreed.cn/) turns the roadmap into
   focused practice.
 - [LumiDeck](https://lumideck.illegalscreed.cn/) explores browser-based slide
   authoring.

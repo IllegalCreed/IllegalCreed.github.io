@@ -20,7 +20,7 @@ hero:
       text: 我的算法可视化
       link: https://algo.illegalscreed.cn/
     - theme: alt
-      text: 我的程序员刷题站
+      text: IllegalCreed Quiz
       link: https://quiz.illegalscreed.cn/
     - theme: alt
       text: 我的幻灯片生成站
@@ -48,7 +48,7 @@ Web 基础、前端与后端工程逐步延伸到数据存储、操作系统、�
 
 - [算法可视化](https://algo.illegalscreed.cn/)：92 个交互式学习条目，
   支持逐步动画、四语言代码同步、自定义输入和中英文页面。
-- [程序员刷题站](https://quiz.illegalscreed.cn/)：把知识路线转成可练习、可复盘的题目。
+- [IllegalCreed Quiz](https://quiz.illegalscreed.cn/)：把知识路线转成可练习、可复盘的题目。
 - [LumiDeck](https://lumideck.illegalscreed.cn/)：浏览器中的幻灯片创作工具。
 - [仙剑 Web 版](https://pal.illegalscreed.cn/)：面向浏览器运行环境的游戏实现探索。
 
