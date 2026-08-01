@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useData } from "vitepress";
 import {
   readAnalyticsConsent,
@@ -8,9 +8,17 @@ import {
 } from "./consent";
 
 const { lang } = useData();
-const consent = ref<AnalyticsConsent>(readAnalyticsConsent());
-const isOpen = ref(consent.value === "unset");
+// SSR 与客户端首次渲染必须保持空树，localStorage 只能在 mounted 后读取。
+const consent = ref<AnalyticsConsent>("unset");
+const isReady = ref(false);
+const isOpen = ref(false);
 const isEnglish = computed(() => lang.value === "en");
+
+onMounted(() => {
+  consent.value = readAnalyticsConsent();
+  isOpen.value = consent.value === "unset";
+  isReady.value = true;
+});
 
 const copy = computed(() =>
   isEnglish.value
@@ -42,41 +50,43 @@ function choose(nextConsent: Exclude<AnalyticsConsent, "unset">) {
 </script>
 
 <template>
-  <aside
-    v-if="isOpen"
-    class="analytics-consent"
-    data-testid="analytics-consent-panel"
-    :aria-label="copy.title"
-  >
-    <div class="analytics-consent__copy">
-      <strong>{{ copy.title }}</strong>
-      <span>{{ copy.body }}</span>
-      <a :href="copy.privacyHref">{{ copy.privacy }}</a>
-    </div>
-    <div class="analytics-consent__actions">
-      <button type="button" data-choice="denied" @click="choose('denied')">
-        {{ copy.reject }}
-      </button>
-      <button
-        type="button"
-        class="primary"
-        data-choice="granted"
-        @click="choose('granted')"
-      >
-        {{ copy.accept }}
-      </button>
-    </div>
-  </aside>
+  <template v-if="isReady">
+    <aside
+      v-if="isOpen"
+      class="analytics-consent"
+      data-testid="analytics-consent-panel"
+      :aria-label="copy.title"
+    >
+      <div class="analytics-consent__copy">
+        <strong>{{ copy.title }}</strong>
+        <span>{{ copy.body }}</span>
+        <a :href="copy.privacyHref">{{ copy.privacy }}</a>
+      </div>
+      <div class="analytics-consent__actions">
+        <button type="button" data-choice="denied" @click="choose('denied')">
+          {{ copy.reject }}
+        </button>
+        <button
+          type="button"
+          class="primary"
+          data-choice="granted"
+          @click="choose('granted')"
+        >
+          {{ copy.accept }}
+        </button>
+      </div>
+    </aside>
 
-  <button
-    v-else
-    type="button"
-    class="analytics-preferences"
-    data-testid="analytics-preferences"
-    @click="isOpen = true"
-  >
-    {{ copy.preferences }}
-  </button>
+    <button
+      v-else
+      type="button"
+      class="analytics-preferences"
+      data-testid="analytics-preferences"
+      @click="isOpen = true"
+    >
+      {{ copy.preferences }}
+    </button>
+  </template>
 </template>
 
 <style scoped>

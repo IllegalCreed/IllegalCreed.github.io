@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import vitePressConfig from "../config.mts?raw";
 import privacyEn from "../../src/privacy.md?raw";
 import privacyZh from "../../src/zh/privacy.md?raw";
+import analyticsConsentSource from "./AnalyticsConsent.vue?raw";
 
 describe("统一隐私政策", () => {
   it("中英文均覆盖四个产品和 Quiz 的独立数据边界", () => {
@@ -19,5 +20,11 @@ describe("统一隐私政策", () => {
   it("全站入口统一使用 IllegalCreed Quiz 品牌名", () => {
     expect(vitePressConfig).toContain('text: "IllegalCreed Quiz"');
     expect(vitePressConfig).not.toContain("程序员刷题站");
+  });
+
+  it("同意组件在 mounted 前保持空树，避免 SSR 与 localStorage 首屏不一致", () => {
+    expect(analyticsConsentSource).toContain("onMounted");
+    expect(analyticsConsentSource).toContain("const isReady = ref(false)");
+    expect(analyticsConsentSource).toContain("<template v-if=\"isReady\">");
   });
 });

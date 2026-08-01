@@ -30,9 +30,14 @@ function createHarness(consent: AnalyticsConsent = "unset") {
       },
     },
     createElement() {
-      return {
+      const script: Record<string, unknown> = {
         dataset: {},
+        remove() {
+          const index = scripts.indexOf(script);
+          if (index >= 0) scripts.splice(index, 1);
+        },
       };
+      return script;
     },
     querySelector(selector: string) {
       if (selector !== "script[data-ga4-measurement-id]") return null;
@@ -83,10 +88,13 @@ function createHarness(consent: AnalyticsConsent = "unset") {
 
 function pageViewEventsFor(fakeWindow: Window): unknown[][] {
   return (
-    (fakeWindow as unknown as { dataLayer?: unknown[][] }).dataLayer ?? []
-  ).filter(
-    (entry) => entry[0] === "event" && entry[1] === "page_view",
-  );
+    (fakeWindow as unknown as { dataLayer?: Array<ArrayLike<unknown>> })
+      .dataLayer ?? []
+  )
+    .map((entry) => Array.from(entry))
+    .filter(
+      (entry) => entry[0] === "event" && entry[1] === "page_view",
+    );
 }
 
 describe("personal-site minimal analytics", () => {
@@ -124,5 +132,41 @@ describe("personal-site minimal analytics", () => {
     ).toBe(
       "https://illegalscreed.cn/zh/?utm_source=dev&utm_medium=community&utm_campaign=site-launch&utm_content=home",
     );
+  });
+
+  it("retries a failed Google tag without duplicating the queued page view", () => {
+    const harness = createHarness();
+    harness.grant();
+    const failedScript = harness.fakeDocument.querySelector(
+      "script[data-ga4-measurement-id]",
+    ) as unknown as { onerror?: (event: Event) => void };
+
+    failedScript.onerror?.(new Event("error"));
+    harness.grant();
+
+    const retryScript = harness.fakeDocument.querySelector(
+      "script[data-ga4-measurement-id]",
+    );
+    expect(retryScript).not.toBe(failedScript);
+    expect(
+      harness.fakeDocument.querySelectorAll("script[data-ga4-measurement-id]"),
+    ).toHaveLength(1);
+    expect(pageViewEventsFor(harness.fakeWindow)).toHaveLength(1);
+  });
+
+  it("uses the canonical arguments command shape for the built-in gtag", () => {
+    const harness = createHarness("granted");
+    const commands = (
+      harness.fakeWindow as unknown as {
+        dataLayer?: Array<ArrayLike<unknown>>;
+      }
+    ).dataLayer;
+
+    expect(commands).toBeDefined();
+    expect(Array.isArray(commands?.[0])).toBe(false);
+    expect(Array.from(commands?.[1] ?? []).slice(0, 2)).toEqual([
+      "config",
+      PERSONAL_SITE_GA_MEASUREMENT_ID,
+    ]);
   });
 });

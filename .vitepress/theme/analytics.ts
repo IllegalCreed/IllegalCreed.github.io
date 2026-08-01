@@ -25,7 +25,7 @@ export interface GoogleAnalyticsOptions {
 }
 
 type AnalyticsWindow = Window & {
-  dataLayer?: unknown[][];
+  dataLayer?: Array<IArguments | unknown[]>;
   gtag?: (...args: unknown[]) => void;
 };
 
@@ -75,16 +75,21 @@ export function startGoogleAnalytics(
   let initialized = false;
   let lastPath: string | undefined;
 
-  const queueCommand = (...args: unknown[]) => {
-    analyticsWindow.dataLayer ??= [];
-    analyticsWindow.dataLayer.push(args);
-  };
-
   const initialize = () => {
-    if (initialized) return;
-    initialized = true;
     analyticsWindow.dataLayer ??= [];
-    analyticsWindow.gtag ??= (...args: unknown[]) => queueCommand(...args);
+    analyticsWindow.gtag ??= function () {
+      analyticsWindow.dataLayer ??= [];
+      analyticsWindow.dataLayer.push(arguments);
+    };
+
+    if (!initialized) {
+      initialized = true;
+      analyticsWindow.gtag("js", new Date());
+      analyticsWindow.gtag("config", measurementId, {
+        send_page_view: false,
+        anonymize_ip: true,
+      });
+    }
 
     if (!options.document.querySelector("script[data-ga4-measurement-id]")) {
       const script = options.document.createElement("script");
@@ -93,14 +98,11 @@ export function startGoogleAnalytics(
         measurementId,
       )}`;
       script.dataset.ga4MeasurementId = measurementId;
+      script.onerror = () => {
+        script.remove();
+      };
       options.document.head.append(script);
     }
-
-    analyticsWindow.gtag("js", new Date());
-    analyticsWindow.gtag("config", measurementId, {
-      send_page_view: false,
-      anonymize_ip: true,
-    });
   };
 
   const sendPageView = (page: AnalyticsPage) => {
