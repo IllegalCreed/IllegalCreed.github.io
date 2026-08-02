@@ -12498,37 +12498,242 @@ export default defineConfig({
             collapsed: false,
             items: [
               {
-                text: "概述",
+                text: "操作系统概述",
                 collapsed: true,
-                items: [{ text: "基本概念" }, { text: "结构" }],
-              },
-              {
-                text: "核心组件",
-                collapsed: true,
+                link: "/zh/os/overview/",
                 items: [
-                  { text: "进程管理" },
-                  { text: "内存管理" },
-                  { text: "文件系统" },
-                  { text: "输入输出管理" },
-                  { text: "存储管理" },
+                  { text: "入门", link: "/zh/os/overview/getting-started" },
+                  {
+                    text: "指南",
+                    collapsed: true,
+                    items: [
+                      { text: "内核架构详解", link: "/zh/os/overview/guide-line/kernel-architecture" },
+                      { text: "中断、异常与系统调用", link: "/zh/os/overview/guide-line/interrupts-and-syscalls" },
+                    ],
+                  },
+                  { text: "参考", link: "/zh/os/overview/reference" },
                 ],
               },
               {
-                text: "高级主题",
+                text: "进程与并发",
                 collapsed: true,
                 items: [
-                  { text: "并发与同步" },
-                  { text: "安全与保护" },
-                  { text: "容器化基础" },
+                  {
+                    text: "进程与线程基础",
+                    collapsed: true,
+                    link: "/zh/os/process-concurrency/process-thread-basics/",
+                    items: [
+                      { text: "入门", link: "/zh/os/process-concurrency/process-thread-basics/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "进程生命周期", link: "/zh/os/process-concurrency/process-thread-basics/guide-line/process-lifecycle" },
+                          { text: "线程与多线程模型", link: "/zh/os/process-concurrency/process-thread-basics/guide-line/threads" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/os/process-concurrency/process-thread-basics/reference" },
+                    ],
+                  },
+                  {
+                    text: "CPU 调度",
+                    collapsed: true,
+                    link: "/zh/os/process-concurrency/cpu-scheduling/",
+                    items: [
+                      { text: "入门", link: "/zh/os/process-concurrency/cpu-scheduling/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "调度算法详解", link: "/zh/os/process-concurrency/cpu-scheduling/guide-line/algorithms" },
+                          { text: "性能指标与计算", link: "/zh/os/process-concurrency/cpu-scheduling/guide-line/metrics" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/os/process-concurrency/cpu-scheduling/reference" },
+                    ],
+                  },
+                  {
+                    text: "进程间通信 IPC",
+                    collapsed: true,
+                    link: "/zh/os/process-concurrency/ipc/",
+                    items: [
+                      { text: "入门", link: "/zh/os/process-concurrency/ipc/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "管道、消息队列与套接字", link: "/zh/os/process-concurrency/ipc/guide-line/message-passing" },
+                          { text: "共享内存与 RPC", link: "/zh/os/process-concurrency/ipc/guide-line/shared-memory" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/os/process-concurrency/ipc/reference" },
+                    ],
+                  },
+                  {
+                    text: "同步与互斥",
+                    collapsed: true,
+                    link: "/zh/os/process-concurrency/synchronization/",
+                    items: [
+                      { text: "入门", link: "/zh/os/process-concurrency/synchronization/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "经典同步问题", link: "/zh/os/process-concurrency/synchronization/guide-line/classic-problems" },
+                          { text: "管程、优先级反转与 Peterson", link: "/zh/os/process-concurrency/synchronization/guide-line/advanced" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/os/process-concurrency/synchronization/reference" },
+                    ],
+                  },
+                  {
+                    text: "死锁",
+                    collapsed: true,
+                    link: "/zh/os/process-concurrency/deadlock/",
+                    items: [
+                      { text: "入门", link: "/zh/os/process-concurrency/deadlock/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "死锁四条件与资源分配图", link: "/zh/os/process-concurrency/deadlock/guide-line/four-conditions" },
+                          { text: "预防、避免、检测", link: "/zh/os/process-concurrency/deadlock/guide-line/handling" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/os/process-concurrency/deadlock/reference" },
+                    ],
+                  },
                 ],
               },
               {
-                text: "常见操作系统",
+                text: "内存与存储",
                 collapsed: true,
                 items: [
-                  { text: "UNIX/Linux" },
-                  { text: "Windows" },
-                  { text: "macOS" },
+                  {
+                    text: "内存管理基础",
+                    collapsed: true,
+                    link: "/zh/os/memory-storage/memory-basics/",
+                    items: [
+                      { text: "入门", link: "/zh/os/memory-storage/memory-basics/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "连续分配与碎片", link: "/zh/os/memory-storage/memory-basics/guide-line/allocation" },
+                          { text: "伙伴系统与 Slab", link: "/zh/os/memory-storage/memory-basics/guide-line/advanced-allocation" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/os/memory-storage/memory-basics/reference" },
+                    ],
+                  },
+                  {
+                    text: "分页、分段与虚拟内存",
+                    collapsed: true,
+                    link: "/zh/os/memory-storage/virtual-memory/",
+                    items: [
+                      { text: "入门", link: "/zh/os/memory-storage/virtual-memory/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "分页、分段与页表", link: "/zh/os/memory-storage/virtual-memory/guide-line/paging-segmentation" },
+                          { text: "页面置换算法与抖动", link: "/zh/os/memory-storage/virtual-memory/guide-line/page-replacement" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/os/memory-storage/virtual-memory/reference" },
+                    ],
+                  },
+                  {
+                    text: "文件系统",
+                    collapsed: true,
+                    link: "/zh/os/memory-storage/file-system/",
+                    items: [
+                      { text: "入门", link: "/zh/os/memory-storage/file-system/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "文件分配与索引", link: "/zh/os/memory-storage/file-system/guide-line/allocation" },
+                          { text: "目录结构与链接", link: "/zh/os/memory-storage/file-system/guide-line/directory" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/os/memory-storage/file-system/reference" },
+                    ],
+                  },
+                  {
+                    text: "设备与 I/O 管理",
+                    collapsed: true,
+                    link: "/zh/os/memory-storage/io-management/",
+                    items: [
+                      { text: "入门", link: "/zh/os/memory-storage/io-management/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "I/O 控制方式与缓冲", link: "/zh/os/memory-storage/io-management/guide-line/io-control" },
+                          { text: "磁盘调度与 RAID", link: "/zh/os/memory-storage/io-management/guide-line/disk-scheduling" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/os/memory-storage/io-management/reference" },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "进阶与生态",
+                collapsed: true,
+                items: [
+                  {
+                    text: "操作系统安全与保护",
+                    collapsed: true,
+                    link: "/zh/os/advanced/os-security/",
+                    items: [
+                      { text: "入门", link: "/zh/os/advanced/os-security/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "访问控制与身份认证", link: "/zh/os/advanced/os-security/guide-line/access-control" },
+                          { text: "缓冲区溢出与防御", link: "/zh/os/advanced/os-security/guide-line/attacks" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/os/advanced/os-security/reference" },
+                    ],
+                  },
+                  {
+                    text: "虚拟化与容器基础",
+                    collapsed: true,
+                    link: "/zh/os/advanced/virtualization-container/",
+                    items: [
+                      { text: "入门", link: "/zh/os/advanced/virtualization-container/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "虚拟机与 Hypervisor", link: "/zh/os/advanced/virtualization-container/guide-line/virtual-machines" },
+                          { text: "容器：namespace 与 cgroups", link: "/zh/os/advanced/virtualization-container/guide-line/containers" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/os/advanced/virtualization-container/reference" },
+                    ],
+                  },
+                  {
+                    text: "主流操作系统对比",
+                    collapsed: true,
+                    link: "/zh/os/advanced/os-comparison/",
+                    items: [
+                      { text: "入门", link: "/zh/os/advanced/os-comparison/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "Linux 与 macOS", link: "/zh/os/advanced/os-comparison/guide-line/linux-macos" },
+                          { text: "Windows NT 与跨平台", link: "/zh/os/advanced/os-comparison/guide-line/windows" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/os/advanced/os-comparison/reference" },
+                    ],
+                  },
                 ],
               },
             ],
