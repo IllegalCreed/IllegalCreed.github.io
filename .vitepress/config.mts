@@ -10552,36 +10552,123 @@ export default defineConfig({
                 text: "基础工具",
                 collapsed: true,
                 items: [
-                  {
-                    text: "Shells",
-                    collapsed: true,
-                    items: [
-                      { text: "Bash" },
-                      { text: "Zsh" },
-                      { text: "powerShell" },
-                    ],
-                  },
-                  {
-                    text: "基础命令",
-                    collapsed: true,
-                    items: [
-                      { text: "文件系统" },
-                      { text: "进程管理" },
-                      { text: "文本编辑器" },
-                      { text: "网络工具" },
-                      { text: "系统管理工具" },
-                    ],
-                  },
-                  {
-                    text: "SSH 工具",
-                    items: [{ text: "OpenSSH" }, { text: "OpenSSL" }],
-                  },
+                  { text: "Bash", collapsed: true, link: "/zh/server/basic-tools/bash/", items: [
+                    { text: "入门", link: "/zh/server/basic-tools/bash/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "脚本与管道", link: "/zh/server/basic-tools/bash/guide-line/scripting-and-pipeline" },
+                      { text: "服务器使用", link: "/zh/server/basic-tools/bash/guide-line/server-usage" },
+                    ]},
+                    { text: "参考", link: "/zh/server/basic-tools/bash/reference" },
+                  ]},
+                  { text: "Zsh", collapsed: true, link: "/zh/server/basic-tools/zsh/", items: [
+                    { text: "入门", link: "/zh/server/basic-tools/zsh/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "交互式特性", link: "/zh/server/basic-tools/zsh/guide-line/interactive-features" },
+                      { text: "框架", link: "/zh/server/basic-tools/zsh/guide-line/frameworks" },
+                    ]},
+                    { text: "参考", link: "/zh/server/basic-tools/zsh/reference" },
+                  ]},
+                  { text: "PowerShell", collapsed: true, link: "/zh/server/basic-tools/powershell/", items: [
+                    { text: "入门", link: "/zh/server/basic-tools/powershell/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Cmdlet 与管道", link: "/zh/server/basic-tools/powershell/guide-line/cmdlets-and-pipeline" },
+                      { text: "跨平台", link: "/zh/server/basic-tools/powershell/guide-line/cross-platform" },
+                    ]},
+                    { text: "参考", link: "/zh/server/basic-tools/powershell/reference" },
+                  ]},
+                  { text: "文件系统与基础命令", collapsed: true, link: "/zh/server/basic-tools/filesystem-commands/", items: [
+                    { text: "入门", link: "/zh/server/basic-tools/filesystem-commands/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "文件操作", link: "/zh/server/basic-tools/filesystem-commands/guide-line/file-operations" },
+                      { text: "编辑器与环境", link: "/zh/server/basic-tools/filesystem-commands/guide-line/editors-and-env" },
+                    ]},
+                    { text: "参考", link: "/zh/server/basic-tools/filesystem-commands/reference" },
+                  ]},
+                  { text: "进程管理与服务（systemd）", collapsed: true, link: "/zh/server/basic-tools/process-services/", items: [
+                    { text: "入门", link: "/zh/server/basic-tools/process-services/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "进程控制", link: "/zh/server/basic-tools/process-services/guide-line/process-control" },
+                      { text: "systemd 与 cron", link: "/zh/server/basic-tools/process-services/guide-line/systemd-and-cron" },
+                    ]},
+                    { text: "参考", link: "/zh/server/basic-tools/process-services/reference" },
+                  ]},
+                  { text: "文本处理", collapsed: true, link: "/zh/server/basic-tools/text-processing/", items: [
+                    { text: "入门", link: "/zh/server/basic-tools/text-processing/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "grep / sed / awk", link: "/zh/server/basic-tools/text-processing/guide-line/grep-sed-awk" },
+                      { text: "jq 与管道", link: "/zh/server/basic-tools/text-processing/guide-line/jq-and-pipelines" },
+                    ]},
+                    { text: "参考", link: "/zh/server/basic-tools/text-processing/reference" },
+                  ]},
                 ],
               },
               {
-                text: "Web服务器",
+                text: "网络与远程",
                 collapsed: true,
-                items: [{ text: "Caddy" }, { text: "Nginx" }],
+                items: [
+                  { text: "网络工具", collapsed: true, link: "/zh/server/network-remote/network-tools/", items: [
+                    { text: "入门", link: "/zh/server/network-remote/network-tools/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "诊断", link: "/zh/server/network-remote/network-tools/guide-line/diagnostics" },
+                      { text: "数据传输", link: "/zh/server/network-remote/network-tools/guide-line/data-transfer" },
+                    ]},
+                    { text: "参考", link: "/zh/server/network-remote/network-tools/reference" },
+                  ]},
+                  { text: "OpenSSH", collapsed: true, link: "/zh/server/network-remote/openssh/", items: [
+                    { text: "入门", link: "/zh/server/network-remote/openssh/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "密钥与配置", link: "/zh/server/network-remote/openssh/guide-line/keys-and-config" },
+                      { text: "端口转发", link: "/zh/server/network-remote/openssh/guide-line/tunneling" },
+                    ]},
+                    { text: "参考", link: "/zh/server/network-remote/openssh/reference" },
+                  ]},
+                  { text: "OpenSSL", collapsed: true, link: "/zh/server/network-remote/openssl/", items: [
+                    { text: "入门", link: "/zh/server/network-remote/openssl/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "CSR 与证书", link: "/zh/server/network-remote/openssl/guide-line/csr-and-certs" },
+                      { text: "密钥管理", link: "/zh/server/network-remote/openssl/guide-line/key-management" },
+                    ]},
+                    { text: "参考", link: "/zh/server/network-remote/openssl/reference" },
+                  ]},
+                ],
+              },
+              {
+                text: "Web 服务器与会话",
+                collapsed: true,
+                items: [
+                  { text: "Nginx", collapsed: true, link: "/zh/server/web-server-session/nginx/", items: [
+                    { text: "入门", link: "/zh/server/web-server-session/nginx/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "反向代理", link: "/zh/server/web-server-session/nginx/guide-line/reverse-proxy" },
+                      { text: "SSL 与日志", link: "/zh/server/web-server-session/nginx/guide-line/ssl-and-logging" },
+                    ]},
+                    { text: "参考", link: "/zh/server/web-server-session/nginx/reference" },
+                  ]},
+                  { text: "Caddy", collapsed: true, link: "/zh/server/web-server-session/caddy/", items: [
+                    { text: "入门", link: "/zh/server/web-server-session/caddy/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Caddyfile 与 HTTPS", link: "/zh/server/web-server-session/caddy/guide-line/caddyfile-and-https" },
+                      { text: "对比", link: "/zh/server/web-server-session/caddy/guide-line/comparison" },
+                    ]},
+                    { text: "参考", link: "/zh/server/web-server-session/caddy/reference" },
+                  ]},
+                  { text: "tmux（终端复用）", collapsed: true, link: "/zh/server/web-server-session/tmux/", items: [
+                    { text: "入门", link: "/zh/server/web-server-session/tmux/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "会话与面板", link: "/zh/server/web-server-session/tmux/guide-line/sessions-and-panes" },
+                      { text: "配置与工作流", link: "/zh/server/web-server-session/tmux/guide-line/config-and-workflow" },
+                    ]},
+                    { text: "参考", link: "/zh/server/web-server-session/tmux/reference" },
+                  ]},
+                  { text: "UFW（主机防火墙）", collapsed: true, link: "/zh/server/web-server-session/ufw/", items: [
+                    { text: "入门", link: "/zh/server/web-server-session/ufw/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "规则与策略", link: "/zh/server/web-server-session/ufw/guide-line/rules-and-policy" },
+                      { text: "iptables 与进阶", link: "/zh/server/web-server-session/ufw/guide-line/iptables-and-advanced" },
+                    ]},
+                    { text: "参考", link: "/zh/server/web-server-session/ufw/reference" },
+                  ]},
+                ],
               },
             ],
           },
