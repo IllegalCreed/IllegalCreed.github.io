@@ -10420,21 +10420,126 @@ export default defineConfig({
               {
                 text: "基础框架",
                 collapsed: true,
-                items: [{ text: "Node.js" }, { text: "Deno" }, { text: "Bun" }],
+                items: [
+                  { text: "Node.js", collapsed: true, link: "/zh/backend/runtimes/nodejs/", items: [
+                    { text: "入门", link: "/zh/backend/runtimes/nodejs/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "运行时与特性", link: "/zh/backend/runtimes/nodejs/guide-line/runtime-and-features" },
+                      { text: "生态与回调", link: "/zh/backend/runtimes/nodejs/guide-line/ecosystem-and-callbacks" },
+                    ]},
+                    { text: "参考", link: "/zh/backend/runtimes/nodejs/reference" },
+                  ]},
+                  { text: "Deno", collapsed: true, link: "/zh/backend/runtimes/deno/", items: [
+                    { text: "入门", link: "/zh/backend/runtimes/deno/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "兼容与 JSR", link: "/zh/backend/runtimes/deno/guide-line/compat-and-jsr" },
+                      { text: "安全与 TypeScript", link: "/zh/backend/runtimes/deno/guide-line/security-and-typescript" },
+                    ]},
+                    { text: "参考", link: "/zh/backend/runtimes/deno/reference" },
+                  ]},
+                  { text: "Bun", collapsed: true, link: "/zh/backend/runtimes/bun/", items: [
+                    { text: "入门", link: "/zh/backend/runtimes/bun/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "全能工具链", link: "/zh/backend/runtimes/bun/guide-line/all-in-one-toolkit" },
+                      { text: "性能与兼容", link: "/zh/backend/runtimes/bun/guide-line/performance-and-compat" },
+                    ]},
+                    { text: "参考", link: "/zh/backend/runtimes/bun/reference" },
+                  ]},
+                ],
               },
               {
                 text: "应用框架",
                 collapsed: true,
                 items: [
-                  { text: "Express" },
-                  { text: "Fastify" },
-                  { text: "Hono" },
+                  { text: "Express", collapsed: true, link: "/zh/backend/app-frameworks/express/", items: [
+                    { text: "入门", link: "/zh/backend/app-frameworks/express/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "中间件与路由", link: "/zh/backend/app-frameworks/express/guide-line/middleware-and-routing" },
+                      { text: "生态", link: "/zh/backend/app-frameworks/express/guide-line/ecosystem" },
+                    ]},
+                    { text: "参考", link: "/zh/backend/app-frameworks/express/reference" },
+                  ]},
+                  { text: "Fastify", collapsed: true, link: "/zh/backend/app-frameworks/fastify/", items: [
+                    { text: "入门", link: "/zh/backend/app-frameworks/fastify/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Schema 与插件", link: "/zh/backend/app-frameworks/fastify/guide-line/schema-and-plugins" },
+                      { text: "性能", link: "/zh/backend/app-frameworks/fastify/guide-line/performance" },
+                    ]},
+                    { text: "参考", link: "/zh/backend/app-frameworks/fastify/reference" },
+                  ]},
+                  { text: "Hono", collapsed: true, link: "/zh/backend/app-frameworks/hono/", items: [
+                    { text: "入门", link: "/zh/backend/app-frameworks/hono/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "跨运行时", link: "/zh/backend/app-frameworks/hono/guide-line/cross-runtime" },
+                      { text: "中间件与 RPC", link: "/zh/backend/app-frameworks/hono/guide-line/middleware-and-rpc" },
+                    ]},
+                    { text: "参考", link: "/zh/backend/app-frameworks/hono/reference" },
+                  ]},
+                  {
+                    text: "NestJS",
+                    collapsed: true,
+                    link: "/zh/backend/app-frameworks/nestjs/",
+                    items: [
+                      { text: "入门", link: "/zh/backend/app-frameworks/nestjs/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "DI 与模块详解", link: "/zh/backend/app-frameworks/nestjs/guide-line/di-and-modules" },
+                          { text: "管线与适配器", link: "/zh/backend/app-frameworks/nestjs/guide-line/pipeline-and-adapters" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/backend/app-frameworks/nestjs/reference" },
+                    ],
+                  },
+                  {
+                    text: "tRPC",
+                    collapsed: true,
+                    link: "/zh/backend/app-frameworks/trpc/",
+                    items: [
+                      { text: "入门", link: "/zh/backend/app-frameworks/trpc/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "Procedure 与 Router", link: "/zh/backend/app-frameworks/trpc/guide-line/procedures-and-router" },
+                          { text: "对比与集成", link: "/zh/backend/app-frameworks/trpc/guide-line/comparison-and-integration" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/backend/app-frameworks/trpc/reference" },
+                    ],
+                  },
                 ],
               },
               {
-                text: "ORM框架",
+                text: "ORM 与数据访问",
                 collapsed: true,
-                items: [{ text: "TypeORM" }, { text: "Prisma" }],
+                items: [
+                  { text: "TypeORM", collapsed: true, link: "/zh/backend/orm/typeorm/", items: [
+                    { text: "入门", link: "/zh/backend/orm/typeorm/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "实体与模式", link: "/zh/backend/orm/typeorm/guide-line/entities-and-patterns" },
+                      { text: "迁移与 NestJS", link: "/zh/backend/orm/typeorm/guide-line/migrations-and-nestjs" },
+                    ]},
+                    { text: "参考", link: "/zh/backend/orm/typeorm/reference" },
+                  ]},
+                  { text: "Prisma", collapsed: true, link: "/zh/backend/orm/prisma/", items: [
+                    { text: "入门", link: "/zh/backend/orm/prisma/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Schema 与迁移", link: "/zh/backend/orm/prisma/guide-line/schema-and-migrations" },
+                      { text: "Client 与查询", link: "/zh/backend/orm/prisma/guide-line/client-and-queries" },
+                    ]},
+                    { text: "参考", link: "/zh/backend/orm/prisma/reference" },
+                  ]},
+                  { text: "Drizzle ORM", collapsed: true, link: "/zh/backend/orm/drizzle/", items: [
+                    { text: "入门", link: "/zh/backend/orm/drizzle/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Schema 与 SQL", link: "/zh/backend/orm/drizzle/guide-line/schema-and-sql" },
+                      { text: "Drizzle Kit 与 Studio", link: "/zh/backend/orm/drizzle/guide-line/drizzle-kit-and-studio" },
+                    ]},
+                    { text: "参考", link: "/zh/backend/orm/drizzle/reference" },
+                  ]},
+                ],
               },
             ],
           },
