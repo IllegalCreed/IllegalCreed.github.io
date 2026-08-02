@@ -16,7 +16,7 @@ outline: [2, 3]
 - **官方中间件**：hono/middleware 提供 logger/cors/secureHeaders/basicAuth/bearerAuth/compress/jsx/renderer/etag 等。
 - **校验集成**：hono/validator（通用校验）、hono/zod（Zod 集成）、hono/type-validator——在路由层校验请求。
 - **Hono RPC（hc）**：`hc<AppType>(baseUrl)` 创建客户端，基于路由定义自动推断请求参数和响应类型——调用 API 全程类型安全，无需 codegen。
-- **RPC 类型推断原理**：路由用链式（`.get().post()`）注册时，TypeScript 推断出整个路由树的类型（AppType），客户端 hc<AppType> 据此为每个路径生成精确的方法签名。
+- **RPC 类型推断原理**：路由用链式（`.get().post()`）注册时，TypeScript 推断出整个路由树的类型（AppType），客户端 `hc<AppType>` 据此为每个路径生成精确的方法签名。
 - **`$` 前缀**：RPC 方法带 `$`（`client.users.$get()`），与原生 fetch 区分，避免命名冲突。
 - **TS 一等公民**：路由泛型、Context 类型、RPC 类型推断完善，开箱即用。
 
