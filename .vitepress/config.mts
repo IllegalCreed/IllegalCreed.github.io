@@ -10253,27 +10253,161 @@ export default defineConfig({
             collapsed: false,
             items: [
               {
-                text: "静态网站托管",
+                text: "静态托管与部署",
                 collapsed: true,
                 items: [
-                  { text: "Netlify" },
-                  { text: "Vercel" },
-                  { text: "Cloudflare Pages" },
-                  { text: "AWS Amplify" },
-                  { text: "Render" },
+                  { text: "Vercel", collapsed: true, link: "/zh/cloud/hosting/vercel/", items: [
+                    { text: "入门", link: "/zh/cloud/hosting/vercel/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "部署与框架集成", link: "/zh/cloud/hosting/vercel/guide-line/deploy-and-frameworks" },
+                      { text: "Serverless 与 Edge", link: "/zh/cloud/hosting/vercel/guide-line/serverless-and-edge" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/hosting/vercel/reference" },
+                  ]},
+                  { text: "Netlify", collapsed: true, link: "/zh/cloud/hosting/netlify/", items: [
+                    { text: "入门", link: "/zh/cloud/hosting/netlify/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Edge 与后端", link: "/zh/cloud/hosting/netlify/guide-line/edge-and-backend" },
+                      { text: "插件与部署", link: "/zh/cloud/hosting/netlify/guide-line/plugins-and-deploy" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/hosting/netlify/reference" },
+                  ]},
+                  { text: "Cloudflare", collapsed: true, link: "/zh/cloud/hosting/cloudflare/", items: [
+                    { text: "入门", link: "/zh/cloud/hosting/cloudflare/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Workers 与边缘", link: "/zh/cloud/hosting/cloudflare/guide-line/workers-and-edge" },
+                      { text: "存储与数据库", link: "/zh/cloud/hosting/cloudflare/guide-line/storage-and-db" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/hosting/cloudflare/reference" },
+                  ]},
+                  { text: "GitHub Pages", collapsed: true, link: "/zh/cloud/hosting/github-pages/", items: [
+                    { text: "入门", link: "/zh/cloud/hosting/github-pages/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Actions 部署", link: "/zh/cloud/hosting/github-pages/guide-line/actions-deploy" },
+                      { text: "域名与 HTTPS", link: "/zh/cloud/hosting/github-pages/guide-line/domain-and-https" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/hosting/github-pages/reference" },
+                  ]},
                 ],
               },
               {
-                text: "通用云服务",
+                text: "后端即服务 BaaS",
                 collapsed: true,
                 items: [
-                  { text: "阿里云" },
-                  { text: "Firebase" },
-                  { text: "Azure" },
-                  { text: "Netlify" },
-                  { text: "Vercel" },
-                  { text: "Cloudflare" },
-                  { text: "AWS" },
+                  { text: "Firebase", collapsed: true, link: "/zh/cloud/baas/firebase/", items: [
+                    { text: "入门", link: "/zh/cloud/baas/firebase/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Firestore 与 Auth", link: "/zh/cloud/baas/firebase/guide-line/firestore-and-auth" },
+                      { text: "Hosting 与 Functions", link: "/zh/cloud/baas/firebase/guide-line/hosting-and-functions" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/baas/firebase/reference" },
+                  ]},
+                  { text: "Supabase", collapsed: true, link: "/zh/cloud/baas/supabase/", items: [
+                    { text: "入门", link: "/zh/cloud/baas/supabase/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Postgres 与 Auth/RLS", link: "/zh/cloud/baas/supabase/guide-line/database-and-auth" },
+                      { text: "Realtime 与 Edge", link: "/zh/cloud/baas/supabase/guide-line/realtime-and-edge" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/baas/supabase/reference" },
+                  ]},
+                  { text: "AWS Amplify", collapsed: true, link: "/zh/cloud/baas/aws-amplify/", items: [
+                    { text: "入门", link: "/zh/cloud/baas/aws-amplify/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Gen2 后端", link: "/zh/cloud/baas/aws-amplify/guide-line/gen2-backend" },
+                      { text: "Hosting 与 CI/CD", link: "/zh/cloud/baas/aws-amplify/guide-line/hosting-and-cicd" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/baas/aws-amplify/reference" },
+                  ]},
+                ],
+              },
+              {
+                text: "Serverless 与边缘计算",
+                collapsed: true,
+                items: [
+                  { text: "Cloudflare Workers", collapsed: true, link: "/zh/cloud/serverless/cloudflare-workers/", items: [
+                    { text: "入门", link: "/zh/cloud/serverless/cloudflare-workers/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "V8 Isolates 与边缘", link: "/zh/cloud/serverless/cloudflare-workers/guide-line/v8-isolates-and-edge" },
+                      { text: "KV 与生态", link: "/zh/cloud/serverless/cloudflare-workers/guide-line/kv-and-ecosystem" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/serverless/cloudflare-workers/reference" },
+                  ]},
+                  { text: "AWS Lambda", collapsed: true, link: "/zh/cloud/serverless/aws-lambda/", items: [
+                    { text: "入门", link: "/zh/cloud/serverless/aws-lambda/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "事件驱动", link: "/zh/cloud/serverless/aws-lambda/guide-line/event-driven" },
+                      { text: "冷启动与定价", link: "/zh/cloud/serverless/aws-lambda/guide-line/cold-start-and-pricing" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/serverless/aws-lambda/reference" },
+                  ]},
+                  { text: "Serverless 数据库", collapsed: true, link: "/zh/cloud/serverless/serverless-database/", items: [
+                    { text: "入门", link: "/zh/cloud/serverless/serverless-database/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Neon 与 PlanetScale", link: "/zh/cloud/serverless/serverless-database/guide-line/neon-and-planetscale" },
+                      { text: "Turso 与选型", link: "/zh/cloud/serverless/serverless-database/guide-line/turso-and-selection" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/serverless/serverless-database/reference" },
+                  ]},
+                ],
+              },
+              {
+                text: "容器与 PaaS",
+                collapsed: true,
+                items: [
+                  { text: "Render", collapsed: true, link: "/zh/cloud/paas/render/", items: [
+                    { text: "入门", link: "/zh/cloud/paas/render/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "服务与定价", link: "/zh/cloud/paas/render/guide-line/services-and-pricing" },
+                      { text: "部署与 Docker", link: "/zh/cloud/paas/render/guide-line/deploy-and-docker" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/paas/render/reference" },
+                  ]},
+                  { text: "Railway", collapsed: true, link: "/zh/cloud/paas/railway/", items: [
+                    { text: "入门", link: "/zh/cloud/paas/railway/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "DX 与基础设施", link: "/zh/cloud/paas/railway/guide-line/dx-and-infra" },
+                      { text: "数据库与定价", link: "/zh/cloud/paas/railway/guide-line/databases-and-pricing" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/paas/railway/reference" },
+                  ]},
+                ],
+              },
+              {
+                text: "国内云与基础设施",
+                collapsed: true,
+                items: [
+                  { text: "阿里云", collapsed: true, link: "/zh/cloud/china-cloud/aliyun/", items: [
+                    { text: "入门", link: "/zh/cloud/china-cloud/aliyun/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "ECS 与 RDS", link: "/zh/cloud/china-cloud/aliyun/guide-line/ecs-and-rds" },
+                      { text: "OSS 与 CDN", link: "/zh/cloud/china-cloud/aliyun/guide-line/oss-and-cdn" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/china-cloud/aliyun/reference" },
+                  ]},
+                  { text: "ICP 备案与域名", collapsed: true, link: "/zh/cloud/china-cloud/icp-filing/", items: [
+                    { text: "入门", link: "/zh/cloud/china-cloud/icp-filing/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "备案流程", link: "/zh/cloud/china-cloud/icp-filing/guide-line/filing-process" },
+                      { text: "DNS 与域名", link: "/zh/cloud/china-cloud/icp-filing/guide-line/dns-and-domain" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/china-cloud/icp-filing/reference" },
+                  ]},
+                  { text: "腾讯云", collapsed: true, link: "/zh/cloud/china-cloud/tencent-cloud/", items: [
+                    { text: "入门", link: "/zh/cloud/china-cloud/tencent-cloud/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "产品概览", link: "/zh/cloud/china-cloud/tencent-cloud/guide-line/products" },
+                      { text: "微信生态", link: "/zh/cloud/china-cloud/tencent-cloud/guide-line/wechat-ecosystem" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/china-cloud/tencent-cloud/reference" },
+                  ]},
+                  { text: "华为云", collapsed: true, link: "/zh/cloud/china-cloud/huawei-cloud/", items: [
+                    { text: "入门", link: "/zh/cloud/china-cloud/huawei-cloud/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "产品概览", link: "/zh/cloud/china-cloud/huawei-cloud/guide-line/products" },
+                      { text: "定位与优势", link: "/zh/cloud/china-cloud/huawei-cloud/guide-line/positioning" },
+                    ]},
+                    { text: "参考", link: "/zh/cloud/china-cloud/huawei-cloud/reference" },
+                  ]},
                 ],
               },
             ],
