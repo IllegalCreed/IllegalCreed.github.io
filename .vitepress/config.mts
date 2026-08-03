@@ -10678,30 +10678,113 @@ export default defineConfig({
             collapsed: false,
             items: [
               {
-                text: "系统编程语言",
-                collapsed: true,
-                items: [{ text: "Rust" }],
-              },
-              {
-                text: "通用编程语言",
+                text: "系统与性能语言",
                 collapsed: true,
                 items: [
-                  { text: "Python" },
-                  { text: "Java" },
-                  { text: "Kotlin" },
-                  { text: "Swift" },
-                  { text: "Dart" },
+                  { text: "Rust", collapsed: true, link: "/zh/languages/system-perf/rust/", items: [
+                    { text: "入门", link: "/zh/languages/system-perf/rust/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "所有权与生命周期", link: "/zh/languages/system-perf/rust/guide-line/ownership-and-lifetimes" },
+                      { text: "Cargo 与生态", link: "/zh/languages/system-perf/rust/guide-line/cargo-and-ecosystem" },
+                    ]},
+                    { text: "参考", link: "/zh/languages/system-perf/rust/reference" },
+                  ]},
+                  { text: "Go", collapsed: true, link: "/zh/languages/system-perf/go/", items: [
+                    { text: "入门", link: "/zh/languages/system-perf/go/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "并发模型", link: "/zh/languages/system-perf/go/guide-line/concurrency-model" },
+                      { text: "生态与工具", link: "/zh/languages/system-perf/go/guide-line/ecosystem-and-tools" },
+                    ]},
+                    { text: "参考", link: "/zh/languages/system-perf/go/reference" },
+                  ]},
                 ],
               },
               {
-                text: "并发编程语言",
+                text: "AI 与数据科学语言",
                 collapsed: true,
-                items: [{ text: "Golang" }],
+                items: [
+                  {
+                    text: "Python",
+                    collapsed: true,
+                    link: "/zh/languages/ai-datasci/python/",
+                    items: [
+                      { text: "入门", link: "/zh/languages/ai-datasci/python/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "语法精要（给 JS 开发者）", link: "/zh/languages/ai-datasci/python/guide-line/syntax-for-js-devs" },
+                          { text: "工具链与 AI 代码阅读", link: "/zh/languages/ai-datasci/python/guide-line/tooling-and-ai" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/languages/ai-datasci/python/reference" },
+                    ],
+                  },
+                  {
+                    text: "MATLAB",
+                    collapsed: true,
+                    link: "/zh/languages/ai-datasci/matlab/",
+                    items: [
+                      { text: "入门", link: "/zh/languages/ai-datasci/matlab/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "矩阵运算与向量化", link: "/zh/languages/ai-datasci/matlab/guide-line/matrix-and-vectorization" },
+                          { text: "工具箱、绘图与对比", link: "/zh/languages/ai-datasci/matlab/guide-line/toolboxes-and-comparison" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/languages/ai-datasci/matlab/reference" },
+                    ],
+                  },
+                  {
+                    text: "R 语言",
+                    collapsed: true,
+                    link: "/zh/languages/ai-datasci/r-lang/",
+                    items: [
+                      { text: "入门", link: "/zh/languages/ai-datasci/r-lang/getting-started" },
+                      {
+                        text: "指南",
+                        collapsed: true,
+                        items: [
+                          { text: "统计与数据框", link: "/zh/languages/ai-datasci/r-lang/guide-line/statistics-and-dataframe" },
+                          { text: "ggplot2 与对比", link: "/zh/languages/ai-datasci/r-lang/guide-line/ggplot2-and-comparison" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/languages/ai-datasci/r-lang/reference" },
+                    ],
+                  },
+                ],
               },
               {
-                text: "数据科学和数值计算",
+                text: "移动端原生语言",
                 collapsed: true,
-                items: [{ text: "MATLAB" }, { text: "R" }],
+                items: [
+                  { text: "Swift", collapsed: true, link: "/zh/languages/mobile-native/swift/", items: [
+                    { text: "入门", link: "/zh/languages/mobile-native/swift/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "语言精要", link: "/zh/languages/mobile-native/swift/guide-line/language-essentials" },
+                      { text: "原生模块", link: "/zh/languages/mobile-native/swift/guide-line/native-modules" },
+                    ]},
+                    { text: "参考", link: "/zh/languages/mobile-native/swift/reference" },
+                  ]},
+                  { text: "Kotlin", collapsed: true, link: "/zh/languages/mobile-native/kotlin/", items: [
+                    { text: "入门", link: "/zh/languages/mobile-native/kotlin/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "语言精要", link: "/zh/languages/mobile-native/kotlin/guide-line/language-essentials" },
+                      { text: "原生模块", link: "/zh/languages/mobile-native/kotlin/guide-line/native-modules" },
+                    ]},
+                    { text: "参考", link: "/zh/languages/mobile-native/kotlin/reference" },
+                  ]},
+                  { text: "Dart", collapsed: true, link: "/zh/languages/mobile-native/dart/", items: [
+                    { text: "入门", link: "/zh/languages/mobile-native/dart/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "语法与类型", link: "/zh/languages/mobile-native/dart/guide-line/syntax-and-types" },
+                      { text: "Flutter 与异步", link: "/zh/languages/mobile-native/dart/guide-line/flutter-and-async" },
+                    ]},
+                    { text: "参考", link: "/zh/languages/mobile-native/dart/reference" },
+                  ]},
+                ],
               },
             ],
           },
