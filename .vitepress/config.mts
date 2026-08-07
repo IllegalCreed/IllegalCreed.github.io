@@ -10797,45 +10797,150 @@ export default defineConfig({
                 text: "关系型数据库",
                 collapsed: true,
                 items: [
-                  { text: "MySQL" },
-                  { text: "PostgreSQL" },
-                  { text: "SQLite" },
+                  { text: "MySQL", collapsed: true, link: "/zh/data-storage/relational/mysql/", items: [
+                    { text: "入门", link: "/zh/data-storage/relational/mysql/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "InnoDB 与索引", link: "/zh/data-storage/relational/mysql/guide-line/innodb-and-indexes" },
+                      { text: "复制与调优", link: "/zh/data-storage/relational/mysql/guide-line/replication-and-tuning" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/relational/mysql/reference" },
+                  ]},
+                  { text: "PostgreSQL", collapsed: true, link: "/zh/data-storage/relational/postgresql/", items: [
+                    { text: "入门", link: "/zh/data-storage/relational/postgresql/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "MVCC 与索引", link: "/zh/data-storage/relational/postgresql/guide-line/mvcc-and-indexes" },
+                      { text: "扩展与特性", link: "/zh/data-storage/relational/postgresql/guide-line/extensions-and-features" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/relational/postgresql/reference" },
+                  ]},
+                  { text: "SQLite", collapsed: true, link: "/zh/data-storage/relational/sqlite/", items: [
+                    { text: "入门", link: "/zh/data-storage/relational/sqlite/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "嵌入式与 WAL", link: "/zh/data-storage/relational/sqlite/guide-line/embedded-and-wal" },
+                      { text: "使用场景", link: "/zh/data-storage/relational/sqlite/guide-line/use-cases" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/relational/sqlite/reference" },
+                  ]},
                 ],
               },
               {
                 text: "非关系型数据库",
                 collapsed: true,
                 items: [
-                  { text: "Redis" },
-                  { text: "MongoDB" },
-                  { text: "Neo4j" },
-                  { text: "InfluxDB" },
-                  { text: "TimescaleDB" },
+                  { text: "Redis", collapsed: true, link: "/zh/data-storage/nosql/redis/", items: [
+                    { text: "入门", link: "/zh/data-storage/nosql/redis/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "数据结构与持久化", link: "/zh/data-storage/nosql/redis/guide-line/data-structures-and-persistence" },
+                      { text: "集群与缓存", link: "/zh/data-storage/nosql/redis/guide-line/clustering-and-caching" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/nosql/redis/reference" },
+                  ]},
+                  { text: "MongoDB", collapsed: true, link: "/zh/data-storage/nosql/mongodb/", items: [
+                    { text: "入门", link: "/zh/data-storage/nosql/mongodb/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "文档模型与索引", link: "/zh/data-storage/nosql/mongodb/guide-line/document-model-and-indexes" },
+                      { text: "聚合与分片", link: "/zh/data-storage/nosql/mongodb/guide-line/aggregation-and-sharding" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/nosql/mongodb/reference" },
+                  ]},
+                  { text: "Neo4j", collapsed: true, link: "/zh/data-storage/nosql/neo4j/", items: [
+                    { text: "入门", link: "/zh/data-storage/nosql/neo4j/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "图模型与 Cypher", link: "/zh/data-storage/nosql/neo4j/guide-line/graph-model-and-cypher" },
+                      { text: "使用场景与 APOC", link: "/zh/data-storage/nosql/neo4j/guide-line/use-cases-and-apoc" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/nosql/neo4j/reference" },
+                  ]},
+                  { text: "InfluxDB", collapsed: true, link: "/zh/data-storage/nosql/influxdb/", items: [
+                    { text: "入门", link: "/zh/data-storage/nosql/influxdb/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "时序数据模型", link: "/zh/data-storage/nosql/influxdb/guide-line/time-series-model" },
+                      { text: "SQL 与监控", link: "/zh/data-storage/nosql/influxdb/guide-line/sql-and-monitoring" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/nosql/influxdb/reference" },
+                  ]},
+                  { text: "TimescaleDB", collapsed: true, link: "/zh/data-storage/nosql/timescaledb/", items: [
+                    { text: "入门", link: "/zh/data-storage/nosql/timescaledb/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Hypertable 与聚合", link: "/zh/data-storage/nosql/timescaledb/guide-line/hypertable-and-aggregation" },
+                      { text: "对比与 TigerData", link: "/zh/data-storage/nosql/timescaledb/guide-line/comparison-and-tigerdata" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/nosql/timescaledb/reference" },
+                  ]},
                 ],
               },
               {
                 text: "分析型与列式存储",
                 collapsed: true,
                 items: [
-                  { text: "ClickHouse" },
-                  { text: "DuckDB" },
+                  { text: "ClickHouse", collapsed: true, link: "/zh/data-storage/analytics/clickhouse/", items: [
+                    { text: "入门", link: "/zh/data-storage/analytics/clickhouse/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "列式与 MergeTree", link: "/zh/data-storage/analytics/clickhouse/guide-line/columnar-and-mergetree" },
+                      { text: "使用场景与 SQL", link: "/zh/data-storage/analytics/clickhouse/guide-line/use-cases-and-sql" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/analytics/clickhouse/reference" },
+                  ]},
+                  { text: "DuckDB", collapsed: true, link: "/zh/data-storage/analytics/duckdb/", items: [
+                    { text: "入门", link: "/zh/data-storage/analytics/duckdb/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "嵌入式 OLAP", link: "/zh/data-storage/analytics/duckdb/guide-line/embedded-olap" },
+                      { text: "集成与 API", link: "/zh/data-storage/analytics/duckdb/guide-line/integration-and-api" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/analytics/duckdb/reference" },
+                  ]},
                 ],
               },
               {
                 text: "分布式与搜索",
                 collapsed: true,
                 items: [
-                  { text: "Cassandra" },
-                  { text: "Elasticsearch" },
+                  { text: "Cassandra", collapsed: true, link: "/zh/data-storage/distributed-search/cassandra/", items: [
+                    { text: "入门", link: "/zh/data-storage/distributed-search/cassandra/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "数据模型与一致性", link: "/zh/data-storage/distributed-search/cassandra/guide-line/data-model-and-consistency" },
+                      { text: "CQL 与扩展", link: "/zh/data-storage/distributed-search/cassandra/guide-line/cql-and-scaling" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/distributed-search/cassandra/reference" },
+                  ]},
+                  { text: "Elasticsearch", collapsed: true, link: "/zh/data-storage/distributed-search/elasticsearch/", items: [
+                    { text: "入门", link: "/zh/data-storage/distributed-search/elasticsearch/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "倒排索引与搜索", link: "/zh/data-storage/distributed-search/elasticsearch/guide-line/inverted-index-and-search" },
+                      { text: "OpenSearch 与向量", link: "/zh/data-storage/distributed-search/elasticsearch/guide-line/opensearch-and-vector" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/distributed-search/elasticsearch/reference" },
+                  ]},
                 ],
               },
               {
                 text: "数据库客户端",
                 collapsed: true,
                 items: [
-                  { text: "Navicat" },
-                  { text: "DBeaver" },
-                  { text: "TablePlus" },
+                  { text: "Navicat", collapsed: true, link: "/zh/data-storage/clients/navicat/", items: [
+                    { text: "入门", link: "/zh/data-storage/clients/navicat/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "功能与数据库", link: "/zh/data-storage/clients/navicat/guide-line/features-and-databases" },
+                      { text: "数据管理", link: "/zh/data-storage/clients/navicat/guide-line/data-management" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/clients/navicat/reference" },
+                  ]},
+                  { text: "DBeaver", collapsed: true, link: "/zh/data-storage/clients/dbeaver/", items: [
+                    { text: "入门", link: "/zh/data-storage/clients/dbeaver/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "社区版与 PRO", link: "/zh/data-storage/clients/dbeaver/guide-line/community-and-pro" },
+                      { text: "功能与 ER 图", link: "/zh/data-storage/clients/dbeaver/guide-line/features-and-er" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/clients/dbeaver/reference" },
+                  ]},
+                  { text: "TablePlus", collapsed: true, link: "/zh/data-storage/clients/tableplus/", items: [
+                    { text: "入门", link: "/zh/data-storage/clients/tableplus/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "原生应用与 UI", link: "/zh/data-storage/clients/tableplus/guide-line/native-app-and-ui" },
+                      { text: "功能与对比", link: "/zh/data-storage/clients/tableplus/guide-line/features-and-comparison" },
+                    ]},
+                    { text: "参考", link: "/zh/data-storage/clients/tableplus/reference" },
+                  ]},
                 ],
               },
             ],
