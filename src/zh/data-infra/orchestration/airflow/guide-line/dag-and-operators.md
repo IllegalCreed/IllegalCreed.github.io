@@ -17,7 +17,7 @@ outline: [2, 3]
 - **Connection**：存于元数据库的**连接凭证**（host/port/user/password/extra），UI 配置，Hook 据此连接外部系统——凭证与代码分离。
 - **Variable**：存于元数据库的**全局变量**（key-value），UI 配置，适合放配置项；**敏感信息要用 Secret**（不进日志/UI）。
 - **XCom（Cross-Communication）**：Task 间传**小数据**（< 2MB，默认存元数据库）的机制；TaskFlow API 的 `@task` 返回值自动走 XCom。**大数据必须落外部存储只传引用**。
-- **Jinja 模板**：Operator 参数可用 `{{ ds }}`（逻辑日期 YYYY-MM-DD）/`{{ ts }}`/`{{ data_interval_start }}` 等模板变量，按运行时上下文渲染——按日期分区路径的标配。
+- **Jinja 模板**：Operator 参数可用 <code v-pre>{{ ds }}</code>（逻辑日期 YYYY-MM-DD）/<code v-pre>{{ ts }}</code>/<code v-pre>{{ data_interval_start }}</code> 等模板变量，按运行时上下文渲染——按日期分区路径的标配。
 - **依赖表达**：传统用 `task1 >> task2`（BitShift）或 `task1.set_downstream(task2)`；TaskFlow 用 `task2(task1())` 隐式表达。**Sensor 的依赖**：等待条件满足才往下走。
 
 ## 一、DAG：拓扑即代码
@@ -79,7 +79,7 @@ PythonOperator(task_id="t", python_callable=my_func)     # 跑 Python 函数
 DockerOperator(task_id="t", image="my-etl:1.0", ...)     # 跑容器
 ```
 
-- **`BashOperator`**：最通用，跑任意 shell。Jinja 模板让 `{{ ds }}` 自动渲染成逻辑日期。
+- **`BashOperator`**：最通用，跑任意 shell。Jinja 模板让 <code v-pre>{{ ds }}</code> 自动渲染成逻辑日期。
 - **`PythonOperator`**：跑 Python 函数。`@task`（TaskFlow）是它的语法糖，自动处理 XCom。
 - **`KubernetesPodOperator`**（生产首选）：每个 Task 起独立 K8s Pod，**隔离最强**（互不影响、资源可控），是云原生部署的标准做法。
 
@@ -162,11 +162,11 @@ Operator 参数（非所有字段）支持 Jinja 模板，按「这次运行的�
 
 | 变量 | 含义 | 示例值 |
 | --- | --- | --- |
-| `{{ ds }}` | 逻辑日期 YYYY-MM-DD | `2026-08-07` |
-| `{{ ds_nodash }}` | 无分隔日期 | `20260807` |
-| `{{ ts }}` | ISO 时间戳 | `2026-08-07T00:00:00+00:00` |
-| `{{ data_interval_start }}` | 数据区间起点（2.2+，取代 `execution_date`） | `2026-08-06T00:00:00+00:00` |
-| `{{ run_id }}` | 本次运行 ID | `scheduled__2026-08-07` |
+| <code v-pre>{{ ds }}</code> | 逻辑日期 YYYY-MM-DD | `2026-08-07` |
+| <code v-pre>{{ ds_nodash }}</code> | 无分隔日期 | `20260807` |
+| <code v-pre>{{ ts }}</code> | ISO 时间戳 | `2026-08-07T00:00:00+00:00` |
+| <code v-pre>{{ data_interval_start }}</code> | 数据区间起点（2.2+，取代 `execution_date`） | `2026-08-06T00:00:00+00:00` |
+| <code v-pre>{{ run_id }}</code> | 本次运行 ID | `scheduled__2026-08-07` |
 
 ```python
 BashOperator(

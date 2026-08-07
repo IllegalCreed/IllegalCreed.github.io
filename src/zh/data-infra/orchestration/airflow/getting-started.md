@@ -16,7 +16,7 @@ outline: [2, 3]
 - **Hook 与 Connection**：Hook 是与外部系统（MySQL/S3/Airtable）交互的封装；Connection 是存于元数据库的连接凭证（host/user/password），Hook 据此连接。
 - **Airflow 3.0（2025-04 GA）四大变化**：①**TaskSDK**——把任务编写与 Airflow 调度器解耦，任务可独立测试、可跨语言（Python TaskSDK 已 GA，多语言 SDK 规划中）；②**Data Assets**——原生数据感知调度（按「数据就绪」触发 DAG，对齐 Dagster 的核心能力）；③**事件驱动**——DAG 不仅按时间触发，还能响应外部事件；④**全新 UI + DAG 版本化**。
 - **三大流派对比**：**Airflow**（静态 DAG + 调度优先，生态最厚）vs **Prefect**（动态 Python-first，把 DAG 当普通函数）vs **Dagster**（资产优先 Asset-centric，以「数据资产」为一等公民）。
-- **Jinja 模板**：Task 参数可用 `{{ ds }}`/`{{ execution_date }}` 等模板变量，按运行时上下文渲染（如按日期分区路径）。
+- **Jinja 模板**：Task 参数可用 <code v-pre>{{ ds }}</code>/<code v-pre>{{ execution_date }}</code> 等模板变量，按运行时上下文渲染（如按日期分区路径）。
 - **重试与 SLA**：Task 可配 `retries=3`（失败自动重试）、`retry_delay`、`sla`（超时告警），是生产稳定性的基础。
 - **进阶顺序**：[DAG/Task/Operator/XCom 详解](./guide-line/dag-and-operators) → [调度器/3.0/对比](./guide-line/scheduling-and-v3) → [参考](./reference)。
 

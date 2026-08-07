@@ -99,7 +99,7 @@ SELECT {{ cents_to_dollars('amount_cents') }} AS amount_dollars
 FROM {{ ref('stg_orders') }}
 ```
 
-Jinja：`{{ }}` 表达式、`{% %}` 语句（if/for/macro）、`{# #}` 注释。
+Jinja：<code v-pre>{{ }}</code> 表达式、<code v-pre>{% %}</code> 语句（if/for/macro）、`{# #}` 注释。
 
 ## 五、Core vs Cloud 对比
 

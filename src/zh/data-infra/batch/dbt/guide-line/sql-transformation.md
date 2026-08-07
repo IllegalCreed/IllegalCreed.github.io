@@ -9,13 +9,13 @@ outline: [2, 3]
 
 ## 速查
 
-- **model 物化配置**：在 `.sql` 文件头用 `{{ config(materialized='xxx', ...) }}` 或在 `.yml` 里集中配。四种物化：view（视图）/ table（全量重建）/ incremental（增量）/ ephemeral（CTE 内联）。
-- **source 声明**：在 `_sources.yml` 里声明上游原始表（database/schema/tables），`{{ source('name','table') }}` 引用。可加 `freshness`（新鲜度监控）与 `loaded_at_field`。
+- **model 物化配置**：在 `.sql` 文件头用 <code v-pre>{{ config(materialized='xxx', ...) }}</code> 或在 `.yml` 里集中配。四种物化：view（视图）/ table（全量重建）/ incremental（增量）/ ephemeral（CTE 内联）。
+- **source 声明**：在 `_sources.yml` 里声明上游原始表（database/schema/tables），<code v-pre>{{ source('name','table') }}</code> 引用。可加 `freshness`（新鲜度监控）与 `loaded_at_field`。
 - **schema.yml 声明 model + test**：在一个 `.yml` 里声明 model 的列、描述、测试。dbt 用此生成文档、跑测试、做列级血缘。
 - **两类 test**：①**generic test**（内置/自定义通用测试）——`not_null`/`unique`/`accepted_values`/`relationships`，在 schema.yml 列上声明；②**singular test（data test）**——`tests/` 下独立 `.sql` 文件，返回任意行即失败。dbt 1.8+ 把 data test 与 singular test 统一为新的 test 框架。
 - **四大内置 test**：`not_null`（非空）、`unique`（唯一）、`accepted_values`（值域）、`relationships`（外键引用完整性，引用另一表存在的值）。
-- **macro（宏）**：用 Jinja 写的可复用 SQL 函数——`{% macro calc_revenue(amount, qty) %}{{ amount }} * {{ qty }}{% endmacro %}`，在任意 model 里 `{{ calc_revenue(...) }}` 调用。封装重复 SQL 逻辑。
-- **Jinja 模板**：dbt 用 Jinja2 模板——`{{ }}` 表达式（求值输出）、`{% %}` 语句（控制流 if/for/macro）、`{# #}` 注释。支持条件、循环、宏、过滤器，让 SQL 可编程。
+- **macro（宏）**：用 Jinja 写的可复用 SQL 函数——<code v-pre>{% macro calc_revenue(amount, qty) %}{{ amount }} * {{ qty }}{% endmacro %}</code>，在任意 model 里 <code v-pre>{{ calc_revenue(...) }}</code> 调用。封装重复 SQL 逻辑。
+- **Jinja 模板**：dbt 用 Jinja2 模板——<code v-pre>{{ }}</code> 表达式（求值输出）、<code v-pre>{% %}</code> 语句（控制流 if/for/macro）、<code v-pre>{# #}</code> 注释。支持条件、循环、宏、过滤器，让 SQL 可编程。
 - **增量模型（incremental）核心**：只处理「自上次 run 以来的新数据」而非全量重算，大表省算力。需配 `unique_key`（去重键）+ `incremental_strategy`（策略）+ 过滤新数据的逻辑（用 `is_incremental()` 判断）。
 - **增量策略（仓库相关）**：①`append`（直接追加，最简单不去重）；②`merge`（按 unique_key MERGE，去重默认）；③`delete+insert`（先删后插）；④`microbatch`（dbt 1.9+ 按批）。
 - **snapshot（SCD Type 2）**：跟踪维度表的历史变更——`dbt snapshot` 把变化记录为多版本行（valid_from/valid_to/is_current），用于「某时点的维度值」分析。
@@ -76,7 +76,7 @@ sources:
       - name: users
 ```
 
-- `{{ source('raw','orders') }}` 引用时，dbt 解析成 `warehouse.raw.orders`。
+- <code v-pre>{{ source('raw','orders') }}</code> 引用时，dbt 解析成 `warehouse.raw.orders`。
 - **freshness**：`dbt source freshness` 检查 `loaded_at_field` 是否在 warn/error 阈值内（如 12 小时未更新 warn，24 小时 error），数据延迟告警。
 - **source freshness** 是数据 SLA 监控的基础——上游延迟了 dbt 能发现。
 
@@ -165,7 +165,7 @@ SELECT
 FROM {{ source('raw', 'orders') }}
 ```
 
-- **Jinja 三种标记**：`{{ expr }}`（表达式输出）、`{% statement %}`（控制流 if/for/macro/set）、`{# comment #}`（注释）。
+- **Jinja 三种标记**：<code v-pre>{{ expr }}</code>（表达式输出）、<code v-pre>{% statement %}</code>（控制流 if/for/macro/set）、`{# comment #}`（注释）。
 - **macro 复用**：把重复 SQL（如金额转换、日期格式化、缓慢变化维度）封装成 macro，跨 model 复用，统一口径。
 - **package 复用**：用 dbt-utils/dbt-codegen/dbt-expectations 等社区包（在 `packages.yml` 声明 + `dbt deps` 安装），获得大量现成 macro/test。
 

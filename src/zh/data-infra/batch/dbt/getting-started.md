@@ -14,7 +14,7 @@ outline: [2, 3]
 - **model**：dbt 的基本单元——**一个 `.sql` 文件就是一个 model**，内容是一个 `SELECT` 语句（带可选配置头）。dbt 编译后把 SELECT 物化成数仓里的表/视图/临时表，名字默认是文件名。
 - **四种物化（materialization）**：①**table**（全量重建表，每次 run 重写）；②**view**（建视图，省空间但查询时算）；③**incremental**（增量，只插新数据，省算力）；④**ephemeral**（不物化，编译成 CTE 内联到引用处）。
 - **source**：声明上游原始数据（如数仓里已有的 `raw_orders` 表），在 YAML 里定义。让 dbt 知道「这是外部源，不是 dbt 生成的」。
-- **ref()**：在 model 里引用其他 model——`{{ ref('stg_orders') }}`。dbt 据此**自动构建 DAG 依赖**，按拓扑序执行，无需手动编排。
+- **ref()**：在 model 里引用其他 model——<code v-pre>{{ ref('stg_orders') }}</code>。dbt 据此**自动构建 DAG 依赖**，按拓扑序执行，无需手动编排。
 - **DAG**：dbt 把所有 model 的 ref 依赖构成**有向无环图**，`dbt run` 时按依赖序执行（先跑被依赖的，再跑依赖者），`dbt test` 在 run 后跑测试。
 - **与数仓/Spark 的关系**：dbt **编译 SQL 推到数仓执行**，复用数仓库算力与安全（不自己算）。底层数仓可以是 Snowflake/BigQuery/Redshift/Databricks/Postgres/Spark（dbt-spark 适配器）。所以「dbt 负责 SQL 编排，数仓负责算」。
 - **核心命令**：`dbt run`（执行 model 物化）、`dbt test`（跑数据测试）、`dbt compile`（编译不执行）、`dbt docs generate/serve`（生成文档）、`dbt build`（run + test + seed + snapshot 一起）。
@@ -63,7 +63,7 @@ FROM {{ source('raw', 'orders') }}     -- 引用上游 source
 WHERE status = 'completed'             -- 清洗过滤
 ```
 
-- **dbt 编译**：把 `{{ source('raw','orders') }}` 解析成数仓里的 `raw.orders`，生成最终 SQL。
+- **dbt 编译**：把 <code v-pre>{{ source('raw','orders') }}</code> 解析成数仓里的 `raw.orders`，生成最终 SQL。
 - **物化**：默认物化为 `view`（也可配 table/incremental/ephemeral）。`dbt run` 时 dbt 把编译后的 SQL 推到数仓执行 `CREATE VIEW stg_orders AS SELECT ...`。
 - **命名约定**：常见分层 `staging/stg_`（标准化）→ `intermediate/int_`（中间计算）→ `marts/fct_/dim_`（事实表/维度表，BI 直查）。
 
@@ -83,9 +83,9 @@ dbt 通过 **source（外部源）** 和 **ref（model 间引用）** 自动构�
         - name: orders       # → 仓里 raw.orders
         - name: users
   ```
-  在 model 里用 `{{ source('raw','orders') }}` 引用。
+  在 model 里用 <code v-pre>{{ source('raw','orders') }}</code> 引用。
 
-- **ref**：在 model 里引用其他 model：`{{ ref('stg_orders') }}`。dbt 据此知道「这个 model 依赖 stg_orders」，构建依赖图。
+- **ref**：在 model 里引用其他 model：<code v-pre>{{ ref('stg_orders') }}</code>。dbt 据此知道「这个 model 依赖 stg_orders」，构建依赖图。
   ```sql
   -- models/marts/fct_daily_revenue.sql
   SELECT

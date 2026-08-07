@@ -16,7 +16,7 @@ outline: [2, 3]
 - **XCom 边界**：小数据（< 2MB）走元数据库，大数据必须落 S3/HDFS 只传引用。
 - **Airflow 3.0 四变**：TaskSDK（解耦）、Data Assets（数据感知）、事件驱动、全新 UI + DAG 版本化。
 - **三大编排器**：Airflow（静态 DAG + 调度优先）vs Prefect（动态 Python-first）vs Dagster（Asset-centric）。
-- **Jinja 关键变量**：`{{ ds }}`（YYYY-MM-DD）、`{{ data_interval_start }}`（推荐，取代 `execution_date`）。
+- **Jinja 关键变量**：<code v-pre>{{ ds }}</code>（YYYY-MM-DD）、<code v-pre>{{ data_interval_start }}</code>（推荐，取代 `execution_date`）。
 - **生产稳定三件套**：`retries` + `retry_delay` + `retry_exponential_backoff=True`。
 - **Sensor 必坑**：长等待 Sensor 用 `mode='reschedule'` 释放 slot，否则阻塞 Worker。
 
@@ -77,13 +77,13 @@ outline: [2, 3]
 
 | 变量 | 含义 | 示例 |
 | --- | --- | --- |
-| `{{ ds }}` | 逻辑日期 YYYY-MM-DD | `2026-08-07` |
-| `{{ ds_nodash }}` | 无分隔日期 | `20260807` |
-| `{{ ts }}` | ISO 时间戳 | `2026-08-07T00:00:00+00:00` |
-| `{{ data_interval_start }}` | 数据区间起点（**推荐**，取代 execution_date） | `2026-08-06T00:00:00+00:00` |
-| `{{ data_interval_end }}` | 数据区间终点 | `2026-08-07T00:00:00+00:00` |
-| `{{ run_id }}` | 本次运行 ID | `scheduled__2026-08-07` |
-| `{{ params.key }}` | DAG 级自定义参数 | 用户传入 |
+| <code v-pre>{{ ds }}</code> | 逻辑日期 YYYY-MM-DD | `2026-08-07` |
+| <code v-pre>{{ ds_nodash }}</code> | 无分隔日期 | `20260807` |
+| <code v-pre>{{ ts }}</code> | ISO 时间戳 | `2026-08-07T00:00:00+00:00` |
+| <code v-pre>{{ data_interval_start }}</code> | 数据区间起点（**推荐**，取代 execution_date） | `2026-08-06T00:00:00+00:00` |
+| <code v-pre>{{ data_interval_end }}</code> | 数据区间终点 | `2026-08-07T00:00:00+00:00` |
+| <code v-pre>{{ run_id }}</code> | 本次运行 ID | `scheduled__2026-08-07` |
+| <code v-pre>{{ params.key }}</code> | DAG 级自定义参数 | 用户传入 |
 
 ## 五、易错点清单
 

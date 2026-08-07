@@ -81,7 +81,7 @@ helm rollback my-redis 2                      # 回滚到 revision 2
 helm uninstall my-redis                       # 卸载（连带清掉资源）
 ```
 
-- **Chart**：一组**模板（Go template）+ 默认 values**。模板里 `{{ .Values.replicaCount }}` 在安装时被 values 覆盖渲染成真实 YAML。
+- **Chart**：一组**模板（Go template）+ 默认 values**。模板里 <code v-pre>{{ .Values.replicaCount }}</code> 在安装时被 values 覆盖渲染成真实 YAML。
 - **Release**：一次 `helm install` 产生一个具名 Release，可独立升级/回滚/卸载。同一 Chart 可在同集群装多个 Release（如 `redis-cache` 和 `redis-session`）。
 - **values 覆盖**：`--set key=val`（命令行）或 `-f my-values.yaml`（文件）。生产通常维护一份自己的 values 文件进 Git。
 - **为什么用 Helm**：① 复用社区成熟 Chart（Bitnami 有几百个）；② 参数化（一份 Chart 部署 dev/prod）；③ 升级/回滚有版本管理；④ 一键卸载不留残骸。
