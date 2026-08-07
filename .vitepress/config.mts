@@ -10968,28 +10968,55 @@ export default defineConfig({
                 ],
               },
               {
-                text: "数据处理",
+                text: "消息队列与事件流",
                 collapsed: true,
                 items: [
-                  {
-                    text: "消息队列",
-                    collapsed: true,
-                    items: [
-                      { text: "RocketMQ" },
-                      { text: "RabbitMQ" },
-                      { text: "Kafka" },
-                    ],
-                  },
-                  {
-                    text: "流处理",
-                    collapsed: true,
-                    items: [{ text: "Flink" }],
-                  },
-                  {
-                    text: "批处理",
-                    collapsed: true,
-                    items: [{ text: "Hadoop" }, { text: "Spark" }],
-                  },
+                  { text: "Kafka", collapsed: true, link: "/zh/data-infra/messaging/kafka/", items: [
+                    { text: "入门", link: "/zh/data-infra/messaging/kafka/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "核心概念", link: "/zh/data-infra/messaging/kafka/guide-line/core-concepts" },
+                      { text: "Kafka Streams 与 KRaft", link: "/zh/data-infra/messaging/kafka/guide-line/streams-and-kraft" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/messaging/kafka/reference" },
+                  ]},
+                  { text: "RabbitMQ", collapsed: true, link: "/zh/data-infra/messaging/rabbitmq/", items: [
+                    { text: "入门", link: "/zh/data-infra/messaging/rabbitmq/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "路由模型", link: "/zh/data-infra/messaging/rabbitmq/guide-line/routing-model" },
+                      { text: "工作模式与死信队列", link: "/zh/data-infra/messaging/rabbitmq/guide-line/patterns-and-dlx" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/messaging/rabbitmq/reference" },
+                  ]},
+                  { text: "RocketMQ", collapsed: true, link: "/zh/data-infra/messaging/rocketmq/", items: [
+                    { text: "入门", link: "/zh/data-infra/messaging/rocketmq/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "架构详解", link: "/zh/data-infra/messaging/rocketmq/guide-line/architecture" },
+                      { text: "特性与实战", link: "/zh/data-infra/messaging/rocketmq/guide-line/features-and-usecases" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/messaging/rocketmq/reference" },
+                  ]},
+                  { text: "Pulsar", collapsed: true, link: "/zh/data-infra/messaging/pulsar/", items: [
+                    { text: "入门", link: "/zh/data-infra/messaging/pulsar/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "架构详解", link: "/zh/data-infra/messaging/pulsar/guide-line/architecture" },
+                      { text: "分层存储与 Kafka 对比", link: "/zh/data-infra/messaging/pulsar/guide-line/comparison" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/messaging/pulsar/reference" },
+                  ]},
+                ],
+              },
+              {
+                text: "流处理",
+                collapsed: true,
+                items: [{ text: "Flink" }],
+              },
+              {
+                text: "批处理与转换",
+                collapsed: true,
+                items: [
+                  { text: "Spark" },
+                  { text: "Databricks" },
+                  { text: "dbt" },
                 ],
               },
             ],
