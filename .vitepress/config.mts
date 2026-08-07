@@ -10814,18 +10814,29 @@ export default defineConfig({
                 ],
               },
               {
-                text: "分布式大数据存储与查询",
+                text: "分析型与列式存储",
+                collapsed: true,
+                items: [
+                  { text: "ClickHouse" },
+                  { text: "DuckDB" },
+                ],
+              },
+              {
+                text: "分布式与搜索",
                 collapsed: true,
                 items: [
                   { text: "Cassandra" },
-                  { text: "HDFS" },
                   { text: "Elasticsearch" },
                 ],
               },
               {
                 text: "数据库客户端",
                 collapsed: true,
-                items: [{ text: "Navicat" }],
+                items: [
+                  { text: "Navicat" },
+                  { text: "DBeaver" },
+                  { text: "TablePlus" },
+                ],
               },
             ],
           },
