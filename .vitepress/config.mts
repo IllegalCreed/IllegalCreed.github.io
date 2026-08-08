@@ -163,15 +163,15 @@ export default defineConfig({
             items: [
               {
                 text: "三大语言",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "HTML",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "HTML 文档结构与元数据",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/html/html-document-metadata/",
                         items: [
                           {
@@ -180,7 +180,7 @@ export default defineConfig({
                           },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               {
                                 text: "文档骨架与渲染模式",
@@ -216,13 +216,13 @@ export default defineConfig({
                       },
                       {
                         text: "HTML 语义化与文档大纲",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/html/html-semantics/",
                         items: [
                           { text: "入门", link: "/zh/base/language/html/html-semantics/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "为什么语义化", link: "/zh/base/language/html/html-semantics/guide-line/why-semantic.md" },
                               { text: "分区元素与页面骨架", link: "/zh/base/language/html/html-semantics/guide-line/sectioning-elements.md" },
@@ -237,7 +237,7 @@ export default defineConfig({
                       },
                       {
                         text: "HTML 文本内容与超链接",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/html/html-text-links/",
                         items: [
                           {
@@ -246,7 +246,7 @@ export default defineConfig({
                           },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               {
                                 text: "强调与重要性",
@@ -282,13 +282,13 @@ export default defineConfig({
                       },
                       {
                         text: "HTML 表单与约束校验",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/html/html-forms/",
                         items: [
                           { text: "入门", link: "/zh/base/language/html/html-forms/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "表单提交机制", link: "/zh/base/language/html/html-forms/guide-line/form-submission.md" },
                               { text: "input 类型全谱", link: "/zh/base/language/html/html-forms/guide-line/input-types.md" },
@@ -303,13 +303,13 @@ export default defineConfig({
                       },
                       {
                         text: "HTML 图片与多媒体",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/html/html-media/",
                         items: [
                           { text: "入门", link: "/zh/base/language/html/html-media/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "img 基础", link: "/zh/base/language/html/html-media/guide-line/img-basics.md" },
                               { text: "响应式图片", link: "/zh/base/language/html/html-media/guide-line/responsive-images.md" },
@@ -324,13 +324,13 @@ export default defineConfig({
                       },
                       {
                         text: "HTML 表格",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/html/html-tables/",
                         items: [
                           { text: "入门", link: "/zh/base/language/html/html-tables/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "表格结构", link: "/zh/base/language/html/html-tables/guide-line/table-structure.md" },
                               { text: "单元格与表头关联", link: "/zh/base/language/html/html-tables/guide-line/cells-scope.md" },
@@ -345,13 +345,13 @@ export default defineConfig({
                       },
                       {
                         text: "HTML 交互元素与全局属性",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/html/html-interactive-global/",
                         items: [
                           { text: "入门", link: "/zh/base/language/html/html-interactive-global/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "details/summary 折叠", link: "/zh/base/language/html/html-interactive-global/guide-line/details-summary.md" },
                               { text: "dialog 与 inert", link: "/zh/base/language/html/html-interactive-global/guide-line/dialog-inert.md" },
@@ -368,17 +368,17 @@ export default defineConfig({
                   },
                   {
                     text: "JavaScript",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "JavaScript 语言基础与类型系统",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/javascript/js-fundamentals-types/",
                         items: [
                           { text: "入门", link: "/zh/base/language/javascript/js-fundamentals-types/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "变量声明与作用域", link: "/zh/base/language/javascript/js-fundamentals-types/guide-line/variable-declarations.md" },
                               { text: "原始类型与包装对象", link: "/zh/base/language/javascript/js-fundamentals-types/guide-line/primitive-types.md" },
@@ -393,13 +393,13 @@ export default defineConfig({
                       },
                       {
                         text: "JavaScript 函数与作用域",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/javascript/js-functions-scope/",
                         items: [
                           { text: "入门", link: "/zh/base/language/javascript/js-functions-scope/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "函数形态与参数", link: "/zh/base/language/javascript/js-functions-scope/guide-line/function-forms.md" },
                               { text: "箭头 vs 普通函数", link: "/zh/base/language/javascript/js-functions-scope/guide-line/arrow-vs-regular.md" },
@@ -414,13 +414,13 @@ export default defineConfig({
                       },
                       {
                         text: "JavaScript 对象与原型继承",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/javascript/js-objects-prototype/",
                         items: [
                           { text: "入门", link: "/zh/base/language/javascript/js-objects-prototype/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "对象基础", link: "/zh/base/language/javascript/js-objects-prototype/guide-line/object-basics.md" },
                               { text: "属性描述符", link: "/zh/base/language/javascript/js-objects-prototype/guide-line/property-descriptors.md" },
@@ -435,13 +435,13 @@ export default defineConfig({
                       },
                       {
                         text: "JavaScript 类与面向对象",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/javascript/js-classes-oop/",
                         items: [
                           { text: "入门", link: "/zh/base/language/javascript/js-classes-oop/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "类语法与实例化", link: "/zh/base/language/javascript/js-classes-oop/guide-line/class-syntax.md" },
                               { text: "继承与 super", link: "/zh/base/language/javascript/js-classes-oop/guide-line/inheritance-super.md" },
@@ -456,13 +456,13 @@ export default defineConfig({
                       },
                       {
                         text: "JavaScript 数组与可迭代协议",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/javascript/js-arrays-iterables/",
                         items: [
                           { text: "入门", link: "/zh/base/language/javascript/js-arrays-iterables/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "数组基础", link: "/zh/base/language/javascript/js-arrays-iterables/guide-line/array-basics.md" },
                               { text: "变更 vs 不变更", link: "/zh/base/language/javascript/js-arrays-iterables/guide-line/mutating-vs-immutable.md" },
@@ -477,13 +477,13 @@ export default defineConfig({
                       },
                       {
                         text: "JavaScript 内建对象与数据结构",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/javascript/js-builtins-structures/",
                         items: [
                           { text: "入门", link: "/zh/base/language/javascript/js-builtins-structures/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "数值、Math 与 BigInt", link: "/zh/base/language/javascript/js-builtins-structures/guide-line/number-math-bigint.md" },
                               { text: "字符串与模板字面量", link: "/zh/base/language/javascript/js-builtins-structures/guide-line/string-template.md" },
@@ -498,13 +498,13 @@ export default defineConfig({
                       },
                       {
                         text: "JavaScript 异步编程",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/javascript/js-async/",
                         items: [
                           { text: "入门", link: "/zh/base/language/javascript/js-async/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "事件循环", link: "/zh/base/language/javascript/js-async/guide-line/event-loop.md" },
                               { text: "回调与回调地狱", link: "/zh/base/language/javascript/js-async/guide-line/callbacks-evolution.md" },
@@ -519,13 +519,13 @@ export default defineConfig({
                       },
                       {
                         text: "JavaScript 生成器与元编程",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/javascript/js-generators-metaprogramming/",
                         items: [
                           { text: "入门", link: "/zh/base/language/javascript/js-generators-metaprogramming/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "生成器基础", link: "/zh/base/language/javascript/js-generators-metaprogramming/guide-line/generators.md" },
                               { text: "异步生成器", link: "/zh/base/language/javascript/js-generators-metaprogramming/guide-line/async-generators.md" },
@@ -539,13 +539,13 @@ export default defineConfig({
                       },
                       {
                         text: "JavaScript DOM 与事件",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/javascript/js-dom-events/",
                         items: [
                           { text: "入门", link: "/zh/base/language/javascript/js-dom-events/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "DOM 树与遍历", link: "/zh/base/language/javascript/js-dom-events/guide-line/dom-tree-traversal.md" },
                               { text: "修改文档", link: "/zh/base/language/javascript/js-dom-events/guide-line/modifying-document.md" },
@@ -562,17 +562,17 @@ export default defineConfig({
                   },
                   {
                     text: "CSS",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "CSS 选择器与层叠",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/css/css-selectors-cascade/",
                         items: [
                           { text: "入门", link: "/zh/base/language/css/css-selectors-cascade/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "选择器家族", link: "/zh/base/language/css/css-selectors-cascade/guide-line/selector-families.md" },
                               { text: "伪类与伪元素", link: "/zh/base/language/css/css-selectors-cascade/guide-line/pseudo-classes-elements.md" },
@@ -587,13 +587,13 @@ export default defineConfig({
                       },
                       {
                         text: "CSS 盒模型与尺寸",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/css/css-box-sizing/",
                         items: [
                           { text: "入门", link: "/zh/base/language/css/css-box-sizing/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "盒模型与 box-sizing", link: "/zh/base/language/css/css-box-sizing/guide-line/box-model.md" },
                               { text: "display 全谱", link: "/zh/base/language/css/css-box-sizing/guide-line/display-values.md" },
@@ -608,13 +608,13 @@ export default defineConfig({
                       },
                       {
                         text: "CSS 定位与层叠上下文",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/css/css-positioning/",
                         items: [
                           { text: "入门", link: "/zh/base/language/css/css-positioning/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "position 五取值", link: "/zh/base/language/css/css-positioning/guide-line/position-values.md" },
                               { text: "z-index 与层叠上下文", link: "/zh/base/language/css/css-positioning/guide-line/stacking-context.md" },
@@ -629,13 +629,13 @@ export default defineConfig({
                       },
                       {
                         text: "CSS Flexbox 弹性布局",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/css/css-flexbox/",
                         items: [
                           { text: "入门", link: "/zh/base/language/css/css-flexbox/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "容器与轴向模型", link: "/zh/base/language/css/css-flexbox/guide-line/flex-container-axes.md" },
                               { text: "主轴对齐", link: "/zh/base/language/css/css-flexbox/guide-line/main-axis-alignment.md" },
@@ -650,13 +650,13 @@ export default defineConfig({
                       },
                       {
                         text: "CSS Grid 网格布局",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/css/css-grid/",
                         items: [
                           { text: "入门", link: "/zh/base/language/css/css-grid/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "网格轨道", link: "/zh/base/language/css/css-grid/guide-line/grid-tracks.md" },
                               { text: "模板区域", link: "/zh/base/language/css/css-grid/guide-line/template-areas.md" },
@@ -671,13 +671,13 @@ export default defineConfig({
                       },
                       {
                         text: "CSS 响应式与现代查询",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/css/css-responsive-queries/",
                         items: [
                           { text: "入门", link: "/zh/base/language/css/css-responsive-queries/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "媒体查询与 range 语法", link: "/zh/base/language/css/css-responsive-queries/guide-line/media-queries.md" },
                               { text: "用户偏好查询", link: "/zh/base/language/css/css-responsive-queries/guide-line/user-preferences.md" },
@@ -692,13 +692,13 @@ export default defineConfig({
                       },
                       {
                         text: "CSS 颜色与背景",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/css/css-color-background/",
                         items: [
                           { text: "入门", link: "/zh/base/language/css/css-color-background/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "颜色与色彩空间", link: "/zh/base/language/css/css-color-background/guide-line/color-spaces.md" },
                               { text: "color-mix 与颜色函数", link: "/zh/base/language/css/css-color-background/guide-line/color-mix-functions.md" },
@@ -713,13 +713,13 @@ export default defineConfig({
                       },
                       {
                         text: "CSS 过渡、动画与视觉",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/css/css-animation-effects/",
                         items: [
                           { text: "入门", link: "/zh/base/language/css/css-animation-effects/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "过渡与缓动", link: "/zh/base/language/css/css-animation-effects/guide-line/transitions.md" },
                               { text: "关键帧动画", link: "/zh/base/language/css/css-animation-effects/guide-line/keyframes-animation.md" },
@@ -734,13 +734,13 @@ export default defineConfig({
                       },
                       {
                         text: "CSS 自定义属性、函数与工程化",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/css/css-variables-engineering/",
                         items: [
                           { text: "入门", link: "/zh/base/language/css/css-variables-engineering/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "自定义属性", link: "/zh/base/language/css/css-variables-engineering/guide-line/custom-properties.md" },
                               { text: "@property 类型化", link: "/zh/base/language/css/css-variables-engineering/guide-line/property-typed.md" },
@@ -755,13 +755,13 @@ export default defineConfig({
                       },
                       {
                         text: "CSS 文字排版与字体",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/base/language/css/css-typography/",
                         items: [
                           { text: "入门", link: "/zh/base/language/css/css-typography/getting-started.md" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "字体族与可变字体", link: "/zh/base/language/css/css-typography/guide-line/font-face-variable.md" },
                               { text: "字体加载与性能", link: "/zh/base/language/css/css-typography/guide-line/font-loading.md" },
@@ -782,17 +782,17 @@ export default defineConfig({
                 // 2026-06-25 重构为扁平 11 叶（spec: quiz-monorepo docs/plans/20260625-web-base-computer-network-trilogy.md）
                 // 未产出叶用 text 占位，不建占位页（产出叶时再 text→link）
                 text: "计算机网络基础",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "网络分层模型",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/network/net-layering/",
                     items: [
                       { text: "入门", link: "/zh/base/network/net-layering/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "为什么要分层", link: "/zh/base/network/net-layering/guide-line/why-layering.md" },
                           { text: "OSI 七层逐层职责", link: "/zh/base/network/net-layering/guide-line/osi-seven-layers.md" },
@@ -807,13 +807,13 @@ export default defineConfig({
                   },
                   {
                     text: "链路层与局域网",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/network/net-link-lan/",
                     items: [
                       { text: "入门", link: "/zh/base/network/net-link-lan/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "数据链路层与 MAC 寻址", link: "/zh/base/network/net-link-lan/guide-line/datalink-mac.md" },
                           { text: "以太网帧结构", link: "/zh/base/network/net-link-lan/guide-line/ethernet-frame.md" },
@@ -828,13 +828,13 @@ export default defineConfig({
                   },
                   {
                     text: "网络层与路由",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/network/net-ip-routing/",
                     items: [
                       { text: "入门", link: "/zh/base/network/net-ip-routing/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "IP 协议与 IPv4 寻址", link: "/zh/base/network/net-ip-routing/guide-line/ip-protocol-ipv4.md" },
                           { text: "子网掩码与 CIDR 划分", link: "/zh/base/network/net-ip-routing/guide-line/subnet-cidr.md" },
@@ -849,13 +849,13 @@ export default defineConfig({
                   },
                   {
                     text: "传输层 TCP 与 UDP",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/network/net-transport/",
                     items: [
                       { text: "入门", link: "/zh/base/network/net-transport/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "传输层与端口·复用分用", link: "/zh/base/network/net-transport/guide-line/transport-ports-mux.md" },
                           { text: "UDP 协议与适用场景", link: "/zh/base/network/net-transport/guide-line/udp-protocol.md" },
@@ -870,13 +870,13 @@ export default defineConfig({
                   },
                   {
                     text: "DNS 域名系统",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/network/net-dns/",
                     items: [
                       { text: "入门", link: "/zh/base/network/net-dns/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "DNS 作用与域名层级体系", link: "/zh/base/network/net-dns/guide-line/dns-role-hierarchy.md" },
                           { text: "解析流程：递归与迭代查询", link: "/zh/base/network/net-dns/guide-line/dns-resolution.md" },
@@ -891,13 +891,13 @@ export default defineConfig({
                   },
                   {
                     text: "HTTP 协议基础",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/network/net-http-basics/",
                     items: [
                       { text: "入门", link: "/zh/base/network/net-http-basics/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "HTTP 报文结构与请求方法", link: "/zh/base/network/net-http-basics/guide-line/http-messages-methods.md" },
                           { text: "HTTP 状态码全谱", link: "/zh/base/network/net-http-basics/guide-line/status-codes.md" },
@@ -912,13 +912,13 @@ export default defineConfig({
                   },
                   {
                     text: "HTTP 演进与性能",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/network/net-http-evolution/",
                     items: [
                       { text: "入门", link: "/zh/base/network/net-http-evolution/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "HTTP 版本演进史", link: "/zh/base/network/net-http-evolution/guide-line/http-versions-history.md" },
                           { text: "HTTP/1.1 瓶颈与队头阻塞", link: "/zh/base/network/net-http-evolution/guide-line/http1-bottlenecks.md" },
@@ -933,13 +933,13 @@ export default defineConfig({
                   },
                   {
                     text: "HTTPS 与传输安全",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/network/net-https-tls/",
                     items: [
                       { text: "入门", link: "/zh/base/network/net-https-tls/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "为什么需要 HTTPS", link: "/zh/base/network/net-https-tls/guide-line/why-https.md" },
                           { text: "对称与非对称加密", link: "/zh/base/network/net-https-tls/guide-line/symmetric-asymmetric.md" },
@@ -954,13 +954,13 @@ export default defineConfig({
                   },
                   {
                     text: "跨域与同源策略",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/network/net-cors/",
                     items: [
                       { text: "入门", link: "/zh/base/network/net-cors/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "同源策略与「源」的定义", link: "/zh/base/network/net-cors/guide-line/same-origin-policy.md" },
                           { text: "跨域常见场景与报错排查", link: "/zh/base/network/net-cors/guide-line/cross-origin-scenarios.md" },
@@ -975,13 +975,13 @@ export default defineConfig({
                   },
                   {
                     text: "实时通信协议",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/network/net-realtime/",
                     items: [
                       { text: "入门", link: "/zh/base/network/net-realtime/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "实时通信方案演进（轮询→长轮询）", link: "/zh/base/network/net-realtime/guide-line/polling-evolution.md" },
                           { text: "SSE 服务器推送", link: "/zh/base/network/net-realtime/guide-line/sse.md" },
@@ -996,13 +996,13 @@ export default defineConfig({
                   },
                   {
                     text: "接入与移动网络",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/network/net-access-mobile/",
                     items: [
                       { text: "入门", link: "/zh/base/network/net-access-mobile/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "接入网与 LAN/WAN/MAN", link: "/zh/base/network/net-access-mobile/guide-line/access-lan-wan.md" },
                           { text: "宽带接入技术", link: "/zh/base/network/net-access-mobile/guide-line/broadband.md" },
@@ -1022,17 +1022,17 @@ export default defineConfig({
                 // （spec: quiz-monorepo/docs/plans/20260702-web-base-browser-trilogy.md）。
                 // 产出一叶补一叶 link（text 占位约定）。
                 text: "浏览器基础",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "浏览器架构与进程模型",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/browser/browser-architecture/",
                     items: [
                       { text: "入门", link: "/zh/base/browser/browser-architecture/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "进程、线程与 IPC", link: "/zh/base/browser/browser-architecture/guide-line/process-thread-ipc.md" },
                           { text: "多进程架构", link: "/zh/base/browser/browser-architecture/guide-line/multi-process-model.md" },
@@ -1047,13 +1047,13 @@ export default defineConfig({
                   },
                   {
                     text: "浏览器渲染原理",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/browser/browser-rendering/",
                     items: [
                       { text: "入门", link: "/zh/base/browser/browser-rendering/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "HTML 解析与 DOM 构建", link: "/zh/base/browser/browser-rendering/guide-line/dom-construction.md" },
                           { text: "CSSOM 与 render tree", link: "/zh/base/browser/browser-rendering/guide-line/cssom-render-tree.md" },
@@ -1068,13 +1068,13 @@ export default defineConfig({
                   },
                   {
                     text: "浏览器存储",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/browser/browser-storage/",
                     items: [
                       { text: "入门", link: "/zh/base/browser/browser-storage/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "存储全景与选型矩阵", link: "/zh/base/browser/browser-storage/guide-line/storage-overview.md" },
                           { text: "Cookie 的浏览器侧", link: "/zh/base/browser/browser-storage/guide-line/cookie-browser-side.md" },
@@ -1089,13 +1089,13 @@ export default defineConfig({
                   },
                   {
                     text: "浏览器缓存机制",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/browser/browser-cache/",
                     items: [
                       { text: "入门", link: "/zh/base/browser/browser-cache/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "多层缓存总览", link: "/zh/base/browser/browser-cache/guide-line/cache-layers.md" },
                           { text: "内存缓存与磁盘缓存", link: "/zh/base/browser/browser-cache/guide-line/memory-disk-cache.md" },
@@ -1110,13 +1110,13 @@ export default defineConfig({
                   },
                   {
                     text: "浏览器安全",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/base/browser/browser-security/",
                     items: [
                       { text: "入门", link: "/zh/base/browser/browser-security/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "CSP 基础", link: "/zh/base/browser/browser-security/guide-line/csp-basics.md" },
                           { text: "防注入三件套", link: "/zh/base/browser/browser-security/guide-line/strict-csp-trusted-types.md" },
@@ -1140,17 +1140,17 @@ export default defineConfig({
             items: [
               {
                 text: "语言",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Markdown",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/language/markdown/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/language/markdown/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "块级元素", link: "/zh/web-advanced/language/markdown/guide-line/blocks" },
                           { text: "行内元素", link: "/zh/web-advanced/language/markdown/guide-line/inlines" },
@@ -1163,13 +1163,13 @@ export default defineConfig({
                   },
                   {
                     text: "MDX",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/language/mdx/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/language/mdx/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "语法详解", link: "/zh/web-advanced/language/mdx/guide-line/syntax" },
                           { text: "组件映射", link: "/zh/web-advanced/language/mdx/guide-line/components-and-provider" },
@@ -1182,13 +1182,13 @@ export default defineConfig({
                   },
                   {
                     text: "TypeScript",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/language/typescript/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/language/typescript/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "类型系统基础", link: "/zh/web-advanced/language/typescript/guide-line/type-system-basics" },
                           { text: "推断与窄化", link: "/zh/web-advanced/language/typescript/guide-line/narrowing-and-inference" },
@@ -1202,21 +1202,21 @@ export default defineConfig({
                   },
                   {
                     text: "样式方案",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "CSS 工具链",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Sass",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/web-advanced/language/sass/",
                             items: [
                               { text: "入门", link: "/zh/web-advanced/language/sass/getting-started" },
                               {
                                 text: "指南",
-                                collapsed: true,
+                                collapsed: false,
                                 items: [
                                   { text: "语法、嵌套与变量", link: "/zh/web-advanced/language/sass/guide-line/syntax-and-nesting" },
                                   { text: "mixin、函数与 @extend", link: "/zh/web-advanced/language/sass/guide-line/mixins-functions-extend" },
@@ -1230,13 +1230,13 @@ export default defineConfig({
                           },
                           {
                             text: "Less",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/web-advanced/language/less/",
                             items: [
                               { text: "入门", link: "/zh/web-advanced/language/less/getting-started" },
                               {
                                 text: "指南",
-                                collapsed: true,
+                                collapsed: false,
                                 items: [
                                   { text: "变量、作用域与插值", link: "/zh/web-advanced/language/less/guide-line/variables-and-scope" },
                                   { text: "混合、守卫与循环", link: "/zh/web-advanced/language/less/guide-line/mixins-and-guards" },
@@ -1250,13 +1250,13 @@ export default defineConfig({
                           },
                           {
                             text: "PostCSS",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/web-advanced/language/postcss/",
                             items: [
                               { text: "入门", link: "/zh/web-advanced/language/postcss/getting-started" },
                               {
                                 text: "指南",
-                                collapsed: true,
+                                collapsed: false,
                                 items: [
                                   { text: "工作原理与 AST", link: "/zh/web-advanced/language/postcss/guide-line/how-it-works" },
                                   { text: "插件机制与 API", link: "/zh/web-advanced/language/postcss/guide-line/plugin-mechanism" },
@@ -1270,13 +1270,13 @@ export default defineConfig({
                           },
                           {
                             text: "Tailwind CSS",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/web-advanced/language/tailwind/",
                             items: [
                               { text: "入门", link: "/zh/web-advanced/language/tailwind/getting-started" },
                               {
                                 text: "指南",
-                                collapsed: true,
+                                collapsed: false,
                                 items: [
                                   { text: "工具类优先与响应式", link: "/zh/web-advanced/language/tailwind/guide-line/utility-first-and-responsive" },
                                   { text: "状态与变体", link: "/zh/web-advanced/language/tailwind/guide-line/states-and-variants" },
@@ -1290,13 +1290,13 @@ export default defineConfig({
                           },
                           {
                             text: "UnoCSS",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/web-advanced/language/unocss/",
                             items: [
                               { text: "入门", link: "/zh/web-advanced/language/unocss/getting-started" },
                               {
                                 text: "指南",
-                                collapsed: true,
+                                collapsed: false,
                                 items: [
                                   { text: "预设体系", link: "/zh/web-advanced/language/unocss/guide-line/presets" },
                                   { text: "规则、快捷方式与变体", link: "/zh/web-advanced/language/unocss/guide-line/rules-shortcuts-variants" },
@@ -1312,17 +1312,17 @@ export default defineConfig({
                       },
                       {
                         text: "CSS-in-JS",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "CSS Modules",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/web-advanced/language/css-modules/",
                             items: [
                               { text: "入门", link: "/zh/web-advanced/language/css-modules/getting-started" },
                               {
                                 text: "指南",
-                                collapsed: true,
+                                collapsed: false,
                                 items: [
                                   { text: "局部作用域与命名", link: "/zh/web-advanced/language/css-modules/guide-line/local-scope-and-naming" },
                                   { text: "组合复用 composes/@value", link: "/zh/web-advanced/language/css-modules/guide-line/composition-and-values" },
@@ -1335,13 +1335,13 @@ export default defineConfig({
                           },
                           {
                             text: "StyleX",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/web-advanced/language/stylex/",
                             items: [
                               { text: "入门", link: "/zh/web-advanced/language/stylex/getting-started" },
                               {
                                 text: "指南",
-                                collapsed: true,
+                                collapsed: false,
                                 items: [
                                   { text: "定义与应用样式", link: "/zh/web-advanced/language/stylex/guide-line/defining-styles" },
                                   { text: "变量与主题", link: "/zh/web-advanced/language/stylex/guide-line/theming" },
@@ -1354,13 +1354,13 @@ export default defineConfig({
                           },
                           {
                             text: "Panda CSS",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/web-advanced/language/panda-css/",
                             items: [
                               { text: "入门", link: "/zh/web-advanced/language/panda-css/getting-started" },
                               {
                                 text: "指南",
-                                collapsed: true,
+                                collapsed: false,
                                 items: [
                                   { text: "写样式 css()", link: "/zh/web-advanced/language/panda-css/guide-line/writing-styles" },
                                   { text: "Recipes 与 Patterns", link: "/zh/web-advanced/language/panda-css/guide-line/recipes-and-patterns" },
@@ -1374,13 +1374,13 @@ export default defineConfig({
                           },
                           {
                             text: "vanilla-extract",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/web-advanced/language/vanilla-extract/",
                             items: [
                               { text: "入门", link: "/zh/web-advanced/language/vanilla-extract/getting-started" },
                               {
                                 text: "指南",
-                                collapsed: true,
+                                collapsed: false,
                                 items: [
                                   { text: "Styling 深入", link: "/zh/web-advanced/language/vanilla-extract/guide-line/styling" },
                                   { text: "主题与令牌契约", link: "/zh/web-advanced/language/vanilla-extract/guide-line/theming" },
@@ -1397,13 +1397,13 @@ export default defineConfig({
                   },
                   {
                     text: "JSON",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/language/json/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/language/json/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "语法与类型", link: "/zh/web-advanced/language/json/guide-line/syntax-and-types" },
                           { text: "JS 中的 JSON API", link: "/zh/web-advanced/language/json/guide-line/js-json-api" },
@@ -1417,13 +1417,13 @@ export default defineConfig({
                   },
                   {
                     text: "YAML",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/language/yaml/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/language/yaml/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "标量与字符串", link: "/zh/web-advanced/language/yaml/guide-line/scalars-and-strings" },
                           { text: "集合与结构", link: "/zh/web-advanced/language/yaml/guide-line/collections-and-structure" },
@@ -1436,13 +1436,13 @@ export default defineConfig({
                   },
                   {
                     text: "TOML",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/language/toml/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/language/toml/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "键与字符串", link: "/zh/web-advanced/language/toml/guide-line/keys-and-strings" },
                           { text: "标量与数组", link: "/zh/web-advanced/language/toml/guide-line/scalars-and-arrays" },
@@ -1459,17 +1459,17 @@ export default defineConfig({
                 // 2026-07-11 选型定案 17 叶（spec: quiz-monorepo docs/plans/20260711-web-api-trilogy.md）
                 // 本章讲「浏览器 API 用法」；协议原理在网络章、存储模型在浏览器章。产出叶才 text→link。
                 text: "Web API",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Web Components",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/web-components/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/web-components/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "自定义元素与生命周期", link: "/zh/web-advanced/web-api/web-components/guide-line/custom-elements" },
                           { text: "Shadow DOM 封装与样式", link: "/zh/web-advanced/web-api/web-components/guide-line/shadow-dom" },
@@ -1482,13 +1482,13 @@ export default defineConfig({
                   },
                   {
                     text: "Web Assembly",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/webassembly/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/webassembly/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "模块模型与线性内存", link: "/zh/web-advanced/web-api/webassembly/guide-line/module-and-memory" },
                           { text: "JS API 全解", link: "/zh/web-advanced/web-api/webassembly/guide-line/js-api" },
@@ -1501,13 +1501,13 @@ export default defineConfig({
                   },
                   {
                     text: "WebRTC API",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/webrtc/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/webrtc/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "媒体捕获与设备", link: "/zh/web-advanced/web-api/webrtc/guide-line/media-capture" },
                           { text: "RTCPeerConnection 生命周期", link: "/zh/web-advanced/web-api/webrtc/guide-line/peer-connection" },
@@ -1520,13 +1520,13 @@ export default defineConfig({
                   },
                   {
                     text: "Server-Sent Events",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/sse/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/sse/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "EventSource API 全解", link: "/zh/web-advanced/web-api/sse/guide-line/eventsource-api" },
                           { text: "重连机制与工程局限", link: "/zh/web-advanced/web-api/sse/guide-line/reconnect-and-limits" },
@@ -1538,13 +1538,13 @@ export default defineConfig({
                   },
                   {
                     text: "Fetch API",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/fetch/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/fetch/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "Request、Response 与 Headers", link: "/zh/web-advanced/web-api/fetch/guide-line/request-response" },
                           { text: "取消与超时", link: "/zh/web-advanced/web-api/fetch/guide-line/abort-timeout" },
@@ -1557,13 +1557,13 @@ export default defineConfig({
                   },
                   {
                     text: "WebSocket",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/websocket/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/websocket/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "API 全解", link: "/zh/web-advanced/web-api/websocket/guide-line/api-deep-dive" },
                           { text: "二进制与背压", link: "/zh/web-advanced/web-api/websocket/guide-line/binary-backpressure" },
@@ -1575,13 +1575,13 @@ export default defineConfig({
                   },
                   {
                     text: "Web Storage API",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/web-storage/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/web-storage/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "API 与事件", link: "/zh/web-advanced/web-api/web-storage/guide-line/api-and-events" },
                           { text: "序列化与异常", link: "/zh/web-advanced/web-api/web-storage/guide-line/serialization-exceptions" },
@@ -1593,13 +1593,13 @@ export default defineConfig({
                   },
                   {
                     text: "IndexedDB",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/indexeddb/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/indexeddb/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "事务模型", link: "/zh/web-advanced/web-api/indexeddb/guide-line/transactions" },
                           { text: "CRUD、索引与游标", link: "/zh/web-advanced/web-api/indexeddb/guide-line/crud-index-cursor" },
@@ -1612,13 +1612,13 @@ export default defineConfig({
                   },
                   {
                     text: "Web Workers API",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/web-workers/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/web-workers/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "专用 Worker", link: "/zh/web-advanced/web-api/web-workers/guide-line/dedicated-worker" },
                           { text: "共享 Worker", link: "/zh/web-advanced/web-api/web-workers/guide-line/shared-worker" },
@@ -1631,13 +1631,13 @@ export default defineConfig({
                   },
                   {
                     text: "Service Worker 与 PWA",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/service-worker-pwa/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/service-worker-pwa/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "生命周期与更新模型", link: "/zh/web-advanced/web-api/service-worker-pwa/guide-line/lifecycle" },
                           { text: "fetch 拦截与离线", link: "/zh/web-advanced/web-api/service-worker-pwa/guide-line/fetch-offline" },
@@ -1650,13 +1650,13 @@ export default defineConfig({
                   },
                   {
                     text: "Streams API",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/streams/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/streams/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "ReadableStream", link: "/zh/web-advanced/web-api/streams/guide-line/readable-stream" },
                           { text: "WritableStream 与 TransformStream", link: "/zh/web-advanced/web-api/streams/guide-line/writable-transform" },
@@ -1669,13 +1669,13 @@ export default defineConfig({
                   },
                   {
                     text: "Observer 观察器 API",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/observers/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/observers/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "IntersectionObserver", link: "/zh/web-advanced/web-api/observers/guide-line/intersection-observer" },
                           { text: "ResizeObserver", link: "/zh/web-advanced/web-api/observers/guide-line/resize-observer" },
@@ -1688,13 +1688,13 @@ export default defineConfig({
                   },
                   {
                     text: "History 与 Navigation API",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/history-navigation/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/history-navigation/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "History API", link: "/zh/web-advanced/web-api/history-navigation/guide-line/history-api" },
                           { text: "Navigation API 基础", link: "/zh/web-advanced/web-api/history-navigation/guide-line/navigation-api-basics" },
@@ -1707,13 +1707,13 @@ export default defineConfig({
                   },
                   {
                     text: "View Transitions API",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/view-transitions/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/view-transitions/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "基础与伪元素树", link: "/zh/web-advanced/web-api/view-transitions/guide-line/basics-pseudo" },
                           { text: "命名与定制", link: "/zh/web-advanced/web-api/view-transitions/guide-line/naming-customization" },
@@ -1726,13 +1726,13 @@ export default defineConfig({
                   },
                   {
                     text: "File 与文件系统 API",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/file-system/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/file-system/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "File、Blob 与 FileReader", link: "/zh/web-advanced/web-api/file-system/guide-line/file-blob-reader" },
                           { text: "File System Access API", link: "/zh/web-advanced/web-api/file-system/guide-line/file-system-access" },
@@ -1745,13 +1745,13 @@ export default defineConfig({
                   },
                   {
                     text: "跨上下文通信",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/cross-context-messaging/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/cross-context-messaging/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "window.postMessage 与安全", link: "/zh/web-advanced/web-api/cross-context-messaging/guide-line/postmessage" },
                           { text: "MessageChannel 与 MessagePort", link: "/zh/web-advanced/web-api/cross-context-messaging/guide-line/message-channel" },
@@ -1764,13 +1764,13 @@ export default defineConfig({
                   },
                   {
                     text: "常用杂项 API",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/web-api/misc-apis/",
                     items: [
                       { text: "入门", link: "/zh/web-advanced/web-api/misc-apis/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "剪贴板与分享", link: "/zh/web-advanced/web-api/misc-apis/guide-line/clipboard-share" },
                           { text: "通知、页面状态与唤醒锁", link: "/zh/web-advanced/web-api/misc-apis/guide-line/notification-visibility-wake" },
@@ -1785,11 +1785,11 @@ export default defineConfig({
               },
               {
                 text: "模块管理",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "CommonJS",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/module/commonjs/",
                     items: [
                       {
@@ -1798,7 +1798,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -1822,7 +1822,7 @@ export default defineConfig({
                   },
                   {
                     text: "ES Module",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/module/es-module/",
                     items: [
                       {
@@ -1831,7 +1831,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -1857,11 +1857,11 @@ export default defineConfig({
               },
               {
                 text: "包管理器",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "npm",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/package-manager/npm/",
                     items: [
                       {
@@ -1870,7 +1870,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -1894,7 +1894,7 @@ export default defineConfig({
                   },
                   {
                     text: "pnpm",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/package-manager/pnpm/",
                     items: [
                       {
@@ -1903,7 +1903,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -1927,7 +1927,7 @@ export default defineConfig({
                   },
                   {
                     text: "yarn",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/package-manager/yarn/",
                     items: [
                       {
@@ -1936,7 +1936,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -1960,7 +1960,7 @@ export default defineConfig({
                   },
                   {
                     text: "bun",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/package-manager/bun/",
                     items: [
                       {
@@ -1969,7 +1969,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -1995,11 +1995,11 @@ export default defineConfig({
               },
               {
                 text: "JS扩展库",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Lodash-es",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/lodash-es/",
                     items: [
                       {
@@ -2008,7 +2008,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2032,7 +2032,7 @@ export default defineConfig({
                   },
                   {
                     text: "es-toolkit",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/es-toolkit/",
                     items: [
                       {
@@ -2041,7 +2041,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2065,7 +2065,7 @@ export default defineConfig({
                   },
                   {
                     text: "Day.js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/dayjs/",
                     items: [
                       {
@@ -2074,7 +2074,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2098,7 +2098,7 @@ export default defineConfig({
                   },
                   {
                     text: "date-fns",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/date-fns/",
                     items: [
                       {
@@ -2107,7 +2107,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2131,7 +2131,7 @@ export default defineConfig({
                   },
                   {
                     text: "Luxon",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/luxon/",
                     items: [
                       {
@@ -2140,7 +2140,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2164,7 +2164,7 @@ export default defineConfig({
                   },
                   {
                     text: "axios",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/axios/",
                     items: [
                       {
@@ -2173,7 +2173,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2197,7 +2197,7 @@ export default defineConfig({
                   },
                   {
                     text: "ky",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/ky/",
                     items: [
                       {
@@ -2206,7 +2206,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2230,7 +2230,7 @@ export default defineConfig({
                   },
                   {
                     text: "ofetch",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/ofetch/",
                     items: [
                       {
@@ -2239,7 +2239,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2263,7 +2263,7 @@ export default defineConfig({
                   },
                   {
                     text: "Zod",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/zod/",
                     items: [
                       {
@@ -2272,7 +2272,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2296,7 +2296,7 @@ export default defineConfig({
                   },
                   {
                     text: "Valibot",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/valibot/",
                     items: [
                       {
@@ -2305,7 +2305,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2329,7 +2329,7 @@ export default defineConfig({
                   },
                   {
                     text: "Immer",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/immer/",
                     items: [
                       {
@@ -2338,7 +2338,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2362,7 +2362,7 @@ export default defineConfig({
                   },
                   {
                     text: "RxJS",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/rxjs/",
                     items: [
                       {
@@ -2371,7 +2371,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2395,7 +2395,7 @@ export default defineConfig({
                   },
                   {
                     text: "nanoid",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/nanoid/",
                     items: [
                       {
@@ -2404,7 +2404,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2428,7 +2428,7 @@ export default defineConfig({
                   },
                   {
                     text: "type-fest",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/type-fest/",
                     items: [
                       {
@@ -2437,7 +2437,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2461,7 +2461,7 @@ export default defineConfig({
                   },
                   {
                     text: "ts-pattern",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/ts-pattern/",
                     items: [
                       {
@@ -2470,7 +2470,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2494,7 +2494,7 @@ export default defineConfig({
                   },
                   {
                     text: "DOMPurify",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/dompurify/",
                     items: [
                       {
@@ -2503,7 +2503,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2527,7 +2527,7 @@ export default defineConfig({
                   },
                   {
                     text: "decimal.js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/decimal-js/",
                     items: [
                       {
@@ -2536,7 +2536,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2560,7 +2560,7 @@ export default defineConfig({
                   },
                   {
                     text: "PapaParse",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/papaparse/",
                     items: [
                       {
@@ -2569,7 +2569,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2593,7 +2593,7 @@ export default defineConfig({
                   },
                   {
                     text: "Fuse.js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/fuse-js/",
                     items: [
                       {
@@ -2602,7 +2602,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2626,7 +2626,7 @@ export default defineConfig({
                   },
                   {
                     text: "前端实用小库",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/utility-libs/",
                     items: [
                       {
@@ -2635,7 +2635,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2659,7 +2659,7 @@ export default defineConfig({
                   },
                   {
                     text: "crypto-js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/web-advanced/js-extension/crypto-js/",
                     items: [
                       {
@@ -2668,7 +2668,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2701,11 +2701,11 @@ export default defineConfig({
             items: [
               {
                 text: "UI框架",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "React",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ui/react/",
                     items: [
                       {
@@ -2714,7 +2714,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2742,7 +2742,7 @@ export default defineConfig({
                   },
                   {
                     text: "Vue",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ui/vue/",
                     items: [
                       {
@@ -2751,7 +2751,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2779,7 +2779,7 @@ export default defineConfig({
                   },
                   {
                     text: "Angular",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ui/angular/",
                     items: [
                       {
@@ -2788,7 +2788,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2816,7 +2816,7 @@ export default defineConfig({
                   },
                   {
                     text: "Svelte",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ui/svelte/",
                     items: [
                       {
@@ -2825,7 +2825,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2853,7 +2853,7 @@ export default defineConfig({
                   },
                   {
                     text: "Solid",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ui/solid/",
                     items: [
                       {
@@ -2872,7 +2872,7 @@ export default defineConfig({
                   },
                   {
                     text: "Lit",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ui/lit/",
                     items: [
                       {
@@ -2891,7 +2891,7 @@ export default defineConfig({
                   },
                   {
                     text: "Alpine.js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ui/alpine-js/",
                     items: [
                       {
@@ -2910,7 +2910,7 @@ export default defineConfig({
                   },
                   {
                     text: "HTMX",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ui/htmx/",
                     items: [
                       {
@@ -2929,7 +2929,7 @@ export default defineConfig({
                   },
                   {
                     text: "Preact",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ui/preact/",
                     items: [
                       {
@@ -2946,11 +2946,11 @@ export default defineConfig({
               },
               {
                 text: "元框架",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Next.js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/meta/next-js/",
                     items: [
                       {
@@ -2959,7 +2959,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -2987,7 +2987,7 @@ export default defineConfig({
                   },
                   {
                     text: "Nuxt",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/meta/nuxt/",
                     items: [
                       {
@@ -2996,7 +2996,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -3024,7 +3024,7 @@ export default defineConfig({
                   },
                   {
                     text: "Astro",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/meta/astro/",
                     items: [
                       {
@@ -3033,7 +3033,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -3061,7 +3061,7 @@ export default defineConfig({
                   },
                   {
                     text: "Qwik",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/meta/qwik/",
                     items: [
                       {
@@ -3080,7 +3080,7 @@ export default defineConfig({
                   },
                   {
                     text: "React Router",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/meta/react-router/",
                     items: [
                       {
@@ -3099,7 +3099,7 @@ export default defineConfig({
                   },
                   {
                     text: "SolidStart",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/meta/solid-start/",
                     items: [
                       {
@@ -3118,7 +3118,7 @@ export default defineConfig({
                   },
                   {
                     text: "SvelteKit",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/meta/svelte-kit/",
                     items: [
                       {
@@ -3127,7 +3127,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -3155,7 +3155,7 @@ export default defineConfig({
                   },
                   {
                     text: "TanStack Start",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/meta/tanstack-start/",
                     items: [
                       {
@@ -3174,7 +3174,7 @@ export default defineConfig({
                   },
                   {
                     text: "Analog",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/meta/analog/",
                     items: [
                       {
@@ -3193,7 +3193,7 @@ export default defineConfig({
                   },
                   {
                     text: "Remix",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/meta/remix/",
                     items: [
                       {
@@ -3210,11 +3210,11 @@ export default defineConfig({
               },
               {
                 text: "静态网站框架",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Docusaurus",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ssg/docusaurus/",
                     items: [
                       {
@@ -3233,7 +3233,7 @@ export default defineConfig({
                   },
                   {
                     text: "VitePress",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ssg/vite-press/",
                     items: [
                       {
@@ -3242,7 +3242,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -3260,7 +3260,7 @@ export default defineConfig({
                   },
                   {
                     text: "Slidev",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ssg/slidev/",
                     items: [
                       {
@@ -3269,7 +3269,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -3297,7 +3297,7 @@ export default defineConfig({
                   },
                   {
                     text: "Hexo",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ssg/hexo/",
                     items: [
                       {
@@ -3316,7 +3316,7 @@ export default defineConfig({
                   },
                   {
                     text: "Eleventy",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ssg/eleventy/",
                     items: [
                       {
@@ -3335,7 +3335,7 @@ export default defineConfig({
                   },
                   {
                     text: "Nextra",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ssg/nextra/",
                     items: [
                       {
@@ -3354,7 +3354,7 @@ export default defineConfig({
                   },
                   {
                     text: "Starlight",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/ssg/starlight/",
                     items: [
                       {
@@ -3375,11 +3375,11 @@ export default defineConfig({
               },
               {
                 text: "组件库",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Element Plus",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/element-plus/",
                     items: [
                       {
@@ -3398,7 +3398,7 @@ export default defineConfig({
                   },
                   {
                     text: "Vuetify",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/vuetify/",
                     items: [
                       {
@@ -3417,7 +3417,7 @@ export default defineConfig({
                   },
                   {
                     text: "Vant UI",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/vant-ui/",
                     items: [
                       {
@@ -3436,7 +3436,7 @@ export default defineConfig({
                   },
                   {
                     text: "Naive UI",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/naive-ui/",
                     items: [
                       {
@@ -3455,7 +3455,7 @@ export default defineConfig({
                   },
                   {
                     text: "PrimeVue",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/prime-vue/",
                     items: [
                       {
@@ -3474,7 +3474,7 @@ export default defineConfig({
                   },
                   {
                     text: "Arco Design Vue",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/arco-design-vue/",
                     items: [
                       {
@@ -3493,7 +3493,7 @@ export default defineConfig({
                   },
                   {
                     text: "Ant Design",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/ant-design/",
                     items: [
                       {
@@ -3512,7 +3512,7 @@ export default defineConfig({
                   },
                   {
                     text: "Angular Material",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/angular-material/",
                     items: [
                       {
@@ -3531,7 +3531,7 @@ export default defineConfig({
                   },
                   {
                     text: "NG-ZORRO",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/ng-zorro/",
                     items: [
                       {
@@ -3550,7 +3550,7 @@ export default defineConfig({
                   },
                   {
                     text: "PrimeNG",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/prime-ng/",
                     items: [
                       {
@@ -3569,7 +3569,7 @@ export default defineConfig({
                   },
                   {
                     text: "MUI",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/mui/",
                     items: [
                       {
@@ -3588,7 +3588,7 @@ export default defineConfig({
                   },
                   {
                     text: "Mantine",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/mantine/",
                     items: [
                       {
@@ -3607,7 +3607,7 @@ export default defineConfig({
                   },
                   {
                     text: "Chakra UI",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/chakra-ui/",
                     items: [
                       {
@@ -3626,7 +3626,7 @@ export default defineConfig({
                   },
                   {
                     text: "Nuxt UI",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/nuxt-ui/",
                     items: [
                       {
@@ -3645,7 +3645,7 @@ export default defineConfig({
                   },
                   {
                     text: "Radix UI",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/radix-ui/",
                     items: [
                       {
@@ -3664,7 +3664,7 @@ export default defineConfig({
                   },
                   {
                     text: "Headless UI",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/headless-ui/",
                     items: [
                       {
@@ -3683,7 +3683,7 @@ export default defineConfig({
                   },
                   {
                     text: "shadcn/ui",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/shadcn/",
                     items: [
                       {
@@ -3702,7 +3702,7 @@ export default defineConfig({
                   },
                   {
                     text: "Astryx",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/components/astryx/",
                     items: [
                       { text: "入门", link: "/zh/frontend-framework/components/astryx/getting-started" },
@@ -3714,11 +3714,11 @@ export default defineConfig({
               },
               {
                 text: "状态库",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Pinia",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/state/pinia/",
                     items: [
                       {
@@ -3737,7 +3737,7 @@ export default defineConfig({
                   },
                   {
                     text: "Zustand",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/state/zustand/",
                     items: [
                       {
@@ -3756,7 +3756,7 @@ export default defineConfig({
                   },
                   {
                     text: "Jotai",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/state/jotai/",
                     items: [
                       {
@@ -3775,7 +3775,7 @@ export default defineConfig({
                   },
                   {
                     text: "Redux",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/state/redux/",
                     items: [
                       {
@@ -3794,7 +3794,7 @@ export default defineConfig({
                   },
                   {
                     text: "MobX",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/state/mobx/",
                     items: [
                       {
@@ -3813,7 +3813,7 @@ export default defineConfig({
                   },
                   {
                     text: "NgRx",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/state/ng-rx/",
                     items: [
                       {
@@ -3834,11 +3834,11 @@ export default defineConfig({
               },
               {
                 text: "路由库",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Vue Router",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/router/vue-router/",
                     items: [
                       {
@@ -3857,7 +3857,7 @@ export default defineConfig({
                   },
                   {
                     text: "TanStack Router",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/router/tanstack-router/",
                     items: [
                       {
@@ -3876,7 +3876,7 @@ export default defineConfig({
                   },
                   {
                     text: "React Navigation",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/router/react-navigation/",
                     items: [
                       {
@@ -3897,11 +3897,11 @@ export default defineConfig({
               },
               {
                 text: "组合式函数库",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "VueUse",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/composables/vueuse/",
                     items: [
                       {
@@ -3920,7 +3920,7 @@ export default defineConfig({
                   },
                   {
                     text: "VueHooks Plus",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/composables/vue-hooks-plus/",
                     items: [
                       {
@@ -3935,7 +3935,7 @@ export default defineConfig({
                   },
                   {
                     text: "Ahooks",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/composables/ahooks/",
                     items: [
                       {
@@ -3950,7 +3950,7 @@ export default defineConfig({
                   },
                   {
                     text: "React Use",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/composables/react-use/",
                     items: [
                       {
@@ -3965,7 +3965,7 @@ export default defineConfig({
                   },
                   {
                     text: "usehooks-ts",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/composables/usehooks-ts/",
                     items: [
                       {
@@ -3982,11 +3982,11 @@ export default defineConfig({
               },
               {
                 text: "文档处理",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "SheetJS",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/document/sheetjs/",
                     items: [
                       {
@@ -3995,7 +3995,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4019,7 +4019,7 @@ export default defineConfig({
                   },
                   {
                     text: "ExcelJS",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/document/exceljs/",
                     items: [
                       {
@@ -4028,7 +4028,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4052,7 +4052,7 @@ export default defineConfig({
                   },
                   {
                     text: "docx",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/document/docx/",
                     items: [
                       {
@@ -4061,7 +4061,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4085,7 +4085,7 @@ export default defineConfig({
                   },
                   {
                     text: "mammoth",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/document/mammoth/",
                     items: [
                       {
@@ -4094,7 +4094,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4118,7 +4118,7 @@ export default defineConfig({
                   },
                   {
                     text: "docxtemplater",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/document/docxtemplater/",
                     items: [
                       {
@@ -4127,7 +4127,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4151,7 +4151,7 @@ export default defineConfig({
                   },
                   {
                     text: "docx-editor",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/document/docx-editor/",
                     items: [
                       {
@@ -4160,7 +4160,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4184,7 +4184,7 @@ export default defineConfig({
                   },
                   {
                     text: "PDF.js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/document/pdfjs/",
                     items: [
                       {
@@ -4193,7 +4193,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4217,7 +4217,7 @@ export default defineConfig({
                   },
                   {
                     text: "jsPDF",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/document/jspdf/",
                     items: [
                       {
@@ -4226,7 +4226,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4250,7 +4250,7 @@ export default defineConfig({
                   },
                   {
                     text: "pdf-lib",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/document/pdf-lib/",
                     items: [
                       {
@@ -4259,7 +4259,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4283,7 +4283,7 @@ export default defineConfig({
                   },
                   {
                     text: "pptxgenjs",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/document/pptxgenjs/",
                     items: [
                       {
@@ -4292,7 +4292,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4318,11 +4318,11 @@ export default defineConfig({
               },
               {
                 text: "其他",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Iconify",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/others/iconify/",
                     items: [
                       {
@@ -4337,7 +4337,7 @@ export default defineConfig({
                   },
                   {
                     text: "Shiki",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/others/shiki/",
                     items: [
                       {
@@ -4352,7 +4352,7 @@ export default defineConfig({
                   },
                   {
                     text: "Markdown-it",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/others/markdown-it/",
                     items: [
                       {
@@ -4367,7 +4367,7 @@ export default defineConfig({
                   },
                   {
                     text: "TanStack Query",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/others/tanstack-query/",
                     items: [
                       {
@@ -4382,7 +4382,7 @@ export default defineConfig({
                   },
                   {
                     text: "Vee-validate",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/others/vee-validate/",
                     items: [
                       {
@@ -4401,7 +4401,7 @@ export default defineConfig({
                   },
                   {
                     text: "Vue I18n",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/others/vue-i18n/",
                     items: [
                       {
@@ -4420,7 +4420,7 @@ export default defineConfig({
                   },
                   {
                     text: "i18next",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-framework/others/i18next/",
                     items: [
                       {
@@ -4429,7 +4429,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4462,11 +4462,11 @@ export default defineConfig({
             items: [
               {
                 text: "构建工具",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Vite",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/build/vite/",
                     items: [
                       {
@@ -4475,7 +4475,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4503,7 +4503,7 @@ export default defineConfig({
                   },
                   {
                     text: "Webpack",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/build/webpack/",
                     items: [
                       {
@@ -4512,7 +4512,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4540,7 +4540,7 @@ export default defineConfig({
                   },
                   {
                     text: "Turbopack",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/build/turbopack/",
                     items: [
                       {
@@ -4551,7 +4551,7 @@ export default defineConfig({
                   },
                   {
                     text: "Parcel",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/build/parcel/",
                     items: [
                       {
@@ -4560,7 +4560,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4572,7 +4572,7 @@ export default defineConfig({
                   },
                   {
                     text: "Rsbuild",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/build/rsbuild/",
                     items: [
                       {
@@ -4581,7 +4581,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4595,11 +4595,11 @@ export default defineConfig({
               },
               {
                 text: "编译器",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Babel",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/compiler/babel/",
                     items: [
                       {
@@ -4608,7 +4608,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4632,7 +4632,7 @@ export default defineConfig({
                   },
                   {
                     text: "SWC",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/compiler/swc/",
                     items: [
                       {
@@ -4641,7 +4641,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4665,7 +4665,7 @@ export default defineConfig({
                   },
                   {
                     text: "tsc",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/compiler/tsc/",
                     items: [
                       {
@@ -4674,7 +4674,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4700,11 +4700,11 @@ export default defineConfig({
               },
               {
                 text: "打包工具",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "esbuild",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/bundler/esbuild/",
                     items: [
                       {
@@ -4713,7 +4713,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4737,7 +4737,7 @@ export default defineConfig({
                   },
                   {
                     text: "Rollup",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/bundler/rollup/",
                     items: [
                       {
@@ -4746,7 +4746,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4770,7 +4770,7 @@ export default defineConfig({
                   },
                   {
                     text: "Rolldown",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/bundler/rolldown/",
                     items: [
                       {
@@ -4779,7 +4779,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4803,7 +4803,7 @@ export default defineConfig({
                   },
                   {
                     text: "Rspack",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/bundler/rspack/",
                     items: [
                       {
@@ -4812,7 +4812,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4836,7 +4836,7 @@ export default defineConfig({
                   },
                   {
                     text: "tsup",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/bundler/tsup/",
                     items: [
                       {
@@ -4845,7 +4845,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4869,7 +4869,7 @@ export default defineConfig({
                   },
                   {
                     text: "tsdown",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/bundler/tsdown/",
                     items: [
                       {
@@ -4878,7 +4878,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4902,7 +4902,7 @@ export default defineConfig({
                   },
                   {
                     text: "unbuild",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-toolchain/bundler/unbuild/",
                     items: [
                       {
@@ -4911,7 +4911,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -4944,11 +4944,11 @@ export default defineConfig({
             items: [
               {
                 text: "IDE",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "VSCode",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/ide/vscode/",
                     items: [
                       {
@@ -4963,7 +4963,7 @@ export default defineConfig({
                   },
                   {
                     text: "Cursor",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/ide/cursor/",
                     items: [
                       {
@@ -4978,7 +4978,7 @@ export default defineConfig({
                   },
                   {
                     text: "WebStorm",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/ide/webstorm/",
                     items: [
                       {
@@ -4993,7 +4993,7 @@ export default defineConfig({
                   },
                   {
                     text: "Windsurf",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/ide/windsurf/",
                     items: [
                       {
@@ -5008,7 +5008,7 @@ export default defineConfig({
                   },
                   {
                     text: "Trae",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/ide/trae/",
                     items: [
                       {
@@ -5023,7 +5023,7 @@ export default defineConfig({
                   },
                   {
                     text: "Zed",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/ide/zed/",
                     items: [
                       {
@@ -5038,7 +5038,7 @@ export default defineConfig({
                   },
                   {
                     text: "Antigravity",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/ide/antigravity/",
                     items: [
                       {
@@ -5049,7 +5049,7 @@ export default defineConfig({
                   },
                   {
                     text: "Kiro",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/ide/kiro/",
                     items: [
                       {
@@ -5064,7 +5064,7 @@ export default defineConfig({
                   },
                   {
                     text: "Vim/Neovim",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/ide/vim-neovim/",
                     items: [
                       {
@@ -5079,7 +5079,7 @@ export default defineConfig({
                   },
                   {
                     text: "Sublime Text",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/ide/sublime-text/",
                     items: [
                       {
@@ -5096,11 +5096,11 @@ export default defineConfig({
               },
               {
                 text: "版本控制",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Git",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/version-control/git/",
                     items: [
                       {
@@ -5123,7 +5123,7 @@ export default defineConfig({
                   },
                   {
                     text: "GitHub Desktop",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/version-control/github-desktop/",
                     items: [
                       {
@@ -5134,7 +5134,7 @@ export default defineConfig({
                   },
                   {
                     text: "Sourcetree",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/version-control/sourcetree/",
                     items: [
                       {
@@ -5145,7 +5145,7 @@ export default defineConfig({
                   },
                   {
                     text: "GitKraken",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/version-control/gitkraken/",
                     items: [
                       {
@@ -5156,7 +5156,7 @@ export default defineConfig({
                   },
                   {
                     text: "Fork",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/version-control/fork/",
                     items: [
                       {
@@ -5167,7 +5167,7 @@ export default defineConfig({
                   },
                   {
                     text: "lazygit",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/version-control/lazygit/",
                     items: [
                       {
@@ -5178,7 +5178,7 @@ export default defineConfig({
                   },
                   {
                     text: "Jujutsu",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/version-control/jujutsu/",
                     items: [
                       {
@@ -5189,7 +5189,7 @@ export default defineConfig({
                   },
                   {
                     text: "Sapling",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/version-control/sapling/",
                     items: [
                       {
@@ -5210,11 +5210,11 @@ export default defineConfig({
               },
               {
                 text: "静态分析工具",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "ESLint",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/static-analysis/eslint/",
                     items: [
                       {
@@ -5223,7 +5223,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -5251,7 +5251,7 @@ export default defineConfig({
                   },
                   {
                     text: "oxlint",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/static-analysis/oxlint/",
                     items: [
                       {
@@ -5260,7 +5260,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "配置",
@@ -5284,7 +5284,7 @@ export default defineConfig({
                   },
                   {
                     text: "Biome",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/static-analysis/biome/",
                     items: [
                       {
@@ -5293,7 +5293,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "配置",
@@ -5321,7 +5321,7 @@ export default defineConfig({
                   },
                   {
                     text: "Prettier",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/static-analysis/prettier/",
                     items: [
                       {
@@ -5330,7 +5330,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -5338,7 +5338,7 @@ export default defineConfig({
                           },
                           {
                             text: "高级",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               {
                                 text: "配置",
@@ -5364,7 +5364,7 @@ export default defineConfig({
                   },
                   {
                     text: "Stylelint",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/static-analysis/stylelint/",
                     items: [
                       {
@@ -5373,7 +5373,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "配置",
@@ -5401,7 +5401,7 @@ export default defineConfig({
                   },
                   {
                     text: "Knip",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/static-analysis/knip/",
                     items: [
                       {
@@ -5410,7 +5410,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "配置",
@@ -5438,7 +5438,7 @@ export default defineConfig({
                   },
                   {
                     text: "commitlint",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/static-analysis/commitlint/",
                     items: [
                       {
@@ -5447,7 +5447,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "配置",
@@ -5475,7 +5475,7 @@ export default defineConfig({
                   },
                   {
                     text: "Secretlint",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/static-analysis/secretlint/",
                     items: [
                       {
@@ -5484,7 +5484,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "配置",
@@ -5508,7 +5508,7 @@ export default defineConfig({
                   },
                   {
                     text: "publint",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/static-analysis/publint/",
                     items: [
                       {
@@ -5517,7 +5517,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "CLI 与编程式 API",
@@ -5541,7 +5541,7 @@ export default defineConfig({
                   },
                   {
                     text: "EditorConfig",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/static-analysis/editorconfig/",
                     items: [
                       {
@@ -5550,7 +5550,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "属性详解",
@@ -5576,11 +5576,11 @@ export default defineConfig({
               },
               {
                 text: "在线编辑器",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "StackBlitz",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/online-editor/stackblitz/",
                     items: [
                       {
@@ -5589,7 +5589,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "WebContainers",
@@ -5613,7 +5613,7 @@ export default defineConfig({
                   },
                   {
                     text: "CodeSandbox",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/online-editor/codesandbox/",
                     items: [
                       {
@@ -5622,7 +5622,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "VM 与浏览器沙箱",
@@ -5642,7 +5642,7 @@ export default defineConfig({
                   },
                   {
                     text: "CodePen",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/online-editor/codepen/",
                     items: [
                       {
@@ -5651,7 +5651,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "编辑器与预处理器",
@@ -5671,7 +5671,7 @@ export default defineConfig({
                   },
                   {
                     text: "Expo Snack",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/online-editor/expo-snack/",
                     items: [
                       {
@@ -5680,7 +5680,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "预览机制与依赖限制",
@@ -5700,7 +5700,7 @@ export default defineConfig({
                   },
                   {
                     text: "框架官方 Playground",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/online-editor/framework-playground/",
                     items: [
                       {
@@ -5709,7 +5709,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "TypeScript Playground",
@@ -5735,16 +5735,16 @@ export default defineConfig({
               },
               {
                 text: "文档生成器",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "JSDoc",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/documentation-generator/jsdoc/",
                     items: [
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "标签详解",
@@ -5772,7 +5772,7 @@ export default defineConfig({
                   },
                   {
                     text: "TypeDoc",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/documentation-generator/typedoc/",
                     items: [
                       {
@@ -5781,7 +5781,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "注释与标签",
@@ -5809,7 +5809,7 @@ export default defineConfig({
                   },
                   {
                     text: "TSDoc",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/documentation-generator/tsdoc/",
                     items: [
                       {
@@ -5818,7 +5818,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "标签三类",
@@ -5846,7 +5846,7 @@ export default defineConfig({
                   },
                   {
                     text: "API Extractor",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/documentation-generator/api-extractor/",
                     items: [
                       {
@@ -5855,7 +5855,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "三大输出",
@@ -5883,7 +5883,7 @@ export default defineConfig({
                   },
                   {
                     text: "Swagger UI",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/documentation-generator/swagger-ui/",
                     items: [
                       {
@@ -5892,7 +5892,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "三种交付形态",
@@ -5920,7 +5920,7 @@ export default defineConfig({
                   },
                   {
                     text: "Redoc",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/documentation-generator/redoc/",
                     items: [
                       {
@@ -5929,7 +5929,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "接入方式",
@@ -5957,7 +5957,7 @@ export default defineConfig({
                   },
                   {
                     text: "Scalar",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/documentation-generator/scalar/",
                     items: [
                       {
@@ -5966,7 +5966,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "接入方式",
@@ -6003,11 +6003,11 @@ export default defineConfig({
             items: [
               {
                 text: "单元测试",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Vitest",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/unit-testing/vitest/",
                     items: [
                       {
@@ -6016,7 +6016,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "配置",
@@ -6048,7 +6048,7 @@ export default defineConfig({
                   },
                   {
                     text: "Jest",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/unit-testing/jest/",
                     items: [
                       {
@@ -6057,7 +6057,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "配置",
@@ -6089,7 +6089,7 @@ export default defineConfig({
                   },
                   {
                     text: "MSW",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/unit-testing/msw/",
                     items: [
                       {
@@ -6098,7 +6098,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Handler",
@@ -6128,11 +6128,11 @@ export default defineConfig({
               },
               {
                 text: "组件测试",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Vue Test Utils",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/component-testing/vue-test-utils/",
                     items: [
                       {
@@ -6141,7 +6141,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Wrapper API",
@@ -6173,7 +6173,7 @@ export default defineConfig({
                   },
                   {
                     text: "Testing Library",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/component-testing/testing-library/",
                     items: [
                       {
@@ -6182,7 +6182,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "查询",
@@ -6210,7 +6210,7 @@ export default defineConfig({
                   },
                   {
                     text: "@pinia/testing",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/component-testing/pinia-testing/",
                     items: [
                       {
@@ -6219,7 +6219,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "选项",
@@ -6243,7 +6243,7 @@ export default defineConfig({
                   },
                   {
                     text: "Vitest Browser Mode",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/component-testing/vitest-browser-mode/",
                     items: [
                       {
@@ -6252,7 +6252,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "配置",
@@ -6282,11 +6282,11 @@ export default defineConfig({
               },
               {
                 text: "端到端测试",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Cypress",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/e2e-testing/cypress/",
                     items: [
                       {
@@ -6295,7 +6295,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "命令与重试",
@@ -6327,7 +6327,7 @@ export default defineConfig({
                   },
                   {
                     text: "Playwright",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/e2e-testing/playwright/",
                     items: [
                       {
@@ -6336,7 +6336,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Locator 与自动等待",
@@ -6368,7 +6368,7 @@ export default defineConfig({
                   },
                   {
                     text: "Selenium",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/e2e-testing/selenium/",
                     items: [
                       {
@@ -6377,7 +6377,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "定位与交互",
@@ -6405,7 +6405,7 @@ export default defineConfig({
                   },
                   {
                     text: "WebdriverIO",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/e2e-testing/webdriverio/",
                     items: [
                       {
@@ -6414,7 +6414,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "选择器与命令",
@@ -6442,7 +6442,7 @@ export default defineConfig({
                   },
                   {
                     text: "Puppeteer",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/e2e-testing/puppeteer/",
                     items: [
                       {
@@ -6451,7 +6451,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Page 与选择器",
@@ -6481,11 +6481,11 @@ export default defineConfig({
               },
               {
                 text: "测试方法与质量",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "AI 时代如何测试",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/test-quality/ai-era-testing/",
                     items: [
                       {
@@ -6494,7 +6494,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "三方式对比",
@@ -6526,7 +6526,7 @@ export default defineConfig({
                   },
                   {
                     text: "代码覆盖率",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/test-quality/code-coverage/",
                     items: [
                       {
@@ -6535,7 +6535,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "指标与 Provider",
@@ -6567,7 +6567,7 @@ export default defineConfig({
                   },
                   {
                     text: "快照测试",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/test-quality/snapshot-testing/",
                     items: [
                       {
@@ -6576,7 +6576,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "三种快照写法",
@@ -6608,7 +6608,7 @@ export default defineConfig({
                   },
                   {
                     text: "可访问性测试",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/test-quality/accessibility-testing/",
                     items: [
                       {
@@ -6617,7 +6617,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "概念与标准",
@@ -6653,7 +6653,7 @@ export default defineConfig({
                   },
                   {
                     text: "视觉回归测试",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/test-quality/visual-regression/",
                     items: [
                       {
@@ -6662,7 +6662,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "概念与像素 diff 原理",
@@ -6694,7 +6694,7 @@ export default defineConfig({
                   },
                   {
                     text: "变异测试",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/test-quality/mutation-testing/",
                     items: [
                       {
@@ -6703,7 +6703,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "概念与变异分数",
@@ -6735,7 +6735,7 @@ export default defineConfig({
                   },
                   {
                     text: "属性测试",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/test-quality/property-testing/",
                     items: [
                       {
@@ -6744,7 +6744,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "概念与范式",
@@ -6778,11 +6778,11 @@ export default defineConfig({
               },
               {
                 text: "其他工具",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Faker.js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/testing/other-tools/faker/",
                     items: [
                       {
@@ -6791,7 +6791,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "概念与历史",
@@ -6832,11 +6832,11 @@ export default defineConfig({
             items: [
               {
                 text: "浏览器工具",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Chrome DevTools",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/browser-tools/chrome-devtools/",
                     items: [
                       {
@@ -6845,7 +6845,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Elements 与样式",
@@ -6877,7 +6877,7 @@ export default defineConfig({
                   },
                   {
                     text: "Firefox Developer Tools",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/browser-tools/firefox-devtools/",
                     items: [
                       {
@@ -6886,7 +6886,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Inspector 与布局",
@@ -6918,7 +6918,7 @@ export default defineConfig({
                   },
                   {
                     text: "Safari Web Inspector",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/browser-tools/safari-web-inspector/",
                     items: [
                       {
@@ -6927,7 +6927,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "iOS 远程调试",
@@ -6959,7 +6959,7 @@ export default defineConfig({
                   },
                   {
                     text: "React DevTools",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/browser-tools/react-devtools/",
                     items: [
                       {
@@ -6968,7 +6968,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "组件树导航",
@@ -7000,7 +7000,7 @@ export default defineConfig({
                   },
                   {
                     text: "Vue DevTools",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/browser-tools/vue-devtools/",
                     items: [
                       {
@@ -7009,7 +7009,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "组件与状态",
@@ -7041,7 +7041,7 @@ export default defineConfig({
                   },
                   {
                     text: "Angular DevTools",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/browser-tools/angular-devtools/",
                     items: [
                       {
@@ -7050,7 +7050,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "组件与指令",
@@ -7078,7 +7078,7 @@ export default defineConfig({
                   },
                   {
                     text: "Redux DevTools",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/browser-tools/redux-devtools/",
                     items: [
                       {
@@ -7087,7 +7087,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "时间旅行调试",
@@ -7117,11 +7117,11 @@ export default defineConfig({
               },
               {
                 text: "性能优化",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "异步组件",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/performance/async-components/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/async-components/getting-started.md" },
@@ -7132,7 +7132,7 @@ export default defineConfig({
                   },
                   {
                     text: "按需引入",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/performance/on-demand-import/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/on-demand-import/getting-started.md" },
@@ -7142,7 +7142,7 @@ export default defineConfig({
                   },
                   {
                     text: "虚拟化",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/performance/list-virtualization/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/list-virtualization/getting-started.md" },
@@ -7152,7 +7152,7 @@ export default defineConfig({
                   },
                   {
                     text: "事件及属性优化",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/performance/event-props-optimization/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/event-props-optimization/getting-started.md" },
@@ -7162,7 +7162,7 @@ export default defineConfig({
                   },
                   {
                     text: "渲染性能",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/performance/rendering-performance/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/rendering-performance/getting-started.md" },
@@ -7172,7 +7172,7 @@ export default defineConfig({
                   },
                   {
                     text: "图片优化",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/performance/image-optimization/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/image-optimization/getting-started.md" },
@@ -7182,11 +7182,11 @@ export default defineConfig({
                   },
                   {
                     text: "性能评估",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "Lighthouse",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/frontend-develop-tools/optimization/performance/lighthouse/",
                         items: [
                           { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/lighthouse/getting-started.md" },
@@ -7196,7 +7196,7 @@ export default defineConfig({
                       },
                       {
                         text: "Webpack Bundle Analyzer",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/frontend-develop-tools/optimization/performance/webpack-bundle-analyzer/",
                         items: [
                           { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/webpack-bundle-analyzer/getting-started.md" },
@@ -7206,7 +7206,7 @@ export default defineConfig({
                       },
                       {
                         text: "rollup-plugin-visualizer",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/frontend-develop-tools/optimization/performance/rollup-plugin-visualizer/",
                         items: [
                           { text: "入门", link: "/zh/frontend-develop-tools/optimization/performance/rollup-plugin-visualizer/getting-started.md" },
@@ -7220,11 +7220,11 @@ export default defineConfig({
               },
               {
                 text: "代码优化",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "代码分割",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/code-optimization/code-splitting/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/code-optimization/code-splitting/getting-started.md" },
@@ -7234,7 +7234,7 @@ export default defineConfig({
                   },
                   {
                     text: "Tree Shaking",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/code-optimization/tree-shaking/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/code-optimization/tree-shaking/getting-started.md" },
@@ -7244,7 +7244,7 @@ export default defineConfig({
                   },
                   {
                     text: "代码压缩",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/code-optimization/minification/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/code-optimization/minification/getting-started.md" },
@@ -7254,7 +7254,7 @@ export default defineConfig({
                   },
                   {
                     text: "Polyfill 按需加载",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/code-optimization/polyfill-loading/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/code-optimization/polyfill-loading/getting-started.md" },
@@ -7266,11 +7266,11 @@ export default defineConfig({
               },
               {
                 text: "网络优化",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "CDN",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/network-optimization/cdn/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/network-optimization/cdn/getting-started.md" },
@@ -7280,7 +7280,7 @@ export default defineConfig({
                   },
                   {
                     text: "HTTP 缓存",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/network-optimization/http-cache/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/network-optimization/http-cache/getting-started.md" },
@@ -7290,7 +7290,7 @@ export default defineConfig({
                   },
                   {
                     text: "压缩",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/network-optimization/compression/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/network-optimization/compression/getting-started.md" },
@@ -7300,7 +7300,7 @@ export default defineConfig({
                   },
                   {
                     text: "HTTP/2·HTTP/3",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/network-optimization/http2-http3/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/network-optimization/http2-http3/getting-started.md" },
@@ -7310,7 +7310,7 @@ export default defineConfig({
                   },
                   {
                     text: "Service Worker 缓存",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/network-optimization/service-worker-cache/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/network-optimization/service-worker-cache/getting-started.md" },
@@ -7322,11 +7322,11 @@ export default defineConfig({
               },
               {
                 text: "用户体验优化",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "懒加载和预加载",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/ux-optimization/lazy-loading/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/ux-optimization/lazy-loading/getting-started.md" },
@@ -7336,7 +7336,7 @@ export default defineConfig({
                   },
                   {
                     text: "交互优化",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/ux-optimization/interaction-optimization/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/ux-optimization/interaction-optimization/getting-started.md" },
@@ -7346,7 +7346,7 @@ export default defineConfig({
                   },
                   {
                     text: "过渡动画",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/ux-optimization/view-transitions/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/ux-optimization/view-transitions/getting-started.md" },
@@ -7356,7 +7356,7 @@ export default defineConfig({
                   },
                   {
                     text: "可访问性",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/ux-optimization/accessibility/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/ux-optimization/accessibility/getting-started.md" },
@@ -7368,11 +7368,11 @@ export default defineConfig({
               },
               {
                 text: "搜索引擎优化",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "技术 SEO",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/seo/technical-seo/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/seo/technical-seo/getting-started.md" },
@@ -7382,7 +7382,7 @@ export default defineConfig({
                   },
                   {
                     text: "页面 SEO",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/seo/on-page-seo/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/seo/on-page-seo/getting-started.md" },
@@ -7392,7 +7392,7 @@ export default defineConfig({
                   },
                   {
                     text: "结构化数据",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/seo/structured-data/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/seo/structured-data/getting-started.md" },
@@ -7402,7 +7402,7 @@ export default defineConfig({
                   },
                   {
                     text: "GEO",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-develop-tools/optimization/seo/geo/",
                     items: [
                       { text: "入门", link: "/zh/frontend-develop-tools/optimization/seo/geo/getting-started.md" },
@@ -7421,11 +7421,11 @@ export default defineConfig({
             items: [
               {
                 text: "设计模式",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "架构模式（MVC / MVP / MVVM）",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/design-patterns/architecture-patterns/",
                     items: [
                       { text: "入门", link: "/zh/architecture/design-patterns/architecture-patterns/getting-started.md" },
@@ -7435,7 +7435,7 @@ export default defineConfig({
                   },
                   {
                     text: "创建型设计模式",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/design-patterns/creational-patterns/",
                     items: [
                       { text: "入门", link: "/zh/architecture/design-patterns/creational-patterns/getting-started.md" },
@@ -7445,7 +7445,7 @@ export default defineConfig({
                   },
                   {
                     text: "结构型设计模式",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/design-patterns/structural-patterns/",
                     items: [
                       { text: "入门", link: "/zh/architecture/design-patterns/structural-patterns/getting-started.md" },
@@ -7455,7 +7455,7 @@ export default defineConfig({
                   },
                   {
                     text: "行为型设计模式",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/design-patterns/behavioral-patterns/",
                     items: [
                       { text: "入门", link: "/zh/architecture/design-patterns/behavioral-patterns/getting-started.md" },
@@ -7467,11 +7467,11 @@ export default defineConfig({
               },
               {
                 text: "组件设计",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "组件分类与设计原则",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/component-design/component-design/",
                     items: [
                       { text: "入门", link: "/zh/architecture/component-design/component-design/getting-started.md" },
@@ -7481,7 +7481,7 @@ export default defineConfig({
                   },
                   {
                     text: "Storybook",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/component-design/storybook/",
                     items: [
                       { text: "入门", link: "/zh/architecture/component-design/storybook/getting-started.md" },
@@ -7491,7 +7491,7 @@ export default defineConfig({
                   },
                   {
                     text: "Styleguidist",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/component-design/styleguidist/",
                     items: [
                       { text: "入门", link: "/zh/architecture/component-design/styleguidist/getting-started.md" },
@@ -7503,11 +7503,11 @@ export default defineConfig({
               },
               {
                 text: "渲染架构",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "渲染模式选型",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/rendering-architecture/rendering-architecture/",
                     items: [
                       { text: "入门", link: "/zh/architecture/rendering-architecture/rendering-architecture/getting-started.md" },
@@ -7519,11 +7519,11 @@ export default defineConfig({
               },
               {
                 text: "状态管理架构",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "状态架构策略",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/state-architecture/state-architecture/",
                     items: [
                       { text: "入门", link: "/zh/architecture/state-architecture/state-architecture/getting-started.md" },
@@ -7538,17 +7538,17 @@ export default defineConfig({
                 // （spec: quiz-monorepo/docs/plans/20260702-frontend-arch-micro-frontend-trilogy.md）。
                 // 产出一叶补一叶 link（text 占位约定）；原「single spa」错名统一为「single-spa」。
                 text: "微前端框架",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "微前端基础",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/micro-frontend/mfe-basics/",
                     items: [
                       { text: "入门", link: "/zh/architecture/micro-frontend/mfe-basics/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "微前端是什么与为什么", link: "/zh/architecture/micro-frontend/mfe-basics/guide-line/what-why.md" },
                           { text: "适用判据与反判据", link: "/zh/architecture/micro-frontend/mfe-basics/guide-line/when-not-to-use.md" },
@@ -7563,13 +7563,13 @@ export default defineConfig({
                   },
                   {
                     text: "微前端核心机制",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/micro-frontend/mfe-mechanisms/",
                     items: [
                       { text: "入门", link: "/zh/architecture/micro-frontend/mfe-mechanisms/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "JS 沙箱谱系", link: "/zh/architecture/micro-frontend/mfe-mechanisms/guide-line/js-sandbox.md" },
                           { text: "CSS 隔离", link: "/zh/architecture/micro-frontend/mfe-mechanisms/guide-line/css-isolation.md" },
@@ -7584,13 +7584,13 @@ export default defineConfig({
                   },
                   {
                     text: "single-spa",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/micro-frontend/single-spa/",
                     items: [
                       { text: "入门", link: "/zh/architecture/micro-frontend/single-spa/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "三种模块类型", link: "/zh/architecture/micro-frontend/single-spa/guide-line/three-types.md" },
                           { text: "生命周期协议", link: "/zh/architecture/micro-frontend/single-spa/guide-line/lifecycle-protocol.md" },
@@ -7605,13 +7605,13 @@ export default defineConfig({
                   },
                   {
                     text: "qiankun",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/micro-frontend/qiankun/",
                     items: [
                       { text: "入门", link: "/zh/architecture/micro-frontend/qiankun/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "核心 API", link: "/zh/architecture/micro-frontend/qiankun/guide-line/core-api.md" },
                           { text: "沙箱实现", link: "/zh/architecture/micro-frontend/qiankun/guide-line/sandbox-impl.md" },
@@ -7626,13 +7626,13 @@ export default defineConfig({
                   },
                   {
                     text: "wujie",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/micro-frontend/wujie/",
                     items: [
                       { text: "入门", link: "/zh/architecture/micro-frontend/wujie/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "iframe JS 沙箱", link: "/zh/architecture/micro-frontend/wujie/guide-line/iframe-sandbox.md" },
                           { text: "WebComponent 容器渲染", link: "/zh/architecture/micro-frontend/wujie/guide-line/wc-rendering.md" },
@@ -7647,13 +7647,13 @@ export default defineConfig({
                   },
                   {
                     text: "micro-app",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/micro-frontend/micro-app/",
                     items: [
                       { text: "入门", link: "/zh/architecture/micro-frontend/micro-app/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "CustomElement 容器", link: "/zh/architecture/micro-frontend/micro-app/guide-line/custom-element.md" },
                           { text: "with 沙箱（默认）", link: "/zh/architecture/micro-frontend/micro-app/guide-line/with-sandbox.md" },
@@ -7668,13 +7668,13 @@ export default defineConfig({
                   },
                   {
                     text: "Module Federation",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/architecture/micro-frontend/module-federation/",
                     items: [
                       { text: "入门", link: "/zh/architecture/micro-frontend/module-federation/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "联邦概念与心智模型", link: "/zh/architecture/micro-frontend/module-federation/guide-line/federation-concepts.md" },
                           { text: "shared 版本治理", link: "/zh/architecture/micro-frontend/module-federation/guide-line/shared-governance.md" },
@@ -7698,17 +7698,17 @@ export default defineConfig({
             items: [
               {
                 text: "移动端框架",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "React Native",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/mobile-framework/react-native/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/mobile-framework/react-native/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "新架构深潜", link: "/zh/mobile-desktop/mobile-framework/react-native/guide-line/new-architecture.md" },
                           { text: "样式与布局", link: "/zh/mobile-desktop/mobile-framework/react-native/guide-line/styling-layout.md" },
@@ -7723,13 +7723,13 @@ export default defineConfig({
                   },
                   {
                     text: "Flutter",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/mobile-framework/flutter/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/mobile-framework/flutter/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "Dart 与 Widget", link: "/zh/mobile-desktop/mobile-framework/flutter/guide-line/dart-widgets.md" },
                           { text: "约束布局", link: "/zh/mobile-desktop/mobile-framework/flutter/guide-line/layout-constraints.md" },
@@ -7743,13 +7743,13 @@ export default defineConfig({
                   },
                   {
                     text: "Capacitor",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/mobile-framework/capacitor/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/mobile-framework/capacitor/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "WebView 与原生桥", link: "/zh/mobile-desktop/mobile-framework/capacitor/guide-line/webview-architecture.md" },
                           { text: "原生工程即源码", link: "/zh/mobile-desktop/mobile-framework/capacitor/guide-line/native-projects.md" },
@@ -7763,13 +7763,13 @@ export default defineConfig({
                   },
                   {
                     text: "Ionic",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/mobile-framework/ionic/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/mobile-framework/ionic/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "组件与双 mode", link: "/zh/mobile-desktop/mobile-framework/ionic/guide-line/components-modes.md" },
                           { text: "主题", link: "/zh/mobile-desktop/mobile-framework/ionic/guide-line/theming.md" },
@@ -7783,13 +7783,13 @@ export default defineConfig({
                   },
                   {
                     text: "Lynx",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/mobile-framework/lynx/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/mobile-framework/lynx/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "双线程架构", link: "/zh/mobile-desktop/mobile-framework/lynx/guide-line/dual-thread.md" },
                           { text: "ReactLynx", link: "/zh/mobile-desktop/mobile-framework/lynx/guide-line/reactlynx.md" },
@@ -7803,17 +7803,17 @@ export default defineConfig({
               },
               {
                 text: "小程序",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "微信小程序",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "四文件结构", link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/guide-line/four-files.md" },
                           { text: "双线程架构", link: "/zh/mobile-desktop/miniprogram/wechat-miniprogram/guide-line/dual-thread.md" },
@@ -7828,13 +7828,13 @@ export default defineConfig({
                   },
                   {
                     text: "支付宝小程序",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/miniprogram/alipay-miniprogram/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/miniprogram/alipay-miniprogram/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "结构与视图", link: "/zh/mobile-desktop/miniprogram/alipay-miniprogram/guide-line/structure.md" },
                           { text: "事件与 API", link: "/zh/mobile-desktop/miniprogram/alipay-miniprogram/guide-line/events-api.md" },
@@ -7847,13 +7847,13 @@ export default defineConfig({
                   },
                   {
                     text: "抖音小程序",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/miniprogram/douyin-miniprogram/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/miniprogram/douyin-miniprogram/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "文件结构与视图层", link: "/zh/mobile-desktop/miniprogram/douyin-miniprogram/guide-line/structure.md" },
                           { text: "API 与生命周期", link: "/zh/mobile-desktop/miniprogram/douyin-miniprogram/guide-line/api-lifecycle.md" },
@@ -7866,13 +7866,13 @@ export default defineConfig({
                   },
                   {
                     text: "百度智能小程序",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/miniprogram/baidu-miniprogram/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/miniprogram/baidu-miniprogram/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "SWAN 框架", link: "/zh/mobile-desktop/miniprogram/baidu-miniprogram/guide-line/swan-framework.md" },
                           { text: "API 与搜索分发", link: "/zh/mobile-desktop/miniprogram/baidu-miniprogram/guide-line/api-distribution.md" },
@@ -7884,13 +7884,13 @@ export default defineConfig({
                   },
                   {
                     text: "QQ小程序",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/miniprogram/qq-miniprogram/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/miniprogram/qq-miniprogram/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "对比微信", link: "/zh/mobile-desktop/miniprogram/qq-miniprogram/guide-line/vs-wechat.md" },
                           { text: "登录与迁移", link: "/zh/mobile-desktop/miniprogram/qq-miniprogram/guide-line/login-migration.md" },
@@ -7902,13 +7902,13 @@ export default defineConfig({
                   },
                   {
                     text: "uni-app",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/miniprogram/uni-app/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/miniprogram/uni-app/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "工程配置", link: "/zh/mobile-desktop/miniprogram/uni-app/guide-line/project-config.md" },
                           { text: "API 与组件", link: "/zh/mobile-desktop/miniprogram/uni-app/guide-line/api-components.md" },
@@ -7923,13 +7923,13 @@ export default defineConfig({
                   },
                   {
                     text: "Taro",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/miniprogram/taro/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/miniprogram/taro/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "React 模型", link: "/zh/mobile-desktop/miniprogram/taro/guide-line/react-model.md" },
                           { text: "Hooks 与路由", link: "/zh/mobile-desktop/miniprogram/taro/guide-line/hooks-router.md" },
@@ -7946,17 +7946,17 @@ export default defineConfig({
               },
               {
                 text: "桌面端框架",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Electron",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/desktop-framework/electron/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/desktop-framework/electron/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "进程模型", link: "/zh/mobile-desktop/desktop-framework/electron/guide-line/process-model.md" },
                           { text: "IPC 通信", link: "/zh/mobile-desktop/desktop-framework/electron/guide-line/ipc.md" },
@@ -7970,13 +7970,13 @@ export default defineConfig({
                   },
                   {
                     text: "Tauri",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/desktop-framework/tauri/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/desktop-framework/tauri/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "架构", link: "/zh/mobile-desktop/desktop-framework/tauri/guide-line/architecture.md" },
                           { text: "命令与 IPC", link: "/zh/mobile-desktop/desktop-framework/tauri/guide-line/commands-ipc.md" },
@@ -7990,13 +7990,13 @@ export default defineConfig({
                   },
                   {
                     text: "Wails",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/desktop-framework/wails/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/desktop-framework/wails/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "架构", link: "/zh/mobile-desktop/desktop-framework/wails/guide-line/architecture.md" },
                           { text: "绑定与运行时", link: "/zh/mobile-desktop/desktop-framework/wails/guide-line/bindings-runtime.md" },
@@ -8009,13 +8009,13 @@ export default defineConfig({
                   },
                   {
                     text: "Neutralino",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/mobile-desktop/desktop-framework/neutralino/",
                     items: [
                       { text: "入门", link: "/zh/mobile-desktop/desktop-framework/neutralino/getting-started.md" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "架构", link: "/zh/mobile-desktop/desktop-framework/neutralino/guide-line/architecture.md" },
                           { text: "API 与扩展", link: "/zh/mobile-desktop/desktop-framework/neutralino/guide-line/api-extensions.md" },
@@ -8039,17 +8039,17 @@ export default defineConfig({
             items: [
               {
                 text: "图形基础",
-                collapsed: true,
+                collapsed: false,
                 items: [
                 {
                   text: "Canvas",
-                  collapsed: true,
+                  collapsed: false,
                   link: "/zh/frontend-visualization/canvas/",
                   items: [
                     { text: "入门", link: "/zh/frontend-visualization/canvas/getting-started" },
                     {
                       text: "指南",
-                      collapsed: true,
+                      collapsed: false,
                       items: [
                         { text: "绘图基础", link: "/zh/frontend-visualization/canvas/guide-line/drawing-basics" },
                         { text: "图像与像素", link: "/zh/frontend-visualization/canvas/guide-line/images-and-pixels" },
@@ -8063,13 +8063,13 @@ export default defineConfig({
                 },
                 {
                   text: "SVG",
-                  collapsed: true,
+                  collapsed: false,
                   link: "/zh/frontend-visualization/svg/",
                   items: [
                     { text: "入门", link: "/zh/frontend-visualization/svg/getting-started" },
                     {
                       text: "指南",
-                      collapsed: true,
+                      collapsed: false,
                       items: [
                         { text: "坐标与形状", link: "/zh/frontend-visualization/svg/guide-line/coordinates-and-shapes" },
                         { text: "路径", link: "/zh/frontend-visualization/svg/guide-line/paths" },
@@ -8085,17 +8085,17 @@ export default defineConfig({
               },
               {
                 text: "图表",
-                collapsed: true,
+                collapsed: false,
                 items: [
                 {
                   text: "ECharts",
-                  collapsed: true,
+                  collapsed: false,
                   link: "/zh/frontend-visualization/echarts/",
                   items: [
                     { text: "入门", link: "/zh/frontend-visualization/echarts/getting-started" },
                     {
                       text: "指南",
-                      collapsed: true,
+                      collapsed: false,
                       items: [
                         { text: "实例与 option", link: "/zh/frontend-visualization/echarts/guide-line/instance-and-option" },
                         { text: "dataset 与系列", link: "/zh/frontend-visualization/echarts/guide-line/dataset-and-series" },
@@ -8109,13 +8109,13 @@ export default defineConfig({
                 },
                 {
                   text: "D3.js",
-                  collapsed: true,
+                  collapsed: false,
                   link: "/zh/frontend-visualization/d3/",
                   items: [
                     { text: "入门", link: "/zh/frontend-visualization/d3/getting-started" },
                     {
                       text: "指南",
-                      collapsed: true,
+                      collapsed: false,
                       items: [
                         { text: "选择集与数据绑定", link: "/zh/frontend-visualization/d3/guide-line/selection-and-data" },
                         { text: "比例尺与坐标轴", link: "/zh/frontend-visualization/d3/guide-line/scales-and-axes" },
@@ -8129,13 +8129,13 @@ export default defineConfig({
                 },
                 {
                   text: "Chart.js",
-                  collapsed: true,
+                  collapsed: false,
                   link: "/zh/frontend-visualization/chartjs/",
                   items: [
                     { text: "入门", link: "/zh/frontend-visualization/chartjs/getting-started" },
                     {
                       text: "指南",
-                      collapsed: true,
+                      collapsed: false,
                       items: [
                         { text: "数据与 options", link: "/zh/frontend-visualization/chartjs/guide-line/data-and-options" },
                         { text: "坐标轴与交互", link: "/zh/frontend-visualization/chartjs/guide-line/scales-and-interactions" },
@@ -8148,13 +8148,13 @@ export default defineConfig({
                 },
                 {
                   text: "Recharts",
-                  collapsed: true,
+                  collapsed: false,
                   link: "/zh/frontend-visualization/recharts/",
                   items: [
                     { text: "入门", link: "/zh/frontend-visualization/recharts/getting-started" },
                     {
                       text: "指南",
-                      collapsed: true,
+                      collapsed: false,
                       items: [
                         { text: "图表类型与数据", link: "/zh/frontend-visualization/recharts/guide-line/charts-and-data" },
                         { text: "坐标轴与 domain", link: "/zh/frontend-visualization/recharts/guide-line/axes-and-domain" },
@@ -8167,13 +8167,13 @@ export default defineConfig({
                 },
                 {
                   text: "AntV G2",
-                  collapsed: true,
+                  collapsed: false,
                   link: "/zh/frontend-visualization/antv-g2/",
                   items: [
                     { text: "入门", link: "/zh/frontend-visualization/antv-g2/getting-started" },
                     {
                       text: "指南",
-                      collapsed: true,
+                      collapsed: false,
                       items: [
                         { text: "标记与编码", link: "/zh/frontend-visualization/antv-g2/guide-line/marks-and-encode" },
                         { text: "转换与坐标系", link: "/zh/frontend-visualization/antv-g2/guide-line/transform-and-coordinate" },
@@ -8186,13 +8186,13 @@ export default defineConfig({
                 },
                 {
                   text: "Mermaid",
-                  collapsed: true,
+                  collapsed: false,
                   link: "/zh/frontend-visualization/mermaid/",
                   items: [
                     { text: "入门", link: "/zh/frontend-visualization/mermaid/getting-started" },
                     {
                       text: "指南",
-                      collapsed: true,
+                      collapsed: false,
                       items: [
                         { text: "流程图与时序图", link: "/zh/frontend-visualization/mermaid/guide-line/flowchart-and-sequence" },
                         { text: "类图状态图 ER", link: "/zh/frontend-visualization/mermaid/guide-line/class-state-er" },
@@ -8207,17 +8207,17 @@ export default defineConfig({
               },
               {
                 text: "图与流程图",
-                collapsed: true,
+                collapsed: false,
                 items: [
                 {
                   text: "AntV G6",
-                  collapsed: true,
+                  collapsed: false,
                   link: "/zh/frontend-visualization/antv-g6/",
                   items: [
                     { text: "入门", link: "/zh/frontend-visualization/antv-g6/getting-started" },
                     {
                       text: "指南",
-                      collapsed: true,
+                      collapsed: false,
                       items: [
                         { text: "图与元素", link: "/zh/frontend-visualization/antv-g6/guide-line/graph-and-elements" },
                         { text: "状态与交互", link: "/zh/frontend-visualization/antv-g6/guide-line/state-and-behavior" },
@@ -8230,13 +8230,13 @@ export default defineConfig({
                 },
                 {
                   text: "AntV X6",
-                  collapsed: true,
+                  collapsed: false,
                   link: "/zh/frontend-visualization/antv-x6/",
                   items: [
                     { text: "入门", link: "/zh/frontend-visualization/antv-x6/getting-started" },
                     {
                       text: "指南",
-                      collapsed: true,
+                      collapsed: false,
                       items: [
                         { text: "画布·节点·边", link: "/zh/frontend-visualization/antv-x6/guide-line/graph-nodes-edges" },
                         { text: "连接桩与连线", link: "/zh/frontend-visualization/antv-x6/guide-line/ports-and-connecting" },
@@ -8251,17 +8251,17 @@ export default defineConfig({
               },
               {
                 text: "地图",
-                collapsed: true,
+                collapsed: false,
                 items: [
                 {
                   text: "Leaflet",
-                  collapsed: true,
+                  collapsed: false,
                   link: "/zh/frontend-visualization/leaflet/",
                   items: [
                     { text: "入门", link: "/zh/frontend-visualization/leaflet/getting-started" },
                     {
                       text: "指南",
-                      collapsed: true,
+                      collapsed: false,
                       items: [
                         { text: "地图与瓦片", link: "/zh/frontend-visualization/leaflet/guide-line/map-and-tiles" },
                         { text: "标记与图形", link: "/zh/frontend-visualization/leaflet/guide-line/markers-and-vectors" },
@@ -8274,13 +8274,13 @@ export default defineConfig({
                 },
                 {
                   text: "Mapbox GL JS 与 MapLibre",
-                  collapsed: true,
+                  collapsed: false,
                   link: "/zh/frontend-visualization/mapbox-maplibre/",
                   items: [
                     { text: "入门", link: "/zh/frontend-visualization/mapbox-maplibre/getting-started" },
                     {
                       text: "指南",
-                      collapsed: true,
+                      collapsed: false,
                       items: [
                         { text: "样式与数据源", link: "/zh/frontend-visualization/mapbox-maplibre/guide-line/style-and-sources" },
                         { text: "paint·layout·表达式", link: "/zh/frontend-visualization/mapbox-maplibre/guide-line/paint-layout-expressions" },
@@ -8295,17 +8295,17 @@ export default defineConfig({
               },
               {
                 text: "三维",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "WebGL",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/webgl/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/webgl/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "管线与着色器", link: "/zh/frontend-visualization/webgl/guide-line/pipeline-and-shaders" },
                           { text: "缓冲与绘制", link: "/zh/frontend-visualization/webgl/guide-line/buffers-and-draw" },
@@ -8318,13 +8318,13 @@ export default defineConfig({
                   },
                   {
                     text: "WebGPU",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/webgpu/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/webgpu/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "管线与 WGSL", link: "/zh/frontend-visualization/webgpu/guide-line/pipeline-and-wgsl" },
                           { text: "绑定与资源", link: "/zh/frontend-visualization/webgpu/guide-line/binding-and-resources" },
@@ -8337,7 +8337,7 @@ export default defineConfig({
                   },
                   {
                     text: "Three.js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/three/",
                     items: [
                       {
@@ -8346,7 +8346,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -8370,13 +8370,13 @@ export default defineConfig({
                   },
                   {
                     text: "Babylon.js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/babylon/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/babylon/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "场景·相机·网格", link: "/zh/frontend-visualization/babylon/guide-line/scene-camera-mesh" },
                           { text: "材质·光照·纹理", link: "/zh/frontend-visualization/babylon/guide-line/materials-lights-textures" },
@@ -8389,13 +8389,13 @@ export default defineConfig({
                   },
                   {
                     text: "CesiumJS",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/cesium/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/cesium/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "Viewer 与坐标", link: "/zh/frontend-visualization/cesium/guide-line/viewer-and-coordinates" },
                           { text: "实体与图元", link: "/zh/frontend-visualization/cesium/guide-line/entity-and-primitive" },
@@ -8410,17 +8410,17 @@ export default defineConfig({
               },
               {
                 text: "2D 渲染引擎",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "PixiJS",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/pixi/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/pixi/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "应用与场景", link: "/zh/frontend-visualization/pixi/guide-line/app-and-scene" },
                           { text: "图形·文本·资产", link: "/zh/frontend-visualization/pixi/guide-line/graphics-text-assets" },
@@ -8433,13 +8433,13 @@ export default defineConfig({
                   },
                   {
                     text: "Fabric.js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/fabric/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/fabric/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "画布与对象", link: "/zh/frontend-visualization/fabric/guide-line/canvas-and-objects" },
                           { text: "文本·图片·群组", link: "/zh/frontend-visualization/fabric/guide-line/text-image-group" },
@@ -8452,13 +8452,13 @@ export default defineConfig({
                   },
                   {
                     text: "Konva",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/konva/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/konva/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "舞台·图层·形状", link: "/zh/frontend-visualization/konva/guide-line/stage-layer-shape" },
                           { text: "事件·拖拽·变换", link: "/zh/frontend-visualization/konva/guide-line/events-drag-transform" },
@@ -8473,17 +8473,17 @@ export default defineConfig({
               },
               {
                 text: "动画",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Web Animations API",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/waapi/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/waapi/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "animate 与关键帧", link: "/zh/frontend-visualization/waapi/guide-line/animate-and-keyframes" },
                           { text: "动画控制", link: "/zh/frontend-visualization/waapi/guide-line/animation-control" },
@@ -8496,13 +8496,13 @@ export default defineConfig({
                   },
                   {
                     text: "GSAP",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/gsap/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/gsap/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "Tween 与缓动", link: "/zh/frontend-visualization/gsap/guide-line/tween-and-ease" },
                           { text: "时间线与 stagger", link: "/zh/frontend-visualization/gsap/guide-line/timeline-and-stagger" },
@@ -8515,13 +8515,13 @@ export default defineConfig({
                   },
                   {
                     text: "Framer Motion",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/framer-motion/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/framer-motion/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "组件与过渡", link: "/zh/frontend-visualization/framer-motion/guide-line/motion-and-transition" },
                           { text: "变体与手势", link: "/zh/frontend-visualization/framer-motion/guide-line/variants-and-gesture" },
@@ -8534,13 +8534,13 @@ export default defineConfig({
                   },
                   {
                     text: "Lottie",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/lottie/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/lottie/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "加载与渲染器", link: "/zh/frontend-visualization/lottie/guide-line/loadanimation-and-renderer" },
                           { text: "播放与事件", link: "/zh/frontend-visualization/lottie/guide-line/playback-and-events" },
@@ -8553,13 +8553,13 @@ export default defineConfig({
                   },
                   {
                     text: "Anime.js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/animejs/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/animejs/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "animate 与参数", link: "/zh/frontend-visualization/animejs/guide-line/animate-and-parameters" },
                           { text: "时间线与 stagger", link: "/zh/frontend-visualization/animejs/guide-line/timeline-and-stagger" },
@@ -8574,17 +8574,17 @@ export default defineConfig({
               },
               {
                 text: "拖拽",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Sortable.js",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/sortablejs/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/sortablejs/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "配置与样式", link: "/zh/frontend-visualization/sortablejs/guide-line/options-and-styling" },
                           { text: "分组与事件", link: "/zh/frontend-visualization/sortablejs/guide-line/group-and-events" },
@@ -8596,13 +8596,13 @@ export default defineConfig({
                   },
                   {
                     text: "dnd-kit",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/frontend-visualization/dnd-kit/",
                     items: [
                       { text: "入门", link: "/zh/frontend-visualization/dnd-kit/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "上下文与 hooks", link: "/zh/frontend-visualization/dnd-kit/guide-line/context-and-hooks" },
                           { text: "Sortable 预设", link: "/zh/frontend-visualization/dnd-kit/guide-line/sortable-preset" },
@@ -8624,17 +8624,17 @@ export default defineConfig({
             items: [
               {
                 text: "DevOps",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "CI/CD 核心机制",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/devops/cicd-core/",
                     items: [
                       { text: "入门", link: "/zh/engineering/devops/cicd-core/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "流水线模型", link: "/zh/engineering/devops/cicd-core/guide-line/pipeline-model" },
                           { text: "部署策略", link: "/zh/engineering/devops/cicd-core/guide-line/deploy-strategies" },
@@ -8647,7 +8647,7 @@ export default defineConfig({
                   },
                   {
                     text: "GitHub Actions",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/devops/github-actions/",
                     items: [
                       {
@@ -8656,7 +8656,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -8684,7 +8684,7 @@ export default defineConfig({
                   },
                   {
                     text: "GitLab CI/CD",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/devops/gitlab-cicd/",
                     items: [
                       {
@@ -8693,7 +8693,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "基础",
@@ -8721,7 +8721,7 @@ export default defineConfig({
                   },
                   {
                     text: "Jenkins",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/devops/jenkins/",
                     items: [
                       {
@@ -8736,7 +8736,7 @@ export default defineConfig({
                   },
                   {
                     text: "Husky",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/devops/husky/",
                     items: [
                       {
@@ -8755,7 +8755,7 @@ export default defineConfig({
                   },
                   {
                     text: "lint-staged",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/devops/lint-staged/",
                     items: [
                       {
@@ -8776,11 +8776,11 @@ export default defineConfig({
               },
               {
                 text: "容器",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Docker",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/container/docker/",
                     items: [
                       {
@@ -8789,7 +8789,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Dockerfile",
@@ -8817,7 +8817,7 @@ export default defineConfig({
                   },
                   {
                     text: "Docker Compose",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/container/docker-compose/",
                     items: [
                       {
@@ -8826,7 +8826,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "服务配置",
@@ -8856,11 +8856,11 @@ export default defineConfig({
               },
               {
                 text: "Monorepo",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Lerna",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/monorepo/lerna/",
                     items: [
                       {
@@ -8869,7 +8869,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "版本与发布",
@@ -8897,7 +8897,7 @@ export default defineConfig({
                   },
                   {
                     text: "Turborepo",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/monorepo/turborepo/",
                     items: [
                       {
@@ -8916,7 +8916,7 @@ export default defineConfig({
                   },
                   {
                     text: "Nx",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/monorepo/nx/",
                     items: [
                       {
@@ -8925,7 +8925,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "计算缓存与哈希",
@@ -8957,7 +8957,7 @@ export default defineConfig({
                   },
                   {
                     text: "Rush",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/monorepo/rush/",
                     items: [
                       {
@@ -8966,7 +8966,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "依赖治理",
@@ -8996,11 +8996,11 @@ export default defineConfig({
               },
               {
                 text: "版本发布自动化",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Changesets",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/release/changesets/",
                     items: [
                       {
@@ -9009,7 +9009,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "工作流",
@@ -9037,7 +9037,7 @@ export default defineConfig({
                   },
                   {
                     text: "semantic-release",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/release/semantic-release/",
                     items: [
                       {
@@ -9046,7 +9046,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "配置与 CI 集成",
@@ -9074,7 +9074,7 @@ export default defineConfig({
                   },
                   {
                     text: "release-please",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/release/release-please/",
                     items: [
                       {
@@ -9083,7 +9083,7 @@ export default defineConfig({
                       },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Release PR 机制",
@@ -9109,11 +9109,11 @@ export default defineConfig({
               },
               {
                 text: "依赖更新自动化",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Renovate",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/deps/renovate/",
                     items: [
                       {
@@ -9144,7 +9144,7 @@ export default defineConfig({
                   },
                   {
                     text: "Dependabot",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/deps/dependabot/",
                     items: [
                       {
@@ -9173,17 +9173,17 @@ export default defineConfig({
               },
               {
                 text: "基础设施即代码（IaC）",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Terraform",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/iac/terraform/",
                     items: [
                       { text: "入门", link: "/zh/engineering/iac/terraform/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "HCL 语言", link: "/zh/engineering/iac/terraform/guide-line/language" },
                           { text: "状态 state", link: "/zh/engineering/iac/terraform/guide-line/state" },
@@ -9196,13 +9196,13 @@ export default defineConfig({
                   },
                   {
                     text: "OpenTofu",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/iac/opentofu/",
                     items: [
                       { text: "入门", link: "/zh/engineering/iac/opentofu/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "治理与许可", link: "/zh/engineering/iac/opentofu/guide-line/governance-license" },
                           { text: "兼容与 CLI", link: "/zh/engineering/iac/opentofu/guide-line/compatibility-cli" },
@@ -9214,13 +9214,13 @@ export default defineConfig({
                   },
                   {
                     text: "Pulumi",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/iac/pulumi/",
                     items: [
                       { text: "入门", link: "/zh/engineering/iac/pulumi/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "编程模型", link: "/zh/engineering/iac/pulumi/guide-line/programming-model" },
                           { text: "组件与复用", link: "/zh/engineering/iac/pulumi/guide-line/components-and-reuse" },
@@ -9233,13 +9233,13 @@ export default defineConfig({
                   },
                   {
                     text: "Ansible",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/engineering/iac/ansible/",
                     items: [
                       { text: "入门", link: "/zh/engineering/iac/ansible/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "Playbook 与模块", link: "/zh/engineering/iac/ansible/guide-line/playbooks-modules" },
                           { text: "角色与集合", link: "/zh/engineering/iac/ansible/guide-line/roles-collections" },
@@ -9261,7 +9261,7 @@ export default defineConfig({
             items: [
               {
                 text: "攻击方式",
-                collapsed: true,
+                collapsed: false,
                 link: "/zh/security/attack-methods/",
                 items: [
                   { text: "入门", link: "/zh/security/attack-methods/getting-started.md" },
@@ -9271,7 +9271,7 @@ export default defineConfig({
               },
               {
                 text: "加密",
-                collapsed: true,
+                collapsed: false,
                 link: "/zh/security/encryption/",
                 items: [
                   { text: "入门", link: "/zh/security/encryption/getting-started.md" },
@@ -9281,11 +9281,11 @@ export default defineConfig({
               },
               {
                 text: "认证与授权",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "OAuth 2.0",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/security/oauth-2/",
                     items: [
                       { text: "入门", link: "/zh/security/oauth-2/getting-started.md" },
@@ -9295,7 +9295,7 @@ export default defineConfig({
                   },
                   {
                     text: "JWT",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/security/jwt/",
                     items: [
                       { text: "入门", link: "/zh/security/jwt/getting-started.md" },
@@ -9305,7 +9305,7 @@ export default defineConfig({
                   },
                   {
                     text: "SAML",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/security/saml/",
                     items: [
                       { text: "入门", link: "/zh/security/saml/getting-started.md" },
@@ -9317,11 +9317,11 @@ export default defineConfig({
               },
               {
                 text: "安全框架",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "OWASP Top 10 与前端防护",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/security/owasp-defense/",
                     items: [
                       { text: "入门", link: "/zh/security/owasp-defense/getting-started.md" },
@@ -9331,7 +9331,7 @@ export default defineConfig({
                   },
                   {
                     text: "供应链安全",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/security/supply-chain-security/",
                     items: [
                       { text: "入门", link: "/zh/security/supply-chain-security/getting-started.md" },
@@ -9343,7 +9343,7 @@ export default defineConfig({
               },
               {
                 text: "漏洞扫描",
-                collapsed: true,
+                collapsed: false,
                 link: "/zh/security/vulnerability-scanning/",
                 items: [
                   { text: "入门", link: "/zh/security/vulnerability-scanning/getting-started.md" },
@@ -9360,21 +9360,21 @@ export default defineConfig({
             items: [
               {
                 text: "数据结构",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "基本数据结构",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "数组",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/data-structures/basic/array/",
                         items: [
                           { text: "入门", link: "/zh/dsa/data-structures/basic/array/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "双指针与滑动窗口", link: "/zh/dsa/data-structures/basic/array/guide-line/two-pointers-and-sliding-window" },
                               { text: "前缀和与差分", link: "/zh/dsa/data-structures/basic/array/guide-line/prefix-sum-and-difference" },
@@ -9386,13 +9386,13 @@ export default defineConfig({
                       },
                       {
                         text: "链表",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/data-structures/basic/linked-list/",
                         items: [
                           { text: "入门", link: "/zh/dsa/data-structures/basic/linked-list/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "经典算法", link: "/zh/dsa/data-structures/basic/linked-list/guide-line/classic-algorithms" },
                               { text: "进阶操作", link: "/zh/dsa/data-structures/basic/linked-list/guide-line/advanced-operations" },
@@ -9403,13 +9403,13 @@ export default defineConfig({
                       },
                       {
                         text: "栈",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/data-structures/basic/stack/",
                         items: [
                           { text: "入门", link: "/zh/dsa/data-structures/basic/stack/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "经典应用", link: "/zh/dsa/data-structures/basic/stack/guide-line/classic-applications" },
                               { text: "单调栈", link: "/zh/dsa/data-structures/basic/stack/guide-line/monotonic-stack" },
@@ -9420,13 +9420,13 @@ export default defineConfig({
                       },
                       {
                         text: "队列",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/data-structures/basic/queue/",
                         items: [
                           { text: "入门", link: "/zh/dsa/data-structures/basic/queue/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "循环队列与双端队列", link: "/zh/dsa/data-structures/basic/queue/guide-line/circular-queue-and-deque" },
                               { text: "工程应用", link: "/zh/dsa/data-structures/basic/queue/guide-line/applications" },
@@ -9437,13 +9437,13 @@ export default defineConfig({
                       },
                       {
                         text: "哈希表",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/data-structures/basic/hash-table/",
                         items: [
                           { text: "入门", link: "/zh/dsa/data-structures/basic/hash-table/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "冲突解决", link: "/zh/dsa/data-structures/basic/hash-table/guide-line/collision-resolution" },
                               { text: "哈希函数与工程应用", link: "/zh/dsa/data-structures/basic/hash-table/guide-line/hash-functions-and-applications" },
@@ -9456,17 +9456,17 @@ export default defineConfig({
                   },
                   {
                     text: "高级数据结构",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "二叉树与二叉搜索树",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/data-structures/advanced/binary-tree/",
                         items: [
                           { text: "入门", link: "/zh/dsa/data-structures/advanced/binary-tree/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "遍历", link: "/zh/dsa/data-structures/advanced/binary-tree/guide-line/traversal" },
                               { text: "二叉搜索树与平衡树", link: "/zh/dsa/data-structures/advanced/binary-tree/guide-line/bst-and-balance" },
@@ -9477,13 +9477,13 @@ export default defineConfig({
                       },
                       {
                         text: "堆",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/data-structures/advanced/heap/",
                         items: [
                           { text: "入门", link: "/zh/dsa/data-structures/advanced/heap/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "堆的核心操作", link: "/zh/dsa/data-structures/advanced/heap/guide-line/heap-operations" },
                               { text: "工程应用", link: "/zh/dsa/data-structures/advanced/heap/guide-line/applications" },
@@ -9494,13 +9494,13 @@ export default defineConfig({
                       },
                       {
                         text: "图的表示",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/data-structures/advanced/graph-representation/",
                         items: [
                           { text: "入门", link: "/zh/dsa/data-structures/advanced/graph-representation/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "三种表示法", link: "/zh/dsa/data-structures/advanced/graph-representation/guide-line/representations" },
                               { text: "工程实现与选型", link: "/zh/dsa/data-structures/advanced/graph-representation/guide-line/implementation" },
@@ -9511,13 +9511,13 @@ export default defineConfig({
                       },
                       {
                         text: "前缀树（Trie）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/data-structures/advanced/trie/",
                         items: [
                           { text: "入门", link: "/zh/dsa/data-structures/advanced/trie/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "核心操作", link: "/zh/dsa/data-structures/advanced/trie/guide-line/operations" },
                               { text: "工程应用", link: "/zh/dsa/data-structures/advanced/trie/guide-line/applications" },
@@ -9528,13 +9528,13 @@ export default defineConfig({
                       },
                       {
                         text: "并查集",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/data-structures/advanced/union-find/",
                         items: [
                           { text: "入门", link: "/zh/dsa/data-structures/advanced/union-find/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "路径压缩与按秩合并", link: "/zh/dsa/data-structures/advanced/union-find/guide-line/optimizations" },
                               { text: "工程应用", link: "/zh/dsa/data-structures/advanced/union-find/guide-line/applications" },
@@ -9545,13 +9545,13 @@ export default defineConfig({
                       },
                       {
                         text: "线段树与树状数组",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/data-structures/advanced/segment-tree/",
                         items: [
                           { text: "入门", link: "/zh/dsa/data-structures/advanced/segment-tree/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "线段树与懒标记", link: "/zh/dsa/data-structures/advanced/segment-tree/guide-line/segment-tree" },
                               { text: "树状数组（BIT）", link: "/zh/dsa/data-structures/advanced/segment-tree/guide-line/fenwick-tree" },
@@ -9562,13 +9562,13 @@ export default defineConfig({
                       },
                       {
                         text: "工程实用结构（LRU / 跳表 / 布隆过滤器）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/data-structures/advanced/utility-structures/",
                         items: [
                           { text: "入门", link: "/zh/dsa/data-structures/advanced/utility-structures/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "LRU 缓存", link: "/zh/dsa/data-structures/advanced/utility-structures/guide-line/lru-cache" },
                               { text: "跳表与布隆过滤器", link: "/zh/dsa/data-structures/advanced/utility-structures/guide-line/skip-list-and-bloom" },
@@ -9583,21 +9583,21 @@ export default defineConfig({
               },
               {
                 text: "算法",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "排序",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "简单排序（冒泡 / 选择 / 插入）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/sorting/simple-sort/",
                         items: [
                           { text: "入门", link: "/zh/dsa/sorting/simple-sort/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "三种算法对比", link: "/zh/dsa/sorting/simple-sort/guide-line/comparison" },
                               { text: "优化与稳定性", link: "/zh/dsa/sorting/simple-sort/guide-line/optimization" },
@@ -9608,13 +9608,13 @@ export default defineConfig({
                       },
                       {
                         text: "快速排序",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/sorting/quick-sort/",
                         items: [
                           { text: "入门", link: "/zh/dsa/sorting/quick-sort/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "分区策略与优化", link: "/zh/dsa/sorting/quick-sort/guide-line/partition" },
                               { text: "工程实践", link: "/zh/dsa/sorting/quick-sort/guide-line/engineering" },
@@ -9625,13 +9625,13 @@ export default defineConfig({
                       },
                       {
                         text: "归并排序",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/sorting/merge-sort/",
                         items: [
                           { text: "入门", link: "/zh/dsa/sorting/merge-sort/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "分治与合并", link: "/zh/dsa/sorting/merge-sort/guide-line/divide-and-merge" },
                               { text: "应用与外排序", link: "/zh/dsa/sorting/merge-sort/guide-line/applications" },
@@ -9642,13 +9642,13 @@ export default defineConfig({
                       },
                       {
                         text: "堆排序",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/sorting/heap-sort/",
                         items: [
                           { text: "入门", link: "/zh/dsa/sorting/heap-sort/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "算法实现", link: "/zh/dsa/sorting/heap-sort/guide-line/algorithm" },
                               { text: "特性与应用", link: "/zh/dsa/sorting/heap-sort/guide-line/characteristics" },
@@ -9659,13 +9659,13 @@ export default defineConfig({
                       },
                       {
                         text: "希尔排序",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/sorting/shell-sort/",
                         items: [
                           { text: "入门", link: "/zh/dsa/sorting/shell-sort/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "间隔序列", link: "/zh/dsa/sorting/shell-sort/guide-line/gap-sequence" },
                               { text: "性能分析", link: "/zh/dsa/sorting/shell-sort/guide-line/performance" },
@@ -9676,13 +9676,13 @@ export default defineConfig({
                       },
                       {
                         text: "非比较排序（计数 / 桶 / 基数）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/sorting/non-comparison-sort/",
                         items: [
                           { text: "入门", link: "/zh/dsa/sorting/non-comparison-sort/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "三种算法", link: "/zh/dsa/sorting/non-comparison-sort/guide-line/algorithms" },
                               { text: "选型与应用", link: "/zh/dsa/sorting/non-comparison-sort/guide-line/selection" },
@@ -9695,17 +9695,17 @@ export default defineConfig({
                   },
                   {
                     text: "搜索",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "线性查找与二分查找",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/searching/linear-binary-search/",
                         items: [
                           { text: "入门", link: "/zh/dsa/searching/linear-binary-search/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "二分查找详解", link: "/zh/dsa/searching/linear-binary-search/guide-line/binary-search" },
                               { text: "边界与坑", link: "/zh/dsa/searching/linear-binary-search/guide-line/pitfalls" },
@@ -9716,13 +9716,13 @@ export default defineConfig({
                       },
                       {
                         text: "二分查找变体（旋转数组 / 二分答案 / 三分）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/searching/binary-search-variants/",
                         items: [
                           { text: "入门", link: "/zh/dsa/searching/binary-search-variants/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "旋转数组搜索", link: "/zh/dsa/searching/binary-search-variants/guide-line/rotated-array" },
                               { text: "二分答案与三分", link: "/zh/dsa/searching/binary-search-variants/guide-line/binary-answer" },
@@ -9735,17 +9735,17 @@ export default defineConfig({
                   },
                   {
                     text: "图算法",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "图遍历（DFS / BFS）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/graph/dfs-bfs/",
                         items: [
                           { text: "入门", link: "/zh/dsa/graph/dfs-bfs/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "DFS 与 BFS 详解", link: "/zh/dsa/graph/dfs-bfs/guide-line/dfs-bfs" },
                               { text: "应用与连通性", link: "/zh/dsa/graph/dfs-bfs/guide-line/applications" },
@@ -9756,13 +9756,13 @@ export default defineConfig({
                       },
                       {
                         text: "最短路径算法",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/graph/shortest-path/",
                         items: [
                           { text: "入门", link: "/zh/dsa/graph/shortest-path/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "Dijkstra 与 Bellman-Ford", link: "/zh/dsa/graph/shortest-path/guide-line/dijkstra-bellman" },
                               { text: "Floyd 与应用", link: "/zh/dsa/graph/shortest-path/guide-line/floyd-and-applications" },
@@ -9773,13 +9773,13 @@ export default defineConfig({
                       },
                       {
                         text: "最小生成树算法",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/graph/mst/",
                         items: [
                           { text: "入门", link: "/zh/dsa/graph/mst/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "Kruskal 与 Prim", link: "/zh/dsa/graph/mst/guide-line/kruskal-prim" },
                               { text: "选型与应用", link: "/zh/dsa/graph/mst/guide-line/selection" },
@@ -9790,13 +9790,13 @@ export default defineConfig({
                       },
                       {
                         text: "拓扑排序",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/graph/topological-sort/",
                         items: [
                           { text: "入门", link: "/zh/dsa/graph/topological-sort/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "Kahn 与 DFS 两种方法", link: "/zh/dsa/graph/topological-sort/guide-line/kahn-and-dfs" },
                               { text: "应用与环检测", link: "/zh/dsa/graph/topological-sort/guide-line/applications" },
@@ -9809,17 +9809,17 @@ export default defineConfig({
                   },
                   {
                     text: "高级算法",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "动态规划基础",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/advanced-algorithms/dp-basics/",
                         items: [
                           { text: "入门", link: "/zh/dsa/advanced-algorithms/dp-basics/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "背包与零钱", link: "/zh/dsa/advanced-algorithms/dp-basics/guide-line/knapsack-and-coins" },
                               { text: "DP 设计方法", link: "/zh/dsa/advanced-algorithms/dp-basics/guide-line/design-method" },
@@ -9830,13 +9830,13 @@ export default defineConfig({
                       },
                       {
                         text: "序列与区间动态规划",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/advanced-algorithms/dp-sequence-interval/",
                         items: [
                           { text: "入门", link: "/zh/dsa/advanced-algorithms/dp-sequence-interval/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "LCS 与 LIS", link: "/zh/dsa/advanced-algorithms/dp-sequence-interval/guide-line/lcs-lis" },
                               { text: "编辑距离与区间 DP", link: "/zh/dsa/advanced-algorithms/dp-sequence-interval/guide-line/edit-distance-interval" },
@@ -9847,13 +9847,13 @@ export default defineConfig({
                       },
                       {
                         text: "进阶动态规划",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/advanced-algorithms/dp-advanced/",
                         items: [
                           { text: "入门", link: "/zh/dsa/advanced-algorithms/dp-advanced/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "树形与数位 DP", link: "/zh/dsa/advanced-algorithms/dp-advanced/guide-line/tree-and-digit-dp" },
                               { text: "换根 DP 与优化", link: "/zh/dsa/advanced-algorithms/dp-advanced/guide-line/reroot-and-optimization" },
@@ -9864,13 +9864,13 @@ export default defineConfig({
                       },
                       {
                         text: "贪心算法",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/advanced-algorithms/greedy/",
                         items: [
                           { text: "入门", link: "/zh/dsa/advanced-algorithms/greedy/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "贪心策略与证明", link: "/zh/dsa/advanced-algorithms/greedy/guide-line/strategy-and-proof" },
                               { text: "经典贪心问题", link: "/zh/dsa/advanced-algorithms/greedy/guide-line/classic-problems" },
@@ -9881,13 +9881,13 @@ export default defineConfig({
                       },
                       {
                         text: "分治算法",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/advanced-algorithms/divide-conquer/",
                         items: [
                           { text: "入门", link: "/zh/dsa/advanced-algorithms/divide-conquer/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "分治三步与主定理", link: "/zh/dsa/advanced-algorithms/divide-conquer/guide-line/master-theorem" },
                               { text: "经典应用", link: "/zh/dsa/advanced-algorithms/divide-conquer/guide-line/applications" },
@@ -9898,13 +9898,13 @@ export default defineConfig({
                       },
                       {
                         text: "回溯算法",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/advanced-algorithms/backtracking/",
                         items: [
                           { text: "入门", link: "/zh/dsa/advanced-algorithms/backtracking/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "回溯框架与剪枝", link: "/zh/dsa/advanced-algorithms/backtracking/guide-line/framework-and-pruning" },
                               { text: "经典问题", link: "/zh/dsa/advanced-algorithms/backtracking/guide-line/classic-problems" },
@@ -9917,17 +9917,17 @@ export default defineConfig({
                   },
                   {
                     text: "字符串算法",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "字符串匹配（KMP / Rabin-Karp / Boyer-Moore）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/strings/string-matching/",
                         items: [
                           { text: "入门", link: "/zh/dsa/strings/string-matching/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "KMP 算法", link: "/zh/dsa/strings/string-matching/guide-line/kmp" },
                               { text: "Rabin-Karp 与 Boyer-Moore", link: "/zh/dsa/strings/string-matching/guide-line/rk-and-bm" },
@@ -9938,13 +9938,13 @@ export default defineConfig({
                       },
                       {
                         text: "回文与 Z 函数（Manacher / Z）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/strings/palindrome-z-function/",
                         items: [
                           { text: "入门", link: "/zh/dsa/strings/palindrome-z-function/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "Manacher 算法", link: "/zh/dsa/strings/palindrome-z-function/guide-line/manacher" },
                               { text: "Z 函数", link: "/zh/dsa/strings/palindrome-z-function/guide-line/z-function" },
@@ -9957,17 +9957,17 @@ export default defineConfig({
                   },
                   {
                     text: "数学与数论",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "GCD 与扩展欧几里得",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/math/gcd/",
                         items: [
                           { text: "入门", link: "/zh/dsa/math/gcd/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "辗转相除与扩展欧几里得", link: "/zh/dsa/math/gcd/guide-line/euclidean" },
                               { text: "应用与方程", link: "/zh/dsa/math/gcd/guide-line/applications" },
@@ -9978,13 +9978,13 @@ export default defineConfig({
                       },
                       {
                         text: "素数筛（埃氏筛 / 线性筛）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/math/prime-sieve/",
                         items: [
                           { text: "入门", link: "/zh/dsa/math/prime-sieve/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "埃氏筛与线性筛", link: "/zh/dsa/math/prime-sieve/guide-line/sieves" },
                               { text: "优化与应用", link: "/zh/dsa/math/prime-sieve/guide-line/optimization" },
@@ -9995,13 +9995,13 @@ export default defineConfig({
                       },
                       {
                         text: "快速幂与模运算",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/math/fast-power/",
                         items: [
                           { text: "入门", link: "/zh/dsa/math/fast-power/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "快速幂原理", link: "/zh/dsa/math/fast-power/guide-line/principle" },
                               { text: "模运算性质与应用", link: "/zh/dsa/math/fast-power/guide-line/modular-arithmetic" },
@@ -10012,13 +10012,13 @@ export default defineConfig({
                       },
                       {
                         text: "欧拉函数与组合数",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/math/euler-function/",
                         items: [
                           { text: "入门", link: "/zh/dsa/math/euler-function/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "欧拉函数", link: "/zh/dsa/math/euler-function/guide-line/euler-phi" },
                               { text: "组合数与逆元", link: "/zh/dsa/math/euler-function/guide-line/combinatorics" },
@@ -10029,13 +10029,13 @@ export default defineConfig({
                       },
                       {
                         text: "位运算",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/dsa/math/bit-manipulation/",
                         items: [
                           { text: "入门", link: "/zh/dsa/math/bit-manipulation/getting-started" },
                           {
                             text: "指南",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               { text: "常用技巧", link: "/zh/dsa/math/bit-manipulation/guide-line/tricks" },
                               { text: "经典应用", link: "/zh/dsa/math/bit-manipulation/guide-line/applications" },
@@ -10053,15 +10053,15 @@ export default defineConfig({
 
           {
             text: "软技能",
-            collapsed: true,
+            collapsed: false,
             items: [
               {
                 text: "软件工程",
-                collapsed: true,
+                collapsed: false,
                 items: [
                       {
                         text: "敏捷开发",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/software-engineering/agile/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/software-engineering/agile/getting-started" },
@@ -10071,7 +10071,7 @@ export default defineConfig({
                       },
                       {
                         text: "Scrum",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/software-engineering/scrum/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/software-engineering/scrum/getting-started" },
@@ -10081,7 +10081,7 @@ export default defineConfig({
                       },
                       {
                         text: "看板方法（Kanban）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/software-engineering/kanban/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/software-engineering/kanban/getting-started" },
@@ -10091,7 +10091,7 @@ export default defineConfig({
                       },
                       {
                         text: "精益开发与目标管理",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/software-engineering/lean-okr/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/software-engineering/lean-okr/getting-started" },
@@ -10103,15 +10103,15 @@ export default defineConfig({
               },
               {
                 text: "开源分享",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "技术社区",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "Medium",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/open-source/tech-community/medium/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/open-source/tech-community/medium/getting-started" },
@@ -10121,7 +10121,7 @@ export default defineConfig({
                       },
                       {
                         text: "dev.to",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/open-source/tech-community/devto/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/open-source/tech-community/devto/getting-started" },
@@ -10131,7 +10131,7 @@ export default defineConfig({
                       },
                       {
                         text: "Stack Overflow",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/open-source/tech-community/stackoverflow/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/open-source/tech-community/stackoverflow/getting-started" },
@@ -10141,7 +10141,7 @@ export default defineConfig({
                       },
                       {
                         text: "掘金",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/open-source/tech-community/juejin/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/open-source/tech-community/juejin/getting-started" },
@@ -10151,7 +10151,7 @@ export default defineConfig({
                       },
                       {
                         text: "简书",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/open-source/tech-community/jianshu/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/open-source/tech-community/jianshu/getting-started" },
@@ -10163,11 +10163,11 @@ export default defineConfig({
                   },
                   {
                     text: "代码仓库",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "GitHub",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/open-source/code-repo/github/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/open-source/code-repo/github/getting-started" },
@@ -10177,7 +10177,7 @@ export default defineConfig({
                       },
                       {
                         text: "GitLab",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/open-source/code-repo/gitlab/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/open-source/code-repo/gitlab/getting-started" },
@@ -10187,7 +10187,7 @@ export default defineConfig({
                       },
                       {
                         text: "Gitee",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/open-source/code-repo/gitee/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/open-source/code-repo/gitee/getting-started" },
@@ -10201,11 +10201,11 @@ export default defineConfig({
               },
               {
                 text: "团队协作",
-                collapsed: true,
+                collapsed: false,
                 items: [
                       {
                         text: "项目管理工具（Jira / Trello / Linear）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/teamwork/project-management/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/teamwork/project-management/getting-started" },
@@ -10215,7 +10215,7 @@ export default defineConfig({
                       },
                       {
                         text: "即时通讯与协作工具（Slack / Discord / 飞书 / 钉钉）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/teamwork/instant-messaging/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/teamwork/instant-messaging/getting-started" },
@@ -10225,7 +10225,7 @@ export default defineConfig({
                       },
                       {
                         text: "沟通技巧",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/teamwork/communication/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/teamwork/communication/getting-started" },
@@ -10235,7 +10235,7 @@ export default defineConfig({
                       },
                       {
                         text: "技术写作",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/soft-skills/teamwork/technical-writing/",
                         items: [
                           { text: "入门", link: "/zh/soft-skills/teamwork/technical-writing/getting-started" },
@@ -10254,7 +10254,7 @@ export default defineConfig({
             items: [
               {
                 text: "静态托管与部署",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Vercel", collapsed: true, link: "/zh/cloud/hosting/vercel/", items: [
                     { text: "入门", link: "/zh/cloud/hosting/vercel/getting-started" },
@@ -10292,7 +10292,7 @@ export default defineConfig({
               },
               {
                 text: "后端即服务 BaaS",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Firebase", collapsed: true, link: "/zh/cloud/baas/firebase/", items: [
                     { text: "入门", link: "/zh/cloud/baas/firebase/getting-started" },
@@ -10322,7 +10322,7 @@ export default defineConfig({
               },
               {
                 text: "Serverless 与边缘计算",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Cloudflare Workers", collapsed: true, link: "/zh/cloud/serverless/cloudflare-workers/", items: [
                     { text: "入门", link: "/zh/cloud/serverless/cloudflare-workers/getting-started" },
@@ -10352,7 +10352,7 @@ export default defineConfig({
               },
               {
                 text: "容器与 PaaS",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Render", collapsed: true, link: "/zh/cloud/paas/render/", items: [
                     { text: "入门", link: "/zh/cloud/paas/render/getting-started" },
@@ -10374,7 +10374,7 @@ export default defineConfig({
               },
               {
                 text: "国内云与基础设施",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "阿里云", collapsed: true, link: "/zh/cloud/china-cloud/aliyun/", items: [
                     { text: "入门", link: "/zh/cloud/china-cloud/aliyun/getting-started" },
@@ -10419,7 +10419,7 @@ export default defineConfig({
             items: [
               {
                 text: "基础框架",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Node.js", collapsed: true, link: "/zh/backend/runtimes/nodejs/", items: [
                     { text: "入门", link: "/zh/backend/runtimes/nodejs/getting-started" },
@@ -10449,7 +10449,7 @@ export default defineConfig({
               },
               {
                 text: "应用框架",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Express", collapsed: true, link: "/zh/backend/app-frameworks/express/", items: [
                     { text: "入门", link: "/zh/backend/app-frameworks/express/getting-started" },
@@ -10477,13 +10477,13 @@ export default defineConfig({
                   ]},
                   {
                     text: "NestJS",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/backend/app-frameworks/nestjs/",
                     items: [
                       { text: "入门", link: "/zh/backend/app-frameworks/nestjs/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "DI 与模块详解", link: "/zh/backend/app-frameworks/nestjs/guide-line/di-and-modules" },
                           { text: "管线与适配器", link: "/zh/backend/app-frameworks/nestjs/guide-line/pipeline-and-adapters" },
@@ -10494,13 +10494,13 @@ export default defineConfig({
                   },
                   {
                     text: "tRPC",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/backend/app-frameworks/trpc/",
                     items: [
                       { text: "入门", link: "/zh/backend/app-frameworks/trpc/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "Procedure 与 Router", link: "/zh/backend/app-frameworks/trpc/guide-line/procedures-and-router" },
                           { text: "对比与集成", link: "/zh/backend/app-frameworks/trpc/guide-line/comparison-and-integration" },
@@ -10513,7 +10513,7 @@ export default defineConfig({
               },
               {
                 text: "ORM 与数据访问",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "TypeORM", collapsed: true, link: "/zh/backend/orm/typeorm/", items: [
                     { text: "入门", link: "/zh/backend/orm/typeorm/getting-started" },
@@ -10550,7 +10550,7 @@ export default defineConfig({
             items: [
               {
                 text: "基础工具",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Bash", collapsed: true, link: "/zh/server/basic-tools/bash/", items: [
                     { text: "入门", link: "/zh/server/basic-tools/bash/getting-started" },
@@ -10604,7 +10604,7 @@ export default defineConfig({
               },
               {
                 text: "网络与远程",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "网络工具", collapsed: true, link: "/zh/server/network-remote/network-tools/", items: [
                     { text: "入门", link: "/zh/server/network-remote/network-tools/getting-started" },
@@ -10634,7 +10634,7 @@ export default defineConfig({
               },
               {
                 text: "Web 服务器与会话",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Nginx", collapsed: true, link: "/zh/server/web-server-session/nginx/", items: [
                     { text: "入门", link: "/zh/server/web-server-session/nginx/getting-started" },
@@ -10679,7 +10679,7 @@ export default defineConfig({
             items: [
               {
                 text: "系统与性能语言",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Rust", collapsed: true, link: "/zh/languages/system-perf/rust/", items: [
                     { text: "入门", link: "/zh/languages/system-perf/rust/getting-started" },
@@ -10701,17 +10701,17 @@ export default defineConfig({
               },
               {
                 text: "AI 与数据科学语言",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "Python",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/languages/ai-datasci/python/",
                     items: [
                       { text: "入门", link: "/zh/languages/ai-datasci/python/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "语法精要（给 JS 开发者）", link: "/zh/languages/ai-datasci/python/guide-line/syntax-for-js-devs" },
                           { text: "工具链与 AI 代码阅读", link: "/zh/languages/ai-datasci/python/guide-line/tooling-and-ai" },
@@ -10722,13 +10722,13 @@ export default defineConfig({
                   },
                   {
                     text: "MATLAB",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/languages/ai-datasci/matlab/",
                     items: [
                       { text: "入门", link: "/zh/languages/ai-datasci/matlab/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "矩阵运算与向量化", link: "/zh/languages/ai-datasci/matlab/guide-line/matrix-and-vectorization" },
                           { text: "工具箱、绘图与对比", link: "/zh/languages/ai-datasci/matlab/guide-line/toolboxes-and-comparison" },
@@ -10739,13 +10739,13 @@ export default defineConfig({
                   },
                   {
                     text: "R 语言",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/languages/ai-datasci/r-lang/",
                     items: [
                       { text: "入门", link: "/zh/languages/ai-datasci/r-lang/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "统计与数据框", link: "/zh/languages/ai-datasci/r-lang/guide-line/statistics-and-dataframe" },
                           { text: "ggplot2 与对比", link: "/zh/languages/ai-datasci/r-lang/guide-line/ggplot2-and-comparison" },
@@ -10758,7 +10758,7 @@ export default defineConfig({
               },
               {
                 text: "移动端原生语言",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Swift", collapsed: true, link: "/zh/languages/mobile-native/swift/", items: [
                     { text: "入门", link: "/zh/languages/mobile-native/swift/getting-started" },
@@ -10795,7 +10795,7 @@ export default defineConfig({
             items: [
               {
                 text: "关系型数据库",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "MySQL", collapsed: true, link: "/zh/data-storage/relational/mysql/", items: [
                     { text: "入门", link: "/zh/data-storage/relational/mysql/getting-started" },
@@ -10825,7 +10825,7 @@ export default defineConfig({
               },
               {
                 text: "非关系型数据库",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Redis", collapsed: true, link: "/zh/data-storage/nosql/redis/", items: [
                     { text: "入门", link: "/zh/data-storage/nosql/redis/getting-started" },
@@ -10871,7 +10871,7 @@ export default defineConfig({
               },
               {
                 text: "分析型与列式存储",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "ClickHouse", collapsed: true, link: "/zh/data-storage/analytics/clickhouse/", items: [
                     { text: "入门", link: "/zh/data-storage/analytics/clickhouse/getting-started" },
@@ -10893,7 +10893,7 @@ export default defineConfig({
               },
               {
                 text: "分布式与搜索",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Cassandra", collapsed: true, link: "/zh/data-storage/distributed-search/cassandra/", items: [
                     { text: "入门", link: "/zh/data-storage/distributed-search/cassandra/getting-started" },
@@ -10915,7 +10915,7 @@ export default defineConfig({
               },
               {
                 text: "数据库客户端",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Navicat", collapsed: true, link: "/zh/data-storage/clients/navicat/", items: [
                     { text: "入门", link: "/zh/data-storage/clients/navicat/getting-started" },
@@ -10952,7 +10952,7 @@ export default defineConfig({
             items: [
               {
                 text: "容器编排",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Kubernetes", collapsed: true, link: "/zh/data-infra/container/kubernetes/", items: [
                     { text: "入门", link: "/zh/data-infra/container/kubernetes/getting-started" },
@@ -10974,7 +10974,7 @@ export default defineConfig({
               },
               {
                 text: "数据编排",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Apache Airflow", collapsed: true, link: "/zh/data-infra/orchestration/airflow/", items: [
                     { text: "入门", link: "/zh/data-infra/orchestration/airflow/getting-started" },
@@ -11004,7 +11004,7 @@ export default defineConfig({
               },
               {
                 text: "消息队列与事件流",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Kafka", collapsed: true, link: "/zh/data-infra/messaging/kafka/", items: [
                     { text: "入门", link: "/zh/data-infra/messaging/kafka/getting-started" },
@@ -11042,7 +11042,7 @@ export default defineConfig({
               },
               {
                 text: "流处理",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Flink", collapsed: true, link: "/zh/data-infra/stream/flink/", items: [
                     { text: "入门", link: "/zh/data-infra/stream/flink/getting-started" },
@@ -11056,7 +11056,7 @@ export default defineConfig({
               },
               {
                 text: "批处理与转换",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Spark", collapsed: true, link: "/zh/data-infra/batch/spark/", items: [
                     { text: "入门", link: "/zh/data-infra/batch/spark/getting-started" },
@@ -11093,12 +11093,12 @@ export default defineConfig({
             items: [
               {
                 text: "服务框架",
-                collapsed: true,
+                collapsed: false,
                 items: [{ text: "Nest.js" }, { text: "Apollo Server" }],
               },
               {
                 text: "服务注册与发现",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "Consul" },
                   { text: "Etcd" },
@@ -11107,22 +11107,22 @@ export default defineConfig({
               },
               {
                 text: "远程过程调用",
-                collapsed: true,
+                collapsed: false,
                 items: [{ text: "gRPC" }, { text: "TRPC" }],
               },
               {
                 text: "容错设计",
-                collapsed: true,
+                collapsed: false,
                 items: [{ text: "circuit-breaker-js" }, { text: "opossum" }],
               },
               {
                 text: "分布式追踪",
-                collapsed: true,
+                collapsed: false,
                 items: [{ text: "Jaeger" }, { text: "Zipkin" }],
               },
               {
                 text: "日志和监控",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "ELK Stack" },
                   { text: "Prometheus" },
@@ -11140,13 +11140,13 @@ export default defineConfig({
             items: [
               {
                 text: "路由层",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   { text: "REST API" },
                   { text: "GraphQL API" },
                   {
                     text: "文档和工具",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       { text: "Swagger" },
                       { text: "Postman" },
@@ -11158,16 +11158,16 @@ export default defineConfig({
               },
               {
                 text: "数据访问",
-                collapsed: true,
+                collapsed: false,
                 items: [{ text: "ODBC" }],
               },
               {
                 text: "数据转换和验证",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "数据序列化",
-                    collapsed: true,
+                    collapsed: false,
                     items: [{ text: "JSON" }, { text: "XML" }],
                   },
                   { text: "class-validator" },
@@ -11181,15 +11181,15 @@ export default defineConfig({
           // 对齐前端多顶级结构。原 items 内容直接提升为同级顶级块（缩进暂保留，功能不受影响）。
           {
             text: "AI 基础",
-            collapsed: true,
+            collapsed: false,
                 items: [
                   {
                     text: "机器学习基础",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "监督学习",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-foundation/machine-learning/supervised-learning/",
                         items: [
                           { text: "入门", link: "/zh/ai-foundation/machine-learning/supervised-learning/getting-started" },
@@ -11199,7 +11199,7 @@ export default defineConfig({
                       },
                       {
                         text: "无监督学习",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-foundation/machine-learning/unsupervised-learning/",
                         items: [
                           { text: "入门", link: "/zh/ai-foundation/machine-learning/unsupervised-learning/getting-started" },
@@ -11209,7 +11209,7 @@ export default defineConfig({
                       },
                       {
                         text: "强化学习",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-foundation/machine-learning/reinforcement-learning/",
                         items: [
                           { text: "入门", link: "/zh/ai-foundation/machine-learning/reinforcement-learning/getting-started" },
@@ -11219,7 +11219,7 @@ export default defineConfig({
                       },
                       {
                         text: "AutoML",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-foundation/machine-learning/automl/",
                         items: [
                           { text: "入门", link: "/zh/ai-foundation/machine-learning/automl/getting-started" },
@@ -11229,7 +11229,7 @@ export default defineConfig({
                       },
                       {
                         text: "集成学习与树模型",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-foundation/machine-learning/ensemble-trees/",
                         items: [
                           { text: "入门", link: "/zh/ai-foundation/machine-learning/ensemble-trees/getting-started" },
@@ -11239,7 +11239,7 @@ export default defineConfig({
                       },
                       {
                         text: "特征工程",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-foundation/machine-learning/feature-engineering/",
                         items: [
                           { text: "入门", link: "/zh/ai-foundation/machine-learning/feature-engineering/getting-started" },
@@ -11251,11 +11251,11 @@ export default defineConfig({
                   },
                   {
                     text: "深度学习基础",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "神经网络",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-foundation/deep-learning/neural-network/",
                         items: [
                           { text: "入门", link: "/zh/ai-foundation/deep-learning/neural-network/getting-started" },
@@ -11265,7 +11265,7 @@ export default defineConfig({
                       },
                       {
                         text: "卷积神经网络（CNN）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-foundation/deep-learning/cnn/",
                         items: [
                           { text: "入门", link: "/zh/ai-foundation/deep-learning/cnn/getting-started" },
@@ -11275,7 +11275,7 @@ export default defineConfig({
                       },
                       {
                         text: "循环神经网络（RNN）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-foundation/deep-learning/rnn/",
                         items: [
                           { text: "入门", link: "/zh/ai-foundation/deep-learning/rnn/getting-started" },
@@ -11285,7 +11285,7 @@ export default defineConfig({
                       },
                       {
                         text: "Transformer",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-foundation/deep-learning/transformer/",
                         items: [
                           { text: "入门", link: "/zh/ai-foundation/deep-learning/transformer/getting-started" },
@@ -11295,7 +11295,7 @@ export default defineConfig({
                       },
                       {
                         text: "生成对抗网络（GAN）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-foundation/deep-learning/gan/",
                         items: [
                           { text: "入门", link: "/zh/ai-foundation/deep-learning/gan/getting-started" },
@@ -11305,7 +11305,7 @@ export default defineConfig({
                       },
                       {
                         text: "扩散模型",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-foundation/deep-learning/diffusion-model/",
                         items: [
                           { text: "入门", link: "/zh/ai-foundation/deep-learning/diffusion-model/getting-started" },
@@ -11319,15 +11319,15 @@ export default defineConfig({
               },
               {
                 text: "AI 框架与库",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "通用机器学习框架",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "PyTorch 基础",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/general-ml/pytorch-basic/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/general-ml/pytorch-basic/getting-started" },
@@ -11337,7 +11337,7 @@ export default defineConfig({
                       },
                       {
                         text: "PyTorch 分布式训练",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/general-ml/pytorch-distributed/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/general-ml/pytorch-distributed/getting-started" },
@@ -11347,7 +11347,7 @@ export default defineConfig({
                       },
                       {
                         text: "TensorFlow",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/general-ml/tensorflow/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/general-ml/tensorflow/getting-started" },
@@ -11357,7 +11357,7 @@ export default defineConfig({
                       },
                       {
                         text: "Keras",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/general-ml/keras/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/general-ml/keras/getting-started" },
@@ -11367,7 +11367,7 @@ export default defineConfig({
                       },
                       {
                         text: "scikit-learn",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/general-ml/scikit-learn/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/general-ml/scikit-learn/getting-started" },
@@ -11377,7 +11377,7 @@ export default defineConfig({
                       },
                       {
                         text: "JAX",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/general-ml/jax/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/general-ml/jax/getting-started" },
@@ -11387,7 +11387,7 @@ export default defineConfig({
                       },
                       {
                         text: "PaddlePaddle",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/general-ml/paddlepaddle/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/general-ml/paddlepaddle/getting-started" },
@@ -11397,7 +11397,7 @@ export default defineConfig({
                       },
                       {
                         text: "MindSpore",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/general-ml/mindspore/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/general-ml/mindspore/getting-started" },
@@ -11407,7 +11407,7 @@ export default defineConfig({
                       },
                       {
                         text: "ONNX",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/general-ml/onnx/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/general-ml/onnx/getting-started" },
@@ -11419,11 +11419,11 @@ export default defineConfig({
                   },
                   {
                     text: "自然语言处理 (NLP)",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "Hugging Face Transformers",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/nlp/hf-transformers/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/nlp/hf-transformers/getting-started" },
@@ -11433,7 +11433,7 @@ export default defineConfig({
                       },
                       {
                         text: "Hugging Face PEFT 与 TRL",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/nlp/hf-peft-trl/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/nlp/hf-peft-trl/getting-started" },
@@ -11443,7 +11443,7 @@ export default defineConfig({
                       },
                       {
                         text: "Hugging Face Datasets 与 Tokenizers",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/nlp/hf-datasets-tokenizers/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/nlp/hf-datasets-tokenizers/getting-started" },
@@ -11453,7 +11453,7 @@ export default defineConfig({
                       },
                       {
                         text: "spaCy",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/nlp/spacy/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/nlp/spacy/getting-started" },
@@ -11463,7 +11463,7 @@ export default defineConfig({
                       },
                       {
                         text: "NLTK",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/nlp/nltk/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/nlp/nltk/getting-started" },
@@ -11473,7 +11473,7 @@ export default defineConfig({
                       },
                       {
                         text: "Gensim",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/nlp/gensim/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/nlp/gensim/getting-started" },
@@ -11485,11 +11485,11 @@ export default defineConfig({
                   },
                   {
                     text: "计算机视觉",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "OpenCV",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/cv/opencv/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/cv/opencv/getting-started" },
@@ -11499,7 +11499,7 @@ export default defineConfig({
                       },
                       {
                         text: "Ultralytics YOLO",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/cv/ultralytics-yolo/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/cv/ultralytics-yolo/getting-started" },
@@ -11509,7 +11509,7 @@ export default defineConfig({
                       },
                       {
                         text: "MediaPipe",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/cv/mediapipe/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/cv/mediapipe/getting-started" },
@@ -11519,7 +11519,7 @@ export default defineConfig({
                       },
                       {
                         text: "OpenMMLab",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/cv/openmmlab/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/cv/openmmlab/getting-started" },
@@ -11529,7 +11529,7 @@ export default defineConfig({
                       },
                       {
                         text: "timm",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/cv/timm/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/cv/timm/getting-started" },
@@ -11539,7 +11539,7 @@ export default defineConfig({
                       },
                       {
                         text: "Albumentations",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-framework/cv/albumentations/",
                         items: [
                           { text: "入门", link: "/zh/ai-framework/cv/albumentations/getting-started" },
@@ -11553,15 +11553,15 @@ export default defineConfig({
               },
               {
                 text: "大语言模型与生成式 AI",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "模型",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "GPT",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/models/gpt/",
                         items: [
                           {
@@ -11580,7 +11580,7 @@ export default defineConfig({
                       },
                       {
                         text: "Gemini",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/models/gemini/",
                         items: [
                           {
@@ -11599,7 +11599,7 @@ export default defineConfig({
                       },
                       {
                         text: "Claude",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/models/claude/",
                         items: [
                           {
@@ -11618,7 +11618,7 @@ export default defineConfig({
                       },
                       {
                         text: "Grok",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/models/grok/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/models/grok/getting-started" },
@@ -11628,7 +11628,7 @@ export default defineConfig({
                       },
                       {
                         text: "GLM",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/models/glm/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/models/glm/getting-started" },
@@ -11638,7 +11638,7 @@ export default defineConfig({
                       },
                       {
                         text: "DeepSeek",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/models/deepseek/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/models/deepseek/getting-started" },
@@ -11648,7 +11648,7 @@ export default defineConfig({
                       },
                       {
                         text: "Qwen",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/models/qwen/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/models/qwen/getting-started" },
@@ -11658,7 +11658,7 @@ export default defineConfig({
                       },
                       {
                         text: "MiniMax",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/models/minimax/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/models/minimax/getting-started" },
@@ -11668,7 +11668,7 @@ export default defineConfig({
                       },
                       {
                         text: "Kimi",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/models/kimi/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/models/kimi/getting-started" },
@@ -11678,7 +11678,7 @@ export default defineConfig({
                       },
                       {
                         text: "Llama",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/models/llama/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/models/llama/getting-started" },
@@ -11690,15 +11690,15 @@ export default defineConfig({
                   },
                   {
                     text: "工具",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "Agent",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Pi",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/agent/pi/",
                             items: [
                               {
@@ -11717,7 +11717,7 @@ export default defineConfig({
                           },
                           {
                             text: "Claude Code",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/agent/claude-code/",
                             items: [
                               {
@@ -11736,7 +11736,7 @@ export default defineConfig({
                           },
                           {
                             text: "Codex",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/agent/codex/",
                             items: [
                               {
@@ -11755,7 +11755,7 @@ export default defineConfig({
                           },
                           {
                             text: "Gemini CLI",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/agent/gemini-cli/",
                             items: [
                               {
@@ -11774,7 +11774,7 @@ export default defineConfig({
                           },
                           {
                             text: "OpenCode",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/agent/opencode/",
                             items: [
                               {
@@ -11795,11 +11795,11 @@ export default defineConfig({
                       },
                       {
                         text: "AI 应用生成器",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "bolt.new",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/app-builder/bolt-new/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/tools/app-builder/bolt-new/getting-started" },
@@ -11809,7 +11809,7 @@ export default defineConfig({
                           },
                           {
                             text: "v0",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/app-builder/v0/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/tools/app-builder/v0/getting-started" },
@@ -11819,7 +11819,7 @@ export default defineConfig({
                           },
                           {
                             text: "Lovable",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/app-builder/lovable/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/tools/app-builder/lovable/getting-started" },
@@ -11829,7 +11829,7 @@ export default defineConfig({
                           },
                           {
                             text: "Replit Agent",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/app-builder/replit-agent/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/tools/app-builder/replit-agent/getting-started" },
@@ -11841,11 +11841,11 @@ export default defineConfig({
                       },
                       {
                         text: "编排工具",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Dify",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/workflow-tools/orchestration/dify/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/workflow-tools/orchestration/dify/getting-started" },
@@ -11855,7 +11855,7 @@ export default defineConfig({
                           },
                           {
                             text: "n8n",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/workflow-tools/orchestration/n8n/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/workflow-tools/orchestration/n8n/getting-started" },
@@ -11865,7 +11865,7 @@ export default defineConfig({
                           },
                           {
                             text: "ComfyUI",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/workflow-tools/orchestration/comfyui/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/workflow-tools/orchestration/comfyui/getting-started" },
@@ -11877,11 +11877,11 @@ export default defineConfig({
                       },
                       {
                         text: "其他工具",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "RAG",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/workflow-tools/other/rag/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/workflow-tools/other/rag/getting-started" },
@@ -11891,7 +11891,7 @@ export default defineConfig({
                           },
                           {
                             text: "LangChain",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/workflow-tools/other/langchain/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/workflow-tools/other/langchain/getting-started" },
@@ -11901,7 +11901,7 @@ export default defineConfig({
                           },
                           {
                             text: "OpenRouter",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/other/open-router/",
                             items: [
                               {
@@ -11920,7 +11920,7 @@ export default defineConfig({
                           },
                           {
                             text: "NotebookLM",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/other/notebooklm/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/tools/other/notebooklm/getting-started" },
@@ -11930,7 +11930,7 @@ export default defineConfig({
                           },
                           {
                             text: "向量数据库",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/other/vector-database/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/tools/other/vector-database/getting-started" },
@@ -11940,7 +11940,7 @@ export default defineConfig({
                           },
                           {
                             text: "嵌入模型",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/other/embedding-model/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/tools/other/embedding-model/getting-started" },
@@ -11950,7 +11950,7 @@ export default defineConfig({
                           },
                           {
                             text: "AI 网关",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/other/ai-gateway/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/tools/other/ai-gateway/getting-started" },
@@ -11960,7 +11960,7 @@ export default defineConfig({
                           },
                           {
                             text: "Vercel AI SDK",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/other/vercel-ai-sdk/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/tools/other/vercel-ai-sdk/getting-started" },
@@ -11970,7 +11970,7 @@ export default defineConfig({
                           },
                           {
                             text: "AI 内容审核",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/other/ai-content-moderation/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/tools/other/ai-content-moderation/getting-started" },
@@ -11980,7 +11980,7 @@ export default defineConfig({
                           },
                           {
                             text: "AI 搜索 API",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/other/ai-search-api/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/tools/other/ai-search-api/getting-started" },
@@ -11990,7 +11990,7 @@ export default defineConfig({
                           },
                           {
                             text: "Perplexity API",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/tools/other/perplexity-api/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/tools/other/perplexity-api/getting-started" },
@@ -12002,11 +12002,11 @@ export default defineConfig({
                       },
                       {
                         text: "AI 辅助开发工具",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "react-doctor",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/ai-dev-tools/react-doctor/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/ai-dev-tools/react-doctor/getting-started" },
@@ -12018,18 +12018,18 @@ export default defineConfig({
                       },
                       {
                         text: "AI 设计",
-                        collapsed: true,
+                        collapsed: false,
                         items: [{ text: "Stitch" }, { text: "Claude Design" }],
                       },
                     ],
                   },
                   {
                     text: "提示词工程",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "基础提示设计",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/prompt-engineering/basic-prompt-design/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/prompt-engineering/basic-prompt-design/getting-started" },
@@ -12039,7 +12039,7 @@ export default defineConfig({
                       },
                       {
                         text: "高级提示技巧",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/prompt-engineering/advanced-prompt-techniques/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/prompt-engineering/advanced-prompt-techniques/getting-started" },
@@ -12049,7 +12049,7 @@ export default defineConfig({
                       },
                       {
                         text: "LLM 可观测与评测",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/prompt-engineering/llm-observability/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/prompt-engineering/llm-observability/getting-started" },
@@ -12059,7 +12059,7 @@ export default defineConfig({
                       },
                       {
                         text: "LLM 测试与红队",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/prompt-engineering/llm-testing-redteam/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/prompt-engineering/llm-testing-redteam/getting-started" },
@@ -12071,11 +12071,11 @@ export default defineConfig({
                   },
                   {
                     text: "MCP",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "MCP 协议基础（Transport / Resource / Tool / Prompt / Sampling）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/mcp/mcp-protocol/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/mcp/mcp-protocol/getting-started" },
@@ -12085,7 +12085,7 @@ export default defineConfig({
                       },
                       {
                         text: "常用 MCP Server 集成",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/large-language-model/mcp/mcp-servers/",
                         items: [
                           { text: "入门", link: "/zh/large-language-model/mcp/mcp-servers/getting-started" },
@@ -12097,15 +12097,15 @@ export default defineConfig({
                   },
                   {
                     text: "Skills",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "规范、发现与创作",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Agent Skills 规范与生态",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/agent-skills-spec/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/agent-skills-spec/getting-started" },
@@ -12115,7 +12115,7 @@ export default defineConfig({
                           },
                           {
                             text: "Skills CLI 与 find-skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/skills-cli-find-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/skills-cli-find-skills/getting-started" },
@@ -12127,11 +12127,11 @@ export default defineConfig({
                       },
                       {
                         text: "工程方法与上下文管理",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Superpowers",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/superpowers/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/superpowers/getting-started" },
@@ -12141,7 +12141,7 @@ export default defineConfig({
                           },
                           {
                             text: "Everything Claude Code",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/everything-claude-code/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/everything-claude-code/getting-started" },
@@ -12151,7 +12151,7 @@ export default defineConfig({
                           },
                           {
                             text: "Grill Me",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/grill-me/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/grill-me/getting-started" },
@@ -12161,7 +12161,7 @@ export default defineConfig({
                           },
                           {
                             text: "Grill With Docs",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/grill-with-docs/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/grill-with-docs/getting-started" },
@@ -12171,7 +12171,7 @@ export default defineConfig({
                           },
                           {
                             text: "gstack",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/gstack/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/gstack/getting-started" },
@@ -12181,7 +12181,7 @@ export default defineConfig({
                           },
                           {
                             text: "Compound Engineering",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/compound-engineering/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/compound-engineering/getting-started" },
@@ -12191,7 +12191,7 @@ export default defineConfig({
                           },
                           {
                             text: "GSD Core",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/gsd-core/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/gsd-core/getting-started" },
@@ -12201,7 +12201,7 @@ export default defineConfig({
                           },
                           {
                             text: "Addy Osmani Agent Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/addy-osmani-agent-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/addy-osmani-agent-skills/getting-started" },
@@ -12211,7 +12211,7 @@ export default defineConfig({
                           },
                           {
                             text: "BMAD Method",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/bmad-method/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/bmad-method/getting-started" },
@@ -12221,7 +12221,7 @@ export default defineConfig({
                           },
                           {
                             text: "Caveman",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/caveman/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/caveman/getting-started" },
@@ -12233,15 +12233,15 @@ export default defineConfig({
                       },
                       {
                         text: "框架与应用开发",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Web 框架与元框架",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               {
                                 text: "Vercel Agent Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/vercel-agent-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/vercel-agent-skills/getting-started" },
@@ -12251,7 +12251,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Next.js Workflow Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/nextjs-workflow-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/nextjs-workflow-skills/getting-started" },
@@ -12261,7 +12261,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Vue Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/vue-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/vue-skills/getting-started" },
@@ -12271,7 +12271,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Antfu Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/antfu-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/antfu-skills/getting-started" },
@@ -12281,7 +12281,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Nuxt Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/nuxt-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/nuxt-skills/getting-started" },
@@ -12291,7 +12291,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Angular Developer Skill",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/angular-developer-skill/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/angular-developer-skill/getting-started" },
@@ -12301,7 +12301,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Svelte AI Tools",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/svelte-ai-tools/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/svelte-ai-tools/getting-started" },
@@ -12313,11 +12313,11 @@ export default defineConfig({
                           },
                           {
                             text: "路由、状态与数据流",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               {
                                 text: "React Router Skill",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/react-router-skill/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/react-router-skill/getting-started" },
@@ -12327,7 +12327,7 @@ export default defineConfig({
                               },
                               {
                                 text: "TanStack Router & Start Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/tanstack-router-start-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/tanstack-router-start-skills/getting-started" },
@@ -12337,7 +12337,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Redux Toolkit Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/redux-toolkit-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/redux-toolkit-skills/getting-started" },
@@ -12349,11 +12349,11 @@ export default defineConfig({
                           },
                           {
                             text: "组件系统",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               {
                                 text: "shadcn Skill",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/shadcn-skill/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/shadcn-skill/getting-started" },
@@ -12363,7 +12363,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Nuxt UI Skill",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/nuxt-ui-skill/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/nuxt-ui-skill/getting-started" },
@@ -12375,11 +12375,11 @@ export default defineConfig({
                           },
                           {
                             text: "应用服务集成",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               {
                                 text: "Better Auth Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/better-auth-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/better-auth-skills/getting-started" },
@@ -12389,7 +12389,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Stripe Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/stripe-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/stripe-skills/getting-started" },
@@ -12401,11 +12401,11 @@ export default defineConfig({
                           },
                           {
                             text: "移动与跨端",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               {
                                 text: "Expo Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/expo-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/expo-skills/getting-started" },
@@ -12415,7 +12415,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Callstack React Native Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/callstack-react-native-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/callstack-react-native-skills/getting-started" },
@@ -12425,7 +12425,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Software Mansion Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/software-mansion-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/software-mansion-skills/getting-started" },
@@ -12435,7 +12435,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Flutter Agent Plugins",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/flutter-agent-plugins/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/flutter-agent-plugins/getting-started" },
@@ -12447,11 +12447,11 @@ export default defineConfig({
                           },
                           {
                             text: "后端框架与运行时",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               {
                                 text: "Matteo Collina Node.js Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/matteo-collina-nodejs-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/matteo-collina-nodejs-skills/getting-started" },
@@ -12461,7 +12461,7 @@ export default defineConfig({
                               },
                               {
                                 text: "NestJS Best Practices",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/nestjs-best-practices/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/nestjs-best-practices/getting-started" },
@@ -12471,7 +12471,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Deno Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/deno-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/deno-skills/getting-started" },
@@ -12483,11 +12483,11 @@ export default defineConfig({
                           },
                           {
                             text: "AI 应用开发",
-                            collapsed: true,
+                            collapsed: false,
                             items: [
                               {
                                 text: "Vercel AI SDK Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/vercel-ai-sdk-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/vercel-ai-sdk-skills/getting-started" },
@@ -12497,7 +12497,7 @@ export default defineConfig({
                               },
                               {
                                 text: "Mastra Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/mastra-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/mastra-skills/getting-started" },
@@ -12507,7 +12507,7 @@ export default defineConfig({
                               },
                               {
                                 text: "LangChain & LangGraph Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/langchain-langgraph-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/langchain-langgraph-skills/getting-started" },
@@ -12517,7 +12517,7 @@ export default defineConfig({
                               },
                               {
                                 text: "CopilotKit Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/copilotkit-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/copilotkit-skills/getting-started" },
@@ -12527,7 +12527,7 @@ export default defineConfig({
                               },
                               {
                                 text: "assistant-ui Skills",
-                                collapsed: true,
+                                collapsed: false,
                                 link: "/zh/large-language-model/skills/assistant-ui-skills/",
                                 items: [
                                   { text: "入门", link: "/zh/large-language-model/skills/assistant-ui-skills/getting-started" },
@@ -12541,11 +12541,11 @@ export default defineConfig({
                       },
                       {
                         text: "数据库与数据工程",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Supabase Agent Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/supabase-agent-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/supabase-agent-skills/getting-started" },
@@ -12555,7 +12555,7 @@ export default defineConfig({
                           },
                           {
                             text: "Firebase Agent Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/firebase-agent-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/firebase-agent-skills/getting-started" },
@@ -12565,7 +12565,7 @@ export default defineConfig({
                           },
                           {
                             text: "Prisma Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/prisma-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/prisma-skills/getting-started" },
@@ -12575,7 +12575,7 @@ export default defineConfig({
                           },
                           {
                             text: "dbt Agent Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/dbt-agent-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/dbt-agent-skills/getting-started" },
@@ -12585,7 +12585,7 @@ export default defineConfig({
                           },
                           {
                             text: "ClickHouse Agent Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/clickhouse-agent-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/clickhouse-agent-skills/getting-started" },
@@ -12595,7 +12595,7 @@ export default defineConfig({
                           },
                           {
                             text: "DuckDB Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/duckdb-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/duckdb-skills/getting-started" },
@@ -12607,11 +12607,11 @@ export default defineConfig({
                       },
                       {
                         text: "云原生、DevOps 与可观测性",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Azure Skills Plugin",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/azure-skills-plugin/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/azure-skills-plugin/getting-started" },
@@ -12621,7 +12621,7 @@ export default defineConfig({
                           },
                           {
                             text: "AWS Agent Toolkit",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/aws-agent-toolkit/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/aws-agent-toolkit/getting-started" },
@@ -12631,7 +12631,7 @@ export default defineConfig({
                           },
                           {
                             text: "Cloudflare Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/cloudflare-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/cloudflare-skills/getting-started" },
@@ -12641,7 +12641,7 @@ export default defineConfig({
                           },
                           {
                             text: "HashiCorp Agent Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/hashicorp-agent-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/hashicorp-agent-skills/getting-started" },
@@ -12651,7 +12651,7 @@ export default defineConfig({
                           },
                           {
                             text: "可观测性 Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/observability-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/observability-skills/getting-started" },
@@ -12663,11 +12663,11 @@ export default defineConfig({
                       },
                       {
                         text: "设计、Web 质量与多媒体",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Impeccable",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/impeccable/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/impeccable/getting-started" },
@@ -12677,7 +12677,7 @@ export default defineConfig({
                           },
                           {
                             text: "Web Quality Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/web-quality-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/web-quality-skills/getting-started" },
@@ -12687,7 +12687,7 @@ export default defineConfig({
                           },
                           {
                             text: "Remotion Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/remotion-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/remotion-skills/getting-started" },
@@ -12697,7 +12697,7 @@ export default defineConfig({
                           },
                           {
                             text: "HyperFrames",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/hyperframes/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/hyperframes/getting-started" },
@@ -12709,11 +12709,11 @@ export default defineConfig({
                       },
                       {
                         text: "浏览器、测试与检索自动化",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Agent Browser",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/agent-browser/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/agent-browser/getting-started" },
@@ -12723,7 +12723,7 @@ export default defineConfig({
                           },
                           {
                             text: "Playwright CLI",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/playwright-cli/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/playwright-cli/getting-started" },
@@ -12733,7 +12733,7 @@ export default defineConfig({
                           },
                           {
                             text: "Browser Use",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/browser-use/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/browser-use/getting-started" },
@@ -12743,7 +12743,7 @@ export default defineConfig({
                           },
                           {
                             text: "Firecrawl CLI",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/firecrawl-cli/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/firecrawl-cli/getting-started" },
@@ -12755,11 +12755,11 @@ export default defineConfig({
                       },
                       {
                         text: "安全审计与供应链治理",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Skill 安全与供应链治理",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/skill-security-supply-chain/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/skill-security-supply-chain/getting-started" },
@@ -12769,7 +12769,7 @@ export default defineConfig({
                           },
                           {
                             text: "Trail of Bits Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/trail-of-bits-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/trail-of-bits-skills/getting-started" },
@@ -12781,11 +12781,11 @@ export default defineConfig({
                       },
                       {
                         text: "AI / ML 与科研工作流",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Hugging Face Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/huggingface-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/huggingface-skills/getting-started" },
@@ -12795,7 +12795,7 @@ export default defineConfig({
                           },
                           {
                             text: "Gemini Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/gemini-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/gemini-skills/getting-started" },
@@ -12805,7 +12805,7 @@ export default defineConfig({
                           },
                           {
                             text: "Google DeepMind Science Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/deepmind-science-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/deepmind-science-skills/getting-started" },
@@ -12815,7 +12815,7 @@ export default defineConfig({
                           },
                           {
                             text: "AI 论文复现 Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/ai-paper-reproduction-skills/getting-started" },
@@ -12827,11 +12827,11 @@ export default defineConfig({
                       },
                       {
                         text: "文档、办公与业务工作流",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           {
                             text: "Anthropic Knowledge Work Plugins",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/anthropic-knowledge-work/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/anthropic-knowledge-work/getting-started" },
@@ -12841,7 +12841,7 @@ export default defineConfig({
                           },
                           {
                             text: "Google Workspace CLI Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/google-workspace-cli/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/google-workspace-cli/getting-started" },
@@ -12851,7 +12851,7 @@ export default defineConfig({
                           },
                           {
                             text: "Lark / 飞书 CLI Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/lark-feishu-cli/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/lark-feishu-cli/getting-started" },
@@ -12861,7 +12861,7 @@ export default defineConfig({
                           },
                           {
                             text: "Marketing Skills",
-                            collapsed: true,
+                            collapsed: false,
                             link: "/zh/large-language-model/skills/marketing-skills/",
                             items: [
                               { text: "入门", link: "/zh/large-language-model/skills/marketing-skills/getting-started" },
@@ -12877,15 +12877,15 @@ export default defineConfig({
               },
               {
                 text: "AI 开发工具与平台",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "开发环境与社区平台",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "Jupyter Notebook",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/dev-env/jupyter-notebook/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/dev-env/jupyter-notebook/getting-started" },
@@ -12895,7 +12895,7 @@ export default defineConfig({
                       },
                       {
                         text: "Google Colab",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/dev-env/google-colab/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/dev-env/google-colab/getting-started" },
@@ -12905,7 +12905,7 @@ export default defineConfig({
                       },
                       {
                         text: "Hugging Face 平台",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/dev-env/huggingface-platform/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/dev-env/huggingface-platform/getting-started" },
@@ -12917,11 +12917,11 @@ export default defineConfig({
                   },
                   {
                     text: "训练平台与实验追踪",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "AWS SageMaker",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/training/aws-sagemaker/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/training/aws-sagemaker/getting-started" },
@@ -12931,7 +12931,7 @@ export default defineConfig({
                       },
                       {
                         text: "MLflow",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/training/mlflow/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/training/mlflow/getting-started" },
@@ -12941,7 +12941,7 @@ export default defineConfig({
                       },
                       {
                         text: "Weights & Biases",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/training/weights-and-biases/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/training/weights-and-biases/getting-started" },
@@ -12951,7 +12951,7 @@ export default defineConfig({
                       },
                       {
                         text: "DVC",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/training/dvc/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/training/dvc/getting-started" },
@@ -12963,11 +12963,11 @@ export default defineConfig({
                   },
                   {
                     text: "LLM 推理引擎",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "vLLM",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/inference/vllm/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/inference/vllm/getting-started" },
@@ -12977,7 +12977,7 @@ export default defineConfig({
                       },
                       {
                         text: "Ollama",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/inference/ollama/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/inference/ollama/getting-started" },
@@ -12989,11 +12989,11 @@ export default defineConfig({
                   },
                   {
                     text: "模型服务化与托管",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "FastAPI 模型服务化",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/serving/fastapi-model-serving/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/serving/fastapi-model-serving/getting-started" },
@@ -13003,7 +13003,7 @@ export default defineConfig({
                       },
                       {
                         text: "Gradio",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/serving/gradio/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/serving/gradio/getting-started" },
@@ -13013,7 +13013,7 @@ export default defineConfig({
                       },
                       {
                         text: "NVIDIA Triton",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/serving/nvidia-triton/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/serving/nvidia-triton/getting-started" },
@@ -13023,7 +13023,7 @@ export default defineConfig({
                       },
                       {
                         text: "BentoML",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/serving/bentoml/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/serving/bentoml/getting-started" },
@@ -13033,7 +13033,7 @@ export default defineConfig({
                       },
                       {
                         text: "Serverless GPU 平台",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-dev-platform/serving/serverless-gpu/",
                         items: [
                           { text: "入门", link: "/zh/ai-dev-platform/serving/serverless-gpu/getting-started" },
@@ -13047,15 +13047,15 @@ export default defineConfig({
               },
               {
                 text: "AI 在全栈中的应用",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "前端智能",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "Web Speech API",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-fullstack/frontend/web-speech-api/",
                         items: [
                           { text: "入门", link: "/zh/ai-fullstack/frontend/web-speech-api/getting-started" },
@@ -13067,11 +13067,11 @@ export default defineConfig({
                   },
                   {
                     text: "后端智能",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "推荐系统",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-fullstack/backend/recommendation-system/",
                         items: [
                           { text: "入门", link: "/zh/ai-fullstack/backend/recommendation-system/getting-started" },
@@ -13083,11 +13083,11 @@ export default defineConfig({
                   },
                   {
                     text: "自动化与优化",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       {
                         text: "代码生成（Copilot-like）",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-fullstack/automation/code-generation/",
                         items: [
                           { text: "入门", link: "/zh/ai-fullstack/automation/code-generation/getting-started" },
@@ -13097,7 +13097,7 @@ export default defineConfig({
                       },
                       {
                         text: "AI 测试用例生成",
-                        collapsed: true,
+                        collapsed: false,
                         link: "/zh/ai-fullstack/automation/ai-test-generation/",
                         items: [
                           { text: "入门", link: "/zh/ai-fullstack/automation/ai-test-generation/getting-started" },
@@ -13116,13 +13116,13 @@ export default defineConfig({
             items: [
               {
                 text: "操作系统概述",
-                collapsed: true,
+                collapsed: false,
                 link: "/zh/os/overview/",
                 items: [
                   { text: "入门", link: "/zh/os/overview/getting-started" },
                   {
                     text: "指南",
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                       { text: "内核架构详解", link: "/zh/os/overview/guide-line/kernel-architecture" },
                       { text: "中断、异常与系统调用", link: "/zh/os/overview/guide-line/interrupts-and-syscalls" },
@@ -13133,17 +13133,17 @@ export default defineConfig({
               },
               {
                 text: "进程与并发",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "进程与线程基础",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/os/process-concurrency/process-thread-basics/",
                     items: [
                       { text: "入门", link: "/zh/os/process-concurrency/process-thread-basics/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "进程生命周期", link: "/zh/os/process-concurrency/process-thread-basics/guide-line/process-lifecycle" },
                           { text: "线程与多线程模型", link: "/zh/os/process-concurrency/process-thread-basics/guide-line/threads" },
@@ -13154,13 +13154,13 @@ export default defineConfig({
                   },
                   {
                     text: "CPU 调度",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/os/process-concurrency/cpu-scheduling/",
                     items: [
                       { text: "入门", link: "/zh/os/process-concurrency/cpu-scheduling/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "调度算法详解", link: "/zh/os/process-concurrency/cpu-scheduling/guide-line/algorithms" },
                           { text: "性能指标与计算", link: "/zh/os/process-concurrency/cpu-scheduling/guide-line/metrics" },
@@ -13171,13 +13171,13 @@ export default defineConfig({
                   },
                   {
                     text: "进程间通信 IPC",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/os/process-concurrency/ipc/",
                     items: [
                       { text: "入门", link: "/zh/os/process-concurrency/ipc/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "管道、消息队列与套接字", link: "/zh/os/process-concurrency/ipc/guide-line/message-passing" },
                           { text: "共享内存与 RPC", link: "/zh/os/process-concurrency/ipc/guide-line/shared-memory" },
@@ -13188,13 +13188,13 @@ export default defineConfig({
                   },
                   {
                     text: "同步与互斥",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/os/process-concurrency/synchronization/",
                     items: [
                       { text: "入门", link: "/zh/os/process-concurrency/synchronization/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "经典同步问题", link: "/zh/os/process-concurrency/synchronization/guide-line/classic-problems" },
                           { text: "管程、优先级反转与 Peterson", link: "/zh/os/process-concurrency/synchronization/guide-line/advanced" },
@@ -13205,13 +13205,13 @@ export default defineConfig({
                   },
                   {
                     text: "死锁",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/os/process-concurrency/deadlock/",
                     items: [
                       { text: "入门", link: "/zh/os/process-concurrency/deadlock/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "死锁四条件与资源分配图", link: "/zh/os/process-concurrency/deadlock/guide-line/four-conditions" },
                           { text: "预防、避免、检测", link: "/zh/os/process-concurrency/deadlock/guide-line/handling" },
@@ -13224,17 +13224,17 @@ export default defineConfig({
               },
               {
                 text: "内存与存储",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "内存管理基础",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/os/memory-storage/memory-basics/",
                     items: [
                       { text: "入门", link: "/zh/os/memory-storage/memory-basics/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "连续分配与碎片", link: "/zh/os/memory-storage/memory-basics/guide-line/allocation" },
                           { text: "伙伴系统与 Slab", link: "/zh/os/memory-storage/memory-basics/guide-line/advanced-allocation" },
@@ -13245,13 +13245,13 @@ export default defineConfig({
                   },
                   {
                     text: "分页、分段与虚拟内存",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/os/memory-storage/virtual-memory/",
                     items: [
                       { text: "入门", link: "/zh/os/memory-storage/virtual-memory/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "分页、分段与页表", link: "/zh/os/memory-storage/virtual-memory/guide-line/paging-segmentation" },
                           { text: "页面置换算法与抖动", link: "/zh/os/memory-storage/virtual-memory/guide-line/page-replacement" },
@@ -13262,13 +13262,13 @@ export default defineConfig({
                   },
                   {
                     text: "文件系统",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/os/memory-storage/file-system/",
                     items: [
                       { text: "入门", link: "/zh/os/memory-storage/file-system/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "文件分配与索引", link: "/zh/os/memory-storage/file-system/guide-line/allocation" },
                           { text: "目录结构与链接", link: "/zh/os/memory-storage/file-system/guide-line/directory" },
@@ -13279,13 +13279,13 @@ export default defineConfig({
                   },
                   {
                     text: "设备与 I/O 管理",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/os/memory-storage/io-management/",
                     items: [
                       { text: "入门", link: "/zh/os/memory-storage/io-management/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "I/O 控制方式与缓冲", link: "/zh/os/memory-storage/io-management/guide-line/io-control" },
                           { text: "磁盘调度与 RAID", link: "/zh/os/memory-storage/io-management/guide-line/disk-scheduling" },
@@ -13298,17 +13298,17 @@ export default defineConfig({
               },
               {
                 text: "进阶与生态",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "操作系统安全与保护",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/os/advanced/os-security/",
                     items: [
                       { text: "入门", link: "/zh/os/advanced/os-security/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "访问控制与身份认证", link: "/zh/os/advanced/os-security/guide-line/access-control" },
                           { text: "缓冲区溢出与防御", link: "/zh/os/advanced/os-security/guide-line/attacks" },
@@ -13319,13 +13319,13 @@ export default defineConfig({
                   },
                   {
                     text: "虚拟化与容器基础",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/os/advanced/virtualization-container/",
                     items: [
                       { text: "入门", link: "/zh/os/advanced/virtualization-container/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "虚拟机与 Hypervisor", link: "/zh/os/advanced/virtualization-container/guide-line/virtual-machines" },
                           { text: "容器：namespace 与 cgroups", link: "/zh/os/advanced/virtualization-container/guide-line/containers" },
@@ -13336,13 +13336,13 @@ export default defineConfig({
                   },
                   {
                     text: "主流操作系统对比",
-                    collapsed: true,
+                    collapsed: false,
                     link: "/zh/os/advanced/os-comparison/",
                     items: [
                       { text: "入门", link: "/zh/os/advanced/os-comparison/getting-started" },
                       {
                         text: "指南",
-                        collapsed: true,
+                        collapsed: false,
                         items: [
                           { text: "Linux 与 macOS", link: "/zh/os/advanced/os-comparison/guide-line/linux-macos" },
                           { text: "Windows NT 与跨平台", link: "/zh/os/advanced/os-comparison/guide-line/windows" },
