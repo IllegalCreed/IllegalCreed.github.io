@@ -10954,17 +10954,52 @@ export default defineConfig({
                 text: "容器编排",
                 collapsed: true,
                 items: [
-                  { text: "Kubernetes" },
-                  { text: "Podman" },
+                  { text: "Kubernetes", collapsed: true, link: "/zh/data-infra/container/kubernetes/", items: [
+                    { text: "入门", link: "/zh/data-infra/container/kubernetes/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "核心概念", link: "/zh/data-infra/container/kubernetes/guide-line/core-concepts" },
+                      { text: "运维操作", link: "/zh/data-infra/container/kubernetes/guide-line/operations" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/container/kubernetes/reference" },
+                  ]},
+                  { text: "Podman", collapsed: true, link: "/zh/data-infra/container/podman/", items: [
+                    { text: "入门", link: "/zh/data-infra/container/podman/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Daemonless 与 Pod", link: "/zh/data-infra/container/podman/guide-line/daemonless-and-pods" },
+                      { text: "兼容性与生态", link: "/zh/data-infra/container/podman/guide-line/compatibility-and-ecosystem" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/container/podman/reference" },
+                  ]},
                 ],
               },
               {
                 text: "数据编排",
                 collapsed: true,
                 items: [
-                  { text: "Apache Airflow" },
-                  { text: "Prefect" },
-                  { text: "Dagster" },
+                  { text: "Apache Airflow", collapsed: true, link: "/zh/data-infra/orchestration/airflow/", items: [
+                    { text: "入门", link: "/zh/data-infra/orchestration/airflow/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "DAG 与 Operator", link: "/zh/data-infra/orchestration/airflow/guide-line/dag-and-operators" },
+                      { text: "调度与 v3", link: "/zh/data-infra/orchestration/airflow/guide-line/scheduling-and-v3" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/orchestration/airflow/reference" },
+                  ]},
+                  { text: "Prefect", collapsed: true, link: "/zh/data-infra/orchestration/prefect/", items: [
+                    { text: "入门", link: "/zh/data-infra/orchestration/prefect/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Flow 与 Task", link: "/zh/data-infra/orchestration/prefect/guide-line/flow-and-task" },
+                      { text: "部署与 Dagster 收购", link: "/zh/data-infra/orchestration/prefect/guide-line/deployment-and-dagster" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/orchestration/prefect/reference" },
+                  ]},
+                  { text: "Dagster", collapsed: true, link: "/zh/data-infra/orchestration/dagster/", items: [
+                    { text: "入门", link: "/zh/data-infra/orchestration/dagster/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Asset 中心化", link: "/zh/data-infra/orchestration/dagster/guide-line/asset-centric" },
+                      { text: "生态与 Prefect 收购", link: "/zh/data-infra/orchestration/dagster/guide-line/ecosystem-and-prefect" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/orchestration/dagster/reference" },
+                  ]},
                 ],
               },
               {
@@ -11008,15 +11043,45 @@ export default defineConfig({
               {
                 text: "流处理",
                 collapsed: true,
-                items: [{ text: "Flink" }],
+                items: [
+                  { text: "Flink", collapsed: true, link: "/zh/data-infra/stream/flink/", items: [
+                    { text: "入门", link: "/zh/data-infra/stream/flink/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "有状态流处理", link: "/zh/data-infra/stream/flink/guide-line/stateful-streaming" },
+                      { text: "SQL 与 Checkpoint", link: "/zh/data-infra/stream/flink/guide-line/sql-and-checkpoint" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/stream/flink/reference" },
+                  ]},
+                ],
               },
               {
                 text: "批处理与转换",
                 collapsed: true,
                 items: [
-                  { text: "Spark" },
-                  { text: "Databricks" },
-                  { text: "dbt" },
+                  { text: "Spark", collapsed: true, link: "/zh/data-infra/batch/spark/", items: [
+                    { text: "入门", link: "/zh/data-infra/batch/spark/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "核心 API", link: "/zh/data-infra/batch/spark/guide-line/core-apis" },
+                      { text: "流处理与对比", link: "/zh/data-infra/batch/spark/guide-line/streaming-and-comparison" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/batch/spark/reference" },
+                  ]},
+                  { text: "Databricks", collapsed: true, link: "/zh/data-infra/batch/databricks/", items: [
+                    { text: "入门", link: "/zh/data-infra/batch/databricks/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "Lakehouse 平台", link: "/zh/data-infra/batch/databricks/guide-line/lakehouse-platform" },
+                      { text: "集成与生态", link: "/zh/data-infra/batch/databricks/guide-line/integration" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/batch/databricks/reference" },
+                  ]},
+                  { text: "dbt", collapsed: true, link: "/zh/data-infra/batch/dbt/", items: [
+                    { text: "入门", link: "/zh/data-infra/batch/dbt/getting-started" },
+                    { text: "指南", collapsed: true, items: [
+                      { text: "SQL 转换", link: "/zh/data-infra/batch/dbt/guide-line/sql-transformation" },
+                      { text: "Core 与 Cloud", link: "/zh/data-infra/batch/dbt/guide-line/core-vs-cloud" },
+                    ]},
+                    { text: "参考", link: "/zh/data-infra/batch/dbt/reference" },
+                  ]},
                 ],
               },
             ],
