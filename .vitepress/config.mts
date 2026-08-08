@@ -11139,39 +11139,157 @@ export default defineConfig({
             collapsed: false,
             items: [
               {
-                text: "路由层",
-                collapsed: false,
+                text: "API 设计与协议",
+                collapsed: true,
                 items: [
-                  { text: "REST API" },
-                  { text: "GraphQL API" },
                   {
-                    text: "文档和工具",
+                    text: "REST API",
                     collapsed: false,
+                    link: "/zh/service-layer/api-design/rest-api/",
                     items: [
-                      { text: "Swagger" },
-                      { text: "Postman" },
-                      { text: "GraphQL Playground" },
-                      { text: "JMeter" },
+                      { text: "入门", link: "/zh/service-layer/api-design/rest-api/getting-started" },
+                      {
+                        text: "进阶",
+                        collapsed: true,
+                        items: [
+                          { text: "REST 设计原则", link: "/zh/service-layer/api-design/rest-api/guide-line/design-principles" },
+                          { text: "分页、内容协商与错误处理", link: "/zh/service-layer/api-design/rest-api/guide-line/pagination-and-errors" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/service-layer/api-design/rest-api/reference" },
+                    ],
+                  },
+                  {
+                    text: "GraphQL API",
+                    collapsed: false,
+                    link: "/zh/service-layer/api-design/graphql-api/",
+                    items: [
+                      { text: "入门", link: "/zh/service-layer/api-design/graphql-api/getting-started" },
+                      {
+                        text: "进阶",
+                        collapsed: true,
+                        items: [
+                          { text: "Schema 与 Resolver", link: "/zh/service-layer/api-design/graphql-api/guide-line/schema-and-resolvers" },
+                          { text: "Federation 与 REST 对比", link: "/zh/service-layer/api-design/graphql-api/guide-line/federation-and-comparison" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/service-layer/api-design/graphql-api/reference" },
+                    ],
+                  },
+                  {
+                    text: "API 版本控制",
+                    collapsed: false,
+                    link: "/zh/service-layer/api-design/api-versioning/",
+                    items: [
+                      { text: "入门", link: "/zh/service-layer/api-design/api-versioning/getting-started" },
+                      {
+                        text: "进阶",
+                        collapsed: true,
+                        items: [
+                          { text: "版本控制策略", link: "/zh/service-layer/api-design/api-versioning/guide-line/strategies" },
+                          { text: "废弃策略与迁移", link: "/zh/service-layer/api-design/api-versioning/guide-line/deprecation" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/service-layer/api-design/api-versioning/reference" },
+                    ],
+                  },
+                  {
+                    text: "OpenAPI 规范",
+                    collapsed: false,
+                    link: "/zh/service-layer/api-design/openapi-spec/",
+                    items: [
+                      { text: "入门", link: "/zh/service-layer/api-design/openapi-spec/getting-started" },
+                      {
+                        text: "进阶",
+                        collapsed: true,
+                        items: [
+                          { text: "Spec 结构详解", link: "/zh/service-layer/api-design/openapi-spec/guide-line/spec-structure" },
+                          { text: "工具链与代码生成", link: "/zh/service-layer/api-design/openapi-spec/guide-line/tooling-and-codegen" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/service-layer/api-design/openapi-spec/reference" },
                     ],
                   },
                 ],
               },
               {
-                text: "数据访问",
-                collapsed: false,
-                items: [{ text: "ODBC" }],
-              },
-              {
-                text: "数据转换和验证",
-                collapsed: false,
+                text: "API 文档与测试",
+                collapsed: true,
                 items: [
                   {
-                    text: "数据序列化",
+                    text: "API 客户端（Postman / Bruno / Insomnia / Hoppscotch）",
                     collapsed: false,
-                    items: [{ text: "JSON" }, { text: "XML" }],
+                    link: "/zh/service-layer/api-testing/api-clients/",
+                    items: [
+                      { text: "入门", link: "/zh/service-layer/api-testing/api-clients/getting-started" },
+                      {
+                        text: "深度页",
+                        collapsed: false,
+                        items: [
+                          { text: "工具对比", link: "/zh/service-layer/api-testing/api-clients/guide-line/comparison" },
+                          { text: "实际工作流", link: "/zh/service-layer/api-testing/api-clients/guide-line/workflow" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/service-layer/api-testing/api-clients/reference" },
+                    ],
                   },
-                  { text: "class-validator" },
-                  { text: "class-transformer" },
+                  {
+                    text: "Apollo Sandbox",
+                    collapsed: false,
+                    link: "/zh/service-layer/api-testing/apollo-sandbox/",
+                    items: [
+                      { text: "入门", link: "/zh/service-layer/api-testing/apollo-sandbox/getting-started" },
+                      {
+                        text: "深度页",
+                        collapsed: false,
+                        items: [
+                          { text: "Sandbox 功能", link: "/zh/service-layer/api-testing/apollo-sandbox/guide-line/features" },
+                          { text: "备选方案", link: "/zh/service-layer/api-testing/apollo-sandbox/guide-line/alternatives" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/service-layer/api-testing/apollo-sandbox/reference" },
+                    ],
+                  },
+                  {
+                    text: "k6",
+                    collapsed: false,
+                    link: "/zh/service-layer/api-testing/k6/",
+                    items: [
+                      { text: "入门", link: "/zh/service-layer/api-testing/k6/getting-started" },
+                      {
+                        text: "深度页",
+                        collapsed: false,
+                        items: [
+                          { text: "脚本与测试", link: "/zh/service-layer/api-testing/k6/guide-line/scripts-and-tests" },
+                          { text: "集成生态", link: "/zh/service-layer/api-testing/k6/guide-line/integrations" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/service-layer/api-testing/k6/reference" },
+                    ],
+                  },
+                ],
+              },
+              {
+                text: "服务层数据模式",
+                collapsed: true,
+                items: [
+                  {
+                    text: "DTO 与数据契约",
+                    collapsed: false,
+                    link: "/zh/service-layer/data-patterns/dto-and-contracts/",
+                    items: [
+                      { text: "入门", link: "/zh/service-layer/data-patterns/dto-and-contracts/getting-started" },
+                      {
+                        text: "深度页",
+                        collapsed: false,
+                        items: [
+                          { text: "DTO 模式", link: "/zh/service-layer/data-patterns/dto-and-contracts/guide-line/patterns" },
+                          { text: "校验模式对比", link: "/zh/service-layer/data-patterns/dto-and-contracts/guide-line/validation-comparison" },
+                        ],
+                      },
+                      { text: "参考", link: "/zh/service-layer/data-patterns/dto-and-contracts/reference" },
+                    ],
+                  },
                 ],
               },
             ],
