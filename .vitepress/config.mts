@@ -11438,7 +11438,7 @@ export default defineConfig({
               },
               {
                 text: "AI 框架与库",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "通用机器学习框架",
@@ -11672,7 +11672,7 @@ export default defineConfig({
               },
               {
                 text: "大语言模型与生成式 AI",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "模型",
@@ -12996,7 +12996,7 @@ export default defineConfig({
               },
               {
                 text: "AI 开发工具与平台",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "开发环境与社区平台",
@@ -13166,7 +13166,7 @@ export default defineConfig({
               },
               {
                 text: "AI 在全栈中的应用",
-                collapsed: true,
+                collapsed: false,
                 items: [
                   {
                     text: "前端智能",
