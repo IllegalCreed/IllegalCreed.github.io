@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "IllegalCreed"
   text: "Developer Roadmap and Open Projects"
-  tagline: A maintained learning map connected to four working web projects.
+  tagline: A maintained learning map, plus public projects and repositories.
   image:
     light: /light-logo.svg
     dark: /dark-logo.svg
@@ -14,7 +14,7 @@ hero:
       text: Explore the roadmap
       link: /zh/start
     - theme: alt
-      text: WebPal
+      text: type-pal
       link: https://pal.illegalscreed.cn/
     - theme: alt
       text: Algorithm Visualizer
@@ -33,9 +33,9 @@ features:
   - title: Developer Roadmap
     details: Structured notes covering web foundations, frontend, backend, databases, systems, security, DevOps, and architecture.
   - title: Algorithm Visualizer
-    details: 92 interactive learning entries with step-by-step animation, synchronized code, custom input, and bilingual pages.
+    details: 92 data-structure and algorithm entries. 77 algorithm pages step through in sync with TypeScript, Python, Go, and Rust.
   - title: Project Lab
-    details: Working web projects for coding practice, slide creation, low-code exploration, and browser-based games.
+    details: Public work includes a browser RPG with a visual editor, an LLM and Three Kingdoms mapping, agent-first docs, and local content tools.
 ---
 
 ## What this site contains
@@ -46,60 +46,13 @@ path from browser fundamentals to application architecture. Notes are revised
 as the underlying technologies change rather than published as disconnected
 snippets.
 
-## Live projects
+## Open projects
 
-These are maintained applications with their own public entrances. The links
-and screenshots below make the work inspectable before a visitor reads the
-long-form notes.
+These cards point at a live site when one is public, and at the repository
+otherwise. Screenshots come from the projects that publish them. Covers are
+used when a repository has no screenshot or social image.
 
-### WebPal — browser game engineering
-
-WebPal (the browser version of *Chinese Paladin*) is an experiment in bringing
-a large, stateful game experience to the web. It is useful for seeing the
-runtime, loading flow, and interaction model directly rather than reading a
-static project description.
-
-<a href="https://pal.illegalscreed.cn/" target="_blank" rel="noopener noreferrer">
-  <img src="/projects/webpal.png" alt="WebPal browser game loading screen" loading="lazy" width="720" />
-</a>
-
-[Open WebPal →](https://pal.illegalscreed.cn/)
-
-### Algorithm Visualizer — interactive algorithm lessons
-
-The algorithm site contains 92 interactive learning entries. Each lesson
-combines deterministic step playback, synchronized source code, custom input,
-and bilingual pages so the algorithm can be inspected while it runs.
-
-<a href="https://algo.illegalscreed.cn/docs/bubble-sort/" target="_blank" rel="noopener noreferrer">
-  <img src="/projects/algorithm-visualizer.png" alt="Algorithm Visualizer bubble sort lesson" loading="lazy" width="720" />
-</a>
-
-[Open Algorithm Visualizer →](https://algo.illegalscreed.cn/)
-
-### LumiDeck — browser slide agent
-
-LumiDeck is the slide-authoring project: a browser workspace for creating and
-managing decks, with an agent-oriented workflow behind the editor. The public
-entry currently starts at its authenticated workspace.
-
-<a href="https://lumideck.illegalscreed.cn/" target="_blank" rel="noopener noreferrer">
-  <img src="/projects/slide-agent.png" alt="LumiDeck slide agent login screen" loading="lazy" width="720" />
-</a>
-
-[Open LumiDeck →](https://lumideck.illegalscreed.cn/)
-
-### IllegalCreed Quiz — programmer Q&A and review
-
-IllegalCreed Quiz turns the roadmap into focused developer questions. Visitors
-can answer by topic and difficulty, then use the feedback loop for deliberate
-review instead of browsing disconnected snippets.
-
-<a href="https://quiz.illegalscreed.cn/" target="_blank" rel="noopener noreferrer">
-  <img src="/projects/programmer-quiz.png" alt="IllegalCreed Quiz developer question page" loading="lazy" width="720" />
-</a>
-
-[Open Programmer Q&A →](https://quiz.illegalscreed.cn/)
+<ProjectShowcase locale="en" />
 
 The source and current work are available on
 [GitHub](https://github.com/IllegalCreed). See [About](/about),

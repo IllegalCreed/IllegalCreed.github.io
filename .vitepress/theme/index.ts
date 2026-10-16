@@ -2,6 +2,7 @@ import { h } from "vue";
 import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import AnalyticsConsent from "./AnalyticsConsent.vue";
+import ProjectShowcase from "../../src/components/ProjectShowcase.vue";
 import {
   PERSONAL_SITE_GA_MEASUREMENT_ID,
   startGoogleAnalytics,
@@ -17,7 +18,9 @@ export default {
     h(DefaultTheme.Layout, null, {
       "layout-bottom": () => h(AnalyticsConsent),
     }),
-  enhanceApp({ router }) {
+  enhanceApp({ app, router }) {
+    app.component("ProjectShowcase", ProjectShowcase);
+
     if (typeof window === "undefined") return;
 
     startGoogleAnalytics({
