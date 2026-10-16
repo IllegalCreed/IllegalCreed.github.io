@@ -88,6 +88,25 @@ export default defineConfig({
         nav: [
           { text: "Home", link: "/" },
           { text: "Roadmap", link: "/zh/start" },
+          {
+            text: "Projects",
+            items: [
+              { text: "type-pal", link: "https://pal.illegalscreed.cn/" },
+              {
+                text: "Algorithm Visualizer",
+                link: "https://algo.illegalscreed.cn/",
+              },
+              {
+                text: "LLM Sanguo",
+                link: "https://illegalcreed.github.io/llm-sanguo/",
+              },
+              {
+                text: "IllegalCreed Quiz",
+                link: "https://quiz.illegalscreed.cn/",
+              },
+              { text: "LumiDeck", link: "https://lumideck.illegalscreed.cn/" },
+            ],
+          },
           { text: "About", link: "/about" },
           { text: "Contact", link: "/contact" },
           { text: "Privacy", link: "/privacy" },
@@ -122,8 +141,16 @@ export default defineConfig({
             text: "项目",
             items: [
               {
+                text: "type-pal",
+                link: "https://pal.illegalscreed.cn/",
+              },
+              {
                 text: "算法可视化",
                 link: "https://algo.illegalscreed.cn/",
+              },
+              {
+                text: "大模型三国志",
+                link: "https://illegalcreed.github.io/llm-sanguo/",
               },
               {
                 text: "IllegalCreed Quiz",

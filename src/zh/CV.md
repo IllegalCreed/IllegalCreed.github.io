@@ -599,9 +599,45 @@ _时间范围: 2007 年 - 2011 年_
 
 ## 个人作品
 
-- **算法可视化**: [项目链接](https://algo.illegalscreed.cn/)
+- **type-pal**（2026-05）: [在线试玩](https://pal.illegalscreed.cn/) · [仓库](https://github.com/IllegalCreed/type-pal)
 
-  - 描述: 学习算法过程中为了加深印象做的开源网站。
+  - 描述: 用 TypeScript 从零重写《仙剑奇侠传》（1995）。第一阶段的浏览器运行时可以通关，第二阶段在做新运行时和可视化编辑器。非官方同人。
+  - 技术: TypeScript monorepo。事件字节码解释器、320×200 索引色帧缓冲、回合制战斗；React 编辑器可以改地图、场景、剧情和角色，并在编辑器内试玩。
+
+- **算法可视化**: [在线体验](https://algo.illegalscreed.cn/) · [仓库](https://github.com/IllegalCreed/algorithms-visualization)
+
+  - 描述: 学习算法过程中为了加深印象做的开源网站。九大类 92 个条目，其中 77 个算法页可以逐步回放，并与 TypeScript / Python / Go / Rust 代码逐行同步高亮；另外 15 个基础数据结构页可以在页面里直接操作。
+  - 技术: Vue 3、TypeScript、Vite、Pinia、Less。
+
+- **大模型三国志 llm-sanguo**（2026-10）: [在线站点](https://illegalcreed.github.io/llm-sanguo/) · [仓库](https://github.com/IllegalCreed/llm-sanguo)
+
+  - 描述: 把 Artificial Analysis 2026-10-10 的模型评测，和《三国志14 威力加强版》1180 名武将的五维放在一起。演义版现编排 102 席。武力对应 Intelligence Index，权重 0.7；智力对应性价比，权重 0.3。
+  - 技术: Python 3 标准库，没有第三方依赖。清洗后的快照是 697 个模型，其中 687 个有 Intelligence Index。页面由脚本生成静态 HTML。
+
+- **agent-doc-architecture**（2026-10）: [仓库](https://github.com/IllegalCreed/agent-doc-architecture)
+
+  - 描述: 一个企业级支付审批系统 7 个月 AI 协作里沉淀的文档分层。文档的第一读者是 Agent，文档体系是给 Agent 用的路由系统。
+  - 技术: 4 篇博客；agent-first-docs skill，包含 doc-lint、链接检查和文档模板。稿件检查脚本是 Python。
+
+- **skyfire-1943**（2026-09）: [仓库](https://github.com/IllegalCreed/skyfire-1943)
+
+  - 描述: 原创三视角射击研究原型。横版致敬《沙罗曼蛇》，俯视致敬《1943》，追尾伪 3D 致敬《Sky Destroyer》。不使用原作 ROM、图像、音乐或关卡。
+  - 技术: Godot 4.7，GDScript。2D 绘制加伪 3D 透视，没有 Camera3D。公开说明写到 v0.16：单人样段、三视角练习场，以及我方像素飞机姿态。
+
+- **AI网络护航 ai-network-guard**（2026-08）: [仓库](https://github.com/IllegalCreed/ai-network-guard)
+
+  - 描述: 面向中国大陆网络环境的 macOS 菜单栏工具，帮助 Claude Code、ChatGPT 和其他境外 AI Agent 检查网络出口。出口落到中国大陆或香港，或探针都不可用时，发送系统通知。
+  - 技术: Swift，macOS 13+，Swift Package Manager。默认探针覆盖通用出口、Cloudflare 和 Claude，并做 DNS 泄漏与 WebRTC/UDP 探测。发布说明当前为 v0.3.0。
+
+- **content-studio**（2026-07）: [仓库](https://github.com/IllegalCreed/content-studio)
+
+  - 描述: 开源、本地优先的跨项目内容生产与发布控制台。V0.1 把项目清单和活动简报编译成 19 个渠道的确定性内容包和视频录制计划；V0.2 用 Playwright 录制，再用本地 FFmpeg 合成成片。真实渠道发布不在本仓库。
+  - 技术: Vue 3 工作台、SQLite、MCP。安装器会带上兼容版本的 marketing-ops，但不合并它的代码、存储或发布权限。
+
+- **marketing-ops**（2026-07）: [仓库](https://github.com/IllegalCreed/marketing-ops)
+
+  - 描述: 本地 Codex 插件，给多个项目做渠道发布和反馈收集。平台凭据放在 macOS Keychain，项目档案只存非密钥策略，回执不会把密钥交回 Codex。
+  - 技术: TypeScript、pnpm。MCP contract v3 固定七个工具。可写入的渠道有 GitHub、Bluesky、DEV Community、Mastodon；微博目前是只读诊断。
 
 - **低代码平台**: [项目链接](https://illegalcreed.github.io/low-code-platform/login)
 
