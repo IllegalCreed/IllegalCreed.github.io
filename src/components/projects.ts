@@ -127,10 +127,10 @@ export const showcaseProjects: ShowcaseProject[] = [
   },
   {
     id: "content-studio",
-    image: "/projects/content-studio.png",
+    image: "/projects/content-studio.webp",
     imageAlt: {
-      en: "content-studio project cover",
-      zh: "content-studio 项目封面",
+      en: "Content Studio workbench overview, green and black",
+      zh: "Content Studio 工作台总览，绿黑界面",
     },
     title: { en: "content-studio", zh: "content-studio" },
     description: {

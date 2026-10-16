@@ -49,8 +49,8 @@ snippets.
 ## Open projects
 
 These cards point at a live site when one is public, and at the repository
-otherwise. Screenshots come from the projects that publish them. Covers are
-used when a repository has no screenshot or social image.
+otherwise. Images are screenshots of a public site or, for Content Studio, its
+local workbench. A cover remains only when a project has neither.
 
 <ProjectShowcase locale="en" />
 
