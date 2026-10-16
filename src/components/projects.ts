@@ -99,10 +99,10 @@ export const showcaseProjects: ShowcaseProject[] = [
   },
   {
     id: "skyfire-1943",
-    image: "/projects/skyfire-1943.png",
+    image: "/projects/skyfire-1943.webp",
     imageAlt: {
-      en: "skyfire-1943 original pixel aircraft in side, top, and chase views",
-      zh: "skyfire-1943 原创像素飞机：横版、俯视、追尾",
+      en: "skyfire-1943 chase view during the Dawn Raid mission",
+      zh: "skyfire-1943 破晓突袭追尾战斗画面",
     },
     title: { en: "skyfire-1943", zh: "skyfire-1943" },
     description: {
